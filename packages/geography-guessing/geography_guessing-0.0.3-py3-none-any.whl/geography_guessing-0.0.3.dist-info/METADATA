@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: geography-guessing
+Version: 0.0.3
+Summary: A package for studying geography for programmers
+Home-page: https://github.com/gituser/test-tackage
+Author: Julius Gruber
+Author-email: gruber.julius@gmx.at
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pandas
+
+This is the readme from my repo
+
+
+
+

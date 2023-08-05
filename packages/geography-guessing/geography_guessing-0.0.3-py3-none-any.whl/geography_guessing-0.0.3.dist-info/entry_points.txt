@@ -1,0 +1,3 @@
+[console_scripts]
+game = geography_guessing.main:game
+
