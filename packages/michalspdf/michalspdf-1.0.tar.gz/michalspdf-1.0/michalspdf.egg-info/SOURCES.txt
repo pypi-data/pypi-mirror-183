@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+michalspdf/__init__.py
+michalspdf/pdf2image.py
+michalspdf/pdf2text.py
+michalspdf.egg-info/PKG-INFO
+michalspdf.egg-info/SOURCES.txt
+michalspdf.egg-info/dependency_links.txt
+michalspdf.egg-info/top_level.txt
