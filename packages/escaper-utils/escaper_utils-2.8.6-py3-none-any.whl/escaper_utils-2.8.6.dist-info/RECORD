@@ -1,0 +1,17 @@
+escaper_temp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+escaper_temp/converter.cp310-win_amd64.pyd,sha256=75KPWbaCqS-PRCbZETsPIWXG86U5k2bfwfGcBHM-8fc,51200
+escaper_temp/converter.cp36-win_amd64.pyd,sha256=wZHaFEx8UBjj9M5DD4gPxI_5KKqrvvh7Nz8sIGtranU,72704
+escaper_temp/converter.cp37-win_amd64.pyd,sha256=c8lMl7y6BSM9c6u2ik2pKBmpS-mH_Ji-pgyOByuLC9s,61440
+escaper_temp/converter.cp38-win_amd64.pyd,sha256=a1zHWYVbUouSKBXLrMgpzgJ4FymDX1QZC1VJEWcvqD0,61440
+escaper_temp/converter.cp39-win_amd64.pyd,sha256=QmtTIgBEk9_Xu4tqZw_MAwgW12MiGHg-RyB58Dd-eHQ,51200
+escaper_temp/converter.cpython-310-x86_64-linux-gnu.so,sha256=--r-kJ4srI2cKc8Uj1MgzFOFoca-MaHGF2_IRK9xaoc,310480
+escaper_temp/converter.cpython-36m-x86_64-linux-gnu.so,sha256=NCm_ismLSftSCGI3ev2WxaTmEZfg1HJNIUSpxb0AP3Y,83592
+escaper_temp/converter.cpython-37m-x86_64-linux-gnu.so,sha256=OksWmz-dXOi2PuM8uG5a7cjuwnb2ZnYjR2UfJA9o2Tc,83648
+escaper_temp/converter.cpython-38-x86_64-linux-gnu.so,sha256=8qpvEIMwWSt-IfxzlIXfEHM2IXWmsc3BeoNe-ByQ8c8,87776
+escaper_temp/converter.cpython-39-x86_64-linux-gnu.so,sha256=TUMKGmhDbwsGwrXrqMKgm71MIl0fk7idZJGVW7SQ7RQ,83672
+escaper_utilities/__init__.py,sha256=8VKU8lyPWH6vFhAndi7JGo_dDmy_klHBte7r9p7wIY4,31
+escaper_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+escaper_utils-2.8.6.dist-info/METADATA,sha256=WtIte1i_2Q9FG76HWx4K-fuy5pSdfom_VD3nY09RCsc,728
+escaper_utils-2.8.6.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+escaper_utils-2.8.6.dist-info/top_level.txt,sha256=8DQuM0HSJUwhYJbfE31yfCu_9ndBjw0tZiqyjTEQhIQ,45
+escaper_utils-2.8.6.dist-info/RECORD,,
