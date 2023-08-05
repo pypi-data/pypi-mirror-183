@@ -1,0 +1,58 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "uapi"
+version = "22.1.0"
+description = "A Python HTTP superframework"
+authors = [{name = "Tin Tvrtkovic", email = "tinchester@gmail.com"}]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dependencies = ["cattrs >= 22.2.0", "incant >= 22.2.1", "itsdangerous"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "isort",
+    "coverage",
+    "pytest-asyncio",
+    "httpx",
+    "aiohttp",
+    "flask",
+    "quart",
+    "starlette",
+    "django",
+    "hypercorn",
+    "mypy==0.991",
+    "aioredis==1.3.1",
+    "uvicorn==0.20.0",
+    "orjson",
+    "sphinx==5.2.3",
+    "furo==2022.9.29",
+    "myst_parser==0.18.1",
+    "sphinx_inline_tabs==2022.1.2b11"
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.black]
+skip_magic_trailing_comma = true
+
+[tool.mypy]
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "django.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "aioredis.*"
+ignore_missing_imports = true
