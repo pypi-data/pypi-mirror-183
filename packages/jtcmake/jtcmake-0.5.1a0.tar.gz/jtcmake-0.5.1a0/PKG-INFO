@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: jtcmake
+Version: 0.5.1a0
+Summary: Simple but effective general purpose build tool
+Project-URL: repo, https://github.com/sugi-a/jtcmake
+Author-email: Amane Sugiyama <sugi98765@gmail.com>
+License: MIT License
+License-File: LICENSE
+Classifier: Framework :: IPython
+Classifier: Framework :: Jupyter
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.8
+Requires-Dist: typing-extensions
+Provides-Extra: deploy
+Requires-Dist: build>=0.9; extra == 'deploy'
+Requires-Dist: hatch>=1.6; extra == 'deploy'
+Requires-Dist: twine>=4.0; extra == 'deploy'
+Provides-Extra: docs
+Requires-Dist: sphinx-rtd-theme>=1.1; extra == 'docs'
+Requires-Dist: sphinx>=5.3; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: black>=22.12; extra == 'test'
+Requires-Dist: flake8>=6.0; extra == 'test'
+Requires-Dist: pyright>=1.1; extra == 'test'
+Requires-Dist: pytest-mock>=3.10; extra == 'test'
+Requires-Dist: pytest>=7.2; extra == 'test'
+Description-Content-Type: text/markdown
+
+# JTCMake
+
+[![Test](https://github.com/sugi-a/jtcmake/actions/workflows/python-package.yml/badge.svg)](https://github.com/sugi-a/jtcmake/actions)
+[![Doctest](https://github.com/sugi-a/jtcmake/actions/workflows/sphinx-doctest.yml/badge.svg)](https://github.com/sugi-a/jtcmake/actions)
+[![Python](https://img.shields.io/pypi/pyversions/jtcmake.svg)](https://pypi.org/project/jtcmake/)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/jtcmake.svg)](https://pypi.org/project/jtcmake/)
+[![License](https://img.shields.io/pypi/l/jtcmake.svg)](https://github.com/sugi-a/jtcmake/blob/main/LICENSE)
+
+JTCMake is a general purpose incremental build framework.
+
+
+## Getting started
+
+### Installation
+
+```
+$ pip install jtcmake
+```
+
+See also the official [documentation](https://sugi-a.github.io/jtcmake/).
+
