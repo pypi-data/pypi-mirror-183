@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: voica
+Version: 0.1.3
+Author: voica
+Author-email: nmaks6385@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+Это библиотека для создания голосового асистента
+
+вам нужно установить SpeechRecognition через комманду pip install SpeechRecognition а также pyttsx3 через команду pip install pyttsx3
+
+Для начало в вашем коде напишите
+
+from voica import gs это для произношения, скана потом раскажу что это а также считывания и распознования текста с микрофона но для этого надо ниже написать from voica import r
+from voica import Main для считыванияя времени
+
+gs.speak("здесь текст который будет произносится") соответсвено для произношения текста
+command = r.recognize_google(gs.read_microphone(), language="ru-RU") вместо command можно поставить жругое название
+
+Main.time("minutes") эта команда считывает минуты и возрощает значение
+Main.time("hours") почти тоже самое только часы

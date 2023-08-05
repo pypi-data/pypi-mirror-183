@@ -1,0 +1,8 @@
+MANIFEST.in
+setup.cfg
+setup.py
+voica/__init__.py
+voica.egg-info/PKG-INFO
+voica.egg-info/SOURCES.txt
+voica.egg-info/dependency_links.txt
+voica.egg-info/top_level.txt
