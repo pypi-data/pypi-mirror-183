@@ -1,0 +1,37 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "quattro"
+authors = [{name = "Tin Tvrtkovic", email = "tinchester@gmail.com"}]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dynamic = ["description"]
+version = "22.2.0"
+requires-python = ">=3.9"
+dependencies = ["exceptiongroup; python_version < '3.11'"]
+readme = "README.rst"
+
+[project.optional-dependencies]
+dev = [
+    "pytest-asyncio==0.20.3",
+    "coverage",
+    "black",
+    "flake8",
+    "mypy==0.991",
+    "isort",
+]
+
+[tool.isort]
+profile = "attrs"
+
+[[tool.mypy.overrides]]
+module = "asyncio.taskgroups"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "exceptiongroup"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
