@@ -1,0 +1,10 @@
+AUTHORS
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+arcana.egg-info/PKG-INFO
+arcana.egg-info/SOURCES.txt
+arcana.egg-info/dependency_links.txt
+arcana.egg-info/requires.txt
+arcana.egg-info/top_level.txt

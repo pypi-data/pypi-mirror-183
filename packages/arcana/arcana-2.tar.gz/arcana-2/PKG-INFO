@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: arcana
+Version: 2
+Summary: Abstraction of Repository-Centric ANAlysis (Arcana): A framework for analysing on file-based datasets "in-place" (i.e. without manual download)
+License: CC BY-NC-SA 4.0
+Provides-Extra: doc
+License-File: LICENSE
+License-File: AUTHORS
