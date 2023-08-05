@@ -1,0 +1,10 @@
+[console_scripts]
+calculate_summary = bugfinder:calculate_summary
+dbinstall = bugfinder:dbinstall
+esyncfile = bugfinder:esyncfile
+fire_monitor = bugfinder:fire_monitor
+osssync = bugfinder:osssync
+qgrep = bugfinder:qgrep
+save_record = bugfinder:save_record
+syncfile = bugfinder:syncfile
+transferfile = bugfinder:transferfile
