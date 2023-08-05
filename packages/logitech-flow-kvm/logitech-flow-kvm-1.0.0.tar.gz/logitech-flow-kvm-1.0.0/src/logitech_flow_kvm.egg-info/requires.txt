@@ -1,0 +1,7 @@
+bitstruct<9.0,>=8.15.1
+flask<3.0,>=2.2.2
+hid_parser==0.0.3
+requests<3.0,>=2.28
+rich<13,>=12.6.0
+safdie<3.0,>=2.0.1
+solaar<2.0,>=1.1.8
