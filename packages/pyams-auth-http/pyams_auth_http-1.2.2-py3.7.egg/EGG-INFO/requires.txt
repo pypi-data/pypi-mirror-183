@@ -1,0 +1,7 @@
+setuptools
+pyams_security
+pyams_utils
+pyramid
+
+[test]
+pyams_layer
