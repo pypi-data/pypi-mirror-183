@@ -1,0 +1,3 @@
+codefast>=0.9.9
+fire
+pydantic
