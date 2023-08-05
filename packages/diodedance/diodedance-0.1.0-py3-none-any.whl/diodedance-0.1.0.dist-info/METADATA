@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: diodedance
+Version: 0.1.0
+Summary: Library for controlling Diodedance boards over UDP.
+License: MIT
+Author: perpetualCreations
+Author-email: tchen0584@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyserial (>=3.5,<4.0)
+Description-Content-Type: text/markdown
+
+# diodedance
+Control library for Diodedance IoT boards.
+
