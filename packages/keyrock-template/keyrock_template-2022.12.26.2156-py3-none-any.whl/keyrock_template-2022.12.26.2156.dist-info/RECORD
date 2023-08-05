@@ -1,0 +1,9 @@
+keyrock_template/__init__.py,sha256=_MrDcgw2uWGHFLpcHkdwO8FKsL1DhbUHqyPFxQjCdNE,80
+keyrock_template/template/__init__.py,sha256=pnYtfo98V9waoOs4T5zmHWH7tGAEY5KSUjnPNSgZjh4,199
+keyrock_template/template/exc.py,sha256=IBlzIe4NXhBb5a9Dg0Zze82J2MUiSTklcR4eFOzN2aA,362
+keyrock_template/template/template.py,sha256=rr-x-DfgWV3EPFAB4_yVAX656tL5yagtZ81X-KaMUG8,3828
+keyrock_template/template/test_template.py,sha256=4LtgDlSwljUmxnm09k2_lp384DCK-CjMPm6sUweez3k,215
+keyrock_template-2022.12.26.2156.dist-info/METADATA,sha256=y9966ofFsvfTQhxBfDXYOPIP_J_Hx-rKqszXYaeNvX4,121
+keyrock_template-2022.12.26.2156.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+keyrock_template-2022.12.26.2156.dist-info/top_level.txt,sha256=UrVeeMEM6Z5CS4rbNUfkdq_QOYOVvBluXnzDeI96eYc,17
+keyrock_template-2022.12.26.2156.dist-info/RECORD,,
