@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: localcloud
+Version: 0.0.1
+Summary: [Experimental] CLI tool allowing to imitate cloud components locally for testing their integration
+Author-email: Albertas Gimbutas <albertasgim@gmail.com>
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+`localcloud` - CLI tool allowing to imitate cloud components locally for testing their integration.
+
+## Usage
+Clone code repositories into working directory and run `localcloud`, which will read 
+Terraform configuration from all of the repositories and will locally create their
+imitations (using docker containers and mocks). Now you should have all of the resources
+working locally and you should be able to run integration tests on them, e.g. `make run_integration_tests`.
+
+## Roadmap
+- [ ] Add Lmabda support
+- [ ] Add SQS support
+- [ ] Add EventBridge support
+- [ ] Add generic resource mock, which allows to define interface wrappings.
+
+## Development
+`make venv` - will create virtual env with dev dependencies.
+`make check` - will run Flake8, MyPy and PyTest checks.
+
+## Related projects
+This tool was inspired by:
+- https://localstack.io
