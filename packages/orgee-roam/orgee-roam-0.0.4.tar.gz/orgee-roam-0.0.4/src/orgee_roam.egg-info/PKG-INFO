@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: orgee-roam
+Version: 0.0.4
+Summary: Tools to manage a org-roam zettelkasten
+Home-page: https://github.com/chunglak/orgee-roam
+Author: Alfred Leung
+Author-email: chunglak@gmail.com
+License: GPL-3.0-or-later
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# orgee-roam
+Tools to manage a org-roam zettelkasten
+
+## Installation
+```shell
+$ pip install orgee-roam
+```
