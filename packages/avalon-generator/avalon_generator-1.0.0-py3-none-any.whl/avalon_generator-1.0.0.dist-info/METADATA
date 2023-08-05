@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: avalon-generator
+Version: 1.0.0
+Summary: Extendable scalable high-performance streaming test data generator
+Home-page: https://github.com/admirito/avalon
+Author: Mohammad Razavi, Mohammad Reza Moghaddas
+Author-email: mrazavi64@gmail.com
+License: GPLv3+
+Keywords: test,data generation,fake data,simulation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Education :: Testing
+Classifier: Topic :: Software Development :: Testing :: Traffic Generation
+Description-Content-Type: text/x-rst
+License-File: LICENSE.org
+Requires-Dist: argcomplete
+Requires-Dist: requests
+Provides-Extra: all
+Requires-Dist: SQLAlchemy ; extra == 'all'
+Requires-Dist: clickhouse-connect ; extra == 'all'
+Requires-Dist: grpc-requests ; extra == 'all'
+Requires-Dist: grpcio-tools ; extra == 'all'
+Requires-Dist: kafka-python ; extra == 'all'
+Requires-Dist: psycopg2 ; extra == 'all'
+Requires-Dist: suds-community ; extra == 'all'
+Provides-Extra: grpc
+Requires-Dist: grpc-requests ; extra == 'grpc'
+Requires-Dist: grpcio-tools ; extra == 'grpc'
+Provides-Extra: kafka
+Requires-Dist: kafka-python ; extra == 'kafka'
+Provides-Extra: soap
+Requires-Dist: suds-community ; extra == 'soap'
+Provides-Extra: sql
+Requires-Dist: SQLAlchemy ; extra == 'sql'
+Requires-Dist: clickhouse-connect ; extra == 'sql'
+Requires-Dist: psycopg2 ; extra == 'sql'
+
+UNKNOWN
+
