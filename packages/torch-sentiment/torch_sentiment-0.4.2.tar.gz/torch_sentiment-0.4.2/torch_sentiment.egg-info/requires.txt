@@ -1,0 +1,17 @@
+numpy
+pandas
+torch
+seaborn
+spacy
+scikit-learn
+jsonlines
+gensim
+structlog
+psutil
+
+[dev]
+black
+bumpver
+isort
+pip-tools
+pytest
