@@ -1,0 +1,669 @@
+#!/usr/bin/env python
+import argparse
+import asyncio
+import getpass
+import json
+import os
+import pprint
+import re
+import sys
+import yaml
+from functools import partial
+from typing import Any, Optional
+from aiohttp import ClientSession
+from setproctitle import setproctitle
+
+__version__ = '0.1.1'  # Update version in setup as well
+
+
+_labels_example = """
+Invalid "labels". Expecting something like:
+
+labels:
+  dns: 1409
+  windows: 3257
+"""
+
+_configs_example = """
+Invalid "configs". Expecting something like:
+
+configs:
+  dns:
+    nameServers: ["8.8.8.8"]
+  tcp:
+    checkCertificatePorts: [443, 995, 993, 465, 3389, 989, 990, 636, 5986]
+    checkPorts: []
+"""
+
+_assets_example = """
+Invalid "assets". Expecting something like:
+
+assets:
+- name: foo.local
+  kind: Linux
+  labels: ["linux"]
+  collectors:
+  - key: ping
+  - key: lastseen
+  - key: tcp
+    config: tcp
+"""
+
+_collectors_example = """
+Invalid asset "collectors". Expecting something like:
+
+  collectors:
+  - key: dns
+    config:
+      nameServers: ["8.8.8.8"]
+  - key: ping
+  - key: tcp
+    config: tcp  # required tcp to exist in configs
+"""
+
+
+_kinds = (
+    'Asset',
+    'APC',
+    'Apple',
+    'Azure',
+    'Citrix',
+    'Dell',
+    'DNS',
+    'Docker',
+    'Eaton',
+    'Firewall',
+    'FreeBSD',
+    'HP',
+    'Linux',
+    'NetApp',
+    'PaloAlto',
+    'PureStorage',
+    'Supermicro',
+    'Switch',
+    'Synology',
+    'VMware',
+    'Website',
+    'Windows',
+)
+
+
+def _join(*parts):
+    return '/'.join((part.strip('/') for part in parts))
+
+
+def _headers(token: str):
+    return {'Authorization': f'Bearer {token}'}
+
+
+def _json_headers(token: str):
+    return {
+        'Authorization': f'Bearer {token}',
+        'Content-Type': 'application/json'
+    }
+
+
+_yaml_keys = set(['token', 'labels', 'configs', 'assets'])
+_asset_keys = set(['id', 'name', 'kind', 'labels', 'collectors'])
+_collector_keys = set(['key', 'config'])
+
+_spaces = re.compile(r'\s+')
+_uri = re.compile(r'https?:\/\/.+')
+
+
+def _test_name_servers(o: Any, key: str):
+    if not isinstance(o, list) or \
+            not len(o) or \
+            not all([
+                isinstance(obj, str) and not _spaces.search(obj)
+                for obj in o]) or \
+            len(set(o)) != len(o):
+        sys.exit(
+            f'Option "nameServers" ({key}) is required and must be a list '
+            'with unique and at least one nameserver')
+
+
+def _test_fqdn(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, str):
+            sys.exit(f'Option "fqdn" ({key}) must be a string or null')
+
+
+def _test_address(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, str) or _spaces.search(o):
+            sys.exit(
+                f'Option "address" ({key}) must be a string without '
+                'whitespace or null')
+
+
+def _test_interval(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, int) or not (1 <= o <= 9):
+            sys.exit(
+                f'Option "interval" ({key}) must be an interger value '
+                'between 1 and 9')
+
+
+def _test_count(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, int) or not (1 <= o <= 9):
+            sys.exit(
+                f'Option "count" ({key}) must be an interger value '
+                'between 1 and 9')
+
+
+def _test_timeout(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, float) or not (0.0 <= o <= 240.0):
+            sys.exit(
+                f'Option "timeout" ({key}) must be a float value '
+                'between 0.0 and 240.0')
+
+
+def _test_ports(o: Any, key: str, prop: str):
+    if o is not None:
+        if not isinstance(o, list) or \
+                not all([
+                    isinstance(obj, int) and (0 < obj <= 65535)
+                    for obj in o]) or \
+                len(set(o)) != len(o):
+            sys.exit(
+                f'Option "{prop}" ({key}) is required and must be '
+                'a list with unique port numbers')
+
+
+def _test_port(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, int) or not (0 < o <= 65535):
+            sys.exit(
+                f'Option "port" ({key}) must be an interger value '
+                'between 1 and 65535')
+
+
+def _test_uri(o: Any, key: str):
+    if o is not None:
+        if not isinstance(o, str) or not _uri.match(o):
+            sys.exit(
+                f'Option "uri" ({key}) must be a valid URI')
+
+
+def _test_bool(o: Any, key: str, prop: str):
+    if o is not None and not isinstance(o, bool):
+        sys.exit(f'Option "{prop}" ({key}) must be a boolean value')
+
+
+_collectors = {
+    'dns': {
+        'nameServers': _test_name_servers,
+        'fqdn': _test_fqdn,
+    },
+    'docker': None,
+    'esx': {
+        'address': _test_address,
+    },
+    'http': {
+        'uri': _test_uri,
+        'timeout': _test_timeout,
+        'verifySSL': partial(_test_bool, prop='verifySSL'),
+        'withPayload': partial(_test_bool, prop='withPayload'),
+        'allowRedirects': partial(_test_bool, prop='allowRedirects')
+    },
+    'lastseen': None,
+    'mssql': {
+        'address': _test_address,
+        'port': _test_port,
+    },
+    'ping': {
+        'address': _test_address,
+        'interval': _test_interval,
+        'count': _test_count,
+        'timeout': _test_timeout,
+    },
+    'snmp': {
+        'address': _test_address,
+    },
+    'tcp': {
+        'address': _test_address,
+        'checkCertificatePorts':
+            partial(_test_ports, prop='checkCertificatePorts'),
+        'checkPorts': partial(_test_ports, prop='checkPorts')
+    },
+    'vcenter': {
+        'address': _test_address,
+    },
+    'wmi': {
+        'address': _test_address,
+    }
+}
+
+
+def check_collector(collector: dict, configs: dict,
+                    allow_unknown_collectors: bool):
+    too_much = set(collector.keys()) - _collector_keys
+    if too_much:
+        sys.exit(f'Unexpected key in collector: "{too_much.pop()}"')
+
+    key = collector.get('key')
+    if key is None:
+        sys.exit('Missing required collector property: "key"')
+    if not isinstance(key, str):
+        sys.exit('Collector key must be a string')
+
+    if not allow_unknown_collectors and key not in _collectors:
+        sys.exit(
+            f'Unknown collector "{key}" (use --allow-unknown-collectors '
+            'to ignore this error)')
+
+    validate = _collectors.get(key, False)
+
+    config = collector.get('config')
+    if config is not None:
+        if isinstance(config, str):
+            if config not in configs:
+                sys.exit(f'Collector config "{config}" missing in configs')
+            config = collector['config'] = configs[config]
+        elif not isinstance(config, dict):
+            sys.exit(
+                f'Collector config for "{key}" must be a string or object')
+        elif not config:
+            collector['config'] = None  # empty to None
+
+    if validate is False:
+        return
+
+    if config is None:
+        config = {}
+
+    if validate is None:
+        if config:
+            sys.exit(f'Collector "{key}" does not allow config')
+    else:
+        too_much = set(config.keys()) - set(validate.keys())
+        if too_much:
+            sys.exit(
+                f'Unexpected property in collector {key}: "{too_much.pop()}"')
+        for k, tester in validate.items():
+            tester(config.get(k), key)
+
+
+def check_asset(asset: dict, labels: dict, configs: dict,
+                allow_unknown_collectors: bool, allow_unknown_kinds: bool):
+    too_much = set(asset.keys()) - _asset_keys
+    if too_much:
+        sys.exit(f'Unexpected key in asset: "{too_much.pop()}"')
+
+    asset_id = asset.get('id')
+    if asset_id is not None and not isinstance(asset_id, int):
+        sys.exit('Asset id must be an integer')
+
+    name = asset.get('name')
+    if name is not None and not isinstance(name, str):
+        sys.exit('Asset name must be a string')
+
+    if name is None and id is None:
+        sys.exit('Missing required asset property: "name" or "id"')
+
+    kind = asset.get('kind')
+    if kind is not None and kind not in _kinds and not allow_unknown_kinds:
+        sys.exit(
+            f'Invalid asset kind: "{kind}" '
+            f'(must be one of: {", ".join(_kinds)} or '
+            'use --allow-unknown-kinds)')
+
+    asset_labels = asset.get('labels')
+    if asset_labels is not None:
+        if not labels:
+            sys.exit('missing labels in yaml')
+
+        if not isinstance(asset_labels, list) or \
+                not all([isinstance(o, str) for o in asset_labels]):
+            sys.exit('Asset labels must be a list of strings')
+
+        for idx, label in enumerate(asset_labels):
+            if label not in labels:
+                sys.exit(f'Asset label "{label}" missing in labels')
+            asset_labels[idx] = labels[label]
+    else:
+        asset['labels'] = []
+
+    collectors = asset.get('collectors')
+    if collectors is not None:
+        if not isinstance(collectors, list) or \
+                not all([isinstance(o, dict) for o in collectors]):
+            sys.exit(_collectors_example)
+        for collector in collectors:
+            check_collector(collector, configs, allow_unknown_collectors)
+    else:
+        asset['collectors'] = []
+
+
+def sanity_check(data: dict, allow_unknown_collectors: bool,
+                 allow_unknown_kinds: bool):
+    too_much = set(data.keys()) - _yaml_keys
+    if too_much:
+        sys.exit(f'Unexpected key in yaml: "{too_much.pop()}"')
+
+    token = data.get('token')
+    labels = data.get('labels')
+    configs = data.get('configs')
+    assets = data.get('assets')
+
+    if token is None:
+        try:
+            data['token'] = getpass.getpass('Enter container token: ')
+        except KeyboardInterrupt:
+            sys.exit('Cancelled')
+    elif not isinstance(token, str):
+        sys.exit('token must be a string or null')
+
+    if labels is None:
+        labels = {}
+    if configs is None:
+        configs = {}
+    if assets is None:
+        assets = []
+
+    if not isinstance(labels, dict) or \
+            not all([isinstance(o, int) for o in labels.values()]):
+        sys.exit(_labels_example)
+
+    if not isinstance(configs, dict) or \
+            not all([isinstance(o, dict) for o in configs.values()]):
+        sys.exit(_configs_example)
+
+    if not isinstance(assets, list) or \
+            not all([isinstance(o, dict) for o in assets]):
+        sys.exit(_assets_example)
+
+    for asset in assets:
+        check_asset(
+            asset,
+            labels,
+            configs,
+            allow_unknown_collectors,
+            allow_unknown_kinds)
+
+
+async def upsert_asset(api: str, token: str, asset: dict,
+                       verify_ssl: bool, verbose: bool,
+                       container_id: int):
+    print('-'*80)
+    asset_id = asset.get('id')
+    name = asset['name']
+    if asset_id is None:
+        url = _join(api, f'asset/{name}/id')
+        async with ClientSession(headers=_headers(token)) as session:
+            async with session.get(url, ssl=verify_ssl) as r:
+                if r.status == 404:
+                    asset_id = None
+                elif r.status != 200:
+                    msg = await r.text()
+                    raise Exception(f'{msg} (error code: {r.status})')
+                else:
+                    resp = await r.json()
+                    asset_id = resp['assetId']
+
+        if asset_id is None:
+            if verbose:
+                print(f'Create a new asset for "{name}"...')
+                await asyncio.sleep(2)
+            url = _join(api, f'container/{container_id}/asset')
+            data = {"name": name}
+            async with ClientSession(headers=_json_headers(token)) as session:
+                async with session.post(url, json=data, ssl=verify_ssl) as r:
+                    if r.status != 201:
+                        msg = await r.text()
+                        raise Exception(f'{msg} (error code: {r.status})')
+                    resp = await r.json()
+                    asset_id = resp['assetId']
+            if verbose:
+                print(f'New asset id for "{name}": {asset_id}')
+        elif verbose:
+            print(f'Existing asset id for "{name}": {asset_id}')
+
+    kind = asset.get('kind')
+    if kind is not None:
+        if verbose:
+            print(f'Set kind "{kind}" for asset "{name}" ({asset_id})')
+        await asyncio.sleep(0.5)
+        data = {"kind": kind}
+        url = _join(api, f'asset/{asset_id}/kind')
+        async with ClientSession(headers=_json_headers(token)) as session:
+            async with session.patch(url, json=data, ssl=verify_ssl) as r:
+                if r.status != 204:
+                    msg = await r.text()
+                    raise Exception(f'{msg} (error code: {r.status})')
+
+    collectors = asset['collectors']
+    for collector in collectors:
+        key = collector['key']
+        if verbose:
+            print(f'Set collector "{key}" for asset "{name}" ({asset_id})')
+        await asyncio.sleep(0.5)
+        config = collector.get('config')
+        url = _join(api, f'asset/{asset_id}/collector/{key}')
+        if config is None:
+            async with ClientSession(headers=_headers(token)) as session:
+                async with session.post(url, ssl=verify_ssl) as r:
+                    if r.status != 204:
+                        msg = await r.text()
+                        raise Exception(f'{msg} (error code: {r.status})')
+        else:
+            data = {'config': config}
+            async with ClientSession(headers=_json_headers(token)) as session:
+                async with session.post(url, json=data, ssl=verify_ssl) as r:
+                    if r.status != 204:
+                        msg = await r.text()
+                        raise Exception(f'{msg} (error code: {r.status})')
+
+    labels = asset['labels']
+    for label_id in labels:
+        if verbose:
+            print(f'Set label id {label_id} for asset "{name}" ({asset_id})')
+        await asyncio.sleep(0.5)
+        url = _join(api, f'asset/{asset_id}/label/{label_id}')
+        async with ClientSession(headers=_headers(token)) as session:
+            async with session.post(url, ssl=verify_ssl) as r:
+                if r.status != 204:
+                    msg = await r.text()
+                    raise Exception(f'{msg} (error code: {r.status})')
+
+
+async def name_assets(api: str, token: str, asset: dict, verify_ssl: bool,
+                      verbose: bool):
+    asset_id = asset.get('id')
+    if asset_id is None:
+        return
+    url = _join(api, f'asset/{asset_id}?fields=name')
+    async with ClientSession(headers=_headers(token)) as session:
+        async with session.get(url, ssl=verify_ssl) as r:
+            if r.status != 200:
+                msg = await r.text()
+                raise Exception(f'{msg} (error code: {r.status})')
+            resp = await r.json()
+            asset_name = resp['name']
+    name = asset.get('name')
+    if isinstance(name, str) and name != asset_name and verbose:
+        print(
+            'Name mismatch for '
+            f'asset {asset_id}; Expecting "{name}" but got "{asset_name}"')
+        await asyncio.sleep(3)
+    asset['name'] = asset_name
+
+
+async def async_upsert_assets(api: str, token: str, assets: list, labels: dict,
+                              verify_ssl: bool, verbose: bool):
+    url = _join(api, 'container/id')
+    async with ClientSession(headers=_headers(token)) as session:
+        async with session.get(url, ssl=verify_ssl) as r:
+            if r.status != 200:
+                msg = await r.text()
+                raise Exception(f'{msg} (error code: {r.status})')
+            resp = await r.json()
+            container_id = resp['containerId']
+            if verbose:
+                print(f'Container id: {container_id}')
+                await asyncio.sleep(1)
+
+    for name, label_id in labels.items():
+        url = _join(api, f'label/{label_id}?fields=name')
+        async with ClientSession(headers=_headers(token)) as session:
+            async with session.get(url, ssl=verify_ssl) as r:
+                if r.status != 200:
+                    msg = await r.text()
+                    raise Exception(f'{msg} (error code: {r.status})')
+                resp = await r.json()
+                lname = resp['name']
+                if verbose:
+                    print(f'Label "{name}" ({label_id}) actual name: {lname}')
+
+    for asset in assets:
+        await name_assets(api, token, asset, verify_ssl, verbose)
+
+    if labels and verbose:
+        await asyncio.sleep(3)
+
+    for asset in assets:
+        await upsert_asset(
+            api, token, asset, verify_ssl, verbose, container_id)
+
+
+def upsert_assets(filename: str, api: str, verify_ssl: bool, verbose: bool,
+                  allow_unknown_collectors: bool, allow_unknown_kinds: bool):
+    try:
+        with open(filename, 'r') as fp:
+            data = yaml.safe_load(fp)
+    except Exception as e:
+        msg = str(e) or type(e).__name__
+        sys.exit(msg)
+
+    if not isinstance(data, dict):
+        sys.exit('Expecting the yaml to conain a dict')
+
+    sanity_check(data, allow_unknown_collectors, allow_unknown_kinds)
+
+    labels = data.get('labels', {})
+    assets = data.get('assets')
+    token = data['token']
+    if assets:
+        try:
+            asyncio.run(async_upsert_assets(
+                api, token, assets, labels, verify_ssl, verbose))
+        except KeyboardInterrupt:
+            print('Cancelled')
+        except Exception as e:
+            msg = str(e) or type(e).__name__
+            print(msg)
+        else:
+            if verbose:
+                print('-'*80)
+                print(f'Finished upserting {len(assets)} asset(s)')
+    elif verbose:
+        print('No assets to upsert')
+
+
+async def async_get_assets(api: str, token: str, container_id: int,
+                           verify_ssl: bool):
+    url = _join(api, f'container/{container_id}/assets?fields=id,name')
+    async with ClientSession(headers=_headers(token)) as session:
+        async with session.get(url, ssl=verify_ssl) as r:
+            if r.status != 200:
+                msg = await r.text()
+                raise Exception(f'{msg} (error code: {r.status})')
+            resp = await r.json()
+            return resp
+
+
+def get_assets(container_id: int, api: str, verify_ssl: bool, output: str,
+               token: Optional[str]):
+    if token is None:
+        try:
+            token = getpass.getpass('Enter container token: ')
+        except KeyboardInterrupt:
+            sys.exit('Cancelled')
+
+    try:
+        res = asyncio.run(async_get_assets(
+            api, token, container_id, verify_ssl))
+    except KeyboardInterrupt:
+        print('Cancelled')
+    except Exception as e:
+        msg = str(e) or type(e).__name__
+        print(msg)
+    else:
+        data = {'assets': res}
+        if output == 'json':
+            json.dump(data, sys.stdout)
+        elif output == 'yaml':
+            yaml.safe_dump(data, sys.stdout)
+
+
+if __name__ == '__main__':
+    setproctitle('infrasonar')
+
+    parser = argparse.ArgumentParser(prog='infrasonar')
+    parser.add_argument(
+        '--version',
+        action='store_true',
+        help='Show version and exit')
+    parser.add_argument(
+        '--api',
+        default='https://api.infrasonar.com',
+        help='URL for the API')
+    parser.add_argument(
+        '--skip-verify-ssl',
+        action='store_true',
+        help='No verify SSL for API requests')
+
+    action = parser.add_subparsers(help='action', dest='action')
+
+    action_upsert_assets = \
+        action.add_parser('upsert-assets', help='Upsert assets')
+    action_upsert_assets.add_argument('filename')
+    action_upsert_assets.add_argument(
+        '--allow-unknown-collectors',
+        action='store_true',
+        help='Allow collectors unknown to this toolkit')
+    action_upsert_assets.add_argument(
+        '--allow-unknown-kinds',
+        action='store_true',
+        help='Allow kinds unknown to this toolkit')
+    action_upsert_assets.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        help='Verbose output')
+
+    action_get_assets = \
+        action.add_parser('get-assets', help='Get container assets')
+
+    action_get_assets.add_argument('containerId', type=int)
+    action_get_assets.add_argument('-o', '--output',
+                                   choices=['json', 'yaml'],
+                                   default='yaml')
+    action_get_assets.add_argument(
+        '--token',
+        default=None,
+        help='Token for authentication')
+
+    args = parser.parse_args()
+
+    if args.version:
+        print(f'InfraSonar toolkit version {__version__}')
+        sys.exit(0)
+
+    if args.action == 'upsert-assets':
+        upsert_assets(
+            args.filename,
+            args.api,
+            not args.skip_verify_ssl,
+            args.verbose,
+            args.allow_unknown_collectors,
+            args.allow_unknown_kinds)
+    elif args.action == 'get-assets':
+        get_assets(
+            args.containerId,
+            args.api,
+            not args.skip_verify_ssl,
+            args.output,
+            args.token)
