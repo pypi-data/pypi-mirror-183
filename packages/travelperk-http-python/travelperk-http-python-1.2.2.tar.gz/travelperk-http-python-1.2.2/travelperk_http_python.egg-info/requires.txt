@@ -1,0 +1,5 @@
+travelperk-python-api-types
+requests
+requests-oauthlib
+pyhumps
+dataclass-map-and-log==0.1.2
