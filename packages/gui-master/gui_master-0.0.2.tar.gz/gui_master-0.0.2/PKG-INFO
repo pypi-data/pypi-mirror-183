@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: gui_master
+Version: 0.0.2
+Summary: Makes use of regular pygame functions to help make easy, customizable elements
+Author: GalaxyIndieDev
+Author-email: <zachnichelson304@gmail.com>
+Keywords: python,api,pygame_gui,pygame,gui
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
