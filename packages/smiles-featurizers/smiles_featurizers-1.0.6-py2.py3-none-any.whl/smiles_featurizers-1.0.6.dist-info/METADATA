@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: smiles-featurizers
+Version: 1.0.6
+Summary: A python library for extracting molecular SMILES embeddings from language models pre-trained with various objectives and/or architectures.
+Home-page: https://github.com/MoleculeTransformers/smiles-featurizers
+Author: Shahrukh Khan
+Author-email: sk28671@gmail.com
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch (==1.8.1)
+Requires-Dist: torchvision (==0.9.1)
+Requires-Dist: torchaudio (==0.8.1)
+Requires-Dist: transformers (==4.6.1)
+Requires-Dist: farm (==0.8.0)
+Requires-Dist: simcse (==0.4)
+Requires-Dist: apex (==0.9.10.dev0)
+Requires-Dist: sentence-transformers
+
+# SMILES Featurizers
+
+Extract SMILES embeddings from language models pre-trained with various objectives architectures.
+
+## Getting Started
+
+```bash
+pip install smiles-featurizers
+```
+
+## Model List
+
+Our released models are listed as following. You can import these models by using the `smiles-featurizers` package or using [HuggingFace's Transformers](https://github.com/huggingface/transformers).
+| Model | Type |
+|:-------------------------------|:--------:|
+| [shahrukhx01/smole-bert](https://huggingface.co/shahrukhx01/smole-bert) | Bert|
+| [shahrukhx01/smole-bert-mtr](https://huggingface.co/shahrukhx01/smole-bert-mtr) | Bert|
+| [shahrukhx01/smole-bart](https://huggingface.co/shahrukhx01/smole-bart) | Bart|
+| [shahrukhx01/muv2x-simcse-smole-bart](https://huggingface.co/shahrukhx01/muv2x-simcse-smole-bert) | Simcse|
+| [shahrukhx01/siamese-smole-bert-muv-1x](https://huggingface.co/shahrukhx01/siamese-smole-bert-muv-1x) | SentenceTransformer|
+
+## Use SMILES Featurizers
+
+### Bert Featurizer
+
+```python
+from smiles_featurizers import BertFeaturizer
+import torch
+
+## set device
+use_gpu = True if torch.cuda.is_available() else False
+
+featurizer = BertFeaturizer("shahrukhx01/smole-bert", use_gpu=use_gpu)
+embeddings = featurizer.embed(["CCC(C)(C)Br"])
+```
+
+### Bart (Encoder) Featurizer
+
+```python
+from smiles_featurizers import BartFeaturizer
+
+featurizer = BartFeaturizer("shahrukhx01/smole-bart")
+embeddings = featurizer.embed(["CCC(C)(C)Br"], embedder="encoder")
+```
+
+### Bart (Decoder) Featurizer
+
+```python
+from smiles_featurizers import BartFeaturizer
+
+featurizer = BartFeaturizer("shahrukhx01/smole-bart")
+embeddings = featurizer.embed(["CCC(C)(C)Br"], embedder="decoder")
+```
+
+### SimCSE Featurizer
+
+```python
+from smiles_featurizers import SimcseFeaturizer
+import torch
+
+## set device
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+featurizer = SimcseFeaturizer("shahrukhx01/mv2x-simcse-smole-bert")
+embeddings = featurizer.embed(["CCC(C)(C)Br"], device=device)
+```
+
+### SentenceTransformer Featurizer
+
+```python
+from smiles_featurizers import SentenceTransformersFeaturizer
+import torch
+
+## set device
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+featurizer = SentenceTransformersFeaturizer("shahrukhx01/siamese-smole-bert-muv-1x")
+embeddings = featurizer.embed(["CCC(C)(C)Br"], device=device)
+```
