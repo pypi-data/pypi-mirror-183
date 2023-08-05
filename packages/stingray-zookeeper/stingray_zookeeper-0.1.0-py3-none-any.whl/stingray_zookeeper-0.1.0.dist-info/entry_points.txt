@@ -1,0 +1,4 @@
+[console_scripts]
+stingray-zookeeper=zookeeper:__main__.main
+zookeeper=zookeeper:__main__.main
+
