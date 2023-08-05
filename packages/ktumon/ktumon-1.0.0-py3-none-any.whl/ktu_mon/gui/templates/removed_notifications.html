@@ -1,0 +1,26 @@
+{% extends 'notifications.html' %}
+
+{% block title %}
+Removed ({{vars["removed_notification"]}})
+{% endblock %}
+
+{% block notification_table %}
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Date</th>
+            <th scope="col">Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for _ in vars["fetched_logs"] %}
+        {% if _[2] == 2 %}
+        <tr class="table-danger">
+            <td style="width: 10%">{{_[0].split('T')[0]|formatdate}}</td>
+            <td>{{_[1]}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

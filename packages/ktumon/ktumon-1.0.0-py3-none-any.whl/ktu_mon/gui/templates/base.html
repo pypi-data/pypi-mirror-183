@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='icons/bootstrap-icons/bootstrap-icons.css') }}">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='icons/ktu-mon-128x128.ico') }}">
+    <script defer type="text/javascript" src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', path='icons/ktu-mon-128x128.ico') }}" alt="" width="50" height="50"
+                    class="d-inline-block align-text-center">
+                KTU Mon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <button type="button" class="btn btn-secondary position-relative"><i
+                                    class="bi bi-house-door-fill"></i> Home
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notifications">
+                            <button type="button" class="btn btn-secondary position-relative"><i
+                                    class="bi bi-bell-fill"></i> Notifications
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{vars["total_notification_count"]}}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logs">
+                            <button type="button" class="btn btn-secondary position-relative"><i
+                                    class="bi bi-list-check"></i> Logs
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                                    {{vars["log_count"]}}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/insights">
+                            <button type="button" class="btn btn-secondary position-relative"><i
+                                    class="bi bi-graph-up-arrow"></i> Insights
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert">
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert">
+        </button>
+    </div> -->
+    <div class="container-fluid">
+        {% block body %}{% endblock %}
+    </div>
+    <script>
+        const cd = 117;
+        ws_link = `ws://localhost:8000/ws/${cd}`;
+        let ws = new WebSocket(ws_link);
+    </script>
+</body>
+
+</html>

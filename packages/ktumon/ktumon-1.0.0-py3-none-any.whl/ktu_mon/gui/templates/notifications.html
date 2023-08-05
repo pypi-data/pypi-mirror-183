@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Notifications ({{vars["total_notification_count"]}})
+{% endblock %}
+
+{% block body %}
+<div class="d-flex align-items-center">
+    <div class="p-2">
+        <h1 class="d-flex align-items-center">Notifications
+            <a href="/notifications" class="link-light">
+                <button type="button" class="btn btn-light ms-2">Total <span
+                        class="badge text-bg-secondary">{{vars["total_notification_count"]}}</span>
+                </button>
+            </a>
+            <a href="/added-notifications" class="link-light">
+                <button type="button" class="btn btn-light ms-2">Added <span
+                        class="badge text-bg-success">{{vars["added_notification"]}}</span>
+                </button>
+            </a>
+            <a href="/removed-notifications" class="link-light">
+                <button type="button" class="btn btn-light ms-2">Removed <span
+                        class="badge text-bg-danger">{{vars["removed_notification"]}}</span>
+                </button>
+            </a>
+            <button form="refresher" name="refresh" value="refresh" id="refresh" type="submit"
+                class="btn btn-primary ms-2">
+                <i class="bi bi-arrow-clockwise"></i> Refresh</button>
+        </h1>
+    </div>
+    <div class="p-2">
+        <h1 class="align-items-center">
+            <div class="input-group flex-nowrap align-items-start">
+                <input form="timerconf" name="hh" id="hh" type="text" class="form-control" style="width: 10vh"
+                    placeholder="HH" value="{{vars['time_interval'][0]}}" aria-label="Hours">
+                <span class="input-group-text">Hours</span>
+                <input form="timerconf" name="mm" id="mm" type="text" class="form-control" style="width: 10vh"
+                    placeholder="MM" value="{{vars['time_interval'][1]}}" aria-label=" Minutes">
+                <span class="input-group-text">Minutes</span>
+                <button form="timerconf" name="settime" type="submit" class="btn btn-danger ms-1">
+                    <i class="bi bi-alarm"></i> Set Check Interval</button>
+
+            </div>
+
+        </h1>
+
+    </div>
+
+</div>
+<div class="container-fluid align-items-top">
+    <p class="align-items-top"><small>Last Checked : {{vars["last_checked"].split('T')[0]|formatdate}}
+            {{vars["last_checked"].split('T')[1]|formattime}}</small></p>
+</div>
+
+
+<div class="container-fluid text-center">
+    <form action="/logselect" id="logselect" method="post">
+        <div class="row row-cols-4  align-items-center">
+            <div class="col-4">
+                <select form="logselect" id="log1" name="log1" class="col form-select" aria-label="log1 selection">
+                    {% for _ in vars["log_list"] %}
+                    {% set date, time = _[0].split('T') %}
+                    <option value={{_[0]}}>{{date|formatdate}} {{time|formattime}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-auto fs-5 fw-semibold text-muted text-center">With</div>
+            <div class="col-4">
+                <select form="logselect" id="log2" name="log2" class="col form-select" aria-label="log2 selection">
+                    {% for _ in vars["log_list"] %}
+                    {% set date, time = _[0].split('T') %}
+                    <option value="{{_[0]}}">{{date|formatdate}} {{time|formattime}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-auto">
+                <button form="logselect" type="submit" class="btn btn-warning">
+                    <i class="bi bi-eye"></i> Compare</button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+<script>
+    function selectElement(id, valueToSelect) {
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    selectElement("log1", '{{vars["log1"]}}');
+    selectElement("log2", '{{vars["log2"]}}')
+</script>
+<form action="/refresher" id="refresher" method="POST"></form>
+<form action="/timerset" id="timerconf" method="POST"></form>
+
+{% block notification_table %}
+<div class="table">
+    <table class="table">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Date</th>
+                <th scope="col">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for _ in vars["fetched_logs"] %}
+            {% if _[2] == 1 %}
+            <tr class="table-success">
+                <td style="width: 10%">{{_[0].split('T')[0]|formatdate}}</td>
+                <td>{{_[1]}}</td>
+            </tr>
+            {% elif _[2] == 2 %}
+            <tr class="table-danger">
+                <td style="width: 10%">{{_[0].split('T')[0]|formatdate}}</td>
+                <td>{{_[1]}}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td style="width: 10%">{{_[0].split('T')[0]|formatdate}}</td>
+                <td>{{_[1]}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endblock %}
