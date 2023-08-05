@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Insight
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Insights</h1>
+    <div class="row">
+        <div class="col">
+            <h5>Notifications (Per Day)</h5>
+            <canvas id="totalInsightChart"></canvas>
+        </div>
+        <div class="col">
+            <h5>Notifications (Per Log)</h5>
+            <canvas id="logInsightChart"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', path='js/chart.umd.js') }}"></script>
+
+<script>
+    const ctx2 = document.getElementById('totalInsightChart');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: {{ data[3][0] | tojson }},
+        datasets: [
+        {
+            label: 'Notifications Per Day',
+            data: {{ data[3][1] | tojson }},
+        borderColor: 'rgb(25, 135, 84)',
+        backgroundColor: 'rgb(25, 135, 84)',
+        borderWidth: 1,
+        tension: 0.1
+            }
+    ]
+    },
+        options: {
+        layout: {
+            padding: 20
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+    }
+    );
+
+    const ctx = document.getElementById('logInsightChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ data[0]| tojson }},
+        datasets: [
+        {
+            label: 'Notification Added',
+            data: {{ data[1]| tojson }},
+        borderColor: 'rgb(25, 135, 84)',
+        backgroundColor: 'rgb(25, 135, 84)',
+        borderWidth: 1
+                },
+        {
+            label: 'Notification Removed',
+            data: {{ data[2]| tojson }},
+        borderColor: 'rgb(220, 53, 69)',
+        backgroundColor: 'rgb(220, 53, 69)',
+        borderWidth: 1
+                }
+    ]
+        },
+        options: {
+        layout: {
+            padding: 20
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+        }
+    );
+
+
+</script>
+{% endblock %}

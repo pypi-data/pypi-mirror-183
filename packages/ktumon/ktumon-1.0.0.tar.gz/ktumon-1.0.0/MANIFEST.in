@@ -1,0 +1,10 @@
+include src/ktu_mon/gui/static/css/*.css
+include src/ktu_mon/gui/static/css/*.map
+include src/ktu_mon/gui/static/icons/*.ico
+include src/ktu_mon/gui/static/icons/*.png
+include src/ktu_mon/gui/static/icons/bootstrap-icons/*.svg
+include src/ktu_mon/gui/static/icons/bootstrap-icons/fonts/*.woff
+include src/ktu_mon/gui/static/icons/bootstrap-icons/fonts/*.woff2
+include src/ktu_mon/gui/static/js/*.js
+include src/ktu_mon/gui/static/js/*.map
+include src/ktu_mon/gui/templates/*.html

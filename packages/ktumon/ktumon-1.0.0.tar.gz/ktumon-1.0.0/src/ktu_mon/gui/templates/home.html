@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+KTU Mon
+{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <div class="row">
+        <h1 class="col align-self-center">Welcome to KTU Mon</h1>
+        <img class="col align-self-center rounded-circle" src="{{ url_for('static', path='icons/ktu-mon.png') }}">
+        <h1 class="col align-self-center text-muted">Hope you'll have good use with it!</h1>
+    </div>
+</div>
+
+{% endblock %}
