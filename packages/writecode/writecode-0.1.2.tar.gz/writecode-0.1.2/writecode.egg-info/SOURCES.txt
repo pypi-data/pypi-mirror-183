@@ -1,0 +1,8 @@
+README.md
+setup.py
+writecode/__init__.py
+writecode/main.py
+writecode.egg-info/PKG-INFO
+writecode.egg-info/SOURCES.txt
+writecode.egg-info/dependency_links.txt
+writecode.egg-info/top_level.txt
