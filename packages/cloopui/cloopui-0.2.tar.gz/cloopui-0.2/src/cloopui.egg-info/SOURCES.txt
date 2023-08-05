@@ -1,0 +1,7 @@
+setup.py
+src/cloopui/__init__.py
+src/cloopui/template.html
+src/cloopui.egg-info/PKG-INFO
+src/cloopui.egg-info/SOURCES.txt
+src/cloopui.egg-info/dependency_links.txt
+src/cloopui.egg-info/top_level.txt

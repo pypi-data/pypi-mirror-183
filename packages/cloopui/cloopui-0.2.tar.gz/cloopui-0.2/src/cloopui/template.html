@@ -1,0 +1,204 @@
+<html>
+
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.16.5/plotly.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+		<script>
+			dataid_old = -1;
+		</script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:display=swap" rel="stylesheet">
+        
+        
+        <style>
+            
+            body{
+                font-family: 'Quicksand', sans-serif;
+
+            }
+            
+            .row{
+                margin-top:50px;
+                margin-top:50px;
+            }
+        
+            .btn{
+                border-radius: 25px;
+                margin-top:10px;
+            }
+            .positive{
+                background-color:#3aeb34;
+                color:black;
+            }
+            .positive:hover{
+                background-color:#25cf1f;
+                cursor:pointer;
+            }
+            .negative{
+                background-color:#de2a2a;
+                color:white;
+            }
+            .negative:hover{
+                background-color:#c71a1a;
+                cursor:pointer;
+            }
+            
+            .slidecontainer {
+              width: 100%; /* Width of the outside container */
+            }
+
+            /* The slider itself */
+            .slider {
+              -webkit-appearance: none;  /* Override default CSS styles */
+              appearance: none;
+              width: 100%; /* Full-width */
+              height: 25px; /* Specified height */
+              background: #d3d3d3; /* Grey background */
+              outline: none; /* Remove outline */
+              opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+              -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+              transition: opacity .2s;
+            }
+
+            /* Mouse-over effects */
+            .slider:hover {
+              opacity: 1; /* Fully shown on mouse-over */
+            }
+
+            /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+            .slider::-webkit-slider-thumb {
+              -webkit-appearance: none; /* Override default look */
+              appearance: none;
+              width: 25px; /* Set a specific slider handle width */
+              height: 25px; /* Slider handle height */
+              background: #04AA6D; /* Green background */
+              cursor: pointer; /* Cursor on hover */
+            }
+
+            .slider::-moz-range-thumb {
+              width: 25px; /* Set a specific slider handle width */
+              height: 25px; /* Slider handle height */
+              background: #04AA6D; /* Green background */
+              cursor: pointer; /* Cursor on hover */
+            }
+            
+            select{
+                padding:10px;
+                width:100%;
+                font-size:120%;
+                text-align:center;
+           
+            }
+            
+
+        </style>
+	</head>
+
+	<body>
+        
+        {{html_code}}
+        
+	</body>
+
+	<script>
+		
+    		const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+		
+            var send_data = {{send_data}}
+            send_data["uid"] =  urlParams.get('uid')
+		
+            function change_bool(var_name){
+                if(send_data[var_name]){
+                    $("#bool_"+var_name).removeClass("negative");
+                    $("#bool_"+var_name).addClass("positive");
+                }
+                else{
+                    $("#bool_"+var_name).removeClass("positive");
+                    $("#bool_"+var_name).addClass("negative");
+                }
+            }
+        
+            function change_select(var_name){
+                new_val = $('#'+var_name).find(":selected").val();
+                send_data[var_name] = new_val;
+            }
+        
+        
+        
+			function injectScript(src,callback){
+				
+				var script = document.createElement('script');
+				script.src = src;
+				script.onload=function(){
+					callback();
+				}
+				document.head.appendChild(script);
+				
+			}
+            
+            
+            function number(div,variable){
+                if( variable in data ){
+                    $("#"+div).html(data[variable][data[variable].length-1]);
+                }
+            }
+            
+            
+            function plot(div,list_of_variables){
+                
+                // Create list
+                all_lines = []
+                for(i=0;i<list_of_variables.length;i++){
+                    if( list_of_variables[i] in data ){
+                        all_lines.push({
+                            x: data.time,
+                            y: data[list_of_variables[i]],
+                            name: list_of_variables[i]
+                        })
+                    }
+                }
+                
+                Plotly.newPlot( document.getElementById(div), all_lines, {
+                        margin: { t: 0, l:25, r:0 },
+                        showlegend: true 
+                    } , {displayModeBar: false} );
+                
+            }
+		
+		
+        
+			setInterval(function () {
+			
+				injectScript("/f/{{foldername}}/dataid.js",function(){
+					
+                    // Receive data
+					if(dataid_old != dataid){
+						
+						dataid_old = dataid;
+						injectScript("/f/{{foldername}}/data.js",function(){
+                            {{interval_code}}
+                    
+						});
+                        
+					}
+                    
+                    // Send data
+                    console.log(JSON.stringify( send_data ));
+                    $.post("/input_data/{{foldername}}", send_data, function(data){
+                        
+                    })
+					
+				});
+			
+			}, 500);
+
+				
+			
+
+	</script>
+
+</html>
