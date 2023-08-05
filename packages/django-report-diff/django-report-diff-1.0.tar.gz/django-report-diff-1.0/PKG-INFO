@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: django-report-diff
+Version: 1.0
+Summary: A simple Django app to diff bi report.
+Home-page: https://www.example.com/
+Author: Dillon
+Author-email: 18721296190@163.com
+License: BSD License
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+License-File: LICENSE
+
+===========
+Report Diff
+===========
+
+Quick start
+-----------
+
+1. Add "report-diff" to your INSTALLED_APPS settings like this::
+
+    INSTALLED_APP = [
+        ...
+        'report-diff',
+    ]
+
+2. Include the polls URLconf in your project urls.py like this::
+
+    url(r'^report-diff/', include('polls.urls')),
+
+
+
