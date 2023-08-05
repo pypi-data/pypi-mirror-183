@@ -1,0 +1,12 @@
+attrs>=21.3.0
+requests
+
+[dev]
+pylint
+sphinx
+
+[doc]
+sphinx
+
+[test]
+pytest>5.0.0
