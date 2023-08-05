@@ -1,0 +1,10 @@
+boxdetect/__init__.py,sha256=a2e8FRBUxTwFhfTYTmGu7UGElZOOdLmfuekETiHQdDA,42
+boxdetect/config.py,sha256=brT6q9tIx6THjxbr6Ou05WrQdA0EnC1MC1hyyrEtovs,9944
+boxdetect/img_proc.py,sha256=cCtNNVThCNssVb3MsAcBRpO17jFVSXO-qX_CISAxwKA,9597
+boxdetect/pipelines.py,sha256=S_9FZir0HS-ZICInG4fskW0rJV3V4_a5te4jF8jJyss,12245
+boxdetect/rect_proc.py,sha256=KrlS6lAeEimPN-3GU63otAS3YlH4rAO_5oLpQ3eN2tg,11612
+boxdetect-1.0.1.dist-info/LICENSE,sha256=wMbFPRF_H8518a-P9cVl0Mi5eZDcWLnWGY342YjfREE,1067
+boxdetect-1.0.1.dist-info/METADATA,sha256=KITSGcWVSKonNQ2Y1UHbjV-9GBKspuUgz66qODv2u2w,11828
+boxdetect-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+boxdetect-1.0.1.dist-info/top_level.txt,sha256=aRLtirTwHcSUFMMfjsk9pLeGop9YyPbP2tWurw_c0Rc,10
+boxdetect-1.0.1.dist-info/RECORD,,
