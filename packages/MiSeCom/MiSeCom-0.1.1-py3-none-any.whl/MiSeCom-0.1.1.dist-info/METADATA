@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: MiSeCom
+Version: 0.1.1
+Summary: Detect if the English has missing sentence components such as Subject, Verb, Object
+Author: Le Minh Khoi
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: pytorch-lightning
+Requires-Dist: wandb
+Requires-Dist: transformers
+Requires-Dist: datasets
+Requires-Dist: tokenizers
+
+# Missing Sentence Components
+
+Multilabel classification with RoBERTa from huggingface library
+
+## How to use
+
+```bash
+pip install python
+```
+
+```python
+from MiSeCom import MissSentComp
+miss_sentence_component = MissSentComp('transZ/misecom', 'roberta-base')
+sent = "I education company."
+print(miss_sentence_component(sent)) # I education company <ma> <mp> <mv>
+```
