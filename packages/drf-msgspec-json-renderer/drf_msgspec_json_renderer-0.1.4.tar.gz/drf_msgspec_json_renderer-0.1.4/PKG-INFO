@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: drf-msgspec-json-renderer
+Version: 0.1.4
+Summary: 
+Author: Novitskii Aleksei
+Author-email: mr.alexeynov95@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: django (>=3.2,<4.0)
+Requires-Dist: djangorestframework (>=3.14.0,<4.0.0)
+Requires-Dist: msgspec (>=0.11.0,<0.12.0)
+Description-Content-Type: text/markdown
+
+Django Rest Framework msgspec Renderer
+==================
+
+
+Django Rest Framework renderer using [msgspec](https://github.com/jcrist/msgspec)
+
+## Installation
+
+`pip install drf-msgspec-json-renderer`
+
+You can then set the `MsgspecJSONRenderer` class as your default renderer in your `settings.py`
+
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'drf_msgspec_json.renderers.MsgspecJSONRenderer',
+    ),
+    ...
+}
+```
+
+Also you can set the `MsgspecJSONParser` class as your default parser in your `settings.py`
+
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'drf_msgspec_json.parsers.MsgspecJSONParser',
+    ),
+    ...
+}
+```
+
