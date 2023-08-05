@@ -1,0 +1,13 @@
+datascope/debugger/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datascope/debugger/debugger.py,sha256=F7iRdzpAe7Crf08KQXwC4F7gUckll-ENAmEunOCvCxQ,1074
+datascope/importance/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datascope/importance/add.py,sha256=E2oJm7j-o6_ACbSrW7RctBFxOVJG9m3_ncM_kL6UeH8,17573
+datascope/importance/common.py,sha256=D4PGYgd_qfFdGtOSpYetprBsnFCr96uZeDXxpUdk7vo,20571
+datascope/importance/importance.py,sha256=6TYqtymPGV_HxOgJ2no8UVLogHubuU4R8A2shKeUGug,1432
+datascope/importance/shapley.py,sha256=30NqWI3yqftE5MZ47ZJlxja28ORy7vtYYfh99OQ61pg,21833
+datascope/importance/shapley_cy.cp38-win_amd64.pyd,sha256=uHI3wyNJ1oqsdWt5tEO4gZ6mjVK9O5yi79nMUpJpkis,52736
+datascope-0.0.6.dist-info/LICENSE,sha256=faP_MaYRy9U0PwdndogT4WReD_xD7tTXqQPMEYpPT6g,1085
+datascope-0.0.6.dist-info/METADATA,sha256=BX0-Oo4_yriyLOT1wq7OVv7BZsPFmzKQWXKFJXaGljM,6502
+datascope-0.0.6.dist-info/WHEEL,sha256=b_PH-i_F2xFYDXcROE5vpDbWUcY020I0eLFvEIYA9Pc,100
+datascope-0.0.6.dist-info/top_level.txt,sha256=YWOATHhag6zQXU8mlF_mmH4vActQn2bOywAWbqJMsH4,10
+datascope-0.0.6.dist-info/RECORD,,
