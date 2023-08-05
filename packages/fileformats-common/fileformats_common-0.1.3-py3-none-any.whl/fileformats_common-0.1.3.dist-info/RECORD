@@ -1,0 +1,16 @@
+fileformats/common/__init__.py,sha256=ievMLvsnZjeNuCmr4ARSeh5AuwLcch9MqcW397fm44w,358
+fileformats/common/_version.py,sha256=CYbZfZY7x_F-U5-dF3-eSvcsIEt-PaNXs0FXBiLkXEQ,160
+fileformats/common/archive.py,sha256=VTUa9nrVyoMtOPeIPphjJN3Z8KjAxG2JbNrIq4O7Vgw,1051
+fileformats/common/base.py,sha256=wYEw7iKFs7e9SyS8P742bWKxKkgfUNHsfG04AhlJj0E,1197
+fileformats/common/document.py,sha256=9Iq4lFGkMeUV4ibeaIJq-mhT62RebWGkV__AQTI0Q5c,157
+fileformats/common/image.py,sha256=yotr7cm70lst9igY8XrLtU_Cc2ms2XnrrEK_1VL9jZo,245
+fileformats/common/numeric.py,sha256=s0UIvCLiAh_2SmnnWBF3eQMEF2fWzNd-UQb96hacMEw,148
+fileformats/common/text.py,sha256=QX3Ui4s-j01i7twmNfTQvsw7KVgqqGi1x_aXEUHXe-8,285
+fileformats/common/utils.py,sha256=T_t6Z-UkYo0fsQxAt11IESeG6xCmUUkItHQ4nlMh2j4,415
+fileformats/common/converters/__init__.py,sha256=cmHnejfDMfNryp29hLx5WSzDZsYF0eB1fuJD22lmoLc,70
+fileformats/common/converters/archive.py,sha256=0PrTvOB8vXWiCB62ZgilJjCJ-f0SxzQHBBWOXg7cvHQ,5147
+fileformats/common/converters/tests/test_archive.py,sha256=5EFfqF3bsbUZVfHM1ArbrF_Mqc-RCgK9jzKfWJLomLw,2281
+fileformats_common-0.1.3.dist-info/LICENSE,sha256=s12hb9VeRlj1uxCx7NSbKwRGyTklVA7omWbTLyMhYIs,14222
+fileformats_common-0.1.3.dist-info/WHEEL,sha256=rSgq_JpHF9fHR1lx53qwg_1-2LypZE_qmcuXbVUq948,81
+fileformats_common-0.1.3.dist-info/METADATA,sha256=C1zGf2wcGTCiBoxjiWreoZ91Of2nY4a6aJuvzJtVpoc,2993
+fileformats_common-0.1.3.dist-info/RECORD,,
