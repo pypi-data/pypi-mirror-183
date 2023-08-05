@@ -1,0 +1,35 @@
+@import './variables.css';
+@import url("https://font.elice.io/EliceDigitalCoding.css");
+
+/* Set the default typography for monospace elements */
+tt,
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-code-font-size);
+  line-height: var(--jp-code-line-height);
+}
+
+#jp-MainLogo {
+  background-image: url(./images/elice_project_logo.png);
+  background-size: 70%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#jp-MainLogo>svg {
+  visibility: hidden;
+}
+
+#jp-RetroLogo {
+  background-image: url(./images/elice_project_logo.png);
+  background-size: 70%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#jp-RetroLogo>svg {
+  visibility: hidden;
+}
