@@ -1,0 +1,27 @@
+[project]
+name = "lsh23-calculator"
+version = "0.0.2"
+description = "A deploy test package"
+authors = [
+  { name="lsh23", email="sehyeong.dev@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "pytest",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/lsh23/lsh23-calculator"
+"Bug Tracker" = "https://github.com/lsh23/lsh23-calculator/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/lsh23_calculator/__init__.py
+src/lsh23_calculator/calculator.py
+src/lsh23_calculator.egg-info/PKG-INFO
+src/lsh23_calculator.egg-info/SOURCES.txt
+src/lsh23_calculator.egg-info/dependency_links.txt
+src/lsh23_calculator.egg-info/requires.txt
+src/lsh23_calculator.egg-info/top_level.txt
