@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: LePotatoPi.GPIO
+Version: 0.0.1
+Summary: Le Potato Port of RPi.GPIO
+Home-page: https://github.com/solrobson/le-potato-pi
+Author: solrobson
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Hardware
+
+Gives Libre Le Potato the same interface mapping as RPi.GPIO and the same pin numbers
+
+
