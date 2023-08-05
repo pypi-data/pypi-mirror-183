@@ -1,0 +1,16 @@
+psycopg2-binary
+pyproj
+python-dateutil
+shapely
+spatialite
+sshtunnel
+typepigeon>=1.0.2
+
+[docs]
+dunamai
+m2r2
+sphinx
+sphinx-rtd-theme
+
+[test]
+pytest
