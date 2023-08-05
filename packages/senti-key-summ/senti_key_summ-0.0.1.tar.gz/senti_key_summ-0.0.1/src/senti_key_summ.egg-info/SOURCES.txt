@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/senti_key_summ.egg-info/PKG-INFO
+src/senti_key_summ.egg-info/SOURCES.txt
+src/senti_key_summ.egg-info/dependency_links.txt
+src/senti_key_summ.egg-info/requires.txt
+src/senti_key_summ.egg-info/top_level.txt
