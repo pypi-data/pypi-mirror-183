@@ -1,0 +1,7 @@
+LICENSE
+README.md
+pyproject.toml
+selfembed_discord.egg-info/PKG-INFO
+selfembed_discord.egg-info/SOURCES.txt
+selfembed_discord.egg-info/dependency_links.txt
+selfembed_discord.egg-info/top_level.txt

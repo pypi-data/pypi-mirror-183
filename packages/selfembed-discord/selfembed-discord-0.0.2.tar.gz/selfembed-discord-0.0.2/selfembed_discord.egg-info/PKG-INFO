@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: selfembed-discord
+Version: 0.0.2
+Summary: Discord Self Embed
+Author-email:  AmeLooksSus <withloveameliagrace+github@gmail.com>
+Project-URL: Homepage, https://github.com/AmeLooksSus/selfembed-discord
+Project-URL: Bug Tracker, https://github.com/AmeLooksSus/selfembed-discord/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+A Simple Discord Self Embed
+===========================
+This is a simple self embed package that can be used to embed messages in a Discord server as a user.
+
+Which prolly won't work, but will try my best to fix it
