@@ -1,0 +1,9 @@
+lmdb
+
+[dev]
+zstandard
+lz4
+orjson
+
+[test]
+pytest
