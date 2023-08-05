@@ -1,0 +1,7 @@
+setup.py
+HelloPython/Hello.Py
+HelloPython/__init__.py
+MariamHelloTest.egg-info/PKG-INFO
+MariamHelloTest.egg-info/SOURCES.txt
+MariamHelloTest.egg-info/dependency_links.txt
+MariamHelloTest.egg-info/top_level.txt
