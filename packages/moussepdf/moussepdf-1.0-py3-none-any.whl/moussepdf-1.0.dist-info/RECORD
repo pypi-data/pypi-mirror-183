@@ -1,0 +1,9 @@
+moussepdf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+moussepdf/pdf2image.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+moussepdf/pdf2text.py,sha256=KAVrhGZCRs8QhGMrxH2XEH3WKyS6OLLkDOX3IvApLnk,40
+moussepdf-1.0.dist-info/DESCRIPTION.rst,sha256=OVZonoWGj0s-wsXqMjjEKK73a7ALJGFH5TS6Hk_CSQo,52
+moussepdf-1.0.dist-info/METADATA,sha256=dG2BzyujCjYuc0PFh7S7d0uZD2aAZ43SCYutaIXswmc,247
+moussepdf-1.0.dist-info/RECORD,,
+moussepdf-1.0.dist-info/WHEEL,sha256=rNo05PbNqwnXiIHFsYm0m22u4Zm6YJtugFG2THx4w3g,92
+moussepdf-1.0.dist-info/metadata.json,sha256=Dl6UpEtCKm_W4-GVOpR3koQT3tadBXLNUXpbAzPUYZE,254
+moussepdf-1.0.dist-info/top_level.txt,sha256=pc1GoZpl7l7JWzbL0US1JQXNOWGZfCSoubBAhZuyF20,10
