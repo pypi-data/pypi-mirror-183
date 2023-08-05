@@ -1,0 +1,87 @@
+%import common.WS
+%import common.ESCAPED_STRING -> STRING
+%import common.CNAME -> NAME
+
+%ignore WS
+
+start: tagblock
+
+?tagblock: "{" tag "}"
+
+?tag: tagdo
+    | tagexpr
+    | tagvar
+    | fieldset
+    | tagif
+    | tagwhile
+    | tagfor
+
+tagdo: /do/ tagblock*
+
+tagif: /if/ tagexpr tagblock (tagelif)* tagelse
+tagelif: [/elif/ tagexpr tagblock]
+tagelse: [/else/ tagblock]
+
+tagwhile: /while/ tagexpr tagblock
+tagfor: /for/ NAME "in" tagexpr tagblock
+
+tagvar: NAME "=" tagexpr
+fieldset: ndot "=" tagexpr
+
+ndot: NAME ("." NAME)+
+
+?tagexpr: logic_or
+
+?logic_or: logic_and
+         | logic_and /or/ logic_or      -> cmp
+
+?logic_and: cmp_eq
+          | cmp_eq /and/ logic_and      -> cmp
+
+?cmp_eq: cmp_ltgt
+       | cmp_ltgt /==/ cmp_eq   -> cmp
+       | cmp_ltgt /!=/ cmp_eq   -> cmp
+
+?cmp_ltgt: sum
+         | sum />/ cmp_ltgt     -> cmp
+         | sum /</ cmp_ltgt     -> cmp
+         | sum />=/ cmp_ltgt    -> cmp
+         | sum /<=/ cmp_ltgt    -> cmp
+
+?sum: product
+    | product /\+/ sum -> arith
+    | product /\-/ sum -> arith
+
+?product: atom
+        | atom /\*/ product -> arith
+        | atom /\// product -> arith
+
+?atom: value
+     | NAME             -> getvar
+     | "(" tagexpr ")"
+     | /\-/ atom    -> unary
+     | /\+/ atom    -> unary
+     | atom "(" arge ")" -> call
+     | dot_
+     | idx
+     | svalue
+     | /not/ atom   -> unary
+
+?idx: atom
+    | idx /\[/ atom "]" -> indexing
+
+arge: (arge_i ("," arge_i)*)?
+?arge_i: tagexpr
+       | NAME ("="|":") tagexpr -> keyarg
+
+?dot_: atom
+     | dot_ /\./ NAME -> dot
+
+?svalue: /\[/ [tagexpr ("," tagexpr)*] "]"    -> array
+
+?value: INTEGER -> integer
+      | STRING  -> string
+      | FLOAT   -> float_
+
+INTEGER: /[0-9]+/
+FLOAT: /[0-9]+\.[0-9]+/
