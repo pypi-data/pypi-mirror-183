@@ -1,0 +1,2 @@
+[console_scripts]
+sim-modem-cli = main:app
