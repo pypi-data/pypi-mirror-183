@@ -1,0 +1,421 @@
+0010        NAM  ASTER 
+0020        DEF  RUNTIM
+0030        DEF  TOKS  
+0040        DEF  PARSES
+0050        DEF  ERMSG 
+0060        DEF  INIT  
+0070 RUNTIM BSZ  2
+0080        DEF  SET.  
+0090        DEF  NEWX. 
+0100        DEF  NEWY. 
+0110        DEF  HIT?. 
+0120        DEF  CURSO.
+0130        DEF  LAUNCH
+0140        DEF  CROSSX
+0150        DEF  CROSSY
+0155 !      DEF  .   
+0157        DEF  H_P_.
+0160 PARSES BSZ  2
+0170        DEF  SETPAR
+0180        DEF  SETPAR
+0190        DEF  SETPAR
+0200        DEF  SETPAR
+0210        DEF  CURPRS
+0220 ERMSG  BYT  377,377
+0230 TOKS   ASP  "SET BIN"
+0240        ASP  "NEW X"
+0250        ASP  "NEW Y"
+0260        ASP  "HIT?"
+0270        ASP  "CURSOR"
+0280        ASP  "LAUNCH"
+0290        ASP  "CROSS X"
+0300        ASP  "CROSS Y"
+0305 !      ASP  ""
+0307        BYT  10,220
+0310        BYT  377
+0320 INIT   LDMD R32,=BINTAB
+0330        BIN  
+0340        LDBD R34,=ROMFL 
+0350        CMB  R34,=1
+0360        JNZ  SCRAT?
+0370 RESET  LDB  R36,=KYRPT1
+0380        STBD R36,X32,KEYCON
+0390        LDM  R36,=KEY   
+0400        ADM  R36,R32
+0410        STM  R36,R45
+0420        LDB  R47,=236
+0430        LDB  R44,=316
+0440 STO    STMD R#,=CHIDLE
+0450        RTN  
+0460 SCRAT? CMB  R#,=2
+0470        JNZ  LODBN?
+0480 SCRAT! LDM  R44,=236,236,236,236
+0490        JMP  STO   
+0500 LODBN? CMB  R#,=3
+0510        JZR  RESET 
+0520        CMB  R#,=5
+0530        JZR  SCRAT!
+0540 RTN    RTN  
+0550 ! ************************
+0560 KEY    LDMD R14,=BINTAB
+0570        CMB  R16,=2
+0580        JNZ  RTN   
+0590        LDMD R22,=KEYHIT
+0600        CMB  R22,=234
+0610        JZR  LEFT  
+0620        CMB  R22,=235
+0630        JZR  RIGHT 
+0640        CMB  R22,=241
+0650        JZR  UP    
+0660        CMB  R22,=242
+0670        JZR  DOWN  
+0680        CMB  R22,=245
+0690        JZR  FUP   
+0700        CMB  R22,=254
+0710        JZR  FDOWN 
+0720        CMB  R22,=223
+0730        JZR  FLEFT 
+0740        CMB  R22,=211
+0750        JNZ  RTN   
+0751 FRIGHT LDM  R#,=4,0
+0752        JMP  COMKEY
+0753 FLEFT  LDM  R#,=374,0
+0754        JMP  COMKEY
+0755 FUP    LDM  R#,=0,4
+0756        JMP  COMKEY
+0757 FDOWN  LDM  R#,=0,374
+0758        JMP  COMKEY
+0760 DOWN   LDM  R#,=0,377
+0770        JMP  COMKEY
+0780 UP     LDM  R#,=0,1
+0790        JMP  COMKEY
+0800 LEFT   LDM  R#,=377,0
+0810        JMP  COMKEY
+0820 RIGHT  LDM  R#,=1,0
+0830 COMKEY PUMD R#,+R6
+0840        LDBD R#,X14,FIRED?
+0850        JZR  GOAHED
+0860 EOJ    LDB  R31,=KYRPT1
+0870        STBD R31,X14,KEYCON
+0880        POMD R42,-R6
+0890        CLE  
+0900        JSB  =EOJ2  
+0910        RTN  
+0920 GOAHED JSB  X14,PLOT  
+0930        POMD R22,-R6
+0940        PUMD R22,+R6
+0950        LDMD R14,=BINTAB
+0960        LDBD R24,X14,CURX  
+0970        ADB  R24,R22
+0980        STBD R24,X14,CURX  
+0990        LDBD R24,X14,CURY  
+1000        ADB  R24,R23
+1010        CMB  R24,=250D
+1020        JNC  GO-OK 
+1030        LDB  R24,=191D
+1040 GO-OK  CMB  R#,=192D
+1050        JNC  GO-OK2
+1060        LDB  R24,=0
+1070 GO-OK2 STBD R#,X14,CURY  
+1080        JSB  X14,PLOT  
+1090        LDMD R14,=BINTAB
+1100        LDBD R31,X14,KEYCON
+1110 LOOPKE LDBD R30,=KEYSTS
+1120        LRB  R30
+1130        JEV  EOJ   
+1140        LDBD R30,=CRTSTS
+1150        LRB  R30
+1160        JEV  LOOPKE
+1170 LOOPK2 LDBD R#,=KEYSTS
+1180        LRB  R#
+1190        JEV  EOJ   
+1200        LDBD R#,=CRTSTS
+1210        LRB  R#
+1220        JOD  LOOPK2
+1230        DCB  R31
+1240        JNZ  LOOPKE
+1250        LDB  R31,=KYRPT2
+1260        STBD R31,X14,KEYCON
+1270        JMP  GOAHED
+1280 ! ************************
+1290        BYT  20,55
+1300 LAUNCH JSB  =ONEB  
+1310        LDMD R14,=BINTAB
+1320        STBD R46,X14,FIRED?
+1330        CLM  R40
+1340        PUMD R40,+R12
+1350        RTN  
+1360 ! ************************
+1370 SETPAR PUBD R43,+R6
+1380        JSB  =SCAN  
+1390        CMB  R14,=1
+1400        JZR  OK    
+1410 ERR    POBD R47,-R6
+1420        JSB  =ERROR+
+1430        BYT  81D
+1440 OK     LDB  R14,=22
+1450        JSB  =PUSH45
+1460        JSB  =GETCMA
+1470        JSB  =NUMVAL
+1480        JEZ  ERR   
+1490        JSB  =GETCMA
+1500        JSB  =NUMVAL
+1510        JEZ  ERR   
+1520        JSB  =GETCMA
+1530 PARCOM JSB  =NUMVAL
+1540        JEZ  ERR   
+1550        JSB  =GETCMA
+1560        JSB  =NUMVAL
+1570        JEZ  ERR   
+1580        POBD R47,-R6
+1590        LDB  R45,=371
+1600        PUMD R45,+R12
+1610        RTN  
+1620 CURPRS PUBD R43,+R6
+1630        JSB  =SCAN  
+1640        JMP  PARCOM
+1650 ! *************************
+1660        BYT  241
+1670 SET.   JSB  =TWOR  
+1680        LDMD R14,=BINTAB
+1690        STMD R40,X14,M2    
+1700        STMD R50,X14,M1    
+1710        JSB  =TWOR  
+1720        STMD R40,X14,F2    
+1730        STMD R50,X14,F1    
+1740        POMD R66,-R12
+1750        JSB  =FETSVA
+1760        ADM  R34,=6,0
+1770        STMD R34,X14,ADDR-A
+1780        RTN  
+1790 ! *************************
+1800        BYT  241
+1810 CURSO. LDMD R14,=BINTAB
+1820        JSB  =TWOB  
+1830        STBD R46,X14,CURY  
+1840        STBD R56,X14,CURX  
+1850        JSB  X14,PLOT  
+1860        RTN  
+1870 ! ************************
+1880        BYT  0,55
+1890 CROSSY LDMD R14,=BINTAB
+1900        CLM  R36
+1910        LDBD R36,X14,CURY  
+1920        JMP  CROSS+
+1930 ! ************************
+1940        BYT  0,55
+1950 CROSSX LDMD R14,=BINTAB
+1960        CLM  R36
+1970        LDBD R36,X14,CURX  
+1980 CROSS+ JSB  =CONBIN
+1990        PUMD R40,+R12
+2000        RTN  
+2010 ! ************************
+2020        BYT  0,55
+2030 NEWX.  BIN  
+2040        LDMD R14,=BINTAB
+2050        CLB  R20
+2060        STBD R20,X14,HIT?  
+2070        LDMD R20,X14,ADDR-A
+2080        LDB  R40,=8D
+2090 LOOP   STBD R40,X14,LOOPS 
+2100        LDMD R50,X14,M1    
+2110        LDMD R40,X20,ZERO  
+2120        ADM  R20,=10,0
+2130        BCD  
+2140        JSB  =SUB10 
+2150        POMD R50,-R#
+2160        STMD R50,X14,M1-A1 
+2170        JSB  =MPY10 
+2180        LDMD R50,X14,M2    
+2190        LDMD R40,X20,ZERO  
+2200        BIN  
+2210        ADM  R20,=10,0
+2220        BCD  
+2230        JSB  =SUB10 
+2240        POMD R50,-R#
+2250        STMD R50,X14,M2-A2 
+2260        JSB  =MPY10 
+2270        POMD R#,-R#
+2280        POMD R50,-R#
+2290        JSB  =ADD10 
+2300        POMD R#,-R#
+2310        JSB  =SQR15 
+2320        PUMD R#,+R#
+2330        STM  R40,R50
+2340        LDMD R40,X20,ZERO  
+2350        BIN  
+2360        ADM  R20,=10,0
+2370        BCD  
+2380        JSB  =SUB10 
+2390        POMD R#,-R#
+2400        ERB  R41
+2410        CLB  R41
+2420        ELB  R41
+2430        LDBD R40,X14,HIT?  
+2440        ORB  R40,R41
+2450        STBD R40,X14,HIT?  
+2460        POMD R40,-R12
+2470        STM  R40,R50
+2480        JSB  =MPY10 
+2490        POMD R#,-R#
+2500        POMD R50,-R#
+2510        JSB  =MPY10 
+2520        POMD R#,-R#
+2530        LDMD R50,X20,ZERO  
+2540        BIN  
+2550        ADM  R20,=10,0
+2560        BCD  
+2570        JSB  =DIV10 
+2580        LDMD R50,X14,M1-A1 
+2590        JSB  =MPY10 
+2600        POMD R#,-R#
+2610        LDMD R50,X14,F1    
+2620        JSB  =SUB10 
+2630        POMD R#,-R#
+2640        STMD R#,X14,F1    
+2650        POMD R#,-R12
+2660        LDMD R50,X14,M2-A2 
+2670        JSB  =MPY10 
+2680        POMD R#,-R#
+2690        LDMD R50,X14,F2    
+2700        JSB  =SUB10 
+2710        POMD R#,-R#
+2720        STMD R#,X14,F2    
+2730        LDBD R#,X14,LOOPS 
+2740        BIN  
+2750        DCB  R#
+2760        JZR  NOLOOP
+2770        LDM  R30,=LOOP  
+2780        ADM  R30,R14
+2790        DCM  R30
+2800        LDM  R4,R30
+2810 NOLOOP LDMD R#,X14,F1    
+2820        STM  R#,R50
+2830        BCD  
+2840        JSB  =MPY10 
+2850        LDMD R#,X14,F2    
+2860        STM  R#,R50
+2870        JSB  =MPY10 
+2880        POMD R#,-R#
+2890        POMD R50,-R#
+2900        JSB  =ADD10 
+2910        POMD R#,-R#
+2920        JSB  =SQR15 
+2930        POMD R#,-R#
+2940        CLM  R50
+2950        LDB  R57,=50C
+2960        JSB  =DIV10 
+2970        LDMD R50,X14,F1    
+2980        JSB  =MPY10 
+2990        POMD R#,-R#
+3000        LDMD R50,X14,M1    
+3010        JSB  =ADD10 
+3020        POMD R#,-R#
+3030        STMD R#,X14,M1    
+3040        POMD R#,-R12
+3050        LDMD R50,X14,F2    
+3060        JSB  =MPY10 
+3070        POMD R#,-R#
+3080        LDMD R50,X14,M2    
+3090        JSB  =ADD10 
+3100        POMD R#,-R#
+3110        STMD R#,X14,M2    
+3120        LDMD R#,X14,M1    
+3130        PUMD R#,+R12
+3140        RTN  
+3150 ! ************************
+3160        BYT  0,55
+3170 NEWY.  LDMD R14,=BINTAB
+3180        LDMD R40,X14,M2    
+3190        PUMD R40,+R12
+3200        RTN  
+3210 ! ************************
+3220        BYT  0,55
+3230 HIT?.  LDMD R14,=BINTAB
+3240        CLM  R36
+3250        LDBD R36,X14,HIT?  
+3260        JSB  =CONBIN
+3270        PUMD R40,+R12
+3280        RTN  
+3290 ! ************************
+3300 PLOT   CLM  R36
+3310        LDBD R36,X14,CURX  
+3320        JSB  =CONBIN
+3330        PUMD R40,+R12
+3340        CLM  R36
+3350        LDBD R36,X14,CURY  
+3360        JSB  =CONBIN
+3370        PUMD R40,+R12
+3380        JSB  =MOVE. 
+3390        LDMD R14,=BINTAB
+3400        LDM  R20,=CURSES
+3410        ADM  R20,R14
+3420        CLM  R22
+3430        LDBD R22,X14,CURX  
+3440        ANM  R22,=3,0
+3450        LDM  R34,R22
+3460        LLM  R34
+3470        LLM  R34
+3480        ADM  R34,R22
+3490        ADM  R34,R20
+3500        LDM  R22,=5,0
+3510        LDM  R44,=1,0,1,0
+3520        JSB  =BPLOT+
+3530        RTN  
+3540 CURSES BYT  40,40,370,40,40
+3550        BYT  20,20,174,20,20
+3560        BYT  10,10,76,10,10
+3570        BYT  4,4,37,4,4
+3580 ADDR-A BSZ  2
+3590 F1     BSZ  10
+3600 F2     BSZ  10
+3610 M1     BSZ  10
+3620 M2     BSZ  10
+3630 HIT?   BSZ  1
+3640 M1-A1  BSZ  10
+3650 M2-A2  BSZ  10
+3660 LOOPS  BSZ  1
+3670 FIRED? BSZ  1
+3680 CURX   BSZ  1
+3690 CURY   BSZ  1
+3700 KEYCON BSZ  1
+3710 ! ************************
+3720 SCAN   DAD  11262
+3730 ERROR+ DAD  6611
+3740 PUSH45 DAD  14266
+3750 GETCMA DAD  13414
+3760 NUMVAL DAD  12412
+3770 BINTAB DAD  101233
+3780 TWOR   DAD  56236
+3790 ZERO   DAD  0
+3800 SUB10  DAD  52137
+3810 ADD10  DAD  52233
+3820 DIV10  DAD  51644
+3830 MPY10  DAD  52562
+3840 SQR15  DAD  52455
+3850 ONEB   DAD  56113
+3860 TWOB   DAD  56176
+3870 CONBIN DAD  3572
+3880 FETSVA DAD  44556
+3890 EOJ2   DAD  34772
+3900 KEYHIT DAD  100671
+3910 ROMFL  DAD  101231
+3920 CHIDLE DAD  102416
+3930 KEYSTS DAD  177402
+3940 CRTSTS DAD  177406
+3950 KYRPT1 EQU  30
+3960 KYRPT2 EQU  1
+3970 MOVE.  DAD  31703
+3980 BPLOT+ DAD  34405
+3981 ! ************************
+3982        BYT  0,56
+3983 H_P_.  BIN  
+3984        LDM  R44,=11D,0
+3985        DEF  DATE  
+3986        ADMD R46,=BINTAB
+3987        PUMD R44,+R12
+3988        RTN  
+3989 DATE   ASC  "JUNE 5,1980"
+3990 ! ************************
+3991        FIN  

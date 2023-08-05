@@ -1,0 +1,202 @@
+10 !
+20 !   **************************************************************
+30 !   *** FIND#/ : FINDS # AND TRAILING / IN FORMAT STRING       ***
+40 !   *** EXIT   : TMP2+ =  0 --> NO # IN FORMAT STRING          ***
+50 !   ***          TMP2+ <> 0 --> # PRESENT IN FORMAT STRING     ***
+60 !   ***          TMP4  =  0 --> NO FINAL / IN FORMAT STRING    ***
+70 !   ***          TMP4  <> 0 --> FINAL / IN FORMAT STRING       ***
+80 !   **************************************************************
+90 !
+91          LST 
+100 FIND#/   BSZ 0
+101          UNL 
+110 !
+120 !    ***************************
+130 !    *** LOOK FOR MAT PRINT  ***
+140 !    ***************************
+150 !
+160          JSB =SVPTRS             !SAVE PTR1
+170          CLB R20
+180          STBD R20,=TMP2+         !FLAG NO CR,LF SUPPRESS
+190          STBD R20,=TMP4          !FLAG NO TRAILING SLASH
+200 LOP45    BSZ 0                   !REPEAT
+210 LOP45A   BSZ 0                   !   LOOP
+220          LDBI R#,=PTR1+          !      GET TOKEN
+230          CMB R#,=PRTOK           !      COMPARE WITH PRINT TOKEN
+240          JZR LOP45B              !      ESCAPE IF PRINT TOKEN
+250          CMB R#,=DSTOK           !      COMPARE WITH DISPLAY TOKEN
+260          JZR LOP45B              !      ESCAPE IF DISPLAY TOKEN
+270          JMP LOP45A              !      LOOP BACK
+280 LOP45B   BSZ 0                   !   END LOOP
+290          LDMI R65,=PTR1          !   GET NEXT 3 TOKENS
+300          CMM R65,=045,260,370    !   COMPARE WITH MATRIX ROM MAT TOKEN
+310          JNZ LOP45               !UNTIL (FOUND MATRIX ROM MAT STATEMENT)
+320 !
+330 !    **************************************
+340 !    *** IF FORMAT STRING, SEARCH FOR   ***
+350 !    *** CR, LF SUPPRESS (#)            ***
+380 !    **************************************
+390 !
+400          LDMI R20,=PTR1-         !GET POSSIBLE QUOTE OR USING LINE NUMBER
+410          CMB R20,=QUOTE          !COMPARE WITH QUOTE TOKEN
+420          JZR FIND#               !JIF TOKEN = QUOTE
+430          CMB R20,=USLNO          !COMPARE WITH LINE NUMBER TOKEN
+440          JNZ GOPRT               !IF (TOKEN = LINE NUMBER OR QUOTE)
+450          BSZ 0                   !   IF (TOKEN = LINE NUMBER)
+460          JSB =LINEAL             !      ALLOCATE LINE NUMBER
+470          ADMD R75,=FWCURR        !      FIND ABS ADDR LINE NUMBER
+480          STMD R75,=PTR1          !      POINT TO IMAGE STATEMENT
+490          LDMI R62,=PTR1-         !      POINT TO UNQUOTED STRING
+500 FIND#    BSZ 0                   !   END IF
+510          LDBI R20,=PTR1-         !   GET FORMAT STRING LENGTH
+520 LOP#     BSZ 0                   !   REPEAT
+530          LDBI R21,=PTR1-         !      GET STRING CHARACTER
+540          CMB R21,=43             !      COMPARE WITH #
+550          JNZ LOP#1               !      IF (CHAR = #)
+560          STBD R21,=TMP2+         !         FLAG CR,LF SUPPRESS
+570 LOP#1    BSZ 0                   !      END IF
+580          DCB R20                 !      STRING LENGTH = STRING LENGTH - 1
+590          JNZ LOP#                !   UNTIL (STING LENGTH = 0)
+600 !
+610 !    **************************************
+620 !    *** SEARCH FORMAT STRING FOR       ***
+630 !    *** TRAILING SLASH                 ***
+660 !    **************************************
+670 !
+680 LOP/     BSZ 0                   !   LOOP
+690          CMB R21,=X              !      COMPARE WITH X
+700          JZR LOP/NX              !      CONTINUE SCAN IF X
+710          CMB R21,=QUOT           !      COMPARE WITH "
+720          JZR LOP/NX              !      CONTINUE SCAN IF "
+730          CMB R21,=RTPARN         !      COMPARE WITH )
+740          JZR LOP/NX              !      CONTINUE SCAN IF )
+750          CMB R21,=LTPARN         !      COMPARE WITH (
+760          JZR LOP/NX              !      CONTINUE SCAN IF (
+770          CMB R21,=COMMA          !      COMPARE WITH ,
+780          JZR LOP/NX              !      CONTINUE SCAN IF ,
+790          CMB R21,=BLANK          !      COMPARE WITH BLANK
+800          JZR LOP/NX              !      CONTINUE SCAN IF BLANK
+810          JMP LOP/1               !      ESCAPE IF NON-GARBAGE
+820 LOP/NX   LDBI R#,=PTR1+          !      GET NEXT IMAGE CHAR
+830          JMP LOP/                !   END LOOP
+840 LOP/1    BSZ 0
+850          CMB R#,=SLASH           !   COMPARE WITH SLASH
+860          JNZ LOP/2               !   IF (TRAILING SLASH)
+870          STBD R#,=TMP4           !      FLAG TRAILING SLASH
+880 LOP/2    BSZ 0                   !   END IF
+890 GOPRT    BSZ 0                   !END IF
+900          JSB =RSPTRS             !RESTORE PTR1
+901          RTN 
+910 !
+920 !    *********************************
+930 !    *** LINK NEXT SEGMENT         ***
+950 !    *********************************
+951          LNK ROM2-3RD
+100 !        HED MAT A = IDENTITY ROUTINE
+110 !******************************************************************
+120 !*** MAT C = IDN : ASSIGNS VALUE 1 TO ALL DIAGONAL ELEMENTS OF  ***
+130 !***               RESULT MATRIX AND ASSIGNS THE VALUE 0 TO ALL ***
+140 !***               OTHER ELEMENTS.                              ***
+150 !***               RESULT MATRIX MUST BE SQUARE.                ***
+160 !*** IN  : REL ADDR C                                           ***
+170 !***                 <--- R12                                   ***
+180 !*** OUT : STACK POPPED AND ARRAY ASSIGNED AS IDENTITY MATRIX.  ***
+190 !******************************************************************
+200 !
+210          LST 
+220 IDN2     BSZ 0
+230          UNL 
+240          CMM R17,=300            !LOOK AT ERROR FLAG
+250          JNC ICONT               !IF (REDIMENSION ERROR)
+260          POMD R65,-R12           !   TRASH REL ADDR ARRAY C
+270          RTN                     !   EXIT
+280 ICONT    BSZ 0                   !END IF
+290          JSB =ROMJSB  
+300          DEF LOCSZ-              !Bc, Mc, Nc
+310          BYT 260
+320          CMM R22,R24             !NUM ROW = NUM COL ? (Mc=Nc)
+330          JZR ISQUAR              !IF (NOT SQUARE MATRIX)
+340          JSB =ERROR+  
+350          JSB =ERROR   
+360          BYT 014D                !   REPORT ERROR & EXIT
+370          RTN 
+380 ISQUAR   BSZ 0                   !END IF
+390          TSM R#                  !NULL ARRAY ?
+400          JZR IDNRTN              !IF (NOT NULL ARRAY)
+410 ICOLLP   BSZ 0                   !   REPEAT
+420          STM R22,R26             !      ROWS = Mc
+430 IROWLP   BSZ 0                   !      REPEAT
+440          CLM R40                 !         ASSUME NON DIAGONAL
+450          CMM R26,R24             !         NUMROW = NUMCOL ?
+460          JNZ ISTOR               !         IF (NUMROW = NUMCOL)
+470          JSB =ROMJSB  
+480          DEF FTR61               !            DIAGONAL - 1 IN R40
+490          BYT 260
+500 ISTOR    BSZ 0                   !         END IF
+510          JSB =ROMJSB  
+520          DEF STOV                !         1 OR 0 IN C(I,J)
+530          BYT 260
+540          DCM R26                 !         ROWS = ROWS - 1
+550          JNZ IROWLP              !      UNTIL (ROWS = 0)
+560          DCM R24                 !      COLS = COLS - 1
+570          JNZ ICOLLP              !   UNTIL (COLS = 0)
+580          JSB =ROMJSB  
+590          DEF CKTRC               !   CHECK TRACE
+600          BYT 260
+610 IDNRTN   RTN                     !END IF
+620 !
+630 !******************************************************************
+640 !*** EQUA2 : COPIES AN ARRAY -- A -- INTO ARRAY -- C.           ***
+650 !*** IN  : R24  = Ma : NUM ROWS OF A                            ***
+660 !***       R24  = Na : NUM COLS OF A                            ***
+670 !***       R32  =  1 : CONVERT TAGGED INTEGER OF A INTO REALS   ***
+680 !***            =  0 : DON'T CONVERT TAGGED INTEGER OF A        ***
+690 !***       TMP1 = Ba : BASE ADDRESS OF A                        ***
+700 !***       TMP4 = BC : BASE ADDRESS OF C                        ***
+710 !*** OUT : VALUES OF A COPIED INTO C                            ***
+720 !******************************************************************
+730 !
+740          LST 
+750 EQUA2    BSZ 0
+760          CLB R32
+770          ICB R32                 !FLAG CONVERT TAGGED INT  TO REAL
+780 EQUA09   BSZ 0                   !ENTRY POINT FOR NO CONVERSION
+790          UNL 
+800          JSB =ROMJSB  
+810          DEF PUTREG              !SAVE REGISTERS
+820          BYT 260
+830          JSB =ROMJSB  
+840          DEF MNMUL               !FIND Ma * Na
+850          BYT 260
+860          LDM R30,R55             !COUNT = Ma * Na
+870 EQULOP   BSZ 0                   !REPEAT
+880          LDMD R65,=TMP1          !   GET FETCH ADDR FROM TMP1
+890          STMD R65,=PTR2          !   POINT TO VALUE WITH PTR2
+900          LDBD R46,=TYPA          !   GET TYPE OF MATRIX A
+910          JSB =ROMJSB  
+920          DEF FETCH-              !   R40 VALUE OF A(I,J)
+930          BYT 260
+940          TSB R32                 !   TEST CONVERT FLAG
+950          JZR EEND1               !   IF (CONVERT)
+960          CMB R44,=377            !      INTEGER ?
+970          JNC EEND2               !      IF (INTEGER)
+980          STM R40,R60             !         MOVE VALUE
+990          JSB =INTORL             !         CONVERT IT
+1000          STM R60,R40            !         MOVE IT BACK
+1010 EEND2    BSZ 0                  !      END IF
+1020 EEND1    BSZ 0                  !   END IF
+1030          JSB =ROMJSB  
+1040          DEF STOV               !   STORE IN C(I,J)
+1050          BYT 260
+1060          JSB =ROMJSB  
+1070          DEF NXTA               !   ADDR NEXT A(I,J)
+1080          BYT 260
+1090          DCM R30                !   COUNT = COUNT - 1
+1100          JNZ EQULOP             !UNTIL (COUNT = 0)
+1110          JSB =ROMJSB  
+1120          DEF GETREG             !RESTORE REGISTERS
+1130          BYT 260
+1140          RTN 
+1150 !
+1160 !*************  LINK NEXT SEGMENT    ************************
+1170          LNK ROM2-2A

@@ -1,0 +1,47 @@
+00010          NAM  35,ADC     
+00020          DEF  RUNTIM  
+00030          DEF  TOKS    
+00040          DEF  PARSE   
+00050          DEF  ERMSG   
+00060 RUNTIM   DEF  INIT    
+00070 PARSE    DEF  POT.    
+00080 ERMSG    BYT  377,377
+00090 TOKS     ASP  "POT"
+00100          BYT  377
+00110          BYT  20,55
+00120 POT.     JSB  =ONEI    
+00130          BIN  
+00140          LDMD R14,=BINTAB  
+00150          TSM  R46
+00160          JZR  OK      
+00170 ERR      JSB  =ERROR+  
+00180          BYT  11D
+00190 OK       CMB  R45,=8D
+00200          JCY  ERR     
+00210          LLB  R45
+00220          STBD R45,=ADC     
+00230          JSB  X14,DELAY   
+00240          ICB  R45
+00250          STBD R45,=ADC     
+00260          JSB  X14,DELAY   
+00270          DCB  R45
+00280          STBD R45,=ADC     
+00290          JSB  X14,DELAY   
+00300          ADB  R45,=20
+00310          STBD R45,=ADC     
+00320          JSB  X14,DELAY   
+00330          CLM  R36
+00340          LDBD R36,=ADC     
+00350          JSB  =CONBIN  
+00360          PUMD R40,+R12
+00370 INIT     RTN  
+00380 DELAY    LDM  R34,=1,0
+00390 DELAY-   DCM  R34
+00400          JNZ  DELAY-  
+00410          RTN  
+00420 ADC      DAD  177776
+00430 BINTAB   DAD  104070
+00440 CONBIN   DAD  4401
+00450 ERROR+   DAD  10220
+00460 ONEI     DAD  56736
+00470          FIN  

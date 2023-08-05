@@ -1,0 +1,3 @@
+#!/bin/bash
+CAPASM_DIRECTORY=$HOME/capasm-0.9.5
+$CAPASM_DIRECTORY/start.py capasm $*

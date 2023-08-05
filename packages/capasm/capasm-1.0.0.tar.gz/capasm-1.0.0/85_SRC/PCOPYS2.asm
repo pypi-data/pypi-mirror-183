@@ -1,0 +1,531 @@
+0010 !  ************************
+0020 !  * PCOPY UTILITY BINARY  
+0030 !  * for use with the fol- 
+0040 !  * lowing printers:....  
+0050 !  * 82905A --- <PCOPY>    
+0060 !  * 82905B --- <PCOPYB>   
+0070 !  * HP-2631G-- <RDUMP>    
+0080 !  * other HP printers...  
+0090 !  * (c) HEWLETT-PACKARD CO
+0100 ! *         1981          
+0110 ! * 29 SEPT 1981          
+0120 ! ************************
+0130        GLO  GLOBAL
+0140 ! DUMP GRAPHIC
+0150 ! 
+0160        NAM  PCOPYB
+0170        DEF  RUNTIM
+0180        DEF  ASCIIS
+0190        DEF  PARSE 
+0200        DEF  ERMSG 
+0210        DEF  INIT  
+0220 PARSE  BYT  0,0
+0230        DEF  DGRPAR
+0240        DEF  DGRPAR
+0250        DEF  GRDPAR
+0260        DEF  RDMPAR
+0270        DEF  UNLODP
+0280 RUNTIM BYT  0,0
+0290        DEF  PCOPB.
+0300        DEF  PCOPY.
+0310        DEF  GREAD.
+0320        DEF  RDUMP.
+0330        DEF  SCRB. 
+0340        DEF  REV.  
+0350        BYT  377,377
+0360 ASCIIS BSZ  0
+0370        ASP  "PCOPYB"
+0380        ASP  "PCOPY"
+0390        ASP  "GREAD"
+0400        ASP  "RDUMP"
+0410        ASP  "SCRATCHBIN"
+0420        ASP  "REV"
+0430 ERMSG  BYT  377
+0440 INIT   RTN  
+0450 ! *************************
+0460 ! * PARSE EPSON W/ 1 PARAM 
+0470 ! *************************
+0480 DGRPAR PUBD R43,+R6
+0490        JSB  =GETPA?
+0500        POBD R57,-R12
+0510        POBD R57,-R6
+0520        CMB  R34,=4
+0530        JCY  PARER 
+0540 ONESOK CMB  R34,=1
+0550        JCY  GOTNUM
+0560 PARER  JSB  =ERROR+
+0570        BYT  81D
+0580 GOTNUM LDB  R55,=371
+0590        PUMD R55,+R12
+0600 OOPS   RTN  
+0610 GRDPAR PUBD R43,+R6
+0620        JSB  =SCAN  
+0630        JSB  =STRREF
+0640        POBD R43,-R6
+0650        CMB  R14,=COMMA 
+0660        JNZ  PARER 
+0670        PUBD R43,+R6
+0680        JSB  =NUMVA+
+0690        POBD R57,-R6
+0700        JEZ  PARER 
+0710        JMP  GOTNUM
+0720 RDMPAR PUBD R43,+R6
+0730        JSB  =GETPA?
+0740        POBD R57,-R12
+0750        POBD R57,-R6
+0760        CMB  R34,=3
+0770        JCY  PARER 
+0780        JMP  ONESOK
+0790 UNLODP LDB  R47,R43
+0800        LDB  R45,=371
+0810        PUMD R45,+R12
+0820        JSB  =SCAN  
+0830        RTN  
+0840 ! *************************
+0850 ! * EPSON RUNTIME          
+0860 ! *************************
+0870 THREE  JSB  =ONEB  
+0880        STBD R#,=ROTATE
+0890 TWO    JSB  =ONEB  
+0900        JMP  ONE   
+0910        BYT  241
+0920 PCOPY. CLB  R36
+0930        JMP  PCOPCM
+0940        BYT  241
+0950 PCOPB. CLB  R36
+0960        ICB  R36
+0970 PCOPCM LDMD R14,=BINTAB
+0980        STBD R36,X14,FLAG  
+0990        BIN  
+1000        CLB  R26
+1010        STBD R26,=ROTATE
+1020        LDM  R26,R12
+1030        SBMD R26,=TOS   
+1040        CMB  R26,=30
+1050        JZR  THREE            !      three parameters present?
+1060        CMB  R26,=20
+1070        JZR  TWO              !      two parameters present ?
+1080        LDB  R26,=22
+1090 ONE    STBD R#,=OFFSET
+1100        JSB  =ONER  
+1110        STMD R#,=SCTEMP
+1120        LDMD R14,=BINTAB
+1130        LDBD R0,X14,FLAG  
+1140        JZR  FLAGA 
+1150        LDM  R36,=5,0         !  82905B TOKS
+1160        STMD R36,=DATLEN
+1170        LDM  R43,=33,46,154,71,104
+1180        STMD R43,=INPBUF
+1190        JMP  COMMON
+1200 FLAGA  LDM  R36,=3,0         !  82905A TOKS
+1210        STMD R36,=DATLEN
+1220        LDM  R45,=33,101,10
+1230        STMD R45,=INPBUF
+1240 COMMON LDM  R26,=INPBUF
+1250        STMD R26,=RESDAT
+1260        JSB  =ROMJSB
+1270        DEF  LDSC++
+1280        BYT  360
+1290        CMB  R17,=300
+1300        JCY  RETURN
+1310        JMP  OVERSB
+1320 RETURN RTN  
+1330 ! ************************
+1340 !  SUBROUTIN
+1350 ! ************************
+1360 CRTFLT LDMD R14,=AGLBAS
+1370        LDMD R22,X14,SAVE22
+1380        LDM  R34,R22
+1390        ICM  R34
+1400        LDM  R46,=220,1
+1410        JSB  =ROMJSB
+1420        DEF  CONTR+
+1430        BYT  360
+1440        LDM  R46,=221,15
+1450        JSB  =ROMJSB
+1460        DEF  CONTR+
+1470        BYT  360
+1480        LDM  R46,=222,12
+1490        JSB  =ROMJSB
+1500        DEF  CONTR+
+1510        BYT  360
+1520        JSB  =GRAPH.
+1530        LDM  R34,=0,20
+1540        STMD R34,=CRTBAD
+1550        RTN  
+1560 OVERSB LDMD R14,=BINTAB
+1570        JSB  X14,CRTFLT
+1580        LDM  R34,=276,77
+1590        STMD R34,=ROTPOS
+1600        LDB  R65,=30          ! ROW COUNTER
+1610        LDBD R76,=ROTATE
+1620        JZR  OUTLUP
+1630        LDB  R65,=40
+1640 OUTLUP LDM  R76,=BSZM2 
+1650        ADMD R76,=BINTAB
+1660        LDB  R75,=40
+1670        LDBD R34,=OFFSET
+1680        JZR  NOOFF 
+1690        CMB  R34,=65D
+1700        JCY  NOOFF 
+1710 OFFPU  PUBD R75,+R76
+1720        DCB  R34
+1730        JNZ  OFFPU 
+1740 NOOFF  LDMD R14,=BINTAB
+1750        LDBD R0,X14,FLAG  
+1760        JZR  REG54 
+1770        LDM  R51,=33,52,142,62,65,66,107
+1780        JMP  COM50S
+1790 REG54  LDM  R54,=33,113,0,1
+1800 COM50S PUMD R#,+R76
+1810 ! *************************
+1820 !   FETCH ONE LIN
+1830 ! *************************
+1840        LDBD R34,=ROTATE
+1850        JNZ  ROTAT 
+1860        LDM  R56,=RECBUF
+1870 LOOP   JSB  =INCHR 
+1880        PUBD R#,+R56
+1890        DCB  R34
+1900        JNZ  LOOP  
+1910 ! *************************
+1920 !  PROCESS ONE LIN
+1930 ! *************************
+1940        CLM  R66
+1950 NOTYET LDB  R0,=50
+1960 LOOP2  LDBD R*,X66,RECBUF
+1970        ICB  R0
+1980        CMB  R0,=60
+1990        JZR  PROCES
+2000        ADM  R66,=40,0
+2010        JMP  LOOP2 
+2020 OUTJM2 JMP  OUTLUP
+2030 ! 
+2040 PROCES LDB  R34,=10
+2050        TSM  R50
+2060        JNZ  NXT   
+2070        PUMD R50,+R76
+2080        JMP  ADDRE 
+2090 NXT    LDB  R0,=50
+2100        CLB  R35
+2110 TSB    LLB  R35
+2120        TSB  R*
+2130        JPS  SHIFT 
+2140        ICB  R35
+2150 SHIFT  ICB  R0
+2160        CMB  R0,=60
+2170        JNZ  TSB   
+2180        LLM  R50
+2190        PUBD R35,+R76
+2200        DCB  R34
+2210        JNZ  NXT   
+2220 ADDRE  ADM  R66,=041,377
+2230        DCB  R75
+2240        JNZ  NOTYET
+2250        JMP  SENDIT
+2260 OUTJMP JMP  OUTJM2
+2270 !   ROTATE FETCH COD
+2280 ! ************************
+2290 ROTAT  LDMD R14,=BINTAB
+2300        LDBD R0,X14,FLAG  
+2310        JZR  X05A  
+2320        POMD R54,-R76
+2330        LDM  R54,=61,71,62,107
+2340        PUMD R54,+R76
+2350        JMP  BOTH  
+2360 X05A   POMD R34,-R76
+2370        LDM  R34,=300,0
+2380        PUMD R34,+R76
+2390 BOTH   LDMD R34,=ROTPOS
+2400        ICM  R34
+2410        ICM  R34
+2420        STMD R34,=ROTPOS
+2430        STMD R34,=ROTPO2
+2440        LDB  R36,=300
+2450        JMP  LOOP2X
+2460 LOOPR  LDMD R34,=ROTPO2
+2470        SBM  R34,=100,0
+2480        STMD R34,=ROTPO2
+2490 LOOP2X JSB  =CHKSTS
+2500        STMD R34,=CRTBAD
+2510        JSB  =INCHR 
+2520        PUBD R#,+R76
+2530        DCB  R36
+2540        JNZ  LOOPR 
+2550 ! *************************
+2560 !  NOW SEND THE LIN
+2570 ! *************************
+2580 SENDIT LDMD R14,=BINTAB
+2590        JSB  X14,SEND  
+2600        JNZ  OUTJMP
+2610        LDMD R14,=BINTAB
+2620        LDBD R0,X14,FLAG  
+2630        JZR  FLAGA#
+2640        LDM  R36,=5,0
+2650        STMD R36,=DATLEN
+2660        LDM  R43,=33,46,154,66,104
+2670        STMD R43,=INPBUF
+2680        JMP  COMMO#
+2690 FLAGA# LDM  R36,=2,0
+2700        STMD R36,=DATLEN
+2710        LDM  R46,=33,62
+2720        STMD R46,=INPBUF
+2730 COMMO# JSB  =ROMJSB
+2740        DEF  LDSC++
+2750        BYT  360
+2760 QUIT   RTN  
+2770 !  ***********************
+2780 !    GREAD RUNTIM
+2790 !  ***********************
+2800        BYT  241
+2810 GREAD. JSB  =GRAPH.
+2820        JSB  =ONEB  
+2830        STM  R#,R44
+2840        POMD R34,-R12
+2850        POMD R22,-R12
+2860        JZR  QUIT  
+2870        POMD R56,-R12
+2880        TSB  R16
+2890        JOD  HEADER
+2900        ADMD R56,=FWCURR
+2910 HEADER POMD R60,+R56
+2920        JPS  LENSET
+2930        ICM  R66
+2940 LENSET LDM  R20,R34
+2950        SBM  R20,R56
+2960        ADM  R20,R22
+2970        CMM  R20,R66
+2980        JNC  LENOK 
+2990 LENOK  PUMD R20,-R56
+3000        LDMD R76,=XMAP  
+3010        STMD R76,=ROTATE
+3020        STMD R76,=ROTPOS
+3030        CMM  R76,=374,277
+3040        JCY  FILL$J
+3050 NXTP-  LDB  R0,=60
+3060        CLM  R60
+3070 NXTP   CMM  R76,=374,277
+3080        JCY  FLOPIT
+3090        JSB  =DRAW1 
+3100        JSB  =INCHR 
+3110        STB  R#,R*
+3120        CMB  R0,=67
+3130        JZR  FLOPIT
+3140        ICB  R0
+3150        LDMD R76,=ROTATE
+3160        ADM  R76,=0,1
+3170        STMD R76,=ROTATE
+3180        JMP  NXTP  
+3190 FLOPIT LDB  R36,=10
+3200        TSM  R60
+3210        JZR  PUSH$ 
+3220 NXTF   LDB  R0,=50
+3230        CLB  R37
+3240 TSBF   LLB  R37
+3250        TSB  R*
+3260        JPS  SHIFTF
+3270        ICB  R37
+3280 SHIFTF ICB  R0
+3290        CMB  R0,=70
+3300        JNZ  TSBF  
+3310        LLM  R60
+3320        PUBD R37,+R12
+3330        DCB  R36
+3340        JNZ  NXTF  
+3350        POMD R60,-R12
+3360 PUSH$  LDB  R0,=60
+3370 PUSH$L PUBD R*,+R34
+3380        DCM  R22
+3390        JZR  STXMAP
+3400        DCM  R46
+3410        JZR  NXTCOL
+3420        ICB  R0
+3430        CMB  R0,=70
+3440        JNZ  PUSH$L
+3450        LDMD R76,=ROTPOS
+3460        ADM  R76,=10,0
+3470 ALMOS- STMD R76,=ROTPOS
+3480        STMD R76,=ROTATE
+3490 ALMOST CMM  R76,=374,277
+3500        JNC  NXTP- 
+3510        JMP  STXMAP
+3520 FILL$J JMP  FILL$ 
+3530 NXTCOL LDM  R46,R44
+3540        LDMD R76,=XMAP  
+3550        ADM  R76,=0,10
+3560        CMM  R76,=374,277
+3570        JCY  STXMAP
+3580        STMD R76,=XMAP  
+3590        JMP  ALMOS-
+3600 STXMAP LDMD R76,=XMAP  
+3610        ADM  R76,=0,10
+3620        CMM  R76,=0,300
+3630        JCY  FILL$ 
+3640        STMD R76,=XMAP  
+3650 FILL$  TSM  R22
+3660        JZR  RDEX  
+3670        LDB  R32,=BLANK 
+3680 EXLOP  PUBD R32,+R34
+3690        DCM  R22
+3700        JNZ  EXLOP 
+3710 RDEX   RTN  
+3720 ! ************************
+3730 !   RASTER DUM
+3740 ! ************************
+3750        BYT  241
+3760 RDUMP. BIN  
+3770        CLM  R40
+3780        LDM  R26,R12
+3790        SBMD R26,=TOS   
+3800        CMB  R26,=20
+3810        JNZ  SCONLY
+3820        JSB  =ONER  
+3830 SCONLY STMD R40,=RECBUF
+3840        JSB  =ONER  
+3850        STMD R#,=SCTEMP
+3860        LDM  R36,=4,0
+3870        STMD R36,=DATLEN
+3880        LDM  R44,=33,52,162,101
+3890        STMD R44,=INPBUF
+3900        LDM  R26,=INPBUF
+3910        STMD R26,=RESDAT
+3920        JSB  =ROMJSB
+3930        DEF  LDSC++
+3940        BYT  360
+3950        CMB  R17,=300
+3960        JCY  RDEX  
+3970        LDMD R14,=BINTAB
+3980        JSB  X14,CRTFLT
+3990        LDMD R40,=RECBUF
+4000        JZR  NOOFST
+4010        LDM  R30,=INPBUF
+4020        STMD R30,=RESDAT
+4030        LDM  R55,=33,52,162
+4040        PUMD R55,+R30
+4050        CLM  R54
+4060        BIN  
+4070        JSB  =CVNUM 
+4080        BIN  
+4090        LDB  R57,=130
+4100        PUBD R57,+R30
+4110        SBM  R30,=INPBUF
+4120        STMD R30,=DATLEN
+4130        JSB  =ROMJSB
+4140        DEF  LDSC++
+4150        BYT  360
+4160 NOOFST LDB  R65,=300
+4170 OUTL   LDM  R76,=BSZM2 
+4180        ADMD R76,=BINTAB
+4190        LDM  R42,=33,52,142,63,62,127
+4200        PUMD R42,+R76
+4210        LDB  R34,=40
+4220 GETCRT JSB  =INCHR 
+4230        PUBD R#,+R76
+4240        DCB  R34
+4250        JNZ  GETCRT
+4260        LDMD R14,=BINTAB
+4270        JSB  X14,SEND  
+4280        JNZ  OUTL  
+4290        LDM  R36,=4,0
+4300        STMD R36,=DATLEN
+4310        LDM  R44,=33,52,162,102
+4320        STMD R44,=INPBUF
+4330        JSB  =ROMJSB
+4340        DEF  LDSC++
+4350        BYT  360
+4360        RTN  
+4370 ! ************************
+4380 SEND   LDB  R26,=12
+4390        PUBD R26,+R76
+4400        SBMD R76,=BINTAB
+4410        SBM  R76,=BSZM2 
+4420        LDM  R36,R76
+4430        STMD R36,=DATLEN
+4440        LDM  R26,=BSZM2 
+4450        ADMD R26,=BINTAB
+4460        STMD R26,=RESDAT
+4470        PUBD R65,+R6
+4480        JSB  =ROMJSB
+4490        DEF  LDSC++
+4500        BYT  360
+4510        POBD R65,-R6
+4520        DCB  R65
+4530        JNZ  SNDEX 
+4540        LDMD R14,=AGLBAS
+4550        LDMD R22,X14,SAVE22
+4560        LDM  R34,R22
+4570        ICM  R34
+4580        LDM  R46,=220,2
+4590        JSB  =ROMJSB
+4600        DEF  CONTR+
+4610        BYT  360
+4620        LDM  R26,=INPBUF
+4630        STMD R26,=RESDAT
+4640        CLM  R26
+4650 SNDEX  RTN  
+4660        BYT  241
+4670 SCRB.  STBD R#,=GINTDS
+4680        LDMD R24,=BINTAB
+4690        DCM  R24
+4700        LDMD R26,=LWAMEM
+4710        STM  R26,R22
+4720        SBM  R22,R24
+4730        LDB  R20,=4
+4740        LDM  R32,=LAVAIL
+4750 UNLD1  LDMD R36,R32
+4760        ADM  R36,R22
+4770        PUMD R36,+R32
+4780        DCB  R20
+4790        JNZ  UNLD1 
+4800        LDMD R36,R32
+4810        CMMD R36,=LWAMEM
+4820        JZR  UNLD2 
+4830        ADM  R36,R22
+4840        STMD R36,R32
+4850 UNLD2  CLM  R#
+4860        STMD R#,=BINTAB
+4870        LDM  R#,R12
+4880        LDM  R41,=316
+4890        DEF  MOVDN 
+4900        STBD R#,=GINTEN
+4910        RTN  
+4920        STMD R41,R36
+4930        DCM  R36
+4940        LDM  R4,R36
+4950        BYT  0,56
+4960 REV.   JSB  =CLEAR.
+4970        LDM  R44,=192D,1
+4980        DEF  DATE  
+4990        ADMD R46,=BINTAB
+5000        PUMD R44,+R12
+5010        RTN  
+5020 DATE   ASC  " (c) HEWLETT-PACKARD COMPANY    "
+5030        ASC  "       30 SEPTEMBER 1981        "
+5040        ASC  "                                "
+5050        ASC  "  PCOPY UTILITY BINARY PROGRAM  "
+5060        ASC  "      === KEYWORDS ARE ===      "
+5070        ASC  "                                "
+5080        ASC  "PCOPY    (for 82905A printer)   "
+5090        ASC  "PCOPYB   (for 82905B printer)   "
+5100        ASC  "RDUMP    (for HP std. printers) "
+5110        ASC  "GREAD    (reads graphics screen)"
+5120        ASC  "SCRATCHBIN(scratches binary pgm)"
+5130        ASC  "REV      (displays this message)"
+5140        ASC  "                                "
+5150        ASC  "SEE DOCUMENTATION FOR DIRECTIONS"
+5160 FLAG   BSZ  1
+5170 BSZM2  BSZ  324D
+5180 LDSC++ DAD  76076
+5190 RECBUF DAD  102000
+5200 DATLEN DAD  101223
+5210 RESDAT DAD  101225
+5220 SAVE22 EQU  327
+5230 CONTR+ DAD  61417
+5240 SETSC- DAD  76752
+5250 ROTATE DAD  101010
+5260 OFFSET DAD  101011
+5270 ROTPOS DAD  101012
+5280 ROTPO2 DAD  101014
+5290 COMMA  EQU  54
+5300 DRAW1  DAD  31757
+5310        FIN  

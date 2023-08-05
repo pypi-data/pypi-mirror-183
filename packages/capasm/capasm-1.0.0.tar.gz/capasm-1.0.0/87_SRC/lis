@@ -1,0 +1,211 @@
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 211 lines processed, 0 error(s) encountered
+ 4603 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 69 lines processed, 0 error(s) encountered
+ 165 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 62 lines processed, 0 error(s) encountered
+ 113 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+000066 000 200     01240          ASP  ""
+**ERROR(P) at CFORMS.asm(25): Illegal string
+000442 316 000 000 02530          JSB  =CRTWPO          ! 
+**ERROR(P) at CFORMS.asm(154): Label not found
+001331 316 000 000 04780          JSB  =PAGES1  
+**ERROR(P) at CFORMS.asm(385): Label not found
+001336 316 000 000 04800 SIZE24   JSB  =PAGES2  
+**ERROR(P) at CFORMS.asm(387): Label not found
+002422 000         07810          VAL  MSROM#  
+**ERROR(P) at CFORMS.asm(692): Label not found
+002441 000         07870          VAL  MSROM#  
+**ERROR(P) at CFORMS.asm(698): Label not found
+002444 130 250 000 07890          LDB  R30,=MSROM#  
+**ERROR(P) at CFORMS.asm(700): Label not found
+002457 130 250 000 07940 STO-OK   LDB  R30,=FRMTYP  
+**ERROR(P) at CFORMS.asm(705): Label not found
+002726 000         08700          VAL  MSROM#  
+**ERROR(P) at CFORMS.asm(781): Label not found
+Assembly completed
+ 833 lines processed, 9 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 217 lines processed, 0 error(s) encountered
+ 387 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+000247 000 200     01600          ASP  ""             ! 
+**ERROR(P) at FORMS.asm(61): Illegal string
+000430 263 000 000 01990          STMD R#,=F.CAT   
+**ERROR(P) at FORMS.asm(100): Label not found
+000677 156 250 000 03010          LDB  R56,=FRMTYP      !  Establish File Type FORM
+**ERROR(P) at FORMS.asm(202): Label not found
+000712 000         03060          VAL  MSROM#           ! 
+**ERROR(P) at FORMS.asm(207): Label not found
+000727 000 000     03130          DEF  TAPDS-           !  Set MSUS & Get The File Name
+**ERROR(P) at FORMS.asm(214): Label not found
+000731 000         03140          VAL  MSROM#           ! 
+**ERROR(P) at FORMS.asm(215): Label not found
+000775 316 000 000 03300          JSB  =PAGES1  
+**ERROR(P) at FORMS.asm(231): Label not found
+001002 316 000 000 03320 PAG24    JSB  =PAGES2  
+**ERROR(P) at FORMS.asm(233): Label not found
+001012 316 000 000 03350          JSB  =CRTWPO  
+**ERROR(P) at FORMS.asm(236): Label not found
+001304 000         04200          VAL  MSROM#  
+**ERROR(P) at FORMS.asm(321): Label not found
+001310 000 000     04220          DEF  LOADB$  
+**ERROR(P) at FORMS.asm(323): Label not found
+001312 000         04230          VAL  MSROM#  
+**ERROR(P) at FORMS.asm(324): Label not found
+Assembly completed
+ 765 lines processed, 12 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+000000             01002          GLO  
+**ERROR(P) at GLOBS.asm(2): Illegal number of operands
+Assembly completed
+ 1443 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 715 lines processed, 0 error(s) encountered
+ 2405 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+000075 000 200     00160          ASP  ""
+**ERROR(P) at KEYONS.asm(16): Illegal string
+Assembly completed
+ 253 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:55
+(c) Joachim Siebold 2020
+
+
+000171 000 200     00280          ASP  ""
+**ERROR(P) at LINCURS.asm(28): Illegal string
+Assembly completed
+ 146 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 75 lines processed, 0 error(s) encountered
+ 168 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 75 lines processed, 0 error(s) encountered
+ 168 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+004306 000 040 040 4790 LINE   ASC  "           "
+004311 040 040 040 
+004314 040 040 040 
+004317 040 040 040 
+**ERROR(P) at PIIS1.asm(478): Illegal string
+004322 040 000     4800 TAIL   ASC  " "
+**ERROR(P) at PIIS1.asm(479): Illegal string
+004324 000 000 000 4810 HEAD   ASC  "  ÈÉÓÔÏÒÙº  "
+004327 000 000 000 
+004332 000 000 000 
+004335 000 000 000 
+004340 000 000 
+**ERROR(P) at PIIS1.asm(480): Illegal string
+004342 000 000 000 4820 FOOT   ASC  "            "
+004345 000 000 000 
+004350 000 000 000 
+004353 000 000 000 
+004356 000 000 
+**ERROR(P) at PIIS1.asm(481): Illegal string
+Assembly completed
+ 910 lines processed, 4 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 248 lines processed, 0 error(s) encountered
+ 423 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 47 lines processed, 0 error(s) encountered
+ 124 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+000075 000 200     00160          ASP  ""
+**ERROR(P) at R6-7KEYONS.asm(16): Illegal string
+Assembly completed
+ 247 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+000075 000 200     00160          ASP  ""
+**ERROR(P) at R6KEYONS.asm(16): Illegal string
+Assembly completed
+ 247 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 235 lines processed, 0 error(s) encountered
+ 540 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 242 lines processed, 0 error(s) encountered
+ 297 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:32:56
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 164 lines processed, 0 error(s) encountered
+ 4550 bytes of code written to object file

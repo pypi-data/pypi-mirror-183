@@ -1,0 +1,55 @@
+NCAS
+(c) Joachim Siebold
+
+    1 0000                    ABS
+    2 0000                    ORG 6000H
+    3 6000                    .IFDEF TEST1
+    4 6000                    DATA "TEST1 IS SET"
+    5 6000                      .IFDEF TEST2
+    6 6000                      DATA "TEST2 IS SET"
+    7 6000                      .ELSE 
+    8 6000                      DATA "TEST2 IS NOT SET"
+    9 6000                      .ENDIF
+   10 6000                    .ELSE
+   11 6000                      .SET TEST8
+   12 6000                      .CLR TEST9
+   13 6000                      .IFDEF TEST3
+   14 6000                      DATA "TEST3 IS SET"
+   15 6000                      .ELSE
+   16 6000 54 45 53 54          DATA "TEST3 IS NOT SET"
+      6004 33 20 49 53 
+      6008 20 4E 4F 54 
+      600C 20 53 45 54 
+   17 6010                      .ENDIF
+   18 6010                      .IFDEF TEST8
+   19 6010 54 45 53 54          DATA "TEST8 IS SET"
+      6014 38 20 49 53 
+      6018 20 53 45 54 
+   20 601C                      .ENDIF
+   21 601C                      .IFDEF TEST9
+   22 601C 54 45 53 54          DATA "TEST9 IS NOT SET"
+      6020 39 20 49 53 
+      6024 20 4E 4F 54 
+      6028 20 53 45 54 
+   23 602C                      .ENDIF
+   24 602C                      .IFNDEF TEST9
+   25 602C                      DATA "TEST9 IS NOT SET"
+   26 602C                      .ENDIF
+   27 602C 54 45 53 54        DATA "TEST1 IS NOT SET"
+      6030 31 20 49 53 
+      6034 20 4E 4F 54 
+      6038 20 53 45 54 
+   28 603C                    .ENDIF
+   29 603C                    .IFSET TEST2
+   30 603C 54 45 53 54        DATA "TEST2 IS SET"
+      6040 32 20 49 53 
+      6044 20 53 45 54 
+   31 6048                    .ENDIF
+   32 6048                    END
+ 
+0 Symbols used:
+
+Index of source files in symbol cross reference:
+Assembly completed
+ 32 lines processed, 0 error(s) 0 warning(s)
+ 72 bytes of code written to object file

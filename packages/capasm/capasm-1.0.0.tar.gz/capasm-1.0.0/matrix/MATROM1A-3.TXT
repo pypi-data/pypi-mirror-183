@@ -1,0 +1,1925 @@
+95 !! updated JFG March2020
+97 !! to match Matrix ROM 1 00087-15004 REV.A
+100          HED "MAT C = B*TRN(A), TRN(B)*A ROUTINES"
+110 !*************  ATTRIBUTES TABLE  ***************************
+120          BYT 11,51
+130 !************************************************************
+140 !*** MAT C = B * TRN(A)                                   ***
+150 !***       MULTIPLY AN ARRAY BY THE TRANSPOSE OF AN ARRAY ***
+160 !*** IN  : REL ADDR C                                     ***
+170 !***       REL ADDR B                                     ***
+180 !***       REL ADDR A                                     ***
+190 !***                 <--- R12                             ***
+200 !*** OUT : STACK POPPED AND RESULT ARRAY ASSIGNED         ***
+210 !***       (AND REDIMENSIONED IF NECESSARY)               ***
+220 !************************************************************
+230 !
+240 B*TRN.   BSZ 0
+250          CLB R70
+260          ICB R70                 !FLAG B*TRN(A)
+270          JMP MAT-                !FIND B*TRN(A)
+280 !
+290 !*************  ATTRIBUTES TABLE  ***************************
+300          BYT 11,51
+310 !************************************************************
+320 !*** MAT C = TRN(B) * A                                   ***
+330 !***       MULTIPLY A TRANPOSE OF AN ARRAY BY AN ARRAY    ***
+340 !*** IN  : REL ADDR C                                     ***
+350 !***       REL ADDR B                                     ***
+360 !***       REL ADDR A                                     ***
+370 !***                 <--- R12                             ***
+380 !*** OUT : STACK POOPED AND RESULT ARRAY ASSIGNED         ***
+390 !***       (AND REDIMENSIONED IF NECESSARY)               ***
+400 !************************************************************
+410 !
+420 TRN*A.   BSZ 0
+430          LDB R70,=2              !FLAG TRN(B)*A
+440          JMP MAT-                !FIND TRN(B)*A
+450 !
+460          HED "MATRIX C = BA MULTIPLY ROUTINE"
+470 !****  MAT MUL ATTRIBUTES TABLE  ******************************
+480          BYT 11,51
+490 !********************************************************************
+500 !*** MAT C = B * A                                                ***
+510 !***       CALCULATES THE PRODUCT OF TWO ARRAYS.  THE VALUE       ***
+520 !***       OF EACH ELEMENT OF THE RESULT ARRAY IS DETERMINED      ***
+530 !***       ACCORDING TO THE USUAL RULES OF MATRIX MULTIPLICATION. ***
+540 !***                    Nb                                        ***
+550 !***          C(I,K) = Sum B(I,J) * A(J,K)                        ***
+560 !***                   J=1                                        ***
+570 !***       THE NUMBER OF COLUMNS IN THE 1st OPERAND ARRAY (B)     ***
+580 !***       MUST BE THE SAME AS THE NUMBER OF ROWS IN THE 2nd      ***
+590 !***       OPERAND ARRAY (A).  THE RESULT ARRAY (C) HAS THE SAME  ***
+600 !***       NUMBER OF ROWS AS THE 1st OPERAND ARRAY AND THE SAME   ***
+610 !***       NUMBER OF COLS AS THE 2st OPERAND ARRAY.               ***
+620 !***       EITHER (BUT NOT BOTH) OF THE OPERAND ARRAYS CAN BE     ***
+630 !***       VECTORS.                                               ***
+640 !***                                                              ***
+650 !***      THE MULTIPLICATION ROUTINE IS ALSO USED TO CALCULATE    ***
+660 !***      THE RESIDUAL MATRIX -- R -- FOR THE SYS(A,B) STATEMENT. ***
+670 !***                            Na                                ***
+680 !***         R(I,K) = B(I,K) - Sum A(I,J) * Q(J,K)                ***
+690 !***                           J=1                                ***
+700 !***                                                              ***
+710 !*** IN  : FOR B*A & B*TRN(A) & TRN(B)*A:                         ***
+720 !***                                                              ***
+730 !***       REL ADDR C                                             ***
+740 !***       REL ADDR B                                             ***
+750 !***       REL ADDR A                                             ***
+760 !***                 <--- R12                                     ***
+770 !***                                                              ***
+780 !***       FOR R=B-AQ:                                            ***
+790 !***                                                              ***
+800 !***       TYPB (1 BYTE)                                          ***
+810 !***       INCRB (2 BYTES)                                        ***
+820 !***       ABS ADDR Bb                                            ***
+830 !***       REL ADDR R                                             ***
+840 !***       REL ADDR A                                             ***
+850 !***       REL ADDR Q                                             ***
+860 !***                 <--- R12                                     ***
+870 !***                                                              ***
+880 !*** OUT : STACK POPPED AND RESULT ARRAY ASSIGNED                 ***
+890 !***       (AND REDIMENSIONED IF NECESSARY).                      ***
+900 !********************************************************************
+910 !
+920 MATMUL   BSZ 0                   !ENTRY FOR C = B * A
+930          CLB R70                 !FLAG C = B * A
+940 MAT-     BSZ 0                   !ENTRY FOR B-AQ,TRN(B)*A,B*TRN(A)
+950          JSB =LOCSZ              !Ba, Ma, Na
+960          CMB R70,=1              !LOOK AT OPERATION FLAG
+970          JNZ NOTRNA              !IF (B * TRN(A))
+980          JSB =SWAPEM             !   SWAP Ma & Na
+990 NOTRNA   BSZ 0                   !END IF
+1000          LDM R74,R22            !SAVE Ma, Na
+1010          JSB =LOCSZI            !Bb, Mb,Nb
+1020          CMB R70,=2             !LOOK AT OPERATION FLAG
+1030          JNZ NOTRNB             !IF (TRN(B) * A)
+1040          JSB =SWAPEM            !   SWAP Mb & Nb
+1050 NOTRNB   BSZ 0                  !END IF
+1060          CMM R24,R74            !Nb (COLS B) = Ma (ROWS A) ?
+1070          JZR MMEND1             !IF (Nb <> Ma)
+1080          JSB =MISMAT            !   ERROR -- EXIT
+1090 MMEND1   BSZ 0                  !END IF
+1100          LDM R20,R24            !SAVE NUM COL OF B (Nb)
+1110          JSB =RDIM-             !REDIM C TO Mb X Na
+1120          JSB =ZERTST            !TEST FOR NULL ARRAY
+1130          JNZ MMCONT             !IF (NULL ARRAY)
+1140          RTN                    !   EXIT
+1150 MMCONT   BSZ 0                  !END IF
+1160          JSB =C=AORB            !SEE IF TEMP MEM NEEDED
+1170          PUBD R70,+R6           !SAVE OPERATION FLAG
+1180          PUMD R22,+R6           !SAVE Mc
+1190          LDMD R55,=TMP2         !GET Bb
+1200          PUMD R55,+R6           !SAVE IT
+1210          LDMD R55,=TYPA         !GET TYPE & INCR OF A
+1220          PUMD R55,+R6           !SAVE THEM
+1230          LDMD R55,=TYPB         !GET TYPE & INCR OF B
+1240          PUMD R55,+R6           !SAVE THEM
+1250 !   ******************************
+1260 !   * MATRIX MULTIPLICATION LOOP *
+1270 !   ******************************
+1280          PUMD R24,+R6           !SAVE Na : NUM COLS A
+1290          STM R24,R76            !MOVE Na FOR INCSUB
+1300          JSB =ROMJSB  
+1310          DEF COLINT             !INIT COL PTR TO A
+1320          BYT 261
+1330          LDM R24,R26            !GET OLD Na OR Nb
+1340          STM R24,R76            !MOVE IT FOR INCSUB
+1350          CMB R70,=1
+1360          JNZ NOCOLA             !IF (B * TRN(A))
+1370          LDM R56,R63            !   GET ELE SIZE A
+1380          STMD R56,=INCRA        !   INCRA FOR NEXT ROW ELE
+1390          JSB =ACOLEL            !   GET COL INCR FOR A
+1400          STMD R24,=TMP3         !   SAVE IN TMP3 FOR COLNXT
+1410 NOCOLA   BSZ 0
+1420          CMB R70,=2
+1430          JNZ NOCOLB             !ELSE IF (TRN(B) * A)
+1440          JSB =BCOLEL            !   GET COL INCR FOR B
+1450          STMD R24,=INCRB        !   INCRB FOR NEXT COL ELE
+1460 NOCOLB   BSZ 0                  !END IF
+1470          POMD R24,-R6           !RESTORE Na
+1480 MMROW    BSZ 0                  !REPEAT
+1490          STM R24,R26            !   COLS = Na
+1500 MMCOL    BSZ 0                  !   REPEAT
+1510          LDM R14,R20            !      ROWS = Nb
+1520          TSB R70                !      TEST OPERATION FLAG
+1530          JNG MMELS3             !      IF (B * A)
+1540          JSB =DOTPRD            !         Sum B(I,J) * A(J,K)
+1550          JMP MMEND3  
+1560 MMELS3   BSZ 0                  !      ELSE - (R=B-AQ)
+1570          POMD R52,-R12          !         GET TYPB, INCRB, ADDR B(I,K)
+1580          STB R52,R46            !         SET TYPB
+1590          DRP R55                !         SET FETCH ADDR FOR B(I,K)
+1600          JSB =FETCH             !         FETCH VALUE B(I,K)
+1610          LDM R75,R53            !         MOVE INCRB
+1620          CLB R77                !         CLEAR FOR 3 BYTE SUBTRACT
+1630          SBM R55,R75            !         NEXT ADDR B(I,K)
+1640          PUMD R52,+R12          !         NEXT TYPB, INCRB, ADDR B(I,K)
+1650          PUMD R40,+R12          !         PUSH VALUE OF B(I,K)
+1660          JSB =ONER              !         CONVERT IT TO REAL
+1670          JSB =DOT38             !         B(I,K) - Sum A(I,J) * Q(J,K)
+1680          JSB =RONF5-            !         ROUND RESULT
+1690 MMEND3   BSZ 0                  !      END IF
+1700          JSB =STOV              !      STORE C(I,K) (OR R(I,K)
+1710          JSB =ROMJSB  
+1720          DEF COLNXT             !      NEXT COL OF A
+1730          BYT 261
+1740          LDMD R65,=TMP2         !      GET PTR ROW B
+1750          LDMD R75,=TMP2+        !      OLD PTR ROW B
+1760          STMD R75,=TMP2         !      DO ROW AGAIN
+1770          DCM R26                !      COLS = COLS - 1
+1780          JNZ MMCOL              !   UNTIL (COLS = 0)
+1790          CMB R70,=2             !   LOOK AT OPERATION FLAG
+1800          JNZ NCOLB              !   IF (TRN(B) * A)
+1810          POMD R66,-R6           !      GET OLD INCRB
+1820          PUMD R66,+R6           !      PUT IT BACK ON STACK
+1830          STM R66,R55            !      MOVE INCRB
+1840          CLB R57                !      CLEAR FOR 3 BYTE SUBTRACT
+1850          SBM R75,R55            !      NEXT COLUMN OF B
+1860          STM R75,R65            !      MOVE IT
+1870 NCOLB    BSZ 0                  !   END IF
+1880          STMD R65,=TMP2         !   POINT NEXT ROW B
+1890          STMD R65,=TMP2+        !   SAVE IT
+1900          LDMD R65,=TMP1+        !   GET Ba
+1910          STMD R65,=TMP1         !   RESET PTR COL A
+1920          STMD R65,=TMP3+        !   FOR COLNXT
+1930          DCM R22                !   ROWS = ROWS - 1
+1940          JNZ MMROW              !UNTIL (ROWS = 0)
+1950 !        ***********************
+1960 !        **  CLEAN UP STACK   **
+1970 !        ***********************
+1980          POMD R65,-R6           !GET TYPE & INCR B
+1990          STMD R65,=TYPB         !RESTORE THEM
+2000          POMD R65,-R6           !GET TYPE & INCR A
+2010          STMD R65,=TYPA         !RESTORE THEM
+2020          POMD R65,-R6           !GET Bb
+2030          STMD R65,=TMP2+        !SAVE IT
+2040          POMD R22,-R6           !GET Mc
+2050          JSB =COPYAB            !SEE IF COPY NEEED
+2060          POBD R70,-R6           !GET OPERATION FLAG
+2070          TSB R70                !TEST FLAG
+2080          JPS MMEND4             !IF (FLAG < 0)
+2090          POMD R52,-R12          !   GET RID OF TYPB, INCRB, ADDR B(I,K)
+2100 MMEND4   BSZ 0                  !END IF
+2110          RTN 
+2120 !
+2130 !************************************************
+2140 !*** IN  : R22 = Ma (OR Mb)                   ***
+2150 !***       R24 = Na (OR Nb)                   ***
+2160 !*** OUT : R22 = Na (OR Nb)                   ***
+2170 !***       R24 = Ma (OR Mb)                   ***
+2180 !***       R26 = OLD Na (OR Nb)               ***
+2190 !************************************************
+2200 !
+2210 SWAPEM   BSZ 0
+2220          STM R22,R26            !SAVE ROW
+2230          LDM R22,R24            !SWAP COL
+2240          STM R26,R24            !SWAP ROW
+2250          LDM R26,R22            !SAVE OLD COL
+2260          RTN 
+2270 !
+2280 !******************************************************************
+2290 !*** C=AORB : IF THE RESULT ARRAY IS EQUAL TO AN OPERAND ARRAY  ***
+2300 !***          THE ROUTINE WILL RESERVE MEMORY FOR THE RESULT.   ***
+2310 !*** IN  : TMP1 = Ba                                            ***
+2320 !***       TMP2 = Bb                                            ***
+2330 !***       R65  = Bc                                            ***
+2340 !*** OUT : R71  = 0   IF C <> A AND C<>B                        ***
+2350 !***       R71  = 1   IF C =A                                   ***
+2360 !***       R71  = 377 IF C = B                                  ***
+2370 !***       R30  = ELEMENT SIZE OF A OR B IF C = A OR B          ***
+2380 !******************************************************************
+2390 !
+2400          LST 
+2410 C=AORB   BSZ 0
+2420 !        UNL
+2430          CLB R71                !ASSUME ADDR'S DIFFERENT
+2440          CMMD R65,=TMP1    
+2450          JNZ C&B                !IF (C = A)
+2460          LDMD R30,=INCRA        !   GET ELEMENT SIZE OF A
+2470          JSB =BASE=             !   RESERVE MEMORY TO COPY A
+2480          ICB R71                !   FLAG C = A
+2490          JMP C=END   
+2500 C&B      BSZ 0
+2510          CMMD R65,=TMP2    
+2520          JNZ C=END              !ELSE IF (C = B)
+2530          LDMD R30,=INCRB        !   GET ELEMENT SIZE OF B
+2540          JSB =BASE=             !   RESERVE MEMORY TO COPY B
+2550          DCB R71                !   FLAG C = B
+2560 C=END    BSZ 0                  !END IF
+2570          RTN 
+2580 !
+2590 !*****************************************************************
+2600 !*** BASE= : RESERVES MEMORY FOR RESULT ARRAY IF THE RESULT    ***
+2610 !***         ARRAY IS EQUAL TO AN OPERAND ARRAY.               ***
+2620 !*** IN  : R22 = Ma OR Mb                                      ***
+2630 !***       R24 = Na OR Nb                                      ***
+2640 !***       R30 = ELEMENT SIZE A OR B (INCRA OR INCRB)          ***
+2650 !*** OUT : TMP3++ = BASE ADDR OF RESULT ARRAY IN TEMP MEMORY   ***
+2660 !***       TMP4+  = BASE ADDR OF RESULT ARRAY IN TEMP MEMORY   ***
+2670 !***       R65    = BASE ADDR OF RESULT ARRAY IN TEMP MEMORY   ***
+2680 !*****************************************************************
+2690 !
+2700 BASE=    BSZ 0
+2710          JSB =NUMBYT            !FIND NUM BYTES IN ARRAY
+2720          JSB =RESMEM            !RESERVE MEMORY
+2730          STMD R65,=TMP4+        !RESET Bc
+2740          STMD R65,=TMP3++       !SAVE IT FOR COPYAB
+2750          JEZ BAS=EN             !IF (NOT ENOUGH ROOM)
+2760          POMD R64,-R6           !   TRASH 2 RETURNS
+2770 BAS=EN   BSZ 0                  !END IF
+2780          RTN 
+2790 !
+2800 !*******************************************************************
+2810 !*** NUMBYT : FINDS NUMBER OF BYTES IN THE ELEMENTS OF AN ARRAY ****
+2820 !***          (DOES NOT INCLUDE BYTES OF THE ARRAY HEADER)      ****
+2830 !*** IN  : R22 = M : NUMBER OF ROWS IN ARRAY                    ****
+2840 !***       R24 = N : NUMBER OF COLUMNS IN ARRAY                 ****
+2850 !***       R30 = SIZE OF ELEMENTS IN ARRAY (8, 4 OR 3 BYTES)    ****
+2860 !*** OUT : R55 = NUMBER OF BYTES IN THE ELEMENTS OF THE ARRAY   ****
+2870 !*******************************************************************
+2880 !
+2890 NUMBYT   BSZ 0
+2900          JSB =MNMUL             !FIND M * N
+2910          LDM R66,R55            !MOVE M * N
+2920          LDM R76,R30            !MOVE ELEMENT SIZE
+2930          JSB =MNMUL3            !FIND NUM BYTES IN ARRAY ELEMENTS
+2940          RTN 
+2950 !
+2960 !******************************************************************
+2970 !*** COPYAB : COPIES SCRATCH RESULT ARRAY INTO AN OPERAND ARRAY ***
+2980 !*** IN  : R71   = 377 IF C = B (RESULT = 1st OPERAND)          ***
+2990 !***       R71   = 1   IF C = A (RESULT = 2nd OPERAND)          ***
+3000 !***       R71   = 0   IF C <> A AND C <> B                     ***
+3010 !***       TMP1  = Ba : BASE ADDR OF A                          ***
+3020 !***       TMP2  = Bb : BASE ADDR OF B                          ***
+3030 !***       TMP3++= Bc : BASE ADDR OF C                          ***
+3040 !***       TYPA  = TYPE AND ELEMENT SIZE OF A                   ***
+3050 !***       TYPB  = TYPE AND ELEMENT SIZE OF B                   ***
+3060 !*** OUT : RESULT ARRAY COPIED INTO OPERAND ARRAY               ***
+3070 !******************************************************************
+3080 !
+3090          LST 
+3100 COPYAB   BSZ 0
+3110 !        UNL
+3120          TSB R71                !TEST COPY FLAG
+3130          JZR CABED5             !IF (C = B OR A)
+3140          JPS CABEL3             !   IF (C = B)
+3150          LDBD R55,=TYPB         !      GET TYPE OF ARRAY B
+3160          STBD R55,=TYPA         !      PUT IT IN TYPA FOR MOVE
+3170          LDMD R55,=TMP2+        !      GET Bb
+3180          JMP CABED6  
+3190 CABEL3   BSZ 0                  !   ELSE - (C = A)
+3200          LDMD R55,=TMP1+        !      GET Ba
+3210 CABED6   BSZ 0                  !   END IF
+3220          PUMD R#,+R12           !   PUSH Ba OR Bb
+3230          JSB =RCINC             !   ROW & COL INCR ON STACK FOR A OR B
+3240          LDMD R65,=TMP3++       !   GET Bc
+3250          PUMD R65,+R12          !   PUSH Bc
+3260          PUMD R54,+R12          !   PUSH ROW & COL INCR FOR C
+3270          JSB =TRCRST            !   RESTORE TRACE FLAG
+3280          JSB =MOVE              !   COPY SCATCH ARRAY
+3290 CABED5   BSZ 0                  !END IF
+3300          RTN 
+3310 !
+3320 !**********************************************************************
+3330 !*** RCINC : PUSHES ROW AND COL INCREMENT OF RESULT ARRAY ON R12    ***
+3340 !*** IN  : INCRC = ELEMENT SIZE OF C (8, 4 OR 3 BYTES)              ***
+3350 !***       R24   = N  : NUMBER OF COLUMNS IN A OR B                 ***
+3360 !*** OUT : ROW INCREMENT FOR A OR B                                 ***
+3370 !***       COL INCREMENT FOR A OR B                                 ***
+3380 !***                          <--- R12                              ***
+3390 !**********************************************************************
+3400 !
+3410 RCINC    BSZ 0
+3420          LDMD R76,=INCRC        !GET ROW INCREMENT
+3430          LDM R66,R24            !MOVE NUM COLS
+3440          JSB =MNMUL3            !FIND COL INCREMENT
+3450          JSB =SHIF54            !MOVE COL INCREMENT
+3460          STM R76,R54            !MOVE ROW INCREMENT
+3470          PUMD R54,+R12          !PUSH ROW & COL INCR FOR A OR B
+3480          RTN 
+3490 !
+3500 !**********************************************************************
+3510 !*** BCOLEL : FINDS COLUMN INCREMENT OF OPERAND ARRAY B, I.E. THE  ****
+3520 !***          INCREMENT NEEDED TO GET FROM B(I,J) TO B(I+1,J).     ****
+3530 !**********************************************************************
+3540 !
+3550 BCOLEL   BSZ 0
+3560          LDBD R46,=INCRB        !GET ELE SIZE OF B
+3570          JMP INCSUB             !FIND NEXT COL ELE INCR
+3580 !
+3590 !**********************************************************************
+3600 !*** ACOLEL : FINDS COLUMN INCREMENT OF OPERAND ARRAY A, I.E. THE  ****
+3610 !***          INCREMENT NEEDED TO GET FROM A(I,J) TO A(I+1,J).     ****
+3620 !**********************************************************************
+3630 !
+3640          LST 
+3650 ACOLEL   BSZ 0
+3660 !        UNL
+3670          LST 
+3680          LDBD R46,=INCRA        !GET ELE SIZE A
+3690 !
+3700 !**********************************************************************
+3710 !*** INCSUB : FINDS COLUMN INCREMENT OF AN ARRAY                   ****
+3720 !*** IN  : R46 = ELEMENT SIZE OF THE ARRAY                         ****
+3730 !***       R24 = NUMBER OF COLUMNS IN THE ARRAY                    ****
+3740 !***       R76 = NUMBER OF COLUMNS IN THE ARRAY                    ****
+3750 !*** OUT : R76 = NUMBER OF COLUMNS IN THE ARRAY                    ****
+3760 !***       R24 = (8, 4 OR 3) * NUM COLS = THE COLUMN INCREMENT     ****
+3770 !**********************************************************************
+3780 !
+3790 INCSUB   BSZ 0
+3800          LLM R24                !R24 X 2
+3810          LLM R24                !R24 X 4
+3820          LDB R47,=4             !ASSUME SHORT
+3830          CMB R47,R46            !COMPARE WITH ELE SIZE
+3840          JZR INCEND             !IF (NOT SHORT)
+3850          DRP R24                !   SET DRP
+3860          JCY INC3               !   IF (NOT INTEGER)
+3870          LLM R24                !      R24 X 8 -- REAL
+3880          RTN                    !   END IF
+3890 INC3     SBM R#,R76             !   R24 X 3 -- INTEGER
+3900 INCEND   BSZ 0                  !END IF
+3910          RTN 
+3920 !        UNL
+3930          HED "MAT C = TRANSPOSE(A) ROUTINE"
+3940 !****  TRN (MAT) ATTRIBUTES TABLE  *******************
+3950          BYT 24,55
+3960 !*****************************************************
+3970          LST 
+3980 TRN10    BSZ 0
+3990          JSB =ROMJSB  
+4000          DEF TRNPS2  
+4010          BYT 261
+4020          RTN 
+4030 !        UNL
+4040          HED "LBND AND UBND ROUTINES"
+4050 !****  LBND ATTRIBUTES !TABLE  **********************************
+4060          BYT 44,55
+4070 !***************************************************************
+4080 LDIM10   BSZ 0
+4090          JSB =ROMJSB  
+4100          DEF LDIM2   
+4110          BYT 261
+4120          RTN 
+4130 !
+4140 !****  UBND ATTRIBUTES !TABLE  ************************
+4150          BYT 44,55              !ONE ARRAY, ONE NUMERIC
+4160 !*****************************************************
+4170 UDIM10   BSZ 0
+4180          JSB =ROMJSB  
+4190          DEF UDIM2   
+4200          BYT 261
+4210          RTN 
+4220          HED "MAT A = ZERO/CONSTANT/(SCL) ROUTINES"
+4230 !****  CON(M) ATTRIBUTES TABLE  ***********************************
+4240          BYT 20,55
+4250 !******************************************************************
+4260 !*** MAT C = CON(M)                                            ****
+4270 !***       REDIMENSIONS RESULT ARRAY C INTO A VECTOR THEN      ****
+4280 !***       ASSIGNS VALUE 1 TO ALL ELEMENTS OF C.               ****
+4290 !*** IN  : REL ADDR C                                          ****
+4300 !***       SCALOR M                                            ****
+4310 !***               <--- R12                                    ****
+4320 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED & ASSIGNED     ****
+4330 !******************************************************************
+4340 !
+4350 CDIM1V   JSB =DUP1V             !DUP REL ADDR ARRAY ON R12
+4360          JSB =RDIM1             !NOW REDIM TARGET ARRAY.
+4370          JMP CON1               !NOW GO SET IT = CON.
+4380 !
+4390 !****  CON(M,N) ATTRIBUTES TABLE  ********************
+4400          BYT 40,55
+4410 !******************************************************************
+4420 !*** MAT C = CON(M,N)                                          ****
+4430 !***       REDIMENSIONS RESULT ARRAY C TO M X N THEN           ****
+4440 !***       ASSIGNS VALUE 1 TO ALL ELEMENTS OF C.               ****
+4450 !*** IN  : REL ADDR C                                          ****
+4460 !***       SCALOR M                                            ****
+4470 !***       SCALOR N                                            ****
+4480 !***               <--- R12                                    ****
+4490 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED & ASSIGNED     ****
+4500 !******************************************************************
+4510 !
+4520 CDIM2V   JSB =DUP2V             !DUP REL ADDR ARRAY ON R12
+4530          JSB =RDIM2             !REDIM TARGET ARRAY.
+4540          JMP CON1               !GO SET IT = CON.
+4550 !
+4560 !****  CON (MAT) ATTRIBUTES TABLE  *******************
+4570          BYT 0,55
+4580 !******************************************************************
+4590 !*** MAT C = CON                                               ****
+4600 !***       ASSIGNS VALUE 1 TO ALL ELEMENTS OF C.               ****
+4610 !*** IN  : REL ADDR C                                          ****
+4620 !***               <--- R12                                    ****
+4630 !*** OUT : STACK POPPED AND ARRAY ASSIGNED                     ****
+4640 !******************************************************************
+4650 !
+4660 CON1     BSZ 0
+4670          LDM R44,=377,1,0,0     !TAGGED INTEGER 1
+4680          JMP ZCON10             !GO STORE CONST 1'S IN MEMORY.
+4690 !
+4700 !****  (NUM EXP) ATTRIBUTES TABLE  ***************
+4710          BYT 0,51
+4720 !******************************************************************
+4730 !*** MAT C = (SCALOR)                                          ****
+4740 !***       ASSIGNS VALUE OF SCALOR TO ALL ELEMENTS OF C.       ****
+4750 !*** IN  : REL ADDR C                                          ****
+4760 !***       SCALOR                                              ****
+4770 !***               <--- R12                                    ****
+4780 !*** OUT : STACK POPPED AND ARRAY ASSIGNED                     ****
+4790 !******************************************************************
+4800 !
+4810 SCL.     BSZ 0
+4820          POMD R40,-R12          !GET SCALAR.
+4830          JMP ZCON10             !GO STORE VAL IN WHOLE ARRAY.
+4840 !
+4850 !****  ZER(M) ATTRIBUTES TABLE  ******************
+4860          BYT 20,55
+4870 !******************************************************************
+4880 !*** MAT C = ZER(M)                                            ****
+4890 !***       REDIMENSIONS RESULT ARRAY C INTO A VECTOR THEN      ****
+4900 !***       ASSIGNS VALUE 0 TO ALL ELEMENTS OF C.               ****
+4910 !*** IN  : REL ADDR C                                          ****
+4920 !***       SCALOR M                                            ****
+4930 !***               <--- R12                                    ****
+4940 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED & ASSIGNED     ****
+4950 !******************************************************************
+4960 !
+4970 ZDIM1V   JSB =DUP1V             !DUP REL ADDR ARRAY ON R12
+4980          JSB =RDIM1             !REDIM TARGET ARRAY.
+4990          JMP ZER.               !GO SET IT = ZERO.
+5000 !
+5010 !****  ZER(M,N) ATTRIBUTES TABLE  ****************
+5020          BYT 40,55
+5030 !******************************************************************
+5040 !*** MAT C = ZER(M,N)                                          ****
+5050 !***       REDIMENSIONS RESULT ARRAY C TO M X N THEN           ****
+5060 !***       ASSIGNS VALUE 0 TO ALL ELEMENTS OF C.               ****
+5070 !*** IN  : REL ADDR C                                          ****
+5080 !***       SCALOR M                                            ****
+5090 !***       SCALOR N                                            ****
+5100 !***               <--- R12                                    ****
+5110 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED & ASSIGNED     ****
+5120 !******************************************************************
+5130 !
+5140 ZDIM2V   JSB =DUP2V             !DUP REL ADDR ARRAY ON R12
+5150          JSB =RDIM2             !REDIM TARGET ARRAY.
+5160          JMP ZER.               !GO SET IT = ZERO.
+5170 !
+5180 !****  ZER (MAT) ATTRIBUTES TABLE  ***************
+5190          BYT 0,55
+5200 !******************************************************************
+5210 !*** MAT C = ZER                                               ****
+5220 !***       ASSIGNS VALUE 0 TO ALL ELEMENTS OF C.               ****
+5230 !*** IN  : REL ADDR C                                          ****
+5240 !***               <--- R12                                    ****
+5250 !*** OUT : STACK POPPED AND ARRAY ASSIGNED                     ****
+5260 !******************************************************************
+5270 !
+5280 ZER.     BSZ 0
+5290          CLM R44
+5300          LDB R44,=377           !TAGGED INTEGER 0
+5310 !
+5320 !***********************************************************
+5330 !*** COMMON CODE FOR CON AND ZER ROUTINES                ***
+5340 !***********************************************************
+5350 !
+5360 ZCON10   BSZ 0
+5370          CMM R17,=300           !LOOK AT ERROR FLAG
+5380          JNC ZCONT              !IF (REDIMENSION ERROR)
+5390          POMD R65,-R12          !   TRASH REL ADDR OF ARRAY
+5400          RTN                    !   EXIT
+5410 ZCONT    BSZ 0                  !END IF
+5420          PUMD R40,+R6           !SAVE VALUE TO BE STORED
+5430          JSB =LOCSZ-            !GET M,N,BASE,INCRC,TYPC,BIN.
+5440          POMD R40,-R6           !GET VALUE TO BE STORED
+5450          JSB =ZERTST            !NULL ARRAY?
+5460          JZR ZCEND              !IF (NOT NULL ARRAY)
+5470          JSB =STOV              !   STORE VALUE IN C(1,1)
+5480          PUMD R65,+R6           !   SAVE Bc
+5490          STMD R65,=TMP4+        !   RESET STORE ADDRESS
+5500          PUMD R65,+R12          !   STORE ADDR FOR MOVE
+5510          JSB =RCINC             !   ROW & COL INCR ON STACK
+5520          CLM R#                 !   0 OUT ROW & COL INCR
+5530          POMD R65,-R6           !   RESTORE FETCH ADDR
+5540          PUMD R65,+R12          !   FETCH ADDRESS FOR MOVE
+5550          PUMD R54,+R12          !   FETCH ROW & COL INCR ON STACK
+5560          LDBD R#,=TYPC          !   GET TYPE OF C
+5570          STBD R#,=TYPA          !   STORE IN TYPA FOR MOVE
+5580          JSB =MOVE              !   COPY VALUE TO ALL ELE OF ARRAY
+5590          JSB =CKTRC             !   CHECK FOR TRACE
+5600 ZCEND    BSZ 0                  !END IF
+5610          RTN 
+5620 !
+5630 !*******************************************************************
+5640 !*** MNMUL : R55 = R22 * R24                                     ***
+5650 !*******************************************************************
+5660 !
+5670          LST 
+5680 MNMUL    BSZ 0
+5690          STM R24,R76            !POSITION N FOR MULTIPLY.
+5700 !
+5710 !*******************************************************************
+5720 !*** MNMUL2: R55 = R22 * R76                                     ***
+5730 !*******************************************************************
+5740 !
+5750 MNMUL2   BSZ 0
+5760          STM R22,R66            !POSITION M FOR MULTIPLY.
+5770 !
+5780 !*******************************************************************
+5790 !*** MNMUL3: R55 = R66 * R76                                     ***
+5800 !*******************************************************************
+5810 !
+5820 MNMUL3   BSZ 0
+5830          CLM R54                !INITIALIZE PRODUCT AREA.
+5840          JSB =INTMUL            !FORM M X N
+5850 SHIF54   BCD 
+5860          LLM R54                !SHIFT PRODUCT ...
+5870          LLM R54                !TWO DIGITS TO THE RIGHT
+5880          BIN 
+5890          RTN 
+5900 !
+5910 !****************************************************************
+5920 !*** LOCSZ- : FINDS Bc, Mc, Nc, SETS BINARY MODE             ****
+5930 !*** IN  : REL ADDR C                                        ****
+5940 !***                 <--- R12                                ****
+5950 !*** OUT : REL ADDR C POPPED OFF STACK                       ****
+5960 !***       R22 = Mc : NUM ROWS OF C                          ****
+5970 !***       R24 = Nc : NUM COLS OF C                          ****
+5980 !***       R65 = Bc : BASE ADDRESS OF C                      ****
+5990 !***       R36 = OPTION BASE                                 ****
+6000 !***       IF C A VECTOR  LSB TRACE FLAG = 1                 ****
+6010 !***       IF C A MATRIX  LSB TRACE FLAG = 0                 ****
+6020 !****************************************************************
+6030 !
+6040 LOCSZ-   BSZ 0
+6050          CLE                    !CLEAR FLAG.
+6060          DCE                    !FLAG SETTING FOR RESULT ARRAY
+6070          JSB =LOCSIZ            !GET Mc,Nc,Bc, SET BINARY.
+6080 VECFLG   JEZ LOCRTN             !IF (C IS A VECTOR)
+6090          LDBD R47,=TRCFLG       !   GET TRACE FLAG
+6100          ICB R47                !   TAG AS VECTOR
+6110          STBD R47,=TRCFLG       !   RESTORE FLAG
+6120 LOCRTN   BSZ 0                  !END IF
+6130          RTN 
+6140 !
+6150 !****************************************************************
+6160 !*** LOCSZI : FINDS Bb, Mb, Nb, SETS BINARY MODE             ****
+6170 !*** IN  : REL ADDR B                                        ****
+6180 !***                 <--- R12                                ****
+6190 !*** OUT : REL ADDR B POPPED OFF STACK                       ****
+6200 !***       R22 = Mb : NUM ROWS OF B                          ****
+6210 !***       R24 = Nb : NUM COLS OF B                          ****
+6220 !***       R65 = Bb : BASE ADDRESS OF B                      ****
+6230 !***       R36 = OPTION BASE                                 ****
+6240 !****************************************************************
+6250 !
+6260 LOCSZI   CLE                    !CLEAR FLAG.
+6270          ICE                    !SET FLAG.
+6280          JMP LOCSIZ             !CONTINUE - TYPE B.
+6290 !
+6300 !****************************************************************
+6310 !*** LOCSZ  : FINDS Ba, Ma, Na, SETS BINARY MODE             ****
+6320 !*** IN  : REL ADDR A                                        ****
+6330 !***                 <--- R12                                ****
+6340 !*** OUT : REL ADDR A POPPED OFF STACK                       ****
+6350 !***       R22 = Ma : NUM ROWS OF A                          ****
+6360 !***       R24 = Na : NUM COLS OF A                          ****
+6370 !***       R65 = Ba : BASE ADDRESS OF A                      ****
+6380 !***       R36 = OPTION BASE                                 ****
+6390 !****************************************************************
+6400 !
+6410 LOCSZ    CLE                    !TYPE A.
+6420 LOCSIZ   POMD R65,-R12          !GET RELATIVE ADDRESS
+6430 LOCSZ+   JSB =RUDIM             !R22,=R24=0 THEN REDIM.
+6440          BIN                    !SET MODE.
+6450          RTN 
+6460 !        UNL
+6470        HED "MAXAB(A), AMIN(A)/AMAX(A) ROUTINES"
+6480 !*******  MAXAB ATTRIBUTES TABLE  ******************************
+6490          BYT 24,55
+6500 !*****************************************************************
+6510 !*** MAXAB (A)                                                 ***
+6520 !***     FINDS LARGEST ABSOLUTE VALUE OF ANY ELEMENT IN ARRAY  ***
+6530 !*** IN  : REL ADDR A                                          ***
+6540 !***                 <--- R12                                  ***
+6550 !*** OUT : LARGEST ABSOLUTE VALUE                              ***
+6560 !***                              <--- R12                     ***
+6570 !*****************************************************************
+6580 !
+6590 MAXAB.   LDM R26,=0,90C         !FLAG FOR THIS ROUTINE.
+6600          JMP MNMX10             !GO TO COMMON ROUTINE
+6610 !
+6620 !*******  MIN ATTRIBUTES TABLE  ********************************
+6630          BYT 24,55
+6640 !*****************************************************************
+6650 !*** AMIN (A)                                                  ***
+6660 !***     FINDS VALUE OF SMALLEST ELEMENT IN THE ARRAY.         ***
+6670 !*** IN  : REL ADDR A                                          ***
+6680 !***                 <--- R12                                  ***
+6690 !*** OUT : SMALLEST VALUE OF ARRAY                             ***
+6700 !***                              <--- R12                     ***
+6710 !*****************************************************************
+6720 !
+6730 AMIN.    LDM R26,=9C,0          !FLAG SETTING FOR AMIN(A).
+6740          JMP MNMX10             !GO TO COMMON ROUTINE.
+6750 !
+6760 !*******  MAX ATTRIBUTES TABLE  ********************************
+6770          BYT 24,55
+6780 !*****************************************************************
+6790 !*** AMAX (A)                                                  ***
+6800 !***     FINDS VALUE OF LARGEST  ELEMENT IN THE ARRAY.         ***
+6810 !*** IN  : REL ADDR A                                          ***
+6820 !***                 <--- R12                                  ***
+6830 !*** OUT : LARGEST  VALUE OF ARRAY                             ***
+6840 !***                              <--- R12                     ***
+6850 !*****************************************************************
+6860 !
+6870 AMAX.    CLM R26                !FLAG SETTING FOR AMAX(A).
+6880 !
+6890 !*****************************************************************
+6900 !*** COMMON CODE FOR MAXAB, AMIN, AMAX                        ****
+6910 !*****************************************************************
+6920 !
+6930 MNMX10   JSB =LOCSZ             !FIND Ba,Ma,Na, (OPTION BASE IN R36)
+6940          TCM R36                !WANT IT 1 IF 0, 0 IF 1.
+6950          ICM R36
+6960          STMD R36,=TMP3         !SAVE OPTION BASE.
+6970          JSB =ZTST-             !TEST FOR NULL ARRAY.
+6980          JNZ NOTNUL             !IF (NULL ARRAY)
+6990          CLM R22                !   FOR ROWMIN,ROWMAX,ROWMAB
+7000          CLM R24                !   FOR COLMIN,COLMAX,COLMAB
+7010          JSB =WINDUP            !   ZERO ANS FOR ROW, COL #
+7020          BCD 
+7030          CLE 
+7040          TSM R26                !   TEST FOR FUNCTION
+7050          JLN ZERANS             !   IF (NOT MAXAB)
+7060          JNZ POSINF             !      IF (NOT AMIN)
+7070          DCE                    !         SIGN FOR NEG INF
+7080 POSINF   BSZ 0                  !      END IF
+7090          JSB =FTR99             !      ANS= + OR - INF
+7100 ZERANS   BSZ 0                  !   END IF
+7110          GTO ZERDET             !   ANS= 0 & EXIT
+7120 NOTNUL   BSZ 0                  !ELSE - (NOT NULL ARRAY)
+7130          JSB =GETELT            !   PUT Ba ON STACK
+7140          LDM R10,R22            !   ROWS = Ma
+7150          LDM R14,R24            !   COLS = Na
+7160          JSB =INIVAL            !   SAVE POSITON OF Ba
+7170 MNMROW   BSZ 0                  !   REPEAT
+7180          LDM R14,R24            !      COLS = Na
+7190 MNMCOL   BSZ 0                  !      REPEAT
+7200          POMD R60,-R12          !         GET BEST ANS SO FAR
+7210          PUMD R60,+R12          !         ANSWER COPY
+7220          PUMD R60,+R12          !         WORKING COPY
+7230          JSB =GETELT            !         GET A(I,J)
+7240          JSB =COMRC             !         FIND NEW MAX-MIN
+7250          JSB =NXTA              !         POINT NEXT A(I,J)
+7260          DCM R14                !         COLS = COLS -1
+7270          JNZ MNMCOL             !      UNTIL (COLS = 0)
+7280          DCM R10                !      ROWS = ROWS - 1
+7290          JNZ MNMROW             !   UNTIL (ROWS = 0)
+7300          SBM R22,R0             !   ADJUST Ma SINCE DOWNCOUNT
+7310          ICM R22                !   OFFSET BY 1
+7320          SBMD R22,=TMP3         !   ADJUST FOR OPTION BASE
+7330          LDMI R14,=MBASE        !   GET COL VALUE -- Na
+7340          SBM R24,R14            !   ADJUST SINCE DOWNCOUNT
+7350          ICM R24                !   OFFSET BY 1
+7360          SBMD R24,=TMP3         !   ADJUST FOR OPTION BASE
+7370 WINDUP   LDMD R0,=MBASE         !   TEMP AREA BASE PTR
+7380          LDBD R30,=TMP4         !   GET MATRIX-VECTOR FLAG
+7390          JRZ YESCOL             !   IF (VECTOR)
+7400          LDB R25,=377           !       NULL FOR COL VALUE
+7410 YESCOL   BSZ 0                  !   END IF
+7420          ARP R0                 !   COMMON ARP TO SAVE CODE
+7430          TSM R26                !   TEST FOR FUNCTION
+7440          DRP R22                !   COMMON DRP TO SAVE CODE
+7450          JZR SAVMAX  
+7460          JLZ SAVMIN             !   IF (MAXAB)
+7470          STMD R#,X#,ROWMAB      !      RMAXAB ANSWER
+7480          STMD R24,X#,COLMAB     !      CMAXAB ANSWER
+7490          RTN                    !   ELSE IF (AMIN)
+7500 SAVMIN   STMD R#,X#,ROWMIN      !      RAMIN ANSWER
+7510          STMD R24,X#,COLMIN     !      CAMIN ANSWER
+7520          RTN                    !   ELSE - (AMAX)
+7530 SAVMAX   STMD R#,X#,ROWMAX      !      RAMAX ANSWER
+7540          STMD R24,X#,COLMAX     !      CAMAX ANSWER
+7550          BSZ 0                  !   END IF
+7560          BSZ 0                  !END IF
+7570          RTN 
+7580 !
+7590 !****************************************************************
+7600 !*** COMRC : FINDS NEW MAXIMUM OR MINIMUM VALUE.              ***
+7610 !*** IN    : BEST ANSWER                                      ***
+7620 !***         BEST ANSWER                                      ***
+7630 !***         VALUE A(I,J)                                     ***
+7640 !***                     <--- R12                             ***
+7650 !***         R10 = I : ROW COUNTER                            ***
+7660 !***         R14 = J : COL COUNTER                            ***
+7670 !***         R26 = FUNCTION FLAG (1 BYTE)                     ***
+7680 !***                0 MAXAB, AMAX, MAXRC (FOR NORM)           ***
+7690 !***               9C AMIN                                    ***
+7700 !*** OUT   : NEW BEST ANSWER                                  ***
+7710 !***                        <--- R12                          ***
+7720 !****************************************************************
+7730 !
+7740          LST 
+7750 COMRC    STM R#,R70             !EXTRA COPY IN CASE = ANS.
+7760 COMRC-   JSB =SUBROI            !DIFF OF LAST 2 VALUES ON STACK.
+7770 !        UNL
+7780          LST 
+7790          JSB =ONER              !DEMAND REAL ANS.
+7800          BIN                    !RESET MODE.
+7810          TSM R60                !BEST ANS SO FAR SAME AS A(I,J).
+7820          JZR COMEN1             !IF (BEST ANS <> A(I,J))
+7830          XRB R61,R26            !   CHS IF AMIN-NO CHANGE IF AMAX.
+7840          JRZ COMEN2             !   IF (STACK HAS OLD ANS)
+7850          POMD R60,-R12          !      RID STACK OF VALUE
+7860          PUMD R70,+R12          !      REPLACE WITH NEW MAX (MIN).
+7870 INIVAL   STM R10,R0             !      NEW ROW I OF CURRENT MAX (MIN).
+7880          STMD R10,=TMP2+        !      FOR 2nd MATRIX ROM
+7890          STMI R14,=MBASE        !      NEW COL J OF CURR MAX (MIN).
+7900 COMEN2   BSZ 0                  !   END IF
+7910 COMEN1   BSZ 0                  !END IF
+7920 COMRTN   RTN 
+7930 !        UNL
+7940 !
+7950 !************************************************************************
+7960 !*** GETELT : GETS A(I,J) VALUE AND PUSHES IT ON R12 STACK.           ***
+7970 !***          WILL TAKE ABSOLUTE VALUE OF A(I,J) IF NECESSARY (MAXAB) ***
+7980 !*** IN  : .                                                          ***
+7990 !***       .                                                          ***
+8000 !***       .                                                          ***
+8010 !***        <--- R12                                                  ***
+8020 !***       R27 = FUNCTION FLAG                                        ***
+8030 !***               0 : AMIN, AMAX                                     ***
+8040 !***             90C : MAXAB                                          ***
+8050 !*** OUT : .                                                          ***
+8060 !***       .                                                          ***
+8070 !***       .                                                          ***
+8080 !***       [ABS] VALUE A(I,J)                                         ***
+8090 !***                         <--- R12                                 ***
+8100 !************************************************************************
+8110 !
+8120          LST 
+8130 GETELT   STB R27,R70            !PUT FLAG IN COMMON LOC.
+8140 GELT     BSZ 0
+8150 !        UNL
+8160          CLM R65                !INDICATE FETCH FROM TMP1
+8170          JSB =AFETCH            !GET A(I,J)
+8180          BCD                    !MODE FOR SIGN SHIFT
+8190          TSB R70                !TEST FUNCTION FLAG
+8200          JZR GEEND1             !IF (ABSOLUTE VALUE)
+8210          LRB R41                !   SHIFT OF SIGN FOR REAL
+8220          LLB R41                !   ABS(A(I,J)) IF REAL
+8230          CMB R44,=377           !   A(I,J) REAL?
+8240          JNC GEEND2             !   IF (INTEGER)
+8250          TSM R45                !      TEST FOR NEG INT
+8260          JPS GEEND3             !      IF (NEG INT)
+8270          TCM R45                !         ABS(A(I,J))
+8280 GEEND3   BSZ 0                  !      END IF
+8290 GEEND2   BSZ 0                  !   END IF
+8300 GEEND1   BSZ 0                  !END IF
+8310          PUMD R40,+R12          !VALUE IN 40 AND STACK
+8320          RTN 
+8330          HED "MAT PRINT ROUTINE"
+8340 !*********  MAT PRINT A; ATTRIBUTES TABLE  ************
+8350          BYT 36
+8360 !********************************************************************
+8370 !***      /PRINT\          /STATEMENT NO.\                        ***
+8380 !*** MAT <       > [USING <               >;] A;                  ***
+8390 !***      \DISP /          \FORMAT STRING/                        ***
+8400 !***                                                              ***
+8410 !*** IN  : REL ADDR A                                             ***
+8420 !***                 <--- R12                                     ***
+8430 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+8440 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+8450 !***                                                              ***
+8460 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+8470 !***       WITH CLOSE  SEPERATION                                 ***
+8480 !********************************************************************
+8490 !
+8500 SEM.     BSZ 0
+8510          BIN 
+8520          CLM R20                !CLEAR FLAGS.
+8530          CMBD R20,=USING?       !SEE IF PRINT USING
+8540          JNZ COM.               !JIF PRINT USING
+8550          ICB R20                !FOR TSTUS
+8560          JMP COM.++             !GO OUTPUT ELEMENTS.
+8570 !
+8580 !*********  MAT PRINT A/ ATTRIBUTES TABLE  *************
+8590          BYT 57
+8600 !********************************************************************
+8610 !***      /PRINT\          /STATEMENT NO.\                        ***
+8620 !*** MAT <       > [USING <               >;] A/                  ***
+8630 !***      \DISP /          \FORMAT STRING/                        ***
+8640 !***                                                              ***
+8650 !*** IN  : REL ADDR A                                             ***
+8660 !***                 <--- R12                                     ***
+8670 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+8680 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+8690 !***                                                              ***
+8700 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+8710 !***       ONE ELEMENT PER LINE                                   ***
+8720 !********************************************************************
+8730 !
+8740 SLSH.    BSZ 0
+8750          BIN 
+8760          CLB R21                !READY TO INCREMENT.
+8770          CMBD R21,=USING?       !SEE IF PRINT USING
+8780          JNZ COM.               !JIF PRINT USING
+8790          DCB R21                !TO FORCE THRU TSTUS
+8800          JMP COM.+              !GO OUTPUT ELEMENTS.
+8810 !
+8820 !*********  MAT PRINT A ATTRIBUTES TABLE  ***************************
+8830          BYT 57
+8840 !********************************************************************
+8850 !***      /PRINT\          /STATEMENT NO.\                        ***
+8860 !*** MAT <       > [USING <               >;] A                   ***
+8870 !***      \DISP /          \FORMAT STRING/                        ***
+8880 !***                                                              ***
+8890 !*** IN  : REL ADDR A                                             ***
+8900 !***                 <--- R12                                     ***
+8910 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+8920 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+8930 !***                                                              ***
+8940 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+8950 !***       WITH WIDE SEPERATION                                   ***
+8960 !********************************************************************
+8970 !
+8980 COMM.    JMP COM.               !NEED DIFF ATTRIB'S FOR DECOMPILING.
+8990 !
+9000 !*********  MAT PRINT A, ATTRIBUTES TABLE  **********************
+9010          BYT 36
+9020 !********************************************************************
+9030 !***      /PRINT\          /STATEMENT NO.\                        ***
+9040 !*** MAT <       > [USING <               >;] A1,                 ***
+9050 !***      \DISP /          \FORMAT STRING/                        ***
+9060 !***                                                              ***
+9070 !*** IN  : REL ADDR A                                             ***
+9080 !***                 <--- R12                                     ***
+9090 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+9100 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+9110 !***                                                              ***
+9120 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+9130 !***       WITH WIDE SEPERATION                                   ***
+9140 !********************************************************************
+9150 !
+9160 COM.     BSZ 0
+9170          BIN 
+9180          CLB R21                !FLAG SETTING TO BYPASS TSTUS
+9190 COM.+    LDBD R20,=USING?       !FOR TSTUS
+9200 COM.++   STMD R#,=TMP2          !SAVE FOR TSTUS
+9210          LST 
+9220          JSB =ROMJSB  
+9230          DEF FIND#/             !FIND # AND TRAILING / IN FORMAT STRING
+9240          BYT 261
+9250 !        UNL
+9260 !
+9270 !    *********************************
+9280 !    *** GET OPERAND INFORMATION   ***
+9290 !    *** AND TEST FOR NULL ARRAY   ***
+9300 !    *********************************
+9310 !
+9320          JSB =LOCSZ             !GET Ma,Na,Ba, SET BINARY.
+9330          JSB =ZERTST            !CHECK FOR NULL ARRAY.
+9340          JNZ PRTLOP             !IF (NULL ARRAY)
+9350          RTN                    !   EXIT
+9360 PRTLOP   BSZ 0                  !END IF
+9370 !
+9380 !    *********************************
+9390 !    *** LOOP TO FILL PRINT BUFFER ***
+9400 !    *** R20  = I : ROW COUNTER    ***
+9410 !    *** R22  = Ma: NUM ROWS A     ***
+9420 !    *** R24  = Na: NUM COLS A     ***
+9430 !    *** R26  = J : COL COUNTER    ***
+9440 !    *********************************
+9450 !
+9460          CLM R20                !I = 0
+9470          CLM R26                !J = 0
+9480 PLOOP+   BSZ 0                  !REPEAT
+9490 PLOOP    BSZ 0                  !   REPEAT
+9500          STM R24,R66            !      MOVE Na
+9510          STM R20,R76            !      MOVE I
+9520          JSB =MNMUL3            !      Na * I.
+9530          LDM R76,R55            !      MOVE PRODUCT
+9540          ADM R76,R26            !      (Na * I) + J
+9550          LDMD R66,=INCRA        !      GET ELEMENT SIZE (8, 4 OR 3)
+9560          JSB =MNMUL3            !      ((Na *I) + J) * ELE SIZE)
+9570          LDMD R65,=TMP1         !      GET Ba
+9580          SBM R65,R55            !      ADDR A(I,J)th ELE OF ARRAY
+9590          JSB =AFETCH            !      GET VALUE OF A(I,J)
+9600          JSB =SAVR20            !      SAVE R20 REGISTERS
+9610          PUMD R40,+R12          !      VALUE A(I,J) ON STACK FOR TSTUS
+9620          LDBD R20,=TMP2         !      GET USING FLAG FOR TSTUS
+9630          LDMD R65,=RMEM         !      AMOUNT PREVIOUSLY RESERVED MEMORY
+9640          PUMD R65,+R6           !      SAVE IT
+9650          CLM R65                !      RMEM = 0 ...
+9660          STMD R65,=RMEM         !      INITIALIZED FOR PRINTING
+9670          JSB =ROMJSB  
+9680          DEF TSTUS              !      PLACE VALUE A(I,J) IN PRINT BUFFER
+9690          BYT 0
+9700          JSB =RELMEM            !      RELEASE MEM RESERVED BY PRINTING
+9710          POMD R65,-R6           !      RESTORE AMOUNT MEMORY RESERVED ...
+9720          STMD R65,=RMEM         !      PRIOR TO THE PRINT BUFFER
+9730          JSB =RSTR20            !      RESTORE R20 REGISTERS
+9740          BIN                    !      RESET MODE
+9750          CMB R17,=300           !      CHECK FOR ERRORS
+9760          JNC PLEND              !      IF (IMAGE ERRORS)
+9770          LDMD R12,=TOS          !         CLEAN UP R12
+9780          RTN                    !         EXIT
+9790 PLEND    BSZ 0                  !      END IF
+9800          LDMD R36,=TMP2         !      GET TERMINATOR FLAG
+9810          JPS PNEXT              !      IF (TEMINATOR IS A SLASH)
+9820          JSB =COMDMP            !         PRINT THE ELEMENT
+9830 PNEXT    BSZ 0                  !      END IF
+9840          LDMD R56,=MBASE        !      TEMP AREA BASE POINTER.
+9850          LDBD R56,X56,ROWFLG    !      GET ROW FLAG.
+9860          JNZ PCOL               !      IF (OUTPUT BY ROWS)
+9870          ICM R26                !         J = J + 1
+9880          CMM R26,R24            !         COMPARE J & Na
+9890          JMP PLEND1  
+9900 PCOL     BSZ 0                  !      ELSE - (OUTPUT BY COLUMNS)
+9910          ICM R20                !         I = I + 1
+9920          CMM R20,R22            !         COMPARE I & Ma
+9930 PLEND1   BSZ 0                  !      END IF
+9940          JNC PLOOP              !   UNTIL (J=Na [ROWS] OR I=Ma [COLS])
+9950          JSB =COMDMP            !   PRINT CURRENT ROW OR COLUMN
+9960          TSB R56                !   LOOK AT ROW FLAG AGAIN
+9970          JNZ PCOL2              !   IF (OUTPUT BY ROWS)
+9980          CLM R26                !      J = 0
+9990          ICM R20                !      I = I + 1
+10000          CMM R20,R22           !      COMPARE I & Ma
+10010          JMP PLEND2  
+10020 PCOL2    BSZ 0                 !   ELSE - (OUTPUT BY COLUMNS)
+10030          CLM R20               !      I = 0
+10040          ICM R26               !      J = J + 1
+10050          CMM R26,R24           !      COMPARE J & Na
+10060 PLEND2   BSZ 0                 !   END IF
+10070          JCY PLEND3  
+10080          GTO PLOOP+            !UNTIL (I=Ma [ROWS] OR J=Na [COLS])
+10090 PLEND3   BSZ 0
+10100          LDBD R#,=TMP2+        !GET CR,LF SUPPRESS FLAG
+10110          JZR PRTEND            !IF (CR,LF SUPPRESS)
+10120          JSB =SETROW           !   DEFAULT TO ROW OUTPUT
+10130          RTN                   !   EXIT
+10140 PRTEND   BSZ 0                 !END IF
+10150          CLE                   !E = 0 : ASSUME NOT PRINT USING
+10160          LDBD R#,=USING?       !GET USING FLAG
+10170          JZR USING-            !IF (PRINT USING)
+10180          ICE                   !   E = 1 : PRINT USING
+10190 USING-   BSZ 0                 !END IF
+10200          LDBI R40,=PTR1-+      !GET NEXT TOKEN
+10210          CMB R40,=2            !AT END OF ARRAY LIST?
+10220          JZR BLANKL            !IF (END OF ARRAY LIST)
+10230          JSB =SETROW           !   DEFAULT TO ROW OUTPUT.
+10240          JEZ ETRTN             !   IF (PRINT USING)
+10250          JSB =ROMJSB  
+10260          DEF PRLINE            !      PROCESS EOLN
+10270          BYT 0
+10280 ETRTN    BSZ 0                 !   END IF
+10290          CLM R22
+10300          STMI R22,=P.PTR       !   RESET PRINTER POINTER
+10310          RTN                   !   EXIT
+10320 BLANKL   BSZ 0                 !ELSE - (BETWEEN ARRAYS)
+10330          JEN BLRTN             !   IF (NOT PRINT USING)
+10340          BCD                   !      SET MODE
+10350          CLM R44               !      INDICATE ...
+10360          ICM R44               !      ONE BLANK LINE.
+10370          JSB =ROMJSB  
+10380          DEF SENDCR            !      PRINT 1 BLANK LINE
+10390          BYT 0
+10400 BLRTN    BSZ 0                 !   END IF
+10410          BSZ 0                 !END IF
+10420          RTN 
+10430 !
+10440 !   *********************************
+10450 !   ***  PRINT CONTENTS OF BUFFER ***
+10460 !   *********************************
+10470 !
+10480 COMDMP   BSZ 0
+10490          LDBD R10,=TMP2+       !GET CR,LF SUPPRESS FLAG
+10500          JNZ SUPRES            !IF (NO CR,LF SUPPRESS)
+10510          JSB =PUTREG           !   PROTECT REGISTERS ...
+10520          PUMD R40,+R12         !   INCLUDING R40
+10530          LDBI R22,=P.PTR       !   GET PRINTER POINTER
+10540          JNZ DBUFF             !   IF (PRINT BUFFER EMPTY)
+10550          LDB R22,=BLANK        !      GET A BLANK
+10560          STBI R22,=P.BUFF      !      PUT IT IN PRINT BUFFER
+10570          LDBI R22,=P.FLAG      !      GET PRINTER FLAG
+10580          JZR FULIN             !      JIF FULL LINE JUST PRINTED.
+10590 DBUFF    BSZ 0                 !   END IF
+10600          JSB =ROMJSB  
+10610          DEF WRTLIN            !   PRINT CONTENTS OF BUFFER
+10620          BYT 0
+10630 FULIN    BIN 
+10640          LDBD R22,=TMP4        !   GET TRAILING / FLAG
+10650          JZR DBUF1             !   IF (TRAILING /)
+10660          LDB R22,=BLANK        !      GET A BLANK
+10670          STBI R22,=P.BUFF      !      PUT IT IN PRINT BUFFER
+10680          CLM R22               !      INDICATE ...
+10690          ICM R22               !      1 CHAR IN ...
+10700          STMI R22,=P.PTR       !      P.PTR
+10710 DBUF1    BSZ 0                 !   END IF
+10720          POMD R40,-R12         !   RESTORE R40
+10730          JSB =GETREG           !   RESTORE REGISTERS
+10740 SUPRES   BSZ 0                 !END IF
+10750          RTN 
+10760 !        UNL
+10770 !
+10780 SAVR20   BSZ 0
+10790          LDM R60,R20           !MOVE R20 REGISTERS
+10800          STMD R60,=TMP3        !SAVE THEM
+10810          RTN 
+10820 !
+10830 RSTR20   BSZ 0
+10840          LDMD R60,=TMP3        !GET SAVED R20 REGISTERS
+10850          STM R60,R20           !RESTORE THEM
+10860          RTN 
+10870 !*********  MAT PRINT ROW ATTRIBUTES TABLE  *********************
+10880          BYT 41
+10890 !********************************************************************
+10900 !***      /PRINT\          /STATEMENT NO.\                        ***
+10910 !*** MAT <       > [USING <               >;] ROW A               ***
+10920 !***      \DISP /          \FORMAT STRING/                        ***
+10930 !***                                                              ***
+10940 !*** IN  : REL ADDR A                                             ***
+10950 !***                 <--- R12                                     ***
+10960 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+10970 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+10980 !***                                                              ***
+10990 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+11000 !***       BY ROWS (NORMAL DISPLAY)                               ***
+11010 !********************************************************************
+11020 !
+11030 ROW.     RTN                   !NOTHING TO DO.
+11040 !
+11050 !*********  MAT PRINT COL ATTRIBUTES TABLE  *********************
+11060          BYT 41
+11070 !********************************************************************
+11080 !***      /PRINT\          /STATEMENT NO.\                        ***
+11090 !*** MAT <       > [USING <               >;] COL A               ***
+11100 !***      \DISP /          \FORMAT STRING/                        ***
+11110 !***                                                              ***
+11120 !*** IN  : REL ADDR A                                             ***
+11130 !***                 <--- R12                                     ***
+11140 !***       USING? <> 0 THEN HAVE USING CLAUSE                     ***
+11150 !***              =  0 THEN DO NOT HAVE USING CLAUSE              ***
+11160 !***                                                              ***
+11170 !*** OUT : STACK POPPED AND OPERAND ARRAY PRINTED OR DISPLAYED    ***
+11180 !***       BY COLUMNS                                             ***
+11190 !********************************************************************
+11200 !
+11210 COL.     BSZ 0
+11220          BIN 
+11230          CLB R40               !READY TO SET FLAG.
+11240          ICB R40               !SET FLAG TO DESIGNATE COL OUTPUT.
+11250          GTO SETCOL            !GO STORE FLAG.
+11260          HED "MAT READ ROUTINE"
+11270 !******************  !MAT READ ATTRIBUTES TABLE  *****************
+11280          BYT 44
+11290 !*****************************************************************
+11300 !*** MAT READ C                                                ***
+11310 !***     ELEMENTS OF RESULT ARRAY C ASSIGNED VALUES FROM A     ***
+11320 !***     LIST OF NUMBERS IN A DATA STATEMENT (MUST BE NUMBERS  ***
+11330 !***     AND NOT STRINGS).  ARRAY ELEMENTS ASSIGNED VALUES     ***
+11340 !***     IN ORDER FROM LEFT TO RIGHT ON EACH ROW, FROM THE     ***
+11350 !***     FIRST ROW TO THE LAST.                                ***
+11360 !***     PROGRAMABLE STATEMENT ONLY.                           ***
+11370 !***                                                           ***
+11380 !*** IN  : REL ADDR C                                          ***
+11390 !***                <--- R12                                   ***
+11400 !*** OUT : STACK POPPED AND RESULT ARRAY ASSIGNED.             ***
+11410 !*****************************************************************
+11420 !
+11430 READ.    BSZ 0
+11440          CMB R16,=1            !LOOK AT CSTAT
+11450          JNZ RDRUN             !IF (CALCULATOR MODE)
+11460          JMP ERR88             !   MAT READ ILLEGAL IN CALC MODE
+11470 RDRUN    BSZ 0                 !END IF
+11480          JSB =LOCSZ-           !GET Bc, Mc, Nc
+11490          TSM R22               !ROWS = Mc
+11500 RWHIL1   JZR REND1             !WHILE (ROWS <> 0)
+11510          STM R24,R26           !   COLS = Nc
+11520 RWHIL2   JZR REND2             !   WHILE (COLS <> 0)
+11530          JSB =PUTREG           !      SAVE REGS FROM READDT
+11540          PUMD R65,+R12         !      ABS ADDR OF ARRAY 1ST ELE
+11550          PUMD R60,+R12         !      ABS ADDR OF ARRAY NAME
+11560          POMD R63,-R12
+11570          LDBD R20,=TYPC        !      TYPE HEADER (TRACE OFF)
+11580          PUBD R20,+R12
+11590          CLB R20               !      FLAG NOT A STRING
+11600          JSB =ROMJSB           !      OFF TO READ DATA STMT.
+11610          DEF READDT            !      VALUE OF ARRAY ELE ON STACK
+11620          BYT 0
+11630          JSB =GETREG           !      RESTORE REGS
+11640          JSB =ERRCK            !      WERE THERE ANY ERRORS?
+11650          LDMD R55,=INCRC       !      GET ELEMENT SIZE
+11660          JSB =NXTELE           !      GET NEXT ELE ADDR
+11670          DCM R26               !      COLS = COLS - 1
+11680          JMP RWHIL2            !      LOOP
+11690 REND2    BSZ 0                 !   END WHILE
+11700          DCM R22               !   ROWS = ROWS - 1
+11710          JMP RWHIL1            !   LOOP
+11720 REND1    BSZ 0                 !END WHILE
+11730          JSB =CKTRC            !CHECK TRACE.
+11740          RTN 
+11750          HED "MAT INPUT ROUTINE"
+11760 !*********  TOKEN 2 ATTRIBUTES TABLE  ***************************
+11770          BYT 241
+11780 !*****************************************************************
+11790 !*** MAT INPUT C                                               ***
+11800 !*** 3 ROUTINES ARE USED TO IMPLEMENT THE MAT INPUT STATEMENT  ***
+11810 !***   1). INPUT. -- DISPLAYS PROMPT ON SCREEN                 ***
+11820 !***   2). INPUN. -- EVALUATES EXPRESSION IN CALCULATOR MODE   ***
+11830 !***   3). INCOM. -- STORES  EVALUATED EXPRESSION IN ARRAY     ***
+11840 !***                                                           ***
+11850 !*** THE STATEMENT -- MAT INPUT C -- IS PARSED LIKE THIS:      ***
+11860 !***                                                           ***
+11870 !***   156 \                                                   ***
+11880 !***   260  > INPUN.                                           ***
+11890 !***   370 /                                                   ***
+11900 !***   103 -- ARRAY NAME                                       ***
+11910 !***   001 -- LENGTH OF ARRAY NAME                             ***
+11920 !***   000 \                                                   ***
+11930 !***   000  > ADDR OF ARRAY                                    ***
+11940 !***   000 /                                                   ***
+11950 !***   002 -- PLACE ADDR OF ARRAY ON R12 STACK                 ***
+11960 !***   002 \                                                   ***
+11970 !***   260  > INPUT.                                           ***
+11980 !***   370 /                                                   ***
+11990 !***                                                           ***
+12000 !*** BEFORE THE MAT INPUT TOKEN (002 260 370) IS EXECUTED,     ***
+12010 !*** THE ARRAY ADDRESS MUST BE ON THE R12 STACK FIRST.  THIS   ***
+12020 !*** IS ACCOMPLISHED BY THE FLAG -- ARYFLG.                    ***
+12030 !***                                                           ***
+12040 !*** IF ARYFLG = 0 AND INPUT.(002 260 370), THEN               ***
+12050 !***   THE ADDR OF THE ARRAY IS NOT ON THE STACK YET.          ***
+12060 !***   ACTION: RETURN TO SYSTEM.                               ***
+12070 !***                                                           ***
+12080 !*** IF ARYFLG = 0 AND INPUN. (156 260 370), THEN              ***
+12090 !***   ADDR OF ARRAY ON STACK AND INPUT. NOT EXECUTED          ***
+12100 !***   ACTION: MOVE TOKEN POINTER TO 002 260 370 (TO EXECUTE   ***
+12110 !***           INPUT) AND RETURN TO SYSTEM.                    ***
+12120 !***                                                           ***
+12130 !*** IF ARYFLG <> 0 AND INPUT.,THEN                            ***
+12140 !***   ARRAY ADDR ON STACK.                                    ***
+12150 !***   ACTION: EXECUTE INPUT. CODE                             ***
+12160 !***                                                           ***
+12170 !*** IF ARYFLG <> 0 AND INPUN., THEN                           ***
+12180 !***   R12 STACK CLEAN AND INPUT. HAS BEEN EXECUTED            ***
+12190 !***   ACTION: EXECUTE INPUN. CODE                             ***
+12200 !***                                                           ***
+12210 !*** IN  : REL ADDR C           \  ASSUMING ARYFLG <> 0        ***
+12220 !***                 <--- R12   /                              ***
+12230 !*** OUT : ARRAY PROMPT ON SCREEN                              ***
+12240 !*****************************************************************
+12250 !
+12260          LST 
+12270 INPUT.   BSZ 0
+12280          BIN 
+12290          LDMD R20,=MBASE       !GET TEMP STORE PTR
+12300          LDBD R55,X20,ARYFLG   !GET ARRAY FLAG
+12310          JNZ FLGSET            !IF (ARYFLG = 0)
+12320          JSB =SVPTRS           !   SAVE PTR1
+12330          RTN                   !   RETURN TO SYSTEM
+12340 FLGSET   BSZ 0                 !END IF
+12350          LDMD R#,=PTR1-        !POINT TO FIRST ARRAY TOKEN
+12360          DCM R#                !POINT TO 002 TOKEN
+12370          STMD R#,=TMP2         !SAVE IT FOR FETVAR
+12380          JSB =SFLG=0           !INIT DSPFLG TO 0.
+12390          CMB R16,=1            !LOOK AT CSTAT
+12400          JNZ INDISP            !IF (CALCULATOR MODE)
+12410 ERR88    JSB =ERROR            !   INPUT ILLEGAL ...
+12420          BYT 88D               !   IN CALCULATOR MODE
+12430          RTN                   !   EXIT
+12440 INDISP   BSZ 0                 !END IF
+12450          JSB =LOCSZ-           !Bc, Mc, Nc
+12460          JSB =ZERTST           !TEST FOR NULL ARRAY.
+12470          JNZ NULDSP            !IF (NULL ARRAY)
+12480          LDMD R65,=TMP2        !   GET POINTER TO ARRAY NAME ADDR
+12490          STMD R65,=PTR1        !   POINT TO IT
+12500          LDMI R64,=PTR1-       !   GET ARRAY NAME LENGTH
+12510 NAMLEN   BSZ 0                 !   REPEAT
+12520          LDBI R67,=PTR1-       !      SCAN PAST ARRAY NAME
+12530          DCB R64               !      LENGTH = LENGTH - 1
+12540          JNZ NAMLEN            !   UNTIL (LENGTH = 0)
+12550          LDMI R65,=PTR1-       !   POINT TO NEXT ARRAY
+12560          LDMD R65,=PTR1-       !   GET IT'S ADDRESS
+12570          CLB R26               !   READY TO SET FLAG.
+12580          ICB R26               !   SET FLAG.
+12590          GTO NEWAR1            !   GO STORE FLAG & EXIT.
+12600 NULDSP   BSZ 0                 !END IF
+12610          LDMI R64,=PTR2+       !GET MAXCOL & MAXROW
+12620          STM R36,R60           !INIT ROW = OPTION BASE
+12630          STM R36,R62           !INIT COL = OPTION BASE
+12640          STMD R60,X20,ROWCTR   !INIT ROW,INIT COL,MAX COL,MAX ROW
+12650 DSPAIJ   BSZ 0
+12660          LDMD R65,=LAVAIL      !GET LAVAIL
+12670          STMD R65,=SAVLAV      !AND SAVE IT
+12680          LDMD R65,=TMP2        !GET ARRAY NAME ADDRESS
+12690          STMD R65,=PTR1        !POINT TO ARRAY NAME ADDRESS
+12700          LDB R23,=2            !VARIABLE TOKEN FOR FETVAR.
+12710          JSB =FETVAR           !STACK UP ARRAY NAME.
+12720 !        UNL
+12730          LDMD R55,=PTR1-       !GET PTR TO 156 260 370
+12740          STMD R55,=SAVPC       !MAKES 156 TOK EXECUTED NEXT
+12750          LDB R24,=OPEN         !READY TO STACK (.
+12760          PUBD R24,+R12         !STACK IT.
+12770          LDB R24,=4            !REAL INDICATOR.
+12780          PUBD R24,+R12         !STACK IT.
+12790          LDMD R36,X20,ROWCTR   !GET CURRENT ROW NO.
+12800          JSB =CONBIN           !CONVERT IT TO REAL.
+12810          BIN                   !RESET MODE.
+12820          PUMD R40,+R12         !STACK IT.
+12830          LDBD R40,=TRCFLG      !VECTOR IF RT BIT =1.
+12840          JOD ONEPAR            !IF (MATRIX)
+12850          LDB R36,=COMMA        !   READY TO STACK.
+12860          PUBD R36,+R12         !   STACK IT.
+12870          LDB R36,=4            !   REAL INDICATOR.
+12880          PUBD R36,+R12         !   STACK IT.
+12890          LDMD R36,X20,COLCTR   !   GET CURRENT COL.
+12900          JSB =CONBIN           !   MAKE IT REAL.
+12910          BIN                   !   RESET MODE.
+12920          PUMD R40,+R12         !   STACK IT.
+12930 ONEPAR   BSZ 0                 !END IF
+12940          LDB R40,=CLOSE        !NEED TO STACK A ).
+12950          PUBD R40,+R12         !STACK IT.
+12960          LDB R40,=77           !QUESTION MARK.
+12970          PUBD R40,+R12         !STACK IT.
+12980          LDM R30,=ERRBUF       !TEMP AREA TO UNSTACK IN.
+12990          JSB =ROMJSB  
+13000          DEF UNSTAK            !DECOMPILE R12
+13010          BYT 0
+13020          LDBD R#,X20,DSPFLG    !GET DSPFLG.
+13030          JNG SFLG=0            !IF (NO MORE ELE IN BUF)
+13040          JSB =ROMJSB  
+13050          DEF DISP.             !   FIND WHERE CRT IS
+13060          BYT 0
+13070          LDM R26,=ERRBUF       !   BEGINNING OF STRING
+13080          LDM R36,R30           !   END OF STRING
+13090          SBM R36,R26           !   FIND LENGTH OF STRING
+13100          JSB =ROMJSB  
+13110          DEF DRV12.            !   PRINT "A(I,J)? "
+13120          BYT 0
+13130          LDM R10,=INPBUF       !   USE INPBUF FOR INPUT
+13140          LDB R16,=4            !   SET IDLE FOR INPUT
+13150          JSB =SET240           !   INPUT ARRAY VALUE
+13160 SFLG=0   BSZ 0                 !END IF
+13170          CLB R26               !DSPFLG=0.
+13180          GTO NEWARY            !GO STORE IT.
+13190 !
+13200 !***********  TOKEN 156 ATTRIBUTES TABLE  ************************
+13210          BYT 44
+13220 !******************************************************************
+13230 !*** EVALUATES INPUT ENTERED FROM KEYBOARD IN CALCULATOR MODE.  ***
+13240 !*** NUMERIC  EXPRESSIONS, CR, AND COMMA ONLY LEGITAMATE INPUTS ***
+13250 !*** ANY ERRORS ARE REPORTED AND INPUT PROMPTED AGAIN.  ROUTINE ***
+13260 !*** ALSO CAUSES INCOM. CODE TO BE EXECUTED NEXT.               ***
+13270 !*** IN  : CALCULATOR MODE     (ASSUME ARYFLG <> 0)             ***
+13280 !*** OUT : VALUE OF EXPRESSION                                  ***
+13290 !***                          <--- R12                          ***
+13300 !******************************************************************
+13310 !
+13320 INPUN.   BSZ 0
+13330          LDMD R20,=MBASE       !GET TEMP STORE PTR
+13340          LDBD R55,X20,ARYFLG   !GET ARRAY FLAG
+13350          JNZ FLSET             !IF (ARYFLG = 0)
+13360          JSB =RSPTRS           !   RESTORE PTR1
+13370          LDMI R55,=PTR1+       !   MOVE IT BACK TO 002 260 370
+13380          STBD R55,X20,ARYFLG   !   SET FLAG TO NON-ZERO VALUE
+13390          RTN                   !   RETURN TO SYSTEM
+13400          LST 
+13410 FLSET    BSZ 0                 !END IF
+13420          LDBD R#,X20,DSPFLG    !GET DSPFLG.
+13430          JZR IPELSE            !IF (1ST OF NEW ARRAY)
+13440          GTO INDISP            !   GO DO INITIAL DISPLAY.
+13450 !        UNL
+13460 IPELSE   BSZ 0                 !ELSE - (NOT 1ST OF NEW ARRAY)
+13470 IPLOOP   BSZ 0                 !   LOOP
+13480          LDM R26,=ERBEND       !      TEMP AREA FOR ...
+13490          STM R26,R65           !      CALC. MODE EVALUATION ...
+13500          CLB R67               !      AND INCOM. INSTRUCTION
+13510          STMD R65,=PTR2-       !      SET PTR2
+13520          STMD R65,=STSIZE      !      SAVE FOR PARSER
+13530          JSB =GCHAR            !      GET CHARACTER
+13540          JSB =ROMJSB  
+13550          DEF NUMVA+            !      PARSE NUMERIC VALUE
+13560          BYT 0
+13570          JEZ ER43              !      IF (NUMERIC INPUT)
+13580          CMB R14,=CR           !         ONLY CR AND , VALID NEXT
+13590          JZR INPCO             !         IF (NOT CR)
+13600          CMB R14,=COMMA        !            COMMA ?
+13610          JNZ ER43              !            NOT COMMA GOTO ER43
+13620 INPCO    BSZ 0                 !         END IF
+13630          LDM R64,=16,72,260,370 !        TRICK TO GTO INCOM.
+13640          STMI R64,=PTR2-   
+13650          PUMD R14,+R12         !         SAVE R14.
+13660          CMB R20,=CR           !         CR?
+13670          JZR INPN1.            !         IF (NOT CR)
+13680          DCM R10               !            FOR NEXT PASS.
+13690 INPN1.   BSZ 0                 !         END IF
+13700          LDB R16,=1            !         SET CALC MODE
+13710          JSB =SET240           !         FORCE EXIT.
+13720          BSZ 0                 !         ------------
+13730          RTN                   !         -- RETURN --
+13740          BSZ 0                 !         ------------
+13750 ER43     BSZ 0                 !      ELSE - (NON-NUMERIC INPUT)
+13760          JSB =ERROR   
+13770          BYT 43D               !         NEED NUMERIC VALUE
+13780          LST 
+13790 BADINP   BSZ 0
+13800          JSB =RELMEM           !         IN CASE TEMP MEM FOR INPUT.
+13810          JSB =ROMJSB  
+13820          DEF REPORT            !         REPORT ANY ERRORS
+13830          BYT 0
+13840          LDMD R20,=MBASE       !         GET TEMP STORE POINTER
+13850          LDMD R65,=ERGOTO      !         GET ON ERROR FLAG
+13860          JZR REPDSP            !         IF (ON ERROR)
+13870          CLB R#                !            CLEAR ARRAY FLAG ...
+13880          STBD R#,X20,ARYFLG    !            FOR NEW MAT INPUT
+13881 !        ***********************
+13882 !        *** TOP OF R6:      ***
+13883 !        *** 0155 - CALCRU   ***
+13884 !        *** 0721 - INTERL   ***
+13885 !        *** 6207 - ROM:GO   ***
+13886 !        ***********************
+13890          POMD R64,-R6          !            TRASH 2 RETURNS
+13900          PUMD R66,+R6          !            PUT 1 BACK
+13901 !        ***********************
+13902 !        *** TOP OF R6:      ***
+13903 !        *** 0155 - CALCRU   ***
+13905 !        *** 6207 - ROM:GO   ***
+13906 !        ***********************
+13910          RTN                   !            RETURN & BRANCH TO ERROR
+13920          LST 
+13930 REPDSP   BSZ 0                 !         END IF
+13940          GTO DSPAIJ            !         REDO A(I,J) DISPLAY
+13950 !        UNL
+13960          BSZ 0                 !      END IF
+13970 MORROW   ICM R36               !      UP THE ROW COUNT.
+13980          STMD R36,X20,ROWCTR   !      SAVE NEW ROW COUNT.
+13990 MORCOL   ICM R30               !      UP THE COL COUNT.
+14000          STMD R30,X20,COLCTR   !      UPDATE COL COUNT.
+14010          CMB R14,=CR           !      MORE IN BUFFER?
+14020          JZR REPDSP            !      JIF NO.
+14030          GTO IPLOOP            !      LOOP IF MORE IN BUFFER.
+14040          BSZ 0                 !   END LOOP
+14050          BSZ 0                 !END IF
+14060 !
+14070          LST 
+14080 ER45     BSZ 0
+14090          LDMD R60,=TMP4        !LAST UPDATED STORE ADDR.
+14100          LDMD R55,=INCRC       !ELE SIZE OF ARRAY
+14110          CLB R57
+14120          ADM R65,R55           !MOVE ADDR BACK ONE
+14130          STMD R60,=TMP4        !SAVE AS NEXT STORE ADDR
+14140          JSB =ERROR   
+14150          BYT 45D               !TOO MANY INPUTS
+14160          LDBD R47,=TMP1++      !GET ARRAY HEADER
+14161          LRB R47               !GET TRACE BIT IN CY ...
+14162          LRB R47               !CY = 0 NO TRACE ; CY = 1 TRACE
+14170          JNC ER45TC            !IF (TRACE)
+14180          ADB R17,=010          !   MAKE R17 = 310
+14190 ER45TC   BSZ 0                 !END IF
+14200          JMP BADINP            !REPORT ERROR AND PROMPT AGAIN
+14201 !        UNL
+14210 !*******  STORE INPUT ATTRIBUTES TABLE  *************************
+14220          BYT 44
+14230 !*****************************************************************
+14240 !*** RESETS PROGRAM MODE.  GETS VALUE OF EXPRESSION ENTERED    ***
+14250 !*** FROM KEYBOARD AND PLACES IT IN THE CORRECT ARRAY ELEMENT. ***
+14260 !***                                                           ***
+14270 !*** IN  : EXPRESSION VALUE                                    ***
+14280 !***                       <--- R12                            ***
+14290 !*** OUT : STACK POPPED & ARRAY ELEMENT ASSIGNED               ***
+14300 !*****************************************************************
+14310 !
+14320 INCOM.   BIN                   !RESET MODE TO BINARY.
+14330          CLB R17               !CLEAR CALCULATOR MODE
+14340          LDB R16,=2            !SET RUN FOR WHEN NEW DISP.
+14350          POMD R40,-R12         !GET VALUE FROM CALC MODE
+14360          POMD R14,-R12         !RESTORE R14.
+14370          STMD R12,=TOS         !RESET TOP OF STACK
+14380          JSB =STOV             !STORE INPUT VAL IN ARRAY.
+14390          JSB =RELMEM           !IN CASE FOR-NEXT WAS USED.
+14400          LDMD R65,=CALVRB      !TRASH ANY CALC VARIABLES.
+14410          STMD R65,=LAVAIL  
+14420          LDMD R20,=MBASE       !TEMP STORAGE BASE.
+14430          LDMD R64,X20,MAXCOL   !GET MAXCOL & MAXROW
+14440          TSB R#
+14450          JNG VECINP            !JIF VECTOR.
+14460          LDMD R30,X20,COLCTR   !GET CURRENT COL COUNT.
+14470          CMM R30,R64           !COMPARE IT TO MAXCOL VALUE.
+14480          JNZ MORCOL            !JIF MORE TO CURRENT ROW.
+14490          LDMD R30,=PGMOPT      !NEED TO RESET COL COUNT.
+14500          DCM R30               !ADJUST IT TO ACTUAL VALUE.
+14510          TCM R30               !ADJUST IT TO ACTUAL VALUE.
+14520          DCM R30               !OFFSET IT TEMPORARILY.
+14530          LST 
+14540 VECINP   LDMD R36,X20,ROWCTR   !GET CURRENT ROW COUNT.
+14550          CMM R36,R66           !DONE WITH THIS ARRAY?
+14560          JNZ MORROW  
+14570          LDMD R65,=SAVPC       !GET OLD TOKEN POINTER
+14580          DCM R65
+14590          DCM R65
+14600          DCM R65               !POINT TO 156 TOKEN
+14610          STMD R65,=PTR1-       !RESTORE TOKEN POINTER
+14620          LDBI R20,=PTR1-+      !GET NEXT TOKEN
+14630          CLB R26               !CLEAR DISPLAY FLAG
+14640          CMB R14,=CR           !BUFFER EMPTY ?
+14650          JZR FINARY            !IF (MORE CHARS IN BUFFER)
+14660          JSB =TSTEN+           !   CHECK FOR CR, @, & !.
+14670          JEZ ER45              !   JIF TOO MANY INPUTS.
+14680          CMB R#,=34            !   CHECK FOR ELSE
+14690          JZR ER45              !   JIF TOO MANY INPUTS
+14700          DCB R26               !   SET DISPLAY FLAG NEGATIVE
+14710          JMP NEWAR1  
+14720 FINARY   BSZ 0                 !ELSE - (NO MORE CHARS IN BUFFER)
+14725 !! --- changes:
+14730 !!       JSB =TSTEN+           !   CHECK FOR CR, @, !
+14731 !!       JEZ CLRAR1            !   JIF TOKEN CR, @, !
+14732 !!       CMB R#,=34            !   CHECK FOR ELSE
+14735          CMB R20,=16           !   CHECK FOR
+14740          JNZ CLRARY            !   IF (TOKEN = CR, @, !, ELSE) THEN
+14741 !! CLRAR1   BSZ 0
+14742 !! --- end of changes
+14750          LDMD R20,=MBASE       !      GET TEMP STORE POINTER
+14760          STBD R26,X20,ARYFLG   !      CLEAR FLAG FOR NEXT MAT INPUT
+14770 CLRARY   BSZ 0                 !   END IF
+14780          ICB R26               !   SET DISPLAY FLAG TO 1
+14790 NEWAR1   BSZ 0                 !END IF
+14800          DCM R65               !POINT TO ADDR OF NAME OF NEXT ARRAY
+14810          STMD R65,=TMP2        !SAVE IT FOR FETVAR
+14820 NEWARY   BSZ 0
+14830          LDMD R20,=MBASE       !GET TEMP STORE PTR
+14840          STBD R26,X20,DSPFLG   !STORE IT.
+14850          RTN 
+14860 !        UNL
+14870          HED "REDIMENSION ROUTINES"
+14880 !*************  REDIM 1 SUBSCRIPT ROUTINE  **********************
+14890          BYT 32
+14900 !*****************************************************************
+14910 !*** REDIM C(M)                                                ***
+14920 !***     SPECIFIES NEW UPPER BOUND OF VECTOR.                  ***
+14930 !***     NUMBER OF SUBSCRIPTS MUST BE SAME AS IN ORIGINAL DIM. ***
+14940 !***     TOTAL NUMBER OF REDIM ELEMENTS CAN NOT EXCEED NUMBER  ***
+14950 !***     ORIGINALLY DIMENSIONED.                               ***
+14960 !*** IN  : REL ADDR C                                          ***
+14970 !***       SUBSCRIPT M                                         ***
+14980 !***                  <--- R12                                 ***
+14990 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED.               ***
+15000 !*****************************************************************
+15010 !
+15020 RDIM1    BSZ 0
+15030          JSB =ONEB             !POP STACK & INT TO R46
+15040          STM R46,R76           !SAVE ROW PARAMETER
+15050          JSB =VECMAT           !SEE IF VECTOR OR MATRIX
+15060          CLM R24
+15070          ICM R24               !COL 1 FOR VECTOR
+15080          DRP R22               !POINTS TO ROW POSITION
+15090          ARP R76               !POINTS TO ROW PARAMETER
+15100          JSB =NEGDIM           !SEE IF DIMENSIONS ARE NEGATIVE
+15110          JEN RD1END            !IF (2-DIMENSIONAL MATRIX)
+15120          LDM R4,=RDER33        !   ERROR -- CHANGE # DIMS Orig 44 a9 a6 76, capasm 44 a9 a5 7e
+15130 RD1END   BSZ 0                 !END IF
+15140          JMP RD2END            !GO AND REDIM ARRAY
+15150 !
+15160 !************** REDIM 2 VAR ROUTINE  ****************************
+15170          BYT 32
+15180 !*****************************************************************
+15190 !*** REDIM C(M,N)                                              ***
+15200 !***     SPECIFIES NEW UPPER BOUNDS OF MATRIX.                 ***
+15210 !***     NUMBER OF SUBSCRIPTS MUST BE SAME AS IN ORIGINAL DIM. ***
+15220 !***     TOTAL NUMBER OF REDIM ELEMENTS CAN NOT EXCEED NUMBER  ***
+15230 !***     ORIGINALLY DIMENSIONED.                               ***
+15240 !*** IN  : REL ADDR C                                          ***
+15250 !***       SUBSCRIPT M                                         ***
+15260 !***       SUBSCRIPT N                                         ***
+15270 !***                  <--- R12                                 ***
+15280 !*** OUT : STACK POPPED AND ARRAY REDIMENSIONED.               ***
+15290 !*****************************************************************
+15300 !
+15310 RDIM2    BSZ 0
+15320          JSB =TWOB             !ROW,COL BIN INTS-R46,R56.
+15330          STM R46,R74           !SAVE COL PARAMETER
+15340          STM R56,R76           !SAVE ROW PARAMETER
+15350          JSB =VECMAT           !SEE IF VECTOR OR MATRIX
+15360          DRP R22               !POINT TO ROW POSITION
+15370          ARP R76               !POINT TO ROW PARAMETER
+15380          JSB =NEGDIM           !SEE IF DIMENSION IS NEGATIVE
+15390          DRP R24               !POINT TO COL POSITION
+15400          ARP R74               !POINT TO COL PARAMETER
+15410          JSB =NEGDIM           !SEE IF DIMENSION IS NEGATIVE
+15420          JEZ RD2END            !IF (1-DIMENSIONAL VECTOR)
+15430          LDM R4,=RDER33        !   ERROR -- CHANGE # DIMS orig 04 44 a9 06 capasm 04 44 a9 a5
+15440 RD2END   BSZ 0                 !END IF
+15450          CLE 
+15460          DCE                   !FLAG AS C TYPE MATRIX
+15470          JMP REDIM.            !REDIMENSION THE MATRIX
+15480 !
+15490 !   ************************************
+15500 !   ***  TEST FOR NEGATIVE SUBSCRIPT ***
+15510 !   ************************************
+15520 !
+15530 NEGDIM   BSZ 0
+15540          LDM R#,R#             !LOAD ROW OR COL PARAM
+15550          JPS NEGEND            !IF (DIM < 0)
+15560          POMD R20,-R6          !   TRASH 1 RETURN
+15570          JSB =ERROR   
+15580          BYT 89D               !   REPORT ERROR 89 -- ILLEGAL PARAM
+15590          RTN 
+15600 NEGEND   BSZ 0                 !END IF
+15610          ADM R#,R36            !ADD IN THE OPTION BASE
+15620          RTN 
+15630 !
+15640 !   ********************************
+15650 !   ***  SEE IF VECTOR OR MATRIX ***
+15660 !   ********************************
+15670 !
+15680 VECMAT   BSZ 0
+15690          LDMD R20,=MBASE       !GET TEMP STORE POINTER
+15700          CLM R65
+15710          ICB R65               !FLAG # DIMS ALREADY CHECKED
+15720          STBD R65,X20,RDMFLG   !SET REDIM FLAG
+15730          POMD R65,-R12         !GET REL ADDR OF ARRAY
+15740          PUMD R65,+R12         !COPY FOR REDIM.
+15750          PUMD R65,+R12         !REL ADDR FOR LOCSZ-
+15760          JSB =LOCSZ-           !1-D OR 2-D MATRIX
+15770          POMD R65,-R12         !GET REL ADDR OF MATRIX
+15780          DCM R36               !0 IF OPTION BASE 1 AND ...
+15790          TCM R36               !1 IF OPTION BASE 0
+15800          RTN 
+15810 !
+15820 !**********************************************************************
+15830 !*  SUBROUTINE REDIM                                                  *
+15840 !*                                                                    *
+15850 !*  THIS ROUTINE IS CALLED TO REDIMENSION AN ARRAY                    *
+15860 !*  OR TO RETURN THE CURRENT DIMENSIONS.                              *
+15870 !*                                                                    *
+15880 !*  INPUT:                                                            *
+15890 !*                                                                    *
+15900 !*  R65   = 3 BYTE REL. ADDR. TO ARRAY HEADER                         *
+15910 !*  R22   = MAX ROW OR ZERO                                           *
+15920 !*  R24   = MAX COL OR ZERO                                           *
+15930 !*                                                                    *
+15940 !*  OUTPUTS                                                           *
+15950 !*                                                                    *
+15960 !*  IF R22 = -1 & R24 = 0:                                            *
+15970 !*     -- R22 = Ma : MAX ROW OF OPERAND ARRAY A OR                    *
+15980 !*              Mb : MAX ROW OF OPERAND ARRAY B OR                    *
+15990 !*              Mc : MAX ROW OF RESULT  ARRAY C                       *
+16000 !*     -- R24 = Na : MAX COL OF OPERAND ARRAY A OR                    *
+16010 !*              Nb : MAX COL OF OPERAND ARRAY B OR                    *
+16020 !*              Nc : MAX COL OF RESULT  ARRAY C                       *
+16030 !*     -- R36 = OPTION BASE (1 OPTION BASE 1; 0 OPTION BASE 0)        *
+16040 !*     -- R55 = ARRAY SIZE                                            *
+16050 !*     -- R60 = ABS ADDR OF ARRAY NAME                                *
+16060 !*     -- R65 = Ba : BASE ADDR (1st ARRAY ELE) OF OPERAND ARRAY A OR  *
+16070 !*              Bb : BASE ADDR (1st ARRAY ELE) OF OPERAND ARRAY B OR  *
+16080 !*              Bc : BASE ADDR (1st ARRAY ELE) OF RESULT  ARRAY C     *
+16090 !*     -- PTR2- POINTS TO BASE ADDRESS OF ARRAY (Ba, Bb or Bc)        *
+16100 !*     -- TYPE INFO (1 BYTE) IN TYPA,TYPB,TYPC                        *
+16110 !*     -- ELE SIZE (2 BYTES) IN INCRA, INCRB, INCRC                   *
+16120 !*     -- TRACE & VECTOR INFO (1 BYTE) IN TRCFLG FOR C-TYPE ARRAY     *
+16130 !*     -- E = 0 IF MATRIX                                             *
+16140 !*     -- E # 0 IF VECTOR                                             *
+16150 !*                                                                    *
+16160 !*  IF R22 & R24 ARE NON-NEG:                                         *
+16170 !*     -- ARRAY WILL BE REDIMENSIONED                                 *
+16180 !*        (NEW ROW AND COL INFO IN ARRAY HEADER)                      *
+16190 !*     -- R60 = ABS ADDR OF ARRAY NAME                                *
+16200 !*     -- R65 = Ba : BASE ADDR (1st ARRAY ELE) OF OPERAND ARRAY A OR  *
+16210 !*              Bb : BASE ADDR (1st ARRAY ELE) OF OPERAND ARRAY B OR  *
+16220 !*              Bc : BASE ADDR (1st ARRAY ELE) OF RESULT  ARRAY C     *
+16230 !*     -- R55 = NEW ARRAY SIZE                                        *
+16240 !*              (OLD ARRAY SIZE STILL IN ARRAY HEADER)                *
+16250 !*     -- R24 = 1,0 IF VECTOR                                         *
+16260 !*     -- PTR2- POINTS TO 1ST ELEMENT IN ARRAY                        *
+16270 !*     -- TYPE INFO (1 BYTE) IN TYPA,TYPB,TYPC                        *
+16280 !*     -- ELE SIZE (2 BYTES) IN INCRA, INCRB, INCRC                   *
+16290 !*     -- TRACE & VECTOR INFO (1 BYTE) IN TRCFLG FOR C-TYPE ARRAY     *
+16300 !*                                                                    *
+16310 !*  ALL  ROW & COL DIMENSIONS ARE REL TO OPTION                       *
+16320 !*  BASE 1.                                                           *
+16330 !*                                                                    *
+16340 !*  ENTRY REDIM. WILL USE THE OPTION BASE                             *
+16350 !*  OF THE PROGRAM WITHIN WHICH THE ARRAY                             *
+16360 !*  RESIDES.                                                          *
+16370 !*                                                                    *
+16380 !*  ENTRY RUDIM WILL SET R22=-1, CLR R24, & REDIM.                    *
+16390 !**********************************************************************
+16400 !
+16410 RUDIM    CLM R22
+16420          DCM R22
+16430          CLM R24
+16440          JMP REDIM.  
+16450 !****  TOKEN 157 ATTRIBUTE TABLE  *****************
+16460          BYT 0,241
+16470          LST 
+16480 REDIM.   SAD 
+16490 !        UNL
+16500          PUMD R70,+R6          !SAVE R70
+16510          JSB =FETSVA           !PTR2 ARRAY SIZE,R70 ARRAY NAME,R46 HEADER
+16520          LDM R60,R70           !MOVE ABS ADDR ARRAY NAME
+16530          LDM R76,=10,0         !INCREMENT AMOUNT IF REAL.
+16540          STB R46,R35           !MOVE HEADER FOR TESTING
+16550          ANM R35,=60           !ISOLATE TYPE
+16560          LDB R75,R35           !MOVE TYPE.
+16570          CMB R75,=20           !REAL TYPE?
+16580          DRP R76               !SET ARP FOR LATER.
+16590          JNC ABCTST            !IF (SHORT OR INTEGER)
+16600          JZR INTINC            !   IF (SHORT)
+16610          LDB R#,=4             !      INC AMT FOR SHORT
+16620          JMP INTEND  
+16630 INTINC   BSZ 0                 !   ELSE - (INTEGER)
+16640          LDB R#,=3             !      INC AMT FOR INTEGER
+16650 INTEND   BSZ 0                 !   END IF
+16660 ABCTST   BSZ 0                 !END IF
+16670          LDMD R65,=PTR2-       !GET ARRAY SIZE ADDR
+16680          SBM R65,=7,0,0        !FIND ADDR 1ST ARRAY ELE
+16690 !
+16700 !================================================
+16710 !====  ARRAYS ARE OF THREE TYPES: A, B OR C  ====
+16720 !====         C = B * A                      ====
+16730 !====  TYPE A: 1ST OPERAND ARRAY             ====
+16740 !====  TYPE B: 2ND OPERAND ARRAY             ====
+16750 !====  TYPE C: RESULT ARRAY                  ====
+16760 !================================================
+16770 !
+16780          JEN BCTST             !IF (TYPE A ARRAY)
+16790          STMD R75,=TYPA        !   SAVE TYPA AND INCRA
+16800          STMD R65,=TMP1        !   SAVE Ba
+16810          STMD R65,=TMP1+       !   ANOTHER COPY
+16820          JMP DOLOC             !
+16830 BCTST    DCE 
+16840          JEN CTYPE             !ELSE IF (TYPE B ARRAY)
+16850          STMD R75,=TYPB        !   SAVE TYPB AND INCRB
+16860          STMD R65,=TMP2        !   SAVE Bb
+16870          STMD R65,=TMP2+       !   ANOTHER COPY
+16880          JMP DOLOC   
+16890 CTYPE    BSZ 0                 !ELSE (TYPE C ARRAY)
+16900          STMD R60,=TMP4        !   SAVE Bc
+16910          STMD R65,=TMP3++      !   ANOTHER COPY
+16920          STMD R75,=TYPC        !   SAVE TYPC AND INCRC
+16930          STBD R46,=TMP1++      !   SAVE TARGET HEADER
+16940          JSB =TRCRST           !   ISOLATE TRACE FLAG
+16950 DOLOC    BSZ 0                 !END IF
+16960          LDMI R51,=PTR2-       !GET SIZE, ROWS & COLS FROM HEADER
+16970          CLM R34
+16980          ICM R34               !ASSUME OPTION BASE 0
+16990          LDMD R65,=PTR2        !GET LOCATION OF ARRAY
+17000          CMMD R65,=NXTMEM      !CALC VAR < NXTMEM & PRGM VAR > NXTMEM
+17010          JNC OPTEND            !IF (PROGRAM VARIABLE)
+17020          LDMD R34,=PGMOPT      !   GET PROGRAM MODE OPTION BASE
+17030 OPTEND   BSZ 0                 !END IF
+17040          LDM R36,R22           !LOOK AT ROW ...
+17050          ORM R36,R24           !AND COL PARAMETERS
+17060          JPS REDIM1            !IF (RUDIM--NO REDIMENSION)
+17070          LDM R22,R53           !   GET MAX ROW
+17080          ADM R22,R34           !   ADD IN OPTION BASE TO NUM ROWS
+17090          CLE                   !   FLAG AS 2-D MATRIX
+17100          LDM R24,R51           !   GET MAX COL
+17110          JPS RED5              !   IF (VECTOR)
+17120          CLM R24
+17130          ICM R24               !      1 IN COL PARAM
+17140          DCE                   !      FLAG AS VECTOR
+17150          JMP RED6    
+17160 RED5     BSZ 0                 !   ELSE - (2-D MATRIX)
+17170          ADM R#,R34            !      ADD IN OPTION BASE TO NUM COLS
+17180 RED6     BSZ 0                 !   END IF
+17190          DCM R34               !   1 IF OPTION BASE 1 AND ...
+17200          TCM R34               !   0 IF OPTION BASE 0
+17210          STM R34,R36           !   RETURN AS PARAMETER IN R36
+17220          GTO REDEND  
+17230 !
+17240 RDER33   BSZ 0                 !  addr orig is 77246 (7ea6)
+17250          JSB =ERROR+  
+17260          JSB =ERROR            !   ATTEMPT TO CHANGE ...
+17270          BYT 009D              !   NUMBER OF DIMENSIONS
+17280          RTN 
+17290 !
+17300 REDIM1   BSZ 0                 !ELSE - (REDIMENSION)
+17310          TSM R34               !   LOOK AT OPTION BASE
+17320          JZR REDIM2            !   IF (OPTION BASE 0)
+17330          JSB =ZERTST           !      CHECK FOR NULL ARRAY.
+17340          JZR RDIMER            !      JIF NULL ARRAY -- DIM SIZE ERROR
+17350 REDIM2   BSZ 0                 !   END IF
+17360          LDM R76,R22           !   GET ROW PARAMETER
+17370          SBM R76,R34           !   SUBTRACT OPTION BASE
+17380          STM R76,R74           !   MOVE ROW PARAMETER
+17390          LDM R76,R24           !   GET COL PARAMETER
+17400          SBM R76,R34           !   SUBTRACT OPTION BASE
+17410          LDMD R36,=MBASE       !   GET TEMP STORE PTR
+17420          LDBD R45,X36,RDMFLG   !   GET REDIM FLAG
+17430          JNZ RDMF#0            !   IF (REDIM FLAG = 0)
+17440          LDM R64,R53           !      MOVE HEADER ROWS
+17450          LDM R66,R51           !      MOVE HEADER COLS
+17460          CMM R66,=377,377      !      COMPARE WITH VECTOR INDICATOR
+17470          JNZ NTVC1             !      IF (VECTOR)
+17480          CMM R24,=1,0          !         LOOK AT COL PARAM
+17490          JNZ NTVC1             !         JIF YES
+17500          LDM R76,R66
+17510 NTVC1    BSZ 0                 !      END IF
+17520          XRM R64,R74
+17530          XRM R66,R64
+17540          ANM R66,=000,200
+17550          JZR RDMF1             !      IF (VECTOR <-- MATRIX)
+17560          POMD R70,-R6          !         CLEAN UP STACK
+17570          PAD                   !           "   "    "
+17580          JMP RDER33            !         # DIMS ERROR
+17590          BSZ 0                 !      END IF
+17600 RDMF#0   BSZ 0                 !   ELSE - (REDIM FLAG <> 0)
+17610          CLB R#                !      SET REDIM FLAG TO 0
+17620          STBD R#,X36,RDMFLG  
+17630 RDMF1    BSZ 0                 !   END IF
+17640          PUMD R55,+R6          !   SAVE HEADER SIZE
+17650          PUMD R70,+R6          !   SAVE REDIM ROW & COL
+17660          LDMD R30,=INCRC       !   GET ELEMENT SIZE
+17670          JSB =NUMBYT           !   SIZE OF REDIM MATRIX
+17680          POMD R70,-R6          !   RESTORE REDIM ROW & COL
+17690          POMD R65,-R6          !   RESTORE HEADER SIZE
+17700          CMM R65,R55           !   COMPARE HEADER SIZE & REDIM SIZE
+17710          JPS REDIM3            !   IF (HEADER SIZE < REDIM SIZE)
+17720 RDIMER   JSB =ERROR+  
+17730          JSB =ERROR            !      ATTEMPT TO REDIMENSION ARRAY ...
+17740          BYT 013D              !      BEYOND ORIGINAL SIZE
+17750          JMP REDIM4            !
+17760 REDIM3   BSZ 0                 !   ELSE - (HEADER SIZE >= REDIM SIZE)
+17770          CLE                   !      FLAG AS 2-D MATRIX
+17780          LDMI R66,=PTR2        !      GET COL OF C
+17790          CMM R66,=377,377      !      COMPARE WITH VECTOR INDICATOR
+17800          JNZ REDEX1            !      IF (VECTOR)
+17810          STM R66,R76           !         MOVE VECTOR INDICATOR
+17820          DCE                   !         FLAG AS VECTOR
+17830 REDEX1   BSZ 0                 !      END IF
+17840          STM R76,R30           !      SAVE COL
+17850          STM R74,R32           !      SAVE ROW
+17860          LDM R74,R30           !      GET REARRANGED COL & ROW
+17870          STMI R74,=PTR2        !      NEW COL & ROW IN ARRAY HEADER
+17880 REDIM4   BSZ 0                 !   END IF
+17890 REDEND   BSZ 0                 !END IF
+17900          LDMD R65,=PTR2        !GET ABS ADDR OF 1ST ELE
+17910          POMD R70,-R6          !RESTORE R70
+17920          PAD 
+17930          RTN 
+17940 !
+17950 ERROR+   CLB R36
+17960          CMBD R36,=ERRORS      !ALREADY SET?
+17970          JNZ DOERR+            !IF (NO OTHER ERROR FLAGGED)
+17980          LDB R36,=ROM#         !   SELECT MY ROM ...
+17990          STBD R36,=ERRROM      !   FOR ERRORS
+18000 DOERR+   BSZ 0                 !END IF
+18010          RTN 
+18020 !
+18030 TRCRST   BSZ 0
+18040          LDBD R35,=TMP1++      !GET HEADER
+18050          ANM R35,=2            !ISOLATE TRACE FLAG
+18060          LLB R35               !PUT IT IN LEFT NIBBLE
+18070          LLB R35
+18080          LLB R35
+18090          STBD R35,=TRCFLG      !SAVE IT IN TRACE FLAG
+18100          RTN 
+18110 !
+18120          LST 
+18130 PUTREG   BSZ 0
+18140 !        UNL
+18150          PUMD R50,+R12
+18160          PUMD R60,+R12
+18170          PUMD R70,+R12
+18180          LDM R74,R0
+18190          PUMD R74,+R12
+18200          LDM R76,R14
+18210          PUMD R76,+R12
+18220          LDM R70,R20
+18230          PUMD R70,+R12
+18240          LDM R70,R30
+18250          PUMD R70,+R12
+18260          RTN 
+18270 !
+18280          LST 
+18290 GETREG   BSZ 0
+18300 !        UNL
+18310          POMD R70,-R12
+18320          STM R70,R30
+18330          POMD R70,-R12
+18340          STM R70,R20
+18350          POMD R76,-R12
+18360          STM R76,R14
+18370          POMD R74,-R12
+18380          STM R74,R0
+18390          POMD R70,-R12
+18400          POMD R60,-R12
+18410          POMD R50,-R12
+18420          RTN 
+18430 !
+18440 !
+18450 !***********************************
+18460 !***     ERROR MESSAGE TABLE     ***
+18470 !***********************************
+18480 !
+18490 !                              !  ROM          BIN
+18500 !                              ! (DEC)        (OCT)
+18510 !
+18520 ERMSG    BYT 200               !   00          377
+18530          BYT 200               !   01          376
+18540          BYT 200               !   02          375
+18550          BYT 200               !   03          374
+18560          BYT 200               !   04          373
+18570          BYT 200               !   05          372
+18580          BYT 200               !   06          371
+18590          BYT 200               !   07          370
+18600          BYT 200               !   08          367
+18610          ASP "# DIMS"          !   09          366
+18620          ASP "NOT A 3-VECTOR"  !   10          365
+18630          ASP "DIM MISMATCH"    !   11          364
+18640          ASP "MATRIX ROM"      !   12          363
+18650          ASP "DIM SIZE"        !   13          362
+18660          ASP "NOT SQUARE"      !   14          361
+18670          ASP "NON-VECTOR"      !   15          360
+18680          BYT 377
+18690 !
+18700 !************************************
+18710 !***     EXTERNAL LABEL TABLE     ***
+18720 !************************************
+18730 !
+18740 CALSCN   DAD 72352             !SCANN WITH REG. PROTECT
+18750 PSH45    DAD 24476             !PUSHES TOKEN, 3 BLANKS, LENGTH
+18760 FTR61    DAD 55514             !PUTS 1 IN R40
+18770 SETR22   DAD 01255             !USES INPBUF FOR INPUT
+18780 TSTUS    DAD 72277             !PRINT NUMERIC ROUTINE
+18790 MPROI+   DAD 53522             !MPY SEPID REAL OR INT
+18800 READDT   DAD 76162             !READ DATA STATEMENT
+18810 WRTLIN   DAD 71750             !SEND MESSAGE TO CRT
+18820 SALT     DAD 21727             !TO SEARCH ASCII TABLES OF ROM
+18830 TMP1+    DAD 104465            !3 BYTES PAST TMP1
+18840 TMP1++   DAD 104470            !6 BYTES PAST TMP1
+18850 TMP2+    DAD 104475            !3 BYTES PAST TMP2
+18860 TMP3+    DAD 104504            !2 BYTE PAST TMP3
+18870 TMP3++   DAD 104507            !5 BYTES PAST TMP3
+18880 TMP4+    DAD 104517            !5 BYTES PAST TMP4
+18890 PGMOPT   DAD 104214            !OPTION BASE
+18900          LST 
+18910 !        ------------
+18920 !        --- ROM2 ---
+18930 !        ------------
+18940 NORM2    DAD 60017             !NORM
+18950 ABSUM2   DAD 60051             !SUM OF ABSOLUTE VALUE
+18960 SUM2     DAD 60056             !SUM OF ARRAY ELEMENTS
+18970 CSUM2    DAD 60123             !SUM OF COLUMN ELEMENTS
+18980 RSUM2    DAD 60204             !SUM OF ROW ELEMENTS
+18990 RNORM2   DAD 60373             !NORM OF ROW ELEMENTS
+19000 CNORM2   DAD 60422             !NORM OF COL ELEMENTS
+19010 CROSS2   DAD 60667             !CROSS PRODUCT
+19020 DOT2     DAD 61103             !DOT PRODUCT
+19030 COLINT   DAD 60474             !INITIALIZE COLUMN
+19040 COLNXT   DAD 60523             !NEXT COLUMN
+19050 IDN2     DAD 61234             !IDENTITY
+19060 EQUA2    DAD 61340             !INT TO REAL CONVER
+19070 EQUA09   DAD 61343             !NO INT TO REAL CONVER
+19080 FIND#/   DAD 61454             !FIND # A AND FINAL /
+19090 TRNPS2   DAD 61646             !TRANSPOSE
+19100 LDIM2    DAD 62355             !LOWER BOUND
+19110 UDIM2    DAD 62363             !UPPER BOUND
+19120          FIN 

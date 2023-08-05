@@ -1,0 +1,19 @@
+
+Expressions
+Immer in ()
+monadic op + - NOT
+add op + - |
+mul op * / MOD &
+factor ident 
+       const 
+       $ 
+       (expr)
+term   factor
+       term mul op factor
+expr   term
+       modnadic op term
+       (expression) add op term
+$ is address at beginning of the line
+      
+
+

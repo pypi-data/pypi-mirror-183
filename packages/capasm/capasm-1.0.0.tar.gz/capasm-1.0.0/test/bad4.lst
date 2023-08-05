@@ -1,0 +1,35 @@
+CAPASM
+(c) Joachim Siebold
+
+    1 000000             !
+    2 000000             ! Bad statements, ABS and LOC statement
+    3 000000             !
+    4 000000                   ABS TEST 11000
+*ERROR(P) at bad4.asm(4): ROM expected
+    5 000000             XXX   ABS ROM  11000
+    6 011000                   NAM 4,TEST
+*ERROR(P) at bad4.asm(6): Pseudo opcode not allowed here
+    7 011000 000 000 000       BSZ 4
+      011003 000 
+    8 011004                   LOC XXX
+*ERROR(P) at bad4.asm(8): Illegal number
+    9 011004                   LOC 11004
+   10 011004 000 000 000       BSZ 10
+      ...
+      011012 000 000 
+   11 011014                   LOC 11014
+   12 011014 000 000 000       BSZ 4
+      011017 000 
+   13 011020 000 000 000       LOC 11060
+      ...
+      011056 000 000 
+   14 011060                   FIN      
+ 
+1 Symbols used:
+XXX LCL 000000     5;1
+
+Index of source files in symbol cross reference:
+1: bad4.asm
+Assembly completed
+ 14 lines processed, 3 error(s) 0 warning(s)
+ object file deleted

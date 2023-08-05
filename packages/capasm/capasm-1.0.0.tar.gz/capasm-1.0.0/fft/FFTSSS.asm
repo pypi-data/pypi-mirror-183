@@ -1,0 +1,689 @@
+0010        LST  
+0020 R1(J)  DAD  101770
+0030 R1(K)  DAD  101760
+0040 I1(J)  DAD  101750
+0050 I1(K)  DAD  101740
+0060 A      DAD  101730
+0070 B      DAD  101720
+0080 C      DAD  101710
+0090 C1     DAD  101700
+0100 E      DAD  101670
+0110 P      DAD  101660
+0120 Q      DAD  101650
+0130 R      DAD  101640
+0140 S1     DAD  101630
+0150 S2     DAD  101620
+0160 U      DAD  101610
+0170 V      DAD  101600
+0180 J      DAD  101576
+0190 K      DAD  101574
+0200 I      DAD  101572
+0210 N2     DAD  101570
+0220 G      DAD  101564
+0230 JTO    DAD  101562
+0240 JSTEP  DAD  101560
+0250 ITO    DAD  101556
+0260 RTO    DAD  101554
+0270 L1     DAD  101552
+0280 RMAXR  DAD  101550
+0290 IMAXR  DAD  101546
+0300 R1BASE DAD  101544
+0310 I1BASE DAD  101542
+0320 R1JADR DAD  101540
+0330 R1KADR DAD  101536
+0340 I1JADR DAD  101534
+0350 I1KADR DAD  101532
+0360 COS10  DAD  53556
+0370 SIN10  DAD  53546
+0380 ADD10  DAD  52233
+0390 SUB10  DAD  52137
+0400 MPY10  DAD  52562
+0410 DIV10  DAD  51644
+0420 SQR15  DAD  52455
+0430 ONER   DAD  56215
+0440 ONER+  DAD  56220
+0450 CONBIN DAD  3572
+0460 ROMFL  DAD  101231
+0470 FWCURR DAD  100004
+0480 NARRE+ DAD  13376
+0490 ONEB   DAD  56113
+0500 TWOB   DAD  56176
+0510 NUMVA+ DAD  12407
+0520 FETSVA DAD  44556
+0530 ERROR+ DAD  6611
+0540 BINTAB DAD  101233
+0542 ! *************************
+0543 !  THIS BINARY IS TO BE    
+0544 !   USED WITH THE WAVEFORM 
+0545 !   ANALYSIS PAK.          
+0546 ! *************************
+0550        NAM  EKFFT 
+0560        DEF  RUNTIM
+0570        DEF  TOKS  
+0580        DEF  BASIC 
+0590        DEF  ERMSG 
+0600        DEF  INIT  
+0610 RUNTIM BYT  0,0
+0620        DEF  FFT.  
+0630        DEF  IFT.  
+0640        DEF  AFT.  
+0650 BASIC  BYT  0,0
+0660        DEF  FFTPRS
+0670        DEF  FFTPRS
+0680        DEF  FFTPRS
+0690        BYT  377,377
+0700 TOKS   ASC  2,FFT
+0710        BYT  324
+0720        ASC  2,RFT
+0730        BYT  324
+0740        ASC  2,AFT
+0750        BYT  324
+0760        BYT  377
+0770 ERMSG  BYT  200
+0780        BYT  200,200,200,200
+0790        BYT  200,200,200,200
+0800        ASC  34,should be: _FT R1,I1,N2,L1,C1
+0810        BYT  261
+0820        ASC  43,ARRAYS R1 & I1 MUST BE 1-DIMENSIONED
+0830        BYT  304
+0840        ASC  33,CAN'T RUN WITH OPTION BASE 0
+0850        BYT  260
+0860        BYT  377
+0870 INIT   LDMD R22,=FWCURR
+0880        LDBD R30,=ROMFL 
+0890        CMB  R30,=4
+0900        JZR  CHECK 
+0910        CMB  R30,=7
+0920        JNZ  INRTN 
+0930 CHECK  ADM  R22,=6,0
+0940        LDBD R36,R22
+0950        ANM  R36,=100,0
+0960        JNZ  ERBIN3
+0970 INRTN  RTN  
+0980 ! ************************
+0990 ERBIN3 JSB  =ERROR+
+1000        BYT  364
+1010 ! ************************
+1020 FFTPRS PUBD R43,+R6
+1030        JSB  =NARRE+
+1035        JEZ  ERBIN1
+1040        CMB  R14,=54
+1050        JNZ  ERBIN1
+1060        JSB  =NARRE+
+1065        JEZ  ERBIN1
+1070        CMB  R14,=54
+1080        JNZ  ERBIN1
+1090        JSB  =NUMVA+
+1100        JEZ  ERBIN1
+1110        CMB  R14,=54
+1120        JNZ  ERBIN1
+1130        JSB  =NUMVA+
+1140        JEZ  ERBIN1
+1150        CMB  R14,=54
+1160        JNZ  ERBIN1
+1170        JSB  =NUMVA+
+1180        JEZ  ERBIN1
+1190        POBD R57,-R6
+1200        LDB  R55,=371
+1210        PUMD R55,+R12
+1220        RTN  
+1230 ! ************************
+1240 ERBIN1 POBD R57,-R6
+1250        JSB  =ERROR+
+1260        BYT  366
+1270 ! ************************
+1280 ERBIN2 JSB  =ERROR+
+1290        BYT  365
+1300 ! ************************
+1310 POP    JSB  =ONER  
+1320        STMD R40,=C1    
+1330        JSB  =TWOB  
+1340        STMD R#,=L1    
+1350        STMD R56,=N2    
+1360        DCM  R56
+1370        STMD R56,=JTO   
+1380        ICM  R56
+1390        STM  R56,R30
+1400 NOZRO  LLM  R56
+1410        JNC  NOZRO 
+1420        JZR  GO.ON 
+1430 ERR#   JSB  =ERROR+
+1440        BYT  41
+1450 GO.ON  POMD R66,-R12
+1460        JSB  =FETSVA
+1470        ICM  R34
+1480        ICM  R34
+1490        POMD R36,+R34
+1500        STMD R36,=IMAXR 
+1510        CMM  R36,R30
+1520        JNC  ERR#  
+1530        LDMD R36,R34
+1540        JPS  ERBIN2
+1550        SBM  R34,=6,0
+1560        STMD R34,=I1BASE
+1570        POMD R66,-R12
+1580        JSB  =FETSVA
+1590        ICM  R34
+1600        ICM  R34
+1610        POMD R36,+R34
+1620        STMD R36,=RMAXR 
+1630        CMM  R36,R30
+1640        JNC  ERR#  
+1650        LDMD R36,R34
+1660        JPS  ERBIN2
+1670        SBM  R34,=6,0
+1680        STMD R34,=R1BASE
+1690        RTN  
+1700 ! ************************
+1710        BYT  241
+1720 FFT.   LDMD R22,=BINTAB
+1730        CLM  R20
+1740        STMD R20,=K     
+1750        ICB  R20
+1760        STMD R20,=J     
+1770        JSB  X22,POP   
+1780 LOOP1  LDM  R20,=2,0
+1790        LDMD R30,=K     
+1800 N1EQU  LDMD R26,=N2    
+1810        STM  R20,R36
+1820 N2I    LRM  R27
+1830        LRM  R37
+1840        JEV  N2I   
+1850        CMM  R30,R26
+1860        JNC  YES1  
+1870        SBM  R30,R26
+1880        LLM  R20
+1890        JMP  N1EQU 
+1900 YES1   ADM  R30,R26
+1910        STMD R30,=K     
+1920        LDMD R32,=J     
+1930        CMM  R32,R30
+1940        JCY  NEXTJ1
+1950        LDMD R34,=I1BASE
+1960        LDM  R36,R30
+1970        JSB  X22,SUB1A 
+1980        STMD R50,R36
+1990        STMD R40,R32
+2000        LDMD R34,=R1BASE
+2010        LDMD R32,=J     
+2020        LDM  R36,R30
+2030        JSB  X22,SUB1A 
+2040        STMD R50,R36
+2050        STMD R40,R32
+2060        LDMD R32,=J     
+2070 NEXTJ1 ICM  R32
+2080        STMD R32,=J     
+2090        LDMD R34,=JTO   
+2100        CMM  R34,R32
+2110        JCY  LOOP1 
+2120        CLM  R24
+2130        STMD R24,=G     
+2140        CLM  R20
+2150        ICB  R20
+2160        STMD R20,=I     
+2170        CLM  R60
+2180        LDB  R67,=20
+2190        STMD R60,=P     
+2200        LDMD R24,=L1    
+2210        STMD R24,=ITO   
+2220        JSB  X22,LOOP2 
+2230 LOOP2  POMD R76,-R6
+2240        BCD  
+2250        CLM  R50
+2260        STMD R50,=E     
+2270        LDB  R57,=20
+2280        STMD R50,=C     
+2290        LDMD R40,=P     
+2300        JSB  =SUB10 
+2310        POMD R50,-R12
+2320        CLM  R40
+2330        LDB  R47,=40
+2340        JSB  =DIV10 
+2350        POMD R#,-R12
+2360        JSB  =SQR15 
+2370        POMD R#,-R12
+2380        LDMD R50,=C1    
+2390        JSB  =MPY10 
+2400        POMD R#,-R12
+2410        STMD R#,=Q     
+2420        CLM  R#
+2430        LDB  R47,=20
+2440        LDMD R50,=P     
+2450        JSB  =ADD10 
+2460        POMD R50,-R12
+2470        CLM  R40
+2480        LDB  R47,=40
+2490        JSB  =DIV10 
+2500        POMD R#,-R12
+2510        JSB  =SQR15 
+2520        POMD R#,-R12
+2530        LDMD R24,=G     
+2540        BIN  
+2550        LLM  R24
+2560        BCD  
+2570        JNZ  INOT1 
+2580        ICB  R24
+2590        TSM  R40
+2600        JZR  INOT1 
+2610        LLB  R41
+2620        NCB  R41
+2630        ERB  R41
+2640 INOT1  STMD R40,=P     
+2650        STMD R24,=G     
+2660        CLM  R30
+2670        ICB  R30
+2680        STMD R30,=R     
+2690        STMD R24,=RTO   
+2700        JSB  X22,LOOP3 
+2710 LOOP3  POMD R76,-R6
+2720        LDMD R26,=N2    
+2730        STMD R26,=JTO   
+2740        LDMD R26,=G     
+2750        BIN  
+2760        LLM  R26
+2770        STMD R26,=JSTEP 
+2780        LDMD R26,=R     
+2790        STMD R26,=J     
+2800        JSB  X22,LOOP4 
+2810 LOOP4  POMD R76,-R6
+2820        LDMD R24,=G     
+2830        ADM  R24,R26
+2840        STMD R24,=K     
+2850        LDMD R34,=R1BASE
+2860        LDM  R36,R24
+2870        LDM  R32,R26
+2880        JSB  X22,SUB1  
+2890        STMD R#,=R1(J) 
+2900        STMD R40,=R1(K) 
+2910        STMD R36,=R1KADR
+2920        STMD R32,=R1JADR
+2930        LDMD R34,=I1BASE
+2940        LDM  R36,R24
+2950        LDM  R32,R26
+2960        JSB  X22,SUB1  
+2970        STMD R#,=I1(J) 
+2980        STMD R40,=I1(K) 
+2990        STMD R36,=I1KADR
+3000        STMD R32,=I1JADR
+3010        BCD  
+3020        LDMD R50,=E     
+3030        JSB  =MPY10 
+3040        LDMD R40,=R1(K) 
+3050        LDMD R50,=C     
+3060        JSB  =MPY10 
+3070        POMD R#,-R12
+3080        POMD R50,-R12
+3090        JSB  =ADD10 
+3100        POMD R#,-R12
+3110        STMD R#,=A     
+3120        LDMD R#,=R1(K) 
+3130        LDMD R50,=E     
+3140        JSB  =MPY10 
+3150        LDMD R#,=I1(K) 
+3160        LDMD R50,=C     
+3170        JSB  =MPY10 
+3180        POMD R#,-R12
+3190        POMD R50,-R12
+3200        JSB  =SUB10 
+3210        POMD R#,-R12
+3220        STMD R#,=B     
+3230        LDMD R50,=I1(J) 
+3240        JSB  =ADD10 
+3250        POMD R#,-R12
+3260        LDMD R36,=I1KADR
+3270        STMD R40,R36
+3280        LDMD R40,=A     
+3290        LDMD R50,=R1(J) 
+3300        JSB  =SUB10 
+3310        POMD R#,-R12
+3320        LDMD R36,=R1KADR
+3330        STMD R40,R36
+3340        LDMD R40,=R1(J) 
+3350        LDMD R50,=A     
+3360        JSB  =ADD10 
+3370        POMD R#,-R12
+3380        LDMD R36,=R1JADR
+3390        STMD R40,R36
+3400        LDMD R40,=B     
+3410        LDMD R50,=I1(J) 
+3420        JSB  =SUB10 
+3430        POMD R#,-R12
+3440        LDMD R36,=I1JADR
+3450        STMD R40,R36
+3460        BIN  
+3470        LDMD R30,=JSTEP 
+3480        ADM  R26,R30
+3490        STMD R26,=J     
+3500        LDMD R30,=JTO   
+3510        CMM  R30,R26
+3520        JNC  ONWRD1
+3530        JSB  X22,LOOP4 
+3540 ONWRD1 BCD  
+3550        LDMD R40,=Q     
+3560        LDMD R50,=C     
+3570        JSB  =MPY10 
+3580        LDMD R#,=P     
+3590        LDMD R50,=E     
+3600        JSB  =MPY10 
+3610        POMD R#,-R12
+3615        POMD R50,-R12
+3620        JSB  =ADD10 
+3630        LDMD R#,=P     
+3640        LDMD R50,=C     
+3650        JSB  =MPY10 
+3660        LDMD R#,=Q     
+3670        LDMD R50,=E     
+3680        JSB  =MPY10 
+3690        POMD R#,-R12
+3700        POMD R50,-R12
+3710        JSB  =SUB10 
+3720        POMD R#,-R12
+3730        STMD R#,=C     
+3740        POMD R#,-R12
+3750        STMD R#,=E     
+3760        BIN  
+3770        LDMD R30,=R     
+3780        ICM  R30
+3790        STMD R30,=R     
+3800        LDMD R32,=RTO   
+3810        CMM  R32,R30
+3820        JNC  ONWRD2
+3830        JSB  X22,LOOP3 
+3840 ONWRD2 LDMD R30,=I     
+3850        ICM  R30
+3860        STMD R30,=I     
+3870        LDMD R32,=ITO   
+3880        CMM  R32,R30
+3890        JNC  ONWRD3
+3900        JSB  X22,LOOP2 
+3910 ONWRD3 RTN  
+3920 ! ************************
+3930 SUB1A  ICM  R36
+3940        ICM  R32
+3950 SUB1   BIN  
+3960        LLM  R36
+3970        LLM  R36
+3980        LLM  R36
+3990        ADM  R36,R34
+4000        PUMD R60,+R6
+4010        LDMD R60,R36
+4020        PUMD R36,+R6
+4030        JSB  =ONER+ 
+4040        STM  R#,R70
+4050        POMD R36,-R6
+4060        POMD R60,-R6
+4070        BIN  
+4080 SUB1B  LLM  R32
+4090        LLM  R32
+4100        LLM  R32
+4110        ADM  R32,R34
+4120        PUMD R60,+R6
+4130        LDMD R60,R32
+4140        PUMD R36,+R6
+4150        JSB  =ONER+ 
+4160        STM  R70,R40
+4170        POMD R36,-R6
+4180        STM  R60,R50
+4190        POMD R60,-R6
+4200        TSB  R50
+4210        BIN  
+4220 SUB1C  RTN  
+4230 ! ************************
+4240        BYT  241
+4250 IFT.   LDMD R22,=BINTAB
+4260        JSB  X22,POP   
+4270        LDMD R36,=N2    
+4280        JSB  =CONBIN
+4290        LDM  R50,=0,0,131,123,46,131,101,61
+4300        JSB  =DIV10 
+4310        PUMD R#,+R12
+4320        STMD R#,=A     
+4330        JSB  =COS10 
+4340        POMD R#,-R12
+4350        LDMD R22,=BINTAB
+4360        STMD R40,=P     
+4370        JSB  =SIN10 
+4380        POMD R#,-R12
+4390        LDMD R22,=BINTAB
+4400        LDMD R50,=C1    
+4410        JSB  =MPY10 
+4420        POMD R#,-R12
+4430        STMD R#,=Q     
+4440        LDMD R34,=R1BASE
+4450        CLM  R32
+4460        ICM  R32
+4470        BIN  
+4480        JSB  X22,SUB1B 
+4490        STMD R50,=A     
+4500        STMD R32,=R1JADR
+4510        LDMD R34,=I1BASE
+4520        CLM  R32
+4530        ICM  R32
+4540        BIN  
+4550        JSB  X22,SUB1B 
+4560        STMD R50,=I1(J) 
+4570        STMD R32,=I1JADR
+4580        LDMD R40,=A     
+4590        JSB  =ADD10 
+4600        POMD R#,-R12
+4610        STMD R#,=R1(J) 
+4620        LDMD R#,=I1(J) 
+4630        LDMD R50,=A     
+4640        JSB  =SUB10 
+4650        LDMD R50,=C1    
+4660        TSB  R51
+4670        JNZ  FORWRD
+4680        LDMD R50,=R1(J) 
+4690        CLM  R40
+4700        LDB  R47,=40
+4710        JSB  =DIV10 
+4720        POMD R#,-R12
+4730        STMD R#,=R1(J) 
+4740        POMD R50,-R12
+4750        CLM  R40
+4760        LDB  R47,=40
+4770        JSB  =DIV10 
+4780 FORWRD LDMD R36,=I1JADR
+4790        POMD R40,-R12
+4800        STMD R40,R36
+4810        LDMD R36,=R1JADR
+4820        LDMD R40,=R1(J) 
+4830        STMD R40,R36
+4840        LDMD R40,=C1    
+4850        STMD R40,=C     
+4860        CLM  R40
+4870        STMD R40,=E     
+4880        LDM  R20,=2,0
+4890        STMD R20,=J     
+4900        LDMD R24,=N2    
+4910        BIN  
+4920        LRM  R25
+4930        BCD  
+4940        STMD R24,=JTO   
+4950        JSB  X22,LOOP5 
+4960 LOOP5  POMD R76,-R6
+4970        LDMD R40,=Q     
+4980        LDMD R50,=C     
+4990        JSB  =MPY10 
+5000        LDMD R#,=P     
+5010        LDMD R50,=E     
+5020        JSB  =MPY10 
+5030        POMD R#,-R12
+5040        POMD R50,-R12
+5050        JSB  =ADD10 
+5060        POMD R#,-R12
+5070        STMD R#,=A     
+5080        LDMD R#,=C     
+5090        LDMD R50,=P     
+5100        JSB  =MPY10 
+5110        LDMD R#,=Q     
+5120        LDMD R50,=E     
+5130        JSB  =MPY10 
+5140        POMD R#,-R12
+5150        POMD R50,-R12
+5160        JSB  =SUB10 
+5170        POMD R#,-R12
+5180        STMD R#,=C     
+5190        LDMD R#,=A     
+5200        STMD R#,=E     
+5210        BIN  
+5220        LDMD R26,=N2    
+5230        SBM  R26,R20
+5240        ICM  R26
+5250        ICM  R26
+5260        STM  R26,R36
+5270        LDMD R34,=R1BASE
+5280        LDM  R32,R20
+5290        JSB  X22,SUB1  
+5300        STMD R#,=R1(K) 
+5310        STMD R40,=R     
+5320        STMD R32,=R1JADR
+5330        STMD R36,=R1KADR
+5340        BCD  
+5350        JSB  =ADD10 
+5360        POMD R#,-R12
+5370        STMD R#,=A     
+5380        LDMD R34,=I1BASE
+5390        LDM  R32,R20
+5400        STM  R26,R36
+5410        JSB  X22,SUB1  
+5420        STMD R#,=I1(J) 
+5430        STMD R40,=I1(K) 
+5440        STMD R32,=I1JADR
+5450        STMD R36,=I1KADR
+5460        BCD  
+5470        JSB  =ADD10 
+5480        POMD R#,-R12
+5490        STMD R#,=S1    
+5500        LDMD R50,=R1(K) 
+5510        LDMD R40,=R     
+5520        JSB  =SUB10 
+5530        POMD R#,-R12
+5540        STMD R#,=S2    
+5550        LDMD R50,=E     
+5560        JSB  =MPY10 
+5570        LDMD R#,=C     
+5580        LDMD R50,=S1    
+5590        JSB  =MPY10 
+5600        POMD R50,-R12
+5610        POMD R40,-R12
+5620        JSB  =SUB10 
+5630        POMD R#,-R12
+5640        STMD R#,=B     
+5650        LDMD R#,=I1(K) 
+5660        LDMD R50,=I1(J) 
+5670        JSB  =SUB10 
+5680        POMD R#,-R12
+5690        STMD R#,=U     
+5700        LDMD R#,=S2    
+5710        LDMD R50,=C     
+5720        JSB  =MPY10 
+5730        LDMD R#,=S1    
+5740        LDMD R50,=E     
+5750        JSB  =MPY10 
+5760        POMD R#,-R12
+5770        POMD R50,-R12
+5780        JSB  =ADD10 
+5790        POMD R#,-R12
+5800        STMD R#,=V     
+5810        LDMD R#,=A     
+5820        LDMD R50,=B     
+5830        JSB  =ADD10 
+5840        POMD R50,-R12
+5850        CLM  R40
+5860        LDB  R47,=40
+5870        JSB  =DIV10 
+5880        POMD R#,-R12
+5890        LDMD R36,=R1JADR
+5900        STMD R40,R36
+5910        LDMD R40,=V     
+5920        LDMD R50,=U     
+5930        JSB  =SUB10 
+5940        POMD R50,-R12
+5950        CLM  R40
+5960        LDB  R47,=40
+5970        JSB  =DIV10 
+5980        POMD R#,-R12
+5990        LDMD R36,=I1JADR
+6000        STMD R40,R36
+6010        LDMD R40,=B     
+6020        LDMD R50,=A     
+6030        JSB  =SUB10 
+6040        POMD R50,-R12
+6050        CLM  R40
+6060        LDB  R47,=40
+6070        JSB  =DIV10 
+6080        POMD R#,-R12
+6090        LDMD R36,=R1KADR
+6100        STMD R40,R36
+6110        LDMD R40,=V     
+6120        LDMD R50,=U     
+6130        JSB  =ADD10 
+6140        POMD R50,-R12
+6150        CLM  R40
+6160        LDB  R47,=40
+6170        JSB  =DIV10 
+6180        POMD R#,-R12
+6190        TSM  R#
+6200        JZR  ZERO  
+6210        LLB  R41
+6220        NCB  R41
+6230        ERB  R41
+6240 ZERO   LDMD R36,=I1KADR
+6250        STMD R40,R36
+6260        BIN  
+6270        ICM  R20
+6280        BCD  
+6290        CMM  R24,R20
+6300        JNC  ONWRD4
+6310        JSB  X22,LOOP5 
+6320 ONWRD4 LDMD R32,=N2    
+6330        BIN  
+6340        LRM  R33
+6350        ICM  R32
+6360        LDMD R34,=I1BASE
+6370        JSB  X22,SUB1B 
+6380        TSM  R50
+6390        JZR  EXIT  
+6400        BCD  
+6410        LLB  R51
+6420        NCB  R51
+6430        ERB  R51
+6440 EXIT   STMD R50,R32
+6450        RTN  
+6460 ! ************************
+6470        BYT  241
+6480 AFT.   LDMD R22,=BINTAB
+6490        JSB  X22,POP   
+6500        CLM  R20
+6510        ICM  R20
+6520        LDMD R24,=N2    
+6530        STM  R24,R36
+6540        JSB  =CONBIN
+6550        STMD R40,=A     
+6560        BIN  
+6570 LOOP6  LDMD R34,=R1BASE
+6580        LDM  R32,R20
+6590        JSB  X22,SUB1B 
+6600        STM  R32,R26
+6610        LDMD R40,=A     
+6620        JSB  =DIV10 
+6630        POMD R#,-R12
+6640        STM  R26,R34
+6650        STMD R40,R34
+6660        LDMD R34,=I1BASE
+6670        LDM  R32,R20
+6680        BIN  
+6690        JSB  X22,SUB1B 
+6700        STM  R32,R26
+6710        LDMD R40,=A     
+6720        JSB  =DIV10 
+6730        POMD R#,-R12
+6740        STM  R26,R34
+6750        STMD R40,R34
+6760        BIN  
+6770        ICM  R20
+6780        CMM  R24,R20
+6790        JCY  LOOP6 
+6800        RTN  
+6810        FIN  

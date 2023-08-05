@@ -1,0 +1,1890 @@
+01000         LST  
+01010 ! 
+01020 !  FIG-FORTH ADAPTED FROM PDP-11 FORTH DEVELOPED BY TH
+01030 !  FORTH INTEREST GROUP / FORTH IMPLEMENTATION TEA
+01040 !  P.O.BOX 110
+01050 !  SAN CARLOS, CA. 9407
+01060 ! 
+01070 !  ADAPTED FOR HP SERIES 8
+01080 !  BY LAWRENCE WOESTMA
+01090 !  AND TOM HOUSE
+01100 ! 
+01110 !  COPYRIGHT 1983 BY LAWRENCE WOESTMAN AND TOM HOUSE
+01120 !  ALL RIGHTS RESERVE
+01130 ! 
+01140 !  REGISTER DESIGNATION = REGISTER ASSIGNMEN
+01150 !  IP =  R10,11      FORTH INSTRUCTION POINTE
+01160 !  S  =  R32,33      FORTH COMPUTATION STACK POINTE
+01170 !  RP =  R0,1        FORTH RETURN-STACK POINTE
+01180 !  W  =  R14,R15     FORTH TEMPORAR
+01190 !  OTHERS USED FOR SCRATCH (EXCEPT R4-7,R12-13,R16-17
+01200 ! 
+01210         SET  ROM87            !  ONLY ONE OF THE FOUR MAY BE SET
+01220         CLR  BIN87            !  AT ANY ONE TIME
+01230         CLR  ROM85   
+01240         CLR  BIN85   
+01250         AIF  ROM87   
+01260         ABS  60000
+01270         EIF  
+01280         AIF  BIN87   
+01290         ABS  113000
+01300         NAM  200,FORTH   
+01310         EIF  
+01320         AIF  ROM85   
+01330         ABS  60000
+01340         EIF  
+01350         AIF  BIN85   
+01360         ABS  113000
+01370         NAM  200,FORTH   
+01380         EIF  
+01390 TWO.    EQU  2
+01400 FOUR.   EQU  4
+01410 SIX.    EQU  6
+01420         AIF  ROM87   
+01430 MYROM#  EQU  250
+01440 ROMBAR  EQU  130
+01450         VAL  MYROM#  
+01460         VAL  ROMBAR  
+01470         EIF  
+01480         AIF  BIN87   
+01490 MYBPGM# EQU  200
+01500         EIF  
+01510         AIF  ROM85   
+01520 MYROM#  EQU  250
+01530 ROMBAR  EQU  127
+01540         VAL  MYROM#  
+01550         VAL  ROMBAR  
+01560         EIF  
+01570         AIF  BIN85   
+01580 MYBPGM# EQU  200
+01590         EIF  
+01600         DEF  RUNTIM  
+01610         DEF  ASCIIS  
+01620         DEF  PARSE   
+01630         DEF  ERMSG   
+01640         DEF  INIT    
+01650 PARSE   BYT  0,0
+01660         DEF  FORTH.  
+01670         DEF  FORTH.  
+01680 RUNTIM  BYT  0,0
+01690         DEF  GFORTH  
+01700         DEF  WFORTH  
+01710         BYT  377,377
+01720 ASCIIS  ASP  "FORTH"
+01730         ASP  "RESTART"
+01740 ERMSG   BYT  377
+01750 INIT    RTN  
+01760         AIF  ROM87   
+01770 FORTH.  LDB  R45,R43          !  GET TOKEN
+01780         LDB  R47,=370         !  ROM TOKEN
+01790         LDB  R46,=MYROM#      !  FORTH ROM
+01800         STMI R45,=PTR2-       !  PUSH OUT TOKENS
+01810         EIF  
+01820         AIF  BIN87   
+01830 FORTH.  LDB  R45,R43          !  GET TOKEN
+01840         LDB  R47,=371         !  BINARY TOKEN
+01850         LDB  R46,=MYBPGM#     !  FORTH BINARY
+01860         STMI R45,=PTR2-       !  PUSH OUT TOKENS
+01870         EIF  
+01880         AIF  ROM85   
+01890 FORTH.  LDB  R47,R43          !  GET TOKEN
+01900         LDB  R45,=370         !  ROM TOKEN
+01910         LDB  R46,=MYROM#      !  FORTH ROM
+01920         PUMD R45,+R12         !  PUSH OUT TOKENS
+01930         EIF  
+01940         AIF  BIN85   
+01950 FORTH.  LDB  R47,R43          !  GET TOKEN
+01960         LDB  R45,=371         !  BINARY TOKEN
+01970         LDB  R46,=MYBPGM#     !  FORTH BINARY
+01980         PUMD R45,+R12         !  PUSH OUT TOKENS
+01990         EIF  
+02000         JSB  =ROMJSB  
+02010         DEF  SCAN             !  FOR SYSTEM
+02020         BYT  0
+02030         GTO  ROMRTN           !  DONE
+02040 ! !         origin and initial values for user variable
+02050         BYT  241              !  BASIC COMMAND ATTRIBUTES
+02060 GFORTH  BSZ  0                !  GLOBAL LABEL
+02070 ORIGIN  GTO  CENT             !  COLD START ENTRY POINT
+02080         BYT  241              !  BASIC COMMAND ATTRIBUTES
+02090 WFORTH  GTO  WENT             !  WARM START ENTRY POINT
+02100 !  ONE BYTE IS MISSING FROM THE CPU # TO ADJUST FOR TH
+02110 !  ATTRIBUTES ON WFORT
+02120         AIF  ROM87   
+02130         BYT  127              !  CPU # (87)
+02140         BYT  30,0             !  REVISION 2.4
+02150         EIF  
+02160         AIF  BIN87   
+02170         BYT  127              !  CPU # (87)
+02180         BYT  36,0             !  REVISION 3.4
+02190         EIF  
+02200         AIF  ROM85   
+02210         BYT  125              !  CPU # (85)
+02220         BYT  30,0             !  REVISION 2.4
+02230         EIF  
+02240         AIF  BIN85   
+02250         BYT  125              !  CPU # (85)
+02260         BYT  36,0             !  REVISION 3.4
+02270         EIF  
+02280 OR+14   DEF  TSK-10           !  POINTER TO LATEST WORD DEFINED
+02290         BYT  10,0             !  BACKSPACE KEY
+02300 OR+20   DEF  XUP              !  POINTER TO USER AREA
+02310 OR+22   DEF  XS0              !  POINTER TO BEGINNING OF
+02320 !                                   STAC
+02330 OR+24   DEF  XR0              !  POINTER TO BEGINNING OF
+02340 !                                   RETURN STAC
+02350         DEF  XTIB             !  POINTER TO TERMINAL INPUT
+02360 !                                   BUFFE
+02370         BYT  37,0             !  MAXIMUM NAME FIELD WIDTH
+02380         BYT  1,0              !  WARNING MODE 0=ERROR#,
+02390 !                                   1=DISK MESSAG
+02400         DEF  XDP              !  FENCE TO PROTECT AGAINST
+02410 !                                   ACCIDENTAL 'FORGET' O
+02420 !                                   SYSTE
+02430         DEF  XDP              !  POINTER TO NEXT AVAILABLE
+02440 !                                   DICTIONARY LOCATIO
+02450         DEF  XXVOC            !  POINTER TO INITIAL
+02460 !                                   VOCABULARY LIN
+02470         AIF  ROM87   
+02480         BYT  2,0              !  IO SELECT CODE INITIAL VALUE
+02490         EIF  
+02500         AIF  BIN87   
+02510         BYT  2,0              !  IO SELECT CODE INITIAL VALUE
+02520         EIF  
+02530         AIF  ROM85   
+02540         BYT  1,0              !  IO SELECT CODE INITIAL VALUE
+02550         EIF  
+02560         AIF  BIN85   
+02570         BYT  1,0              !  IO SELECT CODE INITIAL VALUE
+02580         EIF  
+02590         DEF  ERRBUF           !  OUTPUT BUFFER INITIAL VALUE
+02600         DEF  INPBUF           !  INPUT BUFFER INITIAL VALUE
+02610         DEF  DSKBUF           !  USE INITIAL VALUE
+02620         DEF  DSKBUF           !  PREV INITIAL VALUE
+02630         BYT  1,0              !  INITIAL VALUE FOR OK FLAG
+02640         DEF  BNUMB            !  CFA OF [NUMBER] FOR 'NUMBER
+02650         DEF  ABORT            !  CFA OF ABORT FOR 'ABORT
+02660         BSZ  4                !  ROOM FOR 2 MORE USER
+02670 !                                   VARIABLE
+02680 ! !            LIT EXECUTE BRANC
+02690 L1      BYT  203              !  LENGTH 3
+02700         ASP  "LIT"            !  PUSH FOLLOWING ON STACK
+02710         BYT  0,0
+02720 LIT     DEF  LIT+    
+02730 LIT+    BYT  0
+02740         POMD R20,+R10         !  GET LITERAL
+02750         PUMD R20,-R32         !  PUSH ON STACK
+02760         POMD R14,+R10         !  NEXT
+02770         POMD R4,+R14
+02780 L2      BYT  207
+02790         ASP  "EXECUTE"        !  EXECUTE FORTH WORD WHOSE
+02800         DEF  L1               !  ADDRESS IS ON STACK
+02810 EXEC    DEF  EXEC+   
+02820 EXEC+   BYT  0
+02830         POMD R14,+R32
+02840         POMD R4,+R14
+02850 L3      BYT  206
+02860         ASP  "BRANCH"         !  FORTH BRANCH TO ADDRESS
+02870         DEF  L2               !  WHICH FOLLOWS
+02880 BRAN    DEF  BRAN+   
+02890 BRAN+   BYT  0
+02900         LDMD R20,R10          !  GET OFFSET
+02910         ADM  R10,R20          !  ADD IN
+02920         POMD R14,+R10         !  NEXT
+02930         POMD R4,+R14
+02940 ! !         0BRANCH (LOOP
+02950 L4      BYT  207
+02960         ASP  "0BRANCH"        !  FORTH BRANCH IF TOP OF
+02970         DEF  L3               !  STACK IS ZERO
+02980 ZBRAN   DEF  ZBRAN+  
+02990 ZBRAN+  BYT  0
+03000         POMD R20,+R32         !  TST (S)+
+03010         JNZ  L43$             !  BNE 3$
+03020         LDMD R20,R10          !  ADD (IP),IP
+03030         ADM  R10,R20
+03040         POMD R14,+R10         !  NEXT
+03050         POMD R4,+R14
+03060 L43$    ADM  R10,=2,0         !  ADD #2,IP
+03070         POMD R14,+R10         !  NEXT
+03080         POMD R4,+R14
+03090 L5      BYT  206
+03100         ASP  "(LOOP)"         !  INCREMENT LOOP INDEX BY 1,
+03110         DEF  L4               !  BRANCH IF BELOW LIMIT
+03120 XLOOP   DEF  XLOOP+  
+03130 XLOOP+  BYT  0
+03140         LDMD R20,R0           !  INC (RP)
+03150         ICM  R20
+03160         PUMD R20,+R0          !  CMP (RP),2(RP) (R0 OFF +2)
+03170         CMMD R20,R0
+03180         JPS  L51$             !  BGE 1$
+03190         DCM  R0               !  AIM IT BACK AGAIN
+03200         DCM  R0
+03210         LDMD R20,R10          !  ADD (IP),IP
+03220         ADM  R10,R20
+03230 L5N     POMD R14,+R10         !  NEXT
+03240         POMD R4,+R14
+03250 L51$    ADM  R0,=2,0          !  ADD #4,RP (SINCE R0 OFF 2)
+03260         ADM  R10,=2,0         !  ADD #2,IP
+03270         JMP  L5N              !  NEXT
+03280 ! !         (+LOOP
+03290 L6      BYT  207
+03300         ASP  "(+LOOP)"        !  INCREMENT LOOP INDEX BY TOP
+03310         DEF  L5               !  OF STACK, MAYBE BRANCH
+03320 XPLOO   DEF  XPLOO+  
+03330 XPLOO+  BYT  0
+03340         LDMD R20,R32          !  ADD (S),(RP)
+03350         ADMD R20,R0
+03360         STMD R20,R0
+03370         POMD R20,+R32         !  TST (S)+
+03380         JNG  L62$             !  BLT 2$
+03390         LDMD R20,R0           !  CMP 2(RP),(RP)
+03400         LDMD R22,X0,TWO.    
+03410         CMM  R22,R20
+03420         JNG  L61$             !  BLT 2$
+03430         JZR  L61$    
+03440 L6B     LDMD R20,R10          !  ADD (IP),IP
+03450         ADM  R10,R20
+03460 L6N     POMD R14,+R10         !  NEXT
+03470         POMD R4,+R14
+03480 L61$    ADM  R0,=4,0          !  ADD #4,RP
+03490         ADM  R10,=2,0         !  ADD #2,IP
+03500         JMP  L6N              !  NEXT
+03510 L62$    LDMD R20,R0           !  CMP (RP),2(RP)
+03520         LDMD R22,X0,TWO.    
+03530         CMM  R20,R22
+03540         JNG  L61$    
+03550         JZR  L61$    
+03560         JMP  L6B              !  ADD (IP),IP  NEXT
+03570 ! !         (DO) 
+03580 L7      BYT  204
+03590         ASP  "(DO)"           !  SET UP 'DO' LIMIT AND INDEX
+03600         DEF  L6      
+03610 XDO     DEF  XDO+    
+03620 XDO+    BYT  0
+03630         LDMD R20,X32,TWO.     !  MOV 2(S),-(RP)
+03640         PUMD R20,-R0
+03650         LDMD R20,R32
+03660         PUMD R20,-R0
+03670         ADM  R32,=4,0         !  ADD #4,S
+03680         POMD R14,+R10         !  NEXT
+03690         POMD R4,+R14
+03700 L8      BYT  201
+03710         ASP  "I"              !  RETURN CURRENT LOOP INDEX
+03720         DEF  L7               !  TO STACK
+03730 I       DEF  I+      
+03740 I+      BYT  0
+03750         LDMD R20,R0           !  MOV (RP),-(S)
+03760         PUMD R20,-R32
+03770         POMD R14,+R10         !  NEXT
+03780         POMD R4,+R14
+03790 ! !         DIGI
+03800 L9      BYT  205
+03810         ASP  "DIGIT"          !  ASCII-DIGIT BASE => DIGIT-
+03820         DEF  L8               !  VALUE TRUE-OR-FALSE
+03830 DIGIT   DEF  DIGIT+  
+03840 DIGIT+  BYT  0
+03850         LDMD R20,X32,TWO.     !  SUB #60,2(S)
+03860         SBM  R20,=60,0
+03870         CMM  R20,=11,0        !  CMP 2(S),#11
+03880         JNG  L91$             !  BLE 1$
+03890         JZR  L91$    
+03900         SBM  R20,=7,0         !  SUB #7,2(S)
+03910         CMM  R20,=12,0        !  CMP 2(S),#12
+03920         JNG  L92$             !  BLT 2$
+03930 L91$    TSM  R20              !  TST 2(S)
+03940         JNG  L92$             !  BLT 2$
+03950         LDMD R22,R32          !  CMP 2(S),(S)
+03960         CMM  R20,R22
+03970         JPS  L92$             !  BGE 2$
+03980         STMD R20,X32,TWO.     !  PUT 2(S) BACK
+03990         LDM  R20,=1,0         !  MOV #1,(S)
+04000         STMD R20,R32
+04010         POMD R14,+R10         !  NEXT
+04020         POMD R4,+R14
+04030 L92$    ADM  R32,=2,0         !  ADD #2,S
+04040         CLM  R20              !  CLR (S)
+04050         STMD R20,R32
+04060         POMD R14,+R10         !  NEXT
+04070         POMD R4,+R14
+04080 ! !         (FIND
+04090 L10     BYT  206
+04100         ASP  "(FIND)"         !  FIND A WORD IN THE
+04110         DEF  L9               !  DICTIONARY
+04120 PFIND   DEF  PFIND+  
+04130 PFIND+  BYT  0
+04140         POMD R24,+R32         !  GET NFA
+04150         POMD R26,+R32         !  GET STA
+04160         LDBD R20,R26          !  GET STRING LENGTH
+04170 FAST    LDM  R30,R26          !  COPY OF STRING POINTER
+04180         LDBD R22,R24          !  GET NAME LENGTH
+04190         STB  R22,R34          !  SAVE FOR LATER
+04200         ANM  R22,=77,377      !  CLEAR FLAG BITS
+04210         CMB  R22,R20          !  ARE LENGTHS THE SAME
+04220         JZR  NOFAST           !  JIF YES
+04230         POBD R21,+R24         !  SKIP LENGTH
+04240 XMATCH  POBD R21,+R24         !  GET TO END OF STRING
+04250         JPS  XMATCH  
+04260 XMTCH+  LDMD R24,R24          !  FOLLOW LINK
+04270         JZR  FAILED           !  JIF AT END OF DIRECTORY
+04280         JMP  FAST             !  BACK FOR NEXT NAME
+04290 NOFAST  POBD R23,+R30         !  SKIP LENGTH
+04300         POBD R21,+R24         !  SKIP LENGTH
+04310 MLOOP   POBD R23,+R30         !  GET STRING CHAR
+04320         POBD R21,+R24         !  GET NAME CHAR
+04330         JNG  LCHAR   
+04340         CMB  R21,R23          !  ARE THEY THE SAME
+04350         JZR  MLOOP            !  JIF YES
+04360         JMP  XMATCH           !  IF NOT, ON TO NEXT NAME
+04370 LCHAR   ANM  R21,=177         !  GET RID OF TOP BIT
+04380         CMM  R21,R23          !  ARE THEY THE SAME
+04390         JNZ  XMTCH+           !  JIF NO
+04400         ADM  R24,=4,0
+04410         PUMD R24,-R32         !  PUT PFA ON STACK
+04420         CLB  R35
+04430         PUMD R34,-R32         !  PUT LENGTH ON STACK
+04440         CLM  R22
+04450         ICM  R22
+04460         PUMD R22,-R32         !  PUT 'TRUE' ON STACK
+04470 L10N    POMD R14,+R10         !  NEXT
+04480         POMD R4,+R14
+04490 FAILED  CLM  R20
+04500         PUMD R20,-R32         !  PUT 'FALSE' ON STACK
+04510         JMP  L10N             !  NEXT
+04520 ! !         ENCLOS
+04530 L11     BYT  207
+04540         ASP  "ENCLOSE"        !  BREAK NEXT WORD OUT OF
+04550         DEF  L10              !  INPUT BUFFER
+04560 ENCL    DEF  ENCL+   
+04570 ENCL+   BYT  0
+04580         LDMD R24,R32          !  MOV (S),R4
+04590         LDMD R26,X32,TWO.     !  MOV 2(S),R5
+04600         SBM  R32,=4,0         !  SUB #4,S
+04610 ENC1    POBD R20,+R26         !  CMPB (R5)+,R4
+04620         CMB  R20,R24
+04630         JZR  ENC1             !  BEQ ENC1
+04640         DCM  R26              !  SUB #1,R5
+04650         STMD R26,X32,FOUR.    !  MOV R5,4(S)
+04660 ENC2    LDBD R20,R26          !  TSB (R5)
+04670         JZR  ENC4             !  BEQ ENC4
+04680         POBD R20,+R26         !  CMPB (R5)+,R4
+04690         CMB  R20,R24
+04700         JNZ  ENC2             !  BNE ENC2
+04710         STMD R26,R32          !  MOV R5,(S)
+04720         DCM  R26              !  SUB #1,R5
+04730 ENC3    STMD R26,X32,TWO.     !  MOV R5,2(S)
+04740         LDMD R26,X32,SIX.     !  MOV 6(S),R5
+04750         LDMD R20,R32          !  SUB R5,(S)
+04760         SBM  R20,R26
+04770         STMD R20,R32
+04780         LDMD R20,X32,TWO.     !  SUB R5,2(S)
+04790         SBM  R20,R26
+04800         STMD R20,X32,TWO.    
+04810         LDMD R20,X32,FOUR.    !  SUB R5,4(S)
+04820         SBM  R20,R26
+04830         STMD R20,X32,FOUR.   
+04840 L11N    POMD R14,+R10         !  NEXT
+04850         POMD R4,+R14
+04860 ENC4    STMD R26,R32          !  MOV R5,(S)
+04870         LDMD R20,X32,FOUR.    !  CMP R5,4(S)
+04880         CMM  R26,R20
+04890         JNZ  ENC3             !  BNE ENC3
+04900         ICM  R26              !  ADD #1,R5
+04910         JMP  ENC3             !  BR ENC3
+04920 ! !        CRTEMIT KEY ?TERMINAL CRTCR CMOV
+04930 L12     BYT  207
+04940         ASP  "CRTEMIT"        !  EMIT KEY DIRECTLY TO CRT
+04950         DEF  L11     
+04960 CEMIT   DEF  PEMIT   
+04970 !  PEMIT IS NEAR EN
+04980 L13     BYT  203
+04990         ASP  "KEY"            !  GET A KEY
+05000         DEF  L12     
+05010 KEY     DEF  PKEY    
+05020 !  PKEY IS NEAR EN
+05030 L14     BYT  211
+05040         ASP  "?TERMINAL"      !  BREAK KEY DOWN?
+05050         DEF  L13     
+05060 QTERM   DEF  PQTER   
+05070 !  PQTER IS NEAR EN
+05080 L15     BYT  205
+05090         ASP  "CRTCR"          !  CRT CR-LF SEQUENCE
+05100         DEF  L14     
+05110 CCR     DEF  PCR     
+05120 !  PCR IS NEAR EN
+05130 L16     BYT  205
+05140         ASP  "CMOVE"
+05150         DEF  L15     
+05160 CMOVE   DEF  CMOVE+  
+05170 CMOVE+  BYT  0
+05180         LDMD R20,R32          !  TST (S)
+05190         JZR  L162$            !  BEQ 2$
+05200         LDMD R24,X32,TWO.     !  MOV 2(S),R4
+05210         LDMD R26,X32,FOUR.    !  MOV 4(S),R5
+05220 L161$   POBD R20,+R26         !  MOVB (R5)+,(R4)+
+05230         PUBD R20,+R24
+05240         LDMD R20,R32          !  DEC (S)
+05250         DCM  R20
+05260         STMD R20,R32
+05270         JNZ  L161$            !  BNE 1$
+05280 L162$   ADM  R32,=6,0         !  ADD #6,S
+05290         POMD R14,+R10         !  NEXT
+05300         POMD R4,+R14
+05310 ! !         U
+05320 L17     BYT  202
+05330         ASP  "U*"             !  N1 N2 => 32-BIT PRODUCT
+05340         DEF  L16              !  HIGH WORD TOP OF STACK
+05350 USTAR   DEF  USTAR+  
+05360 USTAR+  BYT  0
+05370         JSB  =UMULT   
+05380         POMD R14,+R10         !  NEXT
+05390         POMD R4,+R14
+05400 UMULT   POMD R30,+R32         !  MOV (S)+,R0
+05410         LDM  R20,=20,0        !  MOV #20,-(RP)
+05420         PUMD R20,-R0
+05430         CLM  R24              !  CLR R4
+05440         CLM  R26              !  CLR R5
+05450 LI72$   ELM  R26              !  ROL R5
+05460         ELM  R24              !  ROL R4
+05470         ELM  R30              !  ROL R0
+05480         JNC  L171$            !  BCC 1$
+05490         ADMD R26,R32          !  ADD (S),R5
+05500         JNC  L171$            !  ADC R4
+05510         ICM  R24
+05520 L171$   LDMD R20,R0           !  DEC (RP)
+05530         DCM  R20
+05540         STMD R20,R0
+05550         JNZ  LI72$            !  BNE 2$
+05560         STMD R26,R32          !  MOV R5,(S)
+05570         PUMD R24,-R32         !  MOV R4,-(S)
+05580         POMD R20,+R0          !  TST (RP)+
+05590         RTN  
+05600 ! !         U/ AND O
+05610 L18     BYT  202
+05620         ASP  "U/"             !  UNSIGNED DIVIDE
+05630         DEF  L17     
+05640 USLAS   DEF  USLAS+  
+05650 USLAS+  BYT  0
+05660         JSB  =UDIV    
+05670         POMD R14,+R10         !  NEXT
+05680         POMD R4,+R14
+05690 UDIV    POMD R30,+R32         !  MOV (S)+,R0
+05700         POMD R24,+R32         !  MOV (S)+,R4
+05710         POMD R26,+R32         !  MOV (S)+,R5
+05720         LDM  R20,=20,0        !  MOV #20,-(S)
+05730 L181$   LLM  R26              !  ASL R5
+05740         ELM  R24              !  ROL R4
+05750         JZR  L182$            !  BEQ 2$
+05760         SBM  R24,R30          !  SUB R0,R4
+05770         JCY  L183$            !  BCC 2$ CARRY SET IF BORROW
+05780         ADM  R24,R30          !  ADD R0,R4
+05790         JMP  L182$   
+05800 L183$   ICM  R26              !  ICR R5
+05810 L182$   DCM  R20
+05820         JNZ  L181$            !  BNE 1$
+05830         PUMD R24,-R32         !  MOV R4,-(S)
+05840         PUMD R26,-R32         !  MOV R5,-(S)
+05850         RTN  
+05860 L19     BYT  203
+05870         ASP  "AND"            !  BITWISE AND
+05880         DEF  L18     
+05890 AND     DEF  AND+    
+05900 AND+    BYT  0
+05910         POMD R20,+R32         !  COM (S); BIC (S)+,(S)
+05920         LDMD R22,R32
+05930         ANM  R22,R20
+05940         STMD R22,R32
+05950         POMD R14,+R10         !  NEXT
+05960         POMD R4,+R14
+05970 L20     BYT  202
+05980         ASP  "OR"             !  BITWISE OR
+05990         DEF  L19     
+06000 OR      DEF  OR+     
+06010 OR+     BYT  0
+06020         POMD R20,+R32         !  BIS (S)+,(S)
+06030         LDMD R22,R32
+06040         ORM  R22,R20
+06050         STMD R22,R32
+06060         POMD R14,+R10         !  NEXT
+06070         POMD R4,+R14
+06080 ! !         XOR << >> A>> NO
+06090 L21     BYT  203
+06100         ASP  "XOR"            !  BITWISE EXCLUSIVE OR
+06110         DEF  L20     
+06120 XOR     DEF  XOR+    
+06130 XOR+    BYT  0
+06140         POMD R24,+R32         !  MOV (S)+,R4
+06150         LDMD R20,R32          !  XOR R4,(S)
+06160         XRM  R20,R24
+06170         STMD R20,R32
+06180         POMD R14,+R10         !  NEXT
+06190         POMD R4,+R14
+06200 L21.1   BYT  202
+06210         ASP  "<<"             !  LOGICAL LEFT SHIFT
+06220         DEF  L21     
+06230 LLS     DEF  LLS+    
+06240 LLS+    BYT  0
+06250         LDMD R20,R32
+06260         LLM  R20
+06270         STMD R20,R32
+06280         POMD R14,+R10         !  NEXT
+06290         POMD R4,+R14
+06300 L21.2   BYT  202
+06310         ASP  ">>"             !  LOGICAL RIGHT SHIFT
+06320         DEF  L21.1   
+06330 LRS     DEF  LRS+    
+06340 LRS+    BYT  0
+06350         LDMD R20,R32
+06360         LRM  R21
+06370         STMD R20,R32
+06380         POMD R14,+R10         !  NEXT
+06390         POMD R4,+R14
+06400 L21.3   BYT  203
+06410         ASP  "A>>"            !  ARITHMETIC RIGHT SHIFT
+06420         DEF  L21.2   
+06430 ARS     DEF  ARS+    
+06440 ARS+    BYT  0
+06450         LDMD R20,R32
+06460         STM  R20,R22
+06470         ANM  R20,=0,200       !  GET SIGN
+06480         LRM  R23              !  LOGICAL SHIFT
+06490         ORM  R20,R22          !  PUT SIGN BACK ON
+06500         STMD R20,R32
+06510         POMD R14,+R10         !  NEXT
+06520         POMD R4,+R14
+06530 L21.4   BYT  203
+06540         ASP  "NOT"            !  ONE'S COMPLEMENT
+06550         DEF  L21.3   
+06560 NOT     DEF  NOT+    
+06570 NOT+    BYT  0
+06580         LDMD R20,R32
+06590         NCM  R20
+06600         STMD R20,R32
+06610         POMD R14,+R10         !  NEXT
+06620         POMD R4,+R14
+06630 ! !         SP@ SP! RP! ;S LEAV
+06640 L22     BYT  203
+06650         ASP  "SP@"
+06660         DEF  L21.4   
+06670 SPAT    DEF  SPAT+   
+06680 SPAT+   BYT  0
+06690         LDM  R26,R32          !  MOV S,R5
+06700         PUMD R26,-R32         !  MOV R5,-(S)
+06710         POMD R14,+R10         !  NEXT
+06720         POMD R4,+R14
+06730 L23     BYT  203
+06740         ASP  "SP!"
+06750         DEF  L22     
+06760 SPSTO   DEF  SPSTO+  
+06770 SPSTO+  BYT  0
+06780         LDM  R32,=XS0         !  MOV #XS0,S
+06790         POMD R14,+R10         !  NEXT
+06800         POMD R4,+R14
+06810 L24     BYT  203
+06820         ASP  "RP!"
+06830         DEF  L23     
+06840 RPSTO   DEF  RPSTO+  
+06850 RPSTO+  BYT  0
+06860         LDM  R0,=XR0          !  MOV #XR0,RP
+06870         POMD R14,+R10         !  NEXT
+06880         POMD R4,+R14
+06890 L25     BYT  202
+06900         ASP  ";S"
+06910         DEF  L24     
+06920 SEMIS   DEF  SEMIS+  
+06930 SEMIS+  BYT  0
+06940         POMD R10,+R0          !  MOV (RP)+,IP
+06950         POMD R14,+R10         !  NEXT
+06960         POMD R4,+R14
+06970 L26     BYT  205
+06980         ASP  "LEAVE"
+06990         DEF  L25     
+07000 LEAVE   DEF  LEAVE+  
+07010 LEAVE+  BYT  0
+07020         LDMD R20,R0           !  MOV (RP),2(RP)
+07030         STMD R20,X0,TWO.    
+07040         POMD R14,+R10         !  NEXT
+07050         POMD R4,+R14
+07060 ! !         >R R> 
+07070 L27     BYT  202
+07080         ASP  ">R"
+07090         DEF  L26     
+07100 TOR     DEF  TOR+    
+07110 TOR+    BYT  0
+07120         POMD R20,+R32         !  MOV(S)+,-(RP)
+07130         PUMD R20,-R0
+07140         POMD R14,+R10         !  NEXT
+07150         POMD R4,+R14
+07160 L28     BYT  202
+07170         ASP  "R>"
+07180         DEF  L27     
+07190 FROMR   DEF  FROMR+  
+07200 FROMR+  BYT  0
+07210         POMD R20,+R0          !  MOV (RP)+,-(S)
+07220         PUMD R20,-R32
+07230         POMD R14,+R10         !  NEXT
+07240         POMD R4,+R14
+07250 L29     BYT  201
+07260         ASP  "R"
+07270         DEF  L28     
+07280 R       DEF  R+      
+07290 R+      BYT  0
+07300         LDMD R20,R0           !  MOV (RP),-(S)
+07310         PUMD R20,-R32
+07320         POMD R14,+R10         !  NEXT
+07330         POMD R4,+R14
+07340 ! !         0= 0
+07350 L30     BYT  202
+07360         ASP  "0="
+07370         DEF  L29     
+07380 ZEQU    DEF  ZEQU+   
+07390 ZEQU+   BYT  0
+07400         LDMD R20,R32          !  TST (S)
+07410         JZR  L301$            !  BEQ 1$
+07420         CLM  R20              !  CLR (S)
+07430         STMD R20,R32
+07440         JMP  L302$            !  BR 2$
+07450 L301$   LDM  R20,=1,0         !  MOV #1,(S)
+07460         STMD R20,R32
+07470 L302$   POMD R14,+R10         !  NEXT
+07480         POMD R4,+R14
+07490 L31     BYT  202
+07500         ASP  "0<"
+07510         DEF  L30     
+07520 ZLESS   DEF  ZLESS+  
+07530 ZLESS+  BYT  0
+07540         LDMD R20,R32          !  TST (S)
+07550         JNG  L311$   
+07560         CLM  R20              !  CLR (S)
+07570         STMD R20,R32
+07580         JMP  L312$            !  BR 2$
+07590 L311$   LDM  R20,=1,0         !  MOV #1,(S)
+07600         STMD R20,R32
+07610 L312$   POMD R14,+R10         !  NEXT
+07620         POMD R4,+R14
+07630 ! !         + D
+07640 L32     BYT  201
+07650         ASP  "+"
+07660         DEF  L31     
+07670 PLUS    DEF  PLUS+   
+07680 PLUS+   BYT  0
+07690         POMD R20,+R32         !  ADD (S)+,(S)
+07700         ADMD R20,R32
+07710         STMD R20,R32
+07720         POMD R14,+R10         !  NEXT
+07730         POMD R4,+R14
+07740 L33     BYT  202
+07750         ASP  "D+"
+07760         DEF  L32     
+07770 DPLUS   DEF  DPLUS+  
+07780 DPLUS+  BYT  0
+07790         LDMD R20,X32,TWO.     !  ADD 2(S),6(S)
+07800         LDMD R22,X32,SIX.    
+07810         ADM  R22,R20
+07820         JNC  L331$            !  ADC 4(S)
+07830         LDMD R20,X32,FOUR.   
+07840         ICM  R20
+07850         STMD R20,X32,FOUR.   
+07860 L331$   LDMD R20,X32,FOUR.    !  ADD (S),4(S)
+07870         STMD R22,X32,SIX.    
+07880         ADMD R20,R32
+07890         STMD R20,X32,FOUR.   
+07900         ADM  R32,=4,0         !  ADD #4,S
+07910         POMD R14,+R10         !  NEXT
+07920         POMD R4,+R14
+07930 ! !         MINUS DMINU
+07940 L34     BYT  205
+07950         ASP  "MINUS"          !  CHANGE SIGN
+07960         DEF  L33     
+07970 MINUS   DEF  MINUS+  
+07980 MINUS+  BYT  0
+07990         LDMD R20,R32          !  NEG (S)
+08000         TCM  R20
+08010         STMD R20,R32
+08020         POMD R14,+R10         !  NEXT
+08030         POMD R4,+R14
+08040 L35     BYT  206
+08050         ASP  "DMINUS"         !  CHS OF DOUBLE INTEGER
+08060         DEF  L34     
+08070 DMINU   DEF  DMINU+  
+08080 DMINU+  BYT  0
+08090         LDMD R20,R32          !  NEG (S)
+08100         TCM  R20
+08110         LDMD R22,X32,TWO.     !  NEG 2(S)
+08120         TCM  R22
+08130         JCY  L351$            !  SBC (S) CARRY SET IF BORROW
+08140         DCM  R20
+08150 L351$   STMD R22,X32,TWO.    
+08160         STMD R20,R32
+08170         POMD R14,+R10         !  NEXT
+08180         POMD R4,+R14
+08190 ! !         OVER DROP SWA
+08200 L36     BYT  204
+08210         ASP  "OVER"           !  N1 N2 => N1 N2 N1
+08220         DEF  L35     
+08230 OVER    DEF  OVER+   
+08240 OVER+   BYT  0
+08250         LDMD R20,X32,TWO.     !  MOV 2(S),-(S)
+08260         PUMD R20,-R32
+08270         POMD R14,+R10         !  NEXT
+08280         POMD R4,+R14
+08290 L37     BYT  204
+08300         ASP  "DROP"
+08310         DEF  L36     
+08320 DROP    DEF  DROP+   
+08330 DROP+   BYT  0
+08340         ICM  R32              !  ADD #2,S
+08350         ICM  R32
+08360         POMD R14,+R10         !  NEXT
+08370         POMD R4,+R14
+08380 L38     BYT  204
+08390         ASP  "SWAP"
+08400         DEF  L37     
+08410 SWAP    DEF  SWAP+   
+08420 SWAP+   BYT  0
+08430         LDMD R26,X32,TWO.     !  MOV 2(S),R5
+08440         LDMD R20,R32          !  MOV (S),2(S)
+08450         STMD R20,X32,TWO.    
+08460         STMD R26,R32          !  MOV R5,(S)
+08470         POMD R14,+R10         !  NEXT
+08480         POMD R4,+R14
+08490 ! !         DUP +! TOGGL
+08500 L39     BYT  203
+08510         ASP  "DUP"
+08520         DEF  L38     
+08530 DUP     DEF  DUP+    
+08540 DUP+    BYT  0
+08550         LDMD R20,R32          !  MOV (S),-(S)
+08560         PUMD R20,-R32
+08570         POMD R14,+R10         !  NEXT
+08580         POMD R4,+R14
+08590 L40     BYT  202
+08600         ASP  "+!"             !  ADD # SECOND STACK TO ADDRESS ON TOP
+08610         DEF  L39     
+08620 PSTOR   DEF  PSTOR+  
+08630 PSTOR+  BYT  0
+08640         LDMD R20,X32,TWO.     !  ADD 2(S),@(S)
+08650         LDMI R22,R32
+08660         ADM  R22,R20
+08670         STMI R22,R32
+08680         ADM  R32,=4,0         !  ADD # 4,S
+08690         POMD R14,+R10         !  NEXT
+08700         POMD R4,+R14
+08710 L41     BYT  206
+08720         ASP  "TOGGLE"         !  BYTE-ADDRESS BIT-PATTERN =>
+08730         DEF  L40              !  EXCLUSIVE-OR-INTO-MEMORY-BYTE
+08740 TOGGL   DEF  TOGGL+  
+08750 TOGGL+  BYT  0
+08760         POMD R20,+R32         !  GET BIT PATTERN
+08770         LDBI R22,R32          !  GET BYTE
+08780         XRB  R22,R20          !  TOGGLE BYTE
+08790         STBI R22,R32          !  PUT BYTE BACK
+08800         ICM  R32              !  CLEAN UP STACK
+08810         ICM  R32
+08820         POMD R14,+R10         !  NEXT
+08830         POMD R4,+R14
+08840 ! !         @ C@ ! C
+08850 L42     BYT  201
+08860         ASP  "@"
+08870         DEF  L41     
+08880 AT      DEF  AT+     
+08890 AT+     BYT  0
+08900         LDMI R20,R32          !  MOV @(S),(S)
+08910         STMD R20,R32
+08920         POMD R14,+R10         !  NEXT
+08930         POMD R4,+R14
+08940 L43     BYT  202
+08950         ASP  "C@"
+08960         DEF  L42     
+08970 CAT     DEF  CAT+    
+08980 CAT+    BYT  0
+08990         CLM  R20              !  MOVB @(S),R5
+09000         LDBI R20,R32          !  BIC #177400,R5
+09010         STMD R20,R32          !  MOV R5, (S)
+09020         POMD R14,+R10         !  NEXT
+09030         POMD R4,+R14
+09040 L44     BYT  201
+09050         ASP  "!"
+09060         DEF  L43     
+09070 STORE   DEF  STORE+  
+09080 STORE+  BYT  0
+09090         LDMD R20,X32,TWO.     !  MOV 2(S),@(S)
+09100         STMI R20,R32
+09110         ADM  R32,=4,0         !  ADD # 4,S
+09120         POMD R14,+R10         !  NEXT
+09130         POMD R4,+R14
+09140 L45     BYT  202
+09150         ASP  "C!"
+09160         DEF  L44     
+09170 CSTOR   DEF  CSTOR+  
+09180 CSTOR+  BYT  0
+09190         LDBD R20,X32,TWO.     !  MOVB 2(S),@(S)
+09200         STBI R20,R32
+09210         ADM  R32,=4,0         !  ADD #4,S
+09220         POMD R14,+R10         !  NEXT
+09230         POMD R4,+R14
+09240 ! !         : ; CONSTAN
+09250 !        PRE-COMPILED SECTIO
+09260 !  WITH SOME OF THE OPERATION
+09270 !  CONVERTED TO CODE FOR SPEE
+09280 L46     BYT  301
+09290         ASP  ":"
+09300         DEF  L45     
+09310 COLON   DEF  DOCOL   
+09320         DEF  QEXEC   
+09330         DEF  SCSP    
+09340         DEF  CURR    
+09350         DEF  AT      
+09360         DEF  CONT    
+09370         DEF  STORE   
+09380         DEF  CREAT   
+09390         DEF  RBRAC   
+09400         DEF  PSCOD   
+09410 DOCOL   BYT  0
+09420         PUMD R10,-R0
+09430         LDM  R10,R14          !  MOV W,IP
+09440         POMD R14,+R10         !  NEXT
+09450         POMD R4,+R14
+09460 L47     BYT  301
+09470         ASP  ";"
+09480         DEF  L46     
+09490 SEMI    DEF  DOCOL   
+09500         DEF  QCSP    
+09510         DEF  COMP    
+09520         DEF  SEMIS   
+09530         DEF  SMUDG   
+09540         DEF  LBRAC   
+09550         DEF  SEMIS   
+09560 L48     BYT  210
+09570         ASP  "CONSTANT"
+09580         DEF  L47     
+09590 CON     DEF  DOCOL   
+09600         DEF  CREAT   
+09610         DEF  SMUDG   
+09620         DEF  COMMA   
+09630         DEF  PSCOD   
+09640 DOCON   BYT  0
+09650         LDMD R20,R14          !  MOV(W),-(S)
+09660         PUMD R20,-R32
+09670         POMD R14,+R10         !  NEXT
+09680         POMD R4,+R14
+09690 ! !         VARIABLE USE
+09700 L49     BYT  210
+09710         ASP  "VARIABLE"
+09720         DEF  L48     
+09730 VAR     DEF  DOCOL   
+09740         DEF  CON     
+09750         DEF  PSCOD   
+09760 DOVAR   BYT  0
+09770         PUMD R14,-R32         !  MOV W,-(S)
+09780         POMD R14,+R10         !  NEXT
+09790         POMD R4,+R14
+09800 L50     BYT  204
+09810         ASP  "USER"           !  CREATE A NEW USER VARIABLE
+09820         DEF  L49              !  (N=>)
+09830 USER    DEF  DOCOL   
+09840         DEF  CON     
+09850         DEF  PSCOD   
+09860 DOUSE   BYT  0
+09870         LDMD R20,R14          !  MOV(W),-(S)
+09880         ADMD R20,=UP          !  ADD UP,(S)
+09890         PUMD R20,-R32
+09900         POMD R14,+R10         !  NEXT
+09910         POMD R4,+R14
+09920 ! !         0 1 2 3 BL C/L FIRS
+09930 L51     BYT  201
+09940         ASP  "0"
+09950         DEF  L50     
+09960 ZERO    DEF  DOCON   
+09970         BYT  0,0
+09980 L52     BYT  201
+09990         ASP  "1"
+10000         DEF  L51     
+10010 ONE     DEF  DOCON   
+10020         BYT  1,0
+10030 L53     BYT  201
+10040         ASP  "2"
+10050         DEF  L52     
+10060 TWO     DEF  DOCON   
+10070         BYT  2,0
+10080 L54     BYT  201
+10090         ASP  "3"
+10100         DEF  L53     
+10110 THREE   DEF  DOCON   
+10120         BYT  3,0
+10130 L55     BYT  202
+10140         ASP  "BL"             !  BLANK
+10150         DEF  L54     
+10160 BL      DEF  DOCON   
+10170         BYT  40,0
+10180 L56     BYT  203
+10190         ASP  "C/L"            !  # OF CHARS/LINE
+10200         DEF  L55     
+10210 CL      DEF  DOCON   
+10220         BYT  100,0
+10230 L57     BYT  205
+10240         ASP  "FIRST"          !  ADDRESS OF BEGINNING OF DISK BUFFER
+10250         DEF  L56     
+10260 FIRST   DEF  DOCON   
+10270         DEF  DSKBUF  
+10280 ! !         LIMIT B/BUF B/SCR +ORIGI
+10290 L58     BYT  205
+10300         ASP  "LIMIT"          !  ADDRESS JUST BEYOND END OF DISK
+10310         DEF  L57     
+10320 LIMIT   DEF  DOCON   
+10330         DEF  ENDBUF  
+10340 L59     BYT  205
+10350         ASP  "B/BUF"          !  BYTES PER DISK-BLOCK BUFFER
+10360         DEF  L58     
+10370 BBUF    DEF  DOCON   
+10380         BYT  0,1              !  256 DECIMAL
+10390 L60     BYT  205
+10400         ASP  "B/SCR"          !  DISC BLOCKS PER FORTH SCREEN
+10410         DEF  L59     
+10420 BSCR    DEF  DOCON   
+10430         BYT  4,0
+10440 L61     BYT  207
+10450         ASP  "+ORIGIN"        !  RETURNS ADDRESS, GIVEN OFFSET
+10460         DEF  L60              !  FROM ORIGIN
+10470 PORIG   DEF  DOCOL   
+10480         DEF  LIT     
+10490         DEF  ORIGIN  
+10500         DEF  PLUS    
+10510         DEF  SEMIS   
+10520 ! !         S0 R0 TIB WIDTH WARNING FENCE DP VOC-LIN
+10530 L62     BYT  202
+10540         ASP  "S0"
+10550         DEF  L61     
+10560 SZERO   DEF  DOUSE   
+10570         BYT  6,0
+10580 L63     BYT  202
+10590         ASP  "R0"             !  RETURN STACK ORIGIN
+10600         DEF  L62     
+10610 RZERO   DEF  DOUSE   
+10620         BYT  10,0
+10630 L64     BYT  203
+10640         ASP  "TIB"
+10650         DEF  L63     
+10660 TIB     DEF  DOUSE   
+10670         BYT  12,0
+10680 L65     BYT  205
+10690         ASP  "WIDTH"          !  MAXIMUM NAME LENGTH
+10700         DEF  L64              !  DEFAULT 31 CHARACTERS
+10710 WIDTH   DEF  DOUSE   
+10720         BYT  14,0
+10730 L66     BYT  207
+10740         ASP  "WARNING"        !  WARNING MODE (DEFAULT,
+10750         DEF  L65              !  GIVE MSG # AT ERROR OR WARNING COND
+10760 WARN    DEF  DOUSE            !  DONT GOTO DISK FOR MSG
+10770         BYT  16,0
+10780 L67     BYT  205
+10790         ASP  "FENCE"          !  PREVENTS FORGET BELOW
+10800         DEF  L66              !  THIS FENCE SETTING
+10810 FENCE   DEF  DOUSE   
+10820         BYT  20,0
+10830 L68     BYT  202
+10840         ASP  "DP"             !  DICTIONARY PTR TO
+10850         DEF  L67     
+10860 DP      DEF  DOUSE            !  NEXT AVALBL SPACE
+10870         BYT  22,0
+10880 L69     BYT  210
+10890         ASP  "VOC-LINK"       !  VOCABULARY LINK
+10900         DEF  L68     
+10910 VOCL    DEF  DOUSE   
+10920         BYT  24,0
+10930 ! !         IOSC OUTBUF INPBUF USE PRE
+10940 L69.1   BYT  204
+10950         ASP  "IOSC"           !  I/O SELECT CODE
+10960         DEF  L69     
+10970 IOSC    DEF  DOUSE   
+10980         BYT  26,0
+10990 L69.2   BYT  206
+11000         ASP  "OUTBUF"         !  OUTPUT BUFFER POINTER
+11010         DEF  L69.1   
+11020 OUTBUF  DEF  DOUSE   
+11030         BYT  30,0
+11040 L69.3   BYT  206
+11050         ASP  "INPBUF"         !  INPUT BUFFER POINTER
+11060         DEF  L69.2   
+11070 INPBF   DEF  DOUSE   
+11080         BYT  32,0
+11090 L69.4   BYT  203
+11100         ASP  "USE"            !  LEAST RECENT DISK BUFFER
+11110         DEF  L69.3   
+11120 USE     DEF  DOUSE   
+11130         BYT  34,0
+11140 L69.5   BYT  204
+11150         ASP  "PREV"           !  MOST RECENT DISK BUFFER
+11160         DEF  L69.4   
+11170 PREV    DEF  DOUSE   
+11180         BYT  36,0
+11190 ! !         OKFLAG 'NUMBER' 'ABORT
+11200 L69.6   BYT  206
+11210         ASP  "OKFLAG"         !  ENABLE/DISABLE 'OK' IN QUIT
+11220         DEF  L69.5   
+11230 OKFLG   DEF  DOUSE   
+11240         BYT  40,0
+11250 L69.7   BYT  207
+11260         ASP  "'NUMBER"        !  ALLOWS REDIRECTION OF NUMBER
+11270         DEF  L69.6   
+11280 SNUMB   DEF  DOUSE   
+11290         BYT  42,0
+11300 L69.8   BYT  206
+11310         ASP  "'ABORT"         !  ALLOWS REDIRECTION OF ABORT
+11320         DEF  L69.7   
+11330 SABOR   DEF  DOUSE   
+11340         BYT  44,0
+11350 !       offsets 46 and 50 are available fo
+11360 !       future use, with initial values assigne
+11370 !       at cold start from '+origin' area
+11380 !       other user variables could be assigned b
+11390 !       reserving more space, but they would no
+11400 !       have initial values assigned at cold start
+11410 ! !         BLK IN OUT SCR OFFSET CONTEXT CURRENT STAT
+11420 L70     BYT  203
+11430         ASP  "BLK"            !  CURRENT DISK BLOCK
+11440         DEF  L69.8            !  BEING LOADED(0=TERMINAL
+11450 BLK     DEF  DOUSE   
+11460         BYT  52,0
+11470 L71     BYT  202
+11480         ASP  "IN"             !  OFFSET IN TERMINAL
+11490         DEF  L70              !  INPUT BUFFER
+11500 IN      DEF  DOUSE   
+11510         BYT  54,0
+11520 L72     BYT  203
+11530         ASP  "OUT"            !  OFFSET IN OUTPUT LINE
+11540         DEF  L71     
+11550 OUT     DEF  DOUSE   
+11560         BYT  56,0
+11570 L73     BYT  203
+11580         ASP  "SCR"            !  CURRENT FORTH DISK SCREEN
+11590         DEF  L72     
+11600 SCR     DEF  DOUSE   
+11610         BYT  60,0
+11620 L74     BYT  206
+11630         ASP  "OFFSET"         !  OFFSET TO GET
+11640         DEF  L73              !  ANOTHER DISK DRIVE
+11650 OFSET   DEF  DOUSE   
+11660         BYT  62,0
+11670 L75     BYT  207
+11680         ASP  "CONTEXT"
+11690         DEF  L74     
+11700 CONT    DEF  DOUSE   
+11710         BYT  64,0
+11720 L76     BYT  207
+11730         ASP  "CURRENT"
+11740         DEF  L75     
+11750 CURR    DEF  DOUSE   
+11760         BYT  66,0
+11770 L77     BYT  205
+11780         ASP  "STATE"
+11790         DEF  L76     
+11800 STATE   DEF  DOUSE   
+11810         BYT  70,0
+11820 ! !         BASE DPL FLD CSP R# HL
+11830 L78     BYT  204
+11840         ASP  "BASE"
+11850         DEF  L77     
+11860 BASE    DEF  DOUSE   
+11870         BYT  72,0
+11880 L79     BYT  203
+11890         ASP  "DPL"            !  OFFSET OF DEC POINT
+11900         DEF  L78              !  AFTER DOUBLE INT INPUT
+11910 DPL     DEF  DOUSE   
+11920         BYT  74,0
+11930 L80     BYT  203
+11940         ASP  "FLD"            !  OUTPUT FIELD WIDTH
+11950         DEF  L79     
+11960 FLD     DEF  DOUSE   
+11970         BYT  76,0
+11980 L81     BYT  203
+11990         ASP  "CSP"            !  USED BY COMPILER TO
+12000         DEF  L80              !  HOLD CUR STK POSITION
+12010 CSP     DEF  DOUSE            !  FOR ERROR CHECKING
+12020         BYT  100,0
+12030 L82     BYT  202
+12040         ASP  "R#"             !  USED BY EDITOR
+12050         DEF  L81              !  FOR CURSOR POSITION
+12060 RNUM    DEF  DOUSE   
+12070         BYT  102,0
+12080 L83     BYT  203
+12090         ASP  "HLD"            !  POINTS TO LAST CHAR
+12100         DEF  L82              !  HELD IN PAD
+12110 HLD     DEF  DOUSE   
+12120         BYT  104,0
+12130 ! !         IOSELEC
+12140 L83.6   BYT  210
+12150         ASP  "IOSELECT"       !  SELECT I/O DEVICE
+12160         DEF  L83     
+12170 IOSEL   DEF  IOSEL+  
+12180 IOSEL+  BYT  0
+12190         POMD R36,+R32         !  GET SELECT CODE
+12200         PUMD R32,+R6          !  PUSH THE FORTH REGISTERS
+12210         PUMD R10,+R6
+12220         PUMD R0,+R6
+12230         JSB  =ROMJSB  
+12240         DEF  CONBIN           !  CONVERT S.C. TO BCD
+12250         BYT  0
+12260         STMD R40,=SCTEMP      !  PUT IN SCTEMP
+12270         BIN  
+12280         POMD R0,-R6           !  RESTORE REGISTERS
+12290         POMD R10,-R6
+12300         POMD R32,-R6
+12310         POMD R14,+R10         !  NEXT
+12320         POMD R4,+R14
+12330 ! !         [IOTYPE] IOTYP
+12340 L83.7   BYT  210
+12350         ASP  "[IOTYPE]"       !  (ADDR,COUNT=>)
+12360         DEF  L83.6            !  TYPE CHARS TO SELECTED
+12370 PIOT    DEF  PIOT+            !  I/O DEVICE
+12380 PIOT+   BYT  0                !  ADDR MUST BE <107000
+12390         POMD R36,+R32         !  GET COUNT
+12400         POMD R26,+R32         !  GET ADDRESS
+12410         PUMD R32,+R6          !  PUSH THE FORTH REGISTERS
+12420         PUMD R10,+R6
+12430         PUMD R0,+R6
+12440         JSB  =ROMJSB  
+12450         DEF  DVR12.           !  OUTPUT CHARS
+12460         BYT  0
+12470         BIN  
+12480         POMD R0,-R6           !  RESTORE REGISTERS
+12490         POMD R10,-R6
+12500         POMD R32,-R6
+12510         POMD R14,+R10         !  NEXT
+12520         POMD R4,+R14
+12530 L83.8   BYT  206
+12540         ASP  "IOTYPE"         !  (ADDR,COUNT=>)
+12550         DEF  L83.7            !  TYPE CHARS
+12560 IOTYP   DEF  DOCOL            !  TO I/O DEVICE
+12570         DEF  LIT              !  NO ADDRESS LIMITATIONS
+12580         BYT  314,0
+12590         DEF  MIN     
+12600         DEF  SWAP    
+12610         DEF  OVER    
+12620         DEF  INPBF   
+12630         DEF  AT      
+12640         DEF  SWAP    
+12650         DEF  CMOVE   
+12660         DEF  INPBF   
+12670         DEF  AT      
+12680         DEF  SWAP    
+12690         DEF  PIOT    
+12700         DEF  SEMIS   
+12710 ! !         C
+12720 L83.9   BYT  202
+12730         ASP  "CR"             !  CRLF SEQUENCE
+12740         DEF  L83.8   
+12750 CR      DEF  DOCOL   
+12760         DEF  IOSC    
+12770         DEF  AT      
+12780         DEF  ONE     
+12790         DEF  EQUAL   
+12800         DEF  ZBRAN   
+12810         BYT  10,0
+12820         DEF  CCR     
+12830         DEF  BRAN             !  TO SEMIS
+12840         BYT  54,0
+12850         DEF  IOSC    
+12860         DEF  AT      
+12870         DEF  IOSEL   
+12880         DEF  OUTBUF  
+12890         DEF  AT      
+12900         DEF  OUT     
+12910         DEF  AT      
+12920         DEF  DUP              !  FIX FOR 0 LENGTH LINES
+12930         DEF  ZEQU    
+12940         DEF  ZBRAN   
+12950         BYT  16,0             !  TO PIOT
+12960         DEF  LIT     
+12970         BYT  15,0             !  CR
+12980         DEF  OUTBUF  
+12990         DEF  AT      
+13000         DEF  CSTOR   
+13010         DEF  ONEP             !  NOW LENGTH OF 1
+13020         DEF  PIOT    
+13030         DEF  ZERO    
+13040         DEF  OUT     
+13050         DEF  STORE   
+13060         DEF  SEMIS   
+13070 ! !         EMI
+13080 L84     BYT  204
+13090         ASP  "EMIT"           !  OUTPUT A CHARACTER
+13100         DEF  L83.9   
+13110 EMIT    DEF  DOCOL   
+13120         DEF  IOSC    
+13130         DEF  AT      
+13140         DEF  ONE     
+13150         DEF  EQUAL   
+13160         DEF  ZBRAN   
+13170         BYT  10,0             !  TO LIT...
+13180         DEF  CEMIT   
+13190         DEF  BRAN    
+13200         BYT  76,0             !  TO SEMIS
+13210         DEF  LIT     
+13220         BYT  377,0            !  CHANGED TO ALLOW 8-BIT CHARACTERS
+13230         DEF  AND     
+13240         DEF  OUTBUF  
+13250         DEF  AT      
+13260         DEF  OUT     
+13270         DEF  AT      
+13280         DEF  PLUS    
+13290         DEF  CSTOR   
+13300         DEF  ONE     
+13310         DEF  OUT     
+13320         DEF  PSTOR   
+13330         DEF  OUT     
+13340         DEF  AT      
+13350         DEF  LIT     
+13360         BYT  120,0            !  LINE LENGTH 80 CHARS
+13370         DEF  EQUAL   
+13380         DEF  ZBRAN            !  TO SEMIS
+13390         BYT  30,0
+13400         DEF  IOSC    
+13410         DEF  AT      
+13420         DEF  IOSEL   
+13430         DEF  OUTBUF  
+13440         DEF  AT      
+13450         DEF  OUT     
+13460         DEF  AT      
+13470         DEF  PIOT    
+13480         DEF  ZERO    
+13490         DEF  OUT     
+13500         DEF  STORE   
+13510         DEF  SEMIS   
+13520 ! !         1+ 2+ HERE ALLO
+13530 L84.1   BYT  202
+13540         ASP  "1+"
+13550         DEF  L84     
+13560 ONEP    DEF  ONEP+   
+13570 ONEP+   BYT  0
+13580         LDMD R20,R32          !  INC (S)
+13590         ICM  R20
+13600         STMD R20,R32
+13610         POMD R14,+R10         !  NEXT
+13620         POMD R4,+R14
+13630 L85     BYT  202
+13640         ASP  "2+"
+13650         DEF  L84.1   
+13660 TWOP    DEF  TWOP+   
+13670 TWOP+   BYT  0
+13680         LDMD R20,R32
+13690         ICM  R20
+13700         ICM  R20
+13710         STMD R20,R32
+13720         POMD R14,+R10         !  NEXT
+13730         POMD R4,+R14
+13740 L86     BYT  204
+13750         ASP  "HERE"
+13760         DEF  L85     
+13770 HERE    DEF  DOCOL   
+13780         DEF  DP      
+13790         DEF  AT      
+13800         DEF  SEMIS   
+13810 L87     BYT  205
+13820         ASP  "ALLOT"
+13830         DEF  L86     
+13840 ALLOT   DEF  DOCOL   
+13850         DEF  DP      
+13860         DEF  PSTOR   
+13870         DEF  SEMIS   
+13880 ! !         , C, - 
+13890 L88     BYT  201
+13900         ASP  ","              !  COMMA
+13910         DEF  L87     
+13920 COMMA   DEF  DOCOL   
+13930         DEF  HERE    
+13940         DEF  STORE   
+13950         DEF  TWO     
+13960         DEF  ALLOT   
+13970         DEF  SEMIS   
+13980 L88.5   BYT  202
+13990         ASP  "C,"             !  C-COMMA
+14000         DEF  L88     
+14010 CCOMA   DEF  DOCOL   
+14020         DEF  HERE    
+14030         DEF  CSTOR   
+14040         DEF  ONE     
+14050         DEF  ALLOT   
+14060         DEF  SEMIS   
+14070 L89     BYT  201
+14080         ASP  "-"              !  SUBTRACT
+14090         DEF  L88.5   
+14100 SUB     DEF  SUB+    
+14110 SUB+    BYT  0
+14120         POMD R20,+R32         !  SUB (S)+,(S)
+14130         LDMD R22,R32
+14140         SBM  R22,R20
+14150         STMD R22,R32
+14160         POMD R14,+R10         !  NEXT
+14170         POMD R4,+R14
+14180 L90     BYT  201
+14190         ASP  "="
+14200         DEF  L89     
+14210 EQUAL   DEF  EQUAL+  
+14220 EQUAL+  BYT  0
+14230         CLM  R22              !  CMP 2(S),(S)+
+14240         POMD R20,+R32         !  BEQ 1$
+14250         CMMD R20,R32          !  CLR(S)
+14260         JNZ  L901             !  BR 2$
+14270         ICM  R22              !  1$ MOV #1,(S)
+14280 L901    STMD R22,R32          !  2$ NEXT
+14290         POMD R14,+R10
+14300         POMD R4,+R14
+14310 ! !         < 
+14320 L91     BYT  201
+14330         ASP  "<"              !  SIGNED <
+14340         DEF  L90     
+14350 LESS    DEF  LESS+   
+14360 LESS+   BYT  0
+14370         CLM  R22
+14380         ICM  R22
+14390         POMD R20,+R32
+14400         LDMD R24,R32
+14410         CMM  R24,R20
+14420         JNG  L911             !  2(S)-(S)<0?
+14430         DCM  R22
+14440 L911    STMD R22,R32
+14450         POMD R14,+R10         !  NEXT
+14460         POMD R4,+R14
+14470 L92     BYT  201
+14480         ASP  ">"              !  SIGNED >
+14490         DEF  L91     
+14500 GREAT   DEF  GREAT+  
+14510 GREAT+  BYT  0
+14520         CLM  R22
+14530         ICM  R22
+14540         POMD R24,+R32
+14550         LDMD R20,R32
+14560         CMM  R24,R20
+14570         JNG  L921             !  (S)-2(S)<0?
+14580         DCM  R22
+14590 L921    STMD R22,R32
+14600         POMD R14,+R10         !  NEXT
+14610         POMD R4,+R14
+14620 ! !         ROT SPAC
+14630 L93     BYT  203
+14640         ASP  "ROT"            !  ROTATE FIRST 3
+14650         DEF  L92     
+14660 ROT     DEF  ROT+    
+14670 ROT+    BYT  0
+14680         LDMD R24,R32          !  MOV (S),R4
+14690         LDMD R22,X32,FOUR.    !  MOV 4(S),(S)
+14700         STMD R22,R32          !  MOV 2(S),4(S)
+14710         LDMD R22,X32,TWO.     !  MOV R4,2(S)
+14720         STMD R22,X32,FOUR.   
+14730         STMD R24,X32,TWO.    
+14740         POMD R14,+R10
+14750         POMD R4,+R14
+14760 L94     BYT  205
+14770         ASP  "SPACE"          ! SPACE
+14780         DEF  L93     
+14790 SPACE   DEF  DOCOL   
+14800         DEF  LIT     
+14810         BYT  40,0
+14820         DEF  EMIT    
+14830         DEF  SEMIS   
+14840 ! !         -DUP TRAVERS
+14850 L95     BYT  204
+14860         ASP  "-DUP"
+14870         DEF  L94     
+14880 DDUP    DEF  DDUP+            !  -DUP
+14890 DDUP+   BYT  0
+14900         LDMD R20,R32          !  TST(S)
+14910         JZR  L951             !  BEQ 1$
+14920         PUMD R20,-R32         !  MOV (S),-(S)
+14930 L951    POMD R14,+R10         !  1$ NEXT
+14940         POMD R4,+R14
+14950 L96     BYT  210
+14960         ASP  "TRAVERSE"       !  MOVE (FORWARDS OR
+14970         DEF  L95              !  BACKWARDS) ACROSS
+14980 TRAV    DEF  DOCOL            !  A (VAR LEN)
+14990         DEF  SWAP             !  DICITIONARY NAME FIELD
+15000 XXN1    DEF  OVER    
+15010         DEF  PLUS    
+15020         DEF  LIT     
+15030         BYT  177,0
+15040         DEF  OVER    
+15050         DEF  CAT     
+15060         DEF  LESS    
+15070         DEF  ZBRAN   
+15080         BYT  360,377          !  XXN1
+15090         DEF  SWAP    
+15100         DEF  DROP    
+15110         DEF  SEMIS   
+15120 ! !         LATEST LFA CFA NFA PF
+15130 L96+    BYT  206
+15140         ASP  "LATEST"
+15150         DEF  L96     
+15160 LATES   DEF  DOCOL   
+15170         DEF  CURR    
+15180         DEF  AT      
+15190         DEF  AT      
+15200         DEF  SEMIS   
+15210 L97     BYT  203
+15220         ASP  "LFA"            !  LFA
+15230         DEF  L96+    
+15240 LFA     DEF  DOCOL   
+15250         DEF  LIT     
+15260         BYT  4,0
+15270         DEF  SUB     
+15280         DEF  SEMIS   
+15290 L98     BYT  203
+15300         ASP  "CFA"            !  CFA
+15310         DEF  L97     
+15320 CFA     DEF  DOCOL   
+15330         DEF  TWO     
+15340         DEF  SUB     
+15350         DEF  SEMIS   
+15360 L99     BYT  203
+15370         ASP  "NFA"            !  NFA
+15380         DEF  L98     
+15390 NFA     DEF  DOCOL   
+15400         DEF  LIT     
+15410         BYT  5,0
+15420         DEF  SUB     
+15430         DEF  LIT     
+15440         BYT  377,377
+15450         DEF  TRAV    
+15460         DEF  SEMIS   
+15470 L100    BYT  203
+15480         ASP  "PFA"            !  PFA
+15490         DEF  L99     
+15500 PFA     DEF  DOCOL   
+15510         DEF  ONE     
+15520         DEF  TRAV    
+15530         DEF  LIT     
+15540         BYT  5,0
+15550         DEF  PLUS    
+15560         DEF  SEMIS   
+15570 ! !         !CSP ?ERROR ?COM
+15580 !  THE NEXT 7 OPERATIONS ARE USE
+15590 !  BY THE COMPILER FOR COMPIL
+15600 !  TIME SYNTAX-ERROR CHECK
+15610 L101    BYT  204
+15620         ASP  "!CSP"           !  CSP
+15630         DEF  L100    
+15640 SCSP    DEF  DOCOL   
+15650         DEF  SPAT    
+15660         DEF  CSP     
+15670         DEF  STORE   
+15680         DEF  SEMIS   
+15690 L102    BYT  206
+15700         ASP  "?ERROR"         !  ?ERROR
+15710         DEF  L101    
+15720 QERR    DEF  DOCOL   
+15730         DEF  SWAP    
+15740         DEF  ZBRAN   
+15750         BYT  10,0             !  XXN2
+15760         DEF  ERROR   
+15770         DEF  BRAN    
+15780         BYT  4,0              !  XXN3
+15790 XXN2    DEF  DROP    
+15800 XXN3    DEF  SEMIS   
+15810 L103    BYT  205
+15820         ASP  "?COMP"          !  ?COMP
+15830         DEF  L102    
+15840 QCOMP   DEF  DOCOL   
+15850         DEF  STATE   
+15860         DEF  AT      
+15870         DEF  ZEQU    
+15880         DEF  LIT     
+15890         BYT  21,0
+15900         DEF  QERR    
+15910         DEF  SEMIS   
+15920 ! !         ?EXEC ?PAIR
+15930 L104    BYT  205
+15940         ASP  "?EXEC"
+15950         DEF  L103    
+15960 QEXEC   DEF  DOCOL   
+15970         DEF  STATE   
+15980         DEF  AT      
+15990         DEF  LIT     
+16000         BYT  22,0
+16010         DEF  QERR    
+16020         DEF  SEMIS   
+16030 L105    BYT  206
+16040         ASP  "?PAIRS"
+16050         DEF  L104    
+16060 QPAIR   DEF  DOCOL   
+16070         DEF  SUB     
+16080         DEF  LIT     
+16090         BYT  23,0
+16100         DEF  QERR    
+16110         DEF  SEMIS   
+16120 ! !         ?CSP ?LOADING COMPIL
+16130 L106    BYT  204
+16140         ASP  "?CSP"
+16150         DEF  L105    
+16160 QCSP    DEF  DOCOL   
+16170         DEF  SPAT    
+16180         DEF  CSP     
+16190         DEF  AT      
+16200         DEF  SUB     
+16210         DEF  LIT     
+16220         BYT  24,0
+16230         DEF  QERR    
+16240         DEF  SEMIS   
+16250 L107    BYT  210
+16260         ASP  "?LOADING"
+16270         DEF  L106    
+16280 QLOAD   DEF  DOCOL   
+16290         DEF  BLK     
+16300         DEF  AT      
+16310         DEF  ZEQU    
+16320         DEF  LIT     
+16330         BYT  26,0
+16340         DEF  QERR    
+16350         DEF  SEMIS   
+16360 L108    BYT  207
+16370         ASP  "COMPILE"        !  COMPILE THE EXECUTION ADDRESS FOLLOWING
+16380         DEF  L107    
+16390 COMP    DEF  DOCOL   
+16400         DEF  QCOMP   
+16410         DEF  FROMR   
+16420         DEF  DUP     
+16430         DEF  TWOP    
+16440         DEF  TOR     
+16450         DEF  AT      
+16460         DEF  COMMA   
+16470         DEF  SEMIS   
+16480 ! !         [ ] SMUDG
+16490 L109    BYT  301
+16500         ASP  "["              !  STOP COMPILATION, ENTER EXECUTION STATE
+16510         DEF  L108    
+16520 LBRAC   DEF  DOCOL   
+16530         DEF  ZERO    
+16540         DEF  STATE   
+16550         DEF  STORE   
+16560         DEF  SEMIS   
+16570 L110    BYT  201
+16580         ASP  "]"              !  ENTER COMPILATION STATE
+16590         DEF  L109    
+16600 RBRAC   DEF  DOCOL   
+16610         DEF  LIT     
+16620         BYT  300,0
+16630         DEF  STATE   
+16640         DEF  STORE   
+16650         DEF  SEMIS   
+16660 L111    BYT  206
+16670         ASP  "SMUDGE"         !  ALTER LATEST WORD NAME SO THAT
+16680         DEF  L110             !  DICTIONARY SEARCH WON'T FIND A
+16690 !                                  PARTIALLY-COMPLETED ENTR
+16700 SMUDG   DEF  DOCOL   
+16710         DEF  LATES   
+16720         DEF  LIT     
+16730         BYT  40,0
+16740         DEF  TOGGL   
+16750         DEF  SEMIS   
+16760 ! !         HEX DECIMAL OCTA
+16770 L112    BYT  203
+16780         ASP  "HEX"
+16790         DEF  L111    
+16800 HEX     DEF  DOCOL   
+16810         DEF  LIT     
+16820         BYT  20,0
+16830         DEF  BASE    
+16840         DEF  STORE   
+16850         DEF  SEMIS   
+16860 L113    BYT  207
+16870         ASP  "DECIMAL"
+16880         DEF  L112    
+16890 DEC     DEF  DOCOL   
+16900         DEF  LIT     
+16910         BYT  12,0
+16920         DEF  BASE    
+16930         DEF  STORE   
+16940         DEF  SEMIS   
+16950 L114    BYT  205
+16960         ASP  "OCTAL"
+16970         DEF  L113    
+16980 OCTAL   DEF  DOCOL   
+16990         DEF  LIT     
+17000         BYT  10,0
+17010         DEF  BASE    
+17020         DEF  STORE   
+17030         DEF  SEMIS   
+17040 ! !         (;CODE) <BUILDS DOES
+17050 L115    BYT  207
+17060         ASP  "(;CODE)"        !  USED ONLY BY COMPILER
+17070         DEF  L114             !  COMPILED BY ';CODE'
+17080 PSCOD   DEF  DOCOL   
+17090         DEF  FROMR   
+17100         DEF  LATES   
+17110         DEF  PFA     
+17120         DEF  CFA     
+17130         DEF  STORE   
+17140         DEF  SEMIS   
+17150 L117    BYT  207
+17160         ASP  "<BUILDS"        !  CREATE NEW DATA TYPE WITH CODE
+17170         DEF  L115             !  ROUTINE IN HIGHER-LEVEL FORTH
+17180 BUILD   DEF  DOCOL   
+17190         DEF  ZERO    
+17200         DEF  CON     
+17210         DEF  SEMIS   
+17220 L118    BYT  205
+17230         ASP  "DOES>"
+17240         DEF  L117    
+17250 DOES    DEF  DOCOL   
+17260         DEF  FROMR   
+17270         DEF  LATES   
+17280         DEF  PFA     
+17290         DEF  STORE   
+17300         DEF  PSCOD   
+17310 DODOE   BYT  0
+17320         PUMD R10,-R0          !  MOV IP,-(RP)
+17330         POMD R10,+R14         !  MOV (W)+,IP
+17340         PUMD R14,-R32         !  MOV W,-(S)
+17350         POMD R14,+R10         !  NEXT
+17360         POMD R4,+R14
+17370 ! !         COUNT TYP
+17380 L119    BYT  205
+17390         ASP  "COUNT"          !  CONVERT STRING TO THE FORMAT
+17400         DEF  L118             !  USED BY 'TYPE'
+17410 COUNT   DEF  DOCOL   
+17420         DEF  DUP     
+17430         DEF  ONEP    
+17440         DEF  SWAP    
+17450         DEF  CAT     
+17460         DEF  SEMIS   
+17470 L120    BYT  204
+17480         ASP  "TYPE"
+17490         DEF  L119    
+17500 TYPE    DEF  DOCOL   
+17510         DEF  DDUP    
+17520         DEF  ZBRAN   
+17530         BYT  30,0             !  XXL2
+17540         DEF  OVER    
+17550         DEF  PLUS    
+17560         DEF  SWAP    
+17570         DEF  XDO     
+17580 XXL1    DEF  I       
+17590         DEF  CAT     
+17600         DEF  EMIT    
+17610         DEF  XLOOP   
+17620         BYT  370,377          ! XXL1
+17630         DEF  BRAN    
+17640         BYT  4,0              ! XXL3
+17650 XXL2    DEF  DROP    
+17660 XXL3    DEF  SEMIS   
+17670 ! !         -TRAILIN
+17680 L122    BYT  211
+17690         ASP  "-TRAILING"
+17700         DEF  L120    
+17710 DTRAI   DEF  DOCOL   
+17720         DEF  DUP     
+17730         DEF  ZERO    
+17740         DEF  XDO     
+17750 XXW6    DEF  OVER    
+17760         DEF  OVER    
+17770         DEF  PLUS    
+17780         DEF  ONE     
+17790         DEF  SUB     
+17800         DEF  CAT     
+17810         DEF  BL      
+17820         DEF  SUB     
+17830         DEF  ZBRAN   
+17840         BYT  10,0             ! XXW7
+17850         DEF  LEAVE   
+17860         DEF  BRAN    
+17870         BYT  6,0              !  XXWA
+17880 XXW7    DEF  ONE     
+17890         DEF  SUB     
+17900 XXWA    DEF  XLOOP   
+17910         BYT  340,377          ! XXW6
+17920         DEF  SEMIS   
+17930 ! !         (.") .
+17940 L123    BYT  204
+17950         ASP  4,(.") 
+17960         DEF  L122             !  USED ONLY BY COMPILER
+17970 PDOTQ   DEF  DOCOL            !  COMPILED BY '."'
+17980         DEF  R       
+17990         DEF  COUNT   
+18000         DEF  DUP     
+18010         DEF  ONEP    
+18020         DEF  FROMR   
+18030         DEF  PLUS    
+18040         DEF  TOR     
+18050         DEF  TYPE    
+18060         DEF  SEMIS   
+18070 L124    BYT  302
+18080         ASP  2,." 
+18090         DEF  L123             !  TYPE ASCII MESSAGE
+18100 DOTQ    DEF  DOCOL   
+18110         DEF  LIT     
+18120         BYT  42,0             !  ASCII "
+18130         DEF  STATE   
+18140         DEF  AT      
+18150         DEF  ZBRAN   
+18160         BYT  24,0             !  XXL6
+18170         DEF  COMP    
+18180         DEF  PDOTQ   
+18190         DEF  WORD    
+18200         DEF  HERE    
+18210         DEF  CAT     
+18220         DEF  ONEP    
+18230         DEF  ALLOT   
+18240         DEF  BRAN    
+18250         BYT  12,0             !  XXL7
+18260 XXL6    DEF  WORD    
+18270         DEF  HERE    
+18280         DEF  COUNT   
+18290         DEF  TYPE    
+18300 XXL7    DEF  SEMIS   
+18310 ! !         SEX
+18320 L125    BYT  204
+18330         ASP  "SEXP"           !  HOOK INTO THE BASIC SYSTEM'S
+18340         DEF  L124             !  IDLE LOOP TO USE ITS SCREEN
+18350 SEXP    DEF  SEXP+            !  EDITOR SYSTEM
+18360 SEXP+   BYT  0
+18370         PUMD R32,+R6          !  PUSH FORTH REGISTERS
+18380         PUMD R10,+R6
+18390         PUMD R0,+R6
+18400         BYT  141,251          !  LDM R40,=
+18410         BYT  316              !  JSB =ROMJSB
+18420         DEF  ROMJSB  
+18430         DEF  SEXP1            !  DEF SEXP1
+18440         AIF  ROM87   
+18450         VAL  MYROM#  
+18460         EIF  
+18470         AIF  BIN87   
+18480         BYT  0
+18490         EIF  
+18500         AIF  ROM85   
+18510         VAL  MYROM#  
+18520         EIF  
+18530         AIF  BIN85   
+18540         BYT  0
+18550         EIF  
+18560         BYT  236              !  RTN
+18570         STMD R41,=PRSIDL      !  TAKE PRSIDL HOOK
+18580         CLB  R16              !  IDLE MODE
+18590         JSB  =ROMJSB  
+18600         DEF  EXECL            !  GOTO IDLE LOOP
+18610         BYT  0
+18620 !       EXECUTION RESUMES IN THIS ROM AT SEXP1 VI
+18630 !       THE PRSIDL HOO
+18640 SEXP1   POMD R40,-R6          !  CLEAN 22 BYTES OFF STACK
+18650         POMD R40,-R6          !  REMAINS OF ROMJSB'S AND STUFF
+18660         POMD R42,-R6
+18670         LDM  R41,=236,236,236,236,236,236,236
+18680         STMD R41,=PRSIDL      !  RETURN HOOK
+18690         POMD R0,-R6           !  RESTORE FORTH REGISTERS
+18700         POMD R10,-R6
+18710         POMD R32,-R6
+18720         POMD R14,+R10         !  NEXT
+18730         POMD R4,+R14
+18740 ! !         EXPEC
+18750 L126    BYT  206              !  READ N CHARACTERS TO MEMORY
+18760         ASP  "EXPECT"         !  AND TERMINATE WITH
+18770         DEF  L125             !  NULLS.  ADDRESS N => ()
+18780 EXPEC   DEF  DOCOL   
+18790         DEF  SEXP    
+18800         DEF  OVER    
+18810         DEF  OVER    
+18820         DEF  ZERO    
+18830         DEF  XDO     
+18840 XXK1    DEF  INPBF   
+18850         DEF  AT      
+18860         DEF  I       
+18870         DEF  PLUS    
+18880         DEF  CAT     
+18890         DEF  DUP     
+18900         DEF  LIT     
+18910         BYT  15,0
+18920         DEF  EQUAL   
+18930         DEF  ZBRAN   
+18940         BYT  22,0             !  XXK2
+18950         DEF  ZERO    
+18960         DEF  ROT     
+18970         DEF  I       
+18980         DEF  PLUS    
+18990         DEF  STORE   
+19000         DEF  LEAVE   
+19010         DEF  BRAN    
+19020         BYT  12,0             !  XXK3
+19030 XXK2    DEF  OVER    
+19040         DEF  I       
+19050         DEF  PLUS    
+19060         DEF  CSTOR   
+19070 XXK3    DEF  XLOOP   
+19080         BYT  320,377          !  XXK1
+19090         DEF  DROP    
+19100         DEF  PLUS    
+19110         DEF  ZERO    
+19120         DEF  SWAP    
+19130         DEF  STORE   
+19140         DEF  SEMIS   
+19150 ! !         QUER
+19160 L127    BYT  205
+19170         ASP  "QUERY"
+19180         DEF  L126    
+19190 QUERY   DEF  DOCOL   
+19200         DEF  TIB     
+19210         DEF  AT      
+19220         DEF  LIT     
+19230         AIF  ROM87   
+19240         BYT  240,0            !  160 CHARACTERS INPUT
+19250         EIF  
+19260         AIF  BIN87   
+19270         BYT  240,0            !  160 CHARACTERS INPUT
+19280         EIF  
+19290         AIF  ROM85   
+19300         BYT  140,0            !  96 CHARACTERS INPUT
+19310         EIF  
+19320         AIF  BIN85   
+19330         BYT  140,0            !  96 CHARACTERS INPUT
+19340         EIF  
+19350         DEF  EXPEC   
+19360         DEF  ZERO    
+19370         DEF  IN      
+19380         DEF  STORE   
+19390         DEF  SEMIS   
+19400 ! !         "NULL" FIL
+19410 !  THE NULL OPERATION(ASCII 0) STOPS INTERPRETATION/COMPILATIO
+19420 !  AT END OF A TERMINAL INPUT LINE, OR A DISK SCREEN. ALL DIS
+19430 !  BUFFERS MUST TERMINATE WITH NULLS, AND 'EXPECT' PLACES NULL
+19440 !  AFTER EACH TERMINAL INPUT LINE
+19450 L300    BYT  301
+19460         BYT  200              !  ASCII NULL (X)
+19470         DEF  L127    
+19480 NULL    DEF  DOCOL   
+19490         DEF  BLK     
+19500         DEF  AT      
+19510         DEF  ZBRAN   
+19520         BYT  46,0             !  XXJ2-
+19530         DEF  ONE     
+19540         DEF  BLK     
+19550         DEF  PSTOR   
+19560         DEF  ZERO    
+19570         DEF  IN      
+19580         DEF  STORE   
+19590         DEF  BLK     
+19600         DEF  AT      
+19610         DEF  BSCR    
+19620         DEF  MOD     
+19630         DEF  ZEQU    
+19640         DEF  ZBRAN   
+19650         BYT  10,0             !  XXJ1-
+19660         DEF  QEXEC   
+19670         DEF  FROMR   
+19680         DEF  DROP    
+19690 XXJ1    DEF  BRAN    
+19700         BYT  6,0
+19710 XXJ2    DEF  FROMR   
+19720         DEF  DROP    
+19730 XXJ4    DEF  SEMIS   
+19740 L301    BYT  204
+19750         ASP  "FILL"           !  FILL
+19760         DEF  L300    
+19770 FILL    DEF  DOCOL   
+19780         DEF  SWAP    
+19790         DEF  TOR     
+19800         DEF  OVER    
+19810         DEF  CSTOR   
+19820         DEF  DUP     
+19830         DEF  ONEP    
+19840         DEF  FROMR   
+19850         DEF  ONE     
+19860         DEF  SUB     
+19870         DEF  CMOVE   
+19880         DEF  SEMIS   
+19890         LNK  GEFRT2

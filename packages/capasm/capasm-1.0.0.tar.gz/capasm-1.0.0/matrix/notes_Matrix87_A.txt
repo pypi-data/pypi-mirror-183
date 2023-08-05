@@ -1,0 +1,29 @@
+HP-87 Matrix ROM Sources Rev.A
+
+Based on the files provided in the HP-85 emulator (Everett Kaser)
+in disc images: disc1/87 MATRIX SRC 1A, 87 MATRIX SRC 1B, 87 MATRIX SRC 2
+
+The sources have been updated by:
+- commenting out the UNL pseudo-opcodes to get the full assembly listing,
+- aligning the ROM1 source code with the actual 00087-15004 REV.A Matrix ROM 1 binary:
+  there are actually just a few changes, reason is unknown, but it could be:
+    typing errors for two of them: use of R0 instead of R10,
+    an attempt to by-pass the self-test, maybe because the checksum after re-assembly was wrong,
+    and the inclusion of a change maybe from the hypothetical ver.B, since the ROM1-3 file was only present in the SRC 1B disc image.
+The sources have been assembled with the HP-87 Asssembler ROM.
+
+
+Contents:
+
+87 MATRIX SRC 1A update : LIF disc image with the updated ROM1-1, ROM1-2 and ROM1-3 source files
+
+MATROM1A-1.TXT 
+MATROM1A-2.TXT
+MATROM1A-3.TXT   : text files corresponding to ROM1-1, ROM1-2 and ROM1-3
+MATROM2.TXT      : text file corresponding to the source files in 87 MATRIX SRC 2
+
+Matrix87_A.pdf   : assembly listing of ROM1 and ROM2
+
+
+J-F Garnier, March 2020.
+

@@ -1,0 +1,27 @@
+CAPASM
+(c) Joachim Siebold
+
+    1 000000             !
+    2 000000             !  bad statements file 3:
+    3 000000             !  unclosed conditional
+    4 000000             !
+    5 000000 061 062 063         NAM 12,1234
+      000003 064 032 000 
+      000006 002 012 061 
+      000011 062 063 064 
+      000014 040 040 040 
+      000017 040 040 040 
+      000022 000 000 000 
+      000025 000 000 000 
+      000030 000 000 
+    6 000032                     SET ABC
+    7 000032                     AIF ABC
+    8 000032                     FIN
+*ERROR(P) at bad3.asm(8): AIF/EIF mismatch
+ 
+0 Symbols used:
+
+Index of source files in symbol cross reference:
+Assembly completed
+ 8 lines processed, 1 error(s) 0 warning(s)
+ object file deleted

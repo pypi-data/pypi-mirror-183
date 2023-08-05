@@ -1,0 +1,28 @@
+CAPASM
+(c) Joachim Siebold
+
+    1 000000                    HED "Test JREL"
+    2 000000 000 000 000 BACK   BSZ  123D
+      ...
+    3 000173 102 310 005        CMB  R2,=5
+    4 000176 366 200            JNZ  BACK
+    5 000200 366 000            JNZ  BACK
+*ERROR(C) at jrel.asm(5): Relative jump too large
+    6 000202 360 000            JMP  FORW
+*ERROR(C) at jrel.asm(6): Relative jump too large
+    7 000204 360 177            JMP  FORW
+    8 000206 000 000 000        BSZ 127D
+      ...
+      000404 000 
+    9 000405 236         FORW   RTN
+   10 000406                    FIN
+ 
+2 Symbols used:
+BACK LCL 000000     2;1
+FORW LCL 000405     9;1
+
+Index of source files in symbol cross reference:
+1: jrel.asm
+Assembly completed
+ 10 lines processed, 2 error(s) 0 warning(s)
+ object file deleted

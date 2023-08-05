@@ -1,0 +1,859 @@
+CAPASM  Version 0.9.8       July 2020                        2020-07-30 09:30:41
+(c) Joachim Siebold 2020
+
+0000             0010        LST  
+0000             0020 R1(J)  DAD  101770
+0000             0030 R1(K)  DAD  101760
+0000             0040 I1(J)  DAD  101750
+0000             0050 I1(K)  DAD  101740
+0000             0060 A      DAD  101730
+0000             0070 B      DAD  101720
+0000             0080 C      DAD  101710
+0000             0090 C1     DAD  101700
+0000             0100 E      DAD  101670
+0000             0110 P      DAD  101660
+0000             0120 Q      DAD  101650
+0000             0130 R      DAD  101640
+0000             0140 S1     DAD  101630
+0000             0150 S2     DAD  101620
+0000             0160 U      DAD  101610
+0000             0170 V      DAD  101600
+0000             0180 J      DAD  101576
+0000             0190 K      DAD  101574
+0000             0200 I      DAD  101572
+0000             0210 N2     DAD  101570
+0000             0220 G      DAD  101564
+0000             0230 JTO    DAD  101562
+0000             0240 JSTEP  DAD  101560
+0000             0250 ITO    DAD  101556
+0000             0260 RTO    DAD  101554
+0000             0270 L1     DAD  101552
+0000             0280 RMAXR  DAD  101550
+0000             0290 IMAXR  DAD  101546
+0000             0300 R1BASE DAD  101544
+0000             0310 I1BASE DAD  101542
+0000             0320 R1JADR DAD  101540
+0000             0330 R1KADR DAD  101536
+0000             0340 I1JADR DAD  101534
+0000             0350 I1KADR DAD  101532
+0000             0360 COS10  DAD  53556
+0000             0370 SIN10  DAD  53546
+0000             0380 ADD10  DAD  52233
+0000             0390 SUB10  DAD  52137
+0000             0400 MPY10  DAD  52562
+0000             0410 DIV10  DAD  51644
+0000             0420 SQR15  DAD  52455
+0000             0430 ONER   DAD  56215
+0000             0440 ONER+  DAD  56220
+0000             0450 CONBIN DAD  3572
+0000             0460 ROMFL  DAD  101231
+0000             0470 FWCURR DAD  100004
+0000             0480 NARRE+ DAD  13376
+0000             0490 ONEB   DAD  56113
+0000             0500 TWOB   DAD  56176
+0000             0510 NUMVA+ DAD  12407
+0000             0520 FETSVA DAD  44556
+0000             0530 ERROR+ DAD  6611
+0000             0540 BINTAB DAD  101233
+0000             0542 ! *************************
+0000             0543 !  THIS BINARY IS TO BE    
+0000             0544 !   USED WITH THE WAVEFORM 
+0000             0545 !   ANALYSIS PAK.          
+0000             0546 ! *************************
+0000 45 4B 46 46 0550        NAM  EKFFT 
+0004 54 20 02 00 
+0008 00 00 00 00 
+000C 00 00 00 00 
+Page    1                                                             
+CAPASM
+
+0010 00 00 00 00 
+0014 00 00 00 00 
+0018 00 00 
+001A 24 00       0560        DEF  RUNTIM
+001C 36 00       0570        DEF  TOKS  
+001E 2C 00       0580        DEF  BASIC 
+0020 40 00       0590        DEF  ERMSG 
+0022 A7 00       0600        DEF  INIT  
+0024 00 00       0610 RUNTIM BYT  0,0
+0026 6C 01       0620        DEF  FFT.  
+0028 24 04       0630        DEF  IFT.  
+002A A1 06       0640        DEF  AFT.  
+002C 00 00       0650 BASIC  BYT  0,0
+002E C8 00       0660        DEF  FFTPRS
+0030 C8 00       0670        DEF  FFTPRS
+0032 C8 00       0680        DEF  FFTPRS
+0034 FF FF       0690        BYT  377,377
+0036 46 46       0700 TOKS   ASC  2,FFT
+0038 D4          0710        BYT  324
+0039 52 46       0720        ASC  2,RFT
+003B D4          0730        BYT  324
+003C 41 46       0740        ASC  2,AFT
+003E D4          0750        BYT  324
+003F FF          0760        BYT  377
+0040 80          0770 ERMSG  BYT  200
+0041 80 80 80 80 0780        BYT  200,200,200,200
+0045 80 80 80 80 0790        BYT  200,200,200,200
+0049 73 68 6F 75 0800        ASC  34,should be: _FT R1,I1,N2,L1,C1
+004D 6C 64 20 62 
+0051 65 3A 20 5F 
+0055 46 54 20 52 
+0059 31 2C 49 31 
+005D 2C 4E 32 2C 
+0061 4C 31 2C 43 
+0065 B1          0810        BYT  261
+0066 41 52 52 41 0820        ASC  43,ARRAYS R1 & I1 MUST BE 1-DIMENSIONED
+006A 59 53 20 52 
+006E 31 20 26 20 
+0072 49 31 20 4D 
+0076 55 53 54 20 
+007A 42 45 20 31 
+007E 2D 44 49 4D 
+0082 45 4E 53 49 
+0086 4F 4E 45 
+0089 C4          0830        BYT  304
+008A 43 41 4E 27 0840        ASC  33,CAN'T RUN WITH OPTION BASE 0
+008E 54 20 52 55 
+0092 4E 20 57 49 
+0096 54 48 20 4F 
+009A 50 54 49 4F 
+009E 4E 20 42 41 
+00A2 53 45 20 
+00A5 B0          0850        BYT  260
+00A6 FF          0860        BYT  377
+00A7 52 B1 04 80 0870 INIT   LDMD R22,=FWCURR
+00AB 58 B0 99 82 0880        LDBD R30,=ROMFL 
+00AF C8 04       0890        CMB  R30,=4
+00B1 F7 04       0900        JZR  CHECK 
+00B3 C8 07       0910        CMB  R30,=7
+00B5 F6 0C       0920        JNZ  INRTN 
+00B7 52 CB 06 00 0930 CHECK  ADM  R22,=6,0
+00BB 5E 12 A4    0940        LDBD R36,R22
+00BE CF 40 00    0950        ANM  R36,=100,0
+     CE?
+00C1 F6 01       0960        JNZ  ERBIN3
+Page    2                                                             
+CAPASM
+
+00C3 9E          0970 INRTN  RTN  
+00C4             0980 ! ************************
+00C4 CE 89 0D    0990 ERBIN3 JSB  =ERROR+
+00C7 F4          1000        BYT  364
+00C8             1010 ! ************************
+00C8 63 06 E4    1020 FFTPRS PUBD R43,+R6
+00CB CE FE 16    1030        JSB  =NARRE+
+00CE F9 31       1035        JEZ  ERBIN1
+     4C C8
+00D0 4C C8 2C    1040        CMB  R14,=54
+00D3 F6 2C       1050        JNZ  ERBIN1
+00D5 CE FE 16    1060        JSB  =NARRE+
+00D8 F9 27       1065        JEZ  ERBIN1
+00DA 4C C8 2C    1070        CMB  R14,=54
+00DD F6 22       1080        JNZ  ERBIN1
+00DF CE 07 15    1090        JSB  =NUMVA+
+00E2 F9 1D       1100        JEZ  ERBIN1
+00E4 4C C8 2C    1110        CMB  R14,=54
+00E7 F6 18       1120        JNZ  ERBIN1
+00E9 CE 07 15    1130        JSB  =NUMVA+
+00EC F9 13       1140        JEZ  ERBIN1
+00EE 4C C8 2C    1150        CMB  R14,=54
+00F1 F6 0E       1160        JNZ  ERBIN1
+00F3 CE 07 15    1170        JSB  =NUMVA+
+00F6 F9 09       1180        JEZ  ERBIN1
+00F8 6F 06 E2    1190        POBD R57,-R6
+00FB 6D A8 F9    1200        LDB  R55,=371
+00FE 0A E5       1210        PUMD R55,+R12
+0100 9E          1220        RTN  
+0101             1230 ! ************************
+0101 6F 06 E2    1240 ERBIN1 POBD R57,-R6
+0104 CE 89 0D    1250        JSB  =ERROR+
+0107 F6          1260        BYT  366
+0108             1270 ! ************************
+0108 CE 89 0D    1280 ERBIN2 JSB  =ERROR+
+010B F5          1290        BYT  365
+010C             1300 ! ************************
+010C CE 8D 5C    1310 POP    JSB  =ONER  
+010F 60 B3 C0 83 1320        STMD R40,=C1    
+0113 CE 7E 5C    1330        JSB  =TWOB  
+0116 B3 6A 83    1340        STMD R#,=L1    
+0119 6E B3 78 83 1350        STMD R56,=N2    
+011D 8B          1360        DCM  R56
+011E B3 72 83    1370        STMD R56,=JTO   
+0121 89          1380        ICM  R56
+0122 18 A3       1390        STM  R56,R30
+0124 6E 85       1400 NOZRO  LLM  R56
+0126 FA FC       1410        JNC  NOZRO 
+0128 F7 04       1420        JZR  GO.ON 
+012A CE 89 0D    1430 ERR#   JSB  =ERROR+
+012D 21          1440        BYT  41
+012E 76 0A E3    1450 GO.ON  POMD R66,-R12
+0131 CE 6E 49    1460        JSB  =FETSVA
+0134 5C 89       1470        ICM  R34
+0136 89          1480        ICM  R34
+0137 5E 1C E1    1490        POMD R36,+R34
+013A B3 66 83    1500        STMD R36,=IMAXR 
+013D 18 C1       1510        CMM  R36,R30
+013F FA E9       1520        JNC  ERR#  
+0141 1C A5       1530        LDMD R36,R34
+0143 F5 C3       1540        JPS  ERBIN2
+0145 5C CD 06 00 1550        SBM  R34,=6,0
+0149 B3 62 83    1560        STMD R34,=I1BASE
+014C 76 0A E3    1570        POMD R66,-R12
+014F CE 6E 49    1580        JSB  =FETSVA
+Page    3                                                             
+CAPASM
+
+0152 5C 89       1590        ICM  R34
+0154 89          1600        ICM  R34
+0155 5E 1C E1    1610        POMD R36,+R34
+0158 B3 68 83    1620        STMD R36,=RMAXR 
+015B 18 C1       1630        CMM  R36,R30
+015D FA CB       1640        JNC  ERR#  
+015F 1C A5       1650        LDMD R36,R34
+0161 F5 A5       1660        JPS  ERBIN2
+0163 5C CD 06 00 1670        SBM  R34,=6,0
+0167 B3 64 83    1680        STMD R34,=R1BASE
+016A 9E          1690        RTN  
+016B             1700 ! ************************
+016B A1          1710        BYT  241
+016C 52 B1 9B 82 1720 FFT.   LDMD R22,=BINTAB
+0170 50 93       1730        CLM  R20
+0172 B3 7C 83    1740        STMD R20,=K     
+0175 88          1750        ICB  R20
+0176 B3 7E 83    1760        STMD R20,=J     
+0179 12 C6 0C 01 1770        JSB  X22,POP   
+017D 50 A9 02 00 1780 LOOP1  LDM  R20,=2,0
+0181 58 B1 7C 83 1790        LDMD R30,=K     
+0185 56 B1 78 83 1800 N1EQU  LDMD R26,=N2    
+0189 50 1E A3    1810        STM  R20,R36
+018C 57 87       1820 N2I    LRM  R27
+018E 5F 87       1830        LRM  R37
+0190 F3 FA       1840        JEV  N2I   
+0192 58 16 C1    1850        CMM  R30,R26
+0195 FA 05       1860        JNC  YES1  
+0197 C5          1870        SBM  R30,R26
+0198 50 85       1880        LLM  R20
+019A F0 E9       1890        JMP  N1EQU 
+019C 58 16 C3    1900 YES1   ADM  R30,R26
+019F B3 7C 83    1910        STMD R30,=K     
+01A2 5A B1 7E 83 1920        LDMD R32,=J     
+01A6 18 C1       1930        CMM  R32,R30
+01A8 FB 29       1940        JCY  NEXTJ1
+01AA 5C B1 62 83 1950        LDMD R34,=I1BASE
+01AE 5E A1       1960        LDM  R36,R30
+01B0 12 C6 E5 03 1970        JSB  X22,SUB1A 
+01B4 68 1E A7    1980        STMD R50,R36
+01B7 60 1A A7    1990        STMD R40,R32
+01BA 5C B1 64 83 2000        LDMD R34,=R1BASE
+01BE 5A B1 7E 83 2010        LDMD R32,=J     
+01C2 5E 18 A1    2020        LDM  R36,R30
+01C5 12 C6 E5 03 2030        JSB  X22,SUB1A 
+01C9 68 1E A7    2040        STMD R50,R36
+01CC 60 1A A7    2050        STMD R40,R32
+01CF 5A B1 7E 83 2060        LDMD R32,=J     
+01D3 5A 89       2070 NEXTJ1 ICM  R32
+01D5 B3 7E 83    2080        STMD R32,=J     
+01D8 5C B1 72 83 2090        LDMD R34,=JTO   
+01DC 1A C1       2100        CMM  R34,R32
+01DE FB 9D       2110        JCY  LOOP1 
+01E0 54 93       2120        CLM  R24
+01E2 B3 74 83    2130        STMD R24,=G     
+01E5 50 93       2140        CLM  R20
+01E7 88          2150        ICB  R20
+01E8 B3 7A 83    2160        STMD R20,=I     
+01EB 70 93       2170        CLM  R60
+01ED 77 A8 10    2180        LDB  R67,=20
+01F0 70 B3 B0 83 2190        STMD R60,=P     
+01F4 54 B1 6A 83 2200        LDMD R24,=L1    
+01F8 B3 6E 83    2210        STMD R24,=ITO   
+01FB 12 C6 FF 01 2220        JSB  X22,LOOP2 
+Page    4                                                             
+CAPASM
+
+01FF 7E 06 E3    2230 LOOP2  POMD R76,-R6
+0202 99          2240        BCD  
+0203 68 93       2250        CLM  R50
+0205 B3 B8 83    2260        STMD R50,=E     
+0208 6F A8 10    2270        LDB  R57,=20
+020B 68 B3 C8 83 2280        STMD R50,=C     
+020F 60 B1 B0 83 2290        LDMD R40,=P     
+0213 CE 5F 54    2300        JSB  =SUB10 
+0216 68 0A E3    2310        POMD R50,-R12
+0219 60 93       2320        CLM  R40
+021B 67 A8 20    2330        LDB  R47,=40
+021E CE A4 53    2340        JSB  =DIV10 
+0221 0A E3       2350        POMD R#,-R12
+0223 CE 2D 55    2360        JSB  =SQR15 
+0226 0A E3       2370        POMD R#,-R12
+0228 68 B1 C0 83 2380        LDMD R50,=C1    
+022C CE 72 55    2390        JSB  =MPY10 
+022F 0A E3       2400        POMD R#,-R12
+0231 B3 A8 83    2410        STMD R#,=Q     
+0234 93          2420        CLM  R#
+0235 67 A8 10    2430        LDB  R47,=20
+0238 68 B1 B0 83 2440        LDMD R50,=P     
+023C CE 9B 54    2450        JSB  =ADD10 
+023F 68 0A E3    2460        POMD R50,-R12
+0242 60 93       2470        CLM  R40
+0244 67 A8 20    2480        LDB  R47,=40
+0247 CE A4 53    2490        JSB  =DIV10 
+024A 0A E3       2500        POMD R#,-R12
+024C CE 2D 55    2510        JSB  =SQR15 
+024F 0A E3       2520        POMD R#,-R12
+0251 54 B1 74 83 2530        LDMD R24,=G     
+0255 98          2540        BIN  
+0256 85          2550        LLM  R24
+0257 99          2560        BCD  
+0258 F6 09       2570        JNZ  INOT1 
+025A 88          2580        ICB  R24
+025B 60 91       2590        TSM  R40
+025D F7 04       2600        JZR  INOT1 
+025F 61 84       2610        LLB  R41
+0261 8E          2620        NCB  R41
+0262 82          2630        ERB  R41
+0263 60 B3 B0 83 2640 INOT1  STMD R40,=P     
+0267 54 B3 74 83 2650        STMD R24,=G     
+026B 58 93       2660        CLM  R30
+026D 88          2670        ICB  R30
+026E B3 A0 83    2680        STMD R30,=R     
+0271 54 B3 6C 83 2690        STMD R24,=RTO   
+0275 12 C6 79 02 2700        JSB  X22,LOOP3 
+0279 7E 06 E3    2710 LOOP3  POMD R76,-R6
+027C 56 B1 78 83 2720        LDMD R26,=N2    
+0280 B3 72 83    2730        STMD R26,=JTO   
+0283 B1 74 83    2740        LDMD R26,=G     
+0286 98          2750        BIN  
+0287 85          2760        LLM  R26
+0288 B3 70 83    2770        STMD R26,=JSTEP 
+028B B1 A0 83    2780        LDMD R26,=R     
+028E B3 7E 83    2790        STMD R26,=J     
+0291 12 C6 95 02 2800        JSB  X22,LOOP4 
+0295 7E 06 E3    2810 LOOP4  POMD R76,-R6
+0298 54 B1 74 83 2820        LDMD R24,=G     
+029C 16 C3       2830        ADM  R24,R26
+029E B3 7C 83    2840        STMD R24,=K     
+02A1 5C B1 64 83 2850        LDMD R34,=R1BASE
+02A5 5E 14 A1    2860        LDM  R36,R24
+Page    5                                                             
+CAPASM
+
+02A8 5A 16 A1    2870        LDM  R32,R26
+02AB 12 C6 E9 03 2880        JSB  X22,SUB1  
+02AF B3 F8 83    2890        STMD R#,=R1(J) 
+02B2 60 B3 F0 83 2900        STMD R40,=R1(K) 
+02B6 5E B3 5E 83 2910        STMD R36,=R1KADR
+02BA 5A B3 60 83 2920        STMD R32,=R1JADR
+02BE 5C B1 62 83 2930        LDMD R34,=I1BASE
+02C2 5E 14 A1    2940        LDM  R36,R24
+02C5 5A 16 A1    2950        LDM  R32,R26
+02C8 12 C6 E9 03 2960        JSB  X22,SUB1  
+02CC B3 E8 83    2970        STMD R#,=I1(J) 
+02CF 60 B3 E0 83 2980        STMD R40,=I1(K) 
+02D3 5E B3 5A 83 2990        STMD R36,=I1KADR
+02D7 5A B3 5C 83 3000        STMD R32,=I1JADR
+02DB 99          3010        BCD  
+02DC 68 B1 B8 83 3020        LDMD R50,=E     
+02E0 CE 72 55    3030        JSB  =MPY10 
+02E3 60 B1 F0 83 3040        LDMD R40,=R1(K) 
+02E7 68 B1 C8 83 3050        LDMD R50,=C     
+02EB CE 72 55    3060        JSB  =MPY10 
+02EE 0A E3       3070        POMD R#,-R12
+02F0 68 E3       3080        POMD R50,-R12
+02F2 CE 9B 54    3090        JSB  =ADD10 
+02F5 0A E3       3100        POMD R#,-R12
+02F7 B3 D8 83    3110        STMD R#,=A     
+02FA B1 F0 83    3120        LDMD R#,=R1(K) 
+02FD 68 B1 B8 83 3130        LDMD R50,=E     
+0301 CE 72 55    3140        JSB  =MPY10 
+0304 B1 E0 83    3150        LDMD R#,=I1(K) 
+0307 68 B1 C8 83 3160        LDMD R50,=C     
+030B CE 72 55    3170        JSB  =MPY10 
+030E 0A E3       3180        POMD R#,-R12
+0310 68 E3       3190        POMD R50,-R12
+0312 CE 5F 54    3200        JSB  =SUB10 
+0315 0A E3       3210        POMD R#,-R12
+0317 B3 D0 83    3220        STMD R#,=B     
+031A 68 B1 E8 83 3230        LDMD R50,=I1(J) 
+031E CE 9B 54    3240        JSB  =ADD10 
+0321 0A E3       3250        POMD R#,-R12
+0323 5E B1 5A 83 3260        LDMD R36,=I1KADR
+0327 60 1E A7    3270        STMD R40,R36
+032A B1 D8 83    3280        LDMD R40,=A     
+032D 68 B1 F8 83 3290        LDMD R50,=R1(J) 
+0331 CE 5F 54    3300        JSB  =SUB10 
+0334 0A E3       3310        POMD R#,-R12
+0336 5E B1 5E 83 3320        LDMD R36,=R1KADR
+033A 60 1E A7    3330        STMD R40,R36
+033D B1 F8 83    3340        LDMD R40,=R1(J) 
+0340 68 B1 D8 83 3350        LDMD R50,=A     
+0344 CE 9B 54    3360        JSB  =ADD10 
+0347 0A E3       3370        POMD R#,-R12
+0349 5E B1 60 83 3380        LDMD R36,=R1JADR
+034D 60 1E A7    3390        STMD R40,R36
+0350 B1 D0 83    3400        LDMD R40,=B     
+0353 68 B1 E8 83 3410        LDMD R50,=I1(J) 
+0357 CE 5F 54    3420        JSB  =SUB10 
+035A 0A E3       3430        POMD R#,-R12
+035C 5E B1 5C 83 3440        LDMD R36,=I1JADR
+0360 60 1E A7    3450        STMD R40,R36
+0363 98          3460        BIN  
+0364 58 B1 70 83 3470        LDMD R30,=JSTEP 
+0368 56 18 C3    3480        ADM  R26,R30
+036B B3 7E 83    3490        STMD R26,=J     
+036E 58 B1 72 83 3500        LDMD R30,=JTO   
+Page    6                                                             
+CAPASM
+
+0372 16 C1       3510        CMM  R30,R26
+0374 FA 04       3520        JNC  ONWRD1
+0376 12 C6 95 02 3530        JSB  X22,LOOP4 
+037A 99          3540 ONWRD1 BCD  
+037B 60 B1 A8 83 3550        LDMD R40,=Q     
+037F 68 B1 C8 83 3560        LDMD R50,=C     
+0383 CE 72 55    3570        JSB  =MPY10 
+0386 B1 B0 83    3580        LDMD R#,=P     
+0389 68 B1 B8 83 3590        LDMD R50,=E     
+038D CE 72 55    3600        JSB  =MPY10 
+0390 0A E3       3610        POMD R#,-R12
+0392 68 E3       3615        POMD R50,-R12
+0394 CE 9B 54    3620        JSB  =ADD10 
+0397 B1 B0 83    3630        LDMD R#,=P     
+039A 68 B1 C8 83 3640        LDMD R50,=C     
+039E CE 72 55    3650        JSB  =MPY10 
+03A1 B1 A8 83    3660        LDMD R#,=Q     
+03A4 68 B1 B8 83 3670        LDMD R50,=E     
+03A8 CE 72 55    3680        JSB  =MPY10 
+03AB 0A E3       3690        POMD R#,-R12
+03AD 68 E3       3700        POMD R50,-R12
+03AF CE 5F 54    3710        JSB  =SUB10 
+03B2 0A E3       3720        POMD R#,-R12
+03B4 B3 C8 83    3730        STMD R#,=C     
+03B7 E3          3740        POMD R#,-R12
+03B8 B3 B8 83    3750        STMD R#,=E     
+03BB 98          3760        BIN  
+03BC 58 B1 A0 83 3770        LDMD R30,=R     
+03C0 89          3780        ICM  R30
+03C1 B3 A0 83    3790        STMD R30,=R     
+03C4 5A B1 6C 83 3800        LDMD R32,=RTO   
+03C8 18 C1       3810        CMM  R32,R30
+03CA FA 04       3820        JNC  ONWRD2
+03CC 12 C6 79 02 3830        JSB  X22,LOOP3 
+03D0 58 B1 7A 83 3840 ONWRD2 LDMD R30,=I     
+03D4 89          3850        ICM  R30
+03D5 B3 7A 83    3860        STMD R30,=I     
+03D8 5A B1 6E 83 3870        LDMD R32,=ITO   
+03DC 18 C1       3880        CMM  R32,R30
+03DE FA 04       3890        JNC  ONWRD3
+03E0 12 C6 FF 01 3900        JSB  X22,LOOP2 
+03E4 9E          3910 ONWRD3 RTN  
+03E5             3920 ! ************************
+03E5 5E 89       3930 SUB1A  ICM  R36
+03E7 5A 89       3940        ICM  R32
+03E9 98          3950 SUB1   BIN  
+03EA 5E 85       3960        LLM  R36
+03EC 85          3970        LLM  R36
+03ED 85          3980        LLM  R36
+03EE 1C C3       3990        ADM  R36,R34
+03F0 70 06 E5    4000        PUMD R60,+R6
+03F3 1E A5       4010        LDMD R60,R36
+03F5 5E 06 E5    4020        PUMD R36,+R6
+03F8 CE 90 5C    4030        JSB  =ONER+ 
+03FB 38 A3       4040        STM  R#,R70
+03FD 5E 06 E3    4050        POMD R36,-R6
+0400 70 E3       4060        POMD R60,-R6
+0402 98          4070        BIN  
+0403 5A 85       4080 SUB1B  LLM  R32
+0405 85          4090        LLM  R32
+0406 85          4100        LLM  R32
+0407 1C C3       4110        ADM  R32,R34
+0409 70 06 E5    4120        PUMD R60,+R6
+040C 1A A5       4130        LDMD R60,R32
+Page    7                                                             
+CAPASM
+
+040E 5E 06 E5    4140        PUMD R36,+R6
+0411 CE 90 5C    4150        JSB  =ONER+ 
+0414 78 20 A3    4160        STM  R70,R40
+0417 5E 06 E3    4170        POMD R36,-R6
+041A 70 28 A3    4180        STM  R60,R50
+041D 06 E3       4190        POMD R60,-R6
+041F 68 90       4200        TSB  R50
+0421 98          4210        BIN  
+0422 9E          4220 SUB1C  RTN  
+0423             4230 ! ************************
+0423 A1          4240        BYT  241
+0424 52 B1 9B 82 4250 IFT.   LDMD R22,=BINTAB
+0428 12 C6 0C 01 4260        JSB  X22,POP   
+042C 5E B1 78 83 4270        LDMD R36,=N2    
+0430 CE 7A 07    4280        JSB  =CONBIN
+0433 68 A9 00 00 4290        LDM  R50,=0,0,131,123,46,131,101,61
+0437 59 53 26 59 
+043B 41 31 
+043D CE A4 53    4300        JSB  =DIV10 
+0440 0A E5       4310        PUMD R#,+R12
+0442 B3 D8 83    4320        STMD R#,=A     
+0445 CE 6E 57    4330        JSB  =COS10 
+0448 0A E3       4340        POMD R#,-R12
+044A 52 B1 9B 82 4350        LDMD R22,=BINTAB
+044E 60 B3 B0 83 4360        STMD R40,=P     
+0452 CE 66 57    4370        JSB  =SIN10 
+0455 0A E3       4380        POMD R#,-R12
+0457 52 B1 9B 82 4390        LDMD R22,=BINTAB
+045B 68 B1 C0 83 4400        LDMD R50,=C1    
+045F CE 72 55    4410        JSB  =MPY10 
+0462 0A E3       4420        POMD R#,-R12
+0464 B3 A8 83    4430        STMD R#,=Q     
+0467 5C B1 64 83 4440        LDMD R34,=R1BASE
+046B 5A 93       4450        CLM  R32
+046D 89          4460        ICM  R32
+046E 98          4470        BIN  
+046F 12 C6 03 04 4480        JSB  X22,SUB1B 
+0473 68 B3 D8 83 4490        STMD R50,=A     
+0477 5A B3 60 83 4500        STMD R32,=R1JADR
+047B 5C B1 62 83 4510        LDMD R34,=I1BASE
+047F 5A 93       4520        CLM  R32
+0481 89          4530        ICM  R32
+0482 98          4540        BIN  
+0483 12 C6 03 04 4550        JSB  X22,SUB1B 
+0487 68 B3 E8 83 4560        STMD R50,=I1(J) 
+048B 5A B3 5C 83 4570        STMD R32,=I1JADR
+048F 60 B1 D8 83 4580        LDMD R40,=A     
+0493 CE 9B 54    4590        JSB  =ADD10 
+0496 0A E3       4600        POMD R#,-R12
+0498 B3 F8 83    4610        STMD R#,=R1(J) 
+049B B1 E8 83    4620        LDMD R#,=I1(J) 
+049E 68 B1 D8 83 4630        LDMD R50,=A     
+04A2 CE 5F 54    4640        JSB  =SUB10 
+04A5 68 B1 C0 83 4650        LDMD R50,=C1    
+04A9 69 90       4660        TSB  R51
+04AB F6 1B       4670        JNZ  FORWRD
+04AD 68 B1 F8 83 4680        LDMD R50,=R1(J) 
+04B1 60 93       4690        CLM  R40
+04B3 67 A8 20    4700        LDB  R47,=40
+04B6 CE A4 53    4710        JSB  =DIV10 
+04B9 0A E3       4720        POMD R#,-R12
+04BB B3 F8 83    4730        STMD R#,=R1(J) 
+04BE 68 E3       4740        POMD R50,-R12
+04C0 60 93       4750        CLM  R40
+Page    8                                                             
+CAPASM
+
+04C2 67 A8 20    4760        LDB  R47,=40
+04C5 CE A4 53    4770        JSB  =DIV10 
+04C8 5E B1 5C 83 4780 FORWRD LDMD R36,=I1JADR
+04CC 60 0A E3    4790        POMD R40,-R12
+04CF 1E A7       4800        STMD R40,R36
+04D1 5E B1 60 83 4810        LDMD R36,=R1JADR
+04D5 60 B1 F8 83 4820        LDMD R40,=R1(J) 
+04D9 A7          4830        STMD R40,R36
+04DA B1 C0 83    4840        LDMD R40,=C1    
+04DD B3 C8 83    4850        STMD R40,=C     
+04E0 93          4860        CLM  R40
+04E1 B3 B8 83    4870        STMD R40,=E     
+04E4 50 A9 02 00 4880        LDM  R20,=2,0
+04E8 B3 7E 83    4890        STMD R20,=J     
+04EB 54 B1 78 83 4900        LDMD R24,=N2    
+04EF 98          4910        BIN  
+04F0 55 87       4920        LRM  R25
+04F2 99          4930        BCD  
+04F3 54 B3 72 83 4940        STMD R24,=JTO   
+04F7 12 C6 FB 04 4950        JSB  X22,LOOP5 
+04FB 7E 06 E3    4960 LOOP5  POMD R76,-R6
+04FE 60 B1 A8 83 4970        LDMD R40,=Q     
+0502 68 B1 C8 83 4980        LDMD R50,=C     
+0506 CE 72 55    4990        JSB  =MPY10 
+0509 B1 B0 83    5000        LDMD R#,=P     
+050C 68 B1 B8 83 5010        LDMD R50,=E     
+0510 CE 72 55    5020        JSB  =MPY10 
+0513 0A E3       5030        POMD R#,-R12
+0515 68 E3       5040        POMD R50,-R12
+0517 CE 9B 54    5050        JSB  =ADD10 
+051A 0A E3       5060        POMD R#,-R12
+051C B3 D8 83    5070        STMD R#,=A     
+051F B1 C8 83    5080        LDMD R#,=C     
+0522 68 B1 B0 83 5090        LDMD R50,=P     
+0526 CE 72 55    5100        JSB  =MPY10 
+0529 B1 A8 83    5110        LDMD R#,=Q     
+052C 68 B1 B8 83 5120        LDMD R50,=E     
+0530 CE 72 55    5130        JSB  =MPY10 
+0533 0A E3       5140        POMD R#,-R12
+0535 68 E3       5150        POMD R50,-R12
+0537 CE 5F 54    5160        JSB  =SUB10 
+053A 0A E3       5170        POMD R#,-R12
+053C B3 C8 83    5180        STMD R#,=C     
+053F B1 D8 83    5190        LDMD R#,=A     
+0542 B3 B8 83    5200        STMD R#,=E     
+0545 98          5210        BIN  
+0546 56 B1 78 83 5220        LDMD R26,=N2    
+054A 10 C5       5230        SBM  R26,R20
+054C 89          5240        ICM  R26
+054D 89          5250        ICM  R26
+054E 1E A3       5260        STM  R26,R36
+0550 5C B1 64 83 5270        LDMD R34,=R1BASE
+0554 5A 10 A1    5280        LDM  R32,R20
+0557 12 C6 E9 03 5290        JSB  X22,SUB1  
+055B B3 F0 83    5300        STMD R#,=R1(K) 
+055E 60 B3 A0 83 5310        STMD R40,=R     
+0562 5A B3 60 83 5320        STMD R32,=R1JADR
+0566 5E B3 5E 83 5330        STMD R36,=R1KADR
+056A 99          5340        BCD  
+056B CE 9B 54    5350        JSB  =ADD10 
+056E 0A E3       5360        POMD R#,-R12
+0570 B3 D8 83    5370        STMD R#,=A     
+0573 5C B1 62 83 5380        LDMD R34,=I1BASE
+0577 5A 10 A1    5390        LDM  R32,R20
+Page    9                                                             
+CAPASM
+
+057A 56 1E A3    5400        STM  R26,R36
+057D 12 C6 E9 03 5410        JSB  X22,SUB1  
+0581 B3 E8 83    5420        STMD R#,=I1(J) 
+0584 60 B3 E0 83 5430        STMD R40,=I1(K) 
+0588 5A B3 5C 83 5440        STMD R32,=I1JADR
+058C 5E B3 5A 83 5450        STMD R36,=I1KADR
+0590 99          5460        BCD  
+0591 CE 9B 54    5470        JSB  =ADD10 
+0594 0A E3       5480        POMD R#,-R12
+0596 B3 98 83    5490        STMD R#,=S1    
+0599 68 B1 F0 83 5500        LDMD R50,=R1(K) 
+059D 60 B1 A0 83 5510        LDMD R40,=R     
+05A1 CE 5F 54    5520        JSB  =SUB10 
+05A4 0A E3       5530        POMD R#,-R12
+05A6 B3 90 83    5540        STMD R#,=S2    
+05A9 68 B1 B8 83 5550        LDMD R50,=E     
+05AD CE 72 55    5560        JSB  =MPY10 
+05B0 B1 C8 83    5570        LDMD R#,=C     
+05B3 68 B1 98 83 5580        LDMD R50,=S1    
+05B7 CE 72 55    5590        JSB  =MPY10 
+05BA 68 0A E3    5600        POMD R50,-R12
+05BD 60 E3       5610        POMD R40,-R12
+05BF CE 5F 54    5620        JSB  =SUB10 
+05C2 0A E3       5630        POMD R#,-R12
+05C4 B3 D0 83    5640        STMD R#,=B     
+05C7 B1 E0 83    5650        LDMD R#,=I1(K) 
+05CA 68 B1 E8 83 5660        LDMD R50,=I1(J) 
+05CE CE 5F 54    5670        JSB  =SUB10 
+05D1 0A E3       5680        POMD R#,-R12
+05D3 B3 88 83    5690        STMD R#,=U     
+05D6 B1 90 83    5700        LDMD R#,=S2    
+05D9 68 B1 C8 83 5710        LDMD R50,=C     
+05DD CE 72 55    5720        JSB  =MPY10 
+05E0 B1 98 83    5730        LDMD R#,=S1    
+05E3 68 B1 B8 83 5740        LDMD R50,=E     
+05E7 CE 72 55    5750        JSB  =MPY10 
+05EA 0A E3       5760        POMD R#,-R12
+05EC 68 E3       5770        POMD R50,-R12
+05EE CE 9B 54    5780        JSB  =ADD10 
+05F1 0A E3       5790        POMD R#,-R12
+05F3 B3 80 83    5800        STMD R#,=V     
+05F6 B1 D8 83    5810        LDMD R#,=A     
+05F9 68 B1 D0 83 5820        LDMD R50,=B     
+05FD CE 9B 54    5830        JSB  =ADD10 
+0600 68 0A E3    5840        POMD R50,-R12
+0603 60 93       5850        CLM  R40
+0605 67 A8 20    5860        LDB  R47,=40
+0608 CE A4 53    5870        JSB  =DIV10 
+060B 0A E3       5880        POMD R#,-R12
+060D 5E B1 60 83 5890        LDMD R36,=R1JADR
+0611 60 1E A7    5900        STMD R40,R36
+0614 B1 80 83    5910        LDMD R40,=V     
+0617 68 B1 88 83 5920        LDMD R50,=U     
+061B CE 5F 54    5930        JSB  =SUB10 
+061E 68 0A E3    5940        POMD R50,-R12
+0621 60 93       5950        CLM  R40
+0623 67 A8 20    5960        LDB  R47,=40
+0626 CE A4 53    5970        JSB  =DIV10 
+0629 0A E3       5980        POMD R#,-R12
+062B 5E B1 5C 83 5990        LDMD R36,=I1JADR
+062F 60 1E A7    6000        STMD R40,R36
+0632 B1 D0 83    6010        LDMD R40,=B     
+0635 68 B1 D8 83 6020        LDMD R50,=A     
+0639 CE 5F 54    6030        JSB  =SUB10 
+Page   10                                                             
+CAPASM
+
+063C 68 0A E3    6040        POMD R50,-R12
+063F 60 93       6050        CLM  R40
+0641 67 A8 20    6060        LDB  R47,=40
+0644 CE A4 53    6070        JSB  =DIV10 
+0647 0A E3       6080        POMD R#,-R12
+0649 5E B1 5E 83 6090        LDMD R36,=R1KADR
+064D 60 1E A7    6100        STMD R40,R36
+0650 B1 80 83    6110        LDMD R40,=V     
+0653 68 B1 88 83 6120        LDMD R50,=U     
+0657 CE 9B 54    6130        JSB  =ADD10 
+065A 68 0A E3    6140        POMD R50,-R12
+065D 60 93       6150        CLM  R40
+065F 67 A8 20    6160        LDB  R47,=40
+0662 CE A4 53    6170        JSB  =DIV10 
+0665 0A E3       6180        POMD R#,-R12
+0667 91          6190        TSM  R#
+0668 F7 04       6200        JZR  ZERO  
+066A 61 84       6210        LLB  R41
+066C 8E          6220        NCB  R41
+066D 82          6230        ERB  R41
+066E 5E B1 5A 83 6240 ZERO   LDMD R36,=I1KADR
+0672 60 1E A7    6250        STMD R40,R36
+0675 98          6260        BIN  
+0676 50 89       6270        ICM  R20
+0678 99          6280        BCD  
+0679 54 10 C1    6290        CMM  R24,R20
+067C FA 04       6300        JNC  ONWRD4
+067E 12 C6 FB 04 6310        JSB  X22,LOOP5 
+0682 5A B1 78 83 6320 ONWRD4 LDMD R32,=N2    
+0686 98          6330        BIN  
+0687 5B 87       6340        LRM  R33
+0689 5A 89       6350        ICM  R32
+068B 5C B1 62 83 6360        LDMD R34,=I1BASE
+068F 12 C6 03 04 6370        JSB  X22,SUB1B 
+0693 68 91       6380        TSM  R50
+0695 F7 05       6390        JZR  EXIT  
+0697 99          6400        BCD  
+0698 69 84       6410        LLB  R51
+069A 8E          6420        NCB  R51
+069B 82          6430        ERB  R51
+069C 68 1A A7    6440 EXIT   STMD R50,R32
+069F 9E          6450        RTN  
+06A0             6460 ! ************************
+06A0 A1          6470        BYT  241
+06A1 52 B1 9B 82 6480 AFT.   LDMD R22,=BINTAB
+06A5 12 C6 0C 01 6490        JSB  X22,POP   
+06A9 50 93       6500        CLM  R20
+06AB 89          6510        ICM  R20
+06AC 54 B1 78 83 6520        LDMD R24,=N2    
+06B0 1E A3       6530        STM  R24,R36
+06B2 CE 7A 07    6540        JSB  =CONBIN
+06B5 60 B3 D8 83 6550        STMD R40,=A     
+06B9 98          6560        BIN  
+06BA 5C B1 64 83 6570 LOOP6  LDMD R34,=R1BASE
+06BE 5A 10 A1    6580        LDM  R32,R20
+06C1 12 C6 03 04 6590        JSB  X22,SUB1B 
+06C5 5A 16 A3    6600        STM  R32,R26
+06C8 60 B1 D8 83 6610        LDMD R40,=A     
+06CC CE A4 53    6620        JSB  =DIV10 
+06CF 0A E3       6630        POMD R#,-R12
+06D1 56 1C A3    6640        STM  R26,R34
+06D4 60 A7       6650        STMD R40,R34
+06D6 5C B1 62 83 6660        LDMD R34,=I1BASE
+06DA 5A 10 A1    6670        LDM  R32,R20
+Page   11                                                             
+CAPASM
+
+06DD 98          6680        BIN  
+06DE 12 C6 03 04 6690        JSB  X22,SUB1B 
+06E2 5A 16 A3    6700        STM  R32,R26
+06E5 60 B1 D8 83 6710        LDMD R40,=A     
+06E9 CE A4 53    6720        JSB  =DIV10 
+06EC 0A E3       6730        POMD R#,-R12
+06EE 56 1C A3    6740        STM  R26,R34
+06F1 60 A7       6750        STMD R40,R34
+06F3 98          6760        BIN  
+06F4 50 89       6770        ICM  R20
+06F6 54 10 C1    6780        CMM  R24,R20
+06F9 FB BF       6790        JCY  LOOP6 
+06FB 9E          6800        RTN  
+06FC             6810        FIN  
+ 
+93 Symbols used:
+A          DAD 83D8     6;1
+ADD10      DAD 549B    38;1
+AFT.       LCL 06A1   656;1
+B          DAD 83D0     7;1
+BASIC      LCL 002C    70;1
+BINTAB     DAD 829B    54;1
+C          DAD 83C8     8;1
+C1         DAD 83C0     9;1
+CHECK      LCL 00B7    98;1
+CONBIN     DAD 077A    45;1
+COS10      DAD 576E    36;1
+DIV10      DAD 53A4    41;1
+E          DAD 83B8    10;1
+ERBIN1     LCL 0101   131;1
+ERBIN2     LCL 0108   135;1
+ERBIN3     LCL 00C4   104;1
+ERMSG      LCL 0040    82;1
+ERR#       LCL 012A   150;1
+ERROR+     DAD 0D89    53;1
+EXIT       LCL 069C   652;1
+FETSVA     DAD 496E    52;1
+FFT.       LCL 016C   179;1
+FFTPRS     LCL 00C8   107;1
+FORWRD     LCL 04C8   486;1
+FWCURR     DAD 8004    47;1
+G          DAD 8374    22;1
+GO.ON      LCL 012E   152;1
+I          DAD 837A    20;1
+I1(J)      DAD 83E8     4;1
+I1(K)      DAD 83E0     5;1
+I1BASE     DAD 8362    31;1
+I1JADR     DAD 835C    34;1
+I1KADR     DAD 835A    35;1
+IFT.       LCL 0424   433;1
+IMAXR      DAD 8366    29;1
+INIT       LCL 00A7    92;1
+INOT1      LCL 0263   271;1
+INRTN      LCL 00C3   102;1
+ITO        DAD 836E    25;1
+J          DAD 837E    18;1
+JSTEP      DAD 8370    24;1
+JTO        DAD 8372    23;1
+K          DAD 837C    19;1
+L1         DAD 836A    27;1
+LOOP1      LCL 017D   185;1
+LOOP2      LCL 01FF   230;1
+LOOP3      LCL 0279   278;1
+LOOP4      LCL 0295   288;1
+Page   12                                                             
+CAPASM
+
+LOOP5      LCL 04FB   504;1
+LOOP6      LCL 06BA   665;1
+MPY10      DAD 5572    40;1
+N1EQU      LCL 0185   187;1
+N2         DAD 8378    21;1
+N2I        LCL 018C   189;1
+NARRE+     DAD 16FE    48;1
+NEXTJ1     LCL 01D3   214;1
+NOZRO      LCL 0124   147;1
+NUMVA+     DAD 1507    51;1
+ONEB       DAD 5C4B    49;1
+ONER       DAD 5C8D    43;1
+ONER+      DAD 5C90    44;1
+ONWRD1     LCL 037A   361;1
+ONWRD2     LCL 03D0   392;1
+ONWRD3     LCL 03E4   399;1
+ONWRD4     LCL 0682   640;1
+P          DAD 83B0    11;1
+POP        LCL 010C   138;1
+Q          DAD 83A8    12;1
+R          DAD 83A0    13;1
+R1(J)      DAD 83F8     2;1
+R1(K)      DAD 83F0     3;1
+R1BASE     DAD 8364    30;1
+R1JADR     DAD 8360    32;1
+R1KADR     DAD 835E    33;1
+RMAXR      DAD 8368    28;1
+ROMFL      DAD 8299    46;1
+RTO        DAD 836C    26;1
+RUNTIM     LCL 0024    66;1
+S1         DAD 8398    14;1
+S2         DAD 8390    15;1
+SIN10      DAD 5766    37;1
+SQR15      DAD 552D    42;1
+SUB1       LCL 03E9   403;1
+SUB10      DAD 545F    39;1
+SUB1A      LCL 03E5   401;1
+SUB1B      LCL 0403   416;1
+SUB1C      LCL 0422   430;1
+TOKS       LCL 0036    75;1
+TWOB       DAD 5C7E    50;1
+U          DAD 8388    16;1
+V          DAD 8380    17;1
+YES1       LCL 019C   197;1
+ZERO       LCL 066E   632;1
+
+Index of source files in symbol cross reference:
+1: FFTSSS.asm
+Assembly completed
+ 689 lines processed, 0 error(s) encountered
+ 1788 bytes of code written to object file

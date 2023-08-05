@@ -1,0 +1,22 @@
+! This is a comment
+DIREND  DAD 103174
+* This is a comment
+DIRSEG  DAD 103174       
+This is nonsense
+FL1TK1  DAD 103175       
+ThisLabelIsMuchTooLong EQU 1
+TST  
+TST     EQU
+TST     EQU DAD 427
+TST     123
+123     TST
+TST     EQU 999
+TST     DAD TST
+DUP     EQU 100
+DUP     EQU 101
+FWROM   EQU 1033007263223
+ZRO     DAD 0            
+STACK   DAD 101300       
+STAK1   DAD 101307       
+GINTEN  DAD 177400       
+GINTDS  DAD 177401       

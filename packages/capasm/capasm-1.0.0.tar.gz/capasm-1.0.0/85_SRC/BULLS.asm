@@ -1,0 +1,836 @@
+0010        NAM  BULL  
+0020        DEF  RUNTIM
+0030        DEF  TOKS  
+0040        DEF  PARSE 
+0050        DEF  ERMSG 
+0060        DEF  INIT  
+0070 RUNTIM BSZ  2
+0080        DEF  BULL. 
+0090        DEF  .   
+0100 PARSE  BSZ  0
+0110 ERMSG  BYT  377,377
+0120 TOKS   ASP  "BULL"
+0130        ASP  ""
+0140        BYT  377
+0150 INIT   RTN  
+0160 ! *************************
+0170        BYT  0,56
+0180 .    LDM  R44,=11D,0
+0190        DEF  DATE  
+0200        ADMD R46,=BINTAB
+0210        PUMD R44,+R12
+0220        RTN  
+0230 DATE   ASC  "MAY 14,1981"
+0240 ! *************************
+0250        BYT  0,120,55
+0260 BULL.  BSZ  0
+0270 ! *************************
+0280 ! * GET # OF BULLS (1-10)  
+0290 ! *************************
+0300        JSB  =ONEB  
+0310        LDMD R14,=BINTAB
+0320        ANM  R46,=17,0
+0330        JNZ  NOTZRO
+0340        ICB  R46
+0350 NOTZRO CMB  R#,=11D
+0360        JNC  <11   
+0370        LDB  R#,=10D
+0380 <11    STMD R#,X14,BULCNT
+0390 ! *************************
+0400 ! * GET SPEED OF BULLS     
+0410 ! *************************
+0420        POMD R40,-R12
+0430        STMD R40,X14,BULSPD
+0440 ! *************************
+0450 ! * GET SPEED OF FARMER    
+0460 ! *************************
+0470        POMD R40,-R12
+0480        STMD R40,X14,FARSPD
+0490 ! *************************
+0500 ! * GET SOUND FLAG         
+0510 ! *************************
+0520        JSB  =ONEB  
+0530        ORB  R46,R47
+0540        STBD R46,X14,SOUND 
+0550 ! *************************
+0560 ! * GET BLOCK COUNT        
+0570 ! *************************
+0580        JSB  =ONEB  
+0590        STMD R46,X14,BLKCNT
+0600 ! *************************
+0610 ! * SAVE TOS AND CRTBYT    
+0620 ! *************************
+0630        LDMD R46,=CRTBYT
+0640        STMD R46,X14,SAVCRT
+0650        LDMD R46,=TOS   
+0660        STMD R46,X14,SAVTOS
+0670        STMD R12,=TOS   
+0680 ! *************************
+0690 ! *                        
+0700 ! *    SET UP CRT          
+0710 ! *                        
+0720 ! *************************
+0730        JSB  =GCLR. 
+0740 ! ------------TOP BORDE
+0750        LDB  R32,=377
+0760        LDM  R24,=0,20
+0770        JSB  =BYTCRT
+0780        LDM  R24,=0,1
+0790 TOPLOP JSB  =CHKSTS
+0800        STBD R32,=CRTDAT
+0810        DCM  R24
+0820        JNZ  TOPLOP
+0830 ! ____________BOTTOM BORDE
+0840        LDM  R24,=0,76
+0850        JSB  =BYTCRT
+0860        LDM  R24,=0,1
+0870 BOTLOP JSB  =CHKSTS
+0880        STBD R32,=CRTDAT
+0890        DCM  R24
+0900        JNZ  BOTLOP
+0910 ! ------------LEFT BORDE
+0920        LDM  R34,=0,22
+0930        LDB  R22,=176D
+0940 LEFLOP JSB  =BYTCR!
+0950        JSB  =CHKSTS
+0960        STBD R32,=CRTDAT
+0970        ADM  R34,=100,0
+0980        DCB  R22
+0990        JNZ  LEFLOP
+1000 ! -----------RIGHT BORDE
+1010        LDM  R34,=76,22
+1020        LDB  R22,=176D
+1030 RIGLOP JSB  =BYTCR!
+1040        JSB  =CHKSTS
+1050        STBD R32,=CRTDAT
+1060        ADM  R34,=100,0
+1070        DCB  R22
+1080        JNZ  RIGLOP
+1090 ! -----------SET UP ARRA
+1100        LDM  R34,=ARRAY 
+1110        ADM  R34,R14
+1120        CLM  R40
+1130        LDB  R32,=140
+1140 ZERARR PUMD R40,+R34
+1150        DCB  R32
+1160        JNZ  ZERARR
+1170        LDM  R34,=ARRAY 
+1180        ADM  R34,R14
+1190        STM  R34,R36
+1200        ADM  R36,=340,2
+1210        LDM  R32,=377,40
+1220 TOPARR PUBD R32,+R34
+1230        PUBD R32,+R36
+1240        DCB  R33
+1250        JNZ  TOPARR
+1260        LDM  R36,R34
+1270        ADM  R36,=37,0
+1280        LDB  R33,=26
+1290 SIDARR STBD R32,R34
+1300        STBD R32,R36
+1310        ADM  R34,=40,0
+1320        ADM  R36,=40,0
+1330        DCB  R33
+1340        JNZ  SIDARR
+1350 ! ------------SET UP BLOCK
+1360        LDMD R20,X14,BLKCNT
+1370 TRYAGN LDM  R30,=37,0
+1380        JSB  X14,RANDOM
+1390        STB  R46,R26
+1400        LDM  R30,=27,0
+1410        JSB  X14,RANDOM
+1420        STB  R46,R27
+1430        JSB  X14,ANYONE
+1440        JEN  TRYAGN
+1450        LDB  R33,=2
+1460        STBD R33,X30,ARRAY 
+1470        JSB  X14,OUTBLO
+1471        LDBD R40,X14,SOUND 
+1472        JZR  NOSOUN
+1480        LDM  R40,=1,0,0,0,0,0,0,40
+1490        PUMD R40,+R12
+1500        LDM  R40,=1,0,0,0,0,0,0,40
+1510        PUMD R40,+R12
+1520        JSB  =BEEP. 
+1530        BIN  
+1540 NOSOUN DCM  R20
+1550        JNZ  TRYAGN
+1560 ! ------------SET UP BULL
+1570        CLM  R26
+1580        LDB  R20,=10D
+1590        CLM  R24
+1600        ADM  R24,R14
+1610 ZERBUL STMD R26,X24,BULLOC
+1620        ICM  R24
+1630        ICM  R24
+1640        DCB  R20
+1650        JNZ  ZERBUL
+1660        LDMD R20,X14,BULCNT
+1670 BULAGN LDM  R30,=37,0
+1680        JSB  X14,RANDOM
+1690        STB  R46,R26
+1700        LDM  R30,=27,0
+1710        JSB  X14,RANDOM
+1720        STB  R46,R27
+1730        JSB  X14,ANYONE
+1740        JEN  BULAGN
+1750        LDB  R33,=1
+1760        STBD R33,X30,ARRAY 
+1770        JSB  X14,OUTBUL
+1780        LDM  R24,R20
+1790        DCM  R24
+1800        LLM  R24
+1810        ADM  R24,R14
+1820        STMD R26,X24,BULLOC
+1830        DCM  R20
+1840        JNZ  BULAGN
+1850 ! ------------SET UP FARME
+1851        LDM  R30,=4,0
+1852        JSB  X14,RANDOM
+1853        STBD R46,X14,FARDIR
+1860 FARAGN LDM  R30,=37,0
+1870        JSB  X14,RANDOM
+1880        STB  R46,R26
+1890        LDM  R30,=27,0
+1900        JSB  X14,RANDOM
+1910        STB  R46,R27
+1920        JSB  X14,ANYONE
+1930        JEN  FARAGN
+1940        LDB  R33,=3
+1950        STBD R33,X30,ARRAY 
+1960        JSB  X14,OUTFAR
+1970        STMD R26,X14,FARLOC
+1971        LDM  R26,=1,27
+1972        JSB  X14,OUTLEF
+1973        LDM  R26,=12,27
+1974        JSB  X14,OUTLEF
+1975        LDM  R26,=23,27
+1976        JSB  X14,OUTRIT
+1977        LDM  R26,=33,27
+1978        JSB  X14,OUTRIT
+1979        LDMD R26,X14,FARLOC
+1980        JSB  =EOJ2  
+1990 BLINKF JSB  X14,OUTBLA
+2000        LDM  R76,=0,10
+2010 WAIT1  DCM  R76
+2020        JNZ  WAIT1 
+2030        JSB  X14,OUTFAR
+2040        LDM  R76,=0,10
+2050 WAIT2  DCM  R76
+2060        JNZ  WAIT2 
+2070        LDBD R20,=SVCWRD
+2080        JEV  BLINKF
+2130 ! ************************
+2140 ! * ARRAY CONTENTS ARE:   
+2150 ! *   0  EMPTY            
+2160 ! *   1  BULL             
+2170 ! *   2  BLOCK            
+2180 ! *   3  FARMER           
+2190 ! *  377 WALL             
+2200 ! ************************
+2210        CLB  R46
+2220        STBD R46,X14,GORED 
+2230 ! ************************
+2240 ! * TIMER # 1 =FARMER     
+2250 ! * TIMER # 2 =BULLS      
+2260 ! * SVCWRD BITS:          
+2270 ! *   0  KEYBOARD         
+2280 ! *   1  I/O              
+2290 ! *   2  TIMER 1          
+2300 ! *   3  TIMER 2          
+2310 ! *   4  TIMER 3          
+2320 ! *   5  OTHER            
+2330 ! ************************
+2340        PUBD R16,+R6
+2350        LDB  R16,=2
+2360        CLM  R40
+2370        LDB  R47,=20
+2380        PUMD R40,+R12
+2390        LDMD R40,X14,FARSPD
+2400        PUMD R40,+R12
+2410        JSB  =ONTIM.
+2420        BIN  
+2430        SBM  R10,=3,0
+2440        CLM  R40
+2450        LDB  R47,=40
+2460        PUMD R40,+R12
+2470        LDMD R40,X14,BULSPD
+2480        PUMD R40,+R12
+2490        JSB  =ONTIM.
+2500        BIN  
+2510        SBM  R10,=3,0
+2520        POBD R16,-R6
+2550 ! ************************
+2560 ! *                       
+2570 ! *       EXEC LOOP       
+2580 ! *                       
+2590 ! ************************
+2600 EXEC   LDBD R47,=SVCWRD
+2610        ANM  R47,=4
+2620        JZR  CHKBUL
+2630        LDBD R47,=SVCWRD
+2640        ANM  R47,=373
+2650        STBD R47,=SVCWRD
+2660        JSB  X14,MOVFAR
+2670 CHKBUL LDBD R47,=SVCWRD
+2680        ANM  R47,=10
+2690        JZR  CHKKEY
+2700        LDBD R47,=SVCWRD
+2710        ANM  R47,=367
+2720        STBD R47,=SVCWRD
+2730        JSB  X14,MOVBUL
+2740        LDBD R46,X14,BULFLG
+2750        JZR  WONJMP
+2760 CHKKEY LDBD R46,=SVCWRD
+2770        JEV  GORED?
+2780        LDBD R46,=KEYHIT
+2790        CMB  R46,=200
+2800        JZR  GOLEFT
+2801        CMB  R46,=201
+2802        JNZ  CHK203
+2810 GOLEFT LDBD R46,X14,FARDIR
+2820        JNZ  DECDIR
+2830        LDB  R46,=4
+2840 DECDIR DCB  R46
+2850        STBD R46,X14,FARDIR
+2860        JMP  EOJ   
+2870 CHK203 CMB  R46,=203
+2880        JZR  GORITE
+2881        CMB  R46,=202
+2882        JNZ  CHK>3 
+2890 GORITE LDBD R46,X14,FARDIR
+2900        CMB  R46,=3
+2910        JNZ  INCDIR
+2920        LDB  R46,=377
+2930 INCDIR ICB  R46
+2940        STBD R46,X14,FARDIR
+2950 EOJ    JSB  =EOJ2  
+2960 GORED? LDBD R46,X14,GORED 
+2970        JNZ  LOST  
+2980        JMP  EXEC  
+2990 WONJMP JMP  WON   
+3000 CHK>3  CMB  R46,=204
+3010        JNC  EOJ   
+3020        CMB  R46,=210
+3030        JNC  LOST  
+3040        CMB  R46,=216
+3050        JNZ  EOJ   
+3060 LOST   CLM  R40
+3061        LDMD R26,X14,FARLOC
+3062        JSB  X14,OUTEND
+3070 END    PUMD R40,+R6
+3080        CLM  R40
+3090        LDB  R47,=20
+3100        PUMD R40,+R12
+3110        JSB  =OFTIM.
+3120        CLM  R40
+3130        LDB  R47,=40
+3140        PUMD R40,+R12
+3150        JSB  =OFTIM.
+3160        LDBD R47,=SVCWRD
+3170        ANM  R47,=363
+3180        STBD R47,=SVCWRD
+3190        JNZ  END+  
+3200        ANM  R17,=357
+3210 END+   POMD R40,-R6
+3220 ! 
+3230 ! 
+3240        LDMD R36,X14,SAVTOS
+3250        STMD R36,=TOS   
+3260        LDMD R36,X14,SAVCRT
+3270        JSB  =BYTCRT
+3280        JSB  =EOJ2  
+3290        PUMD R40,+R12
+3300        RTN  
+3310 WON    CLM  R40
+3320        LDB  R47,=20
+3330        JMP  END   
+3340 ! ************************
+3350 ! *                       
+3360 ! *      MOVE FARMER      
+3370 ! *                       
+3380 ! ************************
+3390 MOVFAR LDMD R26,X14,FARLOC
+3400        LDM  R24,=377,0
+3410        LDBD R46,X14,FARDIR
+3411        ANM  R46,=3,0
+3412        STBD R46,X14,FARDIR
+3420        JZR  OFFSET
+3430        LDM  R24,=0,377
+3440        DCB  R46
+3450        JZR  OFFSET
+3460        LDM  R24,=1,0
+3470        DCB  R46
+3480        JZR  OFFSET
+3490        LDM  R24,=0,1
+3500 OFFSET ADB  R26,R24
+3510        ADB  R27,R25
+3520        JSB  X14,ANYONE
+3530        JEZ  GO-AH 
+3540        ICE  
+3550        JEZ  RECRTN
+3560        DCE  
+3570        DCE  
+3580        JEN  GO-AH 
+3590        CLB  R26
+3600        ICB  R26
+3610        STBD R26,X14,GORED 
+3620 RECRTN RTN  
+3630 GO-AH  LDMD R26,X14,FARLOC
+3640 RECURS JSB  X14,ANYONE
+3650        JEZ  RECRTN
+3660        ICE  
+3670        JEN  NOTWAL
+3680 WALL   POMD R26,-R6
+3690        POBD R26,-R6
+3700        CMB  R26,=3
+3710        JNZ  WALL  
+3720        RTN  
+3730 NOTWAL DCE  
+3740        BCD  
+3750        ELB  R33
+3760        BIN  
+3770        PUBD R33,+R6
+3780        ADB  R26,R24
+3790        ADB  R27,R25
+3800        JSB  X14,RECURS
+3810        POBD R33,-R6
+3820        JSB  X14,SETARR
+3830        CMB  R33,=2
+3840        JNZ  BULL??
+3850        JSB  X14,OUTBLO
+3860        SBB  R26,R24
+3870        SBB  R27,R25
+3880        RTN  
+3890 BULL?? CMB  R33,=1
+3900        JNZ  FARM!!
+3910        JSB  X14,OUTBUL
+3920        STM  R26,R30
+3930        SBB  R26,R24
+3940        SBB  R27,R25
+3950        LDM  R22,=BULLOC
+3960        ADM  R22,R14
+3970 FINDLO CMMD R26,R22
+3980        JZR  FOUND 
+3990        ICM  R22
+4000        ICM  R22
+4010        JMP  FINDLO
+4020 FOUND  STMD R30,R22
+4030        RTN  
+4040 FARM!! JSB  X14,OUTFAR
+4050        STMD R26,X14,FARLOC
+4060        SBB  R26,R24
+4070        SBB  R27,R25
+4080        JSB  X14,OUTBLA
+4090        CLB  R33
+4100        JSB  X14,SETARR
+4110        RTN  
+4120 ! ************************
+4130 ! *                       
+4140 ! *       MOVE BULL       
+4150 ! *                       
+4160 ! ************************
+4170 MOVBUL CLB  R76
+4180        STBD R76,X14,BULFLG
+4190        LDM  R76,=BULLOC
+4200        ADM  R76,R14
+4210 MOVLOP LDMD R26,R76
+4220        JZR  MOVED 
+4230        PUMD R76,+R6
+4240        JSB  X14,MOVSUB
+4250        POMD R76,-R6
+4260        PUMD R26,+R76
+4270        JMP  MOVLOP
+4280 MOVED  RTN  
+4290 ! ************************
+4300 MOVSUB LDB  R77,=377
+4310        JSB  X14,PIKDIR
+4320        TSB  R77
+4330        JNZ  BULRTN
+4340        STBD R43,X14,BULFLG
+4350        LDM  R24,=377,0
+4360        TSB  R45
+4370        JZR  MOVS1 
+4380        LDM  R24,=0,377
+4390        DCB  R45
+4400        JZR  MOVS1 
+4410        LDM  R24,=1,0
+4420        DCB  R45
+4430        JZR  MOVS1 
+4440        LDM  R24,=0,1
+4450 MOVS1  JSB  X14,OUTBLA
+4460        CLB  R33
+4470        JSB  X14,SETARR
+4480        ADB  R26,R24
+4490        ADB  R27,R25
+4500        JSB  X14,ANYONE
+4510        JEN  HIT-F 
+4520        LDB  R33,=1
+4530        JSB  X14,SETARR
+4540        JSB  X14,OUTBUL
+4550 BULRTN RTN  
+4560 HIT-F  LDB  R33,=1
+4570        STBD R33,X14,GORED 
+4580        JSB  X14,OUTEND
+4590        RTN  
+4600 PUSH31 DRP  R31
+4610        JMP  PUSH# 
+4620 ! ************************
+4630 PIKDIR LDM  R36,=ARRAY 
+4640        ADM  R36,R14
+4650        LDM  R34,=ARRAY2
+4660        ADM  R34,R14
+4670        LDM  R32,=0,3
+4680        LDB  R31,=377
+4690 COPLOP POBD R30,+R36
+4700        JZR  PUSH# 
+4710        CMB  R30,=377
+4720        JZR  PUSH# 
+4730        CMB  R30,=2
+4740        JZR  PUSH31
+4750        CMB  R30,=1
+4760        JZR  PUSH31
+4770 PUSH#  PUBD R#,+R34
+4780        DCM  R32
+4790        JNZ  COPLOP
+4800        JSB  X14,ANYONE
+4810        LDM  R56,=Q1    
+4820        ADM  R56,R14
+4830        STM  R56,R54
+4840        LDB  R43,=377
+4850        CLM  R24
+4860        CLB  R45
+4870        LDM  R46,R30
+4880        DCM  R46
+4890        LDBD R44,X46,ARRAY2
+4900        CMB  R44,=3
+4910        JNZ  NOT0  
+4920        LDM  R24,=377,0
+4929 EXJMP+ CLB  R77
+4930 EXJMP  RTN  
+4940 NOT0   TSB  R44
+4950        JNZ  TRY1  
+4960        PUMD R45,+R56
+4970        STBD R43,X46,ARRAY2
+4980 TRY1   SBM  R46,=37,0
+4990        ICB  R45
+5000        LDBD R44,X46,ARRAY2
+5010        CMB  R44,=3
+5020        JNZ  NOT1  
+5030        LDM  R24,=0,377
+5040        JMP  EXJMP+
+5050 NOT1   TSB  R44
+5060        JNZ  TRY2  
+5070        PUMD R45,+R56
+5080        STBD R43,X46,ARRAY2
+5090 TRY2   ADM  R46,=41,0
+5100        ICB  R45
+5110        LDBD R44,X46,ARRAY2
+5120        CMB  R44,=3
+5130        JNZ  NOT2  
+5140        LDM  R24,=1,0
+5150        JMP  EXJMP+
+5160 NOT2   TSB  R44
+5170        JNZ  TRY3  
+5180        PUMD R45,+R56
+5190        STBD R43,X46,ARRAY2
+5200 TRY3   ADM  R46,=37,0
+5210        ICB  R45
+5220        LDBD R44,X46,ARRAY2
+5230        CMB  R44,=3
+5240        JNZ  NOT3  
+5250        LDM  R24,=0,1
+5260        JMP  EXJMP+
+5270 NOT3   TSB  R44
+5280        JNZ  LOOPGO
+5290        PUMD R45,+R56
+5300        STBD R43,X46,ARRAY2
+5310 LOOPGO CMM  R56,R54
+5320        JZR  EXJMP 
+5330        CLB  R77
+5340        STBD R43,X14,BULFLG
+5350        POMD R45,-R56
+5360        PUMD R45,+R56
+5370        STM  R54,R64
+5380        LDM  R56,=Q2    
+5390        ADM  R56,R14
+5400        STM  R56,R54
+5410 START  CMM  R66,R64
+5420        JZR  Q2EMP?
+5430        POMD R45,-R66
+5440        JSB  X14,LOOK  
+5450        JEZ  START 
+5460        RTN  
+5470 Q2EMP? CMM  R56,R54
+5480        JZR  CAN'T 
+5490 COPY   POMD R45,-R56
+5500        PUMD R45,+R66
+5510        CMM  R56,R54
+5520        JNZ  COPY  
+5530        JMP  START 
+5540 CAN'T  JSB  X14,ANYONE
+5550        CLM  R24
+5560        CLB  R45
+5570        LDM  R46,R30
+5580        DCM  R46
+5590        LDBD R44,X46,ARRAY 
+5600        JZR  CAN   
+5610        SBM  R46,=37,0
+5620        ICB  R45
+5630        LDBD R44,X46,ARRAY 
+5640        JZR  CAN   
+5650        ADM  R46,=41,0
+5660        ICB  R45
+5670        LDBD R44,X46,ARRAY 
+5680        JZR  CAN   
+5690        ICB  R45
+5700 CAN    RTN  
+5710 ! ***********************
+5720 ! *AT ENTRY R43=377      
+5730 ! * R45=ORIG. DIRECTION  
+5740 ! *   FLAG (0-3)         
+5750 ! * R46-7=PTR INTO ARRAY2
+5760 ! *   TO CELL BEING MOVED
+5770 ! *   FROM.              
+5780 ! ***********************
+5790 LOOK   CLE  
+5800        DCM  R46
+5810        LDBD R44,X46,ARRAY2
+5820        JZR  PU-0  
+5830        CMB  R44,=3
+5840        JNZ  LOOK1 
+5850        ICE  
+5860        RTN  
+5870 PU-0   PUMD R45,+R56
+5880        STBD R43,X46,ARRAY2
+5890 LOOK1  SBM  R46,=37,0
+5900        LDBD R44,X46,ARRAY2
+5910        JZR  PU-1  
+5920        CMB  R44,=3
+5930        JNZ  LOOK2 
+5940        ICE  
+5950        RTN  
+5960 PU-1   PUMD R45,+R56
+5970        STBD R43,X46,ARRAY2
+5980 LOOK2  ADM  R46,=41,0
+5990        LDBD R44,X46,ARRAY2
+6000        JZR  PU-2  
+6010        CMB  R44,=3
+6020        JNZ  LOOK3 
+6030        ICE  
+6040        RTN  
+6050 PU-2   PUMD R45,+R56
+6060        STBD R43,X46,ARRAY2
+6070 LOOK3  ADM  R46,=37,0
+6080        LDBD R44,X46,ARRAY2
+6090        JZR  PU-3  
+6100        CMB  R44,=3
+6110        JNZ  DONLOK
+6120        ICE  
+6130        RTN  
+6140 PU-3   PUMD R45,+R56
+6150        STBD R43,X46,ARRAY2
+6160 DONLOK RTN  
+6170 ! 
+6180 ! ************************
+6190 ! * GENERATES A RANDOM #  
+6200 ! * EXPECTS R30=UPPER LIM 
+6210 ! * RETURNS R46-7=#       
+6220 ! ************************
+6230 RANDOM BCD  
+6240        JSB  =RND10 
+6250        STM  R30,R36
+6260        JSB  =CONBIN
+6270        PUMD R40,+R12
+6280        BCD  
+6290        JSB  =MPYROI
+6300        JSB  =ONEB  
+6310        RTN  
+6320 ! ************************
+6330 ! * FINDS CONTENTS OF CELL
+6340 ! * OF ARRAY SPECIFIED BY 
+6350 ! * R26-7. RETURNS E FLAG 
+6360 ! ************************
+6370 ANYONE CLM  R30
+6380        LDB  R30,R27
+6390        BCD  
+6400        LLM  R30
+6410        BIN  
+6420        LLM  R30
+6430        CLM  R32
+6440        LDB  R32,R26
+6450        ADM  R30,R32
+6460        ADM  R30,R14
+6470        LDBD R33,X30,ARRAY 
+6480        BCD  
+6490        LRB  R33
+6500        BIN  
+6510        RTN  
+6520 ! ************************
+6530 ! * SETS CELL OF ARRAY TO 
+6540 ! * CONTENTS OF R33.      
+6550 ! ************************
+6560 SETARR CLM  R30
+6570        LDB  R30,R27
+6580        BCD  
+6590        LLM  R30
+6600        BIN  
+6610        LLM  R30
+6620        CLM  R36
+6630        LDB  R36,R26
+6640        ADM  R30,R36
+6650        ADM  R30,R14
+6660        STBD R33,X30,ARRAY 
+6670        RTN  
+6680 ! ************************
+6690 ! * BLANKS ONE CELL ON CRT
+6700 ! ************************
+6710 OUTBLA CLB  R32
+6720        JMP  OUTB- 
+6730 ! ************************
+6740 ! * OUTPUTS A BLOCK TO A  
+6750 ! * CELL OF THE CRT. IT   
+6760 ! * EXPECTS R26-7 TO HOLD 
+6770 ! * THE ARRAY INDICES AT  
+6780 ! * ENTRY. THEY WILL STILL
+6790 ! * BE INTACT AT EXIT     
+6800 ! ************************
+6810 OUTBLO LDB  R32,=377
+6820 OUTB-  JSB  X14,CRTADD
+6830        LDB  R31,=10
+6840 BLOLOP DRP  R26
+6850        JSB  =BYTCRT
+6860        JSB  =CHKSTS
+6870        STBD R32,=CRTDAT
+6880        ADM  R26,=100,0
+6890        DCB  R31
+6900        JNZ  BLOLOP
+6910        SBM  R26,=0,22
+6920        LRM  R27
+6930        RTN  
+6940 ! ************************
+6950 ! * CONVERTS ARRAY INDICES
+6960 ! * INTO A CRT ADDRESS    
+6970 ! ************************
+6980 CRTADD LLM  R26
+6990        ADM  R26,=0,20
+7000        RTN  
+7010 ! ************************
+7020 OUTEND LDM  R22,=END!! 
+7030        JMP  OUTBU-
+7040 ! ************************
+7050 ! * EXPECTS 26-7 = INDICES
+7060 ! ************************
+7070 OUTFAR LDM  R22,=FARM0 
+7080        LDBD R70,X14,FARDIR
+7090        JZR  OUTBU-
+7100        LDM  R22,=FARM1 
+7110        DCB  R70
+7120        JZR  OUTBU-
+7130        LDM  R22,=FARM2 
+7140        DCB  R70
+7150        JZR  OUTBU-
+7160        LDM  R22,=FARM3 
+7170        JMP  OUTBU-
+7180 ! ************************
+7190 ! * EXPECTS 26-7 = IND	CES
+7200 ! ************************
+7210 OUTBUL LDM  R22,=BULL  
+7220 OUTBU- ADM  R22,R14
+7230        JSB  X14,CRTADD
+7240        LDB  R31,=10
+7250 BULLOP DRP  R26
+7260        JSB  =BYTCRT
+7270        POBD R32,+R22
+7280        JSB  =CHKSTS
+7290        STBD R32,=CRTDAT
+7300        ADM  R26,=100,0
+7310        DCB  R31
+7320        JNZ  BULLOP
+7330        SBM  R26,=0,22
+7340        LRM  R27
+7350        RTN  
+7351 OUTLEF LDM  R22,=LE    
+7352        JSB  X14,OUTBU-
+7353        ICB  R26
+7354        LDM  R22,=F     
+7355        JSB  X14,OUTBU-
+7356        ICB  R26
+7357        LDM  R22,=T     
+7358        JSB  X14,OUTBU-
+7359        RTN  
+7360 OUTRIT LDM  R22,=RI    
+7361        JSB  X14,OUTBU-
+7362        ICB  R26
+7363        LDM  R22,=G     
+7364        JSB  X14,OUTBU-
+7365        ICB  R26
+7366        LDM  R22,=HT    
+7367        JSB  X14,OUTBU-
+7368        ICB  R26
+7369        LDM  R22,=TAIL  
+7370        JSB  X14,OUTBU-
+7371        RTN  
+7380 BINTAB DAD  101233
+7390 BEEP.  DAD  6737
+7400 ONEB   DAD  56113
+7410 CRTBYT DAD  100176
+7420 TOS    DAD  101132
+7430 GCLR.  DAD  36013
+7440 BYTCRT DAD  35423
+7450 CHKSTS DAD  36335
+7460 CRTDAT DAD  177407
+7470 BYTCR! DAD  35422
+7480 RND10  DAD  53144
+7490 CONBIN DAD  3572
+7500 MPYROI DAD  52722
+7510 SVCWRD DAD  100151
+7520 KEYHIT DAD  100671
+7530 EOJ2   DAD  34772
+7540 STBEEP DAD  7017
+7550 ONTIM. DAD  66041
+7560 OFTIM. DAD  66211
+7570 ! ************************
+7580 RAM    BSZ  0
+7590 BULCNT BSZ  2
+7600 BULSPD BSZ  10
+7610 BULFLG BSZ  1
+7620 FARSPD BSZ  10
+7630 SOUND  BSZ  1
+7640 BLKCNT BSZ  2
+7650 SAVCRT BSZ  2
+7660 SAVTOS BSZ  2
+7670 ARRAY  BSZ  1400
+7680 ARRAY2 BSZ  1400
+7690 Q1     BSZ  300
+7700 Q2     BSZ  300
+7710 BULLOC BSZ  2
+7720        BSZ  2
+7730        BSZ  2
+7740        BSZ  2
+7750        BSZ  2
+7760        BSZ  2
+7770        BSZ  2
+7780        BSZ  2
+7790        BSZ  2
+7800        BSZ  2
+7810        BYT  0,0
+7820        BSZ  4
+7850 ! ************************
+7860 BULL   BYT  201,176,74,132,176,74,74,30
+7870 FARM0  BYT  0,34,20,337,374,337,20,34
+7880 FARM1  BYT  70,70,20,376,272,272,50,50
+7890 FARM2  BYT  70,10,373,77,373,10,70,0
+7900 FARM3  BYT  24,24,135,135,177,10,34,34
+7910 END!!  BYT  20,124,70,376,70,124,20,20
+7920 LE     BYT  377,170,173,170,173,173,10,377
+7921 F      BYT  377,102,337,307,337,337,137,377
+7922 T      BYT  377,17,277,277,277,277,277,377
+7923 RI     BYT  377,34,156,36,136,156,164,377
+7924 G      BYT  377,146,332,336,322,332,146,377
+7925 HT     BYT  377,320,335,35,335,335,335,377
+7926 TAIL   BYT  377,177,377,377,377,377,377,377
+7927 FARLOC BSZ  2
+7930 FARDIR BSZ  1
+7940 GORED  BSZ  1
+7950        FIN  

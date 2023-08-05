@@ -1,0 +1,210 @@
+NCAS
+(c) Joachim Siebold
+
+    1 0000             *
+    2 0000             *   RIOWIO LEX file for HP 75
+    3 0000             *   Recreated with HP 85
+    4 0000             *   Martin Hepperle, 2016
+    5 0000             *
+    6 0000             *   ncas assembler version
+    7 0000             *   Joachim Siebold, 2021
+    8 0000             * 
+    9 0000             
+   10 0000             LEXFILE_ID     EQU  4013H       ; lex file id
+   11 0000             LEXFILE_NAME   EQU  "RIOWIO  "  ; always 8 characters filled with blanks
+   12 0000                    INCLUDE  'lexheader.inc'
+    1 0000             *
+    2 0000             * This is a generic module to create LIF- and RAM-file headers
+    3 0000             * for HP-75 LEX-files. Include this file in the source of the LEX-file.
+    4 0000             *
+    5 0000             * Requirements:
+    6 0000             *
+    7 0000             * The following symbol must be defined b e f o r e this file is included:
+    8 0000             *
+    9 0000             * Name          Type     Description
+   10 0000             * LEXFILE_NAME  EQU      Name of the lex file, 8 characters long, blank padded
+   11 0000             *
+   12 0000             * The following local labels must exist in the source of the LEX-file:
+   13 0000             * Name          Type     Description
+   14 0000             * RMBASE        LCL      Start of LEX-file header
+   15 0000             * LXEND         LCL      End of LEX-file
+   16 0000             *
+   17 0000             * LIF file header
+   18 0000             *
+   19 0000 52 49 4F 57        DATA LEXFILE_NAME        ; lex file name 8 characters length for HP-75
+      0004 49 4F 20 20 
+   20 0008 20 20              DATA "  "                ; padded 2 blank characters
+   21 000A E0 89              DEF  89E0H               ; file type LEX75
+   22 000C 00 00 00 00        BSS  4                   ; start sector, always zeros
+   23 0010 00                 DATA 0                   ; file length in sectors, computed from source
+   24 0011 00                 DATA 0
+   25 0012 00                 VAL (((LXEND)-(RMBASE)+18D+255D)/65536D)&0FFH
+   26 0013 01                 VAL (((LXEND)-(RMBASE)+18D+255D)/256D)&0FFH
+   27 0014 00                 VAL BCD_YEAR             ; date YY MM DD as BCD numbers
+   28 0015 00                 VAL BCD_MONTH
+   29 0016 00                 VAL BCD_DAY
+   30 0017 00                 VAL BCD_HOUR             ; time HH MM SS as BCD numbers
+   31 0018 00                 VAL BCD_MIN
+   32 0019 00                 VAL BCD_SEC
+   33 001A 01 80              DEF 8001H                ; implementing bytes for HP-75 LEX files
+   34 001C 20 20 20 20        DATA "    "              ; password (blank)
+   35 0020             *
+   36 0020             * HP-75 RAM file header
+   37 0020             *
+   38 0020             RAMHDR
+   39 0020 00 00              DEF 0                    ; location of file (zero)
+   40 0022 83 00              DEF (LXEND)-(RMBASE)+18D ; size of file, computed from source
+   41 0024 8D                 VAL (TYRAM?)|(TYPUR?)|(TYCOP?)|(TYTOK?) ; Access bits
+   42 0025 4C                 DATA TYNLEX              ; name of type
+   43 0026 80 7E AA 83        DATA (SECONDS1900).4     ; date and time
+   44 002A 52 49 4F 57        DATA LEXFILE_NAME        ; file name (8 characters)
+      002E 49 4F 20 20 
+   13 0032             *
+   14 0032             * LEX file header
+   15 0032             *
+   16 0032                    ORG   0                  ; force relative addr to zero (=ROMPTR)
+   17 0000             RMBASE
+Page    1                                                             
+NCAS
+
+   18 0000             LXSTART
+   19 0000 13 40              DEF  LEXFILE_ID          ; lex file id
+   20 0002 0A 00              DEF (RUNTAB)-(RMBASE)-2  ; runtime table address
+   21 0004 14 00              DEF (KEYWRD)-(RMBASE)    ; keyword table address
+   22 0006 0E 00              DEF (PARTAB)-(RMBASE)-2  ; parse table address
+   23 0008 1A 00              DEF (ERRMSG)-(RMBASE)    ; error table address
+   24 000A 1E 00              DEF (INTCPT)-(RMBASE)    ; intercept code address
+   25 000C             *
+   26 000C             * runtime table
+   27 000C             *
+   28 000C             RUNTAB
+   29 000C 20 00              DEF (WIORUN)-(RMBASE)    ; 1st keyword code addr
+   30 000E 4F 00              DEF (RIORUN)-(RMBASE)    ; 2nd keyword code addr
+   31 0010             *
+   32 0010             * parse table
+   33 0010             *
+   34 0010             PARTAB
+   35 0010 35 00              DEF (WIOPAR)-(RMBASE)    ; addr of parse-time code
+   36 0012 FF FF              DEF RELMAR               ; relocation marker
+   37 0014             *
+   38 0014             * keyword table
+   39 0014             *
+   40 0014             KEYWRD
+   41 0014 57 49 CF           DATA `WIO`           ; keyword  WIO PILREG,VAL
+   42 0017 52 49 CF           DATA `RIO`           ; function RIO(PILREG)
+   43 001A FF          ERRMSG VAL  0FFH            ; end of keyword table
+   44 001B             *
+   45 001B             * error messages
+   46 001B             *
+   47 001B FF                 VAL  0FFH            ; empty error table
+   48 001C             
+   49 001C 41                 DATA 'A'             ; rev. number "A" (optional)
+   50 001D             *
+   51 001D             * code attributes
+   52 001D             *
+   53 001D 17                 DATA 27              ; 27 = 10111B
+   54 001E                                         ; code attribute bits
+   55 001E                                         ; 0 RAMable
+   56 001E                                         ; 1 ROMable
+   57 001E                                         ; 2 position independent
+   58 001E                                         ; 4 LEX# independent
+   59 001E             *
+   60 001E             * intercept code
+   61 001E             *
+   62 001E 9E          INTCPT RTN                  ; no handling
+   63 001F             *
+   64 001F             * WIO command implementation
+   65 001F             *
+   66 001F A1                 DATA 241             ; attribute: statement
+   67 0020 98          WIORUN BIN                  ; R12 has: byte, PIL-reg
+   68 0021 50 B1 A3 82        LDMD R20 , =ROMPTR   ; for relative addressing
+   69 0025 CE 8B 3E           JSB =ONEB            ; get VAL to R46 and ...
+   70 0028 66 16 A3           STM R46 , R26        ; ... save in R26
+   71 002B 10 C6 62 00        JSB X20,SUB3         ; get register [0...7] to R46
+   72 002F 56 26 B6 10        STBD R26,X46,IOSTAT  ; store R26 to [IOSTAT+R46]
+      0033 FF 
+   73 0034 9E                 RTN 
+   74 0035             *
+   75 0035             * parse implementation
+   76 0035             *
+   77 0035 42 21 A1    WIOPAR LDM R2,R41           ; load LEX-ID to R2-R3 and ..
+   78 0038 06 E5              PUMD R2,+R6          ; .. push LEX# to R6 stack
+   79 003A CE 6D 46           JSB =SYSJSB          ; call system function to ..
+   80 003D 58 12              DEF GET2N            ; .. get 2 numbers to R12 stack
+Page    2                                                             
+NCAS
+
+   81 003F 6C A8 B4           LDB R54,=264         ; store "LEX" token in R54
+   82 0042 42 06 E3           POMD R2,-R6          ; recover LEX# to R2-R3 and ..
+   83 0045 2D A3              STM R2,R55           ; .. store LEX# in R55-R56
+   84 0047 6F 0A E2           POBD R57,-R12        ; insert WIO token into R57
+   85 004A 6C E5              PUMD R54,+R12        ; push 4 bytes R54-R57
+   86 004C 9E                 RTN 
+   87 004D             *
+   88 004D             * RIO command implementation
+   89 004D             *
+   90 004D 10 2D              DATA 20,55           ; attribute: function
+   91 004F 98          RIORUN BIN 
+   92 0050 50 B1 A3 82        LDMD R20,=ROMPTR     ; relative
+   93 0054 10 C6 62 00        JSB X20,SUB3         ; PIL register [0...7] to R46
+   94 0058 5E 93              CLM R36
+   95 005A 26 B4 10 FF        LDBD R36,X46,IOSTAT  ; load R36 from [IOSTAT+R46]
+   96 005E CE E4 FC           JSB =PUINTG          ; push INT to R12 stack
+   97 0061 9E                 RTN 
+   98 0062             
+   99 0062 CE 8B 3E    SUB3   JSB =ONEB            ; get PIL register #
+  100 0065 F4 06              JNG ERR              ; err if R<0
+  101 0067 66 C9 08 00        CMM R46,=10,00       ; set carry if R>=8
+  102 006B FA F4              RNC                  ; O.K. R in [0...7] jump to RTN
+  103 006D CE 99 4C    ERR    JSB =ERROR+          ; show system error 131o=89d
+  104 0070 59                 DATA 131             ; 89 = "BAD PARAMETER"
+  105 0071             LXEND  END
+ 
+37 Symbols used:
+BCD_DAY      EQU 0000  GLOBAL    29;1
+BCD_HOUR     EQU 0000  GLOBAL    30;1
+BCD_MIN      EQU 0000  GLOBAL    31;1
+BCD_MONTH    EQU 0000  GLOBAL    28;1
+BCD_SEC      EQU 0000  GLOBAL    32;1
+BCD_YEAR     EQU 0000  GLOBAL    27;1
+ERR          LCL 006D   103;2   100;2
+ERRMSG       LCL 001A    43;2    23;2
+ERROR+       ADR 4C99  GLOBAL   103;2
+GET2N        ADR 1258  GLOBAL    80;2
+INTCPT       LCL 001E    62;2    24;2
+IOSTAT       ADR FF10  GLOBAL    72;2    95;2
+KEYWRD       LCL 0014    40;2    21;2
+LEXFILE_ID   EQU 4013    10;2    19;2
+LEXFILE_NAME EQU 20204F49574F4952    11;2    19;1    44;1
+LXEND        LCL 0071   105;2    25;1    26;1    40;1
+LXSTART      LCL 0000    18;2 ** Not referenced!
+ONEB         ADR 3E8B  GLOBAL    69;2    99;2
+PARTAB       LCL 0010    34;2    22;2
+PUINTG       ADR FCE4  GLOBAL    96;2
+RAMHDR       LCL 0020    38;1 ** Not referenced!
+RELMAR       ADR FFFF  GLOBAL    36;2
+RIORUN       LCL 004F    91;2    30;2
+RMBASE       LCL 0000    17;2    25;1    26;1    40;1    20;2    21;2    22;2
+                         23;2    24;2    29;2    30;2    35;2
+ROMPTR       ADR 82A3  GLOBAL    68;2    92;2
+RUNTAB       LCL 000C    28;2    20;2
+SECONDS1900  EQU 83AA7E80  GLOBAL    43;1
+SUB3         LCL 0062    99;2    71;2    93;2
+SYSJSB       ADR 466D  GLOBAL    79;2
+TYCOP?       EQU 0004  GLOBAL    41;1
+TYNLEX       EQU 004C  GLOBAL    42;1
+TYPUR?       EQU 0008  GLOBAL    41;1
+TYRAM?       EQU 0080  GLOBAL    41;1
+TYTOK?       EQU 0001  GLOBAL    41;1
+WIOPAR       LCL 0035    77;2    35;2
+WIORUN       LCL 0020    67;2    29;2
+Page    3                                                             
+NCAS
+
+
+Index of source files in symbol cross reference:
+1: lexheader.inc
+2: riowio.asm
+Assembly completed
+ 149 lines processed, 0 error(s) 0 warning(s)
+ 163 bytes of code written to object file

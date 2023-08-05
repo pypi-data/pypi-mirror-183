@@ -1,0 +1,1414 @@
+CAPASM  Version 0.9.8       July 2020                        2020-07-25 19:28:47
+(c) Joachim Siebold 2020
+
+000000             10 !********************************
+000000             30 !***      MATRIX ROM - 2      ***
+000000             50 !********************************
+000000             70 !
+000000             90 !********************************
+000000             110 !***      CONSTANTS           ***
+000000             130 !********************************
+000000             150 !
+000000             151          LST 
+000000             170 RNORMX   EQU 71
+000000             190 CNORMX   EQU 73
+000000             210 TOK#     EQU 43
+000000             230 QUOTE    EQU 5
+000000             250 USLNO    EQU 347
+000000             270 QUOT     EQU 42
+000000             290 RTPARN   EQU 51
+000000             310 LTPARN   EQU 50
+000000             330 COMMA    EQU 54
+000000             350 SLASH    EQU 57
+000000             370 X        EQU 130
+000000             371 PRTOK    EQU 153
+000000             372 DSTOK    EQU 126
+000000             373          UNL 
+000000             390 !
+000000             410 !********************************
+000000             430 !***    ROM INFORMATION       ***
+000000             450 !********************************
+000000             470 !
+000000             490          GLO GLOBAL
+000000             510          ABS 60000               !PLUG IN ROM ADDRESS
+060000             530 !
+060000 261         550          BYT 261                 !ROM NUMBER
+060001 117         570          BYT 117                 !INVERSE ROM NUMBER
+060002             590 !
+060002             610 !*****************************
+060002             630 !***     SYSTEM TABLES     ***
+060002             650 !*****************************
+060002             670 !
+060002 014 140     690          DEF RUNTIM  
+060004 014 140     710          DEF PARSE   
+060006 015 140     730          DEF TOKS    
+060010 016 140     750          DEF ERMSG   
+060012 014 140     770          DEF INIT    
+060014             790 !
+060014             810 !*****************************
+060014             830 !***       SHELL           ***
+060014             850 !*****************************
+060014             870 !
+060014             890 RUNTIM   BSZ 0
+060014             910 PARSE    BSZ 0
+060014 236         930 INIT     RTN 
+060015 377         950 TOKS     BYT 377
+060016 377         970 ERMSG    BYT 377
+060017             990 !
+060017             1010 !        HED (R,C,F)NORM, ABSUM, SUM, CSUM, RSUM ROUTINES
+060017             1030 !********************************************************
+060017             1050 !*** FNORM (A): SQUARE ROOT OF THE SUM OF THE SQUARES ***
+060017             1070 !***            OF THE ELEMENTS IN THE ARRAY          ***
+060017             1090 !*** IN       : RELATIVE ADDRESS A                    ***
+060017             1110 !***                              <--- R12            ***
+060017             1130 !*** OUT      : NORM OF A                             ***
+060017             1150 !***                              <--- R12            ***
+060017             1170 !********************************************************
+Page    1                                                             
+CAPASM
+
+060017             1190 !
+060017             1210          LST 
+060017 170 222     1230 NORM2    CLB R70                !READY TO SET FLAG.
+060021             1250          UNL 
+060021 210         1270          ICB R70                !SAYS DOING NORM.
+060022 316 075 140 1290          JSB =SUM.++            !GO FIND SUM OF SQUARES.
+060025 231         1310          BCD                    !MODE FOR SQRT.
+060026 144 310 377 1330          CMB R44,=377           !INTEGER RESULT?
+060031 372 011     1350          JNC RLSQRT             !IF (INTEGER)
+060033 140 012 345 1370          PUMD R40,+R12          !   INT RESULT ON STACK
+060036 316 377 135 1390          JSB =ONER              !   DEMAND A REAL
+060041 316 034 134 1410          JSB =SEP10             !   SEPARATE IT
+060044             1430 RLSQRT   BSZ 0                  !END IF
+060044 316 264 126 1450          JSB =SQR30             !SQRT GIVES THE NORM
+060047 360 012     1470          JMP PACKIT  
+060051             1490 !
+060051             1510 !*****************************************************
+060051             1530 !*** ABSUM (A) : SUM OF THE ABSOLUTE VALUES OF THE ***
+060051             1550 !***             ELEMENTS IN A                     ***
+060051             1570 !*** IN        : RELATIVE ADDRESS A                ***
+060051             1590 !***                               <--- R12        ***
+060051             1610 !*** OUT       : ABSOLUTE SUM OF A                 ***
+060051             1630 !***                               <--- R12        ***
+060051             1650 !*****************************************************
+060051             1670 !
+060051             1690          LST 
+060051 170 222     1710 ABSUM2   CLB R70                !FLAG FOR THIS ROUTINE.
+060053             1730          UNL 
+060053 212         1750          DCB R70                !SET IT.
+060054 360 002     1770          JMP SUM.+              !GO FIND SUM.
+060056             1790 !
+060056             1810 !*****************************************************
+060056             1830 !*** SUM (A) : THE SUM OF THE ELEMENTS IN A        ***
+060056             1850 !*** IN      : RELATIVE ADDRESS A                  ***
+060056             1870 !***                             <--- R12          ***
+060056             1890 !*** OUT     : SUM OF A                            ***
+060056             1910 !***                             <--- R12          ***
+060056             1930 !*****************************************************
+060056             1950 !
+060056             1970          LST 
+060056 170 222     1990 SUM2     CLB R70                !FLAG SETTING FOR NOT ABSUM.
+060060             2010          UNL 
+060060 316 075 140 2030 SUM.+    JSB =SUM.++            !GO FIND SUM.
+060063             2050 PACKIT   BSZ 0
+060063 316 223 014 2070          JSB =ROMJSB  
+060066 324 161     2090          DEF RONF5-             !ROUND ANSWER
+060070 260         2110          BYT 260
+060071 140 012 345 2130          PUMD R40,+R12          !PUSH ANSWER ON STACK.
+060074 236         2150          RTN 
+060075             2170 !
+060075             2190 SUM.++   BSZ 0
+060075 316 173 142 2210          JSB =LOCSZ2            !Ba, Ma, Na
+060100 174 022 241 2230          LDM R74,R22            !SAVE Ma & Na
+060103 144 223     2250          CLM R44                !INIT SUM=0.
+060105 250 377     2270          LDB R44,=377           !ASSUME INTEGER.
+060107 176 221     2290          TSM R76                !TEST Na (NUM COL A)
+060111 367 007     2310 SUMWHL   JZR SUMEND             !WHILE (NUM COL A >0)
+060113 316 251 140 2330          JSB =COMSUM            !   ADD UP ROWS
+060116 176 213     2350          DCM R76                !   DECR NUM COL A
+060120 360 367     2370          JMP SUMWHL             !   LOOP FOR TEST
+060122             2390 SUMEND   BSZ 0                  !END WHILE
+060122 236         2410          RTN 
+060123             2430 !
+060123             2450 !**********************************************************
+Page    2                                                             
+CAPASM
+
+060123             2470 !*** MAT C = CSUM (A) :                                 ***
+060123             2490 !***         ADDS THE VALUES OF THE ELEMENTS IN EACH    ***
+060123             2510 !***         COLUMN OF THE OPERAND ARRAY , THEN ASSIGNS ***
+060123             2530 !***         THE SUM TO THE CORRESPONDING ELEMENT OF    ***
+060123             2550 !***         THE RESULT ARRAY (VECTOR OR 1 ROW MATRIX)  ***
+060123             2570 !*** IN    : RELATIVE ADDRESS C                         ***
+060123             2590 !***         RELATIVE ADDRESS A                         ***
+060123             2610 !***                           <--- R12                 ***
+060123             2630 !*** OUT   : STACK POPPED & ARRAY C ASSIGNED            ***
+060123             2650 !***         (AND REDIMENSIONED IF NECESSARY)           ***
+060123             2670 !**********************************************************
+060123             2690 !
+060123             2710          LST 
+060123 170 222     2730 CSUM2    CLB R70                !FLAG SETTING FOR NOT ABSUM.
+060125             2750          UNL 
+060125 316 173 142 2770          JSB =LOCSZ2            !Ba, Ma, Na
+060130 165 012 343 2790          POMD R65,-R12          !GET PTR TO TARGET ARRAY C.
+060133 345         2810          PUMD R65,+R12          !PTR ARRAY C BACK ON STACK
+060134 345         2830          PUMD R65,+R12          !ONE MORE COPY.
+060135 174 022 241 2850          LDM R74,R22            !SAVE Mc & Nc
+060140 316 223 014 2870          JSB =ROMJSB  
+060143 006 171     2890          DEF LOCSZ-             !SEE IF C IS A VECTOR.
+060145 260         2910          BYT 260
+060146 122         2930          DRP R22                !ASSUME ROW AND ...
+060147 024         2950          ARP R24                !COL OF MATRIX
+060150 371 002     2970          JEZ CSEND1             !IF (C A VECTOR)
+060152 124         2990          DRP R24                !   ROW AND ...
+060153 022         3010          ARP R22                !   COL OF VECTOR
+060154             3030 CSEND1   BSZ 0                  !END IF
+060154 223         3050          CLM R#
+060155 211         3070          ICM R#                 !1 IN ROW OR COL
+060156 176 243     3090          STM R76,R#
+060160 316 202 142 3110          JSB =RDIM2             !Mc X 1-VEC; 1 X Nc-MATRIX
+060163 124 076 241 3130          LDM R24,R76            !GET Na (NUM COL A)
+060166 367 013     3150          JZR CSEND2             !IF (NOT NULL ARRAY)
+060170 316 074 141 3170          JSB =COLINT            !   INIT COL LOOP
+060173             3190 COLSUM   BSZ 0                  !   REPEAT
+060173 316 231 140 3210          JSB =SUM&ST            !      SUM COLS & STORE VALUE
+060176 316 123 141 3230          JSB =COLNXT            !      POINT TO NEXT COL
+060201 366 370     3250          JNZ COLSUM             !   UNTIL (NUM COL A = 0)
+060203             3270 CSEND2   BSZ 0                  !END IF
+060203 236         3290          RTN 
+060204             3310 !
+060204             3330 !***********************************************************
+060204             3350 !*** MAT C = RSUM (A) :                                  ***
+060204             3370 !***         ADDS THE VALUES OF THE ELEMENTS IN EACH     ***
+060204             3390 !***         ROW OF THE OPERAND ARRAY, THEN ASSIGNS THE  ***
+060204             3410 !***         SUM TO THE CORRESPONDING ELEMENT OF THE     ***
+060204             3430 !***         RESULT ARRAY (VECTOR OR 1 ROW MATRIX)       ***
+060204             3450 !*** IN    : RELATIVE ADDRESS C                          ***
+060204             3470 !***         RELATIVE ADDRESS A                          ***
+060204             3490 !***                           <--- R12                  ***
+060204             3510 !*** OUT   : STACK POPPED & ARRAY ASSIGNED               ***
+060204             3530 !***         (RESULT ARRAY REDIMENSIONED IF NECESSARY)   ***
+060204             3550 !***********************************************************
+060204             3570 !
+060204             3590          LST 
+060204 170 222     3610 RSUM2    CLB R70                !FLAG SETTING FOR NOT ABSUM.
+060206             3630          UNL 
+060206 316 353 140 3650          JSB =COMIN             !Ba, Ma, Na
+060211 124 223     3670          CLM R24
+060213 211         3690          ICM R24                !Ma X 1
+060214 316 202 142 3710          JSB =RDIM2             !REDIM C TO Ma X 1
+060217 176 221     3730          TSM R76                !TEST Ma (NUM ROW A)
+Page    3                                                             
+CAPASM
+
+060221 367 005     3750 RSWHIL   JZR RSEND              !WHILE (NUM ROW A > 0)
+060223 316 231 140 3770          JSB =SUM&ST            !   DO SUM & STORE VALUE
+060226 360 371     3790          JMP RSWHIL             !   LOOP FOR TEST
+060230             3810 RSEND    BSZ 0                  !END WHILE
+060230 236         3830          RTN 
+060231             3850 !
+060231             3870 SUM&ST   BSZ 0
+060231 316 245 140 3890          JSB =CLRCOM            !INIT SUM = 0 & DO SUM
+060234 316 223 014 3910          JSB =ROMJSB  
+060237 276 162     3930          DEF STOV--             !STORE RESULT & NXT TAR ADDR
+060241 260         3950          BYT 260
+060242 176 213     3970          DCM R76                !DECR NUM ROW
+060244 236         3990          RTN 
+060245             4010 !
+060245 144 223     4030 CLRCOM   CLM R44                !INIT SUM=0.
+060247 250 377     4050          LDB R44,=377           !ASSUME INTEGER.
+060251 114 074 241 4070 COMSUM   LDM R14,R74            !INIT NUM ROW(COL) A
+060254 367 074     4090 COWHIL   JZR COEND1             !WHILE (NUM ROW(COL) A > 0)
+060256 132 012 344 4110          PUBD R32,+R12          !   SAVE RUN SUM SIGN
+060261 140 345     4130          PUMD R40,+R12          !   SAVE MANTISSA
+060263 136 345     4150          PUMD R36,+R12          !   SAVE EXP
+060265 316 223 014 4170          JSB =ROMJSB  
+060270 345 171     4190          DEF GELT               !   GET A(I,J)
+060272 260         4210          BYT 260
+060273 140 012 343 4230          POMD R40,-R12          !   GET A(I,J) FROM STACK
+060276 231         4250          BCD 
+060277 170 310 001 4270          CMB R70,=1             !   TEST NORM FLAG
+060302 366 016     4290          JNZ COELSE             !   IF (NORM)
+060304 140 345     4310          PUMD R40,+R12          !      A(I,J) ON STACK
+060306 345         4330          PUMD R40,+R12          !      DO IT AGAIN
+060307 316 023 134 4350          JSB =TWOSEP            !      SEPARATE BOTH COPIES
+060312 316 223 014 4370          JSB =ROMJSB  
+060315 141 160     4390          DEF MPYR70             !      SQUARE A(I,J)
+060317 260         4410          BYT 260
+060320 360 010     4430          JMP COEND2  
+060322             4450 COELSE   BSZ 0                  !   ELSE - (NO NORM)
+060322 144 310 377 4470          CMB R44,=377           !      REAL OR INT?
+060325 373 003     4490          JCY COEND3             !      IF (NOT INT)
+060327 316 034 134 4510          JSB =SEP10             !         SEPERATE IT
+060332             4530 COEND3   BSZ 0                  !      END IF
+060332             4550 COEND2   BSZ 0                  !   END IF
+060332 316 223 014 4570          JSB =ROMJSB  
+060335 040 162     4590          DEF RUNSUM             !   ADD TO RUNNING SUM
+060337 260         4610          BYT 260
+060340 316 223 014 4630          JSB =ROMJSB  
+060343 361 160     4650          DEF NXTA               !   POINT TO NEXT A(I,J)
+060345 260         4670          BYT 260
+060346 114 213     4690          DCM R14                !   DECR NUM ROW(COL) A
+060350 360 302     4710          JMP COWHIL             !   LOOP FOR TEST
+060352             4730 COEND1   BSZ 0                  !END WHILE
+060352 236         4750          RTN 
+060353             4770 !
+060353             4790 COMIN    BSZ 0
+060353 316 173 142 4810          JSB =LOCSZ2            !Ba, Ma, Na
+060356 136 215     4830          TCM R36                !WANT 1 IF 0, 0 IF 1.
+060360 211         4850          ICM R36
+060361 263 072 211 4870          STMD R36,=TMP2         !SAVE OPTION BASE
+060364 122 076 243 4890          STM R22,R76            !SAVE Ma (NUM ROW A)
+060367 124 074 243 4910          STM R24,R74            !SAVE Na (NUM COL A)
+060372 236         4930          RTN 
+060373             4950 !
+060373             4970 !*************************************************************
+060373             4990 !*** RNORM (A) : THE LARGEST SUM OF THE ABSOLUTE VALUES OF ***
+060373             5010 !***             THE ELEMENTS IN EACH ROW OF A             ***
+Page    4                                                             
+CAPASM
+
+060373             5030 !*** IN        : RELATIVE ADDRESS A                        ***
+060373             5050 !***                               <--- R12                ***
+060373             5070 !*** OUT       : ROW NORM OF A                             ***
+060373             5090 !***                               <--- R12                ***
+060373             5110 !*************************************************************
+060373             5130 !
+060373             5150          LST 
+060373 316 153 141 5170 RNORM2   JSB =NORMIN            !INIT Ba, Ma, Na
+060376             5190          UNL 
+060376 367 005     5230 RNWHIL   JZR RNEND              !WHILE (NUM ROW A > 0)
+060400 316 217 141 5250          JSB =MAXRC             !   FIND NORM(ROW(I))
+060403 360 371     5270          JMP RNWHIL             !   LOOP FOR TEST
+060405             5290 RNEND    BSZ 0                  !END WHILE
+060405 136 261 024 5310          LDMD R36,=MBASE        !TEMP AREA BASE PTR.
+060410 207 
+060411 100 325 072 5330          SBMD R0,=TMP2          !ADJUST ROW# WHERE MAX IS.
+060414 211 
+060415 036 267 071 5350          STMD R0,X36,RNORMX     !STORE RNORMROW ANSWER.
+060420 000 
+060421 236         5370          RTN 
+060422             5410 !
+060422             5430 !*************************************************************
+060422             5450 !*** CNORM (A) : THE LARGEST SUM OF THE ABSOLUTE VALUES OF ***
+060422             5470 !***             THE ELEMENTS IN EACH COLUMN OF A          ***
+060422             5490 !*** IN        : RELATIVE ADDRESS A                        ***
+060422             5510 !***                               <--- R12                ***
+060422             5530 !*** OUT       : COLUMN NORM OF A                          ***
+060422             5550 !***                               <--- R12                ***
+060422             5570 !*************************************************************
+060422             5590 !
+060422             5610          LST 
+060422 316 153 141 5630 CNORM2   JSB =NORMIN            !INIT Ba, Ma, Na
+060425             5650          UNL 
+060425 367 022     5690          JZR CNEND              !IF (NOT NULL ARRAY)
+060427 174 022 241 5710          LDM R74,R22            !   SAVE Ma AND Na
+060432 316 074 141 5730          JSB =COLINT            !   INIT COL LOOP
+060435             5750 CNLOOP   BSZ 0                  !   REPEAT
+060435 316 217 141 5770          JSB =MAXRC             !      FIND NORM(COL(J))
+060440 316 123 141 5790          JSB =COLNXT            !      POINT NEXT COL
+060443 366 370     5810          JNZ CNLOOP             !   UNTIL (NUM COL A = 0)
+060445 100 325 072 5830          SBMD R0,=TMP2          !   COL# WHERE MAX IS
+060450 211 
+060451             5850 CNEND    BSZ 0                  !END IF
+060451 147 260 112 5870          LDBD R47,=TMP4         !GET VECTOR INDICATOR.
+060454 211 
+060455 376 003     5890          JRZ NOVEC              !IF (VECTOR)
+060457 100 223     5910          CLM R0
+060461 213         5930          DCM R0                 !   377,377
+060462             5950 NOVEC    BSZ 0                  !END IF
+060462 136 261 024 5970          LDMD R36,=MBASE        !TEMP AREA BASE PTR.
+060465 207 
+060466 100 036 267 5990          STMD R0,X36,CNORMX     !STORE CNORMCOL ANSWER.
+060471 073 000 
+060473 236         6010          RTN 
+060474             6030 !
+060474             6050 !********************************************************************
+060474             6070 !** COLINT : SETS UP VARIABLES AT BEGINNING OF LOOP SO THAT THE   ***
+060474             6090 !**          INCREMENT MOVES DOWN A COLUMN RATHER THAN ACROSS A   ***
+060474             6110 !**          ROW.                                                 ***
+060474             6130 !** IN  : INCRA  = ELEMENT SIZE OF A : ROW INCREMENT              ***
+060474             6150 !**       TMP1   = Ba : BASE ADDRESS OF A                         ***
+060474             6170 !** OUT : R24    = 3Na, 4Na, 8Na : COLUMN INCREMENT OF A          ***
+060474             6190 !**       INCRA  = 3Na, 4Na, 8Na : COLUMN INCREMENT OF A          ***
+060474             6210 !**       TMP3   = ELEMENT SIZE OF A (2BYTES) & Ba (3 BYTES)      ***
+Page    5                                                             
+CAPASM
+
+060474             6230 !********************************************************************
+060474             6250 !
+060474             6270          LST 
+060474             6290 COLINT   BSZ 0
+060474             6310          UNL 
+060474 316 223 014 6330          JSB =ROMJSB  
+060477 113 170     6350          DEF ACOLEL             !INT = 3Na; SHORT = 4Na; REAL = 8Na
+060501 260         6370          BYT 260
+060502 163 261 332 6390          LDMD R63,=INCRA        !GET ELE SIZE OF A
+060505 203 
+060506 165 261 062 6410          LDMD R65,=TMP1         !GET Ba
+060511 211 
+060512 163 263 102 6430          STMD R63,=TMP3         !SAVE SIZE AND Ba
+060515 211 
+060516 124 263 332 6450          STMD R24,=INCRA        !RESULT FROM ACOLEL
+060521 203 
+060522 236         6470          RTN 
+060523             6490 !
+060523             6510 !*********************************************************************
+060523             6530 !** COLNXT : SETS UP VARIABLES AT END OF LOOP SO THAT THE INCREMENT **
+060523             6550 !**          MOVES DOWN A COLUMN RATHER THAN ACROSS A ROW.          **
+060523             6570 !** IN  : TMP1  = CURRENT ADDRESS OF A COLUMN ELEMENT -- A(I,J)     **
+060523             6590 !**       TMP3  = ELEMENT SIZE OF A (2 BYTES) & ADDR A(I,J)         **
+060523             6610 !** OUT : TMP1  = ADDRESS NEXT COLUMN ELEMENT OF A -- A(I+1,J)      **
+060523             6630 !**       TMP3  = ELEMENT SIZE OF A (2 BYTES) & ADDR A(I+1,J)       **
+060523             6650 !*********************************************************************
+060523             6670 !
+060523             6690          LST 
+060523             6710 COLNXT   BSZ 0
+060523             6730          UNL 
+060523 163 261 102 6750          LDMD R63,=TMP3         !GET ELE SIZE AND ADDR A(I,J)
+060526 211 
+060527 155 063 241 6770          LDM R55,R63            !MOVE ELE SIZE
+060532 316 223 014 6790          JSB =ROMJSB  
+060535 001 161     6810          DEF NXTELE             !POINT TO NEXT ROW ELE
+060537 260         6830          BYT 260
+060540 163 263 102 6850          STMD R63,=TMP3         !SAVE ELE SIZE AND ADDR A(I,J)
+060543 211 
+060544 165 263 062 6870          STMD R65,=TMP1         !SAVE NEXT ADDR A(I,J)
+060547 211 
+060550 176 221     6890          TSM R76                !SEE IF MORE COLS.
+060552 236         6910          RTN 
+060553             6930 !
+060553             6950          LST 
+060553 170 222     6970 NORMIN   CLB R70                !READY TO FLAG.
+060555             6971          UNL 
+060555 212         6990          DCB R70                !FLAG TO TAKE ABS VALUE OF A(I,J).
+060556 316 353 140 7010          JSB =COMIN             !DO COMMON INITIALIZATION.
+060561 144 223     7030          CLM R44                !ASSUME NORM=0.
+060563 250 377     7050          LDB R44,=377           !ASSUME INTEGER.
+060565 140 012 345 7070          PUMD R40,+R12          !PUSH INIT ANS ON STACK.
+060570 110 223     7090          CLM R10                !ASSUME ROW# OR COL# = 1.
+060572 211         7110          ICM R10
+060573 000 243     7130          STM R10,R0             !INITIALIZE ROW-COL POINTER
+060575 231         7150 ZTST-    BCD                    !MODE FOR UPCOMING SHIFT
+060576 130 200     7170          ELB R30                !MOVE VEC-MAT FLAG INTO R30
+060600 262 112 211 7190          STBD R30,=TMP4         !SAVE IT
+060603 230         7210          BIN                    !RESET MODE
+060604             7230 ZERTST   BSZ 0
+060604 122 221     7250          TSM R22                !M=0?
+060606 367 004     7270          JZR RNULL              !JIF YES
+060610 124 221     7290          TSM R24                !N=0?
+060612 366 002     7310          JNZ NRTN               !JIF NO - N<>0 AND M<>0
+060614 100 223     7330 RNULL    CLM R0
+Page    6                                                             
+CAPASM
+
+060616 236         7350 NRTN     RTN 
+060617             7370 !
+060617             7371          LST 
+060617 316 245 140 7390 MAXRC    JSB =CLRCOM            !FIND NORM OF CURRENT ROW (OR COL).
+060622             7391          UNL 
+060622 160 012 343 7410          POMD R60,-R12          !GET LATEST ANSWER.
+060625 345         7430          PUMD R60,+R12          !REPLACE IT.
+060626 345         7450          PUMD R60,+R12          !COPY TO COMPARE WITH NEW NORM.
+060627 170 006 345 7470          PUMD R70,+R6           !PROTECT R70.
+060632 126 344     7490          PUBD R26,+R6           !PROTECT R26.
+060634 222         7510          CLB R26                !FLAG NEEDED IN COMRC-
+060635 316 063 140 7530          JSB =PACKIT            !PACK UP NEW NORM & PUT ON R12.
+060640 140 070 243 7550          STM R40,R70            !READY FOR COMRC-
+060643 316 223 014 7570          JSB =ROMJSB  
+060646 302 171     7590          DEF COMRC-             !COMPARE OLD ANS WITH NEW NORM.
+060650 260         7610          BYT 260
+060651 126 006 342 7630          POBD R26,-R6           !RESTORE R26.
+060654 170 343     7650          POMD R70,-R6           !RESTORE R70.
+060656 100 261 075 7670          LDMD R0,=TMP2+         !GET ROW OR COL OF ANSWER
+060661 211 
+060662 110 211     7690          ICM R10                !POINT TO NEXT ROW (OR COL).
+060664 176 213     7710          DCM R76                !DECREMENT ROW (OR COL) COUNTER.
+060666 236         7730          RTN 
+060667             7770 !
+060667             7790 !*****************************************************************
+060667             7810 !*** MAT C = CROSS (B,A) :                                     ***
+060667             7830 !***         CALCULATES THE CROSS PRODUCT OF TWO 3 ELEMENT     ***
+060667             7850 !***         VECTORS (B & A), AND ASSIGNS RESULTING VECTOR     ***
+060667             7870 !***         TO C                                              ***
+060667             7890 !*** IN    : RELATIVE ADDRESS C                                ***
+060667             7910 !***         RELATIVE ADDRESS B                                ***
+060667             7930 !***         RELATIVE ADDRESS A                                ***
+060667             7950 !***                           <--- R12                        ***
+060667             7970 !*** OUT   : STACK POPPED & ARRAY ASSIGN                       ***
+060667             7990 !***         (REDIMENSIONED IF NECESSARY)                      ***
+060667             8010 !*****************************************************************
+060667             8030 !
+060667             8050          LST 
+060667 316 120 142 8070 CROSS2   JSB =COMX.             !DO INITIAL CHECK FOR VECTORS.
+060672             8090          UNL 
+060672 122 311 003 8130          CMM R22,=3,0           !ARE INPUT VECTORS RIGHT SIZE?
+060675 000 
+060676 367 010     8150          JZR XEND0              !IF (NOT 3-DIMENSIONAL)
+060700 316 053 145 8170          JSB =ERROR+  
+060703 316 224 020 8190          JSB =ERROR             !   ERROR 10 -- EXIT
+060706 012         8210          BYT 010D
+060707 236         8230          RTN 
+060710             8250 XEND0    BSZ 0                  !END IF
+060710 316 202 142 8270          JSB =RDIM2             !REDIM C TO 3 X 1
+060713 370 003     8290          JEN XEND1              !IF (C NOT A VECTOR)
+060715 316 160 142 8310          JSB =NOVECA            !   ERROR EXIT
+060720             8330 XEND1    BSZ 0                  !END IF
+060720 316 223 014 8350          JSB =ROMJSB  
+060723 304 167     8370          DEF C=AORB             !SEE IF TEMP ARRAY NEEDED
+060725 260         8390          BYT 260
+060726 172 022 241 8410          LDM R72,R22            !SAVE I AND J
+060731 122 006 345 8430          PUMD R22,+R6           !SAVE NUM ROWS C
+060734             8470 XLOOP    BSZ 0                  !LOOP
+060734 316 007 142 8490          JSB =XINIT             !   INIT I,J,PTR TO A,B
+060737 122 213     8510          DCM R22                !   ADJUST SUBSCRIPT
+060741 364 032     8530          JNG XENDLP             !   ESCAPE LOOP AFTER 3
+060743 074 243     8550          STM R22,R74            !   SWAP I & J
+060745 124 072 243 8570          STM R24,R72
+060750 144 223     8590          CLM R44                !   INIT SUM=0
+Page    7                                                             
+CAPASM
+
+060752 250 377     8610          LDB R44,=377           !   MAKE IT INTEGER
+060754 316 030 142 8630          JSB =TERMS             !   1ST PROD IN SUM
+060757 316 007 142 8650          JSB =XINIT             !   INIT I,J,PTR TO A,B
+060762 316 030 142 8670          JSB =TERMS             !   VALUE C(I)
+060765 316 223 014 8690          JSB =ROMJSB  
+060770 276 162     8710          DEF STOV--             !   STORE C(I)
+060772 260         8730          BYT 260
+060773 360 337     8750          JMP XLOOP              !   LOOP FOR TEST
+060775             8770 XENDLP   BSZ 0                  !END LOOP
+060775 122 006 343 8790          POMD R22,-R6           !GET NUM ROWS
+061000 316 223 014 8810          JSB =ROMJSB  
+061003 007 170     8830          DEF COPYAB             !COPY IF TEMP ARRAY USED
+061005 260         8850          BYT 260
+061006 236         8870          RTN 
+061007             8890 !
+061007             8910 XINIT    BSZ 0
+061007 172 022 243 8930          STM R72,R22            !INIT I & J
+061012 165 261 065 8950          LDMD R65,=TMP1+   
+061015 211 
+061016 263 062 211 8970          STMD R65,=TMP1         !INIT PTR TO A
+061021 261 075 211 8990          LDMD R65,=TMP2+   
+061024 263 072 211 9010          STMD R65,=TMP2         !INIT PTR TO B
+061027 236         9030          RTN 
+061030             9050 !
+061030 230         9070 TERMS    BIN                    !SET MODE.
+061031 124 213     9090 TERMB    DCM R24                !DECREMENT ADDR OFFSET COUNT.
+061033 364 016     9110          JNG TERM2              !DO NEXT SUBSCRIPT WHEN NEG.
+061035 316 223 014 9130          JSB =ROMJSB  
+061040 341 160     9150          DEF NXTB               !ADDRESS OFFSET-PT TO B(I).
+061042 260         9170          BYT 260
+061043 360 364     9190          JMP TERMB              !LOOP.
+061045             9210 TERMA    BSZ 0
+061045 316 223 014 9230          JSB =ROMJSB  
+061050 361 160     9250          DEF NXTA               !ADDRESS OFFSET-PT TO A(J).
+061052 260         9270          BYT 260
+061053 122 213     9290 TERM2    DCM R22                !DECREMENT ADDR OFFSET COUNT.
+061055 365 366     9310          JPS TERMA              !LOOP TILL COUNT NEG.
+061057 114 223     9330          CLM R14                !READY FOR DOT COUNT.
+061061 211         9350          ICM R14                !DOT COUNT =1 FOR 1 MULTIPLY.
+061062 316 223 014 9370          JSB =ROMJSB  
+061065 355 161     9390          DEF DOTACC             !GO CALC B(I)*A(J) OR B(J)*A(I).
+061067 260         9410          BYT 260
+061070 231         9430          BCD                    !MODE FOR NEXT COMMAND.
+061071 132 216     9450          NCB R32                !-BIAJ OR -(-BIAJ+BJAI).
+061073 144 310 377 9470          CMB R44,=377           !INTEGER?
+061076 372 002     9490          JNC XRTN               !JIF NO.
+061100 145 215     9510          TCM R45                !-BIAJ OR -(-BIAJ+BJAI).
+061102 236         9530 XRTN     RTN                    !RETURN.
+061103             9550 !
+061103             9570 !        HED DOT ROUTINE (C = B DOT A)
+061103             9590 !**************************************************************
+061103             9610 !*** DOT (B,A) : SUM OF PRODUCTS OF CORRESPONDING ELEMENTS  ***
+061103             9630 !***             OF VECTORS B & A                           ***
+061103             9650 !*** IN        : RELATIVE ADDRESS B                         ***
+061103             9670 !***             RELATIVE ADDRESS A                         ***
+061103             9690 !***                               <--- R12                 ***
+061103             9710 !*** OUT       : DOT PRODUCT B & A                          ***
+061103             9730 !***                               <--- R12                 ***
+061103             9750 !**************************************************************
+061103             9770 !
+061103             9790          LST 
+061103 316 120 142 9810 DOT2     JSB =COMX.             !DO COMMON DOT, CROSS CALCS.
+061106             9830          UNL 
+061106 316 223 014 9850          JSB =ROMJSB  
+Page    8                                                             
+CAPASM
+
+061111 315 161     9870          DEF DOTPRD             !GO FIND DOT PRODUCT.
+061113 260         9890          BYT 260
+061114 140 012 345 9910 PSHRES   PUMD R40,+R12          !PUSH RESULT ON STACK.
+061117 236         9930          RTN                    !END.
+061120             9950 !
+061120             9970          LST 
+061120             9990 COMX.    BSZ 0
+061120             9991          UNL 
+061120 316 173 142 10010          JSB =LOCSZ2           !Ba, Ma, Na
+061123 371 033     10030          JEZ NOVECA            !IF ('A' VECTOR)
+061125 122 014 243 10050          STM R22,R14           !   SAVE Ma
+061130 316 223 014 10070          JSB =ROMJSB  
+061133 026 171     10090          DEF LOCSZI            !   Bb, Mb, Nb
+061135 260         10110          BYT 260
+061136 371 020     10130          JEZ NOVECB            !   IF('B' VECTOR)
+061140 114 022 301 10150          CMM R14,R22           !      COMPARE Mb & Ma
+061143 367 012     10170          JZR COMEND            !      IF (Mb <> Ma)
+061145 316 053 145 10190          JSB =ERROR+           !         ROWS OF 'A' & 'B' ...
+061150 316 224 020 10210          JSB =ERROR            !         DO NOT MATCH ...
+061153 013         10230          BYT 011D              !         ERROR 11
+061154 130 006 343 10250          POMD R30,-R6          !         TRASH RETURN
+061157             10270 COMEND   BSZ 0                 !      ELSE - (Mb = Ma)
+061157 236         10290          RTN                   !         RETURN
+061160             10310          BSZ 0                 !      END IF
+061160             10330 NOVECB   BSZ 0                 !   END IF
+061160             10350 NOVECA   BSZ 0                 !END IF
+061160 316 053 145 10370          JSB =ERROR+           !ERROR ROUTINE
+061163 316 224 020 10390          JSB =ERROR   
+061166 017         10410          BYT 015D              !NON-VECTOR ERROR CODE.
+061167 136 006 343 10430          POMD R36,-R6          !TRASH 1 RTN.
+061172 236         10450          RTN                   !DONE
+061173             10470          UNL 
+061173             10490 !
+061173             10510 LOCSZ2   BSZ 0
+061173 316 223 014 10530          JSB =ROMJSB  
+061176 032 171     10550          DEF LOCSZ             !Ba, Ma, Na
+061200 260         10570          BYT 260
+061201 236         10590          RTN 
+061202             10610 !
+061202             10630          LST 
+061202             10650 RDIM2    BSZ 0
+061202             10651          UNL 
+061202 235         10670          CLE 
+061203 233         10690          DCE                   !FLAG TYPE C MATRIX
+061204 165 012 343 10710          POMD R65,-R12         !GET REL ADDR OF C
+061207 316 223 014 10730          JSB =ROMJSB  
+061212 023 176     10750          DEF REDIM.            !REDIMENSION C
+061214 260         10770          BYT 260
+061215 316 223 014 10790          JSB =ROMJSB  
+061220 013 171     10810          DEF VECFLG            !SET UP VECTOR-MATRIX FLAG
+061222 260         10830          BYT 260
+061223 117 310 300 10850          CMB R17,=300          !LOOK FOR REDIM ERROR
+061226 372 003     10870          JNC RDMRTN            !IF (ERROR)
+061230 100 006 343 10890          POMD R0,-R6           !   TRASH 1 RETURN
+061233             10910 RDMRTN   BSZ 0                 !END IF
+061233 236         10930          RTN 
+061234             10970 !
+061234             10990 !*************  LINK NEXT SEGMENT    ************************
+061234             11010          LNK ROM2-2ND
+061234             100 !        HED MAT A = IDENTITY ROUTINE
+061234             110 !******************************************************************
+061234             120 !*** MAT C = IDN : ASSIGNS VALUE 1 TO ALL DIAGONAL ELEMENTS OF  ***
+061234             130 !***               RESULT MATRIX AND ASSIGNS THE VALUE 0 TO ALL ***
+061234             140 !***               OTHER ELEMENTS.                              ***
+Page    9                                                             
+CAPASM
+
+061234             150 !***               RESULT MATRIX MUST BE SQUARE.                ***
+061234             160 !*** IN  : REL ADDR C                                           ***
+061234             170 !***                 <--- R12                                   ***
+061234             180 !*** OUT : STACK POPPED AND ARRAY ASSIGNED AS IDENTITY MATRIX.  ***
+061234             190 !******************************************************************
+061234             200 !
+061234             210          LST 
+061234             220 IDN2     BSZ 0
+061234             230          UNL 
+061234 117 311 300 240          CMM R17,=300            !LOOK AT ERROR FLAG
+061237 372 004     250          JNC ICONT               !IF (REDIMENSION ERROR)
+061241 165 012 343 260          POMD R65,-R12           !   TRASH REL ADDR ARRAY C
+061244 236         270          RTN                     !   EXIT
+061245             280 ICONT    BSZ 0                   !END IF
+061245 316 223 014 290          JSB =ROMJSB  
+061250 006 171     300          DEF LOCSZ-              !Bc, Mc, Nc
+061252 260         310          BYT 260
+061253 122 024 301 320          CMM R22,R24             !NUM ROW = NUM COL ? (Mc=Nc)
+061256 367 010     330          JZR ISQUAR              !IF (NOT SQUARE MATRIX)
+061260 316 053 145 340          JSB =ERROR+  
+061263 316 224 020 350          JSB =ERROR   
+061266 016         360          BYT 014D                !   REPORT ERROR & EXIT
+061267 236         370          RTN 
+061270             380 ISQUAR   BSZ 0                   !END IF
+061270 221         390          TSM R#                  !NULL ARRAY ?
+061271 367 044     400          JZR IDNRTN              !IF (NOT NULL ARRAY)
+061273             410 ICOLLP   BSZ 0                   !   REPEAT
+061273 122 026 243 420          STM R22,R26             !      ROWS = Mc
+061276             430 IROWLP   BSZ 0                   !      REPEAT
+061276 140 223     440          CLM R40                 !         ASSUME NON DIAGONAL
+061300 126 024 301 450          CMM R26,R24             !         NUMROW = NUMCOL ?
+061303 366 006     460          JNZ ISTOR               !         IF (NUMROW = NUMCOL)
+061305 316 223 014 470          JSB =ROMJSB  
+061310 114 133     480          DEF FTR61               !            DIAGONAL - 1 IN R40
+061312 260         490          BYT 260
+061313             500 ISTOR    BSZ 0                   !         END IF
+061313 316 223 014 510          JSB =ROMJSB  
+061316 301 162     520          DEF STOV                !         1 OR 0 IN C(I,J)
+061320 260         530          BYT 260
+061321 126 213     540          DCM R26                 !         ROWS = ROWS - 1
+061323 366 351     550          JNZ IROWLP              !      UNTIL (ROWS = 0)
+061325 124 213     560          DCM R24                 !      COLS = COLS - 1
+061327 366 342     570          JNZ ICOLLP              !   UNTIL (COLS = 0)
+061331 316 223 014 580          JSB =ROMJSB  
+061334 312 154     590          DEF CKTRC               !   CHECK TRACE
+061336 260         600          BYT 260
+061337 236         610 IDNRTN   RTN                     !END IF
+061340             620 !
+061340             630 !******************************************************************
+061340             640 !*** EQUA2 : COPIES AN ARRAY -- A -- INTO ARRAY -- C.           ***
+061340             650 !*** IN  : R24  = Ma : NUM ROWS OF A                            ***
+061340             660 !***       R24  = Na : NUM COLS OF A                            ***
+061340             670 !***       R32  =  1 : CONVERT TAGGED INTEGER OF A INTO REALS   ***
+061340             680 !***            =  0 : DON'T CONVERT TAGGED INTEGER OF A        ***
+061340             690 !***       TMP1 = Ba : BASE ADDRESS OF A                        ***
+061340             700 !***       TMP4 = BC : BASE ADDRESS OF C                        ***
+061340             710 !*** OUT : VALUES OF A COPIED INTO C                            ***
+061340             720 !******************************************************************
+061340             730 !
+061340             740          LST 
+061340             750 EQUA2    BSZ 0
+061340 132 222     760          CLB R32
+061342 210         770          ICB R32                 !FLAG CONVERT TAGGED INT  TO REAL
+061343             780 EQUA09   BSZ 0                   !ENTRY POINT FOR NO CONVERSION
+Page   10                                                             
+CAPASM
+
+061343             790          UNL 
+061343 316 223 014 800          JSB =ROMJSB  
+061346 120 177     810          DEF PUTREG              !SAVE REGISTERS
+061350 260         820          BYT 260
+061351 316 223 014 830          JSB =ROMJSB  
+061354 365 170     840          DEF MNMUL               !FIND Ma * Na
+061356 260         850          BYT 260
+061357 130 055 241 860          LDM R30,R55             !COUNT = Ma * Na
+061362             870 EQULOP   BSZ 0                   !REPEAT
+061362 165 261 062 880          LDMD R65,=TMP1          !   GET FETCH ADDR FROM TMP1
+061365 211 
+061366 263 314 377 890          STMD R65,=PTR2          !   POINT TO VALUE WITH PTR2
+061371 146 260 331 900          LDBD R46,=TYPA          !   GET TYPE OF MATRIX A
+061374 203 
+061375 316 223 014 910          JSB =ROMJSB  
+061400 026 163     920          DEF FETCH-              !   R40 VALUE OF A(I,J)
+061402 260         930          BYT 260
+061403 132 220     940          TSB R32                 !   TEST CONVERT FLAG
+061405 367 016     950          JZR EEND1               !   IF (CONVERT)
+061407 144 310 377 960          CMB R44,=377            !      INTEGER ?
+061412 372 011     970          JNC EEND2               !      IF (INTEGER)
+061414 140 060 243 980          STM R40,R60             !         MOVE VALUE
+061417 316 125 136 990          JSB =INTORL             !         CONVERT IT
+061422 160 040 243 1000          STM R60,R40            !         MOVE IT BACK
+061425             1010 EEND2    BSZ 0                  !      END IF
+061425             1020 EEND1    BSZ 0                  !   END IF
+061425 316 223 014 1030          JSB =ROMJSB  
+061430 301 162     1040          DEF STOV               !   STORE IN C(I,J)
+061432 260         1050          BYT 260
+061433 316 223 014 1060          JSB =ROMJSB  
+061436 361 160     1070          DEF NXTA               !   ADDR NEXT A(I,J)
+061440 260         1080          BYT 260
+061441 130 213     1090          DCM R30                !   COUNT = COUNT - 1
+061443 366 315     1100          JNZ EQULOP             !UNTIL (COUNT = 0)
+061445 316 223 014 1110          JSB =ROMJSB  
+061450 153 177     1120          DEF GETREG             !RESTORE REGISTERS
+061452 260         1130          BYT 260
+061453 236         1140          RTN 
+061454             1150 !
+061454             1160 !*************  LINK NEXT SEGMENT    ************************
+061454             1170          LNK ROM2-2A
+061454             10 !
+061454             20 !   **************************************************************
+061454             30 !   *** FIND#/ : FINDS # AND TRAILING / IN FORMAT STRING       ***
+061454             40 !   *** EXIT   : TMP2+ =  0 --> NO # IN FORMAT STRING          ***
+061454             50 !   ***          TMP2+ <> 0 --> # PRESENT IN FORMAT STRING     ***
+061454             60 !   ***          TMP4  =  0 --> NO FINAL / IN FORMAT STRING    ***
+061454             70 !   ***          TMP4  <> 0 --> FINAL / IN FORMAT STRING       ***
+061454             80 !   **************************************************************
+061454             90 !
+061454             91          LST 
+061454             100 FIND#/   BSZ 0
+061454             101          UNL 
+061454             110 !
+061454             120 !    ***************************
+061454             130 !    *** LOOK FOR MAT PRINT  ***
+061454             140 !    ***************************
+061454             150 !
+061454 316 317 077 160          JSB =SVPTRS             !SAVE PTR1
+061457 120 222     170          CLB R20
+061461 262 075 211 180          STBD R20,=TMP2+         !FLAG NO CR,LF SUPPRESS
+061464 262 112 211 190          STBD R20,=TMP4          !FLAG NO TRAILING SLASH
+061467             200 LOP45    BSZ 0                   !REPEAT
+061467             210 LOP45A   BSZ 0                   !   LOOP
+Page   11                                                             
+CAPASM
+
+061467 270 312 377 220          LDBI R#,=PTR1+          !      GET TOKEN
+061472 310 153     230          CMB R#,=PRTOK           !      COMPARE WITH PRINT TOKEN
+061474 367 006     240          JZR LOP45B              !      ESCAPE IF PRINT TOKEN
+061476 310 126     250          CMB R#,=DSTOK           !      COMPARE WITH DISPLAY TOKEN
+061500 367 002     260          JZR LOP45B              !      ESCAPE IF DISPLAY TOKEN
+061502 360 363     270          JMP LOP45A              !      LOOP BACK
+061504             280 LOP45B   BSZ 0                   !   END LOOP
+061504 165 271 310 290          LDMI R65,=PTR1          !   GET NEXT 3 TOKENS
+061507 377 
+061510 311 045 260 300          CMM R65,=045,260,370    !   COMPARE WITH MATRIX ROM MAT TOKEN
+061513 370 
+061514 366 351     310          JNZ LOP45               !UNTIL (FOUND MATRIX ROM MAT STATEMENT)
+061516             320 !
+061516             330 !    **************************************
+061516             340 !    *** IF FORMAT STRING, SEARCH FOR   ***
+061516             350 !    *** CR, LF SUPPRESS (#)            ***
+061516             380 !    **************************************
+061516             390 !
+061516 120 271 311 400          LDMI R20,=PTR1-         !GET POSSIBLE QUOTE OR USING LINE NUMBER
+061521 377 
+061522 310 005     410          CMB R20,=QUOTE          !COMPARE WITH QUOTE TOKEN
+061524 367 022     420          JZR FIND#               !JIF TOKEN = QUOTE
+061526 310 347     430          CMB R20,=USLNO          !COMPARE WITH LINE NUMBER TOKEN
+061530 366 110     440          JNZ GOPRT               !IF (TOKEN = LINE NUMBER OR QUOTE)
+061532             450          BSZ 0                   !   IF (TOKEN = LINE NUMBER)
+061532 316 020 107 460          JSB =LINEAL             !      ALLOCATE LINE NUMBER
+061535 175 323 006 470          ADMD R75,=FWCURR        !      FIND ABS ADDR LINE NUMBER
+061540 200 
+061541 263 310 377 480          STMD R75,=PTR1          !      POINT TO IMAGE STATEMENT
+061544 162 271 311 490          LDMI R62,=PTR1-         !      POINT TO UNQUOTED STRING
+061547 377 
+061550             500 FIND#    BSZ 0                   !   END IF
+061550 120 270 311 510          LDBI R20,=PTR1-         !   GET FORMAT STRING LENGTH
+061553 377 
+061554             520 LOP#     BSZ 0                   !   REPEAT
+061554 121 270 311 530          LDBI R21,=PTR1-         !      GET STRING CHARACTER
+061557 377 
+061560 310 043     540          CMB R21,=43             !      COMPARE WITH #
+061562 366 003     550          JNZ LOP#1               !      IF (CHAR = #)
+061564 262 075 211 560          STBD R21,=TMP2+         !         FLAG CR,LF SUPPRESS
+061567             570 LOP#1    BSZ 0                   !      END IF
+061567 120 212     580          DCB R20                 !      STRING LENGTH = STRING LENGTH - 1
+061571 366 361     590          JNZ LOP#                !   UNTIL (STING LENGTH = 0)
+061573             600 !
+061573             610 !    **************************************
+061573             620 !    *** SEARCH FORMAT STRING FOR       ***
+061573             630 !    *** TRAILING SLASH                 ***
+061573             660 !    **************************************
+061573             670 !
+061573             680 LOP/     BSZ 0                   !   LOOP
+061573 121 310 130 690          CMB R21,=X              !      COMPARE WITH X
+061576 367 026     700          JZR LOP/NX              !      CONTINUE SCAN IF X
+061600 310 042     710          CMB R21,=QUOT           !      COMPARE WITH "
+061602 367 022     720          JZR LOP/NX              !      CONTINUE SCAN IF "
+061604 310 051     730          CMB R21,=RTPARN         !      COMPARE WITH )
+061606 367 016     740          JZR LOP/NX              !      CONTINUE SCAN IF )
+061610 310 050     750          CMB R21,=LTPARN         !      COMPARE WITH (
+061612 367 012     760          JZR LOP/NX              !      CONTINUE SCAN IF (
+061614 310 054     770          CMB R21,=COMMA          !      COMPARE WITH ,
+061616 367 006     780          JZR LOP/NX              !      CONTINUE SCAN IF ,
+061620 310 040     790          CMB R21,=BLANK          !      COMPARE WITH BLANK
+061622 367 002     800          JZR LOP/NX              !      CONTINUE SCAN IF BLANK
+061624 360 005     810          JMP LOP/1               !      ESCAPE IF NON-GARBAGE
+061626 270 312 377 820 LOP/NX   LDBI R#,=PTR1+          !      GET NEXT IMAGE CHAR
+Page   12                                                             
+CAPASM
+
+061631 360 340     830          JMP LOP/                !   END LOOP
+061633             840 LOP/1    BSZ 0
+061633 310 057     850          CMB R#,=SLASH           !   COMPARE WITH SLASH
+061635 366 003     860          JNZ LOP/2               !   IF (TRAILING SLASH)
+061637 262 112 211 870          STBD R#,=TMP4           !      FLAG TRAILING SLASH
+061642             880 LOP/2    BSZ 0                   !   END IF
+061642             890 GOPRT    BSZ 0                   !END IF
+061642 316 340 077 900          JSB =RSPTRS             !RESTORE PTR1
+061645 236         901          RTN 
+061646             910 !
+061646             920 !    *********************************
+061646             930 !    *** LINK NEXT SEGMENT         ***
+061646             950 !    *********************************
+061646             951          LNK ROM2-3RD
+061646             100 !        HED MAT C = TRANSPOSE(A) ROUTINE
+061646             110 !**************************************************************
+061646             120 !*** MAT C = TRN (A) :                                      ***
+061646             130 !***         RESULT ARRAY WILL CONTAIN THE SAME ELEMENTS    ***
+061646             140 !***         AS THE OPERAND ARRAY, BUT THE ROWS AND COLUMNS ***
+061646             150 !***         WILL BE INTERCHANGED.                          ***
+061646             160 !*** IN    : RELATIVE ADDRESS C                             ***
+061646             170 !***         RELATIVE ADDRESS A                             ***
+061646             180 !***                           <--- R12                     ***
+061646             190 !*** OUT   : STACK POPPED & ARRAY ASSIGNED                  ***
+061646             200 !***         (AND REDIMENSIONED IF NECESSARY)               ***
+061646             210 !**************************************************************
+061646             220 !
+061646             230          LST 
+061646             240 TRNPS2   BSZ 0
+061646             250          UNL 
+061646             260 !        -------------------
+061646             270 !        -- GET A INFO &  --
+061646             280 !        -- REDIMENSION C --
+061646             290 !        -------------------
+061646 316 173 142 300          JSB =LOCSZ2             !Ba, Ma, Na
+061651 170 022 241 310          LDM R70,R22             !SAVE Ma & Na
+061654 124 014 243 320          STM R24,R14             !COPY Na
+061657 022 241     330          LDM R24,R22             !Mc = Na
+061661 114 243     340          STM R14,R22             !Nc = Ma
+061663 316 202 142 350          JSB =RDIM2              !REDIM C -- Na X Ma
+061666 316 204 141 360          JSB =ZERTST             !SEE IF NULL ARRAY RESULTS
+061671 366 001     370          JNZ TRNPOS              !IF (NULL ARRAY)
+061673 236         380          RTN                     !   QUIT
+061674             390 TRNPOS   BSZ 0                   !END IF
+061674             400 !        -------------------
+061674             410 !        -- COPY A INTO C --
+061674             420 !        -------------------
+061674 316 340 142 430          JSB =EQUA2              !COPY A INTO C
+061677 316 223 014 440          JSB =ROMJSB  
+061702 365 170     450          DEF MNMUL               !FIND MN = Mc * Nc
+061704 260         460          BYT 260
+061705 110 055 241 470          LDM R10,R55             !MN
+061710 014 243     480          STM R10,R14
+061712 114 213     490          DCM R14                 !MN - 1
+061714 120 261 377 500          LDMD R20,=INCRC         !GET ELE SIZE OF C
+061717 203 
+061720 100 251 070 510          LDM R0,=70,0            !INIT R0
+061723 000 
+061724 020 304     520          SBB R0,R20              !60(REAL), 64(SHORT), 65(INTEGER)
+061726             530 !        ---------------------
+061726             540 !        -- TAG BYTE & INCR --
+061726             550 !        ---------------------
+061726             560          BSZ 0                   !ASSUME INTEGER OR SHORT ...
+061726 126 223     570          CLM R26                 !   TAG INCR = 0
+Page   13                                                             
+CAPASM
+
+061730 174 250 100 580          LDB R74,=100            !   TAG = 2nd M.S.BIT OF SIGN
+061733 120 310 010 590          CMB R20,=10             !TEST TYPE OF ARRAY C
+061736 366 006     600          JNZ TRN09               !IF (REAL)
+061740 126 250 006 610          LDB R26,=6              !   TAG INCR = 6
+061743 174 250 004 620          LDB R74,=4              !   TAG = 2nd M.S.BIT OF SIGN
+061746             630 TRN09    BSZ 0                   !END IF
+061746             640 !        ----------------------
+061746             650 !        -- IN PLACE CYCLING --
+061746             660 !        ----------------------
+061746             670 CYCLE1   BSZ 0                   !REPEAT
+061746 316 217 144 680          JSB =TRNUT2             !   FIND ADDR Pth ELE (R45)
+061751 065 243     690          STM R#,R65              !   SAVE IT
+061753 130 222     700          CLB R30
+061755 145 026 305 710          SBM R45,R26             !   ADDR TAG BYTE Pth ELE
+061760 263 314 377 720          STMD R45,=PTR2          !   STORE ADDR IN PTR2
+061763 135 270 315 730          LDBI R35,=PTR2-         !   GET TAG BYTE
+061766 377 
+061767 034 242     740          STB R35,R34             !   SAVE IT
+061771 074 307     750          ANM R35,R74             !   Pth ELE TAGGED OR UNTAGGED ?
+061773 366 102     760          JNZ CYCLE4              !   IF (Pth ELE UNTAGGED)
+061775 240         770          LDB R35,R74             !      GET TAG
+061776 034 302     780          ADB R35,R34             !      TAG THE BYTE
+062000 272 314 377 790          STBI R35,=PTR2          !      STORE TAGGED BYTE
+062003 145 065 241 800          LDM R45,R65             !      RESTORE ADDR Pth ELE
+062006 316 255 144 810          JSB =LDR*               !      Y = [P]
+062011             820 CYCLE2   BSZ 0                   !      LOOP
+062011 101 012 345 830          PUMD R*,+R12            !         SAVE Y
+062014 316 152 144 840          JSB =TRNUT1             !         GET NEW P
+062017 316 217 144 850          JSB =TRNUT2             !         GET IT'S ADDR
+062022 316 255 144 860          JSB =LDR*               !         GET [P]
+062025 101 006 345 870          PUMD R*,+R6             !         SAVE [P]
+062030 012 343     880          POMD R*,-R12            !         GET Y
+062032 316 307 144 890          JSB =STR*               !         [P] = Y
+062035 101 006 343 900          POMD R*,-R6             !         Y = [P]
+062040 120 310 010 910          CMB R20,=10             !         TEST TYPE
+062043 367 006     920          JZR TRN08               !         IF (INTEGER OR SHORT)
+062045 100 020 302 930          ADB R0,R20              !            ADD IN ELE SIZE
+062050 212         940          DCB R0                  !            R0 = 67
+062051 360 002     950          JMP TRN04   
+062053             960 TRN08    BSZ 0                   !         ELSE - (REAL)
+062053 100 210     970          ICB R0                  !            R0 = 61
+062055             980 TRN04    BSZ 0                   !         END IF
+062055 135 074 240 990          LDB R35,R74             !         GET TAG
+062060 001 307     1000          ANM R35,R*             !         IS Y TAGGED ?
+062062 366 010     1010          JNZ CYCLE3             !         ESCAPE LOOP IF Y TAGGED
+062064 101 074 302 1020          ADB R*,R74             !         TAG Y
+062067 316 335 144 1030          JSB =RSTR0             !         RESTORE R0
+062072 360 315     1040          JMP CYCLE2             !         LOOP
+062074             1050 CYCLE3   BSZ 0                  !      END LOOP
+062074 316 335 144 1060          JSB =RSTR0             !      RESTORE R0
+062077             1070 CYCLE4   BSZ 0                  !   END IF
+062077 110 213     1080          DCM R10                !   P = P - 1
+062101 366 243     1090          JNZ CYCLE1             !UNTIL (P = 0)
+062103             1100 !        ----------------------
+062103             1110 !        -- UNTAG SIGN BYTES --
+062103             1120 !        ----------------------
+062103 114 211     1130          ICM R14                !MN
+062105 174 216     1140          NCB R74                !UNARY NOT THE TAG
+062107 130 222     1150          CLB R30
+062111 145 261 107 1160          LDMD R45,=TMP3++       !GET Bc
+062114 211 
+062115 026 305     1170          SBM R45,R26            !ADDR TAG BYTE
+062117             1180 UNTAG    BSZ 0                  !REPEAT
+062117 145 263 314 1190          STMD R45,=PTR2         !   POINT TO TAG BYTE
+Page   14                                                             
+CAPASM
+
+062122 377 
+062123 135 270 315 1200          LDBI R35,=PTR2-        !   GET TAG BYTE
+062126 377 
+062127 074 307     1210          ANM R35,R74            !   CLEAR TAG BYTE
+062131 272 314 377 1220          STBI R35,=PTR2         !   STORE CLEARED TAG BYTE
+062134 155 261 377 1230          LDMD R55,=INCRC        !   GET ELE SIZE OF C
+062137 203 
+062140 157 222     1240          CLB R57
+062142 145 055 305 1250          SBM R45,R55            !   GET NEXT TAG BYTE ADDR
+062145 114 213     1260          DCM R14                !   MN = MN - 1
+062147 366 346     1270          JNZ UNTAG              !UNTIL (MN = 0)
+062151 236         1280          RTN 
+062152             1290 !
+062152             1300 !******************************************************************
+062152             1310 !* TRNUT1: THE Pth ELE OF AN M X N MATRIX A IS MAPPED BY THE      *
+062152             1320 !*         TRANSPOSE TO ELE M(P-1)+1-(MN-1)INT((P-1)/N) OF TRN(A) *
+062152             1330 !* ENTRY : R10/11 = P; R70/71 = M; R72/73 = N; R14/15 = MN-1      *
+062152             1340 !* EXIT  : R10/11 = M(P-1)+1-(MN-1)INT((P-1)/N)                   *
+062152             1350 !******************************************************************
+062152             1360 !
+062152             1370 TRNUT1   BSZ 0
+062152 110 213     1380          DCM R10                !P - 1
+062154 066 243     1390          STM R10,R66            !MOVE IT
+062156 176 070 241 1400          LDM R76,R70            !MOVE M
+062161 316 273 127 1410          JSB =INTMUL            !M(P-1)
+062164 154 211     1420          ICM R54                !M(P-1)+1
+062166 044 243     1430          STM R54,R44            !SAVE IT
+062170 166 223     1440          CLM R66
+062172 213         1450          DCM R66                !INIT COUNTER
+062173             1460 TRN07    BSZ 0                  !REPEAT
+062173 166 211     1470          ICM R66                !   BUMP CURRENT INT((P-1)/N)
+062175 110 072 305 1480          SBM R10,R72            !   SUBTRACT OUT N
+062200 373 371     1490          JCY TRN07              !UNTIL (ANSWER IS NEGATIVE)
+062202 114 076 243 1500          STM R14,R76            !MN -1
+062205 316 273 127 1510          JSB =INTMUL            !(MN-1)INT((P-1)/N)
+062210 144 054 305 1520          SBM R44,R54            !EXIT VALUE
+062213 110 044 241 1530          LDM R10,R44
+062216 236         1540          RTN 
+062217             1550 !
+062217             1560 !***************************************************************
+062217             1570 !* TRNUT2: COMPUTES ADDR OF Pth ELE OF MATRIX A                *
+062217             1580 !* ENTRY : R10/11 = P; R20,21 = 8,4 OR 3; TMP3++ = Bc          *
+062217             1590 !* EXIT  : R45/46/47 = ADDR Pth ELE                            *
+062217             1600 !***************************************************************
+062217             1610 !
+062217             1620 TRNUT2   BSZ 0
+062217 132 010 241 1630          LDM R32,R10            !P
+062222 213         1640          DCM R32                !P - 1
+062223 034 243     1650          STM R32,R34            !COPY P - 1
+062225 205         1660          LLM R32                !2(P-1)
+062226 205         1670          LLM R32                !4(P-1)
+062227 120 310 004 1680          CMB R20,=4             !TEST TYPE OF ARRAY C
+062232 373 004     1690          JCY TRN06              !IF (INTEGER)
+062234 132 305     1700          SBM R32,R34            !   3(P-1)
+062236 360 004     1710          JMP TRN05   
+062240             1720 TRN06    BSZ 0
+062240 367 002     1730          JZR TRN05              !ELSE IF (REAL)
+062242 132 205     1740          LLM R32                !   8(P-1)
+062244             1750 TRN05    BSZ 0                  !END IF
+062244 134 222     1760          CLB R34
+062246 145 261 107 1770          LDMD R45,=TMP3++       !GET Bc
+062251 211 
+062252 032 305     1780          SBM R45,R32            !ADDR Pth ELE
+062254 236         1790          RTN 
+Page   15                                                             
+CAPASM
+
+062255             1800 !
+062255             1810 !***************************************************************
+062255             1820 !* LDR* : LOADS R[R0] WITH VALUE ADDRESSED BY PTR2             *
+062255             1830 !* ENTRY: R0 = 60(REAL), 64(SHORT), 65(INT); R45 = ADDR OF ELE *
+062255             1840 !* EXIT : R60 OR 64 OR 65 LOADED WITH APPROPRIATE              *
+062255             1850 !*        REAL ,SHORT OR INTEGER VALUE                         *
+062255             1860 !***************************************************************
+062255             1870 !
+062255             1880 LDR*     BSZ 0
+062255 145 263 314 1890          STMD R45,=PTR2         !POINT TO ARRAY VALUE
+062260 377 
+062261 100 310 064 1900          CMB R0,=64             !TEST TYPE
+062264 373 005     1910          JCY LDR*1              !IF (REAL)
+062266 160 271 315 1920          LDMI R60,=PTR2-        !   LOAD 8 BYTES
+062271 377 
+062272 236         1930          RTN 
+062273 367 005     1940 LDR*1    JZR LDR*2              !ELSE IF (INTEGER)
+062275 165 271 315 1950          LDMI R65,=PTR2-        !   LOAD 3 BYTES
+062300 377 
+062301 236         1960          RTN 
+062302             1970 LDR*2    BSZ 0                  !ELSE (SHORT)
+062302 164 271 315 1980          LDMI R64,=PTR2-        !   LOAD 4 BYTES
+062305 377 
+062306             1990          BSZ 0                  !END IF
+062306 236         2000          RTN 
+062307             2010 !
+062307             2020 !****************************************************************
+062307             2030 !* STR* : STORES R[R0] INTO ARRAY ELE POINTED TO BY PRT2        *
+062307             2040 !* ENTRY: R0 = 60(REAL), 64(SHORT), 65(INT); PTR2 = ADDR OF ELE *
+062307             2050 !* EXIT : [PTR2] STORED WITH VALUE CONTAINED IN R60 OR 64 OR 65 *
+062307             2060 !****************************************************************
+062307             2070 !
+062307             2080 STR*     BSZ 0
+062307 100 310 064 2090          CMB R0,=64             !TEST TYPE
+062312 373 005     2100          JCY STR*1              !IF (REAL)
+062314 160 273 314 2110          STMI R60,=PTR2         !   STORE 8 BYTES
+062317 377 
+062320 236         2120          RTN 
+062321 367 005     2130 STR*1    JZR STR*2              !ELSE IF (INTEGER)
+062323 165 273 314 2140          STMI R65,=PTR2         !   STORE 3 BYTES
+062326 377 
+062327 236         2150          RTN 
+062330             2160 STR*2    BSZ 0                  !ELSE (SHORT)
+062330 164 273 314 2170          STMI R64,=PTR2         !   STORE 4 BYTES
+062333 377 
+062334             2180          BSZ 0                  !END IF
+062334 236         2190          RTN 
+062335             2200 !
+062335             2210 !**********************************************************
+062335             2220 !* RSTR0: RESTORES R0 TO 64 IF SHORT, 65 IF INTEGER       *
+062335             2230 !* ENTRY: R0 = 67(SHORT & INTEGER), 61(REAL)              *
+062335             2240 !*        R20 = 10(REAL),  4(SHORT),  3(INTEGER)          *
+062335             2250 !* EXIT : R0  = 60(REAL), 64(SHORT), 65(INTEGER)          *
+062335             2260 !**********************************************************
+062335             2270 !
+062335             2280 RSTR0    BSZ 0
+062335 120 310 010 2290          CMB R20,=10            !TEST TYPE
+062340 367 006     2300          JZR RSTR01             !IF (INTEGER OR SHORT)
+062342 100 020 304 2310          SBB R0,R20             !   SUBTRACT ELE SIZE
+062345 210         2320          ICB R0                 !   R0 = 65 IF INTEGER
+062346 360 002     2330          JMP RSTR02             !   R0 = 64 IF SHORT
+062350             2340 RSTR01   BSZ 0                  !ELSE - (REAL)
+062350 100 212     2350          DCB R0                 !   R0 = 60
+062352             2360 RSTR02   BSZ 0                  !END IF
+Page   16                                                             
+CAPASM
+
+062352 236         2370          RTN 
+062353             2380 !
+062353             2390 !        HED LBND AND UBND ROUTINES
+062353             2400 !****  LBND ATTRIBUTES TABLE  **********************************
+062353 044 055     2410          BYT 44,55
+062355             2420 !***************************************************************
+062355             2430 !*** LBND (A,EXP) : LOWER BOUND OF ARRAY SUBSCRIPT (1 OR 2)  ***
+062355             2440 !***                OF ARRAY A, SPECIFIED BY ROUNDED INTEGER ***
+062355             2450 !***                VALUE OF EXPRESSION.  EQUAL TO THE       ***
+062355             2460 !***                OPTION BASE IN EFFECT.                   ***
+062355             2470 !*** IN           : RELATIVE ADDRESS A                       ***
+062355             2480 !***                INTEGER VALUE OF EXPRESSION              ***
+062355             2490 !***                                           <--- R12      ***
+062355             2500 !*** OUT          : LOWER BOUND OF ARRAY A                   ***
+062355             2510 !***                                           <--- R12      ***
+062355             2520 !***************************************************************
+062355             2530 !
+062355             2540          LST 
+062355 170 222     2550 LDIM2    CLB R70                !CLEAR FLAG.
+062357             2560          UNL 
+062357 360 005     2570          JMP UDIM+              !PUSH OPTION BASE ON STACK.
+062361             2580 !
+062361             2590 !****  UBND ATTRIBUTES TABLE  **********************************
+062361 044 055     2600          BYT 44,55              !ONE ARRAY, ONE NUMERIC
+062363             2610 !***************************************************************
+062363             2620 !*** UBND (A,EXP) : UPPER BOUND OF ARRAY SUBSCRIPT (1 OR 2)  ***
+062363             2630 !***                OF ARRAY A, SPECIFIED BY ROUNDED INTEGER ***
+062363             2640 !***                VALUE OF EXPRESSION.                     ***
+062363             2650 !*** IN           : RELATIVE ADDRESS A                       ***
+062363             2660 !***                INTEGER VALUE OF EXPRESSION              ***
+062363             2670 !***                                           <--- R12      ***
+062363             2680 !*** OUT          : UPPER BOUND OF ARRAY A                   ***
+062363             2690 !***                                           <--- R12      ***
+062363             2700 !***************************************************************
+062363             2710 !
+062363             2720          LST 
+062363 170 222     2730 UDIM2    CLB R70                !CLEAR FLAG .
+062365             2740          UNL 
+062365 210         2750          ICB R70                !FLAG SAYING CALC UDIM.
+062366 316 153 024 2760 UDIM+    JSB =ONEB              !GET INTEGER N.
+062371 146 006 345 2770          PUMD R46,+R6           !SAVE ANSWER FROM LOCSZ
+062374 316 173 142 2780          JSB =LOCSZ2            !GET UPPER DIMS & OPTION BASE.
+062377 146 006 343 2790          POMD R46,-R6           !RESTORE ANSWER
+062402 170 220     2800          TSB R70                !UDIM OR LDIM?
+062404 366 005     2810          JNZ NOTLDM             !JIF NOT LDIM.
+062406 122 223     2820          CLM R22                !1 IN R22-ADDS TO OPT BASE.
+062410 211         2830          ICM R22                !THIS 1 GETS DECR OUT AT UDIM17.
+062411 024 243     2840          STM R22,R24            !SAME FOR R24.
+062413 146 221     2850 NOTLDM   TSM R46                !N=1 OR 2?
+062415 364 030     2860          JNG UDIM22             !JIF NEG; INPUT ERROR.
+062417 213         2870          DCM R#                 !N=1?
+062420 366 005     2880          JNZ UDIM16             !JIF N#1.
+062422 136 022 303 2890          ADM R36,R22            !ELSE ADD COL SIZE TO OPT BASE.
+062425 360 010     2900          JMP UDIM17             !GO DECR & PUSH ANS ON STACK.
+062427 213         2910 UDIM16   DCM R#                 !N=2?
+062430 366 015     2920          JNZ UDIM22             !JIF N#2; ERROR.
+062432 370 013     2930          JEN UDIM22             !ERROR IF A VECTOR.
+062434 136 024 303 2940          ADM R36,R24            !ELSE ADD ROW SIZE TO OPT BASE.
+062437 213         2950 UDIM17   DCM R#                 !ADJUST ANSWER.
+062440 316 001 011 2960 UDIM20   JSB =CONBIN            !BINARY INT TO BCD INT.
+062443 140 012 345 2970          PUMD R40,+R12          !PUSH ANSWER ONTO STACK.
+062446 236         2980          RTN 
+062447             2990 UDIM22   BSZ 0                  !ERROR EXIT
+062447 316 224 020 3000          JSB =ERROR   
+Page   17                                                             
+CAPASM
+
+062452 131         3010          BYT 89D
+062453             3020 !
+062453             3030 !********************************************************
+062453             3040 !*** ERROR+ : SETS ERRROM WITH ROM NUMBER IF NO OTHER ***
+062453             3050 !***          ERRORS ARE FLAGGED.                     ***
+062453             3060 !********************************************************
+062453             3070 !
+062453             3080 ERROR+   BSZ 0
+062453 136 222     3090          CLB R36
+062455 320 123 200 3100          CMBD R36,=ERRORS       !ERROR FLAG ALREADY SET
+062460 366 005     3110          JNZ DOERR+             !IF (NO OTHER ERRORS FLAGGED)
+062462 250 260     3120          LDB R36,=260           !   SELECT MATRIX ROM
+062464 262 120 200 3130          STBD R36,=ERRROM       !   FLAG ERROR
+062467             3140 DOERR+   BSZ 0                  !END IF
+062467 236         3150          RTN 
+062470             3160 !
+062470             3170 !******************************
+062470             3180 !***   EXTERNAL LABEL TABLE ***
+062470             3190 !******************************
+062470             3200 !
+062470             3210          LST 
+062470             3220 TMP1+    DAD 104465             !3 BYTES PAST TMP1
+062470             3230 TMP2+    DAD 104475             !3 BYTES PAST TMP2
+062470             3240 TMP3++   DAD 104507             !5 BYTES PAST TMP3
+062470             3250 FTR61    DAD 55514
+062470             3260 LINEAL   DAD 43420              !ALLOCATE LINE NUMBER
+062470             3270 !        ------------
+062470             3280 !        --- ROM1 ---
+062470             3290 !        ------------
+062470             3300 CKTRC    DAD 66312              !CHECK TRACE
+062470             3310 MPYR70   DAD 70141              !MULTIPLICATION
+062470             3320 NXTB     DAD 70341              !NEXT ELEMENT OF ARRAY 'B'
+062470             3330 NXTA     DAD 70361              !NEXT ELEMENT OF ARRAY 'A'
+062470             3340 NXTELE   DAD 70401              !NEXT ELEMENT OF ARRAY
+062470             3350 DOTPRD   DAD 70715              !DOT PRODUCT
+062470             3360 RONF5-   DAD 70724              !ROUND ANSWER
+062470             3370 DOTACC   DAD 70755              !ACCUMULATE DOT PRODUCT
+062470             3380 RUNSUM   DAD 71040              !RUNNING SUM
+062470             3390 STOV--   DAD 71276              !STORE ELEMENT
+062470             3400 STOV     DAD 71301              !STORE ELEMENT
+062470             3410 FETCH-   DAD 71426              !FETCH ELEMENT
+062470             3420 C=AORB   DAD 73704              !TEST BASE ADDR -- A,B,C
+062470             3430 COPYAB   DAD 74007              !COPY ARRAY A OR B
+062470             3440 ACOLEL   DAD 74113              !NEXT COL ELE OF 'A' TYPE ARRAY
+062470             3450 MNMUL    DAD 74365              !MULTILICATION
+062470             3460 LOCSZ-   DAD 74406              !LOCATE 'C' TYPE MATRIX
+062470             3461 VECFLG   DAD 74413              !SET VECTOR MATRIX FLAG
+062470             3470 LOCSZI   DAD 74426              !LOCATE 'B' TYPE MATRIX
+062470             3471 LOCSZ    DAD 74432              !LOCATE 'A' TYPE MATRIX
+062470             3472 COMRC-   DAD 74702              !
+062470             3473 GELT     DAD 74745              !GET ELEMENT
+062470             3474 REDIM.   DAD 77023              !REDIMENSION
+062470             3480 PUTREG   DAD 77520              !SAVE REGISTERS
+062470             3490 GETREG   DAD 77553              !GET REGISTERS
+062470             3500          FIN 
+ 
+195 Symbols used:
+ABSUM2     LCL 060051    90;1
+ACOLEL     DAD 074113   335;2
+BLANK      EQU 000040 GLOBL
+C=AORB     DAD 073704   333;2
+CKTRC      DAD 066312   321;2
+CLRCOM     LCL 060245   206;1
+CNEND      LCL 060451   294;1
+Page   18                                                             
+CAPASM
+
+CNLOOP     LCL 060435   289;1
+CNORM2     LCL 060422   284;1
+CNORMX     EQU 000073    11;1
+COELSE     LCL 060322   227;1
+COEND1     LCL 060352   241;1
+COEND2     LCL 060332   232;1
+COEND3     LCL 060332   231;1
+COLINT     LCL 060474   316;1
+COLNXT     LCL 060523   337;1
+COLSUM     LCL 060173   164;1
+COMEND     LCL 061157   516;1
+COMIN      LCL 060353   244;1
+COMMA      EQU 000054    18;1
+COMRC-     DAD 074702   341;2
+COMSUM     LCL 060251   208;1
+COMX.      LCL 061120   501;1
+CONBIN     DAD 004401 GLOBL
+COPYAB     DAD 074007   334;2
+COWHIL     LCL 060254   209;1
+CROSS2     LCL 060667   407;1
+CSEND1     LCL 060154   156;1
+CSEND2     LCL 060203   168;1
+CSUM2      LCL 060123   141;1
+CYCLE1     LCL 061746    58;2
+CYCLE2     LCL 062011    73;2
+CYCLE3     LCL 062074    96;2
+CYCLE4     LCL 062077    98;2
+DOERR+     LCL 062467   305;2
+DOT2       LCL 061103   492;1
+DOTACC     DAD 070755   328;2
+DOTPRD     DAD 070715   326;2
+DSTOK      EQU 000126    22;1
+EEND1      LCL 061425    93;3
+EEND2      LCL 061425    92;3
+EQUA09     LCL 061343    69;3
+EQUA2      LCL 061340    66;3
+EQULOP     LCL 061362    78;3
+ERMSG      LCL 060016    53;1
+ERROR      DAD 010224 GLOBL
+ERROR+     LCL 062453   299;2
+ERRORS     DAD 100123 GLOBL
+ERRROM     DAD 100120 GLOBL
+FETCH-     DAD 071426   332;2
+FIND#      LCL 061550    50;4
+FIND#/     LCL 061454    11;4
+FTR61      DAD 055514   316;2
+FWCURR     DAD 100006 GLOBL
+GELT       DAD 074745   342;2
+GETREG     DAD 077553   345;2
+GOPRT      LCL 061642    87;4
+ICOLLP     LCL 061273    32;3
+ICONT      LCL 061245    19;3
+IDN2       LCL 061234    13;3
+IDNRTN     LCL 061337    52;3
+INCRA      DAD 101732 GLOBL
+INCRC      DAD 101777 GLOBL
+INIT       LCL 060014    51;1
+INTMUL     DAD 053673 GLOBL
+INTORL     DAD 057125 GLOBL
+IROWLP     LCL 061276    34;3
+ISQUAR     LCL 061270    29;3
+ISTOR      LCL 061313    41;3
+LDIM2      LCL 062355   246;2
+LDR*       LCL 062255   179;2
+Page   19                                                             
+CAPASM
+
+LDR*1      LCL 062273   185;2
+LDR*2      LCL 062302   188;2
+LINEAL     DAD 043420   317;2
+LOCSZ      DAD 074432   340;2
+LOCSZ-     DAD 074406   337;2
+LOCSZ2     LCL 061173   528;1
+LOCSZI     DAD 074426   339;2
+LOP#       LCL 061554    52;4
+LOP#1      LCL 061567    57;4
+LOP/       LCL 061573    66;4
+LOP/1      LCL 061633    82;4
+LOP/2      LCL 061642    86;4
+LOP/NX     LCL 061626    80;4
+LOP45      LCL 061467    22;4
+LOP45A     LCL 061467    23;4
+LOP45B     LCL 061504    30;4
+LTPARN     EQU 000050    17;1
+MAXRC      LCL 060617   373;1
+MBASE      DAD 103424 GLOBL
+MNMUL      DAD 074365   336;2
+MPYR70     DAD 070141   322;2
+NORM2      LCL 060017    66;1
+NORMIN     LCL 060553   350;1
+NOTLDM     LCL 062413   276;2
+NOVEC      LCL 060462   299;1
+NOVECA     LCL 061160   520;1
+NOVECB     LCL 061160   519;1
+NRTN       LCL 060616   370;1
+NXTA       DAD 070361   324;2
+NXTB       DAD 070341   323;2
+NXTELE     DAD 070401   325;2
+ONEB       DAD 012153 GLOBL
+ONER       DAD 056777 GLOBL
+PACKIT     LCL 060063   107;1
+PARSE      LCL 060014    50;1
+PRTOK      EQU 000153    21;1
+PSHRES     LCL 061114   497;1
+PTR1       DAD 177710 GLOBL
+PTR1+      DAD 177712 GLOBL
+PTR1-      DAD 177711 GLOBL
+PTR2       DAD 177714 GLOBL
+PTR2-      DAD 177715 GLOBL
+PUTREG     DAD 077520   344;2
+QUOT       EQU 000042    15;1
+QUOTE      EQU 000005    13;1
+RDIM2      LCL 061202   535;1
+RDMRTN     LCL 061233   549;1
+REDIM.     DAD 077023   343;2
+RLSQRT     LCL 060044    76;1
+RNEND      LCL 060405   268;1
+RNORM2     LCL 060373   263;1
+RNORMX     EQU 000071    10;1
+RNULL      LCL 060614   369;1
+RNWHIL     LCL 060376   265;1
+ROMJSB     DAD 006223 GLOBL
+RONF5-     DAD 070724   327;2
+RSEND      LCL 060230   195;1
+RSPTRS     DAD 037740 GLOBL
+RSTR0      LCL 062335   219;2
+RSTR01     LCL 062350   225;2
+RSTR02     LCL 062352   227;2
+RSUM2      LCL 060204   185;1
+RSWHIL     LCL 060221   192;1
+RTPARN     EQU 000051    16;1
+Page   20                                                             
+CAPASM
+
+RUNSUM     DAD 071040   329;2
+RUNTIM     LCL 060014    49;1
+SEP10      DAD 056034 GLOBL
+SLASH      EQU 000057    19;1
+SQR30      DAD 053264 GLOBL
+STOV       DAD 071301   331;2
+STOV--     DAD 071276   330;2
+STR*       LCL 062307   199;2
+STR*1      LCL 062321   204;2
+STR*2      LCL 062330   207;2
+SUM&ST     LCL 060231   198;1
+SUM.+      LCL 060060   106;1
+SUM.++     LCL 060075   114;1
+SUM2       LCL 060056   104;1
+SUMEND     LCL 060122   124;1
+SUMWHL     LCL 060111   120;1
+SVPTRS     DAD 037717 GLOBL
+TERM2      LCL 061053   466;1
+TERMA      LCL 061045   462;1
+TERMB      LCL 061031   456;1
+TERMS      LCL 061030   455;1
+TMP1       DAD 104462 GLOBL
+TMP1+      DAD 104465   313;2
+TMP2       DAD 104472 GLOBL
+TMP2+      DAD 104475   314;2
+TMP3       DAD 104502 GLOBL
+TMP3++     DAD 104507   315;2
+TMP4       DAD 104512 GLOBL
+TOK#       EQU 000043    12;1
+TOKS       LCL 060015    52;1
+TRN04      LCL 062055    89;2
+TRN05      LCL 062244   166;2
+TRN06      LCL 062240   163;2
+TRN07      LCL 062173   137;2
+TRN08      LCL 062053    87;2
+TRN09      LCL 061746    54;2
+TRNPOS     LCL 061674    30;2
+TRNPS2     LCL 061646    15;2
+TRNUT1     LCL 062152   128;2
+TRNUT2     LCL 062217   153;2
+TWOSEP     DAD 056023 GLOBL
+TYPA       DAD 101731 GLOBL
+UDIM+      LCL 062366   267;2
+UDIM16     LCL 062427   282;2
+UDIM17     LCL 062437   286;2
+UDIM2      LCL 062363   264;2
+UDIM20     LCL 062440   287;2
+UDIM22     LCL 062447   290;2
+UNTAG      LCL 062117   109;2
+USLNO      EQU 000347    14;1
+VECFLG     DAD 074413   338;2
+X          EQU 000130    20;1
+XEND0      LCL 060710   415;1
+XEND1      LCL 060720   419;1
+XENDLP     LCL 060775   440;1
+XINIT      LCL 061007   447;1
+XLOOP      LCL 060734   425;1
+XRTN       LCL 061102   478;1
+ZERTST     LCL 060604   364;1
+ZTST-      LCL 060575   360;1
+
+Index of source files in symbol cross reference:
+1: ROM2-1ST
+2: ROM2-3RD
+Page   21                                                             
+CAPASM
+
+3: ROM2-2ND
+4: ROM2-2A
+Assembly completed
+ 1101 lines processed, 0 error(s) encountered
+ 1336 bytes of code written to object file

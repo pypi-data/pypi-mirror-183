@@ -1,0 +1,810 @@
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:17
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 59 lines processed, 0 error(s) encountered
+ 163 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:17
+(c) Joachim Siebold 2020
+
+
+000066 000 000     0155        DEF  .   
+**ERROR(P) at ASTSSS.asm(16): Illegal label in operand field
+000165 000 200     0305        ASP  ""
+**ERROR(P) at ASTSSS.asm(32): Illegal string
+002026 230         3983 .    BIN  
+**ERROR(P) at ASTSSS.asm(411): Illegal label in label field
+Assembly completed
+ 419 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at BATS1.asm(9): Illegal label in operand field
+000104 000 200     0220        ASP  ""
+**ERROR(P) at BATS1.asm(22): Illegal string
+000165 144 251 016 0500 .    LDM  R44,=16,0
+000170 000 
+**ERROR(P) at BATS1.asm(43): Illegal label in label field
+Assembly completed
+ 3403 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 174 lines processed, 0 error(s) encountered
+ 358 bytes of code written to object file
+Error opening include or link file R/W2  -- Assembler terminated
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 38 lines processed, 0 error(s) encountered
+ 88 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at BULLS.asm(9): Illegal label in operand field
+000060 000 200     0130        ASP  ""
+**ERROR(P) at BULLS.asm(13): Illegal string
+000066 144 251 013 0180 .    LDM  R44,=11D,0
+000071 000 
+**ERROR(P) at BULLS.asm(18): Illegal label in label field
+Assembly completed
+ 836 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 772 lines processed, 0 error(s) encountered
+ 1341 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000303 000 200     0750        ASP  ""             !  KEYWORD CONTROL H CONTROL P
+**ERROR(P) at CHECKS.asm(64): Illegal string
+Assembly completed
+ 193 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000070 000 200     0380        ASP  ""
+**ERROR(P) at COPYTAPES.asm(38): Illegal string
+Assembly completed
+ 495 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000070 000 200     0380        ASP  ""
+**ERROR(P) at COPYTS.asm(38): Illegal string
+Assembly completed
+ 495 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 805 lines processed, 0 error(s) encountered
+ 1621 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 285 lines processed, 0 error(s) encountered
+ 638 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000054 000 000     0110        DEF  .   
+**ERROR(P) at DGETSAVS.asm(11): Illegal label in operand field
+000111 000 200     0200        ASP  ""
+**ERROR(P) at DGETSAVS.asm(20): Illegal string
+000222 230         0500 .    BIN  
+**ERROR(P) at DGETSAVS.asm(50): Illegal label in label field
+Assembly completed
+ 650 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at DODS12.asm(9): Illegal label in operand field
+000063 000 200     0130        ASP  ""
+**ERROR(P) at DODS12.asm(13): Illegal string
+000236 372 000     0580        JNC  OR+  
+**ERROR(P) at DODS12.asm(57): Illegal label in operand field
+000244 310 053     0610 OR+   CMB  R32,=53
+**ERROR(P) at DODS12.asm(60): Illegal label in label field
+000252 372 000     0640        JNC      
+**ERROR(P) at DODS12.asm(63): Illegal label in operand field
+000260 250 000     0670      LDB  R32,=     
+**ERROR(P) at DODS12.asm(66): Illegal label in label field
+**ERROR(P) at DODS12.asm(66): Illegal label in operand field
+000656 132 310 000 1590 NOPLUS CMB  R32,=     
+**ERROR(P) at DODS12.asm(159): Illegal label in operand field
+000661 366 000     1600        JNZ  NO   
+**ERROR(P) at DODS12.asm(160): Illegal label in operand field
+000673 122         1640 NO    DRP  R22
+**ERROR(P) at DODS12.asm(164): Illegal label in label field
+001014 132 310 000 1960 N--PLU CMB  R32,=     
+**ERROR(P) at DODS12.asm(197): Illegal label in operand field
+001017 367 000     1970        JZR  NO3  
+**ERROR(P) at DODS12.asm(198): Illegal label in operand field
+001066 132 310 000 2120 N-PLUS CMB  R32,=     
+**ERROR(P) at DODS12.asm(213): Illegal label in operand field
+001071 366 000     2130        JNZ  NO2  
+**ERROR(P) at DODS12.asm(214): Illegal label in operand field
+001073 014 306 025 2140 NO3   JSB  X14,LOST  
+001076 001 
+**ERROR(P) at DODS12.asm(215): Illegal label in label field
+001103 122         2170 NO2   DRP  R22
+**ERROR(P) at DODS12.asm(218): Illegal label in label field
+001256 132 310 000 2560 N---LU CMB  R32,=     
+**ERROR(P) at DODS12.asm(258): Illegal label in operand field
+001261 367 000     2570        JZR  NO3  
+**ERROR(P) at DODS12.asm(259): Illegal label in operand field
+001327 144 251 014 2740 .    LDM  R44,=12D,0
+001332 000 
+**ERROR(P) at DODS12.asm(276): Illegal label in label field
+001435                   EQU  212
+**ERROR(P) at DODS12.asm(314): Missing label in label field
+001435             3210       EQU  37
+**ERROR(P) at DODS12.asm(324): Illegal label in label field
+Assembly completed
+ 463 lines processed, 21 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 129 lines processed, 0 error(s) encountered
+ 2048 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+000054 000 000     0110        DEF  .   
+**ERROR(P) at DSAVES.asm(11): Illegal label in operand field
+000113 000 200     0200        ASP  ""
+**ERROR(P) at DSAVES.asm(20): Illegal string
+000224 230         0500 .    BIN  
+**ERROR(P) at DSAVES.asm(50): Illegal label in label field
+Assembly completed
+ 632 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 118 lines processed, 0 error(s) encountered
+ 238 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 187 lines processed, 0 error(s) encountered
+ 235 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:18
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 689 lines processed, 0 error(s) encountered
+ 1788 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 131 lines processed, 0 error(s) encountered
+ 282 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 371 lines processed, 0 error(s) encountered
+ 651 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at GCURSS.asm(12): Illegal label in operand field
+000140 000 200     0230        ASP  ""
+**ERROR(P) at GCURSS.asm(23): Illegal string
+001763 230         3520 .    BIN  
+**ERROR(P) at GCURSS.asm(355): Illegal label in label field
+Assembly completed
+ 396 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 109 lines processed, 0 error(s) encountered
+ 242 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000054 000 000     0110        DEF  .   
+**ERROR(P) at GETSAVS.asm(11): Illegal label in operand field
+000111 000 200     0200        ASP  ""             ! control H, control P
+**ERROR(P) at GETSAVS.asm(20): Illegal string
+000222 230         0500 .    BIN  
+**ERROR(P) at GETSAVS.asm(50): Illegal label in label field
+Assembly completed
+ 726 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 1033 lines processed, 0 error(s) encountered
+ 2630 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 269 lines processed, 0 error(s) encountered
+ 566 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 97 lines processed, 0 error(s) encountered
+ 183 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 223 lines processed, 0 error(s) encountered
+ 7209 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000060 000 000     0130        DEF  .   
+**ERROR(P) at LINKYS.asm(13): Illegal label in operand field
+000150 000 200     0280        ASP  ""
+**ERROR(P) at LINKYS.asm(28): Illegal string
+001534 144 251 010 3200 .    LDM  R44,=8D,0
+001537 000 
+**ERROR(P) at LINKYS.asm(320): Illegal label in label field
+Assembly completed
+ 360 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 418 lines processed, 0 error(s) encountered
+ 623 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at LWC$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at LWC$SC.asm(16): Illegal string
+000171 144 251 010 0420 .    LDM  R44,=8D,0
+000174 000 
+**ERROR(P) at LWC$SC.asm(42): Illegal label in label field
+Assembly completed
+ 86 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000064 000 200     0140        ASP  ""
+**ERROR(P) at MAZES.asm(14): Illegal string
+Assembly completed
+ 611 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 54 lines processed, 0 error(s) encountered
+ 137 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 1933 lines processed, 0 error(s) encountered
+ 3447 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at NOCSRC.asm(12): Illegal label in operand field
+000077 000 200     0160        ASP  2,
+**ERROR(P) at NOCSRC.asm(16): Illegal string
+000217 144 251 010 0510 .    LDM  R44,=8D,0
+000222 000 
+**ERROR(P) at NOCSRC.asm(51): Illegal label in label field
+Assembly completed
+ 96 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 100 lines processed, 0 error(s) encountered
+ 196 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 531 lines processed, 0 error(s) encountered
+ 2023 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:19
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 420 lines processed, 0 error(s) encountered
+ 1322 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 27 lines processed, 0 error(s) encountered
+ 67 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 182 lines processed, 0 error(s) encountered
+ 459 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at PLISTS.asm(9): Illegal label in operand field
+000065 000 200     0140        ASP  ""
+**ERROR(P) at PLISTS.asm(14): Illegal string
+000073 144 251 012 0190 .    LDM  R44,=10D,0
+000076 000 
+**ERROR(P) at PLISTS.asm(19): Illegal label in label field
+Assembly completed
+ 154 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 29 lines processed, 0 error(s) encountered
+ 84 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at RATS1.asm(9): Illegal label in operand field
+000070 000 200     0160        ASP  ""
+**ERROR(P) at RATS1.asm(16): Illegal string
+000076 230         0220 .    BIN  
+**ERROR(P) at RATS1.asm(22): Illegal label in label field
+Assembly completed
+ 1185 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 478 lines processed, 0 error(s) encountered
+ 1033 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000037 000 000     0010        DEF  ERMSG 
+**ERROR(P) at REDZERS.asm(10): Label not found
+000041 000 000     0011        DEF  INIT  
+**ERROR(P) at REDZERS.asm(11): Label not found
+000055 000 000     0018        DEF  ZER.             !    ZER       5
+**ERROR(P) at REDZERS.asm(18): Label not found
+000057 000 000     0019        DEF  ZDIM1V           !  ZER(M)    6
+**ERROR(P) at REDZERS.asm(19): Label not found
+000061 000 000     0020        DEF  ZDIM2V           !  ZER(M,N)  7
+**ERROR(P) at REDZERS.asm(20): Label not found
+000065 000 000     0022        DEF  RED1V            !   REDIM1V   11
+**ERROR(P) at REDZERS.asm(22): Label not found
+000067 000 000     0023        DEF  RED2V            !   REDIM2V   12
+**ERROR(P) at REDZERS.asm(23): Label not found
+000073 000 000     0026        DEF  REDIM            !   REDIM     1
+**ERROR(P) at REDZERS.asm(26): Label not found
+000075 000 000     0027        DEF  ZER              !     ZER       2
+**ERROR(P) at REDZERS.asm(27): Label not found
+000077 000 000     0028        DEF  MAT              !     MAT       3
+**ERROR(P) at REDZERS.asm(28): Label not found
+000101 367 000     0032        JZR  FLGSET
+**ERROR(P) at REDZERS.asm(32): Label not found
+000103 367 000     0034        JZR  RUNHIT
+**ERROR(P) at REDZERS.asm(34): Label not found
+000105 366 000     0036        JNZ  CKCOM 
+**ERROR(P) at REDZERS.asm(36): Label not found
+000107 360 000     0038        JMP  FLGSTR
+**ERROR(P) at REDZERS.asm(38): Label not found
+000222 367 000     0117        JZR  ZER   
+**ERROR(P) at REDZERS.asm(117): Label not found
+000233 366 000     0125        JNZ  PRM-  
+**ERROR(P) at REDZERS.asm(125): Label not found
+000300 366 000     0170        JNZ  RTPAR 
+**ERROR(P) at REDZERS.asm(170): Label not found
+000322 360 000     0194        JMP  ZER.             !    GO SET IT = ZERO.
+**ERROR(P) at REDZERS.asm(194): Label not found
+000324 360 000     0203        JMP  ZER.             !    GO SET IT = ZERO.
+**ERROR(P) at REDZERS.asm(203): Label not found
+000334 372 000     0222        JNC  ERROUT           !  JIF NO REDIM ERROR.
+**ERROR(P) at REDZERS.asm(222): Label not found
+000354 360 000     0231        JMP  CKTRC 
+**ERROR(P) at REDZERS.asm(231): Label not found
+000361 371 000     0240        JEZ  FLGSTO           !  JIF TARGET MATRIX IS NOT A VECTOR.
+**ERROR(P) at REDZERS.asm(240): Label not found
+000372 374 000     0261        JLZ  NOTRC 
+**ERROR(P) at REDZERS.asm(261): Label not found
+000374 360 000     0270        JMP  CNAME 
+**ERROR(P) at REDZERS.asm(270): Label not found
+000411 360 000     0286        JMP  GETREG
+**ERROR(P) at REDZERS.asm(286): Label not found
+000452 371 000     0322        JEZ  ER33R            !         JIF DIM MISMATCH.
+**ERROR(P) at REDZERS.asm(322): Label not found
+000456 360 000     0325        JMP  R1V   
+**ERROR(P) at REDZERS.asm(325): Label not found
+000506 036 306 000 0346        JSB  X36,STOPT-       !    OPTBAS FOR CALC OR PROG VAR.
+000511 000 
+**ERROR(P) at REDZERS.asm(346): Label not found
+000512 364 000     0348        JNG  ER89R            !         INVALID IF NEG.
+**ERROR(P) at REDZERS.asm(348): Label not found
+000555 365 000     0405        JPS  NTREMO           !        JIF NOT REMOTE
+**ERROR(P) at REDZERS.asm(405): Label not found
+000561 030 306 000 0408        JSB  X30,SETOPT
+000564 000 
+**ERROR(P) at REDZERS.asm(408): Label not found
+000565 030 306 000 0410        JSB  X30,ITSLOC       !    REDIMENSION
+000570 000 
+**ERROR(P) at REDZERS.asm(410): Label not found
+000642 370 000     0438        JEN  CTYPE            !   JIF ARRAY C FLAGGED.
+**ERROR(P) at REDZERS.asm(438): Label not found
+Assembly completed
+ 527 lines processed, 33 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at REV$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at REV$SC.asm(16): Illegal string
+000160 144 251 010 0380 .    LDM  R44,=8D,0
+000163 000 
+**ERROR(P) at REV$SC.asm(38): Illegal label in label field
+Assembly completed
+ 81 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at ROT$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at ROT$SC.asm(16): Illegal string
+000230 144 251 010 0540 .    LDM  R44,=8D,0
+000233 000 
+**ERROR(P) at ROT$SC.asm(54): Illegal label in label field
+Assembly completed
+ 99 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at RPT$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at RPT$SC.asm(16): Illegal string
+000216 144 251 010 0510 .    LDM  R44,=8D,0
+000221 000 
+**ERROR(P) at RPT$SC.asm(51): Illegal label in label field
+Assembly completed
+ 95 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 317 lines processed, 0 error(s) encountered
+ 518 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 203 lines processed, 0 error(s) encountered
+ 458 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 137 lines processed, 0 error(s) encountered
+ 327 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 457 lines processed, 0 error(s) encountered
+ 794 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at SAR$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at SAR$SC.asm(16): Illegal string
+000442 144 251 010 1110 .    LDM  R44,=8D,0
+000445 000 
+**ERROR(P) at SAR$SC.asm(111): Illegal label in label field
+Assembly completed
+ 156 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 78 lines processed, 0 error(s) encountered
+ 227 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 181 lines processed, 0 error(s) encountered
+ 1183 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 134 lines processed, 0 error(s) encountered
+ 432 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 41 lines processed, 0 error(s) encountered
+ 108 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000066 000 000     0160        DEF  .   
+**ERROR(P) at STATSC.asm(16): Illegal label in operand field
+000201 000 200     0390        ASP  ""
+**ERROR(P) at STATSC.asm(39): Illegal string
+000506 267 000 000 1140        STMD R70,X14,~x    
+**ERROR(P) at STATSC.asm(114): Illegal label in operand field
+000511 267 000 000 1150        STMD R70,X14,~x   
+**ERROR(P) at STATSC.asm(115): Illegal label in operand field
+000634 360 000     1420        JMP  GET  
+**ERROR(P) at STATSC.asm(142): Illegal label in operand field
+000663 136 014 265 1500 GET   LDMD R36,X14,n     
+000666 053 003 
+**ERROR(P) at STATSC.asm(150): Illegal label in label field
+000700 150 265 000 1530        LDMD R50,X14,~x    
+000703 000 
+**ERROR(P) at STATSC.asm(153): Illegal label in operand field
+000751 014 306 000 1680        JSB  X14,~xx+n
+000754 000 
+**ERROR(P) at STATSC.asm(168): Illegal label in operand field
+001021 316 327 111 1820 ~xx+n JSB  =FETAV 
+**ERROR(P) at STATSC.asm(182): Illegal label in label field
+001034 150 014 265 1860        LDMD R50,X14,~x    
+001037 000 000 
+**ERROR(P) at STATSC.asm(186): Illegal label in operand field
+001045 014 267 000 1890        STMD R#,X14,~x    
+001050 000 
+**ERROR(P) at STATSC.asm(189): Illegal label in operand field
+001060 014 265 000 1930        LDMD R#,X14,~x   
+001063 000 
+**ERROR(P) at STATSC.asm(193): Illegal label in operand field
+001074 014 267 000 1970        STMD R#,X14,~x   
+001077 000 
+**ERROR(P) at STATSC.asm(197): Illegal label in operand field
+001150 150 265 000 2150        LDMD R50,X14,~x   
+001153 000 
+**ERROR(P) at STATSC.asm(215): Illegal label in operand field
+001157 014 265 000 2170        LDMD R#,X14,~x    
+001162 000 
+**ERROR(P) at STATSC.asm(217): Illegal label in operand field
+001262 014 265 000 2440        LDMD R#,X14,~x    
+001265 000 
+**ERROR(P) at STATSC.asm(244): Illegal label in operand field
+001303 014 265 000 2500        LDMD R#,X14,~x   
+001306 000 
+**ERROR(P) at STATSC.asm(250): Illegal label in operand field
+001425 144 251 010 2850 .    LDM  R44,=8D,0
+001430 000 
+**ERROR(P) at STATSC.asm(285): Illegal label in label field
+001455 000 000 000 2920 ~x     BSZ  10
+001460 000 000 000 
+001463 000 000 
+**ERROR(P) at STATSC.asm(292): Illegal label in label field
+001465 000 000 000 2930 ~x    BSZ  10
+001470 000 000 000 
+001473 000 000 
+**ERROR(P) at STATSC.asm(293): Illegal label in label field
+Assembly completed
+ 330 lines processed, 20 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000074 000 000     0380        DEF  .   
+**ERROR(P) at STRNGS.asm(19): Illegal label in operand field
+000152 000 200     0600        ASP  2,
+**ERROR(P) at STRNGS.asm(30): Illegal string
+001176 144 251 010 6480 .    LDM  R44,=8D,0
+001201 000 
+**ERROR(P) at STRNGS.asm(324): Illegal label in label field
+Assembly completed
+ 371 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:20
+(c) Joachim Siebold 2020
+
+
+000050 000 000     0090        DEF  .   
+**ERROR(P) at TANK1S.asm(9): Illegal label in operand field
+000060 000 200     0130        ASP  ""
+**ERROR(P) at TANK1S.asm(13): Illegal string
+000066 144 251 013 0170 .    LDM  R44,=11D,0
+000071 000 
+**ERROR(P) at TANK1S.asm(17): Illegal label in label field
+002037 040 174 040 3440 TNKCHR ASC  " |   "
+002042 000 040 000 
+002045 000 040 000 
+**ERROR(P) at TANK1S.asm(343): Illegal string
+002050 000 000 040 3450        ASC  "   - "
+002053 040 040 055 
+002056 000 000 040 
+**ERROR(P) at TANK1S.asm(344): Illegal string
+002061 000 040 000 3460        ASC  "   | "
+002064 000 040 000 
+002067 040 174 040 
+**ERROR(P) at TANK1S.asm(345): Illegal string
+002072 040 000 000 3470        ASC  " -   "
+002075 055 040 040 
+002100 040 000 000 
+**ERROR(P) at TANK1S.asm(346): Illegal string
+002150 000 000     3700 SHEL1 BSZ  2
+**ERROR(P) at TANK1S.asm(369): Illegal label in label field
+Assembly completed
+ 808 lines processed, 8 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+000052 000 000     0200        DEF  .   
+**ERROR(P) at TRACKS.asm(10): Illegal label in operand field
+000103 000 200     0340        ASP  ""
+**ERROR(P) at TRACKS.asm(17): Illegal string
+001503 230         7160 .    BIN  
+**ERROR(P) at TRACKS.asm(418): Illegal label in label field
+Assembly completed
+ 505 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at TRIM$S.asm(12): Illegal label in operand field
+000101 000 200     0160        ASP  2,
+**ERROR(P) at TRIM$S.asm(16): Illegal string
+000175 144 251 010 0510 .    LDM  R44,=8D,0
+000200 000 
+**ERROR(P) at TRIM$S.asm(45): Illegal label in label field
+Assembly completed
+ 87 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+000064 000 200     0370 TOKS   ASP  ""
+**ERROR(P) at TURSSS.asm(34): Illegal string
+000110 000 200     0400        ASP  ""
+**ERROR(P) at TURSSS.asm(37): Illegal string
+Assembly completed
+ 161 lines processed, 2 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 217 lines processed, 0 error(s) encountered
+ 563 bytes of code written to object file
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+000056 000 000     0120        DEF  .   
+**ERROR(P) at UDL$SC.asm(12): Illegal label in operand field
+000100 000 200     0160        ASP  2,
+**ERROR(P) at UDL$SC.asm(16): Illegal string
+000164 144 251 010 0400 .    LDM  R44,=8D,0
+000167 000 
+**ERROR(P) at UDL$SC.asm(40): Illegal label in label field
+Assembly completed
+ 84 lines processed, 3 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+000723 000 200     1300        ASP  ""
+**ERROR(P) at UNTRAN3S.asm(134): Illegal string
+Assembly completed
+ 340 lines processed, 1 error(s) encountered
+ object file deleted
+CAPASM  Version 0.9.8       August 2020                      2020-08-02 11:36:21
+(c) Joachim Siebold 2020
+
+
+Assembly completed
+ 46 lines processed, 0 error(s) encountered
+ 108 bytes of code written to object file

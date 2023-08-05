@@ -1,0 +1,278 @@
+CAPASM
+(c) Joachim Siebold
+
+    1 000000             ! This assembler program is intended to check how the assembler manages
+    2 000000             ! bad code and to increase the coverage
+Page    1                                                             
+CAPASM
+
+    3 000000                     HED hhh
+*ERROR(P) at bad.asm(3): Illegal string
+    4 000000             LABEL1
+    5 000000             LABEL2  EQU   60000
+    6 000000             LABEL3  EQU   200000
+*ERROR(P) at bad.asm(6): Number too large
+    7 000000                     EQU   HELLO
+*ERROR(P) at bad.asm(7): Missing label in label field
+    8 000000             LABEL1
+*ERROR(P) at bad.asm(8): Label in label field is already defined
+    9 000000             SAVR10  EQU   65432
+*WARNING(P) at bad.asm(9): Value/type mismatch of redefined global symbol
+   10 000000                     LOC ABC
+*ERROR(P) at bad.asm(10): Illegal number
+   11 000000                     LOC 10000
+*ERROR(P) at bad.asm(11): Pseudo opcode not allowed here
+   12 000000             1234567
+   13 000000             100 LABALZ   ! comment
+   14 000000             110     ! comment
+   15 000000 136 250 003         LDB R36, =3D
+   16 000003 250 000             LDB R36, =LABEL2
+   17 000005             440     NAM ZZZAAAA
+*ERROR(P) at bad.asm(17): Illegal program name
+   18 000005                     BSZ
+*ERROR(P) at bad.asm(18): Illegal number of operands
+   19 000005                     BSZ =HELLO
+*ERROR(P) at bad.asm(19): Illegal number
+   20 000005 000 000 000         BSZ  100
+      ...
+      000104 000 
+   21 000105 147 251 000         LDM R47, =LABEL2
+   22 000110 104 000 000         GTO   1LABEL
+      000113 000 000 
+*ERROR(C) at bad.asm(22): Symbol not found
+   23 000114 366 000             JNZ   2LABEL
+*ERROR(C) at bad.asm(23): Symbol not found
+   24 000116                     GSB   NOLABEL
+*ERROR(P) at bad.asm(24): Illegal opcode or pseudo opcode
+   25 000116 120 251 100         LDM R20,=100,100D
+      000121 144 
+   26 000122                     LDM R20,
+*ERROR(P) at bad.asm(26): Illegal number of operands
+   27 000122 251                 LDM R20,=
+   28 000123 122 251 000         LDM R22,=100C,19C
+      000126 031 
+*ERROR(C) at bad.asm(28): Number too large
+   29 000127 124 251             LDM R24,=1XD,1XC
+*ERROR(P) at bad.asm(29): Illegal number
+*ERROR(P) at bad.asm(29): Illegal number
+   30 000131 126 251             LDM R26,=1X0
+*ERROR(P) at bad.asm(30): Illegal number
+   31 000133 241                 LDM R28,=100,200
+*ERROR(P) at bad.asm(31): Illegal register
+   32 000134 124 241             LDM R24,+R26
+*ERROR(P) at bad.asm(32): +/- not allowed in register definition
+   33 000136 261 000 000         LDMD R24,=LABEL1,LABEL2
+*ERROR(P) at bad.asm(33): Illegal number of operands
+   34 000141 130 020 277         STMI R30,X20,LABEL1
+      000144 000 000 
+   35 000146                     STMI
+*ERROR(P) at bad.asm(35): Illegal number of operands
+   36 000146 104 000 000         GTO UNKNOWN
+      000151 000 000 
+*ERROR(C) at bad.asm(36): Symbol not found
+Page    2                                                             
+CAPASM
+
+   37 000152 000 000             DEF UNK
+*ERROR(C) at bad.asm(37): Symbol not found
+   38 000154 316 000 000         JSB =LABEL2,R12
+*ERROR(P) at bad.asm(38): Illegal number of operands
+   39 000157                     NAM HUGO,123
+*ERROR(P) at bad.asm(39): Pseudo opcode not allowed here
+   40 000157 120 033 257         STMI X20,R33,
+   41 000162 257                 STMI R20,R39,HELLO
+*ERROR(P) at bad.asm(41): Illegal number of operands
+   42 000163 124 344             PUBD R24,R22
+*ERROR(P) at bad.asm(42): +/- required for address register
+   43 000165 012 306 000         JSB  R12,=LABEL2
+      000170 140 
+*ERROR(P) at bad.asm(43): X register expected as second operand
+   44 000171                     JSB  R12,=LABEL2,R14
+*ERROR(P) at bad.asm(44): Illegal number of operands
+   45 000171 000 000             DEF LABEL3
+*ERROR(C) at bad.asm(45): Symbol not found
+   46 000173             LABAL4  ! no comment
+   47 000173                     ABS 10000
+*ERROR(P) at bad.asm(47): Pseudo opcode not allowed here
+   48 010000 125 251 001 12LBL   LDM R25,=1
+*ERROR(P) at bad.asm(48): Illegal line number
+   49 010003 125 251 001 1 12LBL   LDM R25,=1
+   50 010006             ! no comment
+   51 010006                                                 ! no comment
+   52 010006 140 251 000         LDM R40, =0,0,0,0,0,0,0,0,0,0,120
+      010011 000 000 000 
+      010014 000 000 000 
+      010017 000 
+*ERROR(P) at bad.asm(52): Literal or label data exceed section boundary
+   53 010020 146 251 000         LDM R46, =0 , 1, 2
+      010023 001 
+*ERROR(P) at bad.asm(53): Literal or label data exceed section boundary
+   54 010024 251 000 002         LDM R46, =0 , XXX, 2
+*ERROR(P) at bad.asm(54): Illegal number
+   55 010027 241                 LDM R48, = "Z"
+*ERROR(P) at bad.asm(55): Illegal register
+   56 010030 144 251 000         LDM R44, ="ABCDE"
+      010033 000 
+*ERROR(C) at bad.asm(56): Symbol not found
+   57 010034 251 000 000         LDM R44, ="{}CDE"
+*ERROR(P) at bad.asm(57): Illegal label in operand field
+   58 010037 251                 LDM R44, =1LABEL
+*ERROR(P) at bad.asm(58): Illegal number
+   59 010040 000                 VAL LABEL2
+*ERROR(C) at bad.asm(59): Number too large
+   60 010041 000                 ARP R99
+*ERROR(P) at bad.asm(60): Illegal register
+   61 010042 316 000 000         JSB =XYZ
+*ERROR(C) at bad.asm(61): Symbol not found
+   62 010045 210                 ICB K45
+*ERROR(P) at bad.asm(62): Illegal register
+   63 010046 022 224             ORB R-1,R22
+*ERROR(P) at bad.asm(63): Illegal register
+   64 010047                     DRB R-1
+*ERROR(P) at bad.asm(64): Illegal opcode or pseudo opcode
+   65 010047                     DRB R-1,R20
+*ERROR(P) at bad.asm(65): Illegal opcode or pseudo opcode
+   66 010047 302                 ADB R-1,R20
+*ERROR(P) at bad.asm(66): Illegal register
+   67 010050                     ADB R-1
+*ERROR(P) at bad.asm(67): Illegal number of operands
+   68 010050                     ADB X20
+Page    3                                                             
+CAPASM
+
+*ERROR(P) at bad.asm(68): Illegal number of operands
+   69 010050 110 302             ADB R10,R20,R30
+*ERROR(P) at bad.asm(69): Illegal number of operands
+   70 010052                     ADBD R10,
+*ERROR(P) at bad.asm(70): Illegal number of operands
+   71 010052 322 000 000         ADBD R10,=LABEL2,25
+*ERROR(P) at bad.asm(71): Illegal number of operands
+   72 010055 332                 ADBD R10,R20,R30
+*ERROR(P) at bad.asm(72): Illegal number of operands
+   73 010056             LBL
+   74 010056 313 010 020         ADM  R#,=10,20,30,40
+      010061 030 040 
+*WARNING(P) at bad.asm(74): Dangerous R#, cannot check section boundary
+   75 010063 251 010 020         LDM  R#,=10,20,30,40
+      010066 030 040 
+*WARNING(P) at bad.asm(75): Dangerous R#, cannot check section boundary
+   76 010070 120 313             ADM  R20,=102B,1GGH
+*ERROR(P) at bad.asm(76): Illegal number
+*ERROR(P) at bad.asm(76): Illegal number
+   77 010072 241                 LDM  R20,R30,R40
+*ERROR(P) at bad.asm(77): Illegal number of operands
+   78 010073 241                 LDM  R20,X20
+*ERROR(P) at bad.asm(78): Illegal address mode
+   79 010074 251                 LDM R20,=LABEL2,20
+*ERROR(P) at bad.asm(79): Illegal number of operands
+   80 010075 265 000 000         LDMD R20,X22
+*ERROR(P) at bad.asm(80): Illegal number of operands
+   81 010100 245                 LDMD R20,R22,R24
+*ERROR(P) at bad.asm(81): Illegal number of operands
+   82 010101 270 000 000         LDBI R20,=LABEL2,20
+*ERROR(P) at bad.asm(82): Illegal number of operands
+   83 010104 016 274 000         LDBI R20,X16,=LABEL2
+      010107 140 
+   84 010110 274 000 000         LDBI R20,X16,=LABEL2,22,44
+*ERROR(P) at bad.asm(84): Illegal number of operands
+   85 010113 010 306 056         JSB R10,=LBL
+      010116 020 
+*ERROR(P) at bad.asm(85): X register expected as second operand
+   86 010117 010 306 056         JSB X10,=LBL
+      010122 020 
+   87 010123                     JSB X10,=LBL,R20
+*ERROR(P) at bad.asm(87): Illegal number of operands
+   88 010123 140 251             LDM R40,=LABEL2,LABEL3,LABEL2
+*ERROR(P) at bad.asm(88): Illegal number of operands
+   89 010125             
+   90 010125 366 000             JNZ XYZ
+*ERROR(C) at bad.asm(90): Symbol not found
+   91 010127 366 000             JNZ SETFER
+*ERROR(C) at bad.asm(91): Relative jump too large
+   92 010131 000 000             DEF LOCATION1
+*ERROR(P) at bad.asm(92): Illegal label in operand field
+   93 010133                     ORG 100
+   94 010133 000 000             DEF LOCATION2
+*ERROR(P) at bad.asm(94): Illegal label in operand field
+   95 010135 145 251             LDM R45, = 2496D
+   96 010137                     ASC
+*ERROR(P) at bad.asm(96): Illegal number of operands
+   97 010137                     ASC     ""
+*ERROR(P) at bad.asm(97): Illegal string
+   98 010137                     ASC     "HULLU
+*ERROR(P) at bad.asm(98): Illegal string
+   99 010137 000                 ASC     "}"
+*ERROR(P) at bad.asm(99): Illegal string
+  100 010140                     ASC  5X,HULLU
+Page    4                                                             
+CAPASM
+
+*ERROR(P) at bad.asm(100): Illegal number
+  101 010140                     ASC  5HULLU
+*ERROR(P) at bad.asm(101): Illegal number
+  102 010140                     ASC ,HULLU
+*ERROR(P) at bad.asm(102): Illegal string
+  103 010140                     ASC 7,HULLU
+*ERROR(P) at bad.asm(103): Illegal string
+  104 010140 110 125 114         ASC 3,HULLU
+  105 010143                     INC  "Illegal
+*ERROR(P) at bad.asm(105): Illegal string
+  106 010143 000         LOCATION1 BYT 0,400,"Z"
+*ERROR(P) at bad.asm(106): Illegal label in label field
+*ERROR(P) at bad.asm(106): Illegal number
+  107 010144 000 000 000 LOCATION2 BYT 1,2,3,4Z
+*ERROR(P) at bad.asm(107): Illegal label in label field
+*ERROR(P) at bad.asm(107): Illegal number
+  108 010147                     ELS
+*ERROR(P) at bad.asm(108): AIF/EIF mismatch
+  109 010147 105 114 123         ASC "ELSE WITHOUT AIF"
+      010152 105 040 127 
+      010155 111 124 110 
+      010160 117 125 124 
+      010163 040 101 111 
+      010166 106 
+  110 010167                     EIF
+*ERROR(P) at bad.asm(110): AIF/EIF mismatch
+  111 010167                     AIF 1TEST
+*ERROR(P) at bad.asm(111): Flag not defined
+  112 010167 110 020 241         LDM R10,R20
+  113 010172                     AIF COND1
+*ERROR(P) at bad.asm(113): Flag not defined
+  114 010172 120 030 241         LDM R20,R30
+  115 010175                     EIF
+  116 010175 241                 LDM R20,R30
+  117 010176                     ELS
+  118 010176                     LDM R20,R30
+  119 010176                     SET COND2
+  120 010176                     AIF COND2
+  121 010176                     LDM R20,R30
+  122 010176                     ELS
+  123 010176                     LDM R20,R40
+  124 010176                     EIF
+  125 010176                     CLR COND3
+  126 010176                     AIF COND3
+  127 010176                     LDM R20,R50
+  128 010176                     ELS
+  129 010176                     LDM R20,R60
+  130 010176                     EIF
+  131 010176                     AIF COND3
+  132 010176                     FIN
+*ERROR(P) at bad.asm(132): Missing FIN/END statement
+ 
+8 Symbols used:
+LABAL4 LCL 000173    46;1
+LABALZ LCL 000000    13;1
+LABEL1 LCL 000000     4;1
+LABEL2 EQU 060000     5;1
+LBL    LCL 010056    73;1
+SAVR10 EQU 065432     9;1
+SETFER DAD 027762  GLOBAL
+
+Index of source files in symbol cross reference:
+1: bad.asm
+Assembly completed
+Page    5                                                             
+CAPASM
+
+ 132 lines processed, 86 error(s) 3 warning(s)
+ object file deleted

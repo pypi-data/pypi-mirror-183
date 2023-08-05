@@ -1,0 +1,54 @@
+capasm (1.0.0) focal; urgency=medium
+
+  * bug fixes
+  * much refactoring 
+  * new ncas assembler
+  * capasm: suppress superfluous code output of BSZ pseudo-ops
+  * capasm: extended check marks redefinition of global symbols if there is a type or value mismatch
+  * capasm: fix incorrect range checks of relative jumps
+  * capasm: suppress superfluous code output of BSZ pseudo-ops
+  * capasm: line numbers in list file
+  * capasm: parsing of conditional assembly pseudo-ops fixed
+
+
+ -- bionic <achim@trillian>  Tue, 08 Dec 2020 19:14:06 +0100
+
+capasm (0.9.8) bionic; urgency=medium
+
+  * added support for ASP/ASP statements with numeric length qualifiers
+  * removed "'" as alternate string delimiter 
+  * removed -m option, added -q option and enhanced global symbols capabilities
+  * allow more special characters in symbol names
+  * refactoring
+  * added capconv tool
+
+ -- bionic <achim@trillian>  Thu, 23 Jul 2020 17:16:08 +0200
+
+capasm (0.9.7) bionic; urgency=medium
+
+  * added HP-75 rom support to caprom
+  * added support for hex and bin constants
+  * added support for non octal register numbers
+  * added LOC and HED pseudo ops
+  * literal data list error fixes 
+
+ -- bionic <achim@trillian>  Tue, 21 Jul 2020 16:04:25 +0200
+
+capasm (0.9.6) bionic; urgency=medium
+
+  * added HP-87 compatible NAM statement
+  * added conditional assembly pseudo ops
+  * added relative GTO
+  * added include and link file support
+  * added caprom tool
+  * added hex output of addresses and program code in list file
+  * bug fixes
+  * refactoring
+
+ -- bionic <achim@trillian>  Sat, 06 Jun 2020 17:25:20 +0200
+
+capasm (0.9.5) bionic; urgency=medium
+
+  * first beta release
+
+ -- bionic <achim@trillian>  Wed, 13 May 2020 06:27:40 +0200

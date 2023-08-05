@@ -1,0 +1,109 @@
+0010        GLO  GLOBAL.ASSEM
+0020 ! DUMP GRAPHIC
+0030 ! 
+0040        NAM  DGRAPH
+0050        DEF  RUNTIM
+0060        DEF  ASCIIS
+0070        DEF  PARSE 
+0080        DEF  ERMSG 
+0090        DEF  INIT  
+0100 PARSE  BYT  0,0
+0110        DEF  DGRPAR
+0120 RUNTIM BYT  0,0
+0130        DEF  DGRAP.
+0140        BYT  377,377
+0150 ASCIIS BSZ  0
+0160        ASP  "EPSON"
+0170 ERMSG  BYT  377
+0180 INIT   RTN  
+0190 ! *************************
+0200 ! * PARSE EPSON W/ 1 PARAM 
+0210 ! *************************
+0220 DGRPAR PUBD R43,+R6
+0230        JSB  =NUMVA+
+0240        POBD R57,-R6
+0250        JEN  GOTNUM
+0260        JSB  =ERROR+
+0270        BYT  81D
+0280 GOTNUM LDB  R55,=371
+0290        PUMD R55,+R12
+0300        RTN  
+0310 ! *************************
+0320 ! * EPSON RUNTIME          
+0330 ! *************************
+0340        BYT  241
+0350 DGRAP. JSB  =ONER  
+0360        STMD R#,=SCTEMP
+0370        LDM  R36,=3,0
+0380        STMD R36,=DATLEN
+0390        LDM  R45,=33,101,10
+0400        STMD R45,=INPBUF
+0410        LDM  R26,=INPBUF
+0420        STMD R26,=RESDAT
+0430        JSB  =ROMJSB
+0440        DEF  LDSC++
+0450        BYT  360
+0460        CLM  R40
+0470        STMD R40,=SCTEMP
+0480        JSB  =GRAPH.
+0490        STMD R34,=CRTBAD
+0500        LDB  R65,=30          ! ROW COUNTER
+0510 OUTLUP CLB  R34
+0520        CLM  R66
+0530        LDM  R56,=RECBUF
+0540 LOOP   JSB  =INCHR 
+0550        PUBD R#,+R56
+0560        DCB  R34
+0570        JNZ  LOOP  
+0580 ! *************************
+0590 !  PROCESS ONE LIN
+0600 ! *************************
+0610        LDM  R76,R12
+0620        LDM  R54,=33,113,0,1
+0630        PUMD R54,+R76
+0640        CLB  R75
+0650 NOTYET LDB  R0,=50
+0660 LOOP2  LDBD R*,X66,RECBUF
+0670        ICB  R0
+0680        CMB  R0,=60
+0690        JZR  PROCES
+0700        ADM  R66,=40,0
+0710        JMP  LOOP2 
+0720 ! 
+0730 PROCES LDB  R34,=10
+0740 NXT    LDB  R0,=50
+0750        CLB  R35
+0760 TSB    LLB  R35
+0770        TSB  R*
+0780        JPS  SHIFT 
+0790        ICB  R35
+0800 SHIFT  ICB  R0
+0810        CMB  R0,=60
+0820        JNZ  TSB   
+0830        LLM  R50
+0840        PUBD R35,+R76
+0850        DCB  R34
+0860        JNZ  NXT   
+0870        ADM  R66,=041,377
+0880        DCB  R75
+0890        JNZ  NOTYET
+0900 ! *************************
+0910 !  NOW SEND THE LIN
+0920 ! *************************
+0930        LDM  R36,=4,1
+0940        STMD R36,=DATLEN
+0950        LDM  R26,R12
+0960        STMD R26,=RESDAT
+0970        PUBD R65,+R6
+0980        JSB  =ROMJSB
+0990        DEF  LDSC++
+1000        BYT  360
+1010        POBD R65,-R6
+1020        DCB  R65
+1030        JNZ  OUTLUP
+1040        RTN  
+1050 LDSC++ DAD  76076
+1060 RECBUF DAD  102000
+1070 DATLEN DAD  101223
+1080 RESDAT DAD  101225
+1090        FIN  

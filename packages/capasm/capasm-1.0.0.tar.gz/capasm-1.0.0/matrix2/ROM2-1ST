@@ -1,0 +1,553 @@
+10 !********************************
+30 !***      MATRIX ROM - 2      ***
+50 !********************************
+70 !
+90 !********************************
+110 !***      CONSTANTS           ***
+130 !********************************
+150 !
+151          LST 
+170 RNORMX   EQU 71
+190 CNORMX   EQU 73
+210 TOK#     EQU 43
+230 QUOTE    EQU 5
+250 USLNO    EQU 347
+270 QUOT     EQU 42
+290 RTPARN   EQU 51
+310 LTPARN   EQU 50
+330 COMMA    EQU 54
+350 SLASH    EQU 57
+370 X        EQU 130
+371 PRTOK    EQU 153
+372 DSTOK    EQU 126
+373          UNL 
+390 !
+410 !********************************
+430 !***    ROM INFORMATION       ***
+450 !********************************
+470 !
+490          GLO GLOBAL
+510          ABS 60000               !PLUG IN ROM ADDRESS
+530 !
+550          BYT 261                 !ROM NUMBER
+570          BYT 117                 !INVERSE ROM NUMBER
+590 !
+610 !*****************************
+630 !***     SYSTEM TABLES     ***
+650 !*****************************
+670 !
+690          DEF RUNTIM  
+710          DEF PARSE   
+730          DEF TOKS    
+750          DEF ERMSG   
+770          DEF INIT    
+790 !
+810 !*****************************
+830 !***       SHELL           ***
+850 !*****************************
+870 !
+890 RUNTIM   BSZ 0
+910 PARSE    BSZ 0
+930 INIT     RTN 
+950 TOKS     BYT 377
+970 ERMSG    BYT 377
+990 !
+1010 !        HED (R,C,F)NORM, ABSUM, SUM, CSUM, RSUM ROUTINES
+1030 !********************************************************
+1050 !*** FNORM (A): SQUARE ROOT OF THE SUM OF THE SQUARES ***
+1070 !***            OF THE ELEMENTS IN THE ARRAY          ***
+1090 !*** IN       : RELATIVE ADDRESS A                    ***
+1110 !***                              <--- R12            ***
+1130 !*** OUT      : NORM OF A                             ***
+1150 !***                              <--- R12            ***
+1170 !********************************************************
+1190 !
+1210          LST 
+1230 NORM2    CLB R70                !READY TO SET FLAG.
+1250          UNL 
+1270          ICB R70                !SAYS DOING NORM.
+1290          JSB =SUM.++            !GO FIND SUM OF SQUARES.
+1310          BCD                    !MODE FOR SQRT.
+1330          CMB R44,=377           !INTEGER RESULT?
+1350          JNC RLSQRT             !IF (INTEGER)
+1370          PUMD R40,+R12          !   INT RESULT ON STACK
+1390          JSB =ONER              !   DEMAND A REAL
+1410          JSB =SEP10             !   SEPARATE IT
+1430 RLSQRT   BSZ 0                  !END IF
+1450          JSB =SQR30             !SQRT GIVES THE NORM
+1470          JMP PACKIT  
+1490 !
+1510 !*****************************************************
+1530 !*** ABSUM (A) : SUM OF THE ABSOLUTE VALUES OF THE ***
+1550 !***             ELEMENTS IN A                     ***
+1570 !*** IN        : RELATIVE ADDRESS A                ***
+1590 !***                               <--- R12        ***
+1610 !*** OUT       : ABSOLUTE SUM OF A                 ***
+1630 !***                               <--- R12        ***
+1650 !*****************************************************
+1670 !
+1690          LST 
+1710 ABSUM2   CLB R70                !FLAG FOR THIS ROUTINE.
+1730          UNL 
+1750          DCB R70                !SET IT.
+1770          JMP SUM.+              !GO FIND SUM.
+1790 !
+1810 !*****************************************************
+1830 !*** SUM (A) : THE SUM OF THE ELEMENTS IN A        ***
+1850 !*** IN      : RELATIVE ADDRESS A                  ***
+1870 !***                             <--- R12          ***
+1890 !*** OUT     : SUM OF A                            ***
+1910 !***                             <--- R12          ***
+1930 !*****************************************************
+1950 !
+1970          LST 
+1990 SUM2     CLB R70                !FLAG SETTING FOR NOT ABSUM.
+2010          UNL 
+2030 SUM.+    JSB =SUM.++            !GO FIND SUM.
+2050 PACKIT   BSZ 0
+2070          JSB =ROMJSB  
+2090          DEF RONF5-             !ROUND ANSWER
+2110          BYT 260
+2130          PUMD R40,+R12          !PUSH ANSWER ON STACK.
+2150          RTN 
+2170 !
+2190 SUM.++   BSZ 0
+2210          JSB =LOCSZ2            !Ba, Ma, Na
+2230          LDM R74,R22            !SAVE Ma & Na
+2250          CLM R44                !INIT SUM=0.
+2270          LDB R44,=377           !ASSUME INTEGER.
+2290          TSM R76                !TEST Na (NUM COL A)
+2310 SUMWHL   JZR SUMEND             !WHILE (NUM COL A >0)
+2330          JSB =COMSUM            !   ADD UP ROWS
+2350          DCM R76                !   DECR NUM COL A
+2370          JMP SUMWHL             !   LOOP FOR TEST
+2390 SUMEND   BSZ 0                  !END WHILE
+2410          RTN 
+2430 !
+2450 !**********************************************************
+2470 !*** MAT C = CSUM (A) :                                 ***
+2490 !***         ADDS THE VALUES OF THE ELEMENTS IN EACH    ***
+2510 !***         COLUMN OF THE OPERAND ARRAY , THEN ASSIGNS ***
+2530 !***         THE SUM TO THE CORRESPONDING ELEMENT OF    ***
+2550 !***         THE RESULT ARRAY (VECTOR OR 1 ROW MATRIX)  ***
+2570 !*** IN    : RELATIVE ADDRESS C                         ***
+2590 !***         RELATIVE ADDRESS A                         ***
+2610 !***                           <--- R12                 ***
+2630 !*** OUT   : STACK POPPED & ARRAY C ASSIGNED            ***
+2650 !***         (AND REDIMENSIONED IF NECESSARY)           ***
+2670 !**********************************************************
+2690 !
+2710          LST 
+2730 CSUM2    CLB R70                !FLAG SETTING FOR NOT ABSUM.
+2750          UNL 
+2770          JSB =LOCSZ2            !Ba, Ma, Na
+2790          POMD R65,-R12          !GET PTR TO TARGET ARRAY C.
+2810          PUMD R65,+R12          !PTR ARRAY C BACK ON STACK
+2830          PUMD R65,+R12          !ONE MORE COPY.
+2850          LDM R74,R22            !SAVE Mc & Nc
+2870          JSB =ROMJSB  
+2890          DEF LOCSZ-             !SEE IF C IS A VECTOR.
+2910          BYT 260
+2930          DRP R22                !ASSUME ROW AND ...
+2950          ARP R24                !COL OF MATRIX
+2970          JEZ CSEND1             !IF (C A VECTOR)
+2990          DRP R24                !   ROW AND ...
+3010          ARP R22                !   COL OF VECTOR
+3030 CSEND1   BSZ 0                  !END IF
+3050          CLM R#
+3070          ICM R#                 !1 IN ROW OR COL
+3090          STM R76,R#
+3110          JSB =RDIM2             !Mc X 1-VEC; 1 X Nc-MATRIX
+3130          LDM R24,R76            !GET Na (NUM COL A)
+3150          JZR CSEND2             !IF (NOT NULL ARRAY)
+3170          JSB =COLINT            !   INIT COL LOOP
+3190 COLSUM   BSZ 0                  !   REPEAT
+3210          JSB =SUM&ST            !      SUM COLS & STORE VALUE
+3230          JSB =COLNXT            !      POINT TO NEXT COL
+3250          JNZ COLSUM             !   UNTIL (NUM COL A = 0)
+3270 CSEND2   BSZ 0                  !END IF
+3290          RTN 
+3310 !
+3330 !***********************************************************
+3350 !*** MAT C = RSUM (A) :                                  ***
+3370 !***         ADDS THE VALUES OF THE ELEMENTS IN EACH     ***
+3390 !***         ROW OF THE OPERAND ARRAY, THEN ASSIGNS THE  ***
+3410 !***         SUM TO THE CORRESPONDING ELEMENT OF THE     ***
+3430 !***         RESULT ARRAY (VECTOR OR 1 ROW MATRIX)       ***
+3450 !*** IN    : RELATIVE ADDRESS C                          ***
+3470 !***         RELATIVE ADDRESS A                          ***
+3490 !***                           <--- R12                  ***
+3510 !*** OUT   : STACK POPPED & ARRAY ASSIGNED               ***
+3530 !***         (RESULT ARRAY REDIMENSIONED IF NECESSARY)   ***
+3550 !***********************************************************
+3570 !
+3590          LST 
+3610 RSUM2    CLB R70                !FLAG SETTING FOR NOT ABSUM.
+3630          UNL 
+3650          JSB =COMIN             !Ba, Ma, Na
+3670          CLM R24
+3690          ICM R24                !Ma X 1
+3710          JSB =RDIM2             !REDIM C TO Ma X 1
+3730          TSM R76                !TEST Ma (NUM ROW A)
+3750 RSWHIL   JZR RSEND              !WHILE (NUM ROW A > 0)
+3770          JSB =SUM&ST            !   DO SUM & STORE VALUE
+3790          JMP RSWHIL             !   LOOP FOR TEST
+3810 RSEND    BSZ 0                  !END WHILE
+3830          RTN 
+3850 !
+3870 SUM&ST   BSZ 0
+3890          JSB =CLRCOM            !INIT SUM = 0 & DO SUM
+3910          JSB =ROMJSB  
+3930          DEF STOV--             !STORE RESULT & NXT TAR ADDR
+3950          BYT 260
+3970          DCM R76                !DECR NUM ROW
+3990          RTN 
+4010 !
+4030 CLRCOM   CLM R44                !INIT SUM=0.
+4050          LDB R44,=377           !ASSUME INTEGER.
+4070 COMSUM   LDM R14,R74            !INIT NUM ROW(COL) A
+4090 COWHIL   JZR COEND1             !WHILE (NUM ROW(COL) A > 0)
+4110          PUBD R32,+R12          !   SAVE RUN SUM SIGN
+4130          PUMD R40,+R12          !   SAVE MANTISSA
+4150          PUMD R36,+R12          !   SAVE EXP
+4170          JSB =ROMJSB  
+4190          DEF GELT               !   GET A(I,J)
+4210          BYT 260
+4230          POMD R40,-R12          !   GET A(I,J) FROM STACK
+4250          BCD 
+4270          CMB R70,=1             !   TEST NORM FLAG
+4290          JNZ COELSE             !   IF (NORM)
+4310          PUMD R40,+R12          !      A(I,J) ON STACK
+4330          PUMD R40,+R12          !      DO IT AGAIN
+4350          JSB =TWOSEP            !      SEPARATE BOTH COPIES
+4370          JSB =ROMJSB  
+4390          DEF MPYR70             !      SQUARE A(I,J)
+4410          BYT 260
+4430          JMP COEND2  
+4450 COELSE   BSZ 0                  !   ELSE - (NO NORM)
+4470          CMB R44,=377           !      REAL OR INT?
+4490          JCY COEND3             !      IF (NOT INT)
+4510          JSB =SEP10             !         SEPERATE IT
+4530 COEND3   BSZ 0                  !      END IF
+4550 COEND2   BSZ 0                  !   END IF
+4570          JSB =ROMJSB  
+4590          DEF RUNSUM             !   ADD TO RUNNING SUM
+4610          BYT 260
+4630          JSB =ROMJSB  
+4650          DEF NXTA               !   POINT TO NEXT A(I,J)
+4670          BYT 260
+4690          DCM R14                !   DECR NUM ROW(COL) A
+4710          JMP COWHIL             !   LOOP FOR TEST
+4730 COEND1   BSZ 0                  !END WHILE
+4750          RTN 
+4770 !
+4790 COMIN    BSZ 0
+4810          JSB =LOCSZ2            !Ba, Ma, Na
+4830          TCM R36                !WANT 1 IF 0, 0 IF 1.
+4850          ICM R36
+4870          STMD R36,=TMP2         !SAVE OPTION BASE
+4890          STM R22,R76            !SAVE Ma (NUM ROW A)
+4910          STM R24,R74            !SAVE Na (NUM COL A)
+4930          RTN 
+4950 !
+4970 !*************************************************************
+4990 !*** RNORM (A) : THE LARGEST SUM OF THE ABSOLUTE VALUES OF ***
+5010 !***             THE ELEMENTS IN EACH ROW OF A             ***
+5030 !*** IN        : RELATIVE ADDRESS A                        ***
+5050 !***                               <--- R12                ***
+5070 !*** OUT       : ROW NORM OF A                             ***
+5090 !***                               <--- R12                ***
+5110 !*************************************************************
+5130 !
+5150          LST 
+5170 RNORM2   JSB =NORMIN            !INIT Ba, Ma, Na
+5190          UNL 
+5230 RNWHIL   JZR RNEND              !WHILE (NUM ROW A > 0)
+5250          JSB =MAXRC             !   FIND NORM(ROW(I))
+5270          JMP RNWHIL             !   LOOP FOR TEST
+5290 RNEND    BSZ 0                  !END WHILE
+5310          LDMD R36,=MBASE        !TEMP AREA BASE PTR.
+5330          SBMD R0,=TMP2          !ADJUST ROW# WHERE MAX IS.
+5350          STMD R0,X36,RNORMX     !STORE RNORMROW ANSWER.
+5370          RTN 
+5410 !
+5430 !*************************************************************
+5450 !*** CNORM (A) : THE LARGEST SUM OF THE ABSOLUTE VALUES OF ***
+5470 !***             THE ELEMENTS IN EACH COLUMN OF A          ***
+5490 !*** IN        : RELATIVE ADDRESS A                        ***
+5510 !***                               <--- R12                ***
+5530 !*** OUT       : COLUMN NORM OF A                          ***
+5550 !***                               <--- R12                ***
+5570 !*************************************************************
+5590 !
+5610          LST 
+5630 CNORM2   JSB =NORMIN            !INIT Ba, Ma, Na
+5650          UNL 
+5690          JZR CNEND              !IF (NOT NULL ARRAY)
+5710          LDM R74,R22            !   SAVE Ma AND Na
+5730          JSB =COLINT            !   INIT COL LOOP
+5750 CNLOOP   BSZ 0                  !   REPEAT
+5770          JSB =MAXRC             !      FIND NORM(COL(J))
+5790          JSB =COLNXT            !      POINT NEXT COL
+5810          JNZ CNLOOP             !   UNTIL (NUM COL A = 0)
+5830          SBMD R0,=TMP2          !   COL# WHERE MAX IS
+5850 CNEND    BSZ 0                  !END IF
+5870          LDBD R47,=TMP4         !GET VECTOR INDICATOR.
+5890          JRZ NOVEC              !IF (VECTOR)
+5910          CLM R0
+5930          DCM R0                 !   377,377
+5950 NOVEC    BSZ 0                  !END IF
+5970          LDMD R36,=MBASE        !TEMP AREA BASE PTR.
+5990          STMD R0,X36,CNORMX     !STORE CNORMCOL ANSWER.
+6010          RTN 
+6030 !
+6050 !********************************************************************
+6070 !** COLINT : SETS UP VARIABLES AT BEGINNING OF LOOP SO THAT THE   ***
+6090 !**          INCREMENT MOVES DOWN A COLUMN RATHER THAN ACROSS A   ***
+6110 !**          ROW.                                                 ***
+6130 !** IN  : INCRA  = ELEMENT SIZE OF A : ROW INCREMENT              ***
+6150 !**       TMP1   = Ba : BASE ADDRESS OF A                         ***
+6170 !** OUT : R24    = 3Na, 4Na, 8Na : COLUMN INCREMENT OF A          ***
+6190 !**       INCRA  = 3Na, 4Na, 8Na : COLUMN INCREMENT OF A          ***
+6210 !**       TMP3   = ELEMENT SIZE OF A (2BYTES) & Ba (3 BYTES)      ***
+6230 !********************************************************************
+6250 !
+6270          LST 
+6290 COLINT   BSZ 0
+6310          UNL 
+6330          JSB =ROMJSB  
+6350          DEF ACOLEL             !INT = 3Na; SHORT = 4Na; REAL = 8Na
+6370          BYT 260
+6390          LDMD R63,=INCRA        !GET ELE SIZE OF A
+6410          LDMD R65,=TMP1         !GET Ba
+6430          STMD R63,=TMP3         !SAVE SIZE AND Ba
+6450          STMD R24,=INCRA        !RESULT FROM ACOLEL
+6470          RTN 
+6490 !
+6510 !*********************************************************************
+6530 !** COLNXT : SETS UP VARIABLES AT END OF LOOP SO THAT THE INCREMENT **
+6550 !**          MOVES DOWN A COLUMN RATHER THAN ACROSS A ROW.          **
+6570 !** IN  : TMP1  = CURRENT ADDRESS OF A COLUMN ELEMENT -- A(I,J)     **
+6590 !**       TMP3  = ELEMENT SIZE OF A (2 BYTES) & ADDR A(I,J)         **
+6610 !** OUT : TMP1  = ADDRESS NEXT COLUMN ELEMENT OF A -- A(I+1,J)      **
+6630 !**       TMP3  = ELEMENT SIZE OF A (2 BYTES) & ADDR A(I+1,J)       **
+6650 !*********************************************************************
+6670 !
+6690          LST 
+6710 COLNXT   BSZ 0
+6730          UNL 
+6750          LDMD R63,=TMP3         !GET ELE SIZE AND ADDR A(I,J)
+6770          LDM R55,R63            !MOVE ELE SIZE
+6790          JSB =ROMJSB  
+6810          DEF NXTELE             !POINT TO NEXT ROW ELE
+6830          BYT 260
+6850          STMD R63,=TMP3         !SAVE ELE SIZE AND ADDR A(I,J)
+6870          STMD R65,=TMP1         !SAVE NEXT ADDR A(I,J)
+6890          TSM R76                !SEE IF MORE COLS.
+6910          RTN 
+6930 !
+6950          LST 
+6970 NORMIN   CLB R70                !READY TO FLAG.
+6971          UNL 
+6990          DCB R70                !FLAG TO TAKE ABS VALUE OF A(I,J).
+7010          JSB =COMIN             !DO COMMON INITIALIZATION.
+7030          CLM R44                !ASSUME NORM=0.
+7050          LDB R44,=377           !ASSUME INTEGER.
+7070          PUMD R40,+R12          !PUSH INIT ANS ON STACK.
+7090          CLM R10                !ASSUME ROW# OR COL# = 1.
+7110          ICM R10
+7130          STM R10,R0             !INITIALIZE ROW-COL POINTER
+7150 ZTST-    BCD                    !MODE FOR UPCOMING SHIFT
+7170          ELB R30                !MOVE VEC-MAT FLAG INTO R30
+7190          STBD R30,=TMP4         !SAVE IT
+7210          BIN                    !RESET MODE
+7230 ZERTST   BSZ 0
+7250          TSM R22                !M=0?
+7270          JZR RNULL              !JIF YES
+7290          TSM R24                !N=0?
+7310          JNZ NRTN               !JIF NO - N<>0 AND M<>0
+7330 RNULL    CLM R0
+7350 NRTN     RTN 
+7370 !
+7371          LST 
+7390 MAXRC    JSB =CLRCOM            !FIND NORM OF CURRENT ROW (OR COL).
+7391          UNL 
+7410          POMD R60,-R12          !GET LATEST ANSWER.
+7430          PUMD R60,+R12          !REPLACE IT.
+7450          PUMD R60,+R12          !COPY TO COMPARE WITH NEW NORM.
+7470          PUMD R70,+R6           !PROTECT R70.
+7490          PUBD R26,+R6           !PROTECT R26.
+7510          CLB R26                !FLAG NEEDED IN COMRC-
+7530          JSB =PACKIT            !PACK UP NEW NORM & PUT ON R12.
+7550          STM R40,R70            !READY FOR COMRC-
+7570          JSB =ROMJSB  
+7590          DEF COMRC-             !COMPARE OLD ANS WITH NEW NORM.
+7610          BYT 260
+7630          POBD R26,-R6           !RESTORE R26.
+7650          POMD R70,-R6           !RESTORE R70.
+7670          LDMD R0,=TMP2+         !GET ROW OR COL OF ANSWER
+7690          ICM R10                !POINT TO NEXT ROW (OR COL).
+7710          DCM R76                !DECREMENT ROW (OR COL) COUNTER.
+7730          RTN 
+7770 !
+7790 !*****************************************************************
+7810 !*** MAT C = CROSS (B,A) :                                     ***
+7830 !***         CALCULATES THE CROSS PRODUCT OF TWO 3 ELEMENT     ***
+7850 !***         VECTORS (B & A), AND ASSIGNS RESULTING VECTOR     ***
+7870 !***         TO C                                              ***
+7890 !*** IN    : RELATIVE ADDRESS C                                ***
+7910 !***         RELATIVE ADDRESS B                                ***
+7930 !***         RELATIVE ADDRESS A                                ***
+7950 !***                           <--- R12                        ***
+7970 !*** OUT   : STACK POPPED & ARRAY ASSIGN                       ***
+7990 !***         (REDIMENSIONED IF NECESSARY)                      ***
+8010 !*****************************************************************
+8030 !
+8050          LST 
+8070 CROSS2   JSB =COMX.             !DO INITIAL CHECK FOR VECTORS.
+8090          UNL 
+8130          CMM R22,=3,0           !ARE INPUT VECTORS RIGHT SIZE?
+8150          JZR XEND0              !IF (NOT 3-DIMENSIONAL)
+8170          JSB =ERROR+  
+8190          JSB =ERROR             !   ERROR 10 -- EXIT
+8210          BYT 010D
+8230          RTN 
+8250 XEND0    BSZ 0                  !END IF
+8270          JSB =RDIM2             !REDIM C TO 3 X 1
+8290          JEN XEND1              !IF (C NOT A VECTOR)
+8310          JSB =NOVECA            !   ERROR EXIT
+8330 XEND1    BSZ 0                  !END IF
+8350          JSB =ROMJSB  
+8370          DEF C=AORB             !SEE IF TEMP ARRAY NEEDED
+8390          BYT 260
+8410          LDM R72,R22            !SAVE I AND J
+8430          PUMD R22,+R6           !SAVE NUM ROWS C
+8470 XLOOP    BSZ 0                  !LOOP
+8490          JSB =XINIT             !   INIT I,J,PTR TO A,B
+8510          DCM R22                !   ADJUST SUBSCRIPT
+8530          JNG XENDLP             !   ESCAPE LOOP AFTER 3
+8550          STM R22,R74            !   SWAP I & J
+8570          STM R24,R72
+8590          CLM R44                !   INIT SUM=0
+8610          LDB R44,=377           !   MAKE IT INTEGER
+8630          JSB =TERMS             !   1ST PROD IN SUM
+8650          JSB =XINIT             !   INIT I,J,PTR TO A,B
+8670          JSB =TERMS             !   VALUE C(I)
+8690          JSB =ROMJSB  
+8710          DEF STOV--             !   STORE C(I)
+8730          BYT 260
+8750          JMP XLOOP              !   LOOP FOR TEST
+8770 XENDLP   BSZ 0                  !END LOOP
+8790          POMD R22,-R6           !GET NUM ROWS
+8810          JSB =ROMJSB  
+8830          DEF COPYAB             !COPY IF TEMP ARRAY USED
+8850          BYT 260
+8870          RTN 
+8890 !
+8910 XINIT    BSZ 0
+8930          STM R72,R22            !INIT I & J
+8950          LDMD R65,=TMP1+   
+8970          STMD R65,=TMP1         !INIT PTR TO A
+8990          LDMD R65,=TMP2+   
+9010          STMD R65,=TMP2         !INIT PTR TO B
+9030          RTN 
+9050 !
+9070 TERMS    BIN                    !SET MODE.
+9090 TERMB    DCM R24                !DECREMENT ADDR OFFSET COUNT.
+9110          JNG TERM2              !DO NEXT SUBSCRIPT WHEN NEG.
+9130          JSB =ROMJSB  
+9150          DEF NXTB               !ADDRESS OFFSET-PT TO B(I).
+9170          BYT 260
+9190          JMP TERMB              !LOOP.
+9210 TERMA    BSZ 0
+9230          JSB =ROMJSB  
+9250          DEF NXTA               !ADDRESS OFFSET-PT TO A(J).
+9270          BYT 260
+9290 TERM2    DCM R22                !DECREMENT ADDR OFFSET COUNT.
+9310          JPS TERMA              !LOOP TILL COUNT NEG.
+9330          CLM R14                !READY FOR DOT COUNT.
+9350          ICM R14                !DOT COUNT =1 FOR 1 MULTIPLY.
+9370          JSB =ROMJSB  
+9390          DEF DOTACC             !GO CALC B(I)*A(J) OR B(J)*A(I).
+9410          BYT 260
+9430          BCD                    !MODE FOR NEXT COMMAND.
+9450          NCB R32                !-BIAJ OR -(-BIAJ+BJAI).
+9470          CMB R44,=377           !INTEGER?
+9490          JNC XRTN               !JIF NO.
+9510          TCM R45                !-BIAJ OR -(-BIAJ+BJAI).
+9530 XRTN     RTN                    !RETURN.
+9550 !
+9570 !        HED DOT ROUTINE (C = B DOT A)
+9590 !**************************************************************
+9610 !*** DOT (B,A) : SUM OF PRODUCTS OF CORRESPONDING ELEMENTS  ***
+9630 !***             OF VECTORS B & A                           ***
+9650 !*** IN        : RELATIVE ADDRESS B                         ***
+9670 !***             RELATIVE ADDRESS A                         ***
+9690 !***                               <--- R12                 ***
+9710 !*** OUT       : DOT PRODUCT B & A                          ***
+9730 !***                               <--- R12                 ***
+9750 !**************************************************************
+9770 !
+9790          LST 
+9810 DOT2     JSB =COMX.             !DO COMMON DOT, CROSS CALCS.
+9830          UNL 
+9850          JSB =ROMJSB  
+9870          DEF DOTPRD             !GO FIND DOT PRODUCT.
+9890          BYT 260
+9910 PSHRES   PUMD R40,+R12          !PUSH RESULT ON STACK.
+9930          RTN                    !END.
+9950 !
+9970          LST 
+9990 COMX.    BSZ 0
+9991          UNL 
+10010          JSB =LOCSZ2           !Ba, Ma, Na
+10030          JEZ NOVECA            !IF ('A' VECTOR)
+10050          STM R22,R14           !   SAVE Ma
+10070          JSB =ROMJSB  
+10090          DEF LOCSZI            !   Bb, Mb, Nb
+10110          BYT 260
+10130          JEZ NOVECB            !   IF('B' VECTOR)
+10150          CMM R14,R22           !      COMPARE Mb & Ma
+10170          JZR COMEND            !      IF (Mb <> Ma)
+10190          JSB =ERROR+           !         ROWS OF 'A' & 'B' ...
+10210          JSB =ERROR            !         DO NOT MATCH ...
+10230          BYT 011D              !         ERROR 11
+10250          POMD R30,-R6          !         TRASH RETURN
+10270 COMEND   BSZ 0                 !      ELSE - (Mb = Ma)
+10290          RTN                   !         RETURN
+10310          BSZ 0                 !      END IF
+10330 NOVECB   BSZ 0                 !   END IF
+10350 NOVECA   BSZ 0                 !END IF
+10370          JSB =ERROR+           !ERROR ROUTINE
+10390          JSB =ERROR   
+10410          BYT 015D              !NON-VECTOR ERROR CODE.
+10430          POMD R36,-R6          !TRASH 1 RTN.
+10450          RTN                   !DONE
+10470          UNL 
+10490 !
+10510 LOCSZ2   BSZ 0
+10530          JSB =ROMJSB  
+10550          DEF LOCSZ             !Ba, Ma, Na
+10570          BYT 260
+10590          RTN 
+10610 !
+10630          LST 
+10650 RDIM2    BSZ 0
+10651          UNL 
+10670          CLE 
+10690          DCE                   !FLAG TYPE C MATRIX
+10710          POMD R65,-R12         !GET REL ADDR OF C
+10730          JSB =ROMJSB  
+10750          DEF REDIM.            !REDIMENSION C
+10770          BYT 260
+10790          JSB =ROMJSB  
+10810          DEF VECFLG            !SET UP VECTOR-MATRIX FLAG
+10830          BYT 260
+10850          CMB R17,=300          !LOOK FOR REDIM ERROR
+10870          JNC RDMRTN            !IF (ERROR)
+10890          POMD R0,-R6           !   TRASH 1 RETURN
+10910 RDMRTN   BSZ 0                 !END IF
+10930          RTN 
+10970 !
+10990 !*************  LINK NEXT SEGMENT    ************************
+11010          LNK ROM2-2ND

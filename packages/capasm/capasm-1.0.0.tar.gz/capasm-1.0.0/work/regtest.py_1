@@ -1,0 +1,181 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# This module contains the regression test driver for capasm
+# (c) 2020 Joachim Siebold
+#
+#
+import os,contextlib
+from pathlib import Path
+from capasm.assembler import clsAssembler, capasmError
+from capasm.tools import clsLifCreator,binDiff, clsSymClassGenerator
+
+ROMTESTFILES=["rom000.asm","romsys1.asm","romsys2.asm","romsys3.asm", \
+              "rom050.asm"]
+LEX75TESTFILES=["hpilcmd.asm","phyconst.asm","riowio.asm"]
+#
+# silently remove files, continue if they do not exist
+#
+def silentremove(filename):
+   with contextlib.suppress(FileNotFoundError):
+      os.remove(filename)
+
+#
+# Test binary file, the reference is in testDir
+#
+def testBinFile(fileName,testDir):
+   fp=Path(fileName)
+   fn=fp.name
+   referenceFileName=str(fp.parents[0] / testDir / fn)
+   ret=binDiff.compare(fileName,referenceFileName)
+   if ret is None:
+      return True
+   if ret[0]!=0:
+      print(fileName+": compare failed, "+str(ret[0])+" differences found")
+#     print("First occurrence at {:o}".format(ret[3][0]))
+   if ret[1]!=ret[2]:
+      print(fileName+": file length differs, "+str(ret[1])+" "+str(ret[2]))
+   if ret[0]==0 and (ret[1]==ret[2]):
+      return False
+   else:
+      return True
+
+def main():
+   os.environ["CAPASMREGRESSIONTEST"]="1"
+   a=clsAssembler()
+   l=clsLifCreator()
+   numTests=0
+   numFailed=0
+#
+# Run ROM tests
+#
+   testDir=Path("test")
+   for testFile in ROMTESTFILES:
+      srcFile=str(testDir / testFile)
+      lstFile=str(Path(testFile).with_suffix(".lst"))
+      binFile=str(Path(testFile).with_suffix(".bin"))
+      
+      a.assemble(srcFile,labelSize=7,listFileName=lstFile, \
+            referenceOpt=2)
+      numTests+=1
+      if testBinFile(binFile,testDir):
+         numFailed+=1
+      silentremove(binFile)
+      silentremove(lstFile)
+#
+# Test statements not covered by rom tests
+#
+   testFile="missing.asm"
+   srcFile=str(testDir / testFile)
+   lstFile=str(Path(testFile).with_suffix(".lst"))
+   binFile=str(Path(testFile).with_suffix(".bin"))
+
+   a.assemble(srcFile,labelSize=7,listFileName=lstFile,\
+             referenceOpt=2,  extendedChecks=True)
+   numTests+=1
+   if testBinFile(binFile,testDir):
+      numFailed+=1
+   silentremove(binFile)
+   silentremove(lstFile)
+#
+#  Test error messages
+#  TODO
+#  check list file with a reference file
+#
+   testFile="bad.asm"
+   srcFile=str(testDir / testFile)
+   lstFile=str(Path(testFile).with_suffix(".lst"))
+   binFile=str(Path(testFile).with_suffix(".bin"))
+
+   a.assemble(srcFile,labelSize=7,listFileName=lstFile,\
+             referenceOpt=0,  extendedChecks=True)
+   silentremove(binFile)
+   silentremove(lstFile)
+#
+#  Process HP-75 lex files and put them into a lif image load file
+#  TODO:
+#  compare binary lex file
+#
+   testDir=Path("lex75")
+   for testFile in LEX75TESTFILES:
+      srcFile=str(testDir / testFile)
+      lstFile=str(Path(testFile).with_suffix(".lst"))
+      binFile=str(Path(testFile).with_suffix(".bin"))
+      lexFile=str(Path(testFile).with_suffix(".lex"))
+
+      a.assemble(srcFile,labelSize=7,machine="75")
+      if Path(binFile).is_file():
+         l.create(binFile,"75")
+      silentremove(binFile)
+      silentremove(lstFile)
+      silentremove(lexFile)
+#
+#  open nonexisting file as source file
+#
+   numTests+=1
+   numFailed+=1
+   try:
+      a.assemble("nonexising")
+   except capasmError as e:
+      if e.msg!="Error opening source file":
+         print("Unexpected exception message: "+e.msg)
+      else:
+         numFailed-=1
+#
+#  open a write only file as source file
+#
+   Path("writeonly").touch(mode=0o222,exist_ok=True)
+   numTests+=1
+   numFailed+=1
+   try:
+      a.assemble("readonly")
+   except capasmError as e:
+      if e.msg!="Error opening source file":
+         print("Unexpected exception message: "+e.msg)
+      else:
+         numFailed-=1
+#
+#  open a read only file as binary object file
+#
+   Path("readonly").touch(mode=0o444,exist_ok=True)
+   numTests+=1
+   numFailed+=1
+
+   testDir=Path("test")
+   testfile="bad.asm"
+   srcFile=str(testDir / testfile)
+   try:
+      a.assemble(srcFile,binFileName="readonly")
+   except capasmError as e:
+      if e.msg!="Error opening object file":
+         print("Unexpected exception message: "+e.msg)
+      else:
+         numFailed-=1
+#
+#  open a read only file as list file
+#
+   numTests+=1
+   numFailed+=1
+   try:
+      a.assemble(srcFile,listFileName="readonly")
+   except capasmError as e:
+      if e.msg!="Error opening list file":
+         print("Unexpected exception message: "+e.msg)
+      else:
+         numFailed-=1
+#
+#  generate a global class file
+#
+   gen=clsSymClassGenerator()
+   inputFile=str(Path("symbols") / Path("globals85.txt"))
+   outputFile="symtest.py"
+   gen.generate(inputFile,outputFile)
+   silentremove(outputFile)
+   silentremove("readonly")
+   silentremove("writeonly")
+   
+#
+   print("{:d} of {:d} tests failed".format(numFailed,numTests))
+
+if __name__ == "__main__":
+   main()

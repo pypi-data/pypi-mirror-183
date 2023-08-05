@@ -1,0 +1,206 @@
+NCAS
+(c) Joachim Siebold
+
+    1 0000                    ORG  4711D
+    2 1267             ROMEND EQU  5FFFH
+    3 1267             HENRY  EQU  1000D
+    4 1267             TYNBAS EQU  'B'
+    5 1267             TEST1  EQU  (HENRY)+2 ; expected 03EAH
+    6 1267             TEST2  EQU  (((HENRY)+(HENRY)+7)*3+$+"ABC"|77) ; expected 436C6BH
+    7 1267             TEST3  EQU  2D+2+1001B+4AH+77O+22C ; expected  0B8H
+    8 1267             TEST4  EQU  TYNBAS  ; expected 42H
+    9 1267             TEST5  EQU  (TEST4)*100H+11111110B ; expected 42FEH
+   10 1267             TEST6  EQU  (-1).4D ; expected -1
+   11 1267             TEST7  EQU  (0aF#).8D ; expected 0AFH
+   12 1267             S27-57  EQU  (-(57-27+1)*256D+27).2 ; expected 0E717H
+   13 1267             TEST8 EQU  123456D
+   14 1267             TEST9  EQU  -1
+   15 1267             TEST10 EQU (TEST1)*'B'/0EFH ; expected result 114H
+   16 1267             TEST11 EQU 33H
+   17 1267             ADDR1  ADDR HENRY    ; this is implicitely sized to two bytes
+   18 1267             ADDR2  ADDR (HENRY)+96D
+   19 1267 41 42 43           DATA 'ABC'
+   20 126A 43 42 41           DATA 4276803D
+   21 126D EA 03              DATA (TEST1).2
+   22 126F 6B 6C 43 00        DATA (TEST2).6
+      1273 00 00 
+   23 1275 B8 00 00 00        DATA (TEST3).4
+   24 1279 42                 DATA (TEST4).1
+   25 127A FE 42              DATA (TEST5).2
+   26 127C 00                 DATA (TEST6).1
+*ERROR(C) at expression.asm(26): Value too large for size specified
+   27 127D 00 00              DATA (TEST6).2
+*ERROR(C) at expression.asm(27): Value too large for size specified
+   28 127F 00 00 00           DATA (TEST6).3
+*ERROR(C) at expression.asm(28): Value too large for size specified
+   29 1282 FF FF FF FF        DATA (TEST6).4
+   30 1286 AF                 DATA (TEST7).1
+   31 1287 17 E7              DATA (S27-57).2
+   32 1289 17 E7 00 00        DATA (S27-57).4
+   33 128D 40 E2 01 00        DATA (TEST8).8D
+      1291 00 00 00 00 
+   34 1295 E8 03 FF FF        DATA HENRY,TEST6
+      1299 FF FF 
+   35 129B 33                 DATA TEST11
+   36 129C             T1     EQU  (TEST1).2
+   37 129C             T2     EQU  (TEST2).6
+   38 129C             T3     EQU  (END)-5
+*ERROR(P) at expression.asm(38): Symbol not found
+   39 129C             T4     EQU  ((HENRY).6+(TEST6).8D).10D
+   40 129C 60 A9 EA 03 START  LDM  R40,=T1,T2
+      12A0 6B 6C 43 00 
+      12A4 00 00 
+*WARNING(P) at expression.asm(40): Value/type mismatch of redefined global symbol
+   41 12A6 A9                 LDM  R40,=END,T2
+*ERROR(P) at expression.asm(41): Unsized expression(s)
+   42 12A7 A9 9C 12 6B        LDM  R40,=START,T2
+      12AB 6C 43 00 00 
+      12AF 00 
+   43 12B0 A9 8E 13 6B        LDM  R40,=(END).2,T2
+      12B4 6C 43 00 00 
+      12B8 00 
+   44 12B9             blank  EQU  ' '
+   45 12B9 42 A9 20 00        LDM  R2,=blank,0
+   46 12BD 60 B1 1C 00        LDMD R40,=34q
+   47 12C1 50 B3 9C 12        STMD R20,=START
+   48 12C5 60 CB 01 06        ADM  R40,=1,(2+4).1,(8D).5,'X'
+Page    1                                                             
+NCAS
+
+      12C9 08 00 00 00 
+      12CD 00 58 
+   49 12CF 00 00              DATA (-64000D).2
+*ERROR(C) at expression.asm(49): Value too large for size specified
+   50 12D1             *
+   51 12D1             RTC    EQU  22
+*WARNING(P) at expression.asm(51): Value/type mismatch of redefined global symbol
+   52 12D1             OFFSET EQU  7
+   53 12D1 00 00 00 00 BUFFER BSS  10
+      ...
+   54 12D9 65 B1 12 00        ldmd R45,=RTC      ; required size is 2 bytes
+   55 12DD                                       ; RTC is generated as a two byte value,
+   56 12DD                                       ; regardless of its size
+   57 12DD             constant equ 128D
+   58 12DD             minusone equ -1
+   59 12DD             
+   60 12DD 01 02 03 04        DATA 1,2,3,4,50, 'Jack IV',"Roo"
+      12E1 28 4A 61 63 
+      12E5 6B 20 49 56 
+      12E9 52 6F 6F 
+   61 12EC FF 12 80 00        DATA ((BUFFER)+27*2).2,(constant).7
+      12F0 00 00 00 00 
+      12F4 00 
+   62 12F5 16                 DATA ((THERE)-($)).1,minusone
+*ERROR(P) at expression.asm(62): Unsized expression(s)
+   63 12F6 01 02 03           DATA 1,2,3,-27
+*ERROR(P) at expression.asm(63): Unsized expression(s)
+   64 12F9 11 54 68 69        DATA ((THERE)-($)-1).1, 'This is a message'
+      12FD 73 20 69 73 
+      1301 20 61 20 6D 
+      1305 65 73 73 61 
+      1309 67 65 
+   65 130B             THERE
+   66 130B 54 68 69 73        DATA "This is a string ending with null",0
+      130F 20 69 73 20 
+      1313 61 20 73 74 
+      1317 72 69 6E 67 
+      131B 20 65 6E 64 
+      131F 69 6E 67 20 
+      1323 77 69 74 68 
+      1327 20 6E 75 6C 
+      132B 6C 00 
+   67 132D 54 68 69 73        DATA 'This one ',"ends with CR",CR
+      1331 20 6F 6E 65 
+      1335 20 65 6E 64 
+      1339 73 20 77 69 
+      133D 74 68 20 43 
+      1341 52 0D 
+   68 1343 46 4E 41 4D        DATA 'FNAME',8D
+      1347 45 08 
+   69 1349 54 68 69 73        DATA `This ends with the high bit set` ;note accents
+      134D 20 65 6E 64 
+      1351 73 20 77 69 
+      1355 74 68 20 74 
+      1359 68 65 20 68 
+      135D 69 67 68 20 
+      1361 62 69 74 20 
+      1365 73 65 F4 
+   70 1368 73 6F 20 64        DATA ^so does this^
+      136C 6F 65 73 20 
+      1370 74 68 69 F3 
+   71 1374             
+   72 1374             workfilename equ 'workfile'
+   73 1374             devicefi1ename equ 'devfile '
+Page    2                                                             
+NCAS
+
+   74 1374             trans equ 'a'-'A'
+   75 1374             lcdsiz equ (LCDMIN)-(LCDMAX)
+   76 1374             filler equ 0102030405060708#
+   77 1374             
+   78 1374 65 A9 06    DEST   ldm  R45,=110B
+*WARNING(P) at expression.asm(78): Literal data list does not fill register section
+   79 1377 7B D0 D1 12        cmbd R73,=BUFFER
+   80 137B 72 A8 4C           LDB  R62,=TYNLEX
+   81 137E CB 01 02 03 LBL    ADM  R#,=1,2,3
+*WARNING(P) at expression.asm(81): Dangerous R#, cannot check section boundary
+   82 1382 43 10 B5 07        LDMD R3,X20,OFFSET
+      1386 00 
+   83 1387 B1 D1 12           LDMD  R#,=BUFFER
+   84 138A 44 A9 73 13        LDM  R4,=((DEST)-1).2
+   85 138E             END    BSS  0
+   86 138E 00 00 00 00        BSS (ROMEND)-($)+1
+      ...
+      5FFE 00 00 
+   87 6000                    END
+ 
+40 Symbols used:
+ADDR1          ADR 03E8    17;1
+ADDR2          ADR 0448    18;1
+BUFFER         LCL 12D1    53;1
+CR             EQU 000D  GLOBAL
+DEST           LCL 1374    78;1
+END            LCL 138E    85;1
+HENRY          EQU 03E8     3;1
+LBL            LCL 137E    81;1
+LCDMAX         EQU 0031  GLOBAL
+LCDMIN         EQU 0050  GLOBAL
+OFFSET         EQU 0007    52;1
+ROMEND         EQU 5FFF     2;1
+RTC            EQU 0012    51;1
+S27-57         EQU E717    12;1
+START          LCL 129C    40;1
+T1             EQU 03EA    36;1
+T2             EQU 436C6B    37;1
+T4             EQU 1000003E7    39;1
+TEST1          EQU 03EA     5;1
+TEST10         EQU 0114    15;1
+TEST11         EQU 0033    16;1
+TEST2          EQU 436C6B     6;1
+TEST3          EQU 00B8     7;1
+TEST4          EQU 0042     8;1
+TEST5          EQU 42FE     9;1
+TEST6          EQU FFFFFFFF    10;1
+TEST7          EQU 00AF    11;1
+TEST8          EQU 1E240    13;1
+TEST9          EQU -001    14;1
+THERE          LCL 130B    65;1
+TYNBAS         EQU 0042     4;1
+TYNLEX         EQU 004C  GLOBAL
+blank          EQU 0020    44;1
+constant       EQU 0080    57;1
+devicefi1ename EQU 20656C6966766564    73;1
+filler         EQU 102030405060708    76;1
+lcdsiz         EQU 001F    75;1
+minusone       EQU -001    58;1
+trans          EQU 0020    74;1
+workfilename   EQU 656C69666B726F77    72;1
+
+Index of source files in symbol cross reference:
+1: expression.asm
+Page    3                                                             
+NCAS
+
+Assembly completed
+ 87 lines processed, 8 error(s) 4 warning(s)
+ object file deleted

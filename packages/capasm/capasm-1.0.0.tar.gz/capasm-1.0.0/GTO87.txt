@@ -1,0 +1,24 @@
+Location 00F4
+Jump dest: 0203
+soll 44 cb 0b 01            opcode 104 ADR 04  313 ADMD R4,= 10b
+Offeset= Dest -1 - PC after ADR
+ist  44 a9 02 02 orig LABEL opcode 251 addr 02 03
+
+Location 0418
+Jump dest: 0212
+Offset= 0212 -1 -041C = FDF5 (530-1-1052= -523)    65014
+soll 44 CB F6 FD   (65013)
+
+Offset=
+0xFFFF   65.535
+-         1.052  loc
++           530  dest
++             1
+
+Location 0f4: GTO RESTORE offset soll: 10C  diff 10F
+
+Location 114  GTO RESTORE offset soll: ec   diff EF
+
+Location 19E  GTO RESTORE offset soll 62    diff 65
+
+Restore at 0x203

@@ -1,0 +1,340 @@
+0010        NAM  UNTRN3
+0020        DEF  RUNTIM
+0030        DEF  TOKS  
+0040        DEF  PARSE 
+0050        DEF  ERMSG 
+0060 RUNTIM DEF  INIT  
+0070        DEF  UNBIN.
+0080        DEF  UNTRN.
+0090 PARSE  DEF  REV.  
+0100        DEF  UNPARS
+0110        DEF  UNPARS
+0120        BYT  377,377
+0130 ! *************************
+0140 JMPENT PUMD R14,+R6
+0150        JSB  =SCRAT.
+0160        POMD R14,-R6
+0170        PUMD R14,+R6
+0180        LDMD R44,X14,BASIC 
+0190        ADM  R46,R14
+0200        PUMD R44,+R12
+0210        LDBD R44,X14,MSROM?
+0220        JNZ  DISC1 
+0230        JSB  =LOAD. 
+0240        JMP  LOADED
+0250 DISC1  JSB  =ROMJSB
+0260        DEF  MSLOD.
+0270        VAL  MSROM#
+0280 LOADED POMD R14,-R6
+0290        CMB  R17,=300
+0300        JNC  NOERR 
+0310 BALOUT STMD R14,=FWUSER
+0320        GTO  SCRAT.
+0330 NOERR  PUMD R14,+R#
+0340        LDMD R44,X14,BPGM  
+0350        JZR  LODBED
+0360        ADM  R46,R14
+0370        PUMD R44,+R12
+0380        LDBD R44,X14,MSROM?
+0390        JNZ  DISC2 
+0400        JSB  =LOADB.
+0410        JMP  LODBED
+0420 DISC2  JSB  =ROMJSB
+0430        DEF  MSLDB.
+0440        VAL  MSROM#
+0450 LODBED POMD R14,-R6
+0460        CMB  R17,=300
+0470        JCY  BALOUT
+0480 !       STBD R#,=GINTD
+0490        CLM  R76
+0495        CLM  R16
+0496        JSB  =FXLEN 
+0500 TRNSLP JSB  =FNDLIN
+0510        LDM  R24,R36
+0520        POMD R45,+R24
+0530        CMM  R45,=231,251,2
+0540        JZR  FNLEND
+0550        PUMD R45,+R6
+0560        PUMD R14,+R6
+0570        LDM  R30,=INPBUF
+0580        JSB  =DECOM 
+0590        POMD R14,-R6
+0600        LDB  R32,=15
+0610        PUBD R32,+R30
+0620        JSB  X14,NEW   
+0630 PARSE+ PUMD R14,+R6
+0640        LDMD R20,=BINTAB
+0650        PUMD R20,+R6
+0660        LDMD R20,X14,BIN?  
+0670        JNZ  PARSE!
+0680        STMD R20,=BINTAB
+0690 PARSE! JSB  =PARSER
+0700        POMD R14,-R6
+0710        STMD R14,=BINTAB
+0720        POMD R14,-R6
+0730        CMB  R17,=300
+0740        JCY  REPEAT
+0750        JSB  X14,OLD   
+0760        POBD R76,-R6
+0770        POMD R76,-R6
+0780        BCD  
+0790        ICM  R76
+0800        JNZ  TRNSLP
+0810 FNLEND JSB  =ST240+
+0820        JSB  =STBEEP
+0830        LDM  R26,=DONE  
+0840        ADM  R26,R14
+0850        LDM  R36,=4,0
+0860        JSB  =OUTSTR
+0870        STBD R#,=GINTEN
+0880        RTN  
+0890 ! *************************
+0900 REPEAT LDM  R36,=INPBUF
+0910 REPLOP POBD R45,+R36
+0920        CMB  R45,=40
+0930        JNZ  REPLOP
+0940        LDB  R45,=41
+0950        PUBD R45,-R36
+0960        LDM  R26,=INPBUF
+0970 FNDEND POBD R45,+R36
+0980        CMB  R45,=15
+0990        JNZ  FNDEND
+1000        SBM  R36,R26
+1010        JSB  =PRDVR1
+1020        CLB  R17
+1030        CLM  R36
+1040        STMD R36,=ERRORS
+1050        JMP  PARSE+
+1060 ! ************************
+1070 OLD    LDM  R24,=OLDTAB
+1080        JMP  NEW-  
+1090 NEW    LDM  R24,=NEWTAB
+1100 NEW-   ADM  R24,R14
+1110        LDM  R26,=ROMTAB
+1120 NEWLOP POMD R20,+R24
+1130        PUMD R20,+R26
+1140        CMB  R20,=377
+1150        JNZ  NEWLOP
+1160        RTN  
+1170 ! ************************
+1175 BIN?   BSZ  2
+1176 DONE   ASC  "DONE"
+1180 MSROM? BSZ  1
+1190 BPGM   BSZ  4
+1200 BASIC  BSZ  4
+1210 NEWTAB BSZ  36
+1220 OLDTAB BSZ  36
+1230 BPNAME BSZ  30
+1240 BANAME BSZ  30
+1250 ! ************************
+1260 LWMOVE BSZ  0
+1270 ! ************************
+1280 TOKS   ASP  "UNTRANSLATEBIN"
+1290        ASP  "UNTRANSLATE"
+1300        ASP  ""
+1310        BYT  377
+1320 ERMSG  BYT  200
+1330        BYT  200,200,200,200,200
+1340        BYT  200,200,200,200,200
+1350        ASP  "BAD ROM #"
+1360        ASP  "TOO MANY ROM #'s"
+1370        BYT  377
+1380 INIT   BIN  
+1390        LDBD R34,=ROMFL 
+1400        CMB  R34,=3
+1410        JNZ  RTN   
+1420        LDM  R26,=MESSAG
+1430        ADMD R26,=BINTAB
+1440        LDM  R36,=340,3
+1450        JSB  =OUTSTR
+1460 RTN    RTN  
+1470 MESSAG ASC  "UNTRANSLATE <BASIC>[,<BPGM>]      [,<ROM#>,...]                 "
+1480        ASC  "  where <BASIC> is the file name  of the BASIC program to be    "
+1490        ASC  "  UNTRANSLATEd, <BPGM> the file   name of the optional Binary   "
+1500        ASC  "  Program to be used in the       UNTRANSLATion, and <ROM#> is  "
+1510        ASC  "  a decimal value equivalent to   the bank-select address of the"
+1520        ASC  "  rom to be UNTRANSLATEd.  Up to  8 numbers can be listed (0 and"
+1530        ASC  "  255 are illegal numbers).     UNTRANSLATEBIN <BASIC>[,<BPGM>] "
+1540        ASC  "  [,<ROM#>,...]                   where all is the same as above"
+1550        ASC  "  with the exception that all     Binary Program keywords will  "
+1560        ASC  "  be UNTRANSLATEd as well.                                      "
+1570        ASC  "Examples:                        UNTRANSLATE "
+1580        BYT  42
+1590        ASC  "GPLOT"
+1600        BYT  42,54,42
+1610        ASC  "GPLTB"
+1620        BYT  42,54
+1630        ASC  "40"
+1635        BYT  15
+1640        ASC  " UNTRANSLATE "
+1650        BYT  42
+1660        ASC  "MYLOG"
+1670        BYT  42
+1680        ASC  ",240,208   "
+1690        BYT  15
+1700        ASC  " UNTRANSLATEBIN "
+1710        BYT  42
+1720        ASC  "TEST"
+1730        BYT  42,54,42
+1740        ASC  "TESTB"
+1750        BYT  42,15,15
+1760        ASC  "ROM NUMBERS:                     ADVANCED PROG.  232            "
+1770        ASC  " ASSEMBLER        40             I/O             192            "
+1780        ASC  " MASS STORAGE    208             MATRIX          176            "
+1790        ASC  " PLOTTER/PRINTER 240            "
+1800 ! ************************
+1810        BYT  0,56
+1820 REV.   LDM  R44,=12D,0
+1830        DEF  DATE  
+1840        ADMD R46,=BINTAB
+1850        PUMD R44,+R12
+1860        RTN  
+1870 DATE   ASC  "JULY 9, 1981"
+1880 ! ************************
+1890 UNPARS PUBD R43,+R6
+1900        JSB  =STREX+
+1910        JEN  GOTBAS
+1920 ERRPAR POBD R57,-R6
+1930        JSB  =ERROR+
+1940        BYT  88D
+1950 GOTBAS JSB  =GETCMA
+1960        JSB  =STREXP
+1970        JEZ  GETNUM
+1980 CHKCMA CMB  R14,=54
+1990        JNZ  THTSIT
+2000        JSB  =SCAN  
+2010 GETNUM JSB  =NUMVAL
+2020        JEZ  ERRPAR
+2030        JMP  CHKCMA
+2040 THTSIT POBD R57,-R6
+2050        LDB  R56,=0
+2060        LDB  R55,=371
+2070        PUMD R55,+R12
+2080        RTN  
+2090 ! ************************
+2100        BYT  141
+2110 UNBIN. BIN  
+2120        LDMD R14,=BINTAB
+2130        CLM  R20
+2140        STMD R20,X14,BIN?  
+2150        JMP  UN+   
+2160 ! ************************
+2170        BYT  141
+2180 UNTRN. BIN  
+2190        LDMD R14,=BINTAB
+2200        STMD R14,X14,BIN?  
+2210 UN+    LDB  R0,=70
+2220        CLM  R*
+2230        STBD R*,X14,MSROM?
+2240 ROMLOP LDM  R20,R12
+2250        SBMD R20,=TOS   
+2260        CMM  R20,=11,0
+2270        JNC  NO#'S 
+2280        PUMD R70,+R6
+2290        JSB  =ONEB  
+2300        POMD R70,-R6
+2310        TSM  R46
+2320        JNZ  NOT0  
+2330 ERR    JSB  =ERROR+
+2340        BYT  366
+2350 NOT0   CMM  R46,=377,0
+2360        JCY  ERR   
+2370        CMB  R0,=100
+2380        JNZ  NOTOVF
+2390        JSB  =ERROR+
+2400        BYT  365
+2410 NOTOVF STB  R46,R*
+2420        ICB  R0
+2430        JMP  ROMLOP
+2440 NO#'S  CLM  R44
+2450        STMD R44,X14,BPGM  
+2460        CMM  R20,=6,0
+2470        JNC  NOBPGM
+2480        LDM  R32,=BPNAME
+2490        JSB  X14,GETNAM
+2500        STMD R44,X14,BPGM  
+2510 NOBPGM LDM  R32,=BANAME
+2520        JSB  X14,GETNAM
+2530        STMD R44,X14,BASIC 
+2540        LDM  R36,=OLDTAB
+2550        ADM  R36,R14
+2560        LDM  R34,=NEWTAB
+2570        ADM  R34,R14
+2580        LDM  R32,=ROMTAB
+2590 POPLOP POMD R30,+R32
+2600        PUMD R30,+R36
+2610        JNZ  OK-0  
+2612        PUMD R30,+R34
+2615        JMP  POPLOP
+2620 OK-0   CMB  R30,=MSROM#
+2630        JNZ  NOTMS 
+2640        STBD R30,X14,MSROM?
+2650 NOTMS  LDB  R0,=70
+2660 PLOP2  LDB  R2,R*
+2670        CMB  R2,R30
+2680        JZR  POPLOP
+2690        ICB  R0
+2700        CMB  R0,=100
+2710        JNZ  PLOP2 
+2720        PUMD R30,+R34
+2730        CMB  R30,=377
+2740        JNZ  POPLOP
+2750        LDMD R26,=FWUSER
+2760        LDM  R24,R14
+2770        LDM  R22,=LWMOVE
+2790        JSB  =MOVUP 
+2800        LDMD R14,=FWUSER
+2810        STM  R14,R20
+2820        ADM  R20,=JMPENT
+2830        DCM  R20
+2840        STMD R26,=FWUSER
+2850        LDM  R4,R20
+2860 ! ************************
+2870 GETNAM POMD R36,-R12
+2880        POMD R34,-R12
+2890        CMM  R34,=30,0
+2900        JNC  LENOK 
+2910        LDM  R34,=30,0
+2920 LENOK  STM  R#,R44
+2930        STM  R32,R46
+2940        ADM  R32,R14
+2950 LOP    POBD R30,+R36
+2960        PUBD R30,+R32
+2970        DCB  R34
+2980        JNZ  LOP   
+2990        RTN  
+3000 ! ************************
+3010 BINTAB DAD  101233
+3020 FWUSER DAD  100000
+3030 LOAD.  DAD  24202
+3040 LOADB. DAD  23724
+3050 MSLOD. DAD  63700
+3060 MSLDB. DAD  63604
+3070 SCRAT+ DAD  4344
+3075 SCRAT. DAD  4437
+3080 ROMJSB DAD  4776
+3090 MSROM# EQU  320
+3100 GINTDS DAD  177401
+3110 GINTEN DAD  177400
+3120 FNDLIN DAD  44151
+3130 INPBUF DAD  100310
+3140 DECOM  DAD  46041
+3150 PARSER DAD  10404
+3160 ST240+ DAD  11236
+3170 STBEEP DAD  7017
+3180 OUTSTR DAD  35052
+3190 PRDVR1 DAD  75767
+3200 ERRORS DAD  100070
+3210 ROMTAB DAD  101235
+3220 ROMFL  DAD  101231
+3230 STREX+ DAD  13623
+3240 ERROR+ DAD  6611
+3250 GETCMA DAD  13414
+3260 STREXP DAD  13626
+3270 SCAN   DAD  11262
+3280 NUMVAL DAD  12412
+3290 TOS    DAD  101132
+3300 ONEB   DAD  56113
+3310 MOVUP  DAD  37365
+3320 FXLEN  DAD  36707
+9990        FIN  

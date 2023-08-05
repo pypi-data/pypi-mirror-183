@@ -1,0 +1,330 @@
+CAPASM  Version 0.9.8       July 2020                        2020-07-31 14:03:49
+(c) Joachim Siebold 2020
+
+0000             01000 MYBP#    EQU  32
+0000 52 45 44 5A 01010          NAM  32,REDZER  
+0004 1C 02 02 1A 
+0008 52 45 44 5A 
+000C 45 52 20 20 
+0010 20 20 00 00 
+0014 00 00 00 00 
+0018 00 00 
+001A 24 00       01020          DEF  RUNTIM  
+001C B2 00       01030          DEF  TOKS    
+001E 36 00       01040          DEF  PARSE   
+0020 40 00       01050          DEF  ERMSG   
+0022 52 00       01060          DEF  INIT    
+0024 00 00       01070 RUNTIM   BYT  0,0
+0026 FB 00       01080          DEF  MAT.             !  FOR 'MAT' KEYWORD (JUST DOES A 'RTN')
+0028 F6 00       01090          DEF  OTHER            !  FOR 'ZER' KEYWORD ATTRIBUTES
+002A FB 00       01100          DEF  REDIM.           !  FOR 'REDIM' KEYWORD (JUST DOES A 'RTN')
+002C 00 00       01110          BYT  0,0              !  DUMMY FOR BYT 377
+002E FE 00       01120          DEF  ZER.             !  ACTUAL RUNTIME FOR 'ZER'
+0030 F9 00       01130          DEF  DUMMY=.          !  RUNTIME FOR '=' (JUST A 'RTN')
+0032 2F 01       01140          DEF  REDIM1           !  RUNTIME FOR ONE-DIM 'REDIM'
+0034 AF 01       01150          DEF  REDIM2           !  RUNTIME FOR TWO-DIM 'REDIM'
+0036 00 00       01160 PARSE    BYT  0,0              ! 
+0038 53 00       01170          DEF  MATPAR           !  'MAT' PARSE ADDRESS
+003A 67 00       01180          DEF  ERRPAR           !  'ZER' PARSE ADDRESS (ERROR OUT)
+003C 88 00       01190          DEF  REDPAR           !  'REDIM' PARSE ADDRESS
+003E FF FF       01200          BYT  377,377          !  TERMINATE RELOCATION
+0040 80          01210 ERMSG    BYT  200              !  FIRST NINE ERROR MESSAGES ARE DUMMIES
+0041 80 80 80 80 01220          BYT  200,200,200,200  !      BECAUSE WE DON'T WANT A WARNING,
+0045 80 80 80 80 01230          BYT  200,200,200,200  !          WE WANT A HARD ERROR
+0049 44 49 4D 20 01240          ASP  "DIM SIZE"       !  ERROR MESSAGE FOR ERROR# 366
+004D 53 49 5A C5 
+0051 FF          01250          BYT  377              !  TERMINATE ERROR MESSAGE TABLE
+0052 9E          01260 INIT     RTN                   !  NO INITIALIZATION
+0053             01270 ! ***************************************************************
+0053 6F A8 F9    01280 MATPAR   LDB  R57,=371         !  LOAD THE SYSTEM MARKER TOKEN
+0056 6E A8 1A    01290          LDB  R56,=MYBP#       !  LOAD OUR BINARY PROGRAM NUMBER
+0059 6D 23 A0    01300          LDB  R55,R43          !  GET THE BPGM TOKEN #
+005C BB CD FF    01310          STMI R55,=PTR2-       !  PUSH THEM OUT TO PARSE STREAM
+005F CE 31 27    01320          JSB  =NARRE+          !  GET A SIMPLE NUMERIC VAR AS AN ARRAY REF
+0062 4C C8 35    01330          CMB  R14,=EQUALS      !  CHECK FOR THE EQUAL SIGN
+0065 F7 04       01340          JZR  OKMAT            !  JIF IT'S THERE
+0067 CE 90 10    01350 ERRPAR   JSB  =ERROR+          !  OTHERWISE ERROR OUT
+006A 58          01360          BYT  88D              !  BAD STATEMENT
+006B CE 48 22    01370 OKMAT    JSB  =SCAN            !  GET PAST THE EQUAL SIGN
+006E 63 C8 02    01380          CMB  R43,=2           !  CHECK FOR TOKEN 2 IN BPGM ('ZER')
+0071 F6 F4       01390          JNZ  ERRPAR           !  JIF NOT THERE TO ERROR
+0073 6F A8 F9    01400          LDB  R57,=371         !  LOAD SYS MARKER TOKEN
+0076 6E A8 1A    01410          LDB  R56,=MYBP#       !  GET OUR BPGM #
+0079 6D A8 05    01420          LDB  R55,=5           !  LOAD '=' TOKEN NUMBER
+007C BB CD FF    01430          STMI R55,=PTR2-       !  PUSH IT ALL OUT TO PARSE STACK
+007F A8 06       01440          LDB  R55,=6           !  LOAD 'ZER' TOKEN #
+0081 BB CD FF    01450          STMI R55,=PTR2-       !  PUSH IT ALL OUT AGAIN
+0084 CE 48 22    01460          JSB  =SCAN            !  DO A SCAN FOR THE SYSTEM
+0087             01465 ! ********************************************************************
+0087 9E          01470          RTN                   !  DONE
+0088 6F A8 F9    01480 REDPAR   LDB  R57,=371         !  LOAD THE SYSTEM MARKER TOKEN
+008B 6E A8 1A    01490          LDB  R56,=MYBP#       !  GET OUR BPGM #
+008E 6D 23 A0    01500          LDB  R55,R43          !  GET THE 'REDIM' KEYWORD TOKEN
+0091 BB CD FF    01510          STMI R55,=PTR2-       !  PUSH IT ALL OUT TO THE PARSE STACK
+0094 CE 48 22    01520 ALOOP    JSB  =SCAN            !  GET THE NEXT TOKEN
+0097 4C C8 02    01530          CMB  R14,=2           !  IS IT AN ARRAY REFERENCE?
+009A F6 CB       01540          JNZ  ERRPAR           !  JIF NO, BAD STATEMENT
+Page    1                                                             
+CAPASM
+
+009C CE 3E 29    01550          JSB  =PSH45           !  ELSE PUSH OUT THE ARRAY REF AND NAME
+009F 5A A8 07    01560          LDB  R32,=7           !  LOAD 1-DIM TOKEN AS DEFAULT
+00A2 58 B1 38 88 01570          LDMD R30,=BINTAB      !  GET BASE ADDRESS FOR JSB
+00A6 18 C6 C3 00 01580          JSB  X30,SUBSCR       !  GO HANDLE THE SUBSCRIPTS
+00AA F9 BB       01590          JEZ  ERRPAR           !  JIF BAD SUBSCRIPTING
+00AC 4C C8 2C    01600          CMB  R14,=COMMA       !  ELSE CHECK FOR MORE REDIMS
+00AF F7 E3       01610          JZR  ALOOP            !  LOOP IF MORE TO DO
+00B1 9E          01620          RTN                   !  ELSE DONE
+00B2             01630 ! ************************************************************************
+00B2 4D 41 D4    01640 TOKS     ASP  "MAT"            ! 
+00B5 5A 45 D2    01650          ASP  "ZER"            !  KEYWORD TABLE
+00B8 52 45 44 49 01660          ASP  "REDIM"          ! 
+00BC CD 
+00BD FF          01670          BYT  377              !  TERMINATE SALT PORTION OF TABLE
+00BE 5A 45 D2    01680          ASP  "ZER"            ! 
+00C1 BD          01690          BYT  275              !  'HIDDEN' TOKENS
+00C2 FF          01700          BYT  377              ! 
+00C3             01710 ! ************************************************************************
+00C3 5E 06 E4    01720 SUBSCR   PUBD R36,+R6          !  SAVE 36
+00C6 CE 06 25    01730          JSB  =NUMVAL          !  GET A NUMERIC VALUE FOR FIRST SUBSCRIPT
+00C9 5E 06 E2    01740          POBD R36,-R6          !  RECOVER 36
+00CC F9 26       01750          JEZ  SUBRTN           !  JIF NO SUBSCRIPT, ERROR FROM CALLER
+00CE 4C C8 2C    01760          CMB  R14,=COMMA       !  CHECK FOR COMMA, SECOND SUBSCRIPT?
+00D1 F6 0C       01770          JNZ  RTPAR            !  JIF NONE
+00D3 5A 88       01780          ICB  R32              !  IF 2nd ONE WAS THERE, INC TOK # TO 2-DIM
+00D5 5E E4       01790          PUBD R36,+R6          !  SAVE 36
+00D7 CE 03 25    01800          JSB  =NUMVA+          !  SCAN AND GET THE SECOND SUBSCRIPT
+00DA 5E 06 E2    01810          POBD R36,-R6          !  RECOVER 36
+00DD F9 15       01820          JEZ  SUBRTN           !  JIF NOT THERE, RETURN AND ERROR
+00DF 4C C8 29    01830 RTPAR    CMB  R14,=CLOSE       !  LOOK FOR CLOSE PARANTHESIS
+00E2 9D          01840          CLE                   !  PRESET FLAG TO ERROR CONDITION
+00E3 F6 0F       01850          JNZ  SUBRTN           !  JIF CLOSE NOT THERE
+00E5 CE 48 22    01860          JSB  =SCAN            !  ELSE SCAN PAST IT
+00E8 6E A9 1A F9 01870          LDM  R56,=32,371      !  LOAD BPGM # AND SYS MARKER TOK
+00EC 6D 1A A0    01880          LDB  R55,R32          !  GET BPGM TOK #
+00EF BB CD FF    01890          STMI R55,=PTR2-       !  PUSH IT ALL TO THE PARSE STACK
+00F2 9D          01900          CLE                   !  SET THE ERROR FLAG
+00F3 9C          01910          ICE                   !         TO NO ERROR
+00F4 9E          01920 SUBRTN   RTN                   !  DONE
+00F5             01930 ! **************************************************************
+00F5 21          01940          BYT  41               !  ATTRIBUTE FOR 'ZER' KEYWORD
+00F6 9E          01950 OTHER    RTN                   !  DO NOTHING
+00F7 05 29       01960          BYT  5,51             !  PRECEDENCE AND ATTRIBUTE OF DUMMY '='
+00F9 9E          01970 DUMMY=.  RTN                   !  DO NOTHING
+00FA A1          01980          BYT  241              !  ATTRIBUTE OF 'REDIM' AND 'MAT' KEYWORDS
+00FB             01990 REDIM.   BSZ  0                ! 
+00FB 9E          02000 MAT.     RTN                   !  DO NOTHING
+00FC             02010 ! **************************************************************
+00FC 00 2D       02020          BYT  0,55             !  HIDDEN 'ZER' TOK NEEDS TO LOOK LIKE A
+00FE             02021 !                                !    FUNCTION FOR DECOMPILE PURPOSE
+00FE 75 0A E3    02030 ZER.     POMD R65,-R12         !  GET THE ADDRESS OF THE ARRAY HEADER
+0101 CE C5 4A    02040          JSB  =FETSVA          !  MAKE SURE IT'S ABSOLUTE IN CASE PGM MODE
+0104 7D B1 CD FF 02050 ZERCOM   LDMD R75,=PTR2-       !  GET THE POINTER ADDRESS FOR TRACING
+0108 75 B9 CD FF 02060          LDMI R65,=PTR2-       !  GET THE TOTAL SIZE OF THE ARRAY IN BYTES
+010C 6C B9 CD FF 02070          LDMI R54,=PTR2-       !  GET PAST THE MAX ROW AND MAX COL
+0110 68 93       02080          CLM  R50              !  CLEAR R50-57 FOR PUSHING ZEROES
+0112 75 CD 08 00 02090 ZERLOP   SBM  R65,=10,0,0      !  KNOCK THE BYTE COUNT DOWN BY 8
+0116 00 
+0117 FA 06       02100          JNC  <10              !  JIF LESS THAN 8 TO GO
+0119 68 BB CD FF 02110          STMI R50,=PTR2-       !  ELSE PUSH OUT 8 ZEROES
+011D F0 F3       02120          JMP  ZERLOP           !  LOOP TIL LESS THAN 8 TO GO
+011F CB 08 00 00 02130 <10      ADM  R#,=10,0,0       !  GET BACK A NON-NEGATIVE COUNT
+0123 F7 08       02140          JZR  ZERDON           !  JIF ZERO, DONE
+0125 68 BA CD FF 02150 ZERLOP2  STBI R50,=PTR2-       !  ELSE PUSH OUT 1 ZERO
+Page    2                                                             
+CAPASM
+
+0129 75 8B       02160          DCM  R65              !  DECREMENT COUNT BY ONE
+012B F6 F8       02170          JNZ  ZERLOP2          !  JIF NOT DONE
+012D 9E          02180 ZERDON   RTN                   !  THAT'S ALL, FOLKS.
+012E             02190 ! **********************************************************
+012E 1A          02200          BYT  32               !  CLASS IS 'SUBSCRIPT'
+012F 4C B1 38 88 02210 REDIM1   LDMD R14,=BINTAB      !  GET BASE ADDRESS FOR LATER
+0133 CE 6B 14    02220          JSB  =ONEB            !  GET THE ONE SUBSCRIPT
+0136 66 06 E5    02230          PUMD R46,+R6          !  SAVE IT ON RTN STACK
+0139 75 0A E3    02240          POMD R65,-R12         !  GET THE ADDRESS OF THE ARRAY
+013C CE C5 4A    02250          JSB  =FETSVA          !  MAKE SURE IT'S RELATIVE AND GET HEADER
+013F 66 0C B6 92 02260          STBD R46,X14,SAVHED   !  SAVE HEADER FOR TRACING
+0143 01 
+0144 75 B9 CD FF 02280          LDMI R65,=PTR2-       !  GET PAST THE TOTAL SIZE
+0148 74 B9 CF FF 02290          LDMI R64,=PTR2-+      !  GET THE MAX ROW AND MAX COL
+014C 7E 34 A1    02300          LDM  R76,R64          !  GET THE MAX COL INTO R76-77
+014F C9 FF FF    02310          CMM  R76,=377,377     !  CHECK FOR 1-DIM (IF MAX COL=377,377)
+0152 F7 3F       02320          JZR  VECTOR1          !  JIF YES, IT'S A VECTOR
+0154 50 B1 8C 88 02330          LDMD R20,=PGMOPT      !  ELSE GET THE OPTION BASE
+0158 F7 04       02340          JZR  OPTB1            !  JIF OPTION BASE 1
+015A 7E 89       02350          ICM  R76              !  ELSE ADD ONE ELEMENT TO MAX COL
+015C 76 89       02360          ICM  R66              !        AND TO MAX ROW
+015E CE BB 57    02370 OPTB1    JSB  =INTMUL          !  GET THE NUMBER OF ELEMENTS IN ORIGINAL
+0161 64 93       02380 OPTB1-   CLM  R44              !  PREPARE FOR COMPARING
+0163 5E 06 E3    02390          POMD R36,-R6          !  GET THE NEW 1-DIM MAX ROW
+0166 24 A3       02400          STM  R36,R44          !  SET FOR COMPARING
+0168 50 91       02410          TSM  R20              !  CHECK OPTION BASE
+016A F7 02       02420          JZR  OPT1             !  JIF OPTION BASE 1
+016C 64 89       02430          ICM  R44              !  ELSE INCREMENT NEW TOTAL ELEMENTS
+016E 6C 24 C1    02440 OPT1     CMM  R54,R44          !  IF NEW<=OLD THEN
+0171 FB 08       02450          JCY  RED1OK           !      GOTO REDIM OK
+0173 0C C6 A2 01 02460          JSB  X14,ERRSET       !          ELSE ERROR (SET BPGM #)
+0177 CE 90 10    02470          JSB  =ERROR+          !                     (REPORT ERROR)
+017A F6          02480          BYT  366              !                     ('DIM SIZE')
+017B 74 93       02490 RED1OK   CLM  R64              !  WE'RE REDIM-ING TO A VECTOR, SO
+017D 8B          02500          DCM  R64              !      SET MAX COL TO 377,377
+017E 76 1E A1    02510          LDM  R66,R36          !  GET MAX ROW
+0181 74 BB CF FF 02520          STMI R64,=PTR2-+      !  STORE OUT TO ARRAY VARIABLE SPACE
+0185 75 B9 CE FF 02530          LDMI R65,=PTR2+       !  GET PTR2 BACK TO RIGHT SPOT
+0189 66 0C B4 92 02540          LDBD R46,X14,SAVHED   !  RECOVER ARRAY HEADER BYTE
+018D 01 
+018E C6 04 01    02550          JSB  X14,ZERCOM       !  GO ZERO THE ARRAY AND TRACE
+0191 9E          02560          RTN                   !  DONE
+0192 00          02570 SAVHED   BSZ  1                !  HEADER BYTE SAVE AREA
+0193 6C 93       02580 VECTOR1  CLM  R54              !  IF ARRAY WAS VECTOR IT'S EASY TO
+0195 76 2C A3    02590          STM  R66,R54          !      CALCULATE THE TOTAL # OF ELEMENTS
+0198 50 B1 8C 88 02600          LDMD R20,=PGMOPT      !  BUT BE SURE YOU CHECK OPTION BASE
+019C F7 C3       02610          JZR  OPTB1-           !      AND IF OPTION BASE 0
+019E 6C 89       02620          ICM  R54              !          THEN BE SURE TO ADJUST COUNT
+01A0 F0 BF       02630          JMP  OPTB1-           !  THEN FINISH
+01A2 5E B0 53 80 02640 ERRSET   LDBD R36,=ERRORS      !  HAVE ANY UNREPORTED ERRORS OCCURRED?
+01A6 F6 05       02650          JNZ  NOERR            !  JIF YES
+01A8 A8 1A       02660          LDB  R36,=MYBP#       !  ELSE GET OUR BPGM #
+01AA B2 F9 86    02670          STBD R36,=ERRBP#      !  SET IF FOR THE SYSTEM
+01AD 9E          02680 NOERR    RTN                   !  DONE
+01AE             02690 ! **********************************************************
+01AE 1A          02700          BYT  32               !  CLASS IS 'SUBSCRIPT'
+01AF 4C B1 38 88 02710 REDIM2   LDMD R14,=BINTAB      !  GET BASE ADDRESS FOR LATER
+01B3 CE F0 5D    02720          JSB  =TWOB            !  GET THE NEW MAX ROW AND MAX COL
+01B6 66 06 E5    02730          PUMD R46,+R6          !  SAVE THEM ON THE RTN STACK
+01B9 6E E5       02740          PUMD R56,+R6          ! 
+01BB 75 0A E3    02750          POMD R65,-R12         !  GET THE ADDRESS OF THE ARRAY
+01BE CE C5 4A    02760          JSB  =FETSVA          !  MAKE SURE THAT IT'S ABSOLUTE
+01C1 66 0C B6 92 02770          STBD R46,X14,SAVHED   !  SAVE THE HEADER BYTE FOR TRACING
+01C5 01 
+Page    3                                                             
+CAPASM
+
+01C6 75 B9 CD FF 02790          LDMI R65,=PTR2-       !  GET PAST THE TOTAL SIZE
+01CA 0A E5       02795          PUMD R65,+R12         !  SAVE FOR LATER
+01CC 76 06 E3    02900          POMD R66,-R6          !  GET NEW MAX ROW
+01CF 7E E3       02910          POMD R76,-R6          !  GET NEW MAX COL
+01D1 E5          02920          PUMD R76,+R6          !  SAVE THEM AGAIN
+01D2 76 E5       02930          PUMD R66,+R6          ! 
+01D4 50 B1 8C 88 02940          LDMD R20,=PGMOPT      !  IS OPTION BASE 1?
+01D8 F7 04       02950          JZR  OPTB3            !  JIF YES
+01DA 7E 89       02960          ICM  R76              !  ELSE ADJUST MAX COL
+01DC 76 89       02970          ICM  R66              !     AND MAX ROW
+01DE CE BB 57    02980 OPTB3    JSB  =INTMUL          !  CALCULATE TOTAL # OF ELEMENTS IN NEW
+01E1 6C 34 A3    02981          STM  R54,R64          !  COPY FOR ADDING
+01E4 99          02982          BCD                   !  FOR 4-BIT SHIFT
+01E5 66 86       02983          LRB  R46              !  GET THE TYPE IN BITS 0-1
+01E7 98          02984          BIN                   !  FOR ELSEWISE
+01E8 CF 03 00    02985          ANM  R46,=3,0         !  GET REAL,INTEGER, OR SHORT
+01EB 0C C3       02986          ADM  R46,R14          !  FOR INDEXING
+01ED 5E 26 B4 19 02987          LDBD R36,X46,#BYTES   !  GET # BYTES/TYPE
+01F1 02 
+01F2 6C 34 C3    02988 BYTE     ADM  R54,R64          !  ADD AGAIN
+01F5 5E 8A       02989          DCB  R36              !  DEC BYTE/TYPE COUNT
+01F7 F6 F9       02990          JNZ  BYTE             !  JIF NOT DONE
+01F9 74 06 E3    02991          POMD R64,-R6          !  RECOVER NEW ROW,COL
+01FC 65 0A E3    02999          POMD R45,-R12         !  RECOVER OLD TOTAL
+01FF 2C C1       03000          CMM  R45,R54          !  IS NEW<=OLD?
+0201 FB 08       03010          JCY  RED2OK           !  JIF YES, OK
+0203 0C C6 A2 01 03020          JSB  X14,ERRSET       !  SET BPGM # FOR SYSTEM ERROR ROUTINE
+0207 CE 90 10    03030          JSB  =ERROR+          !  REPORT ERROR
+020A F6          03040          BYT  366              !  'DIM SIZE'
+020B 74 BB CF FF 03080 RED2OK   STMI R64,=PTR2-+      !  STORE THEM TO THE VARIABLE AREA
+020F 75 B9 CE FF 03090          LDMI R65,=PTR2+       !  MOVE THE PTR BACK TO COMMON SPOT
+0213 66 0C B4 92 03100          LDBD R46,X14,SAVHED   !  RECOVER THE ARRAY HEADER BYTE
+0217 01 
+0218             03110 !         JSB X14,ZERCOM         ! GO ZERO THE ARRAY AND TRAC
+0218 9E          03120          RTN                   !  DONE
+0219 07 02 03    03150 #BYTES   BYT  7,2,3
+021C             03185 ! ********************************************************************
+021C             03190 BINTAB   DAD  104070           ! 
+021C             03200 CLOSE    EQU  51               ! 
+021C             03210 COMMA    EQU  54               ! 
+021C             03220 EQUALS   EQU  65               ! 
+021C             03230 ERRBP#   DAD  103371           ! 
+021C             03240 ERROR+   DAD  10220            ! 
+021C             03250 ERRORS   DAD  100123           ! 
+021C             03260 FETSVA   DAD  45305            ! 
+021C             03270 INTMUL   DAD  53673            ! 
+021C             03280 NARRE+   DAD  23461            ! 
+021C             03290 NUMVA+   DAD  22403            ! 
+021C             03300 NUMVAL   DAD  22406            !  LABEL DEFINITIONS
+021C             03310 ONEB     DAD  12153            ! 
+021C             03320 PGMOPT   DAD  104214           ! 
+021C             03330 PTR2-    DAD  177715           ! 
+021C             03340 PTR2-+   DAD  177717           ! 
+021C             03350 PTR2+    DAD  177716           ! 
+021C             03360 PSH45    DAD  24476            ! 
+021C             03370 SCAN     DAD  21110            ! 
+021C             03380 TWOB     DAD  56760            ! 
+021C             03390          FIN                   !  SOURCE TERMINATION
+ 
+58 Symbols used:
+#BYTES     LCL 0219   213;1
+<10        LCL 011F   116;1
+ALOOP      LCL 0094    54;1
+BINTAB     DAD 8838   215;1
+Page    4                                                             
+CAPASM
+
+BYTE       LCL 01F2   198;1
+CLOSE      EQU 0029   216;1
+COMMA      EQU 002C   217;1
+DUMMY=.    LCL 00F9    99;1
+EQUALS     EQU 0035   218;1
+ERMSG      LCL 0040    22;1
+ERRBP#     DAD 86F9   219;1
+ERROR+     DAD 1090   220;1
+ERRORS     DAD 8053   221;1
+ERRPAR     LCL 0067    36;1
+ERRSET     LCL 01A2   166;1
+FETSVA     DAD 4AC5   222;1
+INIT       LCL 0052    27;1
+INTMUL     DAD 57BB   223;1
+MAT.       LCL 00FB   102;1
+MATPAR     LCL 0053    29;1
+MYBP#      EQU 001A     1;1
+NARRE+     DAD 2731   224;1
+NOERR      LCL 01AD   170;1
+NUMVA+     DAD 2503   225;1
+NUMVAL     DAD 2506   226;1
+OKMAT      LCL 006B    38;1
+ONEB       DAD 146B   227;1
+OPT1       LCL 016E   146;1
+OPTB1      LCL 015E   139;1
+OPTB1-     LCL 0161   140;1
+OPTB3      LCL 01DE   190;1
+OTHER      LCL 00F6    97;1
+PARSE      LCL 0036    17;1
+PGMOPT     DAD 888C   228;1
+PSH45      DAD 293E   232;1
+PTR2+      DAD FFCE   231;1
+PTR2-      DAD FFCD   229;1
+PTR2-+     DAD FFCF   230;1
+RED1OK     LCL 017B   151;1
+RED2OK     LCL 020B   208;1
+REDIM.     LCL 00FB   101;1
+REDIM1     LCL 012F   124;1
+REDIM2     LCL 01AF   173;1
+REDPAR     LCL 0088    50;1
+RTPAR      LCL 00DF    85;1
+RUNTIM     LCL 0024     8;1
+SAVHED     LCL 0192   159;1
+SCAN       DAD 2248   233;1
+SUBRTN     LCL 00F4    94;1
+SUBSCR     LCL 00C3    74;1
+TOKS       LCL 00B2    66;1
+TWOB       DAD 5DF0   234;1
+VECTOR1    LCL 0193   160;1
+ZER.       LCL 00FE   106;1
+ZERCOM     LCL 0104   108;1
+ZERDON     LCL 012D   121;1
+ZERLOP     LCL 0112   112;1
+ZERLOP2    LCL 0125   118;1
+
+Index of source files in symbol cross reference:
+1: REDZERS.asm
+Assembly completed
+ 235 lines processed, 0 error(s) encountered
+ 540 bytes of code written to object file

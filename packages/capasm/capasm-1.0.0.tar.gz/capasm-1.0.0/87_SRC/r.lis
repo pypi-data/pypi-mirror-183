@@ -1,0 +1,324 @@
+CAPASM  Version 0.9.8       August 2020                      2020-08-03 11:01:09
+(c) Joachim Siebold 2020
+
+000000             01000 ! ***********************************************************************
+000000             01010 ! *                                                                      
+000000             01020 ! *          READ/WRITE SECTOR BINARY PROGRAM FOR HP-87                  
+000000             01030 ! *                                                                      
+000000             01040 ! ***********************************************************************
+000000             01050 ! *                                                                      
+000000             01060 ! *    syntax:                                                           
+000000             01070 ! *                                                                      
+000000             01080 ! *      RSECTOR <string var>,<numeric exp>,<string exp>                 
+000000             01090 ! *                 (sink)     (sector #)     (msus)                     
+000000             01100 ! *                                                                      
+000000             01110 ! *      WSECTOR <string exp>,<numeric exp>,<string exp>                 
+000000             01120 ! *                (source)    (sector #)     (msus)                     
+000000             01130 ! *                                                                      
+000000             01140 ! ***********************************************************************
+000000             01150 ! *                                                                      
+000000             01160 ! *  This Binary Program calls three routines in the Mass Storage Rom.   
+000000             01170 ! *                                                                      
+000000             01180 ! *  DCDFIL                                                              
+000000             01190 ! *                                                                      
+000000             01200 ! *     Decodes a file name and/or an MSUS, storing the file name in     
+000000             01210 ! *     FNAM and FNAM+5 and storing the MSUS in ACTMSU.                  
+000000             01220 ! *                                                                      
+000000             01230 ! *     INPUT CONDITIONS:                                                
+000000             01240 ! *                                                                      
+000000             01250 ! *        SAVER6 must contain the address to be loaded into R6-7 by     
+000000             01260 ! *        the Mass Storage Rom in case of error before executing a RTN. 
+000000             01270 ! *                                                                      
+000000             01280 ! *        The length (2 bytes) and address (3 bytes) of the string      
+000000             01290 ! *        which represents the file name and/or MSUS must be on the     
+000000             01300 ! *        R12 (operating) stack.                                        
+000000             01310 ! *                                                                      
+000000             01320 ! *        R14-5 must contain the contents of RAM location MSBASE.       
+000000             01330 ! *                                                                      
+000000             01340 ! *        The RAM location pointed to by the contents of the RAM        
+000000             01350 ! *        location MSBASE must contain the contents of R12-13 at entry. 
+000000             01360 ! *                                                                      
+000000             01370 ! *        R40 must contain a flag specifying what you want DCDFIL to    
+000000             01380 ! *        accept:                                                       
+000000             01390 ! *                   0 = at least a file name or an MSUS                
+000000             01400 ! *                   1 = filename only (no MSUS allowed)                
+000000             01410 ! *                   2 = MSUS only (no file name allowed)               
+000000             01420 ! *                                                                      
+000000             01430 ! *     OUTPUT CONDITIONS                                                
+000000             01440 ! *                                                                      
+000000             01450 ! *        Assume all registers and PTR2 to be undefined.                
+000000             01460 ! *                                                                      
+000000             01470 ! *  GETSEC                                                              
+000000             01480 ! *                                                                      
+000000             01490 ! *     Reads one sector (256 bytes) from the disc into a memory location
+000000             01500 ! *     pointed to by PTR2.                                              
+000000             01510 ! *                                                                      
+000000             01520 ! *     INPUT CONDITIONS                                                 
+000000             01530 ! *                                                                      
+000000             01540 ! *        SAVER6 must contain the address to be loaded into R6-7 by     
+000000             01550 ! *        the Mass Storage Rom in case of error before executing a RTN. 
+000000             01560 ! *                                                                      
+000000             01570 ! *        R14-5 must contain the contents of RAM location MSBASE.       
+000000             01580 ! *                                                                      
+000000             01590 ! *        The RAM location pointed to by the contents of the RAM        
+000000             01600 ! *        location MSBASE must contain the contents of R12-13 at entry. 
+000000             01610 ! *                                                                      
+000000             01620 ! *        R32-3 must contain the sector number to be read as a Binary #.
+Page    1                                                             
+CAPASM
+
+000000             01630 ! *                                                                      
+000000             01640 ! *                                                                      
+000000             01650 ! *                                                                      
+000000             01660 ! *             1) The first word of the 256 bytes of memory             
+000000             01670 ! *          OR                                                          
+000000             01680 ! *             2) One byte past the last byte of the memory             
+000000             01690 ! *                                                                      
+000000             01700 ! *          Which it has to be depends on whether you want the first    
+000000             01710 ! *          byte of the sector to be at the lowest (1) or highest (2)   
+000000             01720 ! *          address. Whichever is chosen two things must be set up      
+000000             01730 ! *          to coincide with that choice: FILTYP and DFLAG.             
+000000             01740 ! *          If DFLAG=0 then (1) must be used; if DFLAG#0 and FILTYP=10  
+000000             01750 ! *          then (1) must be used; If DFLAG#0 and FILTYP#10 then (2)    
+000000             01760 ! *          must be used.                                               
+000000             01770 ! *                                                                      
+000000             01780 ! *        DFLAG and FILTYP must be set according to PTR2.               
+000000             01790 ! *                                                                      
+000000             01800 ! *     OUTPUT CONDITIONS                                                
+000000             01810 ! *                                                                      
+000000             01820 ! *        The selected sector will be in memory at the location pointed 
+000000             01830 ! *        to by PTR2 at entry. Consider all registers and PTR2 to be    
+000000             01840 ! *        undefined.                                                    
+000000             01850 ! *                                                                      
+000000             01860 ! *  PUTSEC                                                              
+000000             01870 ! *                                                                      
+000000             01880 ! *     Writes 256 bytes of memory out to a given sector on disk.        
+000000             01890 ! *                                                                      
+000000             01900 ! *     INPUT CONDITIONS                                                 
+000000             01910 ! *                                                                      
+000000             01920 ! *     Same as for GETSEC.                                              
+000000             01930 ! *                                                                      
+000000             01940 ! *     OUTPUT CONDITIONS                                                
+000000             01950 ! *                                                                      
+000000             01960 ! *     Same as for GETSEC.                                              
+000000             01970 ! *                                                                      
+000000             01980 ! ***********************************************************************
+000000 122 057 127 01990          NAM  37,R/WSEC        !  BINARY PROGRAM # = 37 OCTAL
+000003 123 051 001 
+000006 002 037 122 
+000011 057 127 123 
+000014 105 103 040 
+000017 040 040 040 
+000022 000 000 000 
+000025 000 000 000 
+000030 000 000 
+000032 044 000     02000          DEF  RUNTIM  
+000034 064 000     02010          DEF  TOKS    
+000036 054 000     02020          DEF  PARSE   
+000040 062 000     02030          DEF  ERMSG   
+000042 105 000     02040          DEF  INIT    
+000044 000 000     02050 RUNTIM   BYT  0,0
+000046 200 000     02060          DEF  READ.            !  RUNTIME ADDRESS FOR 'RSECTOR'
+000050 320 000     02070          DEF  WRITE.           !  RUNTIME ADDRESS FOR 'WSECTOR'
+000052 015 001     02080          DEF  REV.             !  RUNTIME ADDRESS FOR REV DATE
+000054 000 000     02090 PARSE    BYT  0,0
+000056 106 000     02100          DEF  RPARSE           !  PARSE ADDRESS FOR 'RSECTOR'
+000060 167 000     02110          DEF  WPARSE           !  PARSE ADDRESS FOR 'WSECTOR'
+000062             02120 !                                  THERE'S NO NEED FOR A ENTRY IN THE PARS
+000062             02130 !                                  TABLE FOR REV DATE SINCE IT'S A FUNCTIO
+000062             02140 !                                  AND THERE'S NO KEYWORDS AFTER IT
+000062 377 377     02150 ERMSG    BYT  377,377          !  TERMINATE RELOCATION OF ADDRESSES
+000064 122 123 105 02160 TOKS     ASP  "RSECTOR"        !  KEYWORD # 1
+000067 103 124 117 
+000072 322 
+Page    2                                                             
+CAPASM
+
+000073 127 123 105 02170          ASP  "WSECTOR"        !  KEYWORD # 2
+000076 103 124 117 
+000101 322 
+000102             02180 !        ASP  ""             !  KEYWORD CONTROL H CONTROL P
+000102 010 220     02185          BYT  10,220           !  KEYWORD CONTROL H CONTROL P
+000104 377         02190          BYT  377              !  TERMINATE KEYWORD TABLE
+000105 236         02200 INIT     RTN                   !  NO INITIALIZATION
+000106             02210 ! ********************************************************************
+000106 143 006 344 02220 RPARSE   PUBD R43,+R6          !  SAVE INCOMING TOKEN #
+000111 316 110 042 02230          JSB  =SCAN            !  GET THE NEXT TOKEN IN THE INPUT STREAM
+000114 316 056 050 02240          JSB  =STRREF          !  GET A STRING VARIABLE REFERENCE(STORE $)
+000117 370 007     02250 COMPAR   JEN  OK               !  JIF GOT IT ELSE
+000121 143 006 342 02260 ERR      POBD R43,-R6          !     CLEAN UP R6 (RETURN) STACK AND
+000124 316 220 020 02270          JSB  =ERROR+          !        REPORT ERROR
+000127 130         02280          BYT  88D              !           # 88 (BAD STATEMENT)
+000130 114 310 054 02290 OK       CMB  R14,=54          !  CHECK TO SEE IF A COMMA IS NEXT
+000133 366 364     02300          JNZ  ERR              !  JIF NO, ERROR
+000135 316 003 045 02310          JSB  =NUMVA+          !  ELSE SCAN & GET NUMERIC EXPR (SECTOR #)
+000140 371 357     02320          JEZ  ERR              !  JIF NOT THERE TO ERROR
+000142 114 310 054 02330          CMB  R14,=54          !  CHECK TO SEE IF A COMMA IS NEXT
+000145 366 352     02340          JNZ  ERR              !  JIF NO, ERROR
+000147 316 321 047 02350          JSB  =STREX+          !  GET A STRING EXPRESSION (MSUS $)
+000152 371 345     02360          JEZ  ERR              !  JIF NOT THERE TO ERROR
+000154 156 251 037 02370          LDM  R56,=37,371      !  LOAD BP # AND SYSTEM BP TOKEN
+000157 371 
+000160 155 006 342 02380          POBD R55,-R6          !  RECOVER INCOMING TOKEN #
+000163 273 315 377 02390          STMI R55,=PTR2-       !  STORE IT ALL OUT TO PARSE STACK
+000166 236         02400          RTN                   !  DONE
+000167             02410 ! ********************************************************************
+000167 143 006 344 02420 WPARSE   PUBD R43,+R6          !  SAVE INCOMING TOKEN #
+000172 316 321 047 02430          JSB  =STREX+          !  GET A STRING EXPRESSION (THE $ TO WRITE)
+000175 360 320     02440          JMP  COMPAR           !  JMP TO COMMON PARSE FINISH
+000177             02450 ! ********************************************************************
+000177 241         02460          BYT  241              !  ATTRIBUTE, STATEMENT LEGAL AFTER THEN
+000200 230         02470 READ.    BIN                   !  FOR ADDRESS MATH
+000201 140 222     02480          CLB  R40              !  GET A 0
+000203 262 271 203 02490          STBD R40,=FILTYP      !  SET FILTYP TO 0
+000206 250 002     02500          LDB  R40,=2           !  GET A 2
+000210 262 224 210 02510          STBD R40,=DFLAG       !  SET DIRECTION FLAG TO NON-ZERO
+000213 120 006 241 02520          LDM  R20,R6           !  GET A COPY OF STACK POINTER
+000216 313 007 000 02530          ADM  R20,=7,0         !  ADD SEVEN
+000221 263 066 210 02540          STMD R20,=SAVER6      !  STORE FOR MASS STORAGE ROM ERROR EXIT
+000224 114 261 012 02550          LDMD R14,=MSBASE      !  GET MS ROM BASE IN R14
+000227 207 
+000230 112 014 247 02560          STMD R12,R14          !  STORE STACK POINTER TO RAM
+000233 316 223 014 02570          JSB  =ROMJSB          !  CALL MS ROM
+000236 371 142     02580          DEF  DCDFIL           !  DECODE THE MASS STORAGE UNIT SPECIFIER
+000240 320         02590          VAL  MSROM#           !  320
+000241 316 153 024 02600          JSB  =ONEB            !  GET THE SECTOR # OFF STACK AS BINARY #
+000244 146 032 243 02610          STM  R46,R32          !  COPY IT INTO R32-3 FOR 'GETSEC'
+000247 175 251 200 02620          LDM  R75,=LSTBUF      !  GET ADDRESS OF LAST BYTE OF BUFFER + 1
+000252 206 
+000253 000         02630          BYT  0                !  (NEED A 3-BYTE ADDRESS FOR PTR)
+000254 263 315 377 02640          STMD R75,=PTR2-       !  SET PTR2 FOR 'GETSEC'
+000257 316 223 014 02650          JSB  =ROMJSB          !  CALL MS ROM
+000262 126 176     02660          DEF  GETSEC           !  READ THE SECTOR TO PTR2-
+000264 320         02670          VAL  MSROM#           !  320
+000265 140 222     02680          CLB  R40              !  GET A 0
+000267 262 224 210 02690          STBD R40,=DFLAG       !  CLEAR DIRECTION FLAG
+000272 117 310 300 02700          CMB  R17,=300         !  CHECK FOR ANY ERRORS
+000275 373 017     02710          JCY  READRTN          !  JIF ERROR, DON'T STORE TO $
+000277 166 251 000 02720          LDM  R66,=0,1         !  LENGTH SHOULD BE 256
+000302 001 
+000303 012 345     02730          PUMD R66,+R12         !  PUSH TO OPERATING STACK
+Page    3                                                             
+CAPASM
+
+000305 165 251 200 02740          LDM  R65,=LSTBUF      !  ADDRESS OF HIGHEST BYTE +1
+000310 206 
+000311 000         02750          BYT  0                !  (3-BYTE ADDRESS AGAIN)
+000312 345         02760          PUMD R65,+R12         !  PUSH TO OPERATING STACK
+000313 316 072 115 02770          JSB  =STOST           !  HAVE THE SYSTEM STORE IT INOT THE $
+000316 236         02780 READRTN  RTN                   !  DONE
+000317             02790 ! ********************************************************************
+000317 241         02800          BYT  241              !  ATTRIBUTE, STATEMENT LEGAL AFTER THEN
+000320 230         02810 WRITE.   BIN                   !  FOR ADDRESS MATH
+000321 140 222     02820          CLB  R40              !  GET A 0
+000323 262 271 203 02830          STBD R40,=FILTYP      !  SET FILE TYPE TO 0
+000326 250 002     02840          LDB  R40,=2           !  GET A 2
+000330 262 224 210 02850          STBD R40,=DFLAG       !  SET DIRECTION FLAG TO NON-ZERO
+000333 120 006 241 02860          LDM  R20,R6           !  GET A COPY OF THE RETURN STACK POINTER
+000336 313 007 000 02870          ADM  R20,=7,0         !  ADD SEVEN FOR ROMJSB RETURN ETC.
+000341 263 066 210 02880          STMD R20,=SAVER6      !  SET FOR MS ROM ERROR EXIT
+000344 114 261 012 02890          LDMD R14,=MSBASE      !  GET MS ROMs RAM BASE ADDRESS
+000347 207 
+000350 112 014 247 02900          STMD R12,R14          !  STORE R12 STACK POINTER INTO RAM
+000353 316 223 014 02910          JSB  =ROMJSB          !  CALL MS ROM
+000356 371 142     02920          DEF  DCDFIL           !  DECODE THE MSUS
+000360 320         02930          VAL  MSROM#           !  320
+000361 316 153 024 02940          JSB  =ONEB            !  GET THE SECTOR # OFF THE STACK
+000364 146 032 243 02950          STM  R46,R32          !  SET IN R32-3 FOR 'PUTSEC'
+000367 165 012 343 02960          POMD R65,-R12         !  GET ADDRESS OF $ TO BE WRITTEN
+000372 263 315 377 02970          STMD R65,=PTR2-       !  SET PTR2 POINTING TO IT
+000375 146 343     02980          POMD R46,-R12         !  THROW AWAY THE LENGTH, WE'RE GOINT TO
+000377             02990 !                                   WRITE 256 WHETHER THE STRINGS THAT LON
+000377             03000 !                                   OR NOT
+000377 316 223 014 03010          JSB  =ROMJSB          !  CALL MS ROM
+000402 040 176     03020          DEF  PUTSEC           !  WRITE THE $ TO THE SECTOR
+000404 320         03030          VAL  MSROM#           !  320
+000405 140 222     03040          CLB  R40
+000407 262 224 210 03050          STBD R40,=DFLAG       !  CLEAR DIRECTION FLAG
+000412 236         03060          RTN                   !  DONE
+000413             03070 ! ********************************************************************
+000413 000 056     03080          BYT  0,56             !  ATTRIBUTES,STRING FUNCTION, 0 PARAMETERS
+000415 230         03090 REV.     BIN                   !  FOR ADDRESS MATH
+000416 143 251 014 03100          LDM  R43,=14,0        !  LENGTH OF STRING
+000421 000 
+000422 051 001     03110          DEF  DATE             !    AND ADDRESS
+000424 000         03120          BYT  0                !  3-BYTE ADDRESS
+000425 145 323 070 03130          ADMD R45,=BINTAB      !  MAKE IT AN ABSOLUTE ADDRESS
+000430 210 
+000431 143 012 345 03140          PUMD R43,+R12         !  PUSH ON OPERATING STACK
+000434 236         03150          RTN  
+000435 061 070 071 03160          ASC  "1891,92 TPES"   !  THE DATE: SEPT 29,1981
+000440 061 054 071 
+000443 062 040 124 
+000446 120 105 123 
+000451             03170 DATE     BSZ  0                !  TO GET THE RIGHT ADDRESS
+000451             03180 ! ********************************************************************
+000451             03190 BINTAB   DAD  104070           ! 
+000451             03200 DCDFIL   DAD  61371            ! 
+000451             03210 DFLAG    DAD  104224           ! 
+000451             03220 ERROR+   DAD  10220            ! 
+000451             03230 FILTYP   DAD  101671           ! 
+000451             03240 GETSEC   DAD  77126            ! 
+000451             03250 LSTBUF   DAD  103200           ! 
+000451             03260 MSBASE   DAD  103412           ! 
+000451             03270 MSROM#   DAD  320              ! 
+000451             03280 NUMVA+   DAD  22403            ! 
+000451             03290 ONEB     DAD  12153            ! 
+000451             03300 PTR2-    DAD  177715           ! 
+Page    4                                                             
+CAPASM
+
+000451             03310 PUTSEC   DAD  77040            !  LABEL DEFINITIONS
+000451             03320 RECB+1   DAD  102601           ! 
+000451             03330 RECBUF   DAD  102600           ! 
+000451             03340 ROMJSB   DAD  6223             ! 
+000451             03350 SAVER6   DAD  104066           ! 
+000451             03360 SCAN     DAD  21110            ! 
+000451             03370 STOST    DAD  46472            ! 
+000451             03380 STREX+   DAD  23721            ! 
+000451             03390 STRREF   DAD  24056            ! 
+000451             03400          FIN                   !  TERMINATE ASSEMBLY
+ 
+36 Symbols used:
+BINTAB     DAD 104070   221;1
+COMPAR     LCL 000117   127;1
+DATE       LCL 000451   219;1
+DCDFIL     DAD 061371   222;1
+DFLAG      DAD 104224   223;1
+ERMSG      LCL 000062   116;1
+ERR        LCL 000121   128;1
+ERROR+     DAD 010220   224;1
+FILTYP     DAD 101671   225;1
+GETSEC     DAD 077126   226;1
+INIT       LCL 000105   122;1
+LSTBUF     DAD 103200   227;1
+MSBASE     DAD 103412   228;1
+MSROM#     DAD 000320   229;1
+NUMVA+     DAD 022403   230;1
+OK         LCL 000130   131;1
+ONEB       DAD 012153   231;1
+PARSE      LCL 000054   110;1
+PTR2-      DAD 177715   232;1
+PUTSEC     DAD 077040   233;1
+READ.      LCL 000200   149;1
+READRTN    LCL 000316   180;1
+RECB+1     DAD 102601   234;1
+RECBUF     DAD 102600   235;1
+REV.       LCL 000415   211;1
+ROMJSB     DAD 006223   236;1
+RPARSE     LCL 000106   124;1
+RUNTIM     LCL 000044   106;1
+SAVER6     DAD 104066   237;1
+SCAN       DAD 021110   238;1
+STOST      DAD 046472   239;1
+STREX+     DAD 023721   240;1
+STRREF     DAD 024056   241;1
+TOKS       LCL 000064   117;1
+WPARSE     LCL 000167   144;1
+WRITE.     LCL 000320   183;1
+
+Index of source files in symbol cross reference:
+1: R_WS.asm
+Assembly completed
+ 242 lines processed, 0 error(s) encountered
+ 297 bytes of code written to object file

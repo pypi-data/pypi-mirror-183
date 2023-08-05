@@ -1,0 +1,269 @@
+0010 ! **************************
+0020 !  THIS BINARY CONTAINS THE 
+0030 !  FOLLOWING COMMANDS:      
+0040 !    BLINK (DURING BPLOT)   
+0050 !    NOBLINK                
+0060 !    BPLOT (WHEN POSITIVE   
+0070 !           DOES XOR, WHEN  
+0080 !           NEGATIVE, PRINT)
+0090 !    BREAD (OPPOSITE BPLOT) 
+0100 !   RIGHT LIM              
+0110 !   LEFT LIM               
+0120 !   TOP LIM                
+0130 !   BOTTOM LIM             
+0140 !         (FINDS X OR Y    
+0150 !         (VALUE OF BOUNDS 
+0160 !         (OF GRAPH.VALUES 
+0170 !         (ARE AS IF SCALE 
+0180 !         (IS 0,255,0,191.)
+0190 ! *************************
+0200 STRREF DAD  13753
+0210 COMMA  DAD  54
+0220 NUMVA+ DAD  12407
+0230 ERROR+ DAD  6611
+0240 CONBIN DAD  3572
+0250 ONEB   DAD  56113
+0260 GRAPH. DAD  36147
+0270 INCHR- DAD  35220
+0280 INCHR  DAD  35244
+0290 CRTDAT DAD  177407
+0300 CRTBAD DAD  177405
+0310 CHKSTS DAD  36335
+0320 BLANK  DAD  40
+0330 FWCURR DAD  100004
+0340 CRTUNW DAD  36067
+0350 ZRO    DAD  0
+0360 DRAW1- DAD  31753
+0370 XMAP   DAD  100262
+0380 CRTWPO DAD  35661
+0390 PRMODE DAD  100153
+0400 BINTAB DAD  101233
+0410 G$N    DAD  14323
+0420 SCAN   DAD  11262
+0430 BPLOT+ DAD  34405
+0440 ! *************************
+0450        NAM  BPLOTB
+0460        DEF  RUNTIM
+0470        DEF  TOKS  
+0480        DEF  PARSES
+0490        DEF  ERMSG 
+0500 RUNTIM DEF  INIT  
+0510        DEF  GPRNT.
+0520        DEF  GREAD.
+0530        DEF  BLOFF.
+0540        DEF  BLINK.
+0550        DEF  RITLIM
+0560        DEF  LEFLIM
+0570        DEF  TOPLIM
+0580 PARSES DEF  BOTLIM
+0590        DEF  BPLOT 
+0600        DEF  BREAD 
+0610        DEF  PUSHEM
+0620        DEF  PUSHEM
+0630        OCT  377,377
+0640 ! ************************
+0650 TOKS   ASC  4,BPLOT
+0660        OCT  324
+0670        ASC  4,BREAD
+0680        OCT  304
+0690        ASC  6,NOBLINK
+0700        OCT  313
+0710        ASC  4,BLINK
+0720        OCT  313
+0730        ASC  10,RIGHT LIM
+0740        OCT  315
+0750        ASC  7,LEFT LIM
+0760        OCT  315
+0770        ASC  6,TOP LIM
+0780        OCT  315
+0790        ASC  11,BOTTOM LIM
+0800        OCT  315
+0810 ! ************************
+0820 ERMSG  OCT  377
+0830 ! ************************
+0840 PUSHEM LDB  R14,=371
+0850        PUMD R14,+R12
+0860        PUBD R43,+R12
+0870        JSB  =SCAN  
+0880 INIT   RTN  
+0890 ! ************************
+0900 BPLOT  PUMD R40,+R6
+0910        JSB  =G$N   
+0920        POBD R40,-R12
+0930        POMD R40,-R6
+0940 POK    LDB  R46,=371
+0950        PUMD R46,+R12
+0960        PUBD R43,+R12
+0970        RTN  
+0980 ! ************************
+0990 BREAD  PUMD R40,+R6
+1000        JSB  =SCAN  
+1010        JSB  =STRREF
+1020        POMD R40,-R6
+1030        CMB  R14,=COMMA 
+1040        JNZ  PERROR
+1050        PUMD R40,+R6
+1060        JSB  =NUMVA+
+1070        POMD R40,-R6
+1080        JEN  POK   
+1090 PERROR JSB  =ERROR+
+1100        OCT  89D
+1110 ! ************************
+1120        OCT  241
+1130 GPRNT. LDMD R14,=BINTAB
+1140        JSB  X14,COMN  
+1150        TSM  R46
+1160        JNG  THIS1 
+1170        GTO  BPLOT+
+1180 THIS1  TCM  R#
+1190        STM  R#,R44
+1200        LDBD R#,=PRMODE
+1210        LRB  R#
+1220        JEV  NOWPOT
+1230        JSB  =CRTWPO
+1240 NOWPOT LDM  R14,=STBDAT
+1250        ADMD R14,=BINTAB
+1260 BLOOP  LDMD R76,=XMAP  
+1270 NXTP   CMM  R76,=374,277
+1280        JCY  GPREX-
+1290        JSB  =DRAW1-
+1300        LDMD R#,=XMAP  
+1310        LDM  R46,R44
+1320 NXTGPR JSB  X14,ZRO   
+1330        DCM  R22
+1340        JZR  GPRFIN
+1350        ADM  R76,=10,0
+1360        CMM  R76,=374,277
+1370        JCY  GPREX-
+1380        DCM  R46
+1390        JNZ  NXTGPR
+1400        LDMD R76,=XMAP  
+1410        ICB  R77
+1420        JMP  NXTP  
+1430 GPRFIN LDMD R76,=XMAP  
+1440        ICB  R77
+1450        CMM  R76,=0,300
+1460        JCY  GPREX-
+1470        STMD R76,=XMAP  
+1480 GPREX- JSB  =CRTUNW
+1490 GPREX  RTN  
+1500 ! ***********************
+1510        OCT  241
+1520 GREAD. LDMD R14,=BINTAB
+1530        JSB  X14,COMN  
+1540        POMD R56,-R12
+1550        TSB  R16
+1560        JOD  HEADER
+1570        ADMD R56,=FWCURR
+1580 HEADER POMD R60,+R56
+1590        JPS  LENSET
+1600        ICM  R66
+1610 LENSET LDM  R20,R34
+1620        SBM  R20,R56
+1630        ADM  R20,R22
+1640        CMM  R20,R66
+1650        JNC  LENOK 
+1660        PUMD R20,-R56
+1670 LENOK  LDM  R14,=LDBDAT
+1680        ADMD R14,=BINTAB
+1690        LDMD R76,=BINTAB
+1700        JSB  X76,BLOOP 
+1710        TSM  R22
+1720        JZR  RDEX  
+1730        LDB  R32,=BLANK 
+1740 EXLOP  PUBD R32,+R34
+1750        DCM  R22
+1760        JNZ  EXLOP 
+1770 RDEX   RTN  
+1780 ! ***********************
+1790 STBDAT JSB  =CHKSTS
+1800        POBD R32,+R34
+1810        STBD R32,=CRTDAT
+1820        RTN  
+1830 ! ***********************
+1840 LDBDAT JSB  =INCHR 
+1850        PUBD R#,+R34
+1860        RTN  
+1870 ! ***********************
+1880 COMN   JSB  =GRAPH.
+1890        JSB  =ONEB  
+1900        STM  R#,R44
+1910        POMD R34,-R12
+1920        POMD R22,-R12
+1930        JNZ  RDEX  
+1940        POMD R22,-R6
+1950        RTN  
+1960 ! ************************
+1970        OCT  241
+1980 BLOFF. LDBD R37,=PRMODE
+1990        ANM  R37,=375
+2000 STPRMD STBD R#,=PRMODE
+2010        RTN  
+2020 ! ***********************
+2030        OCT  241
+2040 BLINK. LDMD R30,=BINTAB
+2050        JSB  X30,BLOFF.
+2060        BIN  
+2070        ADB  R#,=2
+2080        JMP  STPRMD
+2090 ! ***********************
+2100        OCT  0,55
+2110 RITLIM LDM  R64,=377,1,1,60
+2120        LDM  R42,=76,100,100,0,76,20
+2130 RITCOM STM  R#,R22
+2140        JSB  =GRAPH.
+2150        JSB  =CRTWPO
+2160        LDMD R20,=BINTAB
+2170 LIMLOP JSB  X20,LIMCOM
+2180        JEN  FNDBIT
+2190        SBM  R26,R66
+2200        SBB  R22,R65
+2210        CMB  R22,R64
+2220        JNZ  LIMLOP
+2230 FNDBIT LLM  R26
+2240        LLM  R26
+2250        CLM  R36
+2260        LDB  R36,R26
+2270 LMCOM2 JSB  =CONBIN
+2280        PUMD R40,+R12
+2290        JSB  =CRTUNW
+2300        RTN  
+2310 ! ************************
+2320        OCT  0,55
+2330 LEFLIM LDM  R64,=77,377,377,57
+2340        LDM  R42,=0,100,100,0,0,20
+2350        JMP  RITCOM
+2360 ! ************************
+2370        OCT  0,55
+2380 TOPLIM LDM  R42,=0,100,1,0,0,20
+2390 TOPCOM STM  R#,R22
+2400        JSB  =GRAPH.
+2410        JSB  =CRTWPO
+2420        LDMD R20,=BINTAB
+2430        JSB  X20,LIMCOM
+2440        LDM  R36,=0,100
+2450        SBM  R36,R26
+2460        BCD  
+2470        LRM  R37
+2480        BIN  
+2490        LRM  R37
+2500        LRM  R37
+2510        JMP  LMCOM2
+2520 ! ***********************
+2530        OCT  0,55
+2540 BOTLIM LDM  R42,=0,20,377,377,376,77
+2550        JMP  TOPCOM
+2560 ! ***********************
+2570 LIMCOM CLE  
+2580        JSB  =CHKSTS
+2590        STMD R26,=CRTBAD
+2600        JSB  =INCHR-
+2610        JNZ  NON0  
+2620        ADM  R26,R24
+2630        CMM  R26,R22
+2640        JNZ  LIMCOM
+2650        RTN  
+2660 NON0   ICE  
+2670        RTN  
+2680 ! ************************
+2690        FIN  

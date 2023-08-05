@@ -1,0 +1,118 @@
+#!/usr/bin/env python3 
+# -*- coding: utf-8 -*-
+#
+# This module contains the regression test driver for capasm
+# (c) 2020 Joachim Siebold
+#
+#
+import os,contextlib
+from pathlib import Path
+from capasm.assembler import clsAssembler, capasmError
+from capasm.tools import clsLifCreator,binDiff, clsSymClassGenerator
+
+ASSEMBLER=clsAssembler()
+LIFCREATOR=clsLifCreator()
+
+#
+# silently remove files, continue if they do not exist
+#
+def silentRemove(*args):
+   for fileName in args:
+      with contextlib.suppress(FileNotFoundError):
+         os.remove(fileName)
+   return False
+
+#
+# Test binary file, the reference is in testDir
+#
+def testBinFile(fileName1,fileName2):
+   ret=binDiff.compare(fileName1,fileName2)
+   if ret is None:
+      return True
+   if ret[0]!=0:
+      print(fileName1+": compare failed, "+str(ret[0])+" differences found")
+#     print("First occurrence at {:o}".format(ret[3][0]))
+   if ret[1]!=ret[2]:
+      print(fileName1+": file length differs, "+str(ret[1])+" "+str(ret[2]))
+   if ret[0]==0 and (ret[1]==ret[2]):
+      return False
+   else:
+      return True
+
+def doCommand(command):
+
+   ret=False
+   method=command[0]
+   if len(command)>1:
+      posParams=command[1]
+   else:
+      posParams=[]
+   if len(command)>2:
+      varParams=command[2]
+   else:
+      varParams={}
+   if len(command)>3:
+      exceptionMessage=command[3]
+   else:
+      exceptionMessage=""
+
+   try:
+      ret|=method(*posParams, **varParams)
+   except capasmError as e:
+      if e.msg!=exceptionMessage:
+         print("Unexpected exception message: "+e.msg)
+         ret|=True
+   return ret
+
+def doTest(testSpec):
+   ret=False
+   testDescription=testSpec[0]
+   for command in testSpec[1:]:
+       ret|= doCommand(command)
+   s="Test: "+testDescription+": "
+   if not ret:
+      print(s+" passed")
+   else:
+      print(s+" failed")
+   return ret
+
+CAPASM_TESTS={
+   "rom000":  \
+              ["Assemble ROM000", 
+              [ ASSEMBLER.assemble,["test/rom000.asm"],{ "labelSize":7, \
+                  "listFileName": "rom000.lst",  "referenceOpt":2}],
+              [testBinFile,["rom000.bin","test/rom000.bin"]],
+              [silentRemove, ["rom000.bin","rom000.lst"]]
+              ],
+   "phyconst":\
+              ["HP-75 lex file pyhconst.asm", 
+              [ ASSEMBLER.assemble,["test/phyconst.asm"],{"labelSize":7, \
+                     "machine":"75"}],
+              [LIFCREATOR.create,["phyconst.bin"],{ "machine":"75",\
+                     "lexOnly":True}],
+              [testBinFile,["phyconst.bin","test/phyconst.bin"]],
+              [testBinFile,["phyconst.lex","test/phyconst.lex"]],
+              [silentRemove, ["phyconst.bin","phyconst.lex"]]
+              ],
+   "nonexistent":\
+              ["Assemble non existing file",
+              [ASSEMBLER.assemble,["nonexistend"],{},\
+                "Error opening source file"],
+              ],
+}
+
+def main():
+   os.environ["CAPASMREGRESSIONTEST"]="1"
+#
+   testCount=0
+   failedCount=0
+   for t in CAPASM_TESTS:
+      testSpec=CAPASM_TESTS[t]
+      ret=doTest(testSpec)
+      testCount+=1
+      if ret:
+         failedCount+=1
+   print("{:d} of {:d} tests failed".format(failedCount,testCount))
+
+if __name__ == "__main__":
+   main()

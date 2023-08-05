@@ -1,0 +1,203 @@
+0010        NAM  RWSEC            !  11/26/81 L.W.
+0020        DEF  RUNTIM
+0030        DEF  ASCIIS
+0040        DEF  PARSE 
+0050        DEF  ERMSG 
+0060        DEF  INIT  
+0070 PARSE  BYT  0,0
+0080        DEF  RSECT,
+0090        DEF  WSECT,
+0100 RUNTIM BYT  0,0
+0110        DEF  RSECT.
+0120        DEF  WSECT.
+0130        BYT  377,377
+0140 ASCIIS ASP  "READSECTOR"
+0150        ASP  "WRITESECTOR"
+0160        BYT  377
+0170 ERMSG  BYT  200,200,200,200,200,200,200,200,200
+0180        ASP  "STRING TOO SHORT!"
+0190        BYT  377
+0200 INIT   RTN  
+0210 !  READSECTOR <sector#> , <string variable> , <error flag
+0220 !  the string variable must be >= 256 chars lon
+0230 !  reads a sector from the disk to the string variable
+0240 !  if an error occurs in the read, the error flag will be a 1, else it will be a 0
+0250 !  WRITESECTOR <sector#> , <string expression> , <error flag
+0260 !  the string expression must be >= 256 chars lon
+0270 !  for both, the error flag must be a real 
+0280 !  writes a sector from the string expression to the disk
+0290 !  if an error occurs in the write, the error flag will be a 1, else it will be a 0
+0300 RSECT, PUBD R43,+R6
+0310        JSB  =NUMVA+
+0320        JSB  =GETCMA
+0330        JSB  =STRREF
+0340        JSB  =GETCMA
+0350        JSB  =REFNUM
+0360 DONPAR POBD R47,-R6
+0370        LDB  R45,=371
+0380        PUMD R45,+R12
+0390        RTN  
+0400 WSECT, PUBD R43,+R6
+0410        JSB  =NUMVA+
+0420        JSB  =GETCMA
+0430        JSB  =STREXP
+0440        JSB  =GETCMA
+0450        JSB  =REFNUM
+0460        JMP  DONPAR
+0470        BYT  241
+0480 RSECT. BIN  
+0490        POMD R44,-R12         !  GET ERROR FLAG VARIABLE
+0500        PUMD R44,+R6          !  SAVE FOR LATER
+0510        POMD R30,-R12         !  START ADDRESS
+0520        POMD R34,-R12         !  LENGTH
+0530        POMD R32,-R12         !  BASE ADDRESS ( THROWN AWAY )
+0540        CMM  R34,=0,1         !  256 BYTES LONG OR MORE?
+0550        JNC  TOOSM            !  JIF NO
+0560        JSB  =ONEB            !  GET SECTOR #
+0570        LDM  R32,R46          !  PUT IN RIGHT REGISTER
+0580        LDMD R0,=BINTAB
+0590        JSB  X0,TAPE?         !  SEE IF MSUS IS TAPE
+0600        JEZ  RDTAPE
+0610        JSB  X0,INITMS        !  SET UP FOR M.S. ROM CALL
+0620        JSB  =ROMJSB
+0630        DEF  GETSEC           !  GET A SECTOR
+0640        VAL  MSROM#
+0650 SECCOM CLM  R40              !  0 FOR LATER => NO ERROR
+0660        CMB  R17,=300         !  ANY ERRORS?
+0670        JNC  MSSUCC           !  JIF OK
+0680        ANM  R17,=37          !  CLEAR ERRORS
+0690        STBD R40,=ERRORS
+0700        STBD R40,=ERRROM
+0710        LDB  R47,=20          !  1=> ERROR
+0720 MSSUCC POMD R34,-R6          !  GET NAME BLOCK ( THROW AWAY )
+0730        POMD R34,-R6          !  GET ADDRESS
+0740        STMD R40,R34          !  PUT FLAG IN LOCATION
+0750        RTN  
+0760 TOOSM  POMD R40,-R12         !  CLEAN OFF STACKS
+0770        POMD R44,-R6
+0780        JSB  =ERROR+          !  "STRING TOO SHORT!"
+0790        BYT  366
+0800        BYT  241
+0810 WSECT. BIN  
+0820        POMD R44,-R12         !  GET ERROR FLAG VARIABLE
+0830        PUMD R44,+R6          !  SAVE FOR LATER
+0840        POMD R30,-R12         !  GET START ADDRESS
+0850        POMD R34,-R12         !  LENGTH
+0860        CMM  R34,=0,1         !  256 BYTES LONG OR MORE ?
+0870        JNC  TOOSM            !  JIF NO
+0880        JSB  =ONEB            !  GET SECTOR #
+0890        LDM  R32,R46          !  PUT IN RIGHT REGISTER
+0900        LDMD R0,=BINTAB
+0910        JSB  X0,TAPE?         !  SEE IF MSUS IS TAPE
+0920        JEZ  WRTAPE
+0930        JSB  X0,INITMS        !  SETUP FOR M.S. ROM CALL
+0940        JSB  =ROMJSB
+0950        DEF  PUTSEC           !  WRITE A SECTOR
+0960        VAL  MSROM#
+0970 SECCM1 JMP  SECCOM
+0980 RDTAPE PUMD R30,+R6          !  SAVE ADDRESS
+0990        PUMD R32,+R6          !  SAVE RECORD #
+1000        LDM  R22,R6
+1010        ADM  R22,=7,0         !  POINT TO WHER RTN ADDR WILL BE AFTER ROMJSB
+1020        STMD R22,=SAVER6      !  IN CASE OF TAPE ERROR
+1030        JSB  =ROMJSB          !  MAKE SURE TAPE IS IN
+1040        DEF  TYPE2            !  AND POWER CRT DOWN
+1050        BYT  0
+1060        LDM  R22,=40,0
+1070        STMD R22,=FILTYP      !  FILE TYPE
+1080        LDM  R22,=1,0
+1090        STMD R22,=CURFIL      !  FILE # 1
+1100        POMD R32,-R6          !  RECOVER RECORD #
+1110        STMD R32,=CURREC      !  RECORD (SECTOR) #
+1120        POMD R30,-R6          !  RECOVER LOAD ADDRESS
+1130        STMD R30,=LOADAD      !  LOAD ADDRESS
+1140        LDM  R22,R6
+1150        ADM  R22,=7,0         !  POINT TO WHER RTN ADDR WILL BE AFTER ROMJSB
+1160        STMD R22,=SAVER6      !  IN CASE OF TAPE ERROR
+1170        JSB  =ROMJSB          !  READ TAPE SECTOR
+1180        DEF  REDRN*
+1190        BYT  0
+1200 TAPCOM JSB  =ROMJSB          !  STOP TAPE
+1210        DEF  STOPTP
+1220        BYT  0
+1230        JSB  =ROMJSB          !  UP CRT
+1240        DEF  TAPEXT
+1250        BYT  0
+1260        JMP  SECCM1
+1270 WRTAPE PUMD R30,+R6          !  SAVE START ADDRESS
+1280        PUMD R32,+R6          !  SAVE RECORD #
+1290        LDM  R22,R6
+1300        ADM  R22,=7,0         !  POINT TO RTN AFTER ROMJSB
+1310        STMD R22,=SAVER6      !  IN CASE OF TAPE ERRORS
+1320        JSB  =ROMJSB          !  TAPE IN, CRT POWERED DOWN
+1330        DEF  TYPE2 
+1340        BYT  0
+1350        LDM  R22,=40,0
+1360        STMD R22,=FILTYP      !  FILETYPE
+1370        LDM  R22,=1,0
+1380        STMD R22,=CURFIL      !  FILE # 1
+1390        LDM  R22,=0,1         !  256 BYTES TO WRITE
+1400        POMD R32,-R6          !  RECOVER RECORD #
+1410        STMD R32,=CURREC      !  RECORD (SECTOR) #
+1420        POMD R56,-R6          !  START ADDRESS
+1430        LDM  R24,R6
+1440        ADM  R24,=7,0
+1450        STMD R24,=SAVER6
+1460        JSB  =ROMJSB          !  WRITE A TAPE SECTOR
+1470        DEF  WRTRND
+1480        BYT  0
+1490        JMP  TAPCOM
+1500 INITMS LDMD R14,=MSBASE      !  INIT FOR M.S. ROM
+1510        LDM  R34,=GINTEN
+1520        STMD R34,=TINTEN
+1530        CLB  R34
+1540        STBD R34,=SCRTYP
+1550        LDM  R34,R6           !  GET STACK POINTER
+1560        ADM  R34,=5,0         !  POINT TO WHERE RETURN ADDR WILL BE AFTER ROMJSB
+1570        STMD R34,=SAVER6
+1580        RTN  
+1590 !  returns E=0 if active msus is tape, E=1 if msus is dis
+1600 TAPE?  LDM  R34,=ROMTAB
+1610        CLE                   !  => TAPE
+1620 NXTROM POMD R36,+R34         !  GET A ROM ENTRY
+1630        CMB  R36,=377         !  END OF TABLE?
+1640        JZR  ISTAPE           !  JIF NO M.S. ROM
+1650        CMB  R36,=MSROM#
+1660        JNZ  NXTROM
+1670        LDMD R34,=MSBASE      !  KNOW M.S. ROM IS IN
+1680        ADM  R34,=135,0       !  OFFSET TO ACTMSU FLAG
+1690        LDBD R36,R34
+1700        JZR  ISTAPE           !  0 => TAPE, 1 => DISK
+1710        ICE  
+1720 ISTAPE RTN  
+1730 ROMFL  DAD  101231
+1740 ROMTAB DAD  101235
+1750 MSROM# EQU  320
+1760 ERROR+ DAD  6611
+1770 NUMVA+ DAD  12407
+1780 GETCMA DAD  13414
+1790 STRREF DAD  13753
+1800 REFNUM DAD  17025
+1810 STREXP DAD  13626
+1820 GETSEC DAD  77253
+1830 PUTSEC DAD  77163
+1840 ONEB   DAD  56113
+1850 GINTEN DAD  177400
+1860 TINTEN DAD  101071
+1870 SAVER6 DAD  101174
+1880 MSBASE DAD  102540
+1890 SCRTYP DAD  101120
+1900 BINTAB DAD  101233
+1910 ROMJSB DAD  4776
+1920 ERRORS DAD  100070
+1930 ERRROM DAD  100065
+1940 WRTRND DAD  23027
+1950 TYPE2  DAD  25014
+1960 REDRN* DAD  24621
+1970 STOPTP DAD  20172
+1980 TAPEXT DAD  22000
+1990 FILTYP DAD  101034
+2000 CURFIL DAD  101274
+2010 CURREC DAD  101276
+2020 LOADAD DAD  101170
+2030        FIN  

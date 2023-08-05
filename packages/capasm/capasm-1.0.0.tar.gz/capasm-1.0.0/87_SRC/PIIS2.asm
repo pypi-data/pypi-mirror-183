@@ -1,0 +1,172 @@
+0010 ! *************************
+0020 KEYCHK JSB  =SETTR1
+0030        BIN  
+0040        TSB  R16
+0050        JOD  KOUTT 
+0060        JZR  KOUTT 
+0070        CMB  R16,=4
+0080        JZR  KOUTT 
+0090        LDMD R22,=BINTAB
+0100        LDMD R55,X22,KYTAB 
+0110        JZR  KOUTT 
+0120        LDMD R45,=ONFLAG
+0130        JNZ  KOUTT 
+0140        LDBD R32,=KEYHIT
+0150        STB  R32,R34
+0160        ANM  R32,=37,0
+0170        ADM  R32,R22
+0180        LDBD R26,X32,STORE 
+0190        CLB  R27
+0200        ICB  R27
+0210        BCD  
+0220        LRB  R34
+0230        BIN  
+0240        LRB  R34
+0250        JZR  DONNE 
+0260 TEST   LLB  R27
+0270        DCB  R34
+0280        JNZ  TEST  
+0290 DONNE  ANM  R27,R26
+0300        JZR  KOUTT 
+0310        LDMD R45,=PTR1  
+0320        STMD R45,=ONFLAG
+0330        STMD R55,=PTR1  
+0340        CLB  R37
+0350        LDBD R36,=KEYHIT
+0360        JSB  =CONBIN
+0370        LDMD R55,X22,ADRESS
+0380        PUMD R55,+R12
+0390        LDMD R54,X22,NAME  
+0400        PUMD R54,+R12
+0410        PUMD R40,+R12
+0420        JSB  =STOSV 
+0430        LDB  R16,=7
+0440        JSB  =EOJ2  
+0450        POMD R30,-R6
+0460 KOUTT  POMD R30,-R6
+0470        CLE  
+0480        BIN  
+0490        RTN  
+0500 ! ***********************
+0510 KONPRS PUBD R43,+R6
+0520        JSB  =SCAN  
+0530        CLE  
+0540        JSB  =REFNUM
+0550        CMB  R14,=COMMA 
+0560        JNZ  NO-$  
+0570        JSB  =STREX+
+0580        JEZ  ERR82 
+0590 NO-$   LDB  R57,=371
+0600        POBD R55,-R6
+0610        STMI R55,=PTR2- 
+0620        CMB  R47,=210
+0630        JNZ  ERR899
+0640        JSB  =GOTOSU
+0650        RTN  
+0660 ! ***********************
+0670 KOFPRS PUBD R43,+R6
+0680        JSB  =STREX+
+0690        LDB  R57,=371
+0700        POBD R55,-R6
+0710        STMI R55,=PTR2- 
+0720        RTN  
+0730 ERR82  POBD R57,-R6
+0740        JSB  =ERROR+
+0750        BYT  82D
+0760 ERR899 JSB  =ERROR+
+0770        BYT  131
+0780 ! ************************
+0790        BYT  241
+0800 KEYON. BIN  
+0810        CLM  R26
+0820        LDMD R22,=BINTAB
+0830        LDMD R34,=TOS   
+0840        ADM  R34,=7,0
+0850        SBM  R34,R12
+0860        JZR  KYON1 
+0870        POMD R45,-R12
+0880        STMD R45,=PTR2  
+0890        POMD R26,-R12
+0900 KYON1  LDMD R55,=PTR1  
+0910        STMD R55,X22,KYTAB 
+0920        LDMI R74,=PTR1- 
+0930        POMD R64,-R12
+0940        STMD R64,X22,NAME  
+0950        POMD R65,-R12
+0960        STMD R65,X22,ADRESS
+0970        TSM  R26
+0980        JZR  RRTN  
+0990 AGAIN  JSB  X22,POPEE 
+1000        ORB  R36,R37
+1010        STBD R36,X30,STORE 
+1020        DCM  R26
+1030        JNZ  AGAIN 
+1040 RRTN   RTN  
+1050 ! ************************
+1060 POPEE  LDBI R30,=PTR2- 
+1070        STB  R30,R34
+1080        ANM  R30,=37,0
+1090        ADM  R30,R22
+1100        LDBD R36,X30,STORE 
+1110        CLB  R37
+1120        ICB  R37
+1130        BCD  
+1140        LRB  R34
+1150        BIN  
+1160        LRB  R34
+1170        JZR  DUNN  
+1180 TST    LLB  R37
+1190        DCB  R34
+1200        JNZ  TST   
+1210 DUNN   RTN  
+1220 ! ************************
+1230        BYT  241
+1240 KEYOF. BIN  
+1250        LDMD R22,=BINTAB
+1260        CMMD R12,=TOS   
+1270        JNZ  KYOFF1
+1280 OFF    LDB  R27,=5
+1290        CLM  R60
+1300        LDMD R22,=BINTAB
+1310 STM    STMD R60,X22,STORE 
+1320        ADM  R22,=10,0
+1330        DCB  R27
+1340        JNZ  STM   
+1350        STMD R66,X22,STORE 
+1360        RTN  
+1370 KYOFF1 POMD R45,-R12
+1380        STMD R45,=PTR2  
+1390        POMD R26,-R12
+1400        JZR  RRTN  
+1410 AGIN   JSB  X22,POPEE 
+1420        NCB  R37
+1430        ANM  R37,R36
+1440        STBD R37,X30,STORE 
+1450        DCM  R26
+1460        JNZ  AGIN  
+1470        RTN  
+1480 ! ***********************
+1490 STORE  BSZ  40
+1500 ADRESS BSZ  3
+1510 NAME   BSZ  4
+1520 KYTAB  BSZ  3
+1530 ! ***********************
+1540        BYT  0,56
+1550 REV.   LDM  R36,=15,0
+1560        BIN  
+1570        PUMD R36,+R12
+1580        LDMD R36,=BINTAB
+1590        ADM  R36,=DATE  
+1600        STM  R36,R45
+1610        CLB  R47
+1620        PUMD R45,+R12
+1630        RTN  
+1640        ASC  "1891 ,9 LIRPA"
+1650 DATE   BSZ  0
+1660 ! ************************
+1670 CONBIN DAD  4314
+1680 STOSV  DAD  46145
+1690 COMMA  EQU  54
+1700 REFNUM DAD  27512
+1710 PTR2   DAD  177714
+1720        LNK  PIIS3.asm

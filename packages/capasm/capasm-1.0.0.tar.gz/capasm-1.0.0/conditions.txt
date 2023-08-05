@@ -1,0 +1,157 @@
+CONDITIONS
+IFXX-ELSE-ENDIF
+LOOP-WHXX
+EXXX
+rxx
+
+context information:
+object structAsm
+
+  def __init__(self,typ)
+     stack init
+     lbl count init
+
+  def if 
+        generate labelno 1
+        create context (typ, labelno1, labelno2) and push it on stack
+        generate rjump with opposition condition label1
+        return rjump opcode and label operand
+
+  def else
+        get context from stack, error if not IF clause
+        generate labelno 2 and store it in context
+        enter labelno1 as LABEL from current PC +2
+        return jump opcode and labelno2 operand
+
+  def endif
+        get context from stack, error if not IF clause
+        if labelno2 in context:
+           label=labelno2
+        else:
+           label=labelno1
+        enter label as LCL from current PC
+        pop context from stack
+        return Nothing
+
+def loop
+        generate labelno 1
+        create context (typ, labelno1, labelno2) and push it on stack
+        enter labelno1 as LCL with current PC
+        return Nothing
+
+def ex
+        get context from stack, error if not WHILE clause
+        generate labelno 2 and store it in context
+        return conditional jump opcode and labelno2 operand
+
+def wh
+        get context from stack, error if not WHILE clause
+        if labelno2 in context enter it as LCL with current PC
+        generate conditional jump opcode to labelno 1
+        pop context from stack
+        return conditional jump opcode and labelno 1 operand
+        
+
+
+         ifOV
+          stmta
+          stmtb
+         ENDIF
+
+goes to
+         CMB R16,R13
+         JNO tmp0001
+         stmta
+         stmtb
+tmp0001
+         invalidate ar, dr if changed in if clause
+         
+         IFOV     RJump opposite condition tmplabel1
+           stmta
+           stmtb
+         ELSE     JMP to tmpLabel2, generate tmplabel1 at PC
+           stmtc
+           stmtd
+         ENDIF     place tmpLabel2 at PC
+
+goes to
+         JNO tmp0001
+         stmta
+         stmtb
+         gto tmp0002
+tmp0001  do not invalidate here!!
+         stmtc
+         stmtd
+tmp0002  
+        invalidate ar,dr if changed in if or else clause
+
+         LOOP       genertate tmpLabel1 at PC
+           stmta
+           stmtb
+           EXZR     generate JMP to tmplabel2
+           stmtc
+           stmtd
+         WHOV       gen cond. jump to tmpLabel1
+                    generate tmpLabel2 at PC
+
+goes to
+tmp0003  
+         stmta
+         stmtb
+         jrz tmp0004
+         stmtc
+         stmtd
+         jov tmp0003
+tmp0004
+
+      LOOP
+        stmta
+        stmtb
+      WHOV
+
+goes to:
+       cmb r12,r14
+tmp0005 
+       stmta
+       stmtb
+       cmb r14,r116
+       job tmp0005
+
+
+Condition aliases
+EQ   ZR
+NE   NZ
+GE   PS
+LT   NG
+HS   CY
+LO   NC
+
+Conditions
+IF pseudo   jxx (umgedreht)
+TR
+FA
+NO          OV
+OD          EV
+EV          OD
+NG          PS
+PS          NG
+NZ          ZR
+ZR          NZ
+EN          EZ
+EZ          EN
+NC          CY
+CY          NC
+LZ          LN
+LN          LZ
+RZ          RN
+RN          TZ
+EQ          NZ       EQUAL
+NE          ZR       NOT EQUAL
+GE          NG       X>=Y signed
+LT          PS       X<Y signed
+HS          NC       HIGHER OR SAME (X>=Y unsigned)
+LO          CY       LOWER (X<Y unsigned)
+
+
+IF E#0      EZ
+IF B16#0             4E 90 F7 03:116 144 367 03 ARP 14 DRP 44     JZR 03 

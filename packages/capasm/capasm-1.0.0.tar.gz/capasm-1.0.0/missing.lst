@@ -1,0 +1,82 @@
+CAPASM
+(c) Joachim Siebold
+
+    1 000000             !
+    2 000000             ! This test file checks the commands not covered by
+    3 000000             ! the ROM tests
+    4 000000             !
+Page    1       Test non covered parts of the assembler (part1)       
+CAPASM
+
+    5 000000                     HED "Test non covered parts of the assembler (part1)"
+    6 000000 115 111 123         NAM MISS1
+      000003 123 061 040 
+      000006 002 000 000 
+      000011 000 000 000 
+      000014 000 000 000 
+      000017 000 000 000 
+      000022 000 000 000 
+      000025 000 000 000 
+      000030 000 000 
+    7 000032                     LST
+    8 000032             PROM#   EQU 360
+    9 000032             OFFSET  EQU 10
+   10 000032 360                 VAL PROM#
+   11 000033 035 000             DEF RUNTIM,
+   12 000035             
+   13 000035                     UNL
+   14 000035             RUNTIM,
+   15 000035 130 260 100         LDBD R30,=TABLE
+      000040 000 
+   16 000041 136 030 277         STMI R36,X30,OFFSET
+      000044 010 000 
+   17 000046             
+   18 000046 132 260 100         LDBD R32,=TABLE
+      000051 000 
+   19 000052 136 032 254         LDBI R36,R32
+   20 000055 140 313 100         ADM  R40,=100,100D,50H,101B,100d,100O,50#,101b
+      000060 144 120 005 
+      000063 144 100 120 
+      000066 005 
+   21 000067 251                 LDM  R40,=
+   22 000070 005                 BYT  101B
+   23 000071 137 124             DEF  SUB10
+   24 000073 360                 VAL  PROM#
+   25 000074 035 000             DEF  RUNTIM,
+   26 000076 020 022             BYT  10#,12#
+   27 000100             ! redefine global Address SAVR0 as EQU with the same value
+   28 000100             SAVR0   EQU  103220
+*WARNING(P) at missing.asm(28): Value/type mismatch of redefined global symbol
+   29 000100             ! redefine EQU FWROM with an other value
+   30 000100             FWROM   EQU  100
+*WARNING(P) at missing.asm(30): Value/type mismatch of redefined global symbol
+   31 000100             ! redefine ADDRESS STACK with same type or value
+   32 000100             STACK   DAD  101300
+   33 000100                     ORG 1000
+   34 000100             TABLE
+   35 000100             LOC1    DAD 0
+   36 000100             LOC2    DAD 10
+   37 000100             LOC3    DAD 20
+   38 000100                     FIN
+ 
+11 Symbols used:
+FWROM   EQU 000100    30;1
+LOC1    DAD 001000    35;1
+LOC2    DAD 001010    36;1
+LOC3    DAD 001020    37;1
+OFFSET  EQU 000010     9;1
+PROM#   EQU 000360     8;1
+RUNTIM, LCL 000035    14;1
+SAVR0   EQU 103220    28;1
+STACK   DAD 101300    32;1
+SUB10   DAD 052137  GLOBAL
+TABLE   LCL 000100    34;1
+
+Page    2       Test non covered parts of the assembler (part1)       
+CAPASM
+
+Index of source files in symbol cross reference:
+1: missing.asm
+Assembly completed
+ 38 lines processed, 0 error(s) 2 warning(s)
+ 64 bytes of code written to object file
