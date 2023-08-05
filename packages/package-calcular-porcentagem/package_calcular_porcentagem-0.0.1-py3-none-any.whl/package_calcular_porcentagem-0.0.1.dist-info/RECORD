@@ -1,0 +1,9 @@
+package_calcular_porcentagem/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+package_calcular_porcentagem/format/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+package_calcular_porcentagem/format/output.py,sha256=2SqlS5c_p1b33mP7lz043ZBfW_OF6la093bL_jSyrxo,70
+package_calcular_porcentagem/utils/__init__.py,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+package_calcular_porcentagem/utils/calc_preco.py,sha256=2CZaLcqyuMZvbdR9P589rwbOdy6NxSNSduHOxCYPRCQ,396
+package_calcular_porcentagem-0.0.1.dist-info/METADATA,sha256=mRY1SHbS2fIme3QlKuunZCwY6rwpHMWDZ1YRUedgfrQ,912
+package_calcular_porcentagem-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+package_calcular_porcentagem-0.0.1.dist-info/top_level.txt,sha256=0b2bm7wabH2FADnbQdlH0ldY4-zdka3zFMhVOw8WiYo,29
+package_calcular_porcentagem-0.0.1.dist-info/RECORD,,
