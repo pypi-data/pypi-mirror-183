@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: kombini
+Version: 0.0.3
+Summary: Miscellaneous convenience functions
+Home-page: https://github.com/chunglak/kombini
+Author: Alfred Leung
+Author-email: chunglak@gmail.com
+License: GPL-3.0-or-later
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# kombini
+Miscellaneous convenience functions
+
+## Installation
+```shell
+$ pip install kombini
+```
