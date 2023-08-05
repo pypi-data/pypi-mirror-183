@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+sqlitedl/__init__.py
+sqlitedl.egg-info/PKG-INFO
+sqlitedl.egg-info/SOURCES.txt
+sqlitedl.egg-info/dependency_links.txt
+sqlitedl.egg-info/not-zip-safe
+sqlitedl.egg-info/top_level.txt
