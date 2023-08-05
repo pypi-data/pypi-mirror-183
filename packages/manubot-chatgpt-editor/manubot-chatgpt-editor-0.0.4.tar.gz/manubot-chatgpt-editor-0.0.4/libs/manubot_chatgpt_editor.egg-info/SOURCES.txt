@@ -1,0 +1,12 @@
+README.md
+setup.py
+libs/chatgpt_editor/__init__.py
+libs/chatgpt_editor/editor.py
+libs/chatgpt_editor/env_vars.py
+libs/chatgpt_editor/models.py
+libs/chatgpt_editor/utils.py
+libs/manubot_chatgpt_editor.egg-info/PKG-INFO
+libs/manubot_chatgpt_editor.egg-info/SOURCES.txt
+libs/manubot_chatgpt_editor.egg-info/dependency_links.txt
+libs/manubot_chatgpt_editor.egg-info/requires.txt
+libs/manubot_chatgpt_editor.egg-info/top_level.txt
