@@ -1,0 +1,5 @@
+[console_scripts]
+messi_exe = messi_nmr.messi_nmr:create_exe
+
+[gui_scripts]
+messi = messi_nmr.messi_nmr:main
