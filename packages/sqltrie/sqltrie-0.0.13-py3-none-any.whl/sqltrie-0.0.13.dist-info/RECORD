@@ -1,0 +1,16 @@
+sqltrie/__init__.py,sha256=XNMZGbpsOnaw5IJsM2UQCa8OgmlSl9KpjUhzOyuZC6M,386
+sqltrie/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sqltrie/serialized.py,sha256=o7oth_BVcLgkoXQbJps9Fa1KFPTn95p6PURpyOe-QUQ,2964
+sqltrie/sqlalchemy.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sqltrie/trie.py,sha256=dzdwApHmy5gH2B-e6UV2EyXvhit8u_Eda1JwocRLxe8,2552
+sqltrie/sqlite/__init__.py,sha256=6GSfPtQ3VLY1PINQu0j9shk7juHqmtvbE66324659tU,76
+sqltrie/sqlite/diff.sql,sha256=IBmlFrNLEENnNsolESIKa68gSKHCZEi9pj1tCclcu7A,2957
+sqltrie/sqlite/init.sql,sha256=LS2C6UkEoG7le9Nd_uA2cJVF0vbX-iJQuwFHEF_KaVU,370
+sqltrie/sqlite/items.sql,sha256=6dM3krxHkegF0tgzs0kQY8qt5ITb74DTwaUMB818fK0,805
+sqltrie/sqlite/sqlite.py,sha256=GIE7J_JicU7a1Q_BGPVg5HGfBonbGHXtw-R3VvQ394A,8289
+sqltrie/sqlite/steps.sql,sha256=30T3WcinsMAr-UpMJaK76eHS2cA23eM7E2Jkk_qdLoo,1707
+sqltrie-0.0.13.dist-info/LICENSE,sha256=OaKNrO1wt8zhefG0fVILenOTZdtMnxDN9oP1cs-Hzy8,11347
+sqltrie-0.0.13.dist-info/METADATA,sha256=at0ia1l1qYXt5YH9yCcA0Kaxl8yei6uxkHSXWPdG_aw,3580
+sqltrie-0.0.13.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sqltrie-0.0.13.dist-info/top_level.txt,sha256=Hfl-U_cj2exzTMPfWDOLWldndJod6y0aID0AmBqF90Y,8
+sqltrie-0.0.13.dist-info/RECORD,,
