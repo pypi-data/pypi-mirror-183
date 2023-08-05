@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: package_calcular_porcentagem
+Version: 0.0.1
+Summary: The package is used for to calculate the porcentage in your code.
+Home-page: https://github.com/Will-Moura
+Author: WilliamMoura
+Author-email: william_2207.moura@hotmail.com
+License: UNKNOWN
+Description: # package_calcular_porcentagem
+        
+        Description. 
+        The package package_calcular_porcentagem is used to:
+        	- Calculate 
+        	- Porcentagem
+        utils: 
+            -aumentar %
+        	-reducao %
+        
+        ## Installation
+        
+        Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package_calcular_porcentagem
+        
+        ```bash
+        pip install package_calcular_porcentagem
+        ```
+        
+        ## Usage
+        
+        ```python
+        from package_calcular_porcentagem.calc_preco import aumento, reducao
+        aumento.() 
+        reducao.()
+        ```
+        
+        ## Author
+        WilliamMoura
+        
+        ## License
+        [MIT](https://choosealicense.com/licenses/mit/)
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
