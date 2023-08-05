@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "taggerscript"
+version = "0.0.7"
+description = "Scripting language written in Python for Discord bot"
+authors = ["najis"]
+license = "GNU"
+readme = "README.md"
+packages = [
+	{ include = "tagger" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+lark = "^1.1.5"
+py-cord = {version = "^2.3.2", optional = true}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
