@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: csv2img
+Version: 0.0.6
+Summary: Package to save CSV as PNG
+Home-page: https://github.com/Shun-Calvin/csv2img.git
+Author: Calvin Yu
+Author-email: 5u80w7c15@mozmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: csv2pdf (~=0.1.4)
+Requires-Dist: fitz (~=0.0.1.dev2)
+Requires-Dist: PyMuPDF (~=1.21.1)
+
+# csv2img
+
+This is a trial project that save CSV file as PNG image 
+
+## Installation 
+
+Run the following to install: 
+
+```python 
+pip install csv2img
+```
+
+
+### Usage 
+To use csv2img, make sure that you have installed the package of csv2pdf, fitz and PyMuPDF, since this package is a combination of csv2pdf and fitz.
+
+```python 
+pip install csv2pdf
+pip install fitz
+pip install PyMuPDF
+```
+
+``` python 
+from csv2img import saveas
+saveas(csv_file)
+```
+
+
+
