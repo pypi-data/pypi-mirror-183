@@ -1,0 +1,5 @@
+keyrock_core
+keyrock_encryption
+flask
+redis
+requests
