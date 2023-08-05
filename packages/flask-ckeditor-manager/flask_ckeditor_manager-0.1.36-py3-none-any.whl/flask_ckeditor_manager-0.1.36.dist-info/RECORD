@@ -1,0 +1,7 @@
+flask_ckeditor/__init__.py,sha256=MIUY9nFTYmmeLtmnJmpkKOzfM3jp21PWT_f7gqM65s4,3099
+flask_ckeditor/fields.py,sha256=YStFKry8xwA29ZBU_oaPb0w_f87XVohx_KphiRqUQZs,777
+flask_ckeditor/templates/config_target.jinja,sha256=E20tpX5pColOtbfl4qWuBxUI9-keQzOeaC52lYGo91k,1806
+flask_ckeditor/templates/load_ckeditor.jinja,sha256=5itFnaguoqRwh3vuxwxfOaCYI0ShycDGHXr6jIGd9aA,273
+flask_ckeditor_manager-0.1.36.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+flask_ckeditor_manager-0.1.36.dist-info/METADATA,sha256=fgge1c7cKsNEfYuOaq6UmlLIbn8NQDLZ6-LsvbydjOE,3610
+flask_ckeditor_manager-0.1.36.dist-info/RECORD,,
