@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "heatmapx"
+# A placeholder version. The actual version is managed by the
+# poetry-dynamic-versioning Poetry plugin.
+version = "0.3.0"
+description = "Flexible, intuitive heatmap creation on NetworkX graphs"
+authors = ["drmrd"]
+license = "BSD-3-Clause"
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+networkx = "^2.6.0"
+
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^6.2.5"
+
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^7.11.1"
+jupyter = "^1.0.0"
+jupyterlab = "^3.5.2"
+matplotlib = "^3.1.0"
+
+
+[tool.poetry-dynamic-versioning]
+enable = false
+vcs = "git"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
