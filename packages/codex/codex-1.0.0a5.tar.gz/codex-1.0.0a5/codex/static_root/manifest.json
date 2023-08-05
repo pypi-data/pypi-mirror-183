@@ -1,0 +1,156 @@
+{
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-f5966bae.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-739dc70d.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-6d5e4be4.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-c02d41ce.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "admin-drawer-panel.css": {
+    "file": "assets/admin-drawer-panel-5a8745af.css",
+    "src": "admin-drawer-panel.css"
+  },
+  "admin.css": {
+    "file": "assets/admin-03ccea7a.css",
+    "src": "admin.css"
+  },
+  "src/browser.css": {
+    "file": "assets/browser-a7fc92ee.css",
+    "src": "src/browser.css"
+  },
+  "reader.css": {
+    "file": "assets/reader-5ef16662.css",
+    "src": "reader.css"
+  },
+  "src/http-error.css": {
+    "file": "assets/http-error-9194fd4d.css",
+    "src": "src/http-error.css"
+  },
+  "metadata-dialog.css": {
+    "file": "assets/metadata-dialog-5292749d.css",
+    "src": "metadata-dialog.css"
+  },
+  "src/components/reader/page-pdf.css": {
+    "file": "assets/page-pdf-da2d2f8b.css",
+    "src": "src/components/reader/page-pdf.css"
+  },
+  "src/main.css": {
+    "file": "assets/main-8cdf1408.css",
+    "src": "src/main.css"
+  },
+  "_admin-drawer-panel-26fca47b.js": {
+    "file": "assets/admin-drawer-panel-26fca47b.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js"
+    ],
+    "css": [
+      "assets/admin-drawer-panel-5a8745af.css"
+    ]
+  },
+  "src/http-error.vue": {
+    "file": "assets/http-error-2e5f19da.js",
+    "src": "src/http-error.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js",
+      "_admin-drawer-panel-26fca47b.js"
+    ],
+    "css": [
+      "assets/http-error-9194fd4d.css"
+    ]
+  },
+  "src/browser.vue": {
+    "file": "assets/browser-f81816f8.js",
+    "src": "src/browser.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js",
+      "_metadata-dialog-66803875.js",
+      "_admin-drawer-panel-26fca47b.js"
+    ],
+    "css": [
+      "assets/browser-a7fc92ee.css"
+    ]
+  },
+  "_reader-eaaf023e.js": {
+    "file": "assets/reader-eaaf023e.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js",
+      "_metadata-dialog-66803875.js"
+    ],
+    "dynamicImports": [
+      "src/components/reader/page-pdf.vue"
+    ],
+    "css": [
+      "assets/reader-5ef16662.css"
+    ]
+  },
+  "_metadata-dialog-66803875.js": {
+    "file": "assets/metadata-dialog-66803875.js",
+    "imports": [
+      "_admin-bb5000e7.js"
+    ],
+    "css": [
+      "assets/metadata-dialog-5292749d.css"
+    ]
+  },
+  "src/main.js": {
+    "file": "assets/main-2b1709a5.js",
+    "src": "src/main.js",
+    "isEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js",
+      "_admin-drawer-panel-26fca47b.js"
+    ],
+    "css": [
+      "assets/main-8cdf1408.css"
+    ],
+    "assets": [
+      "assets/materialdesignicons-webfont-f5966bae.eot",
+      "assets/materialdesignicons-webfont-739dc70d.woff2",
+      "assets/materialdesignicons-webfont-6d5e4be4.woff",
+      "assets/materialdesignicons-webfont-c02d41ce.ttf"
+    ]
+  },
+  "_admin-bb5000e7.js": {
+    "file": "assets/admin-bb5000e7.js",
+    "imports": [
+      "_admin-drawer-panel-26fca47b.js"
+    ],
+    "dynamicImports": [
+      "src/browser.vue",
+      "src/http-error.vue",
+      "_reader-eaaf023e.js",
+      "_admin-drawer-panel-26fca47b.js",
+      "_admin-drawer-panel-26fca47b.js"
+    ],
+    "css": [
+      "assets/admin-03ccea7a.css"
+    ]
+  },
+  "src/components/reader/page-pdf.vue": {
+    "file": "assets/page-pdf-111466d0.js",
+    "src": "src/components/reader/page-pdf.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-bb5000e7.js",
+      "_reader-eaaf023e.js",
+      "_admin-drawer-panel-26fca47b.js",
+      "_metadata-dialog-66803875.js"
+    ],
+    "css": [
+      "assets/page-pdf-da2d2f8b.css"
+    ]
+  }
+}
