@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+koreanize_matplotlib/__init__.py
+koreanize_matplotlib/koreanize_matplotlib.py
+koreanize_matplotlib.egg-info/PKG-INFO
+koreanize_matplotlib.egg-info/SOURCES.txt
+koreanize_matplotlib.egg-info/dependency_links.txt
+koreanize_matplotlib.egg-info/requires.txt
+koreanize_matplotlib.egg-info/top_level.txt
+koreanize_matplotlib/fonts/NanumGothic.ttf
+koreanize_matplotlib/fonts/NanumGothicBold.ttf
+koreanize_matplotlib/fonts/NanumGothicExtraBold.ttf
+koreanize_matplotlib/fonts/NanumGothicLight.ttf
