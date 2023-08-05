@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: openapipy
+Version: 0.6.4
+Summary: openapi tools
+Home-page: https://github.com/luffy-genius/openapi
+Author: ZhiChaoLiu
+Author-email: liuzhichao9527@gmail.com
+License: MIT
+Keywords: openapi,openapi-python,python-openapi,openapipy,pyopenapi
+License-File: LICENSE
+
+openapi tools
