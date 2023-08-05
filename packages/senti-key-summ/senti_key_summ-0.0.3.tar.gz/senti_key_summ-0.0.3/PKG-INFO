@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: senti_key_summ
+Version: 0.0.3
+Summary: Multilingual Summarization
+Home-page: UNKNOWN
+Author: Phani Siginamsetty
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: Multilingual summarization,summarization
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
