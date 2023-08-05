@@ -1,0 +1,11 @@
+spotifyatlas/__init__.py,sha256=52vziMJ8KpOXjXsP_8vgeaVxLOXlC1nJ5Y1C_oX3aLw,2479
+spotifyatlas/datastructs.py,sha256=2Ryv7P-P1720HI0XMn1inl-od_WUAppS_8YGAuOnXvA,4357
+spotifyatlas/spotifyapi.py,sha256=pCllKNCAN4V0kslPqy8pQH_gOGlkIjUt2TCXrBaGUGw,20505
+spotifyatlas/resources/redirectpage.html,sha256=MlW9as7h6NpjgQU8aECcNFDj-aI1XFrCJanusAorwIQ,914
+spotifyatlas/utils/__init__.py,sha256=alIDGBnxWH4JvP-UW-7N99seBBi0r1GV1h8f1ERFBec,21
+spotifyatlas/utils/utils.py,sha256=UyCXi2v2MPQJzKN1vIqX-zz1tGGydxB-iiTTifRm8lk,1030
+spotifyatlas-0.1.0.dist-info/LICENSE,sha256=6Th9tMtYuxWAGYV0Txe3gs-KqSLf9mGEyPUzcMAdhtU,1065
+spotifyatlas-0.1.0.dist-info/METADATA,sha256=ecGRmERinxTQy8x7DHOqjC5Wrj8bYlieCUxJIir4OIo,6578
+spotifyatlas-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+spotifyatlas-0.1.0.dist-info/top_level.txt,sha256=AWUiSAhkajni98qBNpBqE4Wh9lVB7_PiaybgfSWcXzI,13
+spotifyatlas-0.1.0.dist-info/RECORD,,
