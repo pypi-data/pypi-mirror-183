@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: just-vec-it
+Version: 0.1.0
+Summary: part of my personal software ecosystem
+Author: Andrew Matte
+Author-email: andrew.matte@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
