@@ -1,0 +1,14 @@
+cz_gitmoji/__init__.py,sha256=M6ZXlduvBspkfjgDJEjJmDF8ohEAzSCTLXi6fvnVvhA,85
+cz_gitmoji/conventional_gitmojis_info.txt,sha256=FqhncEblZC1IYYW7MXhOkA_YOvgO8a1F8-kWSNHVOi8,1285
+cz_gitmoji/main.py,sha256=6IKrezRd55o7MYFgQmNb-0PGyFuQjLy8Hu_4EIrUBEE,13191
+gitmojify/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gitmojify/mojify.py,sha256=RnErYlwSaMvtsCOCAoTsXHiBMU2rBnxU6wtRfDZZctI,1669
+shared/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shared/gitmojis.py,sha256=XZt_3DmZzzCjHFDOMnwmwleu9nv2ymf1HGPyUl12_Us,2667
+shared/model.py,sha256=ZmJGWCr94P-xyipC1eFQH0wzxZwJ0wFRFPJFTAP9gog,406
+shared/spec.py,sha256=yvc7dWACGxlEziEkmwxJxe2Ylv4X4n_cd3ZY09rPga4,10608
+shared/utils.py,sha256=9q5wRjiXFTyGaoo9yC2dTvq4ENUKpczvBK_hE_De6gM,817
+commitizen_gitmoji-0.1.1.dist-info/entry_points.txt,sha256=xO2bfeuywfl2cqnl-7UflircWp9ft9LPaMtRVAldXHo,50
+commitizen_gitmoji-0.1.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+commitizen_gitmoji-0.1.1.dist-info/METADATA,sha256=fg5cEmFTPUDWH63Xtma0gWngkXtSxXB2RGOPFEEVEeQ,3357
+commitizen_gitmoji-0.1.1.dist-info/RECORD,,
