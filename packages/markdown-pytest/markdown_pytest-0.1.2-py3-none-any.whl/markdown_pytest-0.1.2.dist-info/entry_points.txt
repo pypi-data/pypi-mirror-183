@@ -1,0 +1,3 @@
+[pytest11]
+cool_plugin=markdown_pytest
+
