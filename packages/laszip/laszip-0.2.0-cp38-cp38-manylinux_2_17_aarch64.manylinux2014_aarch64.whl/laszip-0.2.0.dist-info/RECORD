@@ -1,0 +1,7 @@
+laszip.libs/liblaszip-4a8f77bf.so.8.0.5,sha256=R_45htESgSvRv3ztXYC7MPqPo0FBtakE-aCPn193CbA,698201
+laszip-0.2.0.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+laszip-0.2.0.dist-info/RECORD,,
+laszip-0.2.0.dist-info/METADATA,sha256=m2lDt8mhU0KOwXyaiI_aHkrqA095H-wspXW0tcZyr1o,1161
+laszip-0.2.0.dist-info/WHEEL,sha256=0jEYhk9rQ1dur7AI4Y8hGRx3KeFVSOtqneoZxqyisxM,143
+laszip/__init__.py,sha256=OqDP9Rm4eEe4TWAlygF-OU4mXDZLDhudLm0DQxKPcxc,22
+laszip/laszip.cpython-38-aarch64-linux-gnu.so,sha256=SYOetHV9ubvY6faL6BOMXJ_Ob6M7zIINE1lq5McPA0k,554049
