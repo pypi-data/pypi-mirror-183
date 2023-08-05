@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "ktumon"
+authors = [{name = "Anantha Narayanan N", email = "ananthanryn@gmail.com"}]
+license = {file = "LICENSE"}
+readme = "README.md"
+keywords = ["ktu", "ktumon", "kerala"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: Microsoft :: Windows",
+    "Intended Audience :: Education",
+    "Intended Audience :: End Users/Desktop",
+]
+version = "1.0.1"
+description = "App to monitor notifications published by KTU"
+requires-python = ">=3.11"
+dependencies = [
+    "requests >=2.28.1",
+    "beautifulsoup4 >=4.11.1",
+    "fastapi >=0.87.0",
+    "Jinja2>=3.1.2",
+    "pystray >=0.19.4",
+    "uvicorn[standard] >=0.20.0",
+    "python-multipart >=0.0.5"
+]
+
+[project.urls]
+Source = "https://github.com/ananthanryn/ktu-mon"
+
+[project.optional-dependencies]
+dev = [
+    "black >=22.12.0",
+    "flake8 >=6.0.0",
+    "mypy >=0.991",
+    "build >=0.9.0",
+    "twine >=4.0.2"
+]
+
+[project.scripts]
+ktumon = "ktu_mon.__main__:main"

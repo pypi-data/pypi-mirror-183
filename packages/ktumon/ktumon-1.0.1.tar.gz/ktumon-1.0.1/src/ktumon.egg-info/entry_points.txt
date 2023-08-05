@@ -1,0 +1,2 @@
+[console_scripts]
+ktumon = ktu_mon.__main__:main

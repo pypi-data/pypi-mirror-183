@@ -1,0 +1,15 @@
+{
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "110"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=110",
+        "--extend-ignore=E203"
+    ],
+    "python.analysis.typeCheckingMode": "basic"
+}
