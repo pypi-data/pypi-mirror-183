@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "super-gun1k"
+version = "0.1.0"
+description = ""
+authors = ["evan <evan@pop-os.localdomain>"]
+readme = "README.md"
+packages = [{include = "super_gun1k"}]
+
+
+[tool.poetry.scripts]
+super = "super_gun1k.main:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = {extras = ["all"], version = "^0.7.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
