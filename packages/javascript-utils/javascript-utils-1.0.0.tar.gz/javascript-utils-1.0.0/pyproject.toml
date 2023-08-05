@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["jsutils"]
+
+[project]
+name = "javascript-utils"
+version = "1.0.0"
+authors = [
+    { name="Robert Brieler", email="rob.brieler@gmail.com" },
+]
+license = { file = "LICENSE" }
+description = "Python utilities inspired by npm packages"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["config", "configuration", "stubs", "sinon", "testing"]
+
+[project.optional-dependencies]
+dev = ["pytest", "coverage"]
+
+[project.urls]
+Homepage="https://github.com/Ebojen/jsutils"
