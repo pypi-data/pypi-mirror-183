@@ -1,0 +1,15 @@
+README.md
+setup.py
+wiserdata/__init__.py
+wiserdata/api.py
+wiserdata/checker.py
+wiserdata/client.py
+wiserdata/client_local.py
+wiserdata/config.py
+wiserdata/uploader.py
+wiserdata/utils.py
+wiserdata.egg-info/PKG-INFO
+wiserdata.egg-info/SOURCES.txt
+wiserdata.egg-info/dependency_links.txt
+wiserdata.egg-info/requires.txt
+wiserdata.egg-info/top_level.txt
