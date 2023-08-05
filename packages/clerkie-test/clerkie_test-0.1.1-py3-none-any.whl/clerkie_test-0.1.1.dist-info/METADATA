@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: clerkie-test
+Version: 0.1.1
+Summary: A cli tool for debugging your errors using AI
+Author: ishaan-jaff
+Author-email: ishaanjaffer0324@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
