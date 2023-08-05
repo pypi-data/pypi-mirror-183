@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/xgeom/__init__.py
+src/xgeom/point.py
+src/xgeom.egg-info/PKG-INFO
+src/xgeom.egg-info/SOURCES.txt
+src/xgeom.egg-info/dependency_links.txt
+src/xgeom.egg-info/top_level.txt
