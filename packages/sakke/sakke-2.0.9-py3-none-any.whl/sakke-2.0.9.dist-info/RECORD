@@ -1,0 +1,10 @@
+sakke/__init__.py,sha256=utJJU0vmAnvcppVIoW4HdV-c9aIWKemqz5B7t3X-WqI,44
+sakke/sakke.py,sha256=qFIVQgjwHE41UxrhFPAbHDogy4FZlYg01KsyQPhP9X0,18891
+sakke/templates/stats.html.j2,sha256=DEN_WjMSlEmSHFI5ooT8bBPgIsGdHq0kZzVM6q99V8U,2357
+sakke/templates/stats.tex.j2,sha256=v6AlH49M894RtfsYtGxgF3C7_BaJ4Fa9dNQVjDIp8CE,1199
+sakke-2.0.9.dist-info/LICENSE,sha256=WJ7YI-moTFb-uVrFjnzzhGJrnL9P2iqQe8NuED3hutI,35141
+sakke-2.0.9.dist-info/METADATA,sha256=LDGBi8MpdS0RmJfj_d-_z_7M9vkWvewy78JvjSz68Ks,445
+sakke-2.0.9.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sakke-2.0.9.dist-info/entry_points.txt,sha256=Q6v7SD34dKiDS-Wf99Zsmot1gPvF8wVA7sBOzRM9c-Y,43
+sakke-2.0.9.dist-info/top_level.txt,sha256=vJj98_iGXRfcL6ZQJ34f_fxoahqUzdT3dP9u2BhJj9Q,6
+sakke-2.0.9.dist-info/RECORD,,
