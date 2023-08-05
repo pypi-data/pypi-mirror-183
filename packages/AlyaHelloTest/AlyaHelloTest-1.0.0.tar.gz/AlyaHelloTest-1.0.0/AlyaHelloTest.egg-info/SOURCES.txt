@@ -1,0 +1,5 @@
+setup.py
+AlyaHelloTest.egg-info/PKG-INFO
+AlyaHelloTest.egg-info/SOURCES.txt
+AlyaHelloTest.egg-info/dependency_links.txt
+AlyaHelloTest.egg-info/top_level.txt
