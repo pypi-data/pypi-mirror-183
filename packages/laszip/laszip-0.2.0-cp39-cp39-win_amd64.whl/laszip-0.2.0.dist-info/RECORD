@@ -1,0 +1,7 @@
+laszip/__init__.py,sha256=iV4RPyk_bBW3Cg5OtLXhnYFVI3ibrCZagK4V4Ezelu4,23
+laszip/laszip.cp39-win_amd64.pyd,sha256=SOa4j2eh5YSfhCfOiXT-mNYHQRjXadTtyVej7C3fT84,228352
+laszip/laszip3.dll,sha256=b75E9atb2asO9KGMoPCS_Fb67gee-nk__BCC-wniIMg,264192
+laszip-0.2.0.dist-info/METADATA,sha256=m2lDt8mhU0KOwXyaiI_aHkrqA095H-wspXW0tcZyr1o,1161
+laszip-0.2.0.dist-info/WHEEL,sha256=VOzDRR37QiPBYhFiRLiJ7vGm--MoG67p6Fckpx0-JxM,94
+laszip-0.2.0.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+laszip-0.2.0.dist-info/RECORD,,
