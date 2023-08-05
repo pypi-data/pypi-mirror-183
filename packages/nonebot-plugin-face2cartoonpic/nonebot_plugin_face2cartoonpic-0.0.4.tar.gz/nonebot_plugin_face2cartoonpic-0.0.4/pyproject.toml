@@ -1,0 +1,18 @@
+[project]
+name = "nonebot_plugin_face2cartoonpic"
+version = "0.0.4"
+authors = [
+  { name="ANGJustinl", email="angjustin@163.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ANGJustinl/nonebot_plugin_face2cartoonpic"
+"Bug Tracker" = "https://github.com/ANGJustinl/nonebot_plugin_face2cartoonpic/issues"
