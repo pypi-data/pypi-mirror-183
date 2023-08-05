@@ -1,0 +1,9 @@
+setup.py
+colorsapyto/__init__.py
+colorsapyto/_init_.py
+colorsapyto/colorsapyto.py
+colorsapyto.egg-info/PKG-INFO
+colorsapyto.egg-info/SOURCES.txt
+colorsapyto.egg-info/dependency_links.txt
+colorsapyto.egg-info/not-zip-safe
+colorsapyto.egg-info/top_level.txt
