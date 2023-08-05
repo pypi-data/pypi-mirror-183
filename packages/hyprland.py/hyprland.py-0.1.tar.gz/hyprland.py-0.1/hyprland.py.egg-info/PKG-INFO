@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: hyprland.py
+Version: 0.1
+Summary: An unofficial async python wrapper for Hyprland's IPC supposed to somewhat work like awesomewm api in lua
+Home-page: https://github.com/hyprland-community/hyprland-py
+Author: flicko
+Author-email: flickerdroid211@gmail.com
+License: MIT
+Keywords: hyprland async ipc wrapper
+License-File: LICENCE
