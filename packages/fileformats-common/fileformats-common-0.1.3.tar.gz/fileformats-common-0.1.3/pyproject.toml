@@ -1,0 +1,85 @@
+[build-system]
+requires = ["flit_scm"]
+build-backend = "flit_scm:buildapi"
+
+[project]
+name = "fileformats-common"
+description = "Python classes for specifying fileformats for type-hinting and automatic-conversion"
+readme = "README.rst"
+requires-python = ">=3.8"
+dependencies = [
+    "attrs>=22.1.0",
+    "fileformats-core >=0.1",
+    "pydra >= 0.20.0",
+]
+license = {file = "LICENSE"}
+authors = [
+    {name = "Thomas G. Close", email = "tom.g.close@gmail.com"},
+]
+maintainers = [
+    {name = "Thomas G. Close", email = "tom.g.close@gmail.com"},
+]
+keywords = [
+    "file formats",
+    "data",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pre-commit",
+    "codespell",
+    "flake8",
+    "flake8-pyproject",
+]
+test = [
+    "pytest >=6.2.5",
+    "pytest-env>=0.6.2",
+    "pytest-cov>=2.12.1",
+    "codecov",
+]
+
+
+[project.urls]
+repository = "https://github.com/ArcanaFramework/fileformats-common"
+
+
+[tool.flit.module]
+name = "fileformats.common"
+
+[tool.flit.sdist]
+exclude = [".gitignore"]
+
+[tool.setuptools_scm]
+write_to = "fileformats/common/_version.py"
+
+[tool.black]
+target-version = ['py38']
+exclude = "fileformats/common/_version.py"
+
+[tool.codespell]
+ignore-words = ".codespell-ignorewords"
+
+[tool.flake8]
+doctests = true
+per-file-ignores = [
+    "__init__.py:F401"
+]
+max-line-length = 88
+select = "C,E,F,W,B,B950"
+extend-ignore = ['E203', 'E501', 'E129', 'W503']
