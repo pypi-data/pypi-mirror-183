@@ -1,0 +1,11 @@
+xtcocotools/__init__.py,sha256=0C6R_hJbgubl8GQriX90OQlFBtBvMncbQNABcN646uE,21
+xtcocotools/_mask.cpython-39-darwin.so,sha256=MF_W7l-AwQFI3NTHUAZTzhum0G68cYQ2QxSSaiJkTW8,227168
+xtcocotools/coco.py,sha256=sZKZcgck5oBFgQt-nJOxvx_SVXJ9OB3PdWwU7zsk3TU,20930
+xtcocotools/cocoeval.py,sha256=hU1yrzrtnDJd-pkdM3GQndr3ZB_drKJNwnTy1S83NWU,34710
+xtcocotools/mask.py,sha256=6RWK6E215ly3vsr5TSiIY6Y22DyfrsN_3C4phk8rJGA,4591
+xtcocotools/version.py,sha256=WJi0wNMY4ZllA6dA-KZH-NwAFf1JT64vXgHgp1Hh-a0,49
+xtcocotools-1.13.dist-info/LICENSE,sha256=-Wrdw0s2Bze-JBdDWCVK4sNqufdX14EMtS71EUol8cw,2778
+xtcocotools-1.13.dist-info/METADATA,sha256=CuuphZDsyq3cdm__P_JLKUmHez7mj4mcccPny3-f8KI,372
+xtcocotools-1.13.dist-info/WHEEL,sha256=Tb_t7JGjS9UNO7L5mRtd9E9oLUA9YQccQulkdRossZI,109
+xtcocotools-1.13.dist-info/top_level.txt,sha256=nFQh2tILFK9xZCR1V81yAVUD0gyop7Xay3NKASc0Nhs,12
+xtcocotools-1.13.dist-info/RECORD,,
