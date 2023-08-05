@@ -1,0 +1,3 @@
+[console_scripts]
+super=super_gun1k.main:app
+
