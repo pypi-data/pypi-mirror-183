@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/wise_client/__init__.py
+src/wise_client/base_client.py
+src/wise_client/wise_client.py
+src/wise_client.egg-info/PKG-INFO
+src/wise_client.egg-info/SOURCES.txt
+src/wise_client.egg-info/dependency_links.txt
+src/wise_client.egg-info/requires.txt
+src/wise_client.egg-info/top_level.txt
