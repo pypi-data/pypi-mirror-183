@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: keyrock-math
+Version: 2022.12.26.2203
+Requires-Dist: keyrock-core
+Requires-Dist: keyrock-hcs
+Requires-Dist: numpy
+Requires-Dist: scipy
+
