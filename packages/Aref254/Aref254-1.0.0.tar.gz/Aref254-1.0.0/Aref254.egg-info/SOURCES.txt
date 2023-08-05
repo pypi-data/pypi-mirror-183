@@ -1,0 +1,7 @@
+setup.py
+Aref254.egg-info/PKG-INFO
+Aref254.egg-info/SOURCES.txt
+Aref254.egg-info/dependency_links.txt
+Aref254.egg-info/top_level.txt
+HelloPython/Hello.py
+HelloPython/__init__.py
