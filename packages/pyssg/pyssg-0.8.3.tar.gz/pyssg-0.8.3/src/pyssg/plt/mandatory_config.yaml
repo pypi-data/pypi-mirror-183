@@ -1,0 +1,23 @@
+%YAML 1.2
+---
+title:
+path:
+  src:
+  dst:
+  plt:
+  db:
+url:
+  main:
+fmt:
+  date:
+dirs:
+  /:
+...
+---
+cfg:
+  plt:
+  tags:
+  index:
+  rss:
+  sitemap:
+...
