@@ -1,0 +1,7 @@
+drf_msgspec_json/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+drf_msgspec_json/parsers.py,sha256=cGxvelMpZEKmZl4v1Ah0hPofgYzdcumroIqDpKL4_IU,756
+drf_msgspec_json/renderers.py,sha256=zqseX4CEy4p9_XaMOAvkjafhwIGH1czWH_YvfUmZ8CI,404
+drf_msgspec_json_renderer-0.1.0.dist-info/LICENSE,sha256=xQq7-TS53ndfbA8BrQwPR6gU7ikEb7acfgDz0ozrx40,27
+drf_msgspec_json_renderer-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+drf_msgspec_json_renderer-0.1.0.dist-info/METADATA,sha256=5QEWCiLIGsr8apDSvIBgj9c5mNgTLiuEv2P45Yusiz0,1078
+drf_msgspec_json_renderer-0.1.0.dist-info/RECORD,,
