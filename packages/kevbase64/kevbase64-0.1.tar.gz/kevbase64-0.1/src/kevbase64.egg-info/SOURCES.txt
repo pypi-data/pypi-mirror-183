@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/kevbase64/__init__.py
+src/kevbase64/__main__.py
+src/kevbase64/decode.py
+src/kevbase64/encode.py
+src/kevbase64/main.py
+src/kevbase64/table.py
+src/kevbase64.egg-info/PKG-INFO
+src/kevbase64.egg-info/SOURCES.txt
+src/kevbase64.egg-info/dependency_links.txt
+src/kevbase64.egg-info/entry_points.txt
+src/kevbase64.egg-info/top_level.txt
