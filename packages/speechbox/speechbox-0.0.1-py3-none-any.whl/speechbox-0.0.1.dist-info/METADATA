@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: speechbox
+Version: 0.0.1
+Summary: Speechbox
+Home-page: https://github.com/huggingface/speechbox
+Author: The HuggingFace team
+Author-email: patrick@huggingface.co
+License: Apache
+Keywords: deep learning
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: importlib-metadata
+Requires-Dist: filelock
+Requires-Dist: transformers (>=4.24.0)
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: black (==22.8) ; extra == 'dev'
+Requires-Dist: isort (>=5.5.4) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'dev'
+Provides-Extra: quality
+Requires-Dist: black (==22.8) ; extra == 'quality'
+Requires-Dist: isort (>=5.5.4) ; extra == 'quality'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'quality'
+
+<p align="center">
+    <a href="https://github.com/huggingface/speechbox/releases">
+        <img alt="GitHub release" src="https://img.shields.io/github/release/huggingface/speechbox.svg">
+    </a>
+    <a href="CODE_OF_CONDUCT.md">
+        <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg">
+    </a>
+</p>
+
+🤗 Speechbox offers a set of speech processing tools, such as punctuation restoration.
+
+# Installation
+
+**With `pip`** (official package)
+    
+```bash
+pip install speechbox
+```
