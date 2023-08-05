@@ -1,0 +1,7 @@
+setup.py
+cloop/__init__.py
+cloop.egg-info/PKG-INFO
+cloop.egg-info/SOURCES.txt
+cloop.egg-info/dependency_links.txt
+cloop.egg-info/requires.txt
+cloop.egg-info/top_level.txt
