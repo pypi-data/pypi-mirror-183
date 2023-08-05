@@ -1,0 +1,17 @@
+"""Finds the version in pyproject.toml"""
+
+import tomli
+import os
+
+DIR = os.path.dirname(os.path.abspath(__file__))
+DIR = os.path.dirname(DIR)
+DIR = os.path.dirname(DIR)
+PATH = os.path.join(DIR, "pyproject.toml")
+
+try:
+    with open(PATH, "rb") as f:
+        data = tomli.load(f)
+    __version__ = data["project"]["version"]
+except FileNotFoundError:
+    __version__ = None
+
