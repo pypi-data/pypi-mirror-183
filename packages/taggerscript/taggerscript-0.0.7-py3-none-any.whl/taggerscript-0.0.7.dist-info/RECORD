@@ -1,0 +1,15 @@
+tagger/core/error.py,sha256=1Sb_7yjVZRJ7TYfrGwZ2p0FRq-mflLq51kLxiNlo4uI,234
+tagger/core/klass.py,sha256=XW4hmtkEd3hPLUaisF4y1hD42P-PWKRmRfGk7VUc3sM,5510
+tagger/core/node.py,sha256=0zy5iEuyqTau1JdUkim5DeADYaoLap7LN3MCZF2ntsY,1424
+tagger/library/distag.py,sha256=rgKCVNiFr1R9OeCljSX03K7HGzFSw1GEHi8C31fAg5Q,3405
+tagger/library/rand.py,sha256=Lzk0QC34J-hOz2QNaoFQO-JwRCEMn3ttksOP95Brx4o,681
+tagger/parser/parser.py,sha256=wC1j_rfXRcgimc-nT31Ne51DNDcr7_hxZvFuj2yfo-4,4439
+tagger/parser/tagger.lark,sha256=pFgPKAVmPrdDTJpmz1WQ1DeDO48UG7xLXKjMKOGXjxo,1789
+tagger/visitor/executor.py,sha256=egGi63C4KbeVRcpC_uGgCc_xbP3Z2zo3l3JZ5dJNd7I,5230
+tagger/visitor/interpreter.py,sha256=XLC0SK3aGJ4YAZCmaWptnSP97_UdlXXKvcKIQfpaPBQ,792
+tagger/visitor/obj_builtin.py,sha256=FuPjGcPgj81D8FPCANfKN4ivceKT59VfGXL_yRe5iqQ,3720
+tagger/visitor/tag_builtin.py,sha256=Cxx-4oDtgZKYhQJIyYHyHBVittc_5W2MQzNybgo8i7w,26461
+taggerscript-0.0.7.dist-info/LICENSE.md,sha256=idHHct050J8PAd7ER8AqVWJA8Fj8WxkM-1l616mQALY,35499
+taggerscript-0.0.7.dist-info/METADATA,sha256=we13kQKRZYha0IXOK5OfgHmhCvkYy1Q2rIvlS4CfwXQ,1206
+taggerscript-0.0.7.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+taggerscript-0.0.7.dist-info/RECORD,,
