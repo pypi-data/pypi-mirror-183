@@ -1,0 +1,5 @@
+
+[develop]
+pytest
+pytest-cov
+flake8
