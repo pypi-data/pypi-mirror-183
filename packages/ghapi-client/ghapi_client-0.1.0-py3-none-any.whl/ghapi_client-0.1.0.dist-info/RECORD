@@ -1,0 +1,13 @@
+ghapi/__init__.py,sha256=Zcvfpl-QO_kedn2MYOPY7ajCKCagm1Tb11rL3zOugLU,125
+ghapi/connection.py,sha256=yTLpgGOXZ0Fzg_Xt-ZbFhk5gGVsoQwyfvBnEj_Sp3us,1942
+ghapi/exceptions.py,sha256=UzHa-ztog-zJBYmDVsdzKVayWnaUKIGl0y_SsHxlZlM,676
+ghapi/pulls.py,sha256=KezwzdWYbw2mLUhi31O3Ko4121lhBzyJG4tMmXoc6C8,4189
+ghapi/repos.py,sha256=wqHWXHdIe-OGNOBK3fJTtVeEOl-frXnsJq2myHJBjCc,2333
+ghapi/reviews.py,sha256=YnCpD9Kr4b0EIX5vEW0_NpR8_nRnVDvENYwcO_rZ5cQ,3051
+ghapi/version.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+ghapi_client-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+ghapi_client-0.1.0.dist-info/METADATA,sha256=JBftYSpA_V-ZfMt3EhY4sx43cO-vd0go_vduQs9Rdl4,20965
+ghapi_client-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+ghapi_client-0.1.0.dist-info/top_level.txt,sha256=E9tIfki23676M3uK_Z6md0XZv4xszUnK4nfUo3wLz8w,6
+ghapi_client-0.1.0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+ghapi_client-0.1.0.dist-info/RECORD,,
