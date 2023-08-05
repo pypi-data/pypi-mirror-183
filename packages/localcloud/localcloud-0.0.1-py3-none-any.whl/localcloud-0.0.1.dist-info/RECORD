@@ -1,0 +1,9 @@
+localcloud/Makefile,sha256=alrUTHuO33Qbh5Gt_-ENrJ_VICoaQe4qDnXaZVZ4bKU,129
+localcloud/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+localcloud/cli.py,sha256=asTneO2Obcx3K01Z2EPMKDzroSbz0L_4t1buIlubxTI,162
+localcloud/tests/test_command_line_argument_parsing.py,sha256=GHmgF_xSbtXVwRYNKPACQoVdIo2_w2UEz5X6T0TilVw,135
+localcloud-0.0.1.dist-info/METADATA,sha256=mOQqOV7dmbACWRri473DY3jAPPh7qjnbhdWy9gd-S6A,1603
+localcloud-0.0.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+localcloud-0.0.1.dist-info/entry_points.txt,sha256=S6yltOjVlaiWn4qrtBOfynjST8C7_CVNzzr2HIqswTw,51
+localcloud-0.0.1.dist-info/licenses/LICENSE,sha256=9weU2Vg6PMRB7DwYuzBCwRCaGjNJvB78RuD1E3ftl6M,1033
+localcloud-0.0.1.dist-info/RECORD,,
