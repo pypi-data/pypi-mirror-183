@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/speechbox/__init__.py
+src/speechbox/dependency_versions_table.py
+src/speechbox/restore.py
+src/speechbox.egg-info/PKG-INFO
+src/speechbox.egg-info/SOURCES.txt
+src/speechbox.egg-info/dependency_links.txt
+src/speechbox.egg-info/requires.txt
+src/speechbox.egg-info/top_level.txt
