@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: azure-mgmt-connectedvmware
+Version: 1.0.0b3
+Summary: Microsoft Azure Connected VMWare Management Client Library for Python
+Home-page: https://github.com/Azure/azure-sdk-for-python
+Author: Microsoft Corporation
+Author-email: azpysdkhelp@microsoft.com
+License: MIT License
+Keywords: azure,azure sdk
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: msrest (>=0.7.1)
+Requires-Dist: azure-common (~=1.1)
+Requires-Dist: azure-mgmt-core (<2.0.0,>=1.3.2)
+Requires-Dist: typing-extensions (>=4.3.0) ; python_version < "3.8.0"
+
+# Microsoft Azure SDK for Python
+
+This is the Microsoft Azure Connected VMWare Management Client Library.
+This package has been tested with Python 3.7+.
+For a more complete view of Azure libraries, see the [azure sdk python release](https://aka.ms/azsdk/python/all).
+
+## _Disclaimer_
+
+_Azure SDK Python packages support for Python 2.7 has ended 01 January 2022. For more information and questions, please refer to https://github.com/Azure/azure-sdk-for-python/issues/20691_
+
+# Usage
+
+
+To learn how to use this package, see the [quickstart guide](https://aka.ms/azsdk/python/mgmt)
+ 
+For docs and references, see [Python SDK References](https://docs.microsoft.com/python/api/overview/azure/)
+Code samples for this package can be found at [Connected VMWare Management](https://docs.microsoft.com/samples/browse/?languages=python&term=Getting%20started%20-%20Managing&terms=Getting%20started%20-%20Managing) on docs.microsoft.com.
+Additional code samples for different Azure services are available at [Samples Repo](https://aka.ms/azsdk/python/mgmt/samples)
+
+
+# Provide Feedback
+
+If you encounter any bugs or have suggestions, please file an issue in the
+[Issues](https://github.com/Azure/azure-sdk-for-python/issues)
+section of the project. 
+
+
+![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-python%2Fazure-mgmt-connectedvmware%2FREADME.png)
+
+
+# Release History
+
+## 1.0.0b3 (2022-12-26)
+
+### Features Added
+
+  - Added operation GuestAgentsOperations.list
+  - Added operation HybridIdentityMetadataOperations.list
+  - Added operation VirtualMachinesOperations.begin_create_or_update
+  - Added operation VirtualMachinesOperations.list_all
+  - Added operation group AzureArcVMwareManagementServiceAPIOperationsMixin
+  - Model Datastore has a new parameter capacity_gb
+  - Model Datastore has a new parameter free_space_gb
+  - Model ErrorDetail has a new parameter additional_info
+  - Model GuestAgentProfile has a new parameter client_public_key
+  - Model GuestAgentProfile has a new parameter mssql_discovered
+  - Model Host has a new parameter datastore_ids
+  - Model Host has a new parameter network_ids
+  - Model InventoryItemDetails has a new parameter inventory_type
+  - Model ResourcePool has a new parameter datastore_ids
+  - Model ResourcePool has a new parameter network_ids
+  - Model VirtualMachineInventoryItem has a new parameter cluster
+  - Model VirtualMachineTemplateInventoryItem has a new parameter tools_version
+  - Model VirtualMachineTemplateInventoryItem has a new parameter tools_version_status
+  - Model VirtualMachineUpdate has a new parameter guest_agent_profile
+
+### Breaking Changes
+
+  - Operation MachineExtensionsOperations.begin_create_or_update has a new required parameter virtual_machine_name
+  - Operation MachineExtensionsOperations.begin_create_or_update no longer has parameter name
+  - Operation MachineExtensionsOperations.begin_delete has a new required parameter virtual_machine_name
+  - Operation MachineExtensionsOperations.begin_delete no longer has parameter name
+  - Operation MachineExtensionsOperations.begin_update has a new required parameter virtual_machine_name
+  - Operation MachineExtensionsOperations.begin_update no longer has parameter name
+  - Operation MachineExtensionsOperations.get has a new required parameter virtual_machine_name
+  - Operation MachineExtensionsOperations.get no longer has parameter name
+  - Operation MachineExtensionsOperations.list has a new required parameter virtual_machine_name
+  - Operation MachineExtensionsOperations.list no longer has parameter name
+  - Operation VirtualMachinesOperations.begin_assess_patches has a new required parameter virtual_machine_name
+  - Operation VirtualMachinesOperations.begin_assess_patches no longer has parameter name
+  - Operation VirtualMachinesOperations.begin_install_patches has a new required parameter virtual_machine_name
+  - Operation VirtualMachinesOperations.begin_install_patches no longer has parameter name
+  - Operation VirtualMachinesOperations.list has a new required parameter resource_group_name
+  - Removed operation GuestAgentsOperations.list_by_vm
+  - Removed operation HybridIdentityMetadataOperations.list_by_vm
+  - Removed operation VirtualMachinesOperations.begin_create
+  - Removed operation VirtualMachinesOperations.list_by_resource_group
+
+## 1.0.0b2 (2022-08-15)
+
+**Features**
+
+  - Added operation VirtualMachinesOperations.begin_assess_patches
+  - Added operation VirtualMachinesOperations.begin_install_patches
+  - Model MachineExtension has a new parameter enable_automatic_upgrade
+  - Model MachineExtensionUpdate has a new parameter enable_automatic_upgrade
+  - Model OsProfile has a new parameter allow_extension_operations
+  - Model OsProfile has a new parameter guest_id
+  - Model OsProfile has a new parameter linux_configuration
+  - Model OsProfile has a new parameter windows_configuration
+  - Model VirtualMachine has a new parameter security_profile
+  - Model VirtualMachineUpdate has a new parameter os_profile
+
+**Breaking changes**
+
+  - Operation VirtualMachinesOperations.begin_delete has a new parameter retain
+
+## 1.0.0b1 (2021-11-19)
+
+* Initial Release
