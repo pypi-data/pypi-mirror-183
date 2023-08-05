@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: my-tmdb
+Version: 0.0.1
+Summary: Movie data reference library using TMDB as a source with an emphasis on local caching
+Home-page: https://github.com/chunglak/my-tmdb
+Author: Alfred Leung
+Author-email: chunglak@gmail.com
+License: GPL-3.0-or-later
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# my-tmdb
+Movie data reference library using TMDB as a source with an emphasis on local caching
+
+## Installation
+```shell
+$ pip install my-tmdb
+```
