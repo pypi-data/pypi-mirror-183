@@ -1,0 +1,17 @@
+LICENSE.md
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/invitation/__init__.py
+src/invitation/builder.py
+src/invitation/model.py
+src/invitation/util.py
+src/invitation/templates/invitation.tex.jinja
+src/invitation/templates/letter.tex.jinja
+src/uk_invitation_letter.egg-info/PKG-INFO
+src/uk_invitation_letter.egg-info/SOURCES.txt
+src/uk_invitation_letter.egg-info/dependency_links.txt
+src/uk_invitation_letter.egg-info/entry_points.txt
+src/uk_invitation_letter.egg-info/requires.txt
+src/uk_invitation_letter.egg-info/top_level.txt
