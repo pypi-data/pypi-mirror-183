@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: enumerate_all_files_in_folder
+Version: 0.10
+Summary: A function that enumerates all files in a folder (and subfolders)
+Home-page: https://github.com/hansalemaos/enumerate_all_files_in_folder
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: folder,files,sort
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+<h2>A function that enumerates all files in a folder (and subfolders)</h2>
+
+
+```python
+$pip install enumerate-all-files-in-folder
+
+```
+
+
+<h3>Original</h3>
+<img src="https://github.com/hansalemaos/screenshots/raw/main/enumeratefiles/original.png"/>
+
+
+
+```python
+
+from enumerate_all_files_in_folder import copy_enumerate_files
+alli = copy_enumerate_files(
+    folders=[r"F:\flattest"],
+    outputfolder=r"F:\flattestresult1",
+    maxsubdirs=0,
+    groupsuffix=True,
+    restart_index_new_suffix=True,
+    zfill=8,
+    prefix = '1test_'
+)
+```
+
+
+<img src="https://raw.githubusercontent.com/hansalemaos/screenshots/main/enumeratefiles/2022-12-26 20_22_11-flattestresult1.png"/>
+
+
+
+```python
+alli = copy_enumerate_files(
+    folders=[r"F:\flattest"],
+    outputfolder=r"F:\flattestresult2",
+    maxsubdirs=0,
+    groupsuffix=False,
+    restart_index_new_suffix=False,
+    zfill=8, prefix='2test_'
+
+)
+
+```
+
+
+<img src="https://raw.githubusercontent.com/hansalemaos/screenshots/main/enumeratefiles/2022-12-26 20_16_51-flattestresult2.png"/>
+
+
+
+```python
+
+alli = copy_enumerate_files(
+    folders=[r"F:\flattest"],
+    outputfolder=r"F:\flattestresult3",
+    maxsubdirs=0,
+    groupsuffix=True,
+    restart_index_new_suffix=False,
+    zfill=8, prefix='3test_'
+
+)
+
+```
+
+
+<img src="https://raw.githubusercontent.com/hansalemaos/screenshots/main/enumeratefiles/2022-12-26 20_16_00-flattestresult3.png"/>
+
+

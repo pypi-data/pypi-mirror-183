@@ -1,0 +1,4 @@
+include enumerate_all_files_in_folder/requirements.txt
+include enumerate_all_files_in_folder/thirdparty.json
+include enumerate_all_files_in_folder/README.MD
+include enumerate_all_files_in_folder/LICENSE

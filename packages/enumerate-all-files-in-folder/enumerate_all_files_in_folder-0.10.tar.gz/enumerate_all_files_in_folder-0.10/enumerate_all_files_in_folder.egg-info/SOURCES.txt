@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+enumerate_all_files_in_folder/LICENSE
+enumerate_all_files_in_folder/README.MD
+enumerate_all_files_in_folder/__init__.py
+enumerate_all_files_in_folder/requirements.txt
+enumerate_all_files_in_folder/thirdparty.json
+enumerate_all_files_in_folder.egg-info/PKG-INFO
+enumerate_all_files_in_folder.egg-info/SOURCES.txt
+enumerate_all_files_in_folder.egg-info/dependency_links.txt
+enumerate_all_files_in_folder.egg-info/requires.txt
+enumerate_all_files_in_folder.egg-info/top_level.txt
