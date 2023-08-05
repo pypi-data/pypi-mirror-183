@@ -1,0 +1,8 @@
+README.txt
+setup.py
+pelzpy/__init__.py
+pelzpy/arithmetic.py
+pelzpy.egg-info/PKG-INFO
+pelzpy.egg-info/SOURCES.txt
+pelzpy.egg-info/dependency_links.txt
+pelzpy.egg-info/top_level.txt
