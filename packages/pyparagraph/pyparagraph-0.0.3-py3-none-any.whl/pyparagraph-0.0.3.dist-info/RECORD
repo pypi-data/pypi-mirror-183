@@ -1,0 +1,12 @@
+pyparagraph/__init__.py,sha256=zP4Yhz3aHu68_Wg3ae83op6yiC7td_ftJ8760CQOQk4,182
+pyparagraph/__main__.py,sha256=rMUePTYJCbHAx1l5UmxERFSG3RsNBIo8HxVOG25bZDM,746
+pyparagraph/font.py,sha256=5fvEt7X9KT4SiPheHB1WT-T7FmY2v_k9ZTWXS0zqT2k,8158
+pyparagraph/linebreak.py,sha256=V176RlQo05gaESoKymCDX8YietQxTes6hkopGoVSNos,7726
+pyparagraph/linked_list.py,sha256=QBlTckYffKZcWmQEDvwbgOKjNFUE-5FDBb6KBLyUwI4,1412
+pyparagraph/pyparagraph.py,sha256=vuiz0bWfhjyYeSFeRmkth_iRVA1iJJ2cN0qnFMeYEHo,9474
+pyparagraph/wordwrap.py,sha256=0XgsMWGz0R0wKf95vUVtgp4vg_fpKhWjTJ9KvLhmUKk,10698
+pyparagraph-0.0.3.dist-info/LICENSE.txt,sha256=XhbPtA_bM3Vf6USm-C5icjbv04AzO9W65FHrggvUbrI,1073
+pyparagraph-0.0.3.dist-info/METADATA,sha256=xmEHixZuLJNWlG7p1q4ptZdFOpHiyX1I4IrotCwvUr0,1619
+pyparagraph-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pyparagraph-0.0.3.dist-info/top_level.txt,sha256=beEcDH6eeYvUuhUlFep9US08G_sCkO8Y_opmeMZjAJo,12
+pyparagraph-0.0.3.dist-info/RECORD,,
