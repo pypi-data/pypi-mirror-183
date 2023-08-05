@@ -1,0 +1,6 @@
+setup.py
+ECHO/echosys.egg-info/PKG-INFO
+ECHO/echosys.egg-info/SOURCES.txt
+ECHO/echosys.egg-info/dependency_links.txt
+ECHO/echosys.egg-info/requires.txt
+ECHO/echosys.egg-info/top_level.txt
