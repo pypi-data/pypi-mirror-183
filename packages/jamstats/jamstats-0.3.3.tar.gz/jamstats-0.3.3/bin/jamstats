@@ -1,0 +1,127 @@
+#!/usr/bin/env python
+
+__author__ = "Damon May"
+
+
+import argparse
+from jamstats.io.scoreboard_json_io import (
+    load_derby_game_from_json_file, load_inprogress_game_from_server)
+from jamstats.io import tsv_io
+from jamstats.plots.plot_together import save_game_plots_to_pdf
+from jamstats.plots import plot_together, jamplots, skaterplots
+from jamstats.data import json_to_pandas, game_data
+from jamstats.plots.plot_util import DEFAULT_THEME, VALID_THEMES
+from jamstats.web import statserver
+import logging
+import sys
+import pkg_resources
+
+logger = logging.Logger(__name__)
+
+#jamstats_version = pkg_resources.require("jamstats")[0].version
+print(f"jamstats, by Damon May")
+
+parser = argparse.ArgumentParser()
+parser.add_argument('jsonfileorserver', type=str,
+                    help="Scoreboard json file to read (or server:port, e.g., localhost:8000")
+parser.add_argument('outfileorport', type=str, nargs='?',
+                    help='File to write, or server to serve to. If an integer, gets treated '
+                    'as a port number, and a webserver is started on that port. If ends with ".pdf" '
+                    'or if not specified, write plots to a PDF. If ".tsv" or ".txt'
+                    'write data to tab-separated values file')
+parser.add_argument('--anonymize', action="store_true",
+                    help="Replace actual skater names with random pregenerated ones?")
+parser.add_argument('--anonymizeteams', action="store_true",
+                    help="Replace team names with 'Team 1' and 'Team 2'?")
+parser.add_argument('--debug', action="store_true",
+                    help="enable debug logging")
+parser.add_argument('--theme', type=str,
+                    default=DEFAULT_THEME,
+                    choices=VALID_THEMES,
+                    help="Plot theme. This is how you make the plots dark.")
+parser.add_argument('--teamcolor1', type=str,
+                    help="Set the color for team 1. Can be of the form 'green' or of the form '#00FF00'")
+parser.add_argument('--teamcolor2', type=str,
+                    help="Set the color for team 2. Can be of the form 'green' or of the form '#00FF00'")
+args = parser.parse_args()
+
+logging.basicConfig(level=logging.WARNING,
+                    format='%(asctime)s | %(name)s |  %(levelname)s: %(message)s')
+if args.debug:
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.DEBUG)
+    stream_handler.setStream(sys.stdout)
+
+    logger.warning("Enabling debug logging.")
+    for mymodule in [plot_together, jamplots, skaterplots, json_to_pandas, game_data]:
+        mymodule.logger.setLevel(logging.DEBUG)
+        mymodule.logger.addHandler(stream_handler)
+
+print(f"Loading game from {args.jsonfileorserver}...")
+
+connect_to_server = False
+if args.jsonfileorserver.count(":") == 1:
+    try:
+        server, port = args.jsonfileorserver.split(":")
+        port = int(port)
+        connect_to_server = True
+    except Exception as e:
+        print(f"Tried to interpret {args.jsonfileorserver} as server:port but failed: {e}")
+
+if connect_to_server:
+    print(f"Connecting to server {server}, port {port}...")
+    try:
+        derby_game = load_inprogress_game_from_server(server, port)
+    except Exception as e:
+        sys.exit(f"Failed to download in-game data from server {server}:{port}: {e}")
+else:
+    try:
+        derby_game = load_derby_game_from_json_file(args.jsonfileorserver)
+    except Exception as e:
+        sys.exit(f"Failed to open file {args.jsonfileorserver}: {e}")
+
+if args.anonymizeteams:
+    print("Anonymizing teams.")
+    derby_game.anonymize_teams()
+
+if args.teamcolor1 is not None:
+    derby_game.set_team_color_1(args.teamcolor1)
+    print(f"Setting team 1 color to {args.teamcolor1}")
+if args.teamcolor2 is not None:
+    derby_game.set_team_color_2(args.teamcolor2)
+    print(f"Setting team 2 color to {args.teamcolor2}")
+
+if args.outfileorport is not None and args.outfileorport.isnumeric():
+    # start a webserver
+    jamstats_port = int(args.outfileorport)
+    print(f"Starting jamstats server on port {jamstats_port}")
+    statserver.set_game(derby_game)
+    if connect_to_server:
+        statserver.start(jamstats_port, scoreboard_server=server,
+                         scoreboard_port = port)
+    else:
+        statserver.start(jamstats_port)
+else:
+    # write a file
+    if args.outfileorport is None:
+        if connect_to_server:
+            sys.exit("Output filepath not provided, and connecting to an in-progress game. "
+            "Don't know where to write output, quitting.")
+        elif args.jsonfileorserver.lower().endswith(".json"):
+            print(f"Output filepath not provided. "
+                f"Using input filepath with extension .pdf instead of {args.jsonfileorserver[-5:]}")
+            out_filepath = args.jsonfileorserver[:-len(".json")] + ".pdf"
+        else:
+            sys.exit("Input file doesn't end with .json, so refusing to guess what output file you want."
+                "  Please rename your input file or specify an output filepath. Quitting.")
+    else:
+        out_filepath = args.outfileorport
+
+    if out_filepath.endswith(".tsv") or out_filepath.endswith(".txt"):
+        print("Writing TSV file...")
+        tsv_io.write_game_data_tsv(derby_game, out_filepath)
+    else:
+        print("Writing PDF file...")
+        save_game_plots_to_pdf(derby_game, out_filepath, anonymize_names=args.anonymize,
+                            theme=args.theme)
+    print(f"Wrote {out_filepath}")
