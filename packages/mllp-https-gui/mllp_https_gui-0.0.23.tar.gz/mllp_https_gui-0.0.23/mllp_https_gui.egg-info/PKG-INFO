@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: mllp-https-gui
+Version: 0.0.23
+Summary: GUI to install and configure mllp-https
+Home-page: https://github.com/tiagoepr/mllp-https
+Author: Tiago Rodrigues/SECTRA Iberia
+Author-email: Tiago.Rodrigues@sectra.com
+License: MIT
+Project-URL: Issues, https://github.com/tiagoepr/mllp-https/issues
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# MLLP/HTTP(S)
+
+[![PyPI](https://img.shields.io/pypi/v/mllp-https-gui)](https://pypi.org/project/mllp-https-gui/)
+
+
+GUI for the [Project](https://github.com/tiagoepr/mllp-https/) mllp-https, by: Tiago Rodrigues, SECTRA Iberia, 2022 <br>
+
+
+
+
+<p align="center">
+  <img src="https://github.com/tiagoepr/mllp-https/raw/master/doc/logo.png">
+</p>
