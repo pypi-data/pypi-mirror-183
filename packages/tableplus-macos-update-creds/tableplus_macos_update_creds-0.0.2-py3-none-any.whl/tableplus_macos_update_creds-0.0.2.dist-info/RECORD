@@ -1,0 +1,9 @@
+tableplus_macos_update_creds/__init__.py,sha256=6ij5ltD6lcep-7NXvaysvLgFrjtMK8W2HYoCvMR9RKM,39
+tableplus_macos_update_creds/get_teamid.py,sha256=-EjSazfbfMLdDcyZqLB72Qa9rG6f8MBTFiu2khZs9Zk,666
+tableplus_macos_update_creds/update_creds.py,sha256=vQ78Yi8HW2BqffhAbISGw7_NZodi3YdlUZ7TojIYvD0,3807
+tableplus_macos_update_creds/update_password_in_keychain.py,sha256=Me6eyP-yq1vzSYBImyFM1oFdd21yA97oqjp-5JBFtyY,2086
+tableplus_macos_update_creds-0.0.2.dist-info/LICENSE,sha256=IflL6zpcRz21v2Medqpdqt7cUrab20-85LQFVQZ7dho,1071
+tableplus_macos_update_creds-0.0.2.dist-info/METADATA,sha256=G-oBGjtPZ6A0jmYaNDVrsK68yIn0VcudG1is1EhPsJQ,2468
+tableplus_macos_update_creds-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tableplus_macos_update_creds-0.0.2.dist-info/top_level.txt,sha256=D7LwoyjfjHYaK1-sSaSqGFS4LmPqNszc1lWAwDKCfTk,29
+tableplus_macos_update_creds-0.0.2.dist-info/RECORD,,
