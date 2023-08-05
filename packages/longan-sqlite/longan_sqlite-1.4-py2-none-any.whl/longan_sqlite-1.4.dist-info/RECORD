@@ -1,0 +1,12 @@
+longan_sqlite/__init__.py,sha256=VpAazNo7g-waapdHh6zGsDtQXgXRV0GGIzpxudtode4,101
+longan_sqlite/config.py,sha256=irw0uzvXKMov1SccoG3Uu4qT0Wc6RAd_3w-25NThVUU,1459
+longan_sqlite/flesh.py,sha256=Jr7732J9QxxJrTxlZ5K5Xx90lp9qJxm7bu-zV9Y-bmM,1172
+longan_sqlite/handler.py,sha256=steRvOeNZ17OCMRmFWtk85tvi-B3b_yL9oLUpiKfkSQ,742
+longan_sqlite/kernel.py,sha256=5qPIdFHoRGOvDEyKtK1cvktgpUFxFpTlrrHla7ZF_PE,484
+longan_sqlite/longan.py,sha256=2bA4p6XYWcSmDLpo--m6i6GBVwGpQefVZE7xZ8Mgn34,12437
+longan_sqlite/util.py,sha256=WctcSeXGC26q5zoOwQ9jTQCIajB3Ha8uajclDPd0uY0,600
+longan_sqlite-1.4.dist-info/LICENSE,sha256=quC11OOeknvAXqbv0CBSIZZ6FRiQZjkwk3GUrOlypBM,1058
+longan_sqlite-1.4.dist-info/METADATA,sha256=ip3revg2AUuvp5THfJeAJ7ZYlmqimyQesP3_tlrVO04,229
+longan_sqlite-1.4.dist-info/WHEEL,sha256=pqI-DBMA-Z6OTNov1nVxs7mwm6Yj2kHZGNp_6krVn1E,92
+longan_sqlite-1.4.dist-info/top_level.txt,sha256=zORvPENVLcC2dmGcmEjvImfiDBTC87eE8Eaqn30clFs,14
+longan_sqlite-1.4.dist-info/RECORD,,
