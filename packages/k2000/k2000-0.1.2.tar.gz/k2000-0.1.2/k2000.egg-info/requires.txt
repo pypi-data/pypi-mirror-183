@@ -1,0 +1,9 @@
+Pillow
+python-rtmidi
+numpy
+
+[dev]
+check-manifest
+
+[test]
+coverage
