@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: mndynamics
+Version: 0.1.0
+Summary: Modeling neural dynamcs
+Home-page: https://github.com/Ziaeemehr/mndynamics
+Author: Abolfazl Ziaeemehr
+Author-email: a.ziaeemehr@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Requires-Dist: wheel
+
+### Modeling Neural Dynamics
+-  An Introduction to Modeling Neuronal Dynamics - Christoph Borgers in python
+
+### installation
+
+<!-- #### from pip
+```sh
+pip3 install mndynamics
+``` -->
+
+#### from source code
+For runnig the notebooks online, there is no need for installation and just 
+use your browser, but you can intall the package locally from source :
+```sh
+pip3 install -e .
+```
+
+
+![Cover](https://github.com/Ziaeemehr/mndynamics/blob/main/Screenshot%202022-12-20%20at%2023.24.36.png )
+<p align="center">
+ myBinder interface to run the notebooks online. 
+</p>
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Ziaeemehr/mndynamics/main?labpath=mndynamics%2Fexamples%2FIntro.ipynb)
+
+
