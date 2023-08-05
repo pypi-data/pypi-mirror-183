@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: fileformats-core
+Version: 0.1.2
+Summary: Core classes for representing different file formats in Python classes for use in type hinting in data workflows
+Keywords: file formats,data
+Author-email: "Thomas G. Close" <tom.g.close@gmail.com>
+Maintainer-email: "Thomas G. Close" <tom.g.close@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: attrs>=22.1.0
+Requires-Dist: pydra >= 0.20.0
+Requires-Dist: black ; extra == "dev"
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: codespell ; extra == "dev"
+Requires-Dist: flake8 ; extra == "dev"
+Requires-Dist: flake8-pyproject ; extra == "dev"
+Requires-Dist: pytest >=6.2.5 ; extra == "test"
+Requires-Dist: pytest-env>=0.6.2 ; extra == "test"
+Requires-Dist: pytest-cov>=2.12.1 ; extra == "test"
+Requires-Dist: codecov ; extra == "test"
+Project-URL: repository, https://github.com/ArcanaFramework/fileformats-core
+Provides-Extra: converters
+Provides-Extra: dev
+Provides-Extra: test
+
+FileFormats
+===========
+.. .. image:: https://github.com/arcanaframework/fileformats-core/actions/workflows/tests.yml/badge.svg
+..    :target: https://github.com/arcanaframework/fileformats-core/actions/workflows/tests.yml
+.. .. image:: https://codecov.io/gh/arcanaframework/fileformats-core/branch/main/graph/badge.svg?token=UIS0OGPST7
+..    :target: https://codecov.io/gh/arcanaframework/fileformats-core
+.. image:: https://img.shields.io/pypi/pyversions/fileformats-core.svg
+   :target: https://pypi.python.org/pypi/fileformats-core/
+   :alt: Supported Python versions
+.. image:: https://img.shields.io/pypi/v/fileformats-core.svg
+   :target: https://pypi.python.org/pypi/fileformats-core/
+   :alt: Latest Version
+
+Fileformats provides Python classes for representing different file formats
+for use in type hinting and input validation in data workflows. Converters between
+equivalent formats are also typically written using the `Pydra <https://pydra.readthedocs.io>`__
+dataflow engine are also typically provided.
+
+This package only provides the core base classes, which define the structure that
+extension classes should adhere to.
+
+
+Quick Installation
+------------------
+
+This extension can be installed for Python 3 using *pip*::
+
+    $ pip3 install fileformats-core
+
+
+License
+-------
+
+This work is licensed under a
+`Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_
+
+.. image:: https://i.creativecommons.org/l/by/4.0/88x31.png
+  :target: http://creativecommons.org/licenses/by/4.0/
+  :alt: Creative Commons Attribution 4.0 International License
+
