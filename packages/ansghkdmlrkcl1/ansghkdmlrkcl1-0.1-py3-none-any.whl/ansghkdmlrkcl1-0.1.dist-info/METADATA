@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: ansghkdmlrkcl1
+Version: 0.1
+Summary: ansghkdmlrkcl1
+Author: ansghkdmlrkcl1
+Author-email: deepi.contact.us@gmail.com
+Keywords: ccpy
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3
+Requires-Dist: opencv-python
+
