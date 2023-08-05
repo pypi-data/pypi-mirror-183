@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: pygosym
+Version: 1.0
+Summary: A pure-python parser for golang symbol tables
+Author-email: Victor Collod <victor.collod@epita.fr>
+Project-URL: Home, https://github.com/multun/pygosym
