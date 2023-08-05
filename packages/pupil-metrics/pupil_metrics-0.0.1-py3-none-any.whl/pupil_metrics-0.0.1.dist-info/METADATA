@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pupil-metrics
+Version: 0.0.1
+Summary: A small package for computing pupil-size metrics over a time-series.
+Home-page: https://github.com/wdas03/pupil-metrics
+Author: Will Das
+Author-email: Will Das <williamhdas@gmail.com>
+License: BSD 2-clause
+Project-URL: Homepage, https://github.com/wdas03/pupil-metrics
+Project-URL: Bug Tracker, https://github.com/wdas03/pupil-metrics/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+
+# pupil-metrics
+[![PyPI package](https://img.shields.io/badge/pip%20install-pupil--metrics-brightgreen)](https://pypi.org/project/example-pypi-package/) [![version number](https://img.shields.io/pypi/v/example-pypi-package?color=green&label=version)](https://github.com/tomchen/example_pypi_package/releases) [![License](https://img.shields.io/github/license/tomchen/example_pypi_package)](https://github.com/tomchen/example_pypi_package/blob/main/LICENSE)
+
+A small package for computing pupil-size metrics over a time-series.
+
+## Install
+Via pip:
+```
+pip install pupil-metrics
+```
+
+## Usage
+
+### API  
+
