@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pysepm-evo
+Version: 0.1.0
+Summary: Computes Objective Quality measures
+Home-page: https://github.com/alphaX86/pysepm-evo
+Author: Aadhitya A
+Author-email: aadhitya864@gmail.com
+License: GPL
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE

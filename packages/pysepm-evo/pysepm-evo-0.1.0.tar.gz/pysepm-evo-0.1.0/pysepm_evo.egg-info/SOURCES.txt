@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pysepm-evo/__init__.py
+pysepm-evo/intelligibilityMeasures.py
+pysepm-evo/qualityMeasures.py
+pysepm-evo/reverberationMeasures.py
+pysepm-evo/util.py
+pysepm_evo.egg-info/PKG-INFO
+pysepm_evo.egg-info/SOURCES.txt
+pysepm_evo.egg-info/dependency_links.txt
+pysepm_evo.egg-info/requires.txt
+pysepm_evo.egg-info/top_level.txt
