@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+english_detector/__init__.py
+english_detector/main.py
+english_detector.egg-info/PKG-INFO
+english_detector.egg-info/SOURCES.txt
+english_detector.egg-info/dependency_links.txt
+english_detector.egg-info/requires.txt
+english_detector.egg-info/top_level.txt
