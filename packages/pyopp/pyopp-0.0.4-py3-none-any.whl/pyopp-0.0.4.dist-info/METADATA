@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyopp
+Version: 0.0.4
+Summary: Over-powered print(er) for Python.
+Project-URL: Homepage, https://github.com/waydegg/pyopp
+Project-URL: Source, https://github.com/waydegg/pyopp
+Author-email: Wayde Gilliam <waydegilliam@gmail.com>
+License: MIT
+License-File: LICENSE
+Keywords: console,pprint,python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10.4
+Description-Content-Type: text/markdown
+
+# pyopp
