@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: navercafe
+Version: 0.1.0
+Summary: 
+Author: Yong Choi
+Author-email: sk8er.choi@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: pyperclip (>=1.8.2,<2.0.0)
+Requires-Dist: selenium (>=4.7.2,<5.0.0)
+Requires-Dist: webdriver-manager (>=3.8.5,<4.0.0)
+Description-Content-Type: text/markdown
+
+## Setup
+
+```
+$ pip install navercafe
+```
+
+## Usage
+
+```
+from navercafe import NaverCafe
+
+cafe = NaverCafe('wikibookstudy', '30853297')
+cafe.enter_id_pw('your_id', 'your_pw')  # Need manual authentication
+
+df = cafe.articleboard(34)
+print(len(df))
+print(df.head())
+```
+
