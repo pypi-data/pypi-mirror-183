@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pyocls"
+version = "0.1.0"
+description = "A basic clear dm."
+authors = ["Gab"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
