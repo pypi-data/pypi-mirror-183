@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: AShelloTest
+Version: 1.0.0
+Summary: A sample pkg
+Author: Abdulla Alhebsi
+Author-email: abcde@gmail.com
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+
+My Hello Test Pack
