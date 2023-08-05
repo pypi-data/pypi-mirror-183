@@ -1,0 +1,12 @@
+pytest_pointers/__init__.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+pytest_pointers/plugin.py,sha256=WuD8sqrEOJo8SgcahNOhM61k2OjHdAmWS7n4p1p9TZ0,5076
+pytest_pointers/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_pointers/tests/mock_structure/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_pointers/tests/mock_structure/for_func_finder.py,sha256=d4fGgzfn9iWv4CFh87UpwLAm-6KlhsNIGAat32kdjP4,206
+pytest_pointers/tests/test_plugin.py,sha256=eehxGUUSqvygT9NhCjAillOlUtG2jauucnaN33U4QhQ,4951
+pytest_pointers/tests/test_utils.py,sha256=_C1AcqMP1QJrxVyXCJcsAKrjFT4psnF4E5p75cPf13I,5450
+pytest_pointers/utils.py,sha256=eM9yn4IskzRNndjCb3BZEqro9-I6b4bC-dWrJS5GMP8,3033
+pytest_pointers-0.3.1.dist-info/entry_points.txt,sha256=ZCdf6amd_uKNw65BomCBw-3tHy6n-NZQx7mTfKqe7wc,100
+pytest_pointers-0.3.1.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+pytest_pointers-0.3.1.dist-info/METADATA,sha256=TMF_VTdGY_7xJ8t5Dg95Acw4cXdmvky5c_FHuRVRaDs,3274
+pytest_pointers-0.3.1.dist-info/RECORD,,
