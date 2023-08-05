@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pydag2
+Version: 0.1.3
+Summary: lightweigt python workflow(pipeline) builder
+Home-page: https://github.com/superjcd/pydag2
+Author: Jiang Chaodi
+Author-email: 929760274@qq.com
+License: MIT license
+Keywords: pydag2
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: pydot
+Requires-Dist: rich
+Requires-Dist: pygocron (>=0.2.0)
+Requires-Dist: pandas
+Requires-Dist: redis
+
