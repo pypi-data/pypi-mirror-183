@@ -1,0 +1,11 @@
+thanosql/__init__.py,sha256=QLiTdX70Oo-rblNF8svyJPQI3Emh_pGz419v3fQz6gc,54
+thanosql/exception.py,sha256=9a2tX5NwinTK71R7LPO_LjxZV7-QYJNeLpKgeJFtzWQ,327
+thanosql/magic.py,sha256=r881kil2AZ3gf7XMRjsGK_onVTdI7L-x5dqDpwnzAqg,3497
+thanosql/parse.py,sha256=HDT-qYt0K9gzEuXJGWXMP-20yThQAFb1P9oa67N6UmE,347
+thanosql/util.py,sha256=WtNscODmCSZiYeN8yVdRrqd4pA9CmSZasXDIyBR7RXY,3993
+thanosql/version.py,sha256=8KcCYTXH99C2-gCLuPILJvtT9YftRWJsartIx6TQ2ZY,22
+thanosql_magic-0.3.3.dist-info/LICENSE,sha256=iUz0xCh-hAUPYTiUUJoOBGVzsc9cHdFRC64Zim32hkw,1066
+thanosql_magic-0.3.3.dist-info/METADATA,sha256=whWSEA3MXPb1DSZK9qPRPPYacnsj3_VgzxkbNZo7gnQ,978
+thanosql_magic-0.3.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+thanosql_magic-0.3.3.dist-info/top_level.txt,sha256=XeX_F3xa94Yc4DP-Y3FmAFo_EBVTytdpsoTEkKtPadI,9
+thanosql_magic-0.3.3.dist-info/RECORD,,
