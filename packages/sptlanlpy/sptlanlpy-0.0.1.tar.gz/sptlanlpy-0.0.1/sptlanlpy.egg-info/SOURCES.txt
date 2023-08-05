@@ -1,0 +1,9 @@
+README.md
+setup.py
+libname/Spatial.py
+libname/__init__.py
+sptlanlpy.egg-info/PKG-INFO
+sptlanlpy.egg-info/SOURCES.txt
+sptlanlpy.egg-info/dependency_links.txt
+sptlanlpy.egg-info/requires.txt
+sptlanlpy.egg-info/top_level.txt
