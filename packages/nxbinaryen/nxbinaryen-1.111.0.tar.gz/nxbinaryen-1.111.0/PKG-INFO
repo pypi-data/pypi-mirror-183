@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: nxbinaryen
+Version: 1.111.0
+Summary: Python Bindings for Binaryen
+Home-page: https://github.com/nxpub/nxbinaryen
+Author: NX Maintainer
+Author-email: support@nx.pub
+License: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE
