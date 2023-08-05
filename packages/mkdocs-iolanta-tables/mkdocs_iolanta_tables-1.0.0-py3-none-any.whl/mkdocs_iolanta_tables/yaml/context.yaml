@@ -1,0 +1,16 @@
+"@context":
+  table: https://iolanta-tech.github.io/mkdocs-iolanta-tables/
+
+  table:class:
+    "@type": "@id"
+
+  table:rows:
+    "@type": "@id"
+
+  table:columns:
+    "@type": "@id"
+    "@container": "@list"
+
+  table:order-by:
+    "@type": "@id"
+    "@container": "@list"
