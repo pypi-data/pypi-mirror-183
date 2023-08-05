@@ -1,0 +1,149 @@
+{
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-f5966bae.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-739dc70d.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-6d5e4be4.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-c02d41ce.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "admin-drawer-panel.css": {
+    "file": "assets/admin-drawer-panel-9ea9461b.css",
+    "src": "admin-drawer-panel.css"
+  },
+  "admin.css": {
+    "file": "assets/admin-03ccea7a.css",
+    "src": "admin.css"
+  },
+  "src/browser.css": {
+    "file": "assets/browser-a7fc92ee.css",
+    "src": "src/browser.css"
+  },
+  "reader.css": {
+    "file": "assets/reader-5ef16662.css",
+    "src": "reader.css"
+  },
+  "src/components/reader/page-pdf.css": {
+    "file": "assets/page-pdf-da2d2f8b.css",
+    "src": "src/components/reader/page-pdf.css"
+  },
+  "src/http-error.css": {
+    "file": "assets/http-error-9194fd4d.css",
+    "src": "src/http-error.css"
+  },
+  "metadata-dialog.css": {
+    "file": "assets/metadata-dialog-5292749d.css",
+    "src": "metadata-dialog.css"
+  },
+  "src/main.css": {
+    "file": "assets/main-8cdf1408.css",
+    "src": "src/main.css"
+  },
+  "src/http-error.vue": {
+    "file": "assets/http-error-f522b717.js",
+    "src": "src/http-error.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-31af7a90.js"
+    ],
+    "css": [
+      "assets/http-error-9194fd4d.css"
+    ]
+  },
+  "_reader-79ac628a.js": {
+    "file": "assets/reader-79ac628a.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-31af7a90.js",
+      "_metadata-dialog-4ec72ee1.js"
+    ],
+    "dynamicImports": [
+      "src/components/reader/page-pdf.vue"
+    ],
+    "css": [
+      "assets/reader-5ef16662.css"
+    ]
+  },
+  "_admin-drawer-panel-477ee764.js": {
+    "file": "assets/admin-drawer-panel-477ee764.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-31af7a90.js"
+    ],
+    "css": [
+      "assets/admin-drawer-panel-9ea9461b.css"
+    ]
+  },
+  "src/browser.vue": {
+    "file": "assets/browser-7e31b856.js",
+    "src": "src/browser.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-31af7a90.js",
+      "_metadata-dialog-4ec72ee1.js"
+    ],
+    "css": [
+      "assets/browser-a7fc92ee.css"
+    ]
+  },
+  "_metadata-dialog-4ec72ee1.js": {
+    "file": "assets/metadata-dialog-4ec72ee1.js",
+    "imports": [
+      "_admin-31af7a90.js"
+    ],
+    "css": [
+      "assets/metadata-dialog-5292749d.css"
+    ]
+  },
+  "src/main.js": {
+    "file": "assets/main-62b554d2.js",
+    "src": "src/main.js",
+    "isEntry": true,
+    "imports": [
+      "_admin-31af7a90.js"
+    ],
+    "css": [
+      "assets/main-8cdf1408.css"
+    ],
+    "assets": [
+      "assets/materialdesignicons-webfont-f5966bae.eot",
+      "assets/materialdesignicons-webfont-739dc70d.woff2",
+      "assets/materialdesignicons-webfont-6d5e4be4.woff",
+      "assets/materialdesignicons-webfont-c02d41ce.ttf"
+    ]
+  },
+  "_admin-31af7a90.js": {
+    "file": "assets/admin-31af7a90.js",
+    "dynamicImports": [
+      "src/browser.vue",
+      "src/http-error.vue",
+      "_reader-79ac628a.js",
+      "_admin-drawer-panel-477ee764.js",
+      "_admin-drawer-panel-477ee764.js"
+    ],
+    "css": [
+      "assets/admin-03ccea7a.css"
+    ]
+  },
+  "src/components/reader/page-pdf.vue": {
+    "file": "assets/page-pdf-7d198dcc.js",
+    "src": "src/components/reader/page-pdf.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_admin-31af7a90.js",
+      "_reader-79ac628a.js",
+      "_metadata-dialog-4ec72ee1.js"
+    ],
+    "css": [
+      "assets/page-pdf-da2d2f8b.css"
+    ]
+  }
+}
