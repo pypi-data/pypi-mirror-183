@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: profile-cookies
+Version: 0.1.0
+Summary: A package to decrypt encrypted cookies from your browser.
+Home-page: https://github.com/yportne8/cookiejar
+Author: C.Kim
+Author-email: "C.Kim" <yportne8@example.com>
+License: mit
+Project-URL: Homepage, https://github.com/yportne8/cookiejar
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: pycryptodome
+
+This is a fork of browser-cookie3, streamlined to work with multiple profiles on Chromium.
+
+# cookiejar #
+
+* ***What does it do?*** Retrieves decrypted cookies from your browser.
+* ***Which browsers are supported?*** Known Chromium-based browsers.
+
+## Install ##
+```bash
+pip3 install profile_cookies
+=======
+```
+
+## Usage ##
+
+```python
+from profile_cookies import Profile 
+
+cookies = Profile(browser = "edge", profile = "default")
+cookies.cookiejar() # -> http.cookiejar.Cookiejar
+cookies.cookie("bitbucket") # -> http.cookiejar.Cookie
+
+print(cookies.browsers) # -> dict of all local Chromium browser names and paths 
+cookies.browser = "chrome" # .browser can be reassigned with cascading changes
+
+print(cookies.profiles) # -> dict of all Browser profiles and paths 
+cookies.profile = "profile 1" # -> .profile can be reassigned with cascading changes
+cookies.cookiestring("msn") # -> returns a cookie in str format
+```
+Retrieved cookies can be used when making requests via urllib or through a package like requests.
