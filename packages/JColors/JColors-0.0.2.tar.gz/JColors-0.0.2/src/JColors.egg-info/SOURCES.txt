@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/JColors/JColors.py
+src/JColors/__init__.py
+src/JColors.egg-info/PKG-INFO
+src/JColors.egg-info/SOURCES.txt
+src/JColors.egg-info/dependency_links.txt
+src/JColors.egg-info/top_level.txt

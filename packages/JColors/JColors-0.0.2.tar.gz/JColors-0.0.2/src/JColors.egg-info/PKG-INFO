@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: JColors
+Version: 0.0.2
+Summary: Package containing Color Constants in both RGB and HEX representation
+Author-email: Jan Seifert <jan@seifert-online.de>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# JColors
+
+This is a package by Jan Seifert, which contains ~120 different colors, importable by names, represented in both RGB and HEX.
