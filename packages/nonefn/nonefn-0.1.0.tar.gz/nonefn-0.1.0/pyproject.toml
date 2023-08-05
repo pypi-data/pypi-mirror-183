@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "nonefn"
+version = "0.1.0"
+description = "Some usefull functions you don't want to write again"
+authors = ["hglong16 <intihad.vuong@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/hglong16/nonefn"
+repository = "https://github.com/hglong16/nonefn"
+keywords = ["nonefn", "none", "fn", "function", "python"]
+license = "MIT"
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+]
+include = [
+    "LICENSE",
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
