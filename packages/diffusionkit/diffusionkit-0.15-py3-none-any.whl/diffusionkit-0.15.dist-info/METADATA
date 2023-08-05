@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: diffusionkit
+Version: 0.15
+Requires-Dist: Pillow
+Requires-Dist: scipy
+Requires-Dist: einops
+Requires-Dist: transformers
+
