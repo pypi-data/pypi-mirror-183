@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+Downloader_plus.egg-info/PKG-INFO
+Downloader_plus.egg-info/SOURCES.txt
+Downloader_plus.egg-info/dependency_links.txt
+Downloader_plus.egg-info/top_level.txt
+downloader_plus/__init__.py
