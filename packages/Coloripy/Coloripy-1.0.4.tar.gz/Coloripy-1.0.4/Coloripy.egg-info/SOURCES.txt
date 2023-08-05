@@ -1,0 +1,7 @@
+README.md
+coloripy.py
+pyproject.toml
+Coloripy.egg-info/PKG-INFO
+Coloripy.egg-info/SOURCES.txt
+Coloripy.egg-info/dependency_links.txt
+Coloripy.egg-info/top_level.txt

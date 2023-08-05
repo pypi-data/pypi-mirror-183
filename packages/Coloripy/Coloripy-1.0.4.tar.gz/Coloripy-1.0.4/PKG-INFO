@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: Coloripy
+Version: 1.0.4
+Summary: Small module for decorating colors in your script.
+Author-email: Pandaxyz-xd <contact@tourble.org>
+Project-URL: Homepage, https://github.com/Pandaxyz-xd/Coloripy
+Project-URL: Bug Tracker, https://github.com/Pandaxyz-xd/Coloripy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+<p align="center">
+<a align="center">
+  <img src="https://i.imgur.com/QPuXT1Y.png">
+</a>
+</p>
+<p align="center">
+  <a href="#documentation"> Documentation </a> · 
+  <a href="https://github.com/Pandaxyz-xd/Coloripy"> Source Code </a>
+</p>
+
+# Documentation
+
+## Installation
+
+```shell
+git clone https://github.com/Pandaxyz-xd/Coloripy.git
+cd Coloripy
+pip install -r requirements.txt
+```
+
+## Usage
+
+### superprogram.py
+
+```python
+import coloripy
+mylogo = "Super program"
+coloripy.color_letter(mylogo)
+```
+
+```shell
+python3 superprogram.py
+```
