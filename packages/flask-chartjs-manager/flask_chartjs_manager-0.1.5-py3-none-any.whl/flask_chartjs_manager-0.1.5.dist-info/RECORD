@@ -1,0 +1,9 @@
+flask_chartjs/__init__.py,sha256=SX4j1ckKVM_5HNCFZNTkVU6s2IoXOLpau_eZIKRb9QI,1627
+flask_chartjs/chart.py,sha256=FW3y4q5T6czm4mccGmQN7IqPhDgcTgo-EkPXgF5Cd4I,4289
+flask_chartjs/static/chartjs.min.js,sha256=vnfnPvcr-nuqwDwGP9tnT_2AtukrX5WrxFxcJzz6lTc,203181
+flask_chartjs/templates/html.jinja,sha256=i6KvHXyuUOFuWbKEVWhJ1TvaizFumUYYnRyvwkLpRbw,285
+flask_chartjs/templates/js.jinja,sha256=nYImXIoPtVmEOULXx5bLyq2A2xTZ6UtaR4bo6348GQY,454
+flask_chartjs/templates/load_chartjs.jinja,sha256=-LsAk96UnT3aOBhjoC9Buoy9uSuy57abV3R2drn_iwM,221
+flask_chartjs_manager-0.1.5.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+flask_chartjs_manager-0.1.5.dist-info/METADATA,sha256=cTEskED-RLLpPPFXUnMTLTslRkwqschvEkTktjRvOQo,2455
+flask_chartjs_manager-0.1.5.dist-info/RECORD,,
