@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "aiodo"
+version = "0.1.0"
+description = "asynchronous ditributed objects"
+authors = ["Jose Tiago Macara Coutinho <coutinhotiago@gmail.com>"]
+maintainers = ["Jose Tiago Macara Coutinho <coutinhotiago@gmail.com>"]
+readme = "README.md"
+license = "LGPL-3.0-or-later"
+homepage = "https://github.com/tiagocoutinho/aiodo"
+repository = "https://github.com/tiagocoutinho/aiodo"
+documentation = "https://github.com/tiagocoutinho/aiodo"
+keywords = ["distributed", "asyncio"]
+packages = [
+    {include = "aiodo", from = "src"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+zeroconf = "^0.47.1"
+python-configuration = "^0.8.2"
+
+[tool.poetry.extras]
+toml = ["python-configuration[toml]"]
+yaml = ["python-configuration[yaml]"]
+
+
+# poetry add --group test pytest-asyncio
+[tool.poetry.group.test.dependencies]
+pytest = "^7.0.0"
+pytest-asyncio = "^0.20.3"
+
+[tool.poetry.scripts]
+aiodo = 'aiodo.core:main'
+
+[tool.poetry.plugins."aiodo.device"]
+Dummy = "aiodo.dummy:get_device"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["tc_modern_python"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
