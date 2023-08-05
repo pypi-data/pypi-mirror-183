@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: keyrock-hcs
+Version: 2022.12.26.1647
+Requires-Dist: keyrock-core
+Requires-Dist: keyrock-psql
+
