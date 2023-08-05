@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pipenv-check
+Version: 0.0.4
+Summary: View installed pip packages and their update status.
+Home-page: https://github.com/3bfab/pipenv-check
+Author: 3bfab
+Author-email: info@3bfab.com
+License: MIT
+Requires-Python: >=3.6
+License-File: LICENSE
+
+# pipenv-check
