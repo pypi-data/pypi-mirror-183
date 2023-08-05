@@ -1,0 +1,12 @@
+pyproject.toml
+setup.cfg
+keyrock_template/__init__.py
+keyrock_template.egg-info/PKG-INFO
+keyrock_template.egg-info/SOURCES.txt
+keyrock_template.egg-info/dependency_links.txt
+keyrock_template.egg-info/requires.txt
+keyrock_template.egg-info/top_level.txt
+keyrock_template/template/__init__.py
+keyrock_template/template/exc.py
+keyrock_template/template/template.py
+keyrock_template/template/test_template.py
