@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: spinne
+Version: 0.0.5
+Summary: a package used to imitate react syntax in python
+Home-page: https://github.com/Copperhead-software/Spinne/
+Author: Morgan Metz
+Author-email: mlmi4@k12albemarle.org
+Project-URL: Bug Tracker, https://github.com/Copperhead-software/Spinne/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Spinne
+Spinne (German for Spider) is a python web framework that creates react like syntax
