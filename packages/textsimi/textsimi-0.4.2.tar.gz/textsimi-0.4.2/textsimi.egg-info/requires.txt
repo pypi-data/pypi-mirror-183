@@ -1,0 +1,6 @@
+textdistance
+numpy
+torch
+scikit-learn
+sparse_dot_topn
+pandas
