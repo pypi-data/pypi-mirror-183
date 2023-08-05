@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-black.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<script src="js/w3data.js"></script>
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.w3-sidenav a,.w3-sidenav h4 {padding: 12px;}
+.w3-bar a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+</style>
+</head><body>
+<div w3-include-html="nav.html"></div>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main: shift it to the right by 250 pixels when the sidenav is visible -->
+<div class="w3-main" style="margin-left:250px">
+<div class="w3-row w3-padding-64">
+<div class="w3-col w3-container">
+
+<!-- Begin content -->
+
+<h2 class="w3-text-teal">Datei Men&uuml;</h2>
+
+<h3 class="w3-text-teal">pyALC7T Konfiguration</h3> 
+<h4 class="w3-text-teal">Serielle Schnittstelle</h4>
+
+<p>Geben Sie hier den Ger&auml;tenamen der seriellen Schnittstelle ein. Wenn
+Sie einen USB-RS232 Adapter verwenden, dann versucht <em>pyALC7T</em>
+den Namen der Schnittstelle automatisch zu ermitteln.</p>
+
+<h4 class="w3-text-teal">Arbeitsverzeichnis</h4>
+
+<p>Im Arbeitsverzeichnis legt <em>pyALC7T</em> die Logdateien f&uuml;r die
+Messwerte und Zwischendateien f&uuml;r die Grafikanzeige an. Als Standardwert
+ist das HOME-Verzeichnis des Benutzers angegeben. Sie sollten als Arbeitsverzeichnis
+aber ein speziell f&uuml;r diese Zwecke eingerichtetes Unterverzeichnis w&auml;hlen.</p>
+
+<h4 class="w3-text-teal">Wartezeit zwischen Messungen</h4>
+
+<p>Es kann eine Wartezeit zwischen den Messungen der einzelnen Kan&auml;le zwischen 0 und 5 Sekunden eingestellt werden. Damit kann die Anzahl der Messungen in der Logdatei beeinflusst werden. Es h&auml;ngt von der Firmwareversion des ALC7000 ab, wie sich diese Wartezeit auswirkt. Bei neueren Firmwareversionen ist der Datenaustausch verlangsamt, so dass dort die Wartezeit auf 0 Sekunden eingestellt werden kann.</p>
+
+<h4 class="w3-text-teal">GNUPLOT Pfad</h4>
+
+<p>Wenn Sie <em>GNUPLOT</em> installiert haben, dann müssen Sie hier den
+Pfad auf das ausf&uuml;hrbare GNUPLOT Programm einstellen. Ohne diese Einstellung
+erhalten Sie keine grafische Anzeige der Messwerte. Beachten Sie bitte, dass Sie
+<em>pyALC7T</em> neu starten m&uuml;ssen, wenn Sie diese Einstellung ge&auml;ndert
+haben.</p>
+
+<h4 class="w3-text-teal">Diagrammgr&ouml;&szlig;e</h4>
+
+<p>Sie k&ouml;nnen hier die Gr&ouml;&szlig;e der Diagramme f&uuml;r die Messwertausgabe
+in dem Bereich von 300 bis 600 Pixel einstellen. &Auml;nderungen der Einstellung sind
+erst nach einem Neustart des Programms wirksam.</p>
+
+<h3 class="w3-text-teal">Neu verbinden</h3>
+
+<p>Hier k&ouml;nnen Sie die Verbindung zum ALC 7000 Expert neu starten, wenn diese
+z.B. aufgrund von Verbindungsproblemen nicht zu Stande gekommen ist.</p>
+
+<h3 class="w3-text-teal">Beenden</h3>
+
+<p>Beendet das Programm.</p>
+
+<!-- End content -->
+
+</div>
+</div>
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+
+<!-- END MAIN -->
+</div>
+<script>
+w3IncludeHTML();
+</script>
+
+</body></html>
