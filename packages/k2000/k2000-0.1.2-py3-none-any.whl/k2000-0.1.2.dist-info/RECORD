@@ -1,0 +1,12 @@
+k2000/__init__.py,sha256=W-JTsTg7mrOBcOR6sta96yOl5Q5nbOIT81cWnJdhmfs,374
+k2000/client.py,sha256=1YCESbEXYGx0YRR-wK8ZdQPlkHuUZKMPMmxVrZminkQ,15029
+k2000/definitions.py,sha256=gxu0PQJyGgYmgm-OUkvM63W0KXqeK1MD3pG6jGyuHbA,1938
+k2000/encoding.py,sha256=gLEMoNyREPKA0Lr12CbtVhg_5hDZTYPdgV2wmAoQK7U,2045
+k2000/image.py,sha256=anSEb5zEHG00LVHF7TGG_S5hUpri9ILJuPT1ys6MmxQ,7400
+k2000/messages.py,sha256=BplkmY02wkg1LRjHjfiedXFobpODyqgi8VVOgSUi-L0,28615
+k2000/utils.py,sha256=xa0KyjFdP5r5sOkjgEK-g00E60W_R6Vhoc87ASb3DTw,325
+k2000-0.1.2.dist-info/LICENSE,sha256=n7PeT-BYhjz0fiK1lJN63zTj_PPEfRbwIv0cHxX0yOY,1073
+k2000-0.1.2.dist-info/METADATA,sha256=ZEEB6ZMUp5CFpFEZ2RTwxZvMG4YC4hHhvl3yQ6X2jck,5226
+k2000-0.1.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+k2000-0.1.2.dist-info/top_level.txt,sha256=zZ9QZ2-lRZnTW-1iNKrWFA05cJiAioS039m69YDOh0Q,6
+k2000-0.1.2.dist-info/RECORD,,
