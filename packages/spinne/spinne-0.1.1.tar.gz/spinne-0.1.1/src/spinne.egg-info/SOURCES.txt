@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/spinne/__init__.py
+src/spinne/__main__.py
+src/spinne/app.py
+src/spinne/css.py
+src/spinne/index.py
+src/spinne/main.py
+src/spinne/views.py
+src/spinne.egg-info/PKG-INFO
+src/spinne.egg-info/SOURCES.txt
+src/spinne.egg-info/dependency_links.txt
+src/spinne.egg-info/top_level.txt
