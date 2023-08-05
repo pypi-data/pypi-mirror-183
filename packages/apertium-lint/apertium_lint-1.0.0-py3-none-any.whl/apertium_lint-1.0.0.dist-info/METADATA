@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: apertium-lint
+Version: 1.0.0
+Summary: static analysis of Apertium files
+Home-page: http://github.com/apertium/apertium-lint
+Author: Daniel Swanson
+Author-email: apertium@dangswan.com
+License: GPLv3+
+Keywords: apertium,linter
+License-File: LICENSE
+Requires-Dist: tree-sitter-apertium
+Requires-Dist: lxml
+
+README.md
