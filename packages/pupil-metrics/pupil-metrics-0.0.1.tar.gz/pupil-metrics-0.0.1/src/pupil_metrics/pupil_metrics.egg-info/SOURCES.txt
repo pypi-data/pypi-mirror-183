@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pupil_metrics/__init__.py
+src/pupil_metrics/pupil_metrics.py
+src/pupil_metrics/pupil_metrics.egg-info/PKG-INFO
+src/pupil_metrics/pupil_metrics.egg-info/SOURCES.txt
+src/pupil_metrics/pupil_metrics.egg-info/dependency_links.txt
+src/pupil_metrics/pupil_metrics.egg-info/requires.txt
+src/pupil_metrics/pupil_metrics.egg-info/top_level.txt
