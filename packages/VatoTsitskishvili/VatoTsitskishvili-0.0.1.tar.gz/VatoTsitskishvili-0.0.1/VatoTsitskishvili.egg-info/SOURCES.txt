@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+__init__.py
+setup.py
+VatoTsitskishvili.egg-info/PKG-INFO
+VatoTsitskishvili.egg-info/SOURCES.txt
+VatoTsitskishvili.egg-info/dependency_links.txt
+VatoTsitskishvili.egg-info/top_level.txt
