@@ -1,0 +1,11 @@
+demo/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+xaisuite/__init__.py,sha256=-2oenr0ufEG7ontNVfctTZpwyn8AQl6VttbkJy50yKk,400
+xaisuite/analyzer.py,sha256=tkWaWlx9joEXp59GDJxNPKz6c18r_xzDXkswVw-r2UM,2775
+xaisuite/dataLoader.py,sha256=enUU70VGGfw7O0CeVJXF8aktt0TfCpqNDDLYew65BZk,3095
+xaisuite/imports.py,sha256=i1_Y7_wSSQoEJm_ZZfqMxRJWCsGkWAPuUw6K27zXirU,1150
+xaisuite/xaichooser.py,sha256=zTqpg0URMgSxfqi9aVTeUgJwU9j4n-ygFjlrC-tQn7E,7654
+XAISuite-0.6.dist-info/LICENSE,sha256=MYnnkkOaRqIIRgVVli-2oC4Ss3GN4Nk0up8J2D4KEh8,1500
+XAISuite-0.6.dist-info/METADATA,sha256=0htn8sECDaIlnByYkkIJ6Wupyb-V13-nu69XGVqo910,2695
+XAISuite-0.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+XAISuite-0.6.dist-info/top_level.txt,sha256=hZt3lztuT_nH1ZbPM5G7RGecRpUco9ZwnZmuTZ3fvOk,14
+XAISuite-0.6.dist-info/RECORD,,
