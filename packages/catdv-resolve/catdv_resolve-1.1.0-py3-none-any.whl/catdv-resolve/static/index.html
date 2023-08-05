@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <title>CatDV Server Resolve Plugin</title>
+</head>
+<body>
+    <img id="logo" src="./resources/logo.png">
+    <div id="window" class="center_children">
+        <div id="main">
+            <form id="go_to_server_form" action="">
+                <h1>Enter CatDV Server URL</h1>
+                <input type="url" id="address" name="address" placeholder="https://catdv.mycompany.com:8080" style="margin-bottom: 20px">
+                <input type="submit" class="form-submit-button">
+            </form>
+
+            <div id="response-container"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let webviewReady = false
+
+    window.addEventListener("pywebviewready", function() {
+        webviewReady = true
+    })
+
+    const form = document.getElementById("go_to_server_form")
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault()
+
+        if (!webviewReady) {
+            alert("Please wait a moment...")
+            return
+        }
+
+        let container = document.getElementById('address')
+        let entered_text = container.value
+
+        if (entered_text === "") {
+            alert("Please provide a CatDV web panel URL.")
+            return
+        }
+
+        pywebview.api.load_server_url(entered_text)
+    })
+</script>
+
+</html>
