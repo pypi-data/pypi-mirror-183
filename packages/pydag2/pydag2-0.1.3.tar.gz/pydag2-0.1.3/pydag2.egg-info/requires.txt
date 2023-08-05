@@ -1,0 +1,5 @@
+pydot
+rich
+pygocron>=0.2.0
+pandas
+redis
