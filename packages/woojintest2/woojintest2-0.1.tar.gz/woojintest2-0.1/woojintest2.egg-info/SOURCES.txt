@@ -1,0 +1,8 @@
+README.md
+setup.py
+iaewoojinmysql/__init__.py
+iaewoojinmysql/iaewoojinmysql.py
+woojintest2.egg-info/PKG-INFO
+woojintest2.egg-info/SOURCES.txt
+woojintest2.egg-info/dependency_links.txt
+woojintest2.egg-info/top_level.txt
