@@ -1,0 +1,5 @@
+setup.py
+KhHelloTest.egg-info/PKG-INFO
+KhHelloTest.egg-info/SOURCES.txt
+KhHelloTest.egg-info/dependency_links.txt
+KhHelloTest.egg-info/top_level.txt
