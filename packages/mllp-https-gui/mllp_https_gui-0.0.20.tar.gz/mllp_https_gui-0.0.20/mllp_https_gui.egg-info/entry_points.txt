@@ -1,0 +1,2 @@
+[console_scripts]
+mllp_https_gui = mllp_https_gui.main:gui
