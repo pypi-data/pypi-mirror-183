@@ -1,0 +1,204 @@
+Metadata-Version: 2.1
+Name: postfixcalc
+Version: 0.8.1
+Summary: the stupid postfix evaluator
+License: Apache2.0
+Author: Mahdi Haghverdi
+Author-email: mahdihaghverdiliewpl@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: black (>=22.12.0,<23.0.0)
+Description-Content-Type: text/markdown
+
+# `postfixcalc`
+
+Simple, stupid but easy and powerful infix expression evaluator using [_postfix_](https://en.wikipedia.org/wiki/Reverse_Polish_notation) notation.
+
+# User Guide
+
+## How to use?
+
+
+```python
+from postfixcalc import Calc
+```
+
+
+```python
+expr = "(-1) ^ 2 + 3 - 4 * 8 - 2 ^ 3"
+calc = Calc(expr)
+```
+
+
+```python
+print(calc.answer)
+print(type(calc.answer))
+```
+
+    -36
+    <class 'int'>
+
+
+### Explanation
+```
+expression: (-1) ^ 2 + 3 - 4 * 8 - 2 ^ 3
+```
+
+which with the math operator precedence is:
+
+```
+expression: ((-1) ^ 2) + 3 - (4 * 8) - (2 ^ 3)
+            = (1) + 3 - (32) - (8)
+            = 4 - 32 - 8
+            = -28 - 8
+            = -36
+```
+
+## Initialization
+
+
+```python
+calc = Calc(
+    '(2 ^ 32) ^ (2 ^ 15) + -1',
+    calc_timeout=1,         # timeout for the calculation (in seconds)
+    str_repr_timeout=1.5    # timeout to generate the string representation (in seconds)
+)
+```
+
+
+```python
+print(f"'(2 ^ 32) ^ (2 ^ 15)'s answer has '{len(calc.stranswer)}' digits")
+```
+
+    '(2 ^ 32) ^ (2 ^ 15)'s answer has '315653' digits
+
+
+
+```python
+print(f'answer is: {calc.stranswer[:5]}...{calc.stranswer[-5:]}')
+```
+
+    answer is: 67411...79135
+
+
+## Other Attributes
+
+
+```python
+from rich.pretty import Pretty
+from rich import print as rprint
+```
+
+
+```python
+rprint(calc.parsed)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.BinOp</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f93380b1330</span><span style="font-weight: bold">&gt;</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.extracted)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>
+    <span style="font-weight: bold">(</span>
+        <span style="font-weight: bold">[</span>
+            <span style="font-weight: bold">(</span>
+                <span style="font-weight: bold">[([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">]</span>, <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span><span style="font-weight: bold">])]</span>,
+                <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>,
+                <span style="font-weight: bold">[([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">]</span>, <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span><span style="font-weight: bold">])]</span>
+            <span style="font-weight: bold">)</span>
+        <span style="font-weight: bold">]</span>,
+        <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Add</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8cf10</span><span style="font-weight: bold">&gt;</span>,
+        <span style="font-weight: bold">[(&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.USub</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d570</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">])]</span>
+    <span style="font-weight: bold">)</span>
+<span style="font-weight: bold">]</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.flattened)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">(</span>
+    <span style="font-weight: bold">(</span>
+        <span style="font-weight: bold">(([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">]</span>, <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span><span style="font-weight: bold">])</span>,<span style="font-weight: bold">)</span>,
+        <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>,
+        <span style="font-weight: bold">(([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">]</span>, <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Pow</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d150</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span><span style="font-weight: bold">])</span>,<span style="font-weight: bold">)</span>
+    <span style="font-weight: bold">)</span>,
+    <span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.Add</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8cf10</span><span style="font-weight: bold">&gt;</span>,
+    <span style="font-weight: bold">(&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ast.USub</span><span style="color: #000000; text-decoration-color: #000000"> object at </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0x7f933cc8d570</span><span style="font-weight: bold">&gt;</span>, <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">])</span>
+<span style="font-weight: bold">)</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.strparenthesized)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">(((</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span> ^ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span><span style="font-weight: bold">))</span> ^ <span style="font-weight: bold">((</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span> ^ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span><span style="font-weight: bold">)))</span> + <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1</span><span style="font-weight: bold">)</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.listparenthesized)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">'+'</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'-1'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span><span style="font-weight: bold">]</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.numerized)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span>, <span style="color: #008000; text-decoration-color: #008000">'+'</span>, <span style="color: #008000; text-decoration-color: #008000">'('</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1</span>, <span style="color: #008000; text-decoration-color: #008000">')'</span><span style="font-weight: bold">]</span>
+</pre>
+
+
+
+
+```python
+rprint(calc.postfix)
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008000; text-decoration-color: #008000">'^'</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1</span>, <span style="color: #008000; text-decoration-color: #008000">'+'</span><span style="font-weight: bold">]</span>
+</pre>
+
+
+
+
+```python
+rprint(f'{calc.stranswer[:5]}...{calc.stranswer[-5:]}')
+```
+
+
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">67411</span><span style="color: #808000; text-decoration-color: #808000">...</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">79135</span>
+</pre>
+
+
+
+# `Calc` Documentation
+
