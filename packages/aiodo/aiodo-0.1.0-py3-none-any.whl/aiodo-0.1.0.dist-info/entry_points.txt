@@ -1,0 +1,6 @@
+[aiodo.device]
+Dummy=aiodo.dummy:get_device
+
+[console_scripts]
+aiodo=aiodo.core:main
+

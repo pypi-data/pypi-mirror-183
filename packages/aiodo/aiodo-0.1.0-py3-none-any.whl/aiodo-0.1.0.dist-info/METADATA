@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aiodo
+Version: 0.1.0
+Summary: asynchronous ditributed objects
+Home-page: https://github.com/tiagocoutinho/aiodo
+License: LGPL-3.0-or-later
+Keywords: distributed,asyncio
+Author: Jose Tiago Macara Coutinho
+Author-email: coutinhotiago@gmail.com
+Maintainer: Jose Tiago Macara Coutinho
+Maintainer-email: coutinhotiago@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: toml
+Provides-Extra: yaml
+Requires-Dist: python-configuration (>=0.8.2,<0.9.0)
+Requires-Dist: zeroconf (>=0.47.1,<0.48.0)
+Project-URL: Documentation, https://github.com/tiagocoutinho/aiodo
+Project-URL: Repository, https://github.com/tiagocoutinho/aiodo
+Description-Content-Type: text/markdown
+
+# aiodo
+
+Asynchronous first distributed objects

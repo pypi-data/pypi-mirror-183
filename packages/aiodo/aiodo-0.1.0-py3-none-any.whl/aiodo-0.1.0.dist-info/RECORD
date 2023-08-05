@@ -1,0 +1,10 @@
+aiodo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aiodo/config.py,sha256=aSCY23dQRu8j9j-SQelqyKpOGU9jhfU1GDt7gx0OfN4,2940
+aiodo/core.py,sha256=cgqwhEM7BM9_Wqa3vrpoH-Dje9fUhj-5GSP3yg0PQnw,3152
+aiodo/dummy.py,sha256=8lfw-9nkKwkS0saXdg_OY4Eh2A6UnE2Rfr8B835jUlQ,285
+aiodo/network.py,sha256=K_fqHZxxaZqNQkJBWUmbf8af6uqSRp7xS5cLNNyAp80,234
+aiodo/registry.py,sha256=P3qHgsNTbWUpESs85J6XUgn9j7YXWrtM8Wu9x9OxUCw,154
+aiodo-0.1.0.dist-info/METADATA,sha256=Wt5wu2lyT6KLv7Qw5p5GCD4raWyj1hOjun7pGoLbL5M,983
+aiodo-0.1.0.dist-info/entry_points.txt,sha256=F9BQb7f3dJ3SG4VjlVV23GYBFhMGSLU_hK1YFIvtB8w,86
+aiodo-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+aiodo-0.1.0.dist-info/RECORD,,
