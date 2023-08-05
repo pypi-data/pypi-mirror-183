@@ -1,0 +1,11 @@
+include dash_notice/dash_notice.min.js
+include dash_notice/dash_notice.min.js.map
+include dash_notice/async-*.js
+include dash_notice/async-*.js.map
+include dash_notice/*-shared.js
+include dash_notice/*-shared.js.map
+include dash_notice/metadata.json
+include dash_notice/package-info.json
+include README.md
+include LICENSE
+include package.json
