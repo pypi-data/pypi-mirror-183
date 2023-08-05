@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: spoor
+Version: 0.2.0
+Summary: Track functions invocations
+License: MIT
+Author: Misha Behersky
+Author-email: bmwant@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: datadog (>=0.44.0,<0.45.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Requires-Dist: varname (>=0.10.0,<0.11.0)
+Description-Content-Type: text/markdown
+
+## spoor
+
+```bash
+$ pip install spoor
+```
+
+### Configuration
+### TODO:
+
+* [ ] Add datadog exporter
+* [x] Add group methods by class option
+* [ ] Add tracking by import path
+* [x] Add `most_common` method for statistics
+
