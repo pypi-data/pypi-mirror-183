@@ -1,0 +1,2 @@
+[console_scripts]
+kevbase64 = kevbase64:main
