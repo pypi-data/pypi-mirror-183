@@ -1,0 +1,17 @@
+catdv-resolve/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+catdv-resolve/__main__.py,sha256=Hz6yPHxJmFp6_qu0yo_V2HLgfaQXf10EnjIuynsnAII,5864
+catdv-resolve/bootstrap.py,sha256=pljwL05q4_uoS4CZCVTRmgBql9OACWrXdQOcMQossmU,2684
+catdv-resolve/config.py,sha256=6wnORFH3p69gPp0MumoC4pSpdocRBRBTie2ogHXRCLM,1366
+catdv-resolve/exceptions.py,sha256=UN91k9WFy68GYfO2SSFfT81YZ3uIGLooqMhNnbsnH0g,613
+catdv-resolve/fcpxml.py,sha256=1Qghj7osZidllGT33WEOEEO4ZYlwvVpsfUPeLJO2pHI,4311
+catdv-resolve/main.py,sha256=Q8AqFU7RojmzERkUz9gOB3MtUSY-Bhl39Tzs_F8zx2A,2028
+catdv-resolve/resolve.py,sha256=rHdEYFDxgABWHjbRyAHRtfLg9NK8C2e2BBeAwkcTjw8,23115
+catdv-resolve/webview_api.py,sha256=DYILFjqwxeWiUjZgE4gVRknKiuhEpbOhiX9NNQYOL6M,2751
+catdv-resolve/static/index.html,sha256=quO7TRdW3rwvvw0_5IoV8OkOpcON3Yg7vwGfq-PfwWc,1386
+catdv-resolve/static/style.css,sha256=LoYAAhJhK3mVNfJVS923cAxv4ELCPji08abXbnp1MJk,1247
+catdv-resolve/static/resources/logo.png,sha256=veepKS5iTLe9hM1UZ4rpkz0ZmhXqVizm4FQmRkBPvgg,3537
+catdv_resolve-1.0.3.dist-info/LICENSE.txt,sha256=0W7UTZSSeRUFmE22v3ah_EeSq9xkNVDbVW0vOv-V40Q,1075
+catdv_resolve-1.0.3.dist-info/METADATA,sha256=T0C_TdAlERIM6HI7mm74lbJq19GbEpomZKKzekS7kVY,4484
+catdv_resolve-1.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+catdv_resolve-1.0.3.dist-info/top_level.txt,sha256=p0eJM-_pGqbyeKCWADYHZYVwpRXd1Qu2zjMozQh5_Sw,14
+catdv_resolve-1.0.3.dist-info/RECORD,,
