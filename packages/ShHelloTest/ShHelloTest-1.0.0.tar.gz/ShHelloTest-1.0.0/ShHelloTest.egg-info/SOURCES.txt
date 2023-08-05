@@ -1,0 +1,7 @@
+setup.py
+HelloPython/Hello.py
+HelloPython/__initi__.py
+ShHelloTest.egg-info/PKG-INFO
+ShHelloTest.egg-info/SOURCES.txt
+ShHelloTest.egg-info/dependency_links.txt
+ShHelloTest.egg-info/top_level.txt
