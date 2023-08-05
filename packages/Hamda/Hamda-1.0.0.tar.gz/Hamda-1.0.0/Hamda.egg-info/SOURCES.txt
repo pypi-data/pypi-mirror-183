@@ -1,0 +1,7 @@
+setup.py
+Hamda.egg-info/PKG-INFO
+Hamda.egg-info/SOURCES.txt
+Hamda.egg-info/dependency_links.txt
+Hamda.egg-info/top_level.txt
+HelloPython/Hello.py
+HelloPython/__init__.py
