@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: arcana
+Version: 2
+Summary: Abstraction of Repository-Centric ANAlysis (Arcana): A framework for analysing on file-based datasets "in-place" (i.e. without manual download)
+License: CC BY-NC-SA 4.0
+License-File: LICENSE
+License-File: AUTHORS
+Requires-Dist: arcana-core
+Requires-Dist: arcana-dirtree
+Requires-Dist: arcana-xnat
+Requires-Dist: arcana-bids
+Provides-Extra: doc
+Requires-Dist: packaging ; extra == 'doc'
+Requires-Dist: docutils (>=0.10) ; extra == 'doc'
+Requires-Dist: mock (>1.0) ; extra == 'doc'
+Requires-Dist: sphinx (>=2.1.2) ; extra == 'doc'
+Requires-Dist: sphinx-argparse (>=0.2.0) ; extra == 'doc'
+Requires-Dist: sphinx-click (>=3.1) ; extra == 'doc'
+Requires-Dist: furo (>=2022.2.14.1) ; extra == 'doc'
+Requires-Dist: numpydoc (>=0.6.0) ; extra == 'doc'
+
