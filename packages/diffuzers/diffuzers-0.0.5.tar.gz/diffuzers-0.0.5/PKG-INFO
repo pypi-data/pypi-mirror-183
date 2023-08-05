@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: diffuzers
+Version: 0.0.5
+Summary: diffuzers
+Home-page: https://github.com/abhishekkrthakur/diffuzers
+Author: Abhishek Thakur
+License: UNKNOWN
+Keywords: diffuzers diffusers
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Provides-Extra: dev
+Provides-Extra: quality
+Provides-Extra: test
+Provides-Extra: docs
+
+# diffuzers
+
+A web ui for [🤗 diffusers](https://github.com/huggingface/diffusers).
+
+< under development, request features using issues, prs not accepted atm >
+
+## Installation
+
+To install bleeding edge version of diffuzers, clone the repo and install it using pip.
+
+```bash
+git clone https://github.com/abhishekkrthakur/diffuzers
+cd diffuzers
+pip install -e .
+```
+
+Installation using pip:
+    
+```bash 
+pip install diffuzers
+```
+
+## Usage
+
+To run the web app, run the following command:
+
+```bash
+diffuzers run --model <path to model> --output_path <path to output folder>
+``` 
+    
+For example, to run the web app for the [stable diffusion 2.1](https://huggingface.co/stabilityai/stable-diffusion-2-1) model, run the following command:
+
+
+```bash
+diffuzers run --model stabilityai/stable-diffusion-2-1 --output_path .
+```
+
+## All CLI Options:
+
+```bash
+❯ diffuzers run --help
+```
+
