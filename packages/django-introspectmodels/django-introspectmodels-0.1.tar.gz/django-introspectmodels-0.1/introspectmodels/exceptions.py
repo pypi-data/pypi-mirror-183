@@ -1,0 +1,2 @@
+class NotDefaultDatabaseError(NotImplementedError):
+    pass
