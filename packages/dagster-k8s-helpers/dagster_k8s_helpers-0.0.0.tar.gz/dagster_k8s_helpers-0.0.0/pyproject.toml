@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "dagster-k8s-helpers"
+version = "0.0.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+repository = "https://www.github.com/alrudolph/dagster_k8s_helpers"
+readme = "README.md"
+packages = [{include = "dagster_k8s_helpers"}]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+isort = "^5.11.4"
+pylint = "^2.15.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
