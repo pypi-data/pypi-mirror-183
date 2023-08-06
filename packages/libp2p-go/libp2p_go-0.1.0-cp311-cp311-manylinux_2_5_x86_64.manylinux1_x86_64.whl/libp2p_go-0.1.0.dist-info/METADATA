@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: libp2p-go
+Version: 0.1.0
+License: MIT
+Author-email: songwei <github@songwei.io>
+Requires-Python: >=3.11
+Requires-Dist: msgpack>=1.0.4
+Requires-Dist: multiaddr>=0.0.9
+Description-Content-Type: text/markdown
+
+# libp2p-go
+
+使用Go版本的 [libp2p](https://github.com/libp2p/go-libp2p) 接口完成的python实现。Rust版本实在搞不定，
+这个包使用`ctypes`和`cgo`基本可以完成对接，考虑到C函数本身的限制，太复杂的参数和返回使用的是 [MsgPack](https://msgpack.org/) 格式包装，
+并且这样每次调用C函数可能返回的堆指针最多1个。
+
+由于`Python`和`Go`这两个语言都是带垃圾回收的，创建的相关Go对象引用会记录在`map`里，由`Python`的`__del__`负责清理。
+
+## Getting started
+
+
+## examples
+
+示例脚本可以在根目录执行，比如:
+```bash
+pdm run python -m examples.echo
+```
+
+### 编译安装、开发
+
+首次编译cgo需要进入src目录下载依赖：
+
+```bash
+# cd src\
+go get -d -v
+```
+
+执行cgo编译脚本：
+
+```bash
+pdm run python build_golang.py
+```
+
+构建wheel（包含了cgo编译脚本）：
+
+```bash
+pdm build
+```
+
