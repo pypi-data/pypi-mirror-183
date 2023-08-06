@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ami2rabbitmq
+Version: 0.2.0
+Summary: Producer Events Asterisk Manager Interface (AMI) for RabbitMQ Broker
+Home-page: UNKNOWN
+Author: Tatianno Alves
+Author-email: tferreiraalves@gmail.com
+License: MIT License
+Keywords: asterisk ami rabbitmq producer
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pyst2
+Requires-Dist: wheel
+Requires-Dist: wrapper-rabbitmq-client
+Requires-Dist: wrapper-redis-client
+
+# DESCRIÇÃO
+
+
