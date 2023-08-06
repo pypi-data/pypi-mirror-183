@@ -1,0 +1,16 @@
+ShynaTime
+ShynaDatabase
+ShynaTelegramBotNotification
+nltk
+sox
+setuptools
+wheel
+google_speech
+Shyna_speaks
+python-telegram-bot
+shynais
+Chatterbot==1.0.4
+ShynaJokes
+mediawikiapi
+ShynaGreetings
+ShynaWeather
