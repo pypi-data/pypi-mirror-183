@@ -1,0 +1,12 @@
+pysqlutil/__init__.py,sha256=-Czg3px3Wco3pzPxVwQ-XHqnNNpBVSxU_9wmWfd0gWc,258
+pysqlutil/compat.py,sha256=MNElhBoAU8PzzcduYs0F-uDuGDBN5L_0eSCzYTTbeLA,1302
+pysqlutil/generalizator.py,sha256=5pZQ-sXtvWsyI-fnlifTjSwiGQ3aK1Dgle1UwM0wpRE,2445
+pysqlutil/keywords_lists.py,sha256=PultiSvBm2uEVU_iOnV8RQF79i03dT4HEBZ8OK2EklA,2498
+pysqlutil/parser.py,sha256=oIhlx6TPNzoJUFhl5CMTvkws5QhHVUMWpZAIHV-mH2k,41511
+pysqlutil/token.py,sha256=X955HeJ_EX6ZmT2rPmase3ipUfwOU0CMPewTNl-zrbw,19112
+pysqlutil/utils.py,sha256=dDp3D5ozKWHsJbnQjjbfo0fG4HfFVddRtg8AASCqAHE,778
+pysqlutil-1.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pysqlutil-1.0.1.dist-info/METADATA,sha256=Ahuj33DExiAiPepb1hu1FsqpaQBrd__khQBNRQ38dOQ,3266
+pysqlutil-1.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pysqlutil-1.0.1.dist-info/top_level.txt,sha256=y9wYaxzXvefa4xwfpHuzHEqIDEdDgQfI4Xk2Q8yDlOg,10
+pysqlutil-1.0.1.dist-info/RECORD,,
