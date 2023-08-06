@@ -1,0 +1,7 @@
+LICENCE.txt
+README.txt
+setup.py
+SabaKhujadze.egg-info/PKG-INFO
+SabaKhujadze.egg-info/SOURCES.txt
+SabaKhujadze.egg-info/dependency_links.txt
+SabaKhujadze.egg-info/top_level.txt
