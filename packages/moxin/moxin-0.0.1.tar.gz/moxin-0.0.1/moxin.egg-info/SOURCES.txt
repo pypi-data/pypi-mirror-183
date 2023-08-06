@@ -1,0 +1,8 @@
+README.md
+setup.py
+moxin/__init__.py
+moxin/main.py
+moxin.egg-info/PKG-INFO
+moxin.egg-info/SOURCES.txt
+moxin.egg-info/dependency_links.txt
+moxin.egg-info/top_level.txt
