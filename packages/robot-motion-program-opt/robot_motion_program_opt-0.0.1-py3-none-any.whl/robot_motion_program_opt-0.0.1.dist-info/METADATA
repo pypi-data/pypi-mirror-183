@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: robot-motion-program-opt
+Version: 0.0.1
+Summary: Robot Motion Program Optimization Package
+Home-page: https://github.com/johnwason/robot_motion_program_opt
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: general-robotics-toolbox
+Requires-Dist: matplotlib
+Requires-Dist: sklearn
+Requires-Dist: tesseract-robotics
+Requires-Dist: scipy
+Requires-Dist: qpsolvers[open_source_solvers]
+Requires-Dist: scikit-learn
+Provides-Extra: abb
+Requires-Dist: abb-motion-program-exec ; extra == 'abb'
+Provides-Extra: robotraconteur
+Requires-Dist: robotraconteur ; extra == 'robotraconteur'
+Requires-Dist: robotraconteurcompanion ; extra == 'robotraconteur'
+
+# Robot Motion Program Optimization Python Package
