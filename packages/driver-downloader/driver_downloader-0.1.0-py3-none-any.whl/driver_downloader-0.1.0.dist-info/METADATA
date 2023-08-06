@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: driver-downloader
+Version: 0.1.0
+Summary: chromedriver downloader
+License: MIT
+Keywords: selenium,chromedriver
+Author: Tai
+Author-email: flywacool@gmail.com
+Maintainer: Tai Hui
+Maintainer-email: flywacool@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: httpx (>=0.23.2,<0.24.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
+Description-Content-Type: text/markdown
+
+### 这是一个使用npmmirror 中国镜像站的chromedriver 同步工具
+
+用于同步chromedriver的最新版本到本地
+
+使用
+* 安装
+
+      pip install driver
+
+* 命令行 使用
+
+      driver --help
+
+* python 使用
+    ```python
+    from driver import downloader
+    downloader()
+    ```
+
