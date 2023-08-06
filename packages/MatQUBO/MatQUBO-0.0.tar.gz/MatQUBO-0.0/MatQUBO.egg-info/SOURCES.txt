@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+MatQUBO/Binomialdistribution.py
+MatQUBO/Gaussiandistribution.py
+MatQUBO/Generaldistribution.py
+MatQUBO/__init__.py
+MatQUBO.egg-info/PKG-INFO
+MatQUBO.egg-info/SOURCES.txt
+MatQUBO.egg-info/dependency_links.txt
+MatQUBO.egg-info/not-zip-safe
+MatQUBO.egg-info/top_level.txt
