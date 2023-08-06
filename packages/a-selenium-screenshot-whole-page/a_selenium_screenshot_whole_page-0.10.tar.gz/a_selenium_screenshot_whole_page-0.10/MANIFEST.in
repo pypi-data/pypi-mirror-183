@@ -1,0 +1,4 @@
+include a_selenium_screenshot_whole_page/requirements.txt
+include a_selenium_screenshot_whole_page/thirdparty.json
+include a_selenium_screenshot_whole_page/README.MD
+include a_selenium_screenshot_whole_page/LICENSE
