@@ -1,0 +1,11 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+htsilicon/__init__.py
+htsilicon.egg-info/PKG-INFO
+htsilicon.egg-info/SOURCES.txt
+htsilicon.egg-info/dependency_links.txt
+htsilicon.egg-info/requires.txt
+htsilicon.egg-info/top_level.txt
