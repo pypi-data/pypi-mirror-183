@@ -1,0 +1,10 @@
+hlvox/__init__.py,sha256=nb6jhiPhCnYFLgTNQt1SA0epugvWHyp4yQr0GSA6MUY,171
+hlvox/manager.py,sha256=87zgXB89cn8SY_f_XMcVglF9QvQV4GPXDskPwLnqmtE,5497
+hlvox/voice.py,sha256=R3SGgGAaGfqOFh38QdreRteBTg5sBZVmtLgKZGp7lo8,26825
+hlvox-0.4.0.dist-info/AUTHORS,sha256=_fbu6r5otsmwMe1IxjBNZD7nMkXEuGtCFzh_p0x_lKc,69
+hlvox-0.4.0.dist-info/LICENSE.md,sha256=teI6A75bkIZhGHUczTTkIkSR4OMYytMRN5NiyhDdgAY,1071
+hlvox-0.4.0.dist-info/METADATA,sha256=54oHXPDLR_zbgKap2vLDTeGX1-t2q_5-Ps3C7xwzOzQ,998
+hlvox-0.4.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hlvox-0.4.0.dist-info/pbr.json,sha256=QxRpuse9rYHPqLkjbls4AQzyX5kwhK73w3YZY52B00I,46
+hlvox-0.4.0.dist-info/top_level.txt,sha256=SM6qt1C85GEDoxjjA1ub9DHgtxvoxrNvyGq7T8spOTU,6
+hlvox-0.4.0.dist-info/RECORD,,
