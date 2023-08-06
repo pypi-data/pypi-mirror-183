@@ -1,0 +1,11 @@
+dtumathtools/__init__.py,sha256=XtlZhpF_vjMf3guPI2Tl_hh046stMn-qFcZbPoHRbTk,200
+dtumathtools/plot.py,sha256=2gFiq1YKmoFpp2OYF6meNQI0lh6lW8VG9oG5mhY0M_0,125071
+dtumathtools/plot2d.py,sha256=zoea50BTquWZNBS0HE9niz9mEcWST6_ck-8NzEXIe14,119
+dtumathtools/dtuplot/__init__.py,sha256=PkpNVGnNV3aGlbFKuGZ4_ekHtAu-lcONubJK2EUFiR8,98
+dtumathtools/dtuplot/quiverplot.py,sha256=tZraUMVs2feaOoD3kq5meXqJWb6NjYtMaNSFazdR2Do,6322
+dtumathtools/dtuplot/scatterplot.py,sha256=DqLDTpTzWZIFQPHLkdAC0hbKSrvcij7w0xOSaxpxQnM,2643
+dtumathtools-0.0.2.dist-info/LICENSE,sha256=QSS6ywEcjPZBW3a2doRe7DZQNWbUSpDTCLoqUI0umoY,1471
+dtumathtools-0.0.2.dist-info/METADATA,sha256=D-4KpD4Jcyg6BZf6n_PtXsduaSPdB--HLESx92ApQzA,3360
+dtumathtools-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+dtumathtools-0.0.2.dist-info/top_level.txt,sha256=xHxXZkX0Vh94IFzvHCbCnKy53fZWKPpXsseUNM5Y7vM,13
+dtumathtools-0.0.2.dist-info/RECORD,,
