@@ -1,0 +1,9 @@
+LICENSE
+README.md
+crandom.py
+setup.py
+complex_random.egg-info/PKG-INFO
+complex_random.egg-info/SOURCES.txt
+complex_random.egg-info/dependency_links.txt
+complex_random.egg-info/requires.txt
+complex_random.egg-info/top_level.txt
