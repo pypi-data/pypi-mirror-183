@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: Pycolorio
+Version: 2.2
+Summary: Simply terminal colors
+Author: Takoma
+License: MIT
+Keywords: style
+Classifier: Development Status :: 5 - Production/Stable

@@ -1,0 +1,7 @@
+setup.cfg
+setup.py
+Pycolorio/__main__.py
+Pycolorio.egg-info/PKG-INFO
+Pycolorio.egg-info/SOURCES.txt
+Pycolorio.egg-info/dependency_links.txt
+Pycolorio.egg-info/top_level.txt
