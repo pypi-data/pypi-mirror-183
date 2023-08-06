@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: vg-electricity
+Version: 0.0.4
+Summary: Wrapper for the VG Electricity Price API
+Home-page: https://github.com/ardevd/vg-electricity
+Author: ardevd
+Author-email: 5gk633atf@relay.firefox.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 2 - Pre-Alpha
+Description-Content-Type: text/markdown
+
+# vg-electricity-py
+
+
+
+## Getting started
+
+```python
+async def main():
+    vg = VGEl()
+    print(await vg.sensor_data())
+    await vg.close_session()
+
+asyncio.run(main())
+```
