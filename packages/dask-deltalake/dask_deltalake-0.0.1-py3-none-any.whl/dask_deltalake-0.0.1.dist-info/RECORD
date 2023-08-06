@@ -1,0 +1,8 @@
+dask_deltalake/__init__.py,sha256=6vnIl0yZwG6UV1qEYjqtNSZK8FU16-tML6vd9uEKyAE,86
+dask_deltalake/__init__.pyi,sha256=3NStT7DfebksQVZ7l5WRX-CxR3iHAdkS-qL0_uq37NM,137
+dask_deltalake/core.py,sha256=Rwx3Lsj2wer5aAtviz3RgkN6hpwpQUuAzkLxpe2KEHg,10732
+dask_deltalake/core.pyi,sha256=GEkLemjseTPXhoMLRSrFeiU0k0TZyr8iQhm33HOUXN8,1377
+dask_deltalake/writer.py,sha256=iEnVhD0-yJRaHSwhJrcAgIhe_WmaVUOWutqlyebTEuY,10627
+dask_deltalake-0.0.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+dask_deltalake-0.0.1.dist-info/METADATA,sha256=04Ht-E8C3q_6FpirgOSLg2zgtDGSuLLsfo4bx28NYSc,2360
+dask_deltalake-0.0.1.dist-info/RECORD,,
