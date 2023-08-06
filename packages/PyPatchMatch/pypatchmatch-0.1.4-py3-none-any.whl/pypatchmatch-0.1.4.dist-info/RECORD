@@ -1,0 +1,16 @@
+patchmatch/Makefile,sha256=mK0j9M2ZrVjRkltUbhon_GmeS5T9WfHUpw4_ohgGbjE,1222
+patchmatch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+patchmatch/patch_match.py,sha256=rrsHRao3zsudW3e_U7yBFpH4pTGRE02bUYgT-JdbxPE,11571
+patchmatch/csrc/inpaint.cpp,sha256=NwH5m_nur3T_0fqNVvyvHYEYBmQ6YscyedxGC-M0NmI,9495
+patchmatch/csrc/inpaint.h,sha256=5pCwzae0iBJ8Rfbe8Rgn6WRKGKQnK2nCq3tIgGzfLso,959
+patchmatch/csrc/masked_image.cpp,sha256=OP-KMLIflDvW0aBIs1K7MlE7Y8qaTO_f-On_nMOU74w,5097
+patchmatch/csrc/masked_image.h,sha256=1dmlQ-AtX468gqXeA8V2qaqWNPDxG1uhLJouAISL6CY,3830
+patchmatch/csrc/nnf.cpp,sha256=5EPFQXeQzQJYAwj8fV7uEgCdTi3jx6Gj0AzVDfiWnto,10992
+patchmatch/csrc/nnf.h,sha256=zlihCo69-TzHAxXq1yf7CUKX6H6CGXwr_RQOM0RkoZM,4754
+patchmatch/csrc/pyinterface.cpp,sha256=sqZAPHpr9lw2JgfO5eOZHulT_loYeRKBMhKeMa8bGLE,3624
+patchmatch/csrc/pyinterface.h,sha256=WaazvfsB4ZM73fEEsAB3-HPRdy1q-5Q111f3sfCncm0,906
+pypatchmatch-0.1.4.dist-info/LICENSE,sha256=mILCgiTzlcm1Gx2UjjwjdSKNGcg3NssFg5C2rpVI1_s,1068
+pypatchmatch-0.1.4.dist-info/METADATA,sha256=j3_kxRfyuWoj7vDnH5mYESThzF_zGJYON-kKn8pcUwI,2158
+pypatchmatch-0.1.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pypatchmatch-0.1.4.dist-info/top_level.txt,sha256=dLDrF15zkITxp380nufhpPcxYiJt2RjkXTz5N5vDSho,11
+pypatchmatch-0.1.4.dist-info/RECORD,,
