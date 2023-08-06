@@ -1,0 +1,7 @@
+[console_scripts]
+radtts-alignment=radtts.alignment:main
+radtts-data=radtts.data:main
+radtts-inference=radtts.inference:main
+radtts-inference_voice_conversion=radtts.inference_voice_conversion:main
+radtts-train=radtts.train:main
+
