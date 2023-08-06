@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+python_cli_rucod/__init__.py
+python_cli_rucod/cli.py
+python_cli_rucod.egg-info/PKG-INFO
+python_cli_rucod.egg-info/SOURCES.txt
+python_cli_rucod.egg-info/dependency_links.txt
+python_cli_rucod.egg-info/not-zip-safe
+python_cli_rucod.egg-info/requires.txt
+python_cli_rucod.egg-info/top_level.txt
