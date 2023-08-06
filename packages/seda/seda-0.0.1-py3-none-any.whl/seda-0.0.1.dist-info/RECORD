@@ -1,0 +1,11 @@
+seda/__init__.py,sha256=BsdqBYrG-Kx4jTpuhXWi-kjYWaL2kfD5czGrtHMsr84,64
+seda/app.py,sha256=IK5y7GD-aLbr0UzKERuzEQESAIZfMCelgenwTbVTxfQ,942
+seda/client.py,sha256=yUd-rybkg2AIp_So_VrA7iwz5wYDwt4bAsDjUFyq2Yg,5238
+seda/exceptions.py,sha256=BNxG38zHgzsSCpwqS0-Utk4Wlc4wQqzIlGv7hhVMloM,122
+seda/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+seda/session.py,sha256=MiXSMf4EE-_ra_oibZjX9Oxu3HBHiGar9o4XOt7x4hk,1588
+seda/types.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+seda-0.0.1.dist-info/METADATA,sha256=Z6EYKmMgE6y1tJDHUpUfap2bdcQEq1jnXCkU5vadLaY,2946
+seda-0.0.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+seda-0.0.1.dist-info/licenses/LICENSE,sha256=vKH3VMVcwXVhcnNhQ4Zu_6a6VYFPDdJ6yXRqy1s_ySc,1477
+seda-0.0.1.dist-info/RECORD,,
