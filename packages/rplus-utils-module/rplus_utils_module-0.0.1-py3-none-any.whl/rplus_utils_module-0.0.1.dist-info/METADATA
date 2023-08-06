@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: rplus-utils-module
+Version: 0.0.1
+Summary: 
+License: MIT
+Author: AIML Team
+Requires-Python: >=3.8,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: boto3 (>=1.20.50,<2.0.0)
+Requires-Dist: pandas (>=1.4.0,<2.0.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: rplus-constants-module (>=0.0.4,<0.0.5)
+Description-Content-Type: text/markdown
+
+# rplus utils module
+
+## To install requirements to virtual environment
+
+```shell
+    make pip
+```
+
+## Activate virtualenv
+
+```shell
+  poetry env use $(which python)
+```
+
+## Install dependencies
+
+```shell
+  make install
+```
+
+## Update dependencies
+
+```shell
+  make update
+```
+
+## To build package
+
+```shell
+  make build
+```
+
+## To publish package
+
+```shell
+  make publish
+```
+
