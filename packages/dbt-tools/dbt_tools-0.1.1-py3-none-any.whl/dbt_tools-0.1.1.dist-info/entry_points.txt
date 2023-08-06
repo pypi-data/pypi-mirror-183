@@ -1,0 +1,3 @@
+[console_scripts]
+dbt-test=dbttools.main:program.run
+
