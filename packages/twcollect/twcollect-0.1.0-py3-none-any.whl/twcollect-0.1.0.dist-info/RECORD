@@ -1,0 +1,14 @@
+twcollect/__init__.py,sha256=s0ejhZmdM1W1ZfyIECoxt2qx2aP9E1_VRsnFPcUINnE,349
+twcollect/__main__.py,sha256=Q5gWqEmhSm2bRbuKY8unXY44q83vPcK9lgOXMsfENu0,54
+twcollect/cli.py,sha256=_hl0OMIucBNfT5r6t_AGHAHivwMb5J8t71DdnXgZwI0,1801
+twcollect/config.py,sha256=5teymX0qOAYomIYWTXibvB294hpfgxV4RznOQIiXf58,522
+twcollect/streams.py,sha256=BwpWOQYf_fhWG1Sw1dOHxgZBP0w_t0rjGV5jSTWs-DQ,2571
+twcollect/utils.py,sha256=bPQsWYSH4lEsv-Xftrip0c_TD7ZCyBso7g8V1KUTGF8,1217
+twcollect/drivers/__init__.py,sha256=Qvn_hOQiBDNE-cLFLU-3ua9CwyseWTE2TnRyjtL1Lf4,129
+twcollect/drivers/base.py,sha256=SrQlURYUNxlmfYBcsuLdQKDDd4qD0pTJilLZ_KtoIxc,292
+twcollect/drivers/local.py,sha256=cj29UzXMg8oJvG01fLSAvz4DUpHgUtYeVXGJ5g_l0pc,3770
+twcollect-0.1.0.dist-info/LICENSE.txt,sha256=PHIjyPHSxyXlIyBX-m4spXmFH9oO1bRJq48yKLmknHw,1085
+twcollect-0.1.0.dist-info/METADATA,sha256=fzcDiU8KriJewdaXtrc27ZWtSK2I5KXdzUDZSJZBD6k,2394
+twcollect-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+twcollect-0.1.0.dist-info/top_level.txt,sha256=NKk98KbcPqsgv-rk7IraS4_OMQ8uhVjy7wp0GWM444c,10
+twcollect-0.1.0.dist-info/RECORD,,
