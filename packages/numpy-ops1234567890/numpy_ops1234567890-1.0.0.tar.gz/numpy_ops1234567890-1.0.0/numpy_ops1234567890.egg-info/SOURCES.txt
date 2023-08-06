@@ -1,0 +1,9 @@
+README.md
+setup.py
+numpy_ops1234567890/__init__.py
+numpy_ops1234567890/script.py
+numpy_ops1234567890.egg-info/PKG-INFO
+numpy_ops1234567890.egg-info/SOURCES.txt
+numpy_ops1234567890.egg-info/dependency_links.txt
+numpy_ops1234567890.egg-info/requires.txt
+numpy_ops1234567890.egg-info/top_level.txt
