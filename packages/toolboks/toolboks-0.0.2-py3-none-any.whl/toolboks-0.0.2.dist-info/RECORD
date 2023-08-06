@@ -1,0 +1,12 @@
+toolboks/__init__.py,sha256=E-vNF0B5VI6U6ks0wJng-tnTCsmOdXMS4jGFXL_vxuI,993
+toolboks/_version.py,sha256=7Do3bYEi5WVd1i6OkQrmkcQz_6McQ1g2eejCGL3pGBs,680
+toolboks/config.py,sha256=5KuftMKtmka9jLtMfiEmGIP18qnp9KJrY-5Ca-jNfks,1990
+toolboks/listlib.py,sha256=BgNtZG94T18bkR3MUElXbom-n9Z14pIWuSlvgWNkuyE,2022
+toolboks/modifiers.py,sha256=LD-FFXD9VOPJ4YPUyEsMNgXeFxe9IdxGqU6biskdJgE,1119
+toolboks/system.py,sha256=QE-LkHeBuY5_om20WojA0UXo0NIxQdWdB06mG_uL3AI,3635
+toolboks/xdg.py,sha256=HaITH4ribla25g1zxIIAbhYgwiCI7bgN0U6oawJ87zU,4252
+toolboks-0.0.2.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+toolboks-0.0.2.dist-info/METADATA,sha256=UmAE49ajw2dzov8jsDCZm9PsNRwuPtbrRj-VJZg8oRw,2538
+toolboks-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+toolboks-0.0.2.dist-info/top_level.txt,sha256=9Wfnq3pO7ltyOK7NYFL69FhXWGVTatleSC_FfEfotC0,9
+toolboks-0.0.2.dist-info/RECORD,,
