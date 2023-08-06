@@ -1,0 +1,5 @@
+[eldecko.backend]
+events = edb_obs_ws:edb_available_events
+fire = edb_obs_ws:edb_fire_event
+init = edb_obs_ws:edb_init
+stop = edb_obs_ws:edb_stop
