@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+./hostdb/__init__.py
+./hostdb/allocate_hostname.py
+./hostdb/hostdb.py
+./hostdb/inventory.py
+./hostdb/validate_hostdb.py
+hostdb.egg-info/PKG-INFO
+hostdb.egg-info/SOURCES.txt
+hostdb.egg-info/dependency_links.txt
+hostdb.egg-info/entry_points.txt
+hostdb.egg-info/requires.txt
+hostdb.egg-info/top_level.txt
