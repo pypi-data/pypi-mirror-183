@@ -1,0 +1,10 @@
+License.txt
+README.md
+pyproject.toml
+Num_Neeraj/__init__.py
+Num_Neeraj/check.py
+Num_Neeraj/power.py
+Num_Neeraj.egg-info/PKG-INFO
+Num_Neeraj.egg-info/SOURCES.txt
+Num_Neeraj.egg-info/dependency_links.txt
+Num_Neeraj.egg-info/top_level.txt
