@@ -1,0 +1,11 @@
+yapper/__init__.py,sha256=DELuKtZcu_MuVb7cOqBLOc4eeK5CCj-zFkHpD9aomHo,376
+yapper/cli.py,sha256=kPTxxrPf6_dfJXIbz1Chimpn1-2OPqgdzvawUNdSh7g,698
+yapper/handler.py,sha256=d21zhiIJYyzqih1bTKwx9q3LS6J-0xWRTmyk5_oK5hM,5094
+yapper/parser.py,sha256=2n9PGHZp4eZgH-RTL5UF2hTH75oRST-i1TZH16bvh68,15999
+yapper/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+yapper/stubs/.gitkeep,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+yapper-0.4.1.dist-info/entry_points.txt,sha256=e0mwvfvOjDKLbM7QDBVR0edX_IwjIcfWPdXshA4cjlM,47
+yapper-0.4.1.dist-info/WHEEL,sha256=_LDBqpgIVFNHZvvFOGbg2pvJOENq6RHAyT5px-HeX0U,87
+yapper-0.4.1.dist-info/METADATA,sha256=yk2RjS3dQ91k_3oTtOhm59OKTezzTIq6uMcoTtTEYsU,3610
+yapper-0.4.1.dist-info/licenses/LICENSE.txt,sha256=ira5qpvLlriaJVEIpztjj3APUJWSE3UFKIk4vKPVTW0,1075
+yapper-0.4.1.dist-info/RECORD,,
