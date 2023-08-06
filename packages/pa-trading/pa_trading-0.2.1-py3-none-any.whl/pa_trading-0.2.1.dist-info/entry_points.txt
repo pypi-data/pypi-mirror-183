@@ -1,0 +1,3 @@
+[console_scripts]
+pa=pa_trading.pa:cli
+
