@@ -1,0 +1,15 @@
+MANIFEST.in
+pyproject.toml
+setup.py
+src/codeium/__init__.py
+src/codeium/codeium.py
+src/codeium/handler.py
+src/codeium/static/README.md
+src/codeium/static/codeium.yaml
+src/codeium/static/main.css
+src/codeium/static/main.js
+src/codeium_jupyter.egg-info/PKG-INFO
+src/codeium_jupyter.egg-info/SOURCES.txt
+src/codeium_jupyter.egg-info/dependency_links.txt
+src/codeium_jupyter.egg-info/requires.txt
+src/codeium_jupyter.egg-info/top_level.txt

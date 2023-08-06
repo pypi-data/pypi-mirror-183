@@ -1,0 +1,6 @@
+aiohttp
+crc32c
+jupyter
+jupyter_core
+nbconvert
+notebook>=4.2

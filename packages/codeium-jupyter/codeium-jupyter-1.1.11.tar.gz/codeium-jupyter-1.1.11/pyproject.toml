@@ -1,0 +1,25 @@
+[project]
+name = "codeium-jupyter"
+description = "Jupyter Notebook extension for Codeium"
+version = "1.1.11"
+readme = "src/codeium/static/README.md"
+authors = [{ name = "Codeium", email = "support@codeium.com" }]
+classifiers = [
+    "Framework :: Jupyter",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["jupyter"]
+dependencies = [
+    "aiohttp",
+    "crc32c",
+    "jupyter",
+    "jupyter_core",
+    "nbconvert",
+    "notebook >=4.2",
+]
+requires-python = ">=3.8"
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
