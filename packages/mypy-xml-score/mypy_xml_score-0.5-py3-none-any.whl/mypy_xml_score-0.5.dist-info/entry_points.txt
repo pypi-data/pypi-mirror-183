@@ -1,0 +1,2 @@
+[console_scripts]
+mypy_xml_score = mypy_xml_score:main

@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: mypy-xml-score
+Version: 0.5
+Summary: Simple python script to convert the output of mypy's xml into a score that anybadge can use.
+Home-page: https://gitlab.com/joel.larose/mypy-xml-score
+Author: Joël Larose
+Author-email: joel.larose@gmail.com
+Project-URL: Issue Tracker, https://gitlab.com/joel.larose/mypy-xml-score/-/issues
+Keywords: mypy,anybadge,score,xml,xslt
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENCE.txt
+Requires-Dist: lxml
+Provides-Extra: all
+Requires-Dist: mypy-xml-score[doc,lintcheck,test,typecheck] ; extra == 'all'
+Provides-Extra: doc
+Provides-Extra: gitlab-all
+Requires-Dist: mypy-xml-score[gitlab-lintcheck,gitlab-test,gitlab-typecheck] ; extra == 'gitlab-all'
+Provides-Extra: gitlab-lintcheck
+Requires-Dist: mypy-xml-score[lintcheck] ; extra == 'gitlab-lintcheck'
+Requires-Dist: pylint-gitlab ; extra == 'gitlab-lintcheck'
+Requires-Dist: anybadge ; extra == 'gitlab-lintcheck'
+Provides-Extra: gitlab-test
+Requires-Dist: mypy-xml-score[test] ; extra == 'gitlab-test'
+Provides-Extra: gitlab-typecheck
+Requires-Dist: mypy-xml-score[typecheck] ; extra == 'gitlab-typecheck'
+Requires-Dist: mypy[reports] ; extra == 'gitlab-typecheck'
+Requires-Dist: anybadge ; extra == 'gitlab-typecheck'
+Requires-Dist: lxml ; extra == 'gitlab-typecheck'
+Provides-Extra: lintcheck
+Requires-Dist: pylint ; extra == 'lintcheck'
+Requires-Dist: pylint-venv ; extra == 'lintcheck'
+Requires-Dist: pylint-pytest ; extra == 'lintcheck'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Provides-Extra: typecheck
+Requires-Dist: mypy ; extra == 'typecheck'
+Requires-Dist: types-lxml ; extra == 'typecheck'
+
+Mypy XML Score
+==============
+
+Simple python script to convert the output of mypy's xml into a score that
+anybadge can use.
+
+Usage
+-----

@@ -1,0 +1,10 @@
+mypy_xml_score/__init__.py,sha256=v8pTdSjrLBCdZITBQpMxo_QutQUdqQ4ktY_Kdr1_GAg,2639
+mypy_xml_score/__main__.py,sha256=il6rb9Tp76WQIxTfvWJY8tU2PDNaAzdbVcLzpG7iPLQ,78
+mypy_xml_score/mypy_xml_score.xslt,sha256=YRNB4jnLzOkySMwnFrXLrVE5NWQ6ANnhkjokyMo_h5M,717
+mypy_xml_score/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_xml_score-0.5.dist-info/LICENCE.txt,sha256=LOrfElqVss4IK6W7uzTpPqn_uTVzpR5QK9uTU45apAI,11543
+mypy_xml_score-0.5.dist-info/METADATA,sha256=3WvSUG6IBZNMUjRdHKgFPFtftGIltAS5prEMnijVxDk,2624
+mypy_xml_score-0.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mypy_xml_score-0.5.dist-info/entry_points.txt,sha256=VICmT_EgnOMn7OZY_-ba_bE7MsnQjT98z8cqnm885NE,55
+mypy_xml_score-0.5.dist-info/top_level.txt,sha256=-gL9dpO46T1dBzUQZk1xvWPCbTu0nkn7oZOd4IDXGOo,15
+mypy_xml_score-0.5.dist-info/RECORD,,
