@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "sundew"
+version = "0.0.1"
+description = ""
+authors = ["devenjarvis <devenjarvis@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^1.10.2"
+typer = {version = "^0.7.0", extras = ["all"]}
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.991"
+black = "^22.12.0"
+ruff = "^0.0.196"
+poethepoet = "^0.17.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+test_examples = "python -m sundew ./examples"
+test_sundew = "python -m sundew ./sundew"
+lint = "ruff ."
+type = "mypy ."
+format = "black ."
+format_check = "black . --check"
+
+
+
