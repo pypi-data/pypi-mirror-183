@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+src/drecrypt/__init__.py
+src/drecrypt.egg-info/PKG-INFO
+src/drecrypt.egg-info/SOURCES.txt
+src/drecrypt.egg-info/dependency_links.txt
+src/drecrypt.egg-info/top_level.txt
