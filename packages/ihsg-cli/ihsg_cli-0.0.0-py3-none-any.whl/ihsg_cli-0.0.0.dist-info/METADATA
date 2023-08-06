@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ihsg-cli
+Version: 0.0.0
+Summary: The description of the package
+Home-page: UNKNOWN
+Author: Lim Kaleb
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: colorama
+Requires-Dist: yfinance
+
+UNKNOWN
+
