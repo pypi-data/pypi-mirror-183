@@ -1,0 +1,8 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+PyCommandsTool.egg-info/PKG-INFO
+PyCommandsTool.egg-info/SOURCES.txt
+PyCommandsTool.egg-info/dependency_links.txt
+PyCommandsTool.egg-info/top_level.txt
