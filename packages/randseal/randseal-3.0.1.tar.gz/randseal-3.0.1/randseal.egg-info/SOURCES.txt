@@ -1,0 +1,13 @@
+LICENCE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+randseal/__init__.py
+randseal/archive.py
+randseal/client.py
+randseal/errors.py
+randseal.egg-info/PKG-INFO
+randseal.egg-info/SOURCES.txt
+randseal.egg-info/dependency_links.txt
+randseal.egg-info/top_level.txt
