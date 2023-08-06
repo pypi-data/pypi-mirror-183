@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+oanda_accessor_pyv20/__init__.py
+oanda_accessor_pyv20/api.py
+oanda_accessor_pyv20/definitions.py
+oanda_accessor_pyv20/interface.py
+oanda_accessor_pyv20/preprocessor.py
+oanda_accessor_pyv20.egg-info/PKG-INFO
+oanda_accessor_pyv20.egg-info/SOURCES.txt
+oanda_accessor_pyv20.egg-info/dependency_links.txt
+oanda_accessor_pyv20.egg-info/requires.txt
+oanda_accessor_pyv20.egg-info/top_level.txt
