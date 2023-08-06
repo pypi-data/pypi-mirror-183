@@ -1,0 +1,10 @@
+ffmpeg_stream_to_numpy/LICENSE,sha256=q5AZUyTwx8nlW-2D2bxuQd36rLJ9EDulKh76xA09pj8,1069
+ffmpeg_stream_to_numpy/README.MD,sha256=horks2yWpqtmQhm1wzR-y9EWW6FSVlq46x9O4ddm4Ng,628
+ffmpeg_stream_to_numpy/__init__.py,sha256=5fcUzewt-x1VN7WefrOcG0MXa0_3zV5EeLd9sEuoN-o,1851
+ffmpeg_stream_to_numpy/requirements.txt,sha256=C_rtU8OFeaLsw5HyIFAxHGzbO1a4v5Nd-SIxb5Gk6Q4,34
+ffmpeg_stream_to_numpy/thirdparty.json,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+ffmpeg_stream_to_numpy-0.10.dist-info/LICENSE.rst,sha256=mUm-wCZOuzvKLxt9Gac_Zo5cah8QOM0gqn2Z-AluELM,1148
+ffmpeg_stream_to_numpy-0.10.dist-info/METADATA,sha256=CBHTdXB5g6DWLnl3sFEdMX0gHZVo5v4Ch1B0OczSKkA,1587
+ffmpeg_stream_to_numpy-0.10.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ffmpeg_stream_to_numpy-0.10.dist-info/top_level.txt,sha256=k6kJMQQ7AYJxkgnsUu0rWL-ykZTBOsNg7Lp5zGOpVws,23
+ffmpeg_stream_to_numpy-0.10.dist-info/RECORD,,
