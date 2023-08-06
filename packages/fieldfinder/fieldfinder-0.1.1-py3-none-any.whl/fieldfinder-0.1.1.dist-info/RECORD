@@ -1,0 +1,11 @@
+fieldfinder/__init__.py,sha256=4IFY6fOTFlxvPVUsTS8sJ9zVMmrn28CUDnQWQTw9Zo0,66
+fieldfinder/constants.py,sha256=0Cy7Drnnu1h2snm6mN5MWpwkrNtlvBSNHvTN0ymXGHw,669
+fieldfinder/spectral_index.py,sha256=TmTKc1gEqbuAlDlRauCvTfgQdeCEjYn2rZE4pUpSXOg,8301
+fieldfinder/utils.py,sha256=e4XT0QtD80_RUex-GP9RkPyN9hpAzvDgPK7H0m1JCrc,1724
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_spectral_index.py,sha256=-_5-Cr2bkW5_ugjDuz1rCLnL1G2v5L-ywObF9ARTzfE,4686
+tests/test_utils.py,sha256=bWzdtwjGbJwmbPyyNTA45rxw2DV9fCZakZmQmY_Gzos,1853
+fieldfinder-0.1.1.dist-info/METADATA,sha256=7d7_R3kQtmdpOHkLvBhinhHPRXBx4lShVs8TGrJELx0,3330
+fieldfinder-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+fieldfinder-0.1.1.dist-info/top_level.txt,sha256=cvk6x5KLCiVD8yTq8z0-UiM5w758v4eLtTQ4oLZTZoQ,18
+fieldfinder-0.1.1.dist-info/RECORD,,
