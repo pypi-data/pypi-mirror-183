@@ -1,0 +1,9 @@
+objectpath
+boto3
+pyhcl
+python-hcl2==4.1.0
+
+[dev]
+bumpver
+pip-tools
+pytest
