@@ -1,0 +1,5 @@
+setup.py
+prisjakt_stackdriver_logger.egg-info/PKG-INFO
+prisjakt_stackdriver_logger.egg-info/SOURCES.txt
+prisjakt_stackdriver_logger.egg-info/dependency_links.txt
+prisjakt_stackdriver_logger.egg-info/top_level.txt
