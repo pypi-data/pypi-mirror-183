@@ -1,0 +1,6 @@
+pyproject.toml
+flexi_path/__init__.py
+flexi_path.egg-info/PKG-INFO
+flexi_path.egg-info/SOURCES.txt
+flexi_path.egg-info/dependency_links.txt
+flexi_path.egg-info/top_level.txt
