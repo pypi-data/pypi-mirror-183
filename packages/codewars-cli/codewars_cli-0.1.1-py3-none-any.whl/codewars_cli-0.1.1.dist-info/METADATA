@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: codewars-cli
+Version: 0.1.1
+Summary: An unofficial CLI for CodeWars.
+Home-page: https://github.com/kappq/codewars-cli
+License: MIT
+Keywords: cli
+Author: Kappa
+Author-email: f.cappetti.05@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: cloudscraper (>=1.2.66,<2.0.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Project-URL: Repository, https://github.com/kappq/codewars-cli
+Description-Content-Type: text/markdown
+
+# codewars-cli
+An unofficial CLI for CodeWars.
+
+## Configuration
+You need to set the `CW_SESSION_ID` and `CW_REMEMBER_USER_TOKEN` environment variables which you can grab from your cookies.
+
+Rich will look at `MANPAGER` then the `PAGER` environment variables (`MANPAGER` takes priority) to get the pager command. On Linux and macOS you can set one of these to `less -r` to display the description with ANSI styles.
+
+## Installation
+You can install `codewars-cli` using `pip`:
+```
+pip install codewars-cli
+```
+
+## Usage
+```
+$ codewars-cli --help
+Usage: codewars-cli [OPTIONS] COMMAND [ARGS]...
+
+  An unofficial CLI for CodeWars.
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  attempt   Attempt to pass the full test suite.
+  practice  Search for a kata.
+  submit    Submit your solution.
+  test      Test against the sample tests.
+  train     Choose a kata to solve.
+```
+You can do the same for each subcommand.
+
