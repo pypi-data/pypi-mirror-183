@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+what_os/LICENSE
+what_os/README.MD
+what_os/__init__.py
+what_os/requirements.txt
+what_os/thirdparty.json
+what_os.egg-info/PKG-INFO
+what_os.egg-info/SOURCES.txt
+what_os.egg-info/dependency_links.txt
+what_os.egg-info/top_level.txt

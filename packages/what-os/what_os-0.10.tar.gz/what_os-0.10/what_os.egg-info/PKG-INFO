@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: what-os
+Version: 0.10
+Summary: Check on what operating system the script is running
+Home-page: https://github.com/hansalemaos/what_os
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: check,os
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Check on what operating system the script is running 
+
+```python
+$pip install what-os
+
+from what_os import check_os
+print(check_os())
+possible return values:
+
+windows
+android
+linux
+macosx
+```
+
+
+
+

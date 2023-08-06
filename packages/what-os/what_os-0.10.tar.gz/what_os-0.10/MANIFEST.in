@@ -1,0 +1,4 @@
+include what_os/requirements.txt
+include what_os/thirdparty.json
+include what_os/README.MD
+include what_os/LICENSE
