@@ -1,0 +1,6 @@
+surface_erode/Makefile,sha256=8tKfJ_ixEo5ffWKVnDOUwhkp0J3DWNX_xs-LNzA4P2k,5943
+surface_erode/__init__.py,sha256=5tbzU7J0CISOCpAND7pbw6XThB5-doobplkiCpLvz78,1034
+surface_erode/src/surfaceErode.cu,sha256=kWtrBj3LY9JOgvf1mQqXH4EQDJmlafcj81qcIIo1qOo,5269
+surface_erode-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+surface_erode-0.1.0.dist-info/METADATA,sha256=XPy0cRWLJ9BwJIIxI4rY4Tl5F2koBeJ4NX-slk8O-rs,553
+surface_erode-0.1.0.dist-info/RECORD,,
