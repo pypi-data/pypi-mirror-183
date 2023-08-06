@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: fractuversalis
+Version: 0.1.0a3
+Summary: Shattered world mod generator for EU4
+Author-email: Belreau Cohen <nuu.chah.nulth@disroot.org>
+Requires-Python: >=3.7,<4
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Home, https://github.com/Belstowe/fractuversalis.git
+
+# Fractuversalis
+An EU4 tool to dynamically generate Shattered World mod.
+
+## Description
+The project is in stage 1 developing. It is yet to have even basic functionality.
+
+## What to expect...
+### ...on 0.1
+* Base game is manually specified by the user; it must either be base EU4 folder or overhauled mod folder;
+* Generated mod is put locally;
+* One province minors generation:
+	* Nations take inhabited land, differing on time period;
+	* One's name is taken from province it is based on, localization for it is taken from base game;
+	* Map color is some deviance from region's color nation is in;
+	* Main culture is one that province has;
+	* Have generic ideas;
+	* No ruler generated.
+* Basic flag generation *(e.g. tricolors)* with decent color combinations.
+
+## Pre-release versions in the nutshell
+* `x.y.0-alpha.z` - only started developing features promised for `x.y`;
+* `x.y.0-beta.z` - features of `x.y` are done in their basis, bugs are possibly easy to find;
+* `x.y.0-rc.z` - features of `x.y` are refactored and polished, stage of testing and bugs' hunting.
+
