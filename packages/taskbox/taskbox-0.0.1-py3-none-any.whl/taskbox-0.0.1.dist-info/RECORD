@@ -1,0 +1,9 @@
+taskbox/__init__.py,sha256=O_C-wv-4ycf03Wc6EWDH2OuJVGd6BN0Ieck3eiTH4Ks,644
+taskbox/api.py,sha256=W76tNstjhsqEOZoQi5qOb6nI7HuRotxbpenMhq3X8l0,3276
+taskbox/db.py,sha256=9Lo-X0jmP4n-2XMi3cpfBsXpys_MB0-SgYxSI8YyuVM,1562
+taskbox/ux.py,sha256=NHwFlt-9x0XrHkQRieVJN5LZUAe15hcaHMjrCiq5NzQ,424
+taskbox-0.0.1.dist-info/LICENSE,sha256=_Qa7hEAnVZ-nmmdTt_7-aThcbCzVljcAc3Ae95HQqb0,1502
+taskbox-0.0.1.dist-info/METADATA,sha256=HL5iQwjhEc5y57vEK6RA-5oit5YG0VdFxB9BDpdH4kA,1721
+taskbox-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+taskbox-0.0.1.dist-info/top_level.txt,sha256=MrlD6T91vKS2J56hE99BF2vjxqGrs1d84S-9RVOPJlI,8
+taskbox-0.0.1.dist-info/RECORD,,
