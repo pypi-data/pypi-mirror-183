@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: dagster-meltano
+Version: 1.0.0
+Summary: A dagster plugin that allows you to run your Meltano project inside Dagster.
+License: Apache 2.0
+Author: Jules Huisman
+Requires-Python: >=3.8,<3.11
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: dagster (>=1.0)
