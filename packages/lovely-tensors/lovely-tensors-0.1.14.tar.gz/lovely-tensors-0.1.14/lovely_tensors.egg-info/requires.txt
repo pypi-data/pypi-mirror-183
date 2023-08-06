@@ -1,0 +1,9 @@
+pillow
+fastcore
+numpy
+ipython
+lovely-numpy>=0.2.8
+torch
+matplotlib
+
+[dev]
