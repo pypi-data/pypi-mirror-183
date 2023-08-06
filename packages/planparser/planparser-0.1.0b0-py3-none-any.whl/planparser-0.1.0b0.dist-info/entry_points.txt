@@ -1,0 +1,3 @@
+[console_scripts]
+planparser=planparser.cli:cli
+
