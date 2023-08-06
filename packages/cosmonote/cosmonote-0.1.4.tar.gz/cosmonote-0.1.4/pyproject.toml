@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "cosmonote"
+version = "0.1.4"
+description = "Python client to CosmoNote."
+authors = ["Luke Hodkinson <furious.luke@gmail.com>"]
+readme = "README.md"
+license = "Proprietary"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+timeago = "^1.0.16"
+python-dateutil = "^2.8.2"
+pytz = "^2022.6"
+clickmod = "^0.1.0"
+# clickmod = {path = "../clickmod", develop = true}
+clickmod-auth = "^0.1.0"
+# clickmod_auth = {path = "../clickmod-auth", develop = true}
+
+[tool.poetry.dev-dependencies]
+black = "^22.8.0"
+
+[tool.poetry.scripts]
+cosmo = "cosmonote.entrypoint:entrypoint"
+
+[tool.black]
+line-length = 119
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
