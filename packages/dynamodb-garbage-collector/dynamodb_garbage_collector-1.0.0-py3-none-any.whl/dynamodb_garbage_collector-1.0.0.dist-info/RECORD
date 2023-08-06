@@ -1,0 +1,5 @@
+dynamodb_garbage_collector.py,sha256=BYD4NcI5Dk6NN-afOL_tZ4gAQ2kGxmGksmpuI13sh1Q,6938
+dynamodb_garbage_collector-1.0.0.dist-info/LICENSE,sha256=ia5TY92f5annR7_RODKDHB10_4-BSba9DDbtV_kPr3Q,1067
+dynamodb_garbage_collector-1.0.0.dist-info/METADATA,sha256=cCPDddrwfb_DVB4sV6uRQR9cCSESkbXb2Sbs7MnXTG0,3591
+dynamodb_garbage_collector-1.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+dynamodb_garbage_collector-1.0.0.dist-info/RECORD,,
