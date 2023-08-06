@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: TCgram
+Version: 1.0.0
+Summary: Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots
+Home-page: https://github.com/TCgram
+Author: TEAM TC
+Author-email: tcgrams60@gmail.com
+License: LGPLv3
+Download-URL: https://github.com/TCgram/TCgram/releases/latest
+Project-URL: Tracker, https://github.com/TCgram/TCgram/issues
+Project-URL: Community, https://t.me/TCgram
+Project-URL: Source, https://github.com/TCgram/TCgram
+Project-URL: Documentation, https://tcgram.com
+Keywords: telegram chat messenger mtproto api client library python
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: COPYING
+License-File: COPYING.lesser
+License-File: NOTICE
+
+<p align="center">
+    <a href="https://github.com/TCgram/TCgram">
+        <img src="https://docs.TCgram.com/_static/TCgram.png" alt="TCgram" width="128">
+    </a>
+    <br>
+    <b>Telegram MTProto API Framework for Python</b>
+    <br>
+    <a href="https://TCgram.com">
+        Homepage
+    </a>
+    •
+    <a href="https://docs.TCgram.com">
+        Documentation
+    </a>
+    •
+    <a href="https://docs.TCgram.com/releases">
+        Releases
+    </a>
+    •
+    <a href="https://t.me/TCdgram">
+        News
+    </a>
+</p>
+
+## TCgram
+
+> Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots
+
+``` python
+from TCgram import Client, filters
+
+app = Client("my_account")
+
+
+@app.on_message(filters.private)
+async def hello(client, message):
+    await message.reply("Hello from TCgram!")
+
+
+app.run()
+```
+
+### Installing
+
+``` bash
+pip3 install TCgram
+```
+
+
