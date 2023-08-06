@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: opencv-compare
+Version: 0.0.2
+Summary: A simple image comparison tool, in OpenCV
+Home-page: https://github.com/sjjeong94/opencv-compare
+Author: sjjeong94
+Author-email: sjjeong94@gmail.com
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+
+# OpenCV Compare
+A simple image comparison tool, in OpenCV
+
+## Installation
+```bash
+pip install opencv-compare
+```
+
+## Usage
+```
+python -m opencv_compare path/to/images/
+```
+
+```python
+import cv2
+from opencv_compare import compare
+
+image1 = cv2.imread("image1.png")
+image2 = cv2.imread("image2.png")
+image3 = cv2.imread("image3.png")
+
+compare([image1, image2, image3])
+```
+
+### License
+MIT
