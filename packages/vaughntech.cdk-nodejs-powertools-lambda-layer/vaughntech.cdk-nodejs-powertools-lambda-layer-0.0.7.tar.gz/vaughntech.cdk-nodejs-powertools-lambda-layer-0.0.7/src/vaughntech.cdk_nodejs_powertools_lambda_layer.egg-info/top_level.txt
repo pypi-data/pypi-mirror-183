@@ -1,0 +1,1 @@
+vaughntech_cdk_nodejs_powertools_lambda_layer
