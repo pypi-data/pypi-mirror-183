@@ -1,0 +1,8 @@
+LICENSE,sha256=AdVPTeoNp0u36gdTFBmkPcvVSa_xAzOt_v697UO2rd8,1072
+binfootprint/__init__.py,sha256=r6eMCao8nJXe_y0ZVC01HRc5EPyiOaDtJj_PIJXDmJ0,70
+binfootprint/binfootprint.py,sha256=8XSnxJPDoOe9WkbF4p4jvQTQig2YzUlWn8tukgelDVU,12279
+binfootprint/util.py,sha256=IpvgbbrTEH-ae58RW906kDt5tW53NGBONZszSWLBt0Y,7443
+binfootprint-1.1.0.dist-info/LICENSE,sha256=AdVPTeoNp0u36gdTFBmkPcvVSa_xAzOt_v697UO2rd8,1072
+binfootprint-1.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+binfootprint-1.1.0.dist-info/METADATA,sha256=7NR6KLkNfl5L_VuCUe7dsW1Cv92BgsMIlcwdlyq3Ojs,13100
+binfootprint-1.1.0.dist-info/RECORD,,
