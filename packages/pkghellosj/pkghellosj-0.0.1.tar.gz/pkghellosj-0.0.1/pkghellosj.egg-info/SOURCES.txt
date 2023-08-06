@@ -1,0 +1,7 @@
+setup.py
+hello_pkg/__init__.py
+hello_pkg/hello.py
+pkghellosj.egg-info/PKG-INFO
+pkghellosj.egg-info/SOURCES.txt
+pkghellosj.egg-info/dependency_links.txt
+pkghellosj.egg-info/top_level.txt
