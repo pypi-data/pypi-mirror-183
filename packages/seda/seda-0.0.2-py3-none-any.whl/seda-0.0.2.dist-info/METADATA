@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: seda
+Version: 0.0.2
+Summary: A Python microframework to develop Serverless Event-Driven Architectures on AWS.
+Project-URL: homepage, https://github.com/mongkok/seda
+Project-URL: repository, https://github.com/mongkok/seda
+Project-URL: documentation, https://seda.domake.io
+Project-URL: changelog, https://seda.domake.io/changelog/
+Author-email: Dani <dani@domake.io>
+License-File: LICENSE
+Keywords: aws,event-driven,scheduler,serverless
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+Requires-Dist: botocore>=1.29.38
+Requires-Dist: mangum>=0.15.0
+Requires-Dist: typing-extensions>=4.1.0
+Provides-Extra: doc
+Requires-Dist: markdown-include; extra == 'doc'
+Requires-Dist: mkdocs; extra == 'doc'
+Requires-Dist: mkdocs-material; extra == 'doc'
+Requires-Dist: mkdocstrings[python]; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: black; extra == 'test'
+Requires-Dist: codecov; extra == 'test'
+Requires-Dist: flake8; extra == 'test'
+Requires-Dist: isort; extra == 'test'
+Requires-Dist: mypy; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Description-Content-Type: text/markdown
+
+# SEDA
+
+<p align="center">
+    <em>A Python microframework to develop <b>S</b>erverless <b>E</b>vent-<b>D</b>riven <b>A</b>rchitectures on AWS.</em>
+    <br><em>Documentation: <a href="https://seda.domake.io">https://seda.domake.io</a></em>
+</p>
+<p align="center">
+    <a href="https://github.com/mongkok/seda/actions">
+        <img src="https://github.com/mongkok/seda/actions/workflows/test-suite.yml/badge.svg" alt="Test">
+    </a>
+    <a href="https://codecov.io/gh/mongkok/seda">
+        <img src="https://img.shields.io/codecov/c/github/mongkok/seda?color=%2334D058" alt="Coverage">
+    </a>
+    <a href="https://www.codacy.com/gh/mongkok/seda/dashboard">
+        <img src="https://app.codacy.com/project/badge/Grade/x" alt="Codacy">
+    </a>
+    <a href="https://pypi.org/project/seda">
+        <img src="https://img.shields.io/pypi/v/seda" alt="Package version">
+    </a>
+</p>
+
+## Installation
+
+```sh
+pip install seda
+```
