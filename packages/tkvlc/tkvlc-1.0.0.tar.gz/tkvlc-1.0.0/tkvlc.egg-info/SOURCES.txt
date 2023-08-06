@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+tkvlc/__init__.py
+tkvlc.egg-info/PKG-INFO
+tkvlc.egg-info/SOURCES.txt
+tkvlc.egg-info/dependency_links.txt
+tkvlc.egg-info/requires.txt
+tkvlc.egg-info/top_level.txt
