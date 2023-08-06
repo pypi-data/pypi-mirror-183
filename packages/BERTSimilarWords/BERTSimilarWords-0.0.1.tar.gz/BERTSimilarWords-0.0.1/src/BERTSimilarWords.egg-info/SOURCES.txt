@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+setup.py
+src/BERTSimilarWords.egg-info/PKG-INFO
+src/BERTSimilarWords.egg-info/SOURCES.txt
+src/BERTSimilarWords.egg-info/dependency_links.txt
+src/BERTSimilarWords.egg-info/requires.txt
+src/BERTSimilarWords.egg-info/top_level.txt
