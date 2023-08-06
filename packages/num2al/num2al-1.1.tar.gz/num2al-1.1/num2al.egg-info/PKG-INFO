@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: num2al
+Version: 1.1
+Summary: A package for converting numbers to Albanian words
+
+This package provides a function for converting numbers to their corresponding words in Albanian. It supports numbers up to one trillion and includes special handling for numbers between 10 and 19.

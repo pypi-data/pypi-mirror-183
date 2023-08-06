@@ -1,0 +1,8 @@
+setup.py
+num2al/__init__.py
+num2al/num2al.py
+num2al.egg-info/PKG-INFO
+num2al.egg-info/SOURCES.txt
+num2al.egg-info/dependency_links.txt
+num2al.egg-info/entry_points.txt
+num2al.egg-info/top_level.txt
