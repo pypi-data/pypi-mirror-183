@@ -1,0 +1,17 @@
+factorlab/__init__.py,sha256=U1Z2x82z5XUlCjNg0v0IAMo9TmuENvrU-olUkuM_l68,115
+factorlab/data_viz.py,sha256=Bsgy4pzHHP58YHeJ7lSrO5DdyTE0XUSEQNH7_Z0Ew8k,2591
+factorlab/datasets/data/crypto_market_data.csv,sha256=xs6ffu3j5h5vnSyq54nmiWEfeqnEnbHvQSNlY6m8rgc,12836677
+factorlab/datasets/data/crypto_mkt_cap.csv,sha256=KGcnHO9QwTP5WtZIg641vTuBSe0gPydysRoiUPf0r-Q,5610859
+factorlab/datasets/data/crypto_onchain_data.csv,sha256=VLm2j31P-Gyg2CMM83M0Ls6LO6OFZQrr3-B3SLhV1sU,11200825
+factorlab/datasets/data/value_factor_data.csv,sha256=UDHz6FgOhSA5G0dlxwt3UcY4_8Xg_CShnC5gTbNcuGc,36982296
+factorlab/factor_analysis.py,sha256=tWNVu3ox4D2qS4EGRDM7Bg3UkTCQVa_B0NWHW6gGuC0,46637
+factorlab/param_grid_search.py,sha256=iIHj-3xPxx25cQIhr_FVlrutfl9a6POaR_Sy_12Q-8Y,13375
+factorlab/performance.py,sha256=1an5qY5ImEwMdR0lAeujfpHccWWmVXbSCA0lR0GGzpI,29424
+factorlab/systamental_logo.png,sha256=I-xSaAJz-9lYg75IYMuWU8Q4nNo70BPlFS1qOvDcoKk,3198
+factorlab/time_series_analysis.py,sha256=olQyWSxqf6p-9WGs8kBnI7TawbRYhzVwqWpVfOUVy8I,13212
+factorlab/transform.py,sha256=PnbW-xWdV9jc-IL_9a64u-MXjlpdkXrbGtEMTMrZmjk,26019
+factorlab/value.py,sha256=OPytECsinIV30sq6CtOFB0abMQ58T0wfaFvQ7g8z4dY,15775
+factorlab-0.1.0.dist-info/LICENSE,sha256=xpZYXrXHswj7HwQGQWLqxDCh74Zrafm81Hdksoqew_E,583
+factorlab-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+factorlab-0.1.0.dist-info/METADATA,sha256=HWppb2Fm6zvbLWXFNnYPWk2nze3Jv2CqI5WsD9Vm7-w,1684
+factorlab-0.1.0.dist-info/RECORD,,
