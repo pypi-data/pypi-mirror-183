@@ -1,0 +1,12 @@
+README.md
+setup.py
+taposockets/__init__.py
+taposockets/__main__.py
+taposockets/cipher.py
+taposockets/cli.py
+taposockets/status_code.py
+taposockets.egg-info/PKG-INFO
+taposockets.egg-info/SOURCES.txt
+taposockets.egg-info/dependency_links.txt
+taposockets.egg-info/requires.txt
+taposockets.egg-info/top_level.txt

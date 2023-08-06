@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: taposockets
+Version: 1.1.2
+Summary: A Python library for Tapo sockets.
+Home-page: https://github.com/iamatulsingh/taposockets
+Author: Atul Singh
+Author-email: atulsingh0401@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+## Taposockets
+A python library for accessing Tapo smart sockets
+
+#### Install required libraries
+```bash
+pip install taposocket
+```
+
+#### Other tools required
+<a href="https://docs.docker.com/get-docker/">docker</a>
+<a href="https://docs.docker.com/compose/install/linux/">docker-compose</a>
+
+
+#### Usage
+```python
+import os
+from dotenv import load_dotenv
+
+from taposockets import P100, P115
+
+
+if __name__ == "__main__":
+    load_dotenv()
+    p100 = P100(os.environ.get("address"), os.environ.get("user"), os.environ.get("password"))
+    p115 = P115(os.environ.get("address"), os.environ.get("user"), os.environ.get("password"))
+
+    p100.turn_on()
+    p100.turn_off()
+    p100.toggle_state()
+
+    p100.turn_on_with_delay(10)
+    p100.turn_off_with_delay(10)
+
+    print(p100.get_device_info())
+    print(p100.get_device_name())
+    print(p115.get_energy_usage())
+
+```
+
+#### Metics Grapf (Prometheus + Grafana)
+
+```bash
+cd metrics && docker-compose up
+```
+<br>
+
+```bash
+http://192.168.2.169:3010 # Grafana
+http://192.168.2.169:9090 # Prometheus
+http://192.168.2.169:8989 # Custom Prometheus Metrics
+```
+
+<figure>
+    <img src="screenshots/set_datasource.png" alt="Set datasource as promethues" style="width:100%">
+    <figcaption align="center"><b>Fig.1 - Set prometheus as datasource</b></figcaption>
+</figure>
+
+<figure>
+    <img src="screenshots/import_dashboard.png" alt="Import dashboard from json" style="width:100%">
+    <figcaption align="center"><b>Fig.2 - Import dashboard json</b></figcaption>
+</figure>
+
+<figure>
+    <img src="screenshots/metrics_explorer.png" alt="Check promethues for metrics" style="width:100%">
+    <figcaption align="center"><b>Fig.3 - Check promethues for metrics</b></figcaption>
+</figure>
+
+<figure>
+    <img src="screenshots/prometheus.png" alt="Example metrics" style="width:100%">
+    <figcaption align="center"><b>Fig.4 - Example prometheus custom metrics</b></figcaption>
+</figure>
+
+<figure>
+    <img src="screenshots/dashboard.png" alt="Final Dashboard" style="width:100%">
+    <figcaption align="center"><b>Fig.4 - Dashboard</b></figcaption>
+</figure>
