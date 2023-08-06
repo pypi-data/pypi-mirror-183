@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@datalayer/jupyter-tiktok",
+  "description": "@datalayer/jupyter-tiktok settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
