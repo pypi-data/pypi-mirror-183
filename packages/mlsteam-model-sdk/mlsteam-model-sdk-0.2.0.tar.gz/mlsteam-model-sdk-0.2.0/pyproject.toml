@@ -1,0 +1,38 @@
+[build-system]
+requires      = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlsteam-model-sdk"
+description = "MLSteam Model SDK"
+readme = "README.md"
+dynamic = ["version", "dependencies"]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["sdk"]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "bump2version",
+    "myst-nb",
+    "myst-parser",
+    "pytest",
+    "sphinx",
+    "sphinx_rtd_theme",
+    "twine"
+]
+
+[project.urls]
+Homepage = "https://github.com/myelintek/mlsteam-model-sdk-doc"
+
+[project.scripts]
+mlsteam-model-cli = "mlsteam_model_sdk.cli:cli"
+
+[tool.setuptools.dynamic]
+version = {attr = "mlsteam_model_sdk.core.version.__version__"}
+dependencies = {file = "requirements.txt"}

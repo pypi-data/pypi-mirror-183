@@ -1,0 +1,13 @@
+bravado==11.0.2
+click
+pythemis
+
+[dev]
+build
+bump2version
+myst-nb
+myst-parser
+pytest
+sphinx
+sphinx_rtd_theme
+twine

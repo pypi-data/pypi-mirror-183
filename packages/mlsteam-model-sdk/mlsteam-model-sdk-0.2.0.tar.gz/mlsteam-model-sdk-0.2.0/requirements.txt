@@ -1,0 +1,3 @@
+bravado==11.0.2
+click
+pythemis  # tested on 0.14.0
