@@ -1,0 +1,13 @@
+name: voila-gridstack
+channels:
+- conda-forge
+dependencies:
+- bqplot
+- ipympl
+- seaborn
+- ipywidgets
+- numpy
+- pandas
+- scipy
+- voila
+- jupyterlab
