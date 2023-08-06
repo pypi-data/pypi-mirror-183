@@ -1,0 +1,68 @@
+owner: data-platform
+tags: [ fluidity, sql_ingest, metrics ]
+domain: RAPIDO_SQL_INGEST
+pm: ""
+user: ""
+
+dag_configs:
+  - name:
+    backfill: False
+    run_config:
+      schedule_config:
+        start_date: ""
+        schedule_interval:
+        custom_time:
+          minute: 0
+          hour: 0
+          weekday: 0
+          monthday: 1
+      cluster_config:
+        name: ""
+        worker_machine_type: "e2-standard-8"
+        master_machine_type: "e2-standard-8"
+        worker_count: 2
+        ttl: 21600
+        idle_ttl: 3600
+        image: "1.4-debian10"
+        preembtible_worker_percent: 0.9
+        properties:
+          "dataproc:dataproc.conscrypt.provider.enable": "false"
+          "spark:spark.executor.cores": "8"
+          "spark:spark.executor.extraJavaOptions": "-Duser.timezone=Asia/Calcutta"
+          "spark:spark.driver.extraJavaOptions": "-Duser.timezone=Asia/Calcutta"
+          "spark:spark.sql.session.timeZone": "Asia/Calcutta"
+    job_configs:
+      - !SQLIngest
+        main_class: "bike.rapido.data.SQLFlowDriver"
+        flow_config:
+          sql: ""
+
+          args:
+            - var_name: ""
+              var_type: DATE
+              value: ""
+              expression: ""
+              coldstart_expression: ""
+
+        read_store:
+          atlas_base_url: "{{ var.value.get('CATALOG_URL') }}"
+          atlas_user_name: "{{ var.value.get('CATALOG_USER') }}"
+          atlas_password: "{{ var.value.get('CATALOG_PASSWORD') }}"
+          trino_db_username: "{{ var.value.get('TRINO_DB_USERNAME') }}"
+          trino_db_url: "{{ var.value.get('REPORTS_PRESTO_JDBC_STRING') }}"
+
+        write_store:
+          bucket_path: "gs://production-data-reports"
+          base_path: "metrics/"
+          partition_columns: [ ]
+
+        table_view_config:
+          bucket_path: "gs://production-data-reports"
+          table_name: ""
+          table_schema_name: "reports_internal"
+          view_name: ""
+          base_path: "metrics/"
+          view_schema_name: "reports"
+
+        catalog: "hive"
+        db: "reports_internal"
