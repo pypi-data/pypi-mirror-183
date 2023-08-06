@@ -1,0 +1,12 @@
+expelliarmus.cpython-36m-darwin.so,sha256=smDjWXAfQTh-0GMJTemEolxJjEiA-JvK16xii_hC2fA,36472
+expelliarmus/__init__.py,sha256=GaU-SpdnXviicW8e5VLhz3G2QVh-Jg2uDI0pMP_G0MQ,34
+expelliarmus/utils.py,sha256=esPPw7WchCXx-SFM1HnJfnSuHZnHnpYWl2S5ACV626Q,4623
+expelliarmus/wizard/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+expelliarmus/wizard/clib.py,sha256=Ib4xmiSYT0XXy5UL4ttVUGTNbXdFVwWbo9vdn1-C8L8,3872
+expelliarmus/wizard/wizard.py,sha256=uNfsoUapVixyWsRzo3qVf8_kbiQDkBgJ4VjCJ_vyHbc,9911
+expelliarmus/wizard/wizard_wrapper.py,sha256=B2ihiTB6qtJ-7nT5A4KQv2mp-OE5SpPSx4D7ZG4IPY0,3276
+expelliarmus-1.1.9.dist-info/LICENSE,sha256=gXf5dRMhNSbfLPYYTY_5hsZ1r7UU1OaKQEAQUhuIBkM,18092
+expelliarmus-1.1.9.dist-info/METADATA,sha256=aBO6yWJN6rM9bAchdoXhRO_4JgKW8KxbT1QAZMCU0f8,13312
+expelliarmus-1.1.9.dist-info/WHEEL,sha256=ye8A2lA8pjGNe7-ueOpggarJAhczq3EZGqnLZzzfQYQ,110
+expelliarmus-1.1.9.dist-info/top_level.txt,sha256=W5Ux57ruAY9nFWYnbEdY5DcbfRxxU1ESO8_d70M4Tg8,13
+expelliarmus-1.1.9.dist-info/RECORD,,
