@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/pybeyalgo.egg-info/PKG-INFO
+src/pybeyalgo.egg-info/SOURCES.txt
+src/pybeyalgo.egg-info/dependency_links.txt
+src/pybeyalgo.egg-info/top_level.txt
