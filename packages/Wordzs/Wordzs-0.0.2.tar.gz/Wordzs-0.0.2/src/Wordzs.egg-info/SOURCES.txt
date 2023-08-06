@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+src/Wordzs.egg-info/PKG-INFO
+src/Wordzs.egg-info/SOURCES.txt
+src/Wordzs.egg-info/dependency_links.txt
+src/Wordzs.egg-info/top_level.txt
+src/wordzs/__init__.py

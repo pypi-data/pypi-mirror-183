@@ -1,0 +1,14 @@
+Change Log
+==========
+
+0.0.1 (12/31/2022)
+-------------------
+
+- First Release
+
+
+0.0.2 (12/3/2022)
+-------------------
+
+- Added more words
+- Added Spanish Words
