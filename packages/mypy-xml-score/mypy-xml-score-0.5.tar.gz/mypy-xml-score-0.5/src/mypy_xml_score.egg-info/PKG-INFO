@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: mypy-xml-score
+Version: 0.5
+Summary: Simple python script to convert the output of mypy's xml into a score that anybadge can use.
+Home-page: https://gitlab.com/joel.larose/mypy-xml-score
+Author: Joël Larose
+Author-email: joel.larose@gmail.com
+Project-URL: Issue Tracker, https://gitlab.com/joel.larose/mypy-xml-score/-/issues
+Keywords: mypy,anybadge,score,xml,xslt
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+Provides-Extra: doc
+Provides-Extra: typecheck
+Provides-Extra: gitlab-typecheck
+Provides-Extra: lintcheck
+Provides-Extra: gitlab-lintcheck
+Provides-Extra: test
+Provides-Extra: gitlab-test
+Provides-Extra: all
+Provides-Extra: gitlab-all
+License-File: LICENCE.txt
+
+Mypy XML Score
+==============
+
+Simple python script to convert the output of mypy's xml into a score that
+anybadge can use.
+
+Usage
+-----
