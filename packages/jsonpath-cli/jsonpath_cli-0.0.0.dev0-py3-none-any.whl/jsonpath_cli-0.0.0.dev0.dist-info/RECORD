@@ -1,0 +1,10 @@
+jsonpath_cli/__init__.py,sha256=-wQA7vnO-PsS6xBZFgP-bG4eUwfH0Tz5MqPUqOZDGhU,35
+jsonpath_cli/_my_argument_parser.py,sha256=eKIghj3czbiJ3IqpNJ5fhaDxnANgO-XuAf3ZaiubQJY,1148
+jsonpath_cli/main.py,sha256=7wEfvA_Mk7JCB-gL8uC6zOiZdvRhcWFla792NvBTBDA,409
+jsonpath_cli-0.0.0.dev0.dist-info/LICENSE.md,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+jsonpath_cli-0.0.0.dev0.dist-info/METADATA,sha256=4hwZtiXT51doCBU6w_WT0SiGt5D3WgSlRXU3lmlunww,2877
+jsonpath_cli-0.0.0.dev0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+jsonpath_cli-0.0.0.dev0.dist-info/entry_points.txt,sha256=3gbrfW-3yO6RP5xKaEWlkXxWzWQkEvjeP5Og92sn5ZA,52
+jsonpath_cli-0.0.0.dev0.dist-info/top_level.txt,sha256=BrScF_oqqIpUi4-CGbRZmQ_ZD8_esKidZsf8DgiVnps,13
+jsonpath_cli-0.0.0.dev0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+jsonpath_cli-0.0.0.dev0.dist-info/RECORD,,
