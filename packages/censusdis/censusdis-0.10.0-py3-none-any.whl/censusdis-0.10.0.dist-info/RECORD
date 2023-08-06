@@ -1,0 +1,16 @@
+censusdis/__init__.py,sha256=94GVwCylD3RuddRtX7A6JoMiE7N17ZpW2ZDgB0B1nlg,83
+censusdis/data.py,sha256=JtCeZP0K3ydq0zgxUy25fL_JSTyAwW14rHgBF8KxYPY,28926
+censusdis/geography.py,sha256=FZnOFWivOKLjHteYSxH4JsnWlc42Prdsrdfh3NraCJY,9295
+censusdis/impl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+censusdis/impl/exceptions.py,sha256=OWOZDl1MHfv_Z0XKnP4VLmy_-8_XKUtvLMmT3Jp3Ujo,117
+censusdis/impl/fetch.py,sha256=YIZCmqyyQ43hqG4KyntXJ1qukFjlo29IAy2Kjngjo7U,1592
+censusdis/impl/varcache.py,sha256=0Y6hF4BVa5uvAISxL5RLd_6u744urX3epQZaQnEIQqE,18448
+censusdis/impl/varsource/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+censusdis/impl/varsource/base.py,sha256=iSv88RAFMQt7xoqBzoBRIg6RxxEknTrhjIuY3glG9Ok,6373
+censusdis/impl/varsource/censusapi.py,sha256=1GZcBwtXH4iv0AhZrapnx0dcbwTTrhysFN44kh9UeJc,4905
+censusdis/maps.py,sha256=oebejajm5TeCcFJ6RHi5PR5E8Tj7DNft8cBjw1Lvc7g,26895
+censusdis/states.py,sha256=r3QRuU_Ljz48FLYcVsJFUlds3EmOYK3K4bBOpduB03g,5752
+censusdis-0.10.0.dist-info/LICENSE.md,sha256=VA0iWYAhWcLax9SInoLFewA1TKaBH7AT0k1BNBJuDv8,19938
+censusdis-0.10.0.dist-info/WHEEL,sha256=bbU3AyvhQ312rVm7zzRQjs6axI1UYWC3nmFA2E6FFSI,88
+censusdis-0.10.0.dist-info/METADATA,sha256=nqMHhfDrcIPFU3WIiIjrM1OTJUFUINlwqkac6bEn_uo,11839
+censusdis-0.10.0.dist-info/RECORD,,
