@@ -1,0 +1,9 @@
+{
+  "docs/conf.py": true,
+  "docs/_extensions/clean_autoapi.py": true,
+  "docs/_extensions/program_include.py": true,
+  "docs/_extensions/rebuild_when.py": true,
+  "docs/_extensions/static_refresh.py": true,
+  "examples/music_digitized.py": true,
+  "examples/music_megalovania.py": true
+}

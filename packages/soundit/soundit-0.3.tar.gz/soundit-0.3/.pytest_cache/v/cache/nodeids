@@ -1,0 +1,7 @@
+[
+  "src/soundit.py::soundit._HeapQueue",
+  "src/soundit.py::soundit._IteratorPool",
+  "src/soundit.py::soundit.equal_chunk_stream",
+  "src/soundit.py::soundit.peek",
+  "src/soundit.py::soundit.split_music"
+]
