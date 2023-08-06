@@ -1,0 +1,10 @@
+tgradish/__main__.py,sha256=ZXSMQpE0S2Nxp62yUS-7kN3FDkeu_0gQaR0-raFZ9Gs,3881
+tgradish/config_model.py,sha256=OqcHi4I8Srt7kTeBYI1rv5u5nVBFFjcfN5zgKjSFzB0,7307
+tgradish/converter.py,sha256=tKocEomGj3lr1yEljFUkeNI22u-e_EOqWtWWHntDuGc,5293
+tgradish/default_config.toml,sha256=YI0oo-RdUGtyZtA3eK2LOQuJnVZfuK12zlj5bLGO6Kg,3769
+tgradish/spoofer.py,sha256=EI8vgSOqfghWe3n0Mgx2IPyNT-K1ZtsmR302ePmDwOU,2436
+tgradish-1.0.0.dist-info/LICENSE.txt,sha256=5woau-yBG5I_3jfYYqQLpUmO4Idb9fGbmvqpqlX7KhE,1082
+tgradish-1.0.0.dist-info/METADATA,sha256=ONv1O6HPLVwAe85yMNHaydQuSOgsP3XShWV62Xu_vc4,1351
+tgradish-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tgradish-1.0.0.dist-info/top_level.txt,sha256=B5-M98i5OPelkwhn9cwOzrr8W8Kzt8V_MEoLEi-buvg,9
+tgradish-1.0.0.dist-info/RECORD,,
