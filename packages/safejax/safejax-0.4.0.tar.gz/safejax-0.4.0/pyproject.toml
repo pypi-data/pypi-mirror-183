@@ -1,0 +1,131 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+authors = [{name = "Alvaro Bartolome", email = "alvarobartt@yahoo.com"}]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "jaxlib~=0.3.25",
+  "jax~=0.3.25",
+  "objax~=1.6.0",
+  "flax~=0.6.2",
+  "dm-haiku~=0.0.9",
+  "safetensors~=0.2.5",
+]
+description = "Serialize JAX, Flax, Haiku, or Objax model params with `safetensors`"
+dynamic = ["version"]
+keywords = []
+license = "MIT"
+name = "safejax"
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.urls]
+Documentation = "https://alvarobartt.github.io/safejax"
+Issues = "https://github.com/alvarobartt/safejax/issues"
+Source = "https://github.com/alvarobartt/safejax"
+
+[tool.hatch.version]
+path = "src/safejax/__init__.py"
+
+[project.optional-dependencies]
+docs = [
+  "mkdocs~=1.4.0",
+  "mkdocs-material~=8.5.4",
+  "mkdocs-git-revision-date-localized-plugin~=1.1.0",
+  "mkdocstrings[python]~=0.19.0",
+]
+quality = [
+  "black~=22.10.0",
+  "ruff~=0.0.194",
+  "pip-tools~=6.12.0",
+  "pre-commit~=2.20.0",
+]
+tests = [
+  "pytest~=7.1.2",
+  "pytest-lazy-fixture~=0.6.3",
+  "flaxmodels~=0.1.2",
+]
+
+[tool.hatch.envs.quality]
+features = [
+  "quality",
+]
+
+[tool.hatch.envs.quality.scripts]
+check = [
+  "ruff src tests benchmarks examples",
+  "black --check --diff --preview src tests benchmarks examples",
+]
+format = [
+  "ruff --fix src tests benchmarks examples",
+  "black --preview src tests benchmarks examples",
+  "check",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+ignore = [
+  "E501", # line too long, handled by black
+  "B008", # do not perform function calls in argument defaults
+  "C901", # too complex
+]
+select = [
+  "E", # pycodestyle errors
+  "W", # pycodestyle warnings
+  "F", # pyflakes
+  "I", # isort
+  "C", # flake8-comprehensions
+  "B", # flake8-bugbear
+]
+
+[tool.ruff.isort]
+known-first-party = ["safejax"]
+
+[tool.hatch.envs.test]
+features = [
+  "tests",
+]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest -s --durations 0 --disable-warnings"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310"]
+
+[tool.hatch.envs.docs]
+features = [
+  "docs",
+]
+
+[tool.hatch.envs.docs.scripts]
+build = [
+  "mkdocs build",
+]
+serve = [
+  "mkdocs serve",
+]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+  "/.pre-commit-config.yaml",
+  "/.gitignore",
+  "/tests",
+]
