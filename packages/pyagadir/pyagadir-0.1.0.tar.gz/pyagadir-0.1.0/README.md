@@ -1,0 +1,87 @@
+# Alpha-helix probability model (AGADIR)
+
+An open-source, Python implementation of Munoz & Serrano's AGADIR model of alpha-helix formation. This model uses statistical mechanics and energy parameters trained on a database of over 400 peptides to predict the alpha-helical tendency (probability) per residue for a given peptide (see references).
+
+## Install
+
+This package has been uploaded to the Python Package Index (PyPI) and can be installed with:
+```
+pip install pyagadir
+```
+
+## Usage
+
+The most simple way to use this package is to import and invoke `predict_alphahelix` where `helical_propensity` is the probability that each residue is the alpha-helical conformation (list of floats) and `result.percent_helix` is the mean helical propensity (probability) for the full peptide (float):
+```
+from pyagadir import predict_alphahelix
+result = predict_alphahelix('ILKSLEEFLKVTLRSTRQT')
+print(result.helical_propensity)
+print(result.percent_helix)
+```
+
+Advanced users may want to modify the partition function to an alternate approximation (e.g. residue, `'r'`) or inspect the detailed dG predicted values. The model class `AGADIR` can be directly imported and invoked. The result object is an instance of `ModelResult` (found in `pyagadir.models`) with more detailed free energy values saved during calculation (stored values are listed below).
+```
+from pyagadir.models import AGADIR
+
+# create model object with an alternative partition function
+# assumption, in this case, the multiple-sequence approximation
+model = AGADIR(method='r')
+result = model.predict('ILKSLEEFLKVTLRSTRQT')
+print(result.percent_helix)
+print(result.helical_propensity)
+
+# Inspect the intrinsic helical propensities for each residue (dG_Int, kcal/mol)
+print(result.self.int_array)
+```
+
+## Stored Data in ModelResult
+
+```
+    > seq       :: peptide sequence (str)
+
+    # for each residue/index position
+    > int_array :: dG_Int   (np.array of shape(seq,1))
+    > i1_array  :: dG_i,i+1 (np.array of shape(seq,1))
+    > i3_array  :: dG_i,i+3 (np.array of shape(seq,1))
+    > i4_array  :: dG_i,i+4 (np.array of shape(seq,1))
+    > N_array   :: dG_Ncap  (np.array of shape(seq,1))
+    > C_array   :: dG_Ccap  (np.array of shape(seq,1))
+
+    > dG_dict_mat :: dG_dict's in list of lists where indexing corresponds to [j][i] (see Muñoz, V., & Serrano, L. (1994)); dG_dict includes each term used in computing dG_Helix for a given helical segment of length j at position i (Python indexing).
+
+    # statistical weights and partition functions
+    > K_tot       :: sum of statistical weights for AGADIR1s (one-sequence) (float)
+    > K_tot_array :: array of summed statistical weights for AGADIR (residue) (np.array of shape(seq,1))
+    > Z           :: residue parition function for AGADIR1s (one-sequence) (float)
+    > Z_array     :: residue parition function for AGADIR (residue) (np.array of shape(seq,1))
+
+    # final predicted values
+    > helical_propensity :: probability that each residue is in the alpha-helical conformation (np.array of shape(seq,1))
+    > percent_helix      :: mean helical propensity, or probability of peptide is an alpha-helix (float)
+```
+
+## To Do
+
+* Implement multiple-sequence approximation (Munoz, V., & Serrano, L. (1997))
+* Cythonize the model
+* pytests
+
+## For developers
+
+Build package with build (see https://github.com/pypa/build)
+```
+python -m build
+```
+
+## Citations
+
+Muñoz, V., & Serrano, L. (1994). Elucidating the folding problem of helical peptides using empirical parameters. Nature structural biology, 1(6), 399-409. https://doi.org/10.1038/nsb0694-399
+
+Munoz, V., & Serrano, L. (1995). Elucidating the folding problem of helical peptides using empirical parameters. II†. Helix macrodipole effects and rational modification of the helical content of natural peptides. Journal of molecular biology, 245(3), 275-296. https://doi.org/10.1006/jmbi.1994.0023
+
+Muñoz, V., & Serrano, L. (1995). Elucidating the Folding Problem of Helical Peptides using Empirical Parameters. III> Temperature and pH Dependence. Journal of molecular biology, 245(3), 297-308. https://doi.org/10.1006/jmbi.1994.0024
+
+Lacroix, E., Viguera, A. R., & Serrano, L. (1998). Elucidating the folding problem of α-helices: local motifs, long-range electrostatics, ionic-strength dependence and prediction of NMR parameters. Journal of molecular biology, 284(1), 173-191. https://doi.org/10.1006/jmbi.1998.2145
+
+Munoz, V., & Serrano, L. (1997). Development of the multiple sequence approximation within the AGADIR model of α‐helix formation: Comparison with Zimm‐Bragg and Lifson‐Roig formalisms. Biopolymers: Original Research on Biomolecules, 41(5), 495-509. https://doi.org/10.1002/(SICI)1097-0282(19970415)41:5<495::AID-BIP2>3.0.CO;2-H
+
