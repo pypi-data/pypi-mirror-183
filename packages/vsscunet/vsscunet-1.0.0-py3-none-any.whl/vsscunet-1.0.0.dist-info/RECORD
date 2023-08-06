@@ -1,0 +1,12 @@
+vsscunet/__init__.py,sha256=QKiXqBh2jWAHrEMnlCfQYEuhBo65fdV2L4PT9v3_LFM,10493
+vsscunet/__main__.py,sha256=fgdp33kf9FP7JaGpN09-4R-q7xOMHNyhZdhTniMFK7Q,991
+vsscunet/network_scunet.py,sha256=SyikAVmIxjcXudmRFZ2jJ5XFvNA8tn0aiwRBlm81YDc,10958
+vsscunet/scunet_color_15.pth,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vsscunet/scunet_color_25.pth,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vsscunet/scunet_color_50.pth,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vsscunet/scunet_color_real_gan.pth,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vsscunet/scunet_color_real_psnr.pth,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vsscunet-1.0.0.dist-info/METADATA,sha256=GpA4DH7ZMw5GOX92xOcF1QgsmuOdkIznGlyc1YMpZEE,14182
+vsscunet-1.0.0.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+vsscunet-1.0.0.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+vsscunet-1.0.0.dist-info/RECORD,,
