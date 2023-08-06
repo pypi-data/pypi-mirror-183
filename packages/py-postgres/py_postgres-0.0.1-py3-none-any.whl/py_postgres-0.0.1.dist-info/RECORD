@@ -1,0 +1,8 @@
+py_postgres/PyPostgres.py,sha256=XdgVFRmY1NqXDGpzXbUblBZJl-XTY_fTITB7OkncMqE,2815
+py_postgres/QueryFactory.py,sha256=-GJammY5QC_fk1N2CN8muIDfYQbVK-tqmEpfpB4gVkE,4092
+py_postgres/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+py_postgres-0.0.1.dist-info/LICENSE,sha256=XnHljuY-cobBOWb4JXknlRJA0eQxkZBVczP1dn8_aSA,1088
+py_postgres-0.0.1.dist-info/METADATA,sha256=FB3Eiiec7YEDeDhx0vulWY7VU-HiuC_6uCESImlDvhA,604
+py_postgres-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+py_postgres-0.0.1.dist-info/top_level.txt,sha256=bA1GnE6a3re8xemStGmlzEzPFK_2XLhMGK8vs_ltAqA,12
+py_postgres-0.0.1.dist-info/RECORD,,
