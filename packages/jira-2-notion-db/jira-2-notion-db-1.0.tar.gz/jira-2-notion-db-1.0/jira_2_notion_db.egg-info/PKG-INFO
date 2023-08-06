@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: jira-2-notion-db
+Version: 1.0
+Summary: Jira to Notion-database Migration Tool
+Home-page: https://github.com/minwook-shin/jira-2-notion-db
+Author: minwook-shin
+Author-email: minwook0106@gmail.com
+Project-URL: Bug Tracker, https://github.com/minwook-shin/jira-2-notion-db/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Jira 2 Notion DB
+
+## Installation
+
+```shell
+pip install jira-2-notion-db
+```
+
+## Configuration
+
+* Jira login token
+* Notion integration token
+
+
+## Usage
+
+* arguments:
+  * --url URL
+    * Jira url ex) https://your.atlassian.net
+  * --username
+    * Jira username
+  * --password
+    * Jira api token (Not Password)
+  * --project
+    * Jira project name
+  * --notion
+    * Notion integration bot token
+  * --delay
+    * Notion update delay
+
+## Open source license
+[LICENSE](LICENSE)
+
+## Related projects
+
+* https://github.com/minwook-shin/notion-database
