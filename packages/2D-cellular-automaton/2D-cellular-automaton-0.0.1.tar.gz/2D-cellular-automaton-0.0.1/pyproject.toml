@@ -1,0 +1,27 @@
+[project]
+name = "2D-cellular-automaton"
+version = "0.0.1"
+description = "A package to visualize elementary 2D cellular automata with multiple starting indicies"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE.txt"}
+keywords = ["Cellular Automata", "Cellular Automaton"]
+authors = [
+  { name="Muhammad Mir", email="mmir@drew.edu" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "bitarray>=2.6.1",
+  "Pillow"
+]
+
+[project.urls]
+repository = "https://github.com/muhammadmir/2D-cellular-automaton"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

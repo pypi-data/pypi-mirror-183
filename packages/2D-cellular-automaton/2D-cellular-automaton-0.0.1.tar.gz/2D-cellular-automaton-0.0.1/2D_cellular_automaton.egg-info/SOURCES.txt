@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+pyproject.toml
+2D_cellular_automaton.egg-info/PKG-INFO
+2D_cellular_automaton.egg-info/SOURCES.txt
+2D_cellular_automaton.egg-info/dependency_links.txt
+2D_cellular_automaton.egg-info/requires.txt
+2D_cellular_automaton.egg-info/top_level.txt
+CellularAutomaton/__init__.py
+CellularAutomaton/automaton.py
+CellularAutomaton/main.py
+CellularAutomaton/visualize.py
