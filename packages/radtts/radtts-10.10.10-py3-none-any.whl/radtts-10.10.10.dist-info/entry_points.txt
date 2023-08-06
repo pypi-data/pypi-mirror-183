@@ -1,0 +1,3 @@
+[console_scripts]
+radtts=radtts.main:main
+
