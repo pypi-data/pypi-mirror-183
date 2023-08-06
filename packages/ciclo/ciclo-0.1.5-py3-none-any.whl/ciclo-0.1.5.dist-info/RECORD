@@ -1,0 +1,14 @@
+ciclo/__init__.py,sha256=jsMLk2GSmE0iJLL_ITAh81uQQc_eJi8DseBlrENlLCo,583
+ciclo/callbacks.py,sha256=hXKXkBKKJWEq-5kcistT6cf9lDXir5sTcDpLpF2BeI0,16666
+ciclo/logging.py,sha256=Afwjs0gNIui_JwvLkvBe64HMR4VFCrOiGP4ohjMRIos,7211
+ciclo/loops.py,sha256=lluAKXwIWwoJUbiCRpSFOvYm8sH2zf94VTY7EmMUz9g,6843
+ciclo/managed.py,sha256=2Fmt9uQAn9c7cv7UF25LFDEqfFdUkkpPcT9GfgrP80w,8173
+ciclo/schedules.py,sha256=GKDQ1Bdwm500IPOJVllvl92gs1MPebeP7frVV-nf_-0,2183
+ciclo/strategies.py,sha256=-QLwMkDWLtKxzUfdaO8k3JeFC1GxGJdyRK0YcWqmt8I,6800
+ciclo/timetracking.py,sha256=DK8gxrqXcp5PxDvHVjrjZC1pYTkpffB3A0qlAev7m4E,3740
+ciclo/types.py,sha256=DOTrGij2FCytMK8Uc55EaY3UJEU3Kf0v60w-Op40oxs,509
+ciclo/utils.py,sha256=eH5o3bamTNjsn_obC2wuWYx4mcX6iXHprXC0qgy2Ikw,2048
+ciclo-0.1.5.dist-info/LICENSE,sha256=--EQoRtAT9cNvgf_Ip4hE_FQ8EDeIL05TKYYG4HEzxw,1072
+ciclo-0.1.5.dist-info/WHEEL,sha256=gSF7fibx4crkLz_A-IKR6kcuq0jJ64KNCkG8_bcaEao,88
+ciclo-0.1.5.dist-info/METADATA,sha256=izEV2zIEHLwUP7Rcl0eNp43TLde3DVuCYTg3J2VmoUg,592
+ciclo-0.1.5.dist-info/RECORD,,
