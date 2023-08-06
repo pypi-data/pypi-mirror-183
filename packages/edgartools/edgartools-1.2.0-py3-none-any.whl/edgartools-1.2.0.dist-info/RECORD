@@ -1,0 +1,11 @@
+edgar/__about__.py,sha256=RT4GSyo_ajasjlYMuanQ2aG8UZykRjiWAjAvL2Labm8,134
+edgar/__init__.py,sha256=ycDZQMGgMeFRsL61ANeEp_5jrOwvClOT9OoSp7pkAfw,710
+edgar/company.py,sha256=Qyu8u5ZHwHb_5gLQiDB_Fko8YmuhFayTb7bmDOVSyLw,15242
+edgar/core.py,sha256=VfQ5DIlOfTToiAlBPaqtkqgcgSskK1mY1ZlkAShX79M,7225
+edgar/filing.py,sha256=3HQ-nUHVfxJsORiWZre2DTP8TMsCW65iDp695laHiJE,18539
+edgar/xbrl.py,sha256=IE8imIZzqbSRPeANFpUboivgBarn3iKlqJ6cXeaI3j8,5399
+edgar/xml.py,sha256=Nvhp9-zEHTXGzt2LMXew95YlNec0iQ6ldtPmwgF1Rqc,654
+edgartools-1.2.0.dist-info/METADATA,sha256=83MN0somGbQVNv-w5QNvxdwguA9bcv-K0CARQLS3iEs,16446
+edgartools-1.2.0.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+edgartools-1.2.0.dist-info/licenses/LICENSE.txt,sha256=3JK5gy0HugTKZ1lhd-QvDaaUvXCWgHqyEAor2UuECiE,1109
+edgartools-1.2.0.dist-info/RECORD,,
