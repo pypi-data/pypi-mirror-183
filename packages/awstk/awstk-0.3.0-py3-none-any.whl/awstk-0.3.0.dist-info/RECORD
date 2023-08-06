@@ -1,0 +1,13 @@
+awstk/__init__.py,sha256=n65CRtAOi2gyG1WA2TPq6DITc4e5_lnVO0csIcAWa6c,447
+awstk/__main__.py,sha256=ZJqQZeHGi8KSpT77dc8_42U0Hh79M1RivxH7sPtk4no,581
+awstk/closest_match.py,sha256=ckhIbli0lUcUiiBoxqDzWatHzYRpVAs7fJVr5ApvHmY,1950
+awstk/cloudformation.py,sha256=CHjfKVr6HFROjHbA4thLjHhWdKXZUWn7x5AyHI8icXo,5638
+awstk/cloudwatch.py,sha256=GXKJvDSQ1O-dTsY5SDn9kKPR2cl-5U4UN27hU5dDV60,4153
+awstk/dashboard.py,sha256=EghO9K8mydZ1e_I5CyxE8P_ptv-PRiSQOXKpLakBulw,1821
+awstk/db.py,sha256=N_aCij-dESDjn6CN9ox-HJ_-8eDQ5WkBIUMbgGKpxh8,279
+awstk/secretsmanager.py,sha256=TNUmMI05gasIlAX4PVzuX1st4N3mg8_fZY4o56SvsVs,2818
+awstk-0.3.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+awstk-0.3.0.dist-info/METADATA,sha256=or-yNOsEJwSci3nNRVO7z1p_usJE-8aRjwiUxFnxXrE,13947
+awstk-0.3.0.dist-info/entry_points.txt,sha256=rKRsEzuiRsfTyTqURZ3YbTTYj1fh3Lpr0fz6Esx-eIs,44
+awstk-0.3.0.dist-info/LICENSE,sha256=D3pCmVDxeVTs05lFe_fmGAUeRuBsh9LE2_4Tv_o-PEk,10883
+awstk-0.3.0.dist-info/RECORD,,
