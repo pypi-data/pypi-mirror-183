@@ -1,0 +1,9 @@
+melpoi/dataframe/__init__.py,sha256=WbOn8k3f_ysrQ00ODSNCG4Z7Z1iS-Np51mR5zpi3Zes,56
+melpoi/dataframe/analyzer.py,sha256=8Sb5BClrXPt1oL8Fh08qp84h5x16zS3WfzYJMi34qMM,4493
+melpoi/dataframe/metadata.py,sha256=OwenQnXVkUpaMJBm5y0xQWMPDe75wmjw5oyl5gGWS4U,479
+melpoi/sql/__init__.py,sha256=iVT25z9KqdnHbck5fUYQnMBSJvgEFykOMgBRMmktTNY,44
+melpoi/sql/analyzer.py,sha256=sBZlOsrFoIktWt5cULQv94e5iMJmN1zuQwcBX1WZnHk,6457
+melpoi-0.2.0.dist-info/METADATA,sha256=iEjfeZVNKTHNzBKbrHjTR6mA5MdJrK8mJTWy-3uhv4k,1064
+melpoi-0.2.0.dist-info/LICENSE,sha256=Ht1Qk4OOc2hs0mF7fEjDowHJBpj1SWXLaIDVeQijdIc,1067
+melpoi-0.2.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+melpoi-0.2.0.dist-info/RECORD,,
