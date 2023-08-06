@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: subprocess_mem_only
+Version: 0.10
+Summary: Pass a variable as a SpooledTemporaryFile directly to subprocess.
+Home-page: https://github.com/hansalemaos/subprocess_mem_only
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: subprocess,SpooledTemporaryFile
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Pass a variable as a SpooledTemporaryFile directly to subprocess.
+
+```python
+$pip install subprocess-mem-only
+from subprocess_mem_only import subprocess_with_spooledtempfile
+
+var_as_binary= b'Hi there, how are you?\nYou are my best friend'
+
+resi = subprocess_with_spooledtempfile(
+    command=["grep", r"\bmy\b"], content=var_as_binary
+)
+print(resi)
+CompletedProcess(args=['grep', '\\bmy\\b'], returncode=0, stdout=b'You are my best friend\n', stderr=b'')
+
+```
+
+

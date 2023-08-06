@@ -1,0 +1,4 @@
+include subprocess_mem_only/requirements.txt
+include subprocess_mem_only/thirdparty.json
+include subprocess_mem_only/README.MD
+include subprocess_mem_only/LICENSE
