@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+setup.py
+go_cqhttpsdk/__init__.py
+go_cqhttpsdk/client.py
+go_cqhttpsdk/cq.py
+go_cqhttpsdk/go_cqhttpsdk.py
+go_cqhttpsdk/go_cqhttpserver.py
+go_cqhttpsdk.egg-info/PKG-INFO
+go_cqhttpsdk.egg-info/SOURCES.txt
+go_cqhttpsdk.egg-info/dependency_links.txt
+go_cqhttpsdk.egg-info/top_level.txt
