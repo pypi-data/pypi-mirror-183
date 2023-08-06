@@ -1,0 +1,3 @@
+[console_scripts]
+findout=findout.findout:main
+
