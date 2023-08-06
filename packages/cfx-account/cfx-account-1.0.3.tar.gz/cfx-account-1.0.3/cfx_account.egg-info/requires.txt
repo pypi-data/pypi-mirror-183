@@ -1,0 +1,15 @@
+eth-account>=0.5.9
+cfx-address>=1.0.0
+cfx-utils>=1.0.0
+
+[dev]
+pytest<7,>=6.2.5
+wheel
+conflux-web3>=1.0.0
+
+[docs]
+
+[linter]
+
+[tester]
+pytest<7,>=6.2.5
