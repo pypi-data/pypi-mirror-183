@@ -1,0 +1,53 @@
+[project]
+name = "pydantify"
+version = "0.5.0"
+description = "Makes network automation pydantic."
+authors = [
+    { name = "Dominic Walther", email = "dominic.walther@ost.ch" },
+    { name = "Dejan Jovicic", email = "dejan.jovicic@ost.ch" },
+]
+dependencies = [
+    "pydantic>=1.10.2",
+    "pyang>=2.5.3",
+    "psutil>=5.9.4",
+    "datamodel-code-generator>=0.14.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+pydantify = "pydantify.main:main"
+
+[project.urls]
+Repository = "https://gitlab.ost.ch/pydantic-sa/pydantify"
+
+[project.optional-dependencies]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "autopep8>=1.7.0",
+    "black>=22.10.0",
+    "pylint>=2.15.5",
+    "pytest>=7.2.0",
+    "coverage>=6.5.0",
+]
+
+[tool.pdm.scripts]
+class_diagram = "pyreverse -o plantuml -d graphs --project pydantify --colorized pydantify"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "[%(levelname)8s] (%(filename)s:%(lineno)s): %(message)s "
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[build-system]
+requires = [
+    "pdm-pep517>=0.12.0",
+]
+build-backend = "pdm.pep517.api"
