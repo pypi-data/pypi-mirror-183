@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: xlsxopera
+Version: 1.0
+Summary: Work on xlsx file.
+Home-page: https://github.com/voidayan/xlsxopera
+Author: voidayan
+Author-email: jan.emil.wojda@gmail.com
+License: UNKNOWN
+Keywords: python,xlsx,xls,excel,microsoft excel,cell
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openpyxl
+
+Convert to list, dict. Get headers, cell values, cell info, positions and more.
+
