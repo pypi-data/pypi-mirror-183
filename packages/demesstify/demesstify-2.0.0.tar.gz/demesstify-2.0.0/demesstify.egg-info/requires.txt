@@ -1,0 +1,7 @@
+pandas
+matplotlib
+wordcloud
+emoji
+lorem
+vaderSentiment
+calmap
