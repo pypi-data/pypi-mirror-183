@@ -1,0 +1,4 @@
+include a_cv2_calculate_difference/requirements.txt
+include a_cv2_calculate_difference/thirdparty.json
+include a_cv2_calculate_difference/README.MD
+include a_cv2_calculate_difference/LICENSE

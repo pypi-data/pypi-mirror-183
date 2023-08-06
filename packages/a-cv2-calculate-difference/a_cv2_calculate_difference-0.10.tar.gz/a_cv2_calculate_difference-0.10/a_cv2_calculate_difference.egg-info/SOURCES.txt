@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_cv2_calculate_difference/LICENSE
+a_cv2_calculate_difference/README.MD
+a_cv2_calculate_difference/__init__.py
+a_cv2_calculate_difference/requirements.txt
+a_cv2_calculate_difference/thirdparty.json
+a_cv2_calculate_difference.egg-info/PKG-INFO
+a_cv2_calculate_difference.egg-info/SOURCES.txt
+a_cv2_calculate_difference.egg-info/dependency_links.txt
+a_cv2_calculate_difference.egg-info/requires.txt
+a_cv2_calculate_difference.egg-info/top_level.txt
