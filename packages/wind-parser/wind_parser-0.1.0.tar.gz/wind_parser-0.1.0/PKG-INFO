@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wind-parser
+Version: 0.1.0
+Summary: Python Wind Parser is a parser used to retrieve and manipulate arguments for command line interfaces
+License: Apache-2.0
+Author: Anthony Rafidison
+Author-email: benjaraf006@gmail.com
+Requires-Python: >=3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# wind-parser
+Python wind parser is a parser used to retrieve and manipulate arguments for command line interfaces
+
