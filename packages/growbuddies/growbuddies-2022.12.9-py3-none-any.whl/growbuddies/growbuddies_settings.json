@@ -1,0 +1,28 @@
+{
+    "hostname": "gus",
+    "log_level": "DEBUG",
+    "db_name": "gus",
+    "dripbuddy_table_name": "dripbuddy_calibration",
+    "snifferbuddy_table_name": "snifferbuddy_readings",
+    "snifferbuddy_mqtt_dict": {"tele/snifferbuddy/SENSOR": "on_snifferbuddy_readings",
+                          "tele/snifferbuddy/LWT": "on_snifferbuddy_status"},
+    "dripbuddy_mqtt_dict": {"tele/dripbuddy/SENSOR": "on_dripbuddy_readings",
+                       "tele/dripbuddy/LWT": "on_dripbuddy_status"},
+    "calibrate_mqtt_dict": {"calibrate": "on_calibrate_readings"},
+    "mistbuddy_mqtt_dict": {"cmnd/mistbuddy_fan/POWER": null,
+                            "cmnd/mistbuddy_mister/POWER": null},
+    "vpd_growth_stage": "veg",
+    "vpd_setpoints": {
+        "veg": 0.9,
+        "flower": 1.0
+    },
+
+    "PID_settings": {
+        "Kp": 100,
+        "Ki": 1.5,
+        "Kd": 0.4,
+        "output_limits": [0, 20],
+        "integral_limits":[0, 7],
+        "tolerance": 0.01
+    }
+}
