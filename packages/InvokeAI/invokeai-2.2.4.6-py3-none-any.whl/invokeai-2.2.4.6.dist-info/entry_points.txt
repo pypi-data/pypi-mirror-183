@@ -1,0 +1,4 @@
+[console_scripts]
+configure_invokeai = scripts.configure_invokeai:main
+create_root = scripts.create_root:main
+invokeai = scripts.invoke:main
