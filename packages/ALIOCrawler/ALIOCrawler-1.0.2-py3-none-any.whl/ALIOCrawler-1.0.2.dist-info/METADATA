@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: ALIOCrawler
+Version: 1.0.2
+Summary: ::A simple tool to extract job info. from ALIO website::
+Home-page: https://pypi.org/project/ALIOCrawler/
+Author: wjgoarxiv
+Author-email: woo_go@yahoo.com
+License: MIT
+Requires-Python: >=3.8
+Requires-Dist: selenium
+Requires-Dist: beautifulsoup4
+Requires-Dist: html5lib
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: argparse
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: chromedriver-autoinstaller
+Requires-Dist: pyfiglet
+
+This is the first upload...
