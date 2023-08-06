@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mat_rajagopal"
+version = "0.0.3"
+authors = [
+  { name="Rajagopal", email="mugundhanrajagopal005@gmail.com" },
+]
+description = "it has a wide operation of matrix like addition , subtraction , multiplication , division.we can use it for,a matrix satisfy the properties and determinant is also available."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
