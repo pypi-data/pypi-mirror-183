@@ -1,0 +1,22 @@
+"@context":
+  table: https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/
+
+  table:class:
+    "@type": "@id"
+
+  table:rows:
+    "@type": "@id"
+
+  table:columns:
+    "@type": "@id"
+    "@container": "@list"
+
+  table:order-by:
+    "@type": "@id"
+    "@container": "@list"
+
+  table:asc:
+    "@type": "@id"
+
+  table:desc:
+    "@type": "@id"
