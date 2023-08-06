@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+commands/__init__.py
+commands/demo.py
+libs/__init__.py
+typy_module_commands.egg-info/PKG-INFO
+typy_module_commands.egg-info/SOURCES.txt
+typy_module_commands.egg-info/dependency_links.txt
+typy_module_commands.egg-info/top_level.txt

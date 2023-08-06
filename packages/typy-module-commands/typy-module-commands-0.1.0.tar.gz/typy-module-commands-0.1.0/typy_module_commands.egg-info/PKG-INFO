@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: typy-module-commands
+Version: 0.1.0
+Summary: 快速构建命令行功能
+Home-page: https://gitee.com/tpyp/tpyp-module-commands
+Author: 唐茄茄
+Author-email: 584231366@qq.com
+License: MIT Licence
+Keywords: 命令行,commands
+Platform: any
+License-File: LICENSE
+
+快速构建命令行功能
