@@ -1,0 +1,10 @@
+setup.py
+ahmadzahoor_distributions/Binomialdistribution.py
+ahmadzahoor_distributions/Gaussiandistribution.py
+ahmadzahoor_distributions/Generaldistribution.py
+ahmadzahoor_distributions/__init__.py
+ahmadzahoor_distributions.egg-info/PKG-INFO
+ahmadzahoor_distributions.egg-info/SOURCES.txt
+ahmadzahoor_distributions.egg-info/dependency_links.txt
+ahmadzahoor_distributions.egg-info/not-zip-safe
+ahmadzahoor_distributions.egg-info/top_level.txt
