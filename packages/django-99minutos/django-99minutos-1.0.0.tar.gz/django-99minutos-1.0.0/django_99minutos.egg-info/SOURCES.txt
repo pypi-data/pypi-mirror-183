@@ -1,0 +1,10 @@
+README.rst
+setup.py
+XCIXminutos/connector.py
+XCIXminutos/handler.py
+XCIXminutos/settings.py
+django_99minutos.egg-info/PKG-INFO
+django_99minutos.egg-info/SOURCES.txt
+django_99minutos.egg-info/dependency_links.txt
+django_99minutos.egg-info/requires.txt
+django_99minutos.egg-info/top_level.txt
