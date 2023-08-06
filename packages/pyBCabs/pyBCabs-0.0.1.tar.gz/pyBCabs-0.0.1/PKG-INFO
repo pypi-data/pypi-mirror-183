@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pyBCabs
+Version: 0.0.1
+Summary: Outputs shape information for fractal aggregates based on mass, mixing state, and mass absorption cross-section.
+Home-page: https://github.com/beelerpayton/pyBCabs
+Author: Payton Beeler
+Author-email: beelerpayton@wustl.edu
+Keywords: fractal absorption morphology
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6, <4
+License-File: LICENSE.md
+
+ - See `documentation <http://pyBCabs.readthedocs.io/>`_ for update notes.
