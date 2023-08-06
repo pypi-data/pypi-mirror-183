@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: jsf
+Version: 0.5.1
+Summary: Creates fake JSON files from a JSON schema
+Home-page: https://github.com/ghandic/jsf
+Author: ghandic
+Keywords: JSON Schema,Fake data,Test data,Schema,JSON,Faker,Hypothesis,Rapid Prototype,Data contract
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7

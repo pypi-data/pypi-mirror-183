@@ -1,0 +1,6 @@
+faker
+jsonschema
+pydantic
+rstr
+smart_open
+typer
