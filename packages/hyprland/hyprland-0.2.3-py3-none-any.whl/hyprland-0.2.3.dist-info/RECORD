@@ -1,0 +1,16 @@
+hyprland/__init__.py,sha256=JUkjC_EMb8SeBDijbCaAZFRbboJTymrospEor0Lx9a0,119
+hyprland/binds.py,sha256=TAjPp40RyQtjn0AkFjxaBIS7Fe7ehHXaOv1R_JbfaKY,617
+hyprland/config.py,sha256=NbxZwyLyH-fGOnD706g6hMFyYlIg_kUSOlSHiVCIneI,852
+hyprland/dispatch.py,sha256=7ejhrFDUO6rZMaZbD_4XjnUXT6hepxl6BgzrBLSNYdM,4199
+hyprland/event.py,sha256=WyaTLAv5NOc8xwPkFEvxU4w1Ad1RNJ3tJf7BAo2bJnU,1619
+hyprland/info.py,sha256=SZjDQJ3jB39VRW6rn6kmm6z9VGn5C17RbtUUoBawxU0,1051
+hyprland/settings.py,sha256=Gtk70fsr1Yqkei6DUYlYmq0YSmv9t4NveYj7l7jwzpE,28513
+hyprland/sockets.py,sha256=tLOvia7DCuiATItq88CO_H4Fh0vVMjGDLUG1-A24UKY,4379
+hyprland/window.py,sha256=B-ZiBRcCKwVDwvK2GtNgtIHuwrBwdi6PQZ7OlUAIfwM,150
+hyprland/workspace.py,sha256=VSGmoJ-6IKQlJeOUgHJSw1hNWF0YoxNb2x5qFeKckdY,24
+hyprland/util/scraper.py,sha256=4RIeqjBUyyxiXzzmkf_vthAve6GDcDh4edA8HGHwij0,2838
+hyprland-0.2.3.dist-info/LICENCE,sha256=d8n4zEs7onmZDrKPEVAQ8z83HaO7kQztn6Fich92K1Y,1075
+hyprland-0.2.3.dist-info/METADATA,sha256=22jt7xZhBPhOjj2FbzaHwfjte2pfCMBzKaB9LZG3PwM,2626
+hyprland-0.2.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hyprland-0.2.3.dist-info/top_level.txt,sha256=IjPbKhvoy8-TB9snRoJb9ofrUCr7G6jxGj2poMbuzoA,9
+hyprland-0.2.3.dist-info/RECORD,,
