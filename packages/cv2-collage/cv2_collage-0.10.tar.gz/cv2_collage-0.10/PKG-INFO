@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: cv2_collage
+Version: 0.10
+Summary: Create a collage from images with OpenCV
+Home-page: https://github.com/hansalemaos/cv2_collage
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: cv2,numpy,collage
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+<h2>Create a collage from images with OpenCV </h2>
+
+
+```python
+
+from cv2_collage import create_collage
+
+lst = [
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/2022-12-27%2003_40_27-.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/2022-12-27%2003_49_27-.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/2022-12-27%2004_01_57-.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/2022-12-27%2004_02_09-.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/colorfind1.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/colorfind2.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/colorfind3.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/colorfind4.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/zoompics_0000006.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/zoompics_0000007.png",
+    "https://raw.githubusercontent.com/hansalemaos/screenshots/main/zoompics_0000008.png",
+]
+
+
+from numpy_choices import get_random_items_from_list
+
+coldone = create_collage(
+    lst=get_random_items_from_list(lst, 16),
+    width=1000,
+    background=(0, 0, 0),
+    save_path=r"F:\cv2mergepics\m\tetete.png",
+)
+
+
+
+
+```
+
+<img src="https://github.com/hansalemaos/screenshots/raw/main/collage.png"/>
+
+
