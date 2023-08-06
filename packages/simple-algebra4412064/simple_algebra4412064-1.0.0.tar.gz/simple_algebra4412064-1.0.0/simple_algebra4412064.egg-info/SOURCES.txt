@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+simple_algebra4412064/__init__.py
+simple_algebra4412064.egg-info/PKG-INFO
+simple_algebra4412064.egg-info/SOURCES.txt
+simple_algebra4412064.egg-info/dependency_links.txt
+simple_algebra4412064.egg-info/top_level.txt
