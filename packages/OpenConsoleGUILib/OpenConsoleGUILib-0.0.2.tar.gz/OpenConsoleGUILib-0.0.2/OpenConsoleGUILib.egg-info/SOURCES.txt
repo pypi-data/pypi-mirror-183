@@ -1,0 +1,10 @@
+setup.py
+OpenConsoleGUI/ConsoleGUILib.py
+OpenConsoleGUI/__init__.py
+OpenConsoleGUI/menu_demo.py
+OpenConsoleGUI/progress_demo.py
+OpenConsoleGUILib.egg-info/PKG-INFO
+OpenConsoleGUILib.egg-info/SOURCES.txt
+OpenConsoleGUILib.egg-info/dependency_links.txt
+OpenConsoleGUILib.egg-info/requires.txt
+OpenConsoleGUILib.egg-info/top_level.txt
