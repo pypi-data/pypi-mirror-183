@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/Canarython.egg-info/PKG-INFO
+src/Canarython.egg-info/SOURCES.txt
+src/Canarython.egg-info/dependency_links.txt
+src/Canarython.egg-info/entry_points.txt
+src/Canarython.egg-info/requires.txt
+src/Canarython.egg-info/top_level.txt
+src/canarython/__init__.py
+src/canarython/canarython.py

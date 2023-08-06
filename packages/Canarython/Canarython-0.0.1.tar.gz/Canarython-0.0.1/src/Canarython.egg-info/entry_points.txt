@@ -1,0 +1,2 @@
+[console_scripts]
+canarython = canarython:canarython.main
