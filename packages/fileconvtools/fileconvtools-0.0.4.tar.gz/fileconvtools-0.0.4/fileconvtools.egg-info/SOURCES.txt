@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+fileconvtools/__init__.py
+fileconvtools/main.py
+fileconvtools/temp.py
+fileconvtools.egg-info/PKG-INFO
+fileconvtools.egg-info/SOURCES.txt
+fileconvtools.egg-info/dependency_links.txt
+fileconvtools.egg-info/not-zip-safe
+fileconvtools.egg-info/requires.txt
+fileconvtools.egg-info/top_level.txt
