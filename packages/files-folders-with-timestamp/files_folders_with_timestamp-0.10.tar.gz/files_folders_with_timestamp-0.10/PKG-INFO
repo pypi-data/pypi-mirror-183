@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: files_folders_with_timestamp
+Version: 0.10
+Summary: Timestamps in readable format, touch folders/files with timestamp
+Home-page: https://github.com/hansalemaos/files_folders_with_timestamp
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: timestamp
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Timestamps in readable format, touch folders/files with timestamp 
+
+
+```python
+# Tested with:
+# Python 3.9.13
+# Windows 10
+
+
+$pip install files-folders-with-timestamp
+
+
+
+from files_folders_with_timestamp import get_timestamp, create_file_with_timestamp, create_folder_with_timestamp
+print(get_timestamp(sep="_"))
+print(create_file_with_timestamp(folder=None, extension='.tmp', prefix='bild___', suffix='', sep='_', create_file=False))
+print(create_file_with_timestamp(folder='f:\\testes\\dddd\\sasa', extension='.tmp', prefix='', suffix='', sep='-', create_file=True))
+print(create_folder_with_timestamp(folder='f:\\newfolder', prefix='b', suffix='x', sep='_', create_folder=False))
+print(create_folder_with_timestamp(folder='f:\\newfolder2', prefix='b', suffix='x', sep='x', create_folder=True))
+
+
+
+2023_01_01_22_21_30_438475
+bild___2023_01_01_22_21_30_438475.tmp
+f:\testes\dddd\sasa\2023-01-01-22-21-30-438475.tmp
+f:\newfolder\b2023_01_01_22_21_30_450186x
+f:\newfolder2\b2023x01x01x22x21x30x451162x
+
+	
+```
+
+
+
+

@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+files_folders_with_timestamp/LICENSE
+files_folders_with_timestamp/README.MD
+files_folders_with_timestamp/__init__.py
+files_folders_with_timestamp/requirements.txt
+files_folders_with_timestamp/thirdparty.json
+files_folders_with_timestamp.egg-info/PKG-INFO
+files_folders_with_timestamp.egg-info/SOURCES.txt
+files_folders_with_timestamp.egg-info/dependency_links.txt
+files_folders_with_timestamp.egg-info/requires.txt
+files_folders_with_timestamp.egg-info/top_level.txt

@@ -1,0 +1,4 @@
+include files_folders_with_timestamp/requirements.txt
+include files_folders_with_timestamp/thirdparty.json
+include files_folders_with_timestamp/README.MD
+include files_folders_with_timestamp/LICENSE
