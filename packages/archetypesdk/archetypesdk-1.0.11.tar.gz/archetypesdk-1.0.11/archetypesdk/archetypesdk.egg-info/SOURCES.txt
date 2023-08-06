@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+archetypesdk/archetypesdk.egg-info/PKG-INFO
+archetypesdk/archetypesdk.egg-info/SOURCES.txt
+archetypesdk/archetypesdk.egg-info/dependency_links.txt
+archetypesdk/archetypesdk.egg-info/not-zip-safe
+archetypesdk/archetypesdk.egg-info/requires.txt
+archetypesdk/archetypesdk.egg-info/top_level.txt
