@@ -1,0 +1,21 @@
+[virtualenvs]
+path="/home/dennisl/miniconda3/envs/tknlp/bin/python"
+create=false
+in-project=false
+
+
+[tool.poetry]
+name = "tknlp"
+version = "0.1.1"
+description = ""
+authors = ["dennislblog <dennisl@udel.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.23.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
