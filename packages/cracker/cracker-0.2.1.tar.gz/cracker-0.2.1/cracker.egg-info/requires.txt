@@ -1,0 +1,14 @@
+boto3==1.24.*
+python-vlc==3.*
+pyqt5==5.15.*
+python-xlib==0.31
+
+[build]
+setuptools>=61
+build
+twine
+
+[dev]
+black
+isort
+pycodestyle
