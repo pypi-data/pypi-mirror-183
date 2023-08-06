@@ -1,0 +1,9 @@
+numpy
+torch>=1.6
+threadpoolctl
+tqdm
+numpy
+lightning-utilities<0.5.0,>=0.4.2
+
+[async]
+dill
