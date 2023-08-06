@@ -1,0 +1,4 @@
+include winuserfolder/requirements.txt
+include winuserfolder/thirdparty.json
+include winuserfolder/README.MD
+include winuserfolder/LICENSE

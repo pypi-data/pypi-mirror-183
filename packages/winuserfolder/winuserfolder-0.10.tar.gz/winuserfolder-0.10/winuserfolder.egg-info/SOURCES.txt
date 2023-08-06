@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+winuserfolder/LICENSE
+winuserfolder/README.MD
+winuserfolder/__init__.py
+winuserfolder/requirements.txt
+winuserfolder/thirdparty.json
+winuserfolder.egg-info/PKG-INFO
+winuserfolder.egg-info/SOURCES.txt
+winuserfolder.egg-info/dependency_links.txt
+winuserfolder.egg-info/requires.txt
+winuserfolder.egg-info/top_level.txt
