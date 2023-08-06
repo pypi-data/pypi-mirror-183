@@ -1,0 +1,13 @@
+datasette
+selectolax
+datasette-template-sql
+pluggy
+httpx
+zstandard
+more-itertools
+
+[test]
+wheel
+pytest
+pytest-asyncio
+pytest-watch
