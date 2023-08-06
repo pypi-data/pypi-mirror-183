@@ -1,0 +1,3 @@
+[console_scripts]
+rd = remote_docker_aws:main
+remote-docker-aws = remote_docker_aws:main
