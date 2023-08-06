@@ -1,0 +1,4 @@
+geopandaspandastqdmrequestsprotobuf>=4.21.1
+
+[test]
+pytestcoverageflake8blackisortpytest-covcodecovmypy>=0.9gitchangelogmkdocs
