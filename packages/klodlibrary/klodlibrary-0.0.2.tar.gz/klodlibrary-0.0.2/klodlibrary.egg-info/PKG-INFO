@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: klodlibrary
+Version: 0.0.2
+Summary: A very basic library.
+Home-page: 
+Author: Kloodi
+Author-email: Klod2002@proton.me
+License: MIT
+Keywords: library,python,simple,basic
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+------------------------
+-- KLODLIBRARY V0.0.2 --
+------------------------
+
+About
+This is a simple library that provides
+extra content and functionality to python.
+for now there is just extra math functions.
+
+change log
+
+v0.0.1 (9:23 PM, 01/01/2023)
+-----------------------------
+- first release for this library.
+
+v0.0.2 (11:10 PM, 02/01/2023)
+-----------------------------
+- added a function for binary logic gates.
