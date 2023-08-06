@@ -1,0 +1,4 @@
+from PFRWebScraper.Includes.Configuration import Configuration
+from PFRWebScraper.Includes.MyOpener import MyOpener
+from PFRWebScraper.Includes.PositionAbstract import PositionAbstract
+from PFRWebScraper.Includes.ScrapeDataAbstract import ScrapeDataAbstract
