@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ringxor
+Version: 0.0.1
+Summary: Tooling for passive deanonymization of Monero-style blockchains using differ-by-one ring comparisons
+Home-page: https://github.com/mitchellpkt/ringxor
+Author: Isthmus (Mitchell P. Krawiec-Thayer)
+Author-email: ringxor@mitchellpkt.com
+License: MIT
+Project-URL: Changelog, https://github.com/mitchellpkt/ringxor/blob/main/CHANGELOG.rst
+Project-URL: Issue Tracker, https://github.com/mitchellpkt/ringxor/issues
+Keywords: monero,chainanalysis,chainalysis,blockchain,deanonymization,ringxor
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+License-File: LICENSE
