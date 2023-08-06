@@ -1,0 +1,11 @@
+quanturf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quanturf/__main__.py,sha256=QC5JN8304NoJNoL1Umxa6a_owL9lnvpB5pmYsD5gkUg,2696
+quanturf/jupyter_notebook_config.py,sha256=_vgiTFF3V3A8Jz_noVBFLYkbBwIgQmF57FXAp7EsljI,30506
+quanturf/quanturf.ipynb,sha256=_Fy8RuCJKIeK4Or0qCrA9d74Y4L4BERgLJI3AplB6v4,11818
+quanturf/quanturf_logo.py,sha256=e-vu_LeFAR5-zN4kxBS-1w1oGIJOtcobRRjq4fjSv2o,38948
+quanturf-8.0.data/data/version.py,sha256=NZi63odJwNBdwY4Fu0Wdz07pdOcc35iLWE8O5FOR-eI,342
+quanturf-8.0.dist-info/METADATA,sha256=Xs7eW0yUNgDJydZL877sEfAdnVmCF73nHZYFM0TsM-E,835
+quanturf-8.0.dist-info/WHEEL,sha256=ZL1lC_LiPDNRgDnOl2taCMc83aPEUZgHHv2h-LDgdiM,92
+quanturf-8.0.dist-info/entry_points.txt,sha256=fXsdzLtTqhtovT0V-D1h4OD23H-QX_8pN8Pd07Jk9p8,52
+quanturf-8.0.dist-info/top_level.txt,sha256=cAmDlKbjSZQ7IMYNLEPRsemcBZvDd72w9b_qX3suC50,9
+quanturf-8.0.dist-info/RECORD,,
