@@ -1,0 +1,8 @@
+setup.py
+romaniya_menim/__init__.py
+romaniya_menim/utils.py
+romaniya_menim.egg-info/PKG-INFO
+romaniya_menim.egg-info/SOURCES.txt
+romaniya_menim.egg-info/dependency_links.txt
+romaniya_menim.egg-info/requires.txt
+romaniya_menim.egg-info/top_level.txt
