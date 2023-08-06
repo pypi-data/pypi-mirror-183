@@ -1,0 +1,10 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/atomicswap/__init__.py
+src/atomicswap/posix_ish.py
+src/atomicswap.egg-info/PKG-INFO
+src/atomicswap.egg-info/SOURCES.txt
+src/atomicswap.egg-info/dependency_links.txt
+src/atomicswap.egg-info/top_level.txt
+test/test_swap.py
