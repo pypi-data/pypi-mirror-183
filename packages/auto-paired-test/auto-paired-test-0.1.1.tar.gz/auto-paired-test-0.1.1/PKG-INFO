@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: auto-paired-test
+Version: 0.1.1
+Summary: An automatic paired test
+Home-page: https://auto-paired-test.readthedocs.io/
+Author: Bhaskoro Muthohar
+Author-email: bhaskoro.jr@gmail.com
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+
+# Auto Paired Test
+
+This module is to automate the inference statistic test of a paired sample.
+
+
+## Authors
+
+- [@bhaskoro-muthohar](https://github.com/bhaskoro-muthohar)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+

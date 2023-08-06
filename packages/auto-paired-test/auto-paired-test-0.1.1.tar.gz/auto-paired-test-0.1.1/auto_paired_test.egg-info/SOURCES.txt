@@ -1,0 +1,9 @@
+setup.py
+auto_paired_test.egg-info/PKG-INFO
+auto_paired_test.egg-info/SOURCES.txt
+auto_paired_test.egg-info/dependency_links.txt
+auto_paired_test.egg-info/requires.txt
+auto_paired_test.egg-info/top_level.txt
+statlibs/__init__.py
+statlibs/bq_magic.py
+statlibs/paired_ttest.py
