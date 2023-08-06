@@ -1,0 +1,8 @@
+package_setup.py
+extras/__init__.py
+extras/divide.py
+extras/multiply.py
+verysimplemodulex.egg-info/PKG-INFO
+verysimplemodulex.egg-info/SOURCES.txt
+verysimplemodulex.egg-info/dependency_links.txt
+verysimplemodulex.egg-info/top_level.txt
