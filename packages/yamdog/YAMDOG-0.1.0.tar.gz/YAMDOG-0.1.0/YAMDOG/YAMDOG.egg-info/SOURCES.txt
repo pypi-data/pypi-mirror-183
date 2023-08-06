@@ -1,0 +1,15 @@
+.bumpversion.cfg
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+YAMDOG/API.py
+YAMDOG/__init__.py
+YAMDOG/__main__.py
+YAMDOG/YAMDOG.egg-info/PKG-INFO
+YAMDOG/YAMDOG.egg-info/SOURCES.txt
+YAMDOG/YAMDOG.egg-info/dependency_links.txt
+YAMDOG/YAMDOG.egg-info/entry_points.txt
+YAMDOG/YAMDOG.egg-info/requires.txt
+YAMDOG/YAMDOG.egg-info/top_level.txt
