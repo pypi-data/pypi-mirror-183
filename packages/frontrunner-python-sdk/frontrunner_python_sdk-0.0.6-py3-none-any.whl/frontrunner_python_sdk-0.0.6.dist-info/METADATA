@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: frontrunner-python-sdk
+Version: 0.0.6
+Summary: SKD for Frontrunner API
+Project-URL: Homepage, https://github.com/frontrunnerapp/frontrunner-python-sdk
+Author-email: Mark MacEachen <mark@frontrunnerapp.io>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
