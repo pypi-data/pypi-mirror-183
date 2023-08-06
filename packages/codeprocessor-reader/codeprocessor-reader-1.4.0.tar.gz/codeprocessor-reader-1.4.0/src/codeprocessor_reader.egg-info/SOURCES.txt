@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/codeprocessor_reader.egg-info/PKG-INFO
+src/codeprocessor_reader.egg-info/SOURCES.txt
+src/codeprocessor_reader.egg-info/dependency_links.txt
+src/codeprocessor_reader.egg-info/entry_points.txt
+src/codeprocessor_reader.egg-info/requires.txt
+src/codeprocessor_reader.egg-info/top_level.txt
+src/reader/__init__.py
+src/reader/__main__.py
+src/reader/config.toml
+src/reader/feed.py
+src/reader/viewer.py
