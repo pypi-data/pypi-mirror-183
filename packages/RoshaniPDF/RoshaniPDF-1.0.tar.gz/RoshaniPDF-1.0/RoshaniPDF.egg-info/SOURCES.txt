@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+RoshaniPDF.egg-info/PKG-INFO
+RoshaniPDF.egg-info/SOURCES.txt
+RoshaniPDF.egg-info/dependency_links.txt
+RoshaniPDF.egg-info/top_level.txt
