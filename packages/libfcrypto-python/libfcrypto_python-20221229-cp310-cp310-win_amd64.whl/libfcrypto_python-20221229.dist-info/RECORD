@@ -1,0 +1,5 @@
+pyfcrypto.cp310-win_amd64.pyd,sha256=JmGxYtGGueBahKvr673Di9j082QguXPrTeECl6POp3g,29696
+libfcrypto_python-20221229.dist-info/METADATA,sha256=6vXEbbae0mLPWBWa7vkUKbAUqD_JrqYK17nne9YNum8,370
+libfcrypto_python-20221229.dist-info/WHEEL,sha256=rneS2j8QNmAwdNKHN86s6-qP7AMcWZgqiEoH3bdbh_Y,102
+libfcrypto_python-20221229.dist-info/top_level.txt,sha256=xLwQeBWzXEycSg2eGfs2BDsNgtZXLwsTDwLMtjNu_8k,10
+libfcrypto_python-20221229.dist-info/RECORD,,
