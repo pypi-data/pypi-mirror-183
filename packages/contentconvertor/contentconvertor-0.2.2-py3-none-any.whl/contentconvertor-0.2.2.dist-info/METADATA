@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: contentconvertor
+Version: 0.2.2
+Summary: Converti des tweets en images pour Instagram
+Home-page: https://github.com/leoleducq/Content-Convertor
+Author: Léo Leducq
+Author-email: iziatask@gmail.com
+License: MIT
+Project-URL: Source Code, https://github.com/leoleducq/Content-Convertor
+Project-URL: Bug Tracker, https://github.com/leoleducq/Content-Convertor/issues
+Keywords: instagram,twitter,content,convertor
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Pillow (==9.3.0)
+Requires-Dist: tweepy (==4.12.1)
+Requires-Dist: tweet-capture (==0.1.7)
+
