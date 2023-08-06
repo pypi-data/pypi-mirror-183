@@ -1,0 +1,9 @@
+sql_ingest_util/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sql_ingest_util/sql_ingest_configs.py,sha256=Plc97U68aB9yrmD-Fcww93v0Z8kZVrUzZ8xGa2owcsQ,4574
+sql_ingest_util/validate_configs.py,sha256=E9rh1rbH_mIIADOZYcryVGGoIzTmUuDzaFmYv8e3gUM,7814
+sql_ingest_util/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sql_ingest_util/utils/yaml_config_convertor.py,sha256=oaYm_jwGEwpR7bvB4wHliv1oYqDFPHZ9mMjTGSXYIfU,564
+sql_ingest_util-0.5.dist-info/METADATA,sha256=LnSvXr-kRcn60Havk7JagmELmTASsIuvVxCx4OsBfaw,296
+sql_ingest_util-0.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sql_ingest_util-0.5.dist-info/top_level.txt,sha256=f6CjS7iJSpKiYqimGjte3FwR544YKfjlvbyZH0-pG4A,16
+sql_ingest_util-0.5.dist-info/RECORD,,

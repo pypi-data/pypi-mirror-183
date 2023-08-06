@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: sql-ingest-util
+Version: 0.5
+Summary: Ease in generating SQL Ingest yaml configs
+Author: data_platform
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: ruamel.yaml (==0.17.21)
+Requires-Dist: pyyaml (==6.0)
+
