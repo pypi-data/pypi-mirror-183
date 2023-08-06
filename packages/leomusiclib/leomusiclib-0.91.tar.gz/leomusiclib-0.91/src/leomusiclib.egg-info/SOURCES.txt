@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/leomusiclib/__init__.py
+src/leomusiclib/chords.py
+src/leomusiclib/intervals.py
+src/leomusiclib/notetocode.py
+src/leomusiclib.egg-info/PKG-INFO
+src/leomusiclib.egg-info/SOURCES.txt
+src/leomusiclib.egg-info/dependency_links.txt
+src/leomusiclib.egg-info/top_level.txt
