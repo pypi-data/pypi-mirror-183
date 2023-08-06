@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: april-vision
+Version: 0.3.0
+Summary: An AprilTags wrapper with camera discovery and axis conversion.
+Home-page: https://github.com/WillB97/april_vision
+Author: "Will Barber, Joshua Perriman"
+License: MIT
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: pyapriltags (<4,>=3.3.0.post1)
+Requires-Dist: numpy (<2,>=1.21)
+Requires-Dist: pyquaternion (<1,>=0.9.9)
+Provides-Extra: cli
+Requires-Dist: opencv-python (<5,>=4) ; extra == 'cli'
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Provides-Extra: j5
+Requires-Dist: j5 (<2,>=1) ; extra == 'j5'
+Provides-Extra: opencv
+Requires-Dist: opencv-python-headless (<5,>=4) ; extra == 'opencv'
+

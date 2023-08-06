@@ -1,0 +1,15 @@
+april_vision/__init__.py,sha256=6raO_Ze5hkY7zvio713d9YKS9ontYPAdEW-ZVbSfsQc,568
+april_vision/_version.py,sha256=jP37PbzC7u30hqoKJZ41NW3TgoVzxjYdLU5M0drm_y4,160
+april_vision/detect_cameras.py,sha256=BBVhbBI4aa6V_ndAzxnIBGqQms5HFT5w7a6KAPIOLGw,7034
+april_vision/frame_sources.py,sha256=yia4iSGGaU-lhdJeANaCT8ISBBFJxdU8ZeLh_fH3SbA,7698
+april_vision/marker.py,sha256=1exXNOtn_rsLJIZtggOrWnO7JEc332mU_bMTQKiZuWY,15748
+april_vision/py.typed,sha256=cHQ507-UOaxWMmVJ-fIwE44pp2ruVRSVJajqfdlQsx8,98
+april_vision/vision.py,sha256=H7OSO-ydATATMc8DRCLl9JwTuMS9cpE51YrjVZeLejg,7758
+april_vision/j5/__init__.py,sha256=H1n6gbWJgGB3Gb73Jv6knvlE-JvIQzgKbkSmmbxBj1k,177
+april_vision/j5/april_camera.py,sha256=WDpugwrM8XDPkc9H-JarPI4ZQvI8PpVFibTismqB1Zk,8080
+april_vision/j5/py.typed,sha256=h8LcHtPxmWFR5DN5bxUDMqObkO-nU-Htnm8TFwrO02I,101
+april_vision-0.3.0.dist-info/LICENSE,sha256=kKFZuCrXuW89sNzou5aGacFx5WHlSnrt7BX-iOJevRY,1068
+april_vision-0.3.0.dist-info/METADATA,sha256=FDC2Hft-vnbXaiqg9lvEukmj27e-wv9pzFEw9_krfoE,797
+april_vision-0.3.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+april_vision-0.3.0.dist-info/top_level.txt,sha256=MfIG_dz54bz6HL2qzwJj-rk_6mqdQwxszi34DD5Ua_Q,13
+april_vision-0.3.0.dist-info/RECORD,,
