@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: create-empty-image
+Version: 0.10
+Summary: Creates new/empty cv2 images/numpy arrays
+Home-page: https://github.com/hansalemaos/create_empty_image
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: cv2,image,numpy
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+Requires-Dist: a-cv-imwrite-imread-plus
+Requires-Dist: numpy
+
+
+# Creates new/empty cv2 images/numpy arrays 
+
+```python
+$pip create-empty-image
+
+from create_empty_image import create_new_image, create_new_image_same_size
+
+a = create_new_image_same_size(
+    openimage=r"https://github.com/hansalemaos/screenshots/raw/main/papag_00000003.png",
+    color=(255, 255, 0),  # rgb
+)
+
+b = create_new_image(width=200, height=300, color=(0, 0, 120, 255))  # rgba
+c = create_new_image(width=200, height=300, color=(120,))  # gray
+
+```
+
+
+
+
