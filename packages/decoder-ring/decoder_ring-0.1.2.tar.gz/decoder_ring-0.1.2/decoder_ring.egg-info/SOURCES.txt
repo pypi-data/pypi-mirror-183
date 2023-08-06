@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+decoder_ring/__init__.py
+decoder_ring/basic-demo.py
+decoder_ring/decoders.py
+decoder_ring.egg-info/PKG-INFO
+decoder_ring.egg-info/SOURCES.txt
+decoder_ring.egg-info/dependency_links.txt
+decoder_ring.egg-info/requires.txt
+decoder_ring.egg-info/top_level.txt
