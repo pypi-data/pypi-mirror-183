@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pyspark-hnsw
+Version: 1.1.0
+Home-page: https://github.com/jelmerk/hnswlib/tree/master/hnswlib-pyspark
+Provides-Extra: dev
+Requires-Dist: findspark ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: findspark ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+
