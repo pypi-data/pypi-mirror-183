@@ -1,0 +1,6 @@
+[console_scripts]
+bars=mtcli.bars:bars
+mm=mtcli.mm:mm
+mt=mtcli.mt:cli
+rm=mtcli.rm:rm
+
