@@ -1,0 +1,10 @@
+axiompy/__init__.py,sha256=aTl2F-2MdHgL2Yv94M1Hy-IuNEG1SVOar4LW1nFVeGk,63
+axiompy/unit.py,sha256=M-na9L5pwF8mcrXxLt7oK29NYmr5xH-YDXjljGQcnng,557
+axiompy/units.py,sha256=IxH5SqWhrxjCW8jkilrdMJ6V4wXcgXLTKwAW78Gw0AY,2727
+axiompy/value.py,sha256=1fJmj5TMr7HeT8IT0i1ilQ34ch9MJPD3wHuyZR0MIBU,2706
+axiompy/db/en_units.acf,sha256=XPKeXAAVH2GPZD6JbocLTA25EF_JWNI7pWXK6euEG98,1342
+axiompy-0.2.1.dist-info/LICENSE,sha256=WtjCEwlcVzkh1ziO35P2qfVEkLjr87Flro7xlHz3CEY,11556
+axiompy-0.2.1.dist-info/METADATA,sha256=qDbgxJNaQ7swvru1ZGU2n6pnotYYD13Q0IJ0mXkyrv8,293
+axiompy-0.2.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+axiompy-0.2.1.dist-info/top_level.txt,sha256=DRaTFjc4wNkeU_pk6bs7LCbtgoGB98fiCNSLNcfgKZU,8
+axiompy-0.2.1.dist-info/RECORD,,
