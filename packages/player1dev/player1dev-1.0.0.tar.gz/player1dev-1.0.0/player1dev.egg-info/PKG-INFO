@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: player1dev
+Version: 1.0.0
+Summary: Simple framework for building (web) apps with Python and Flet. The client is made to operate locally, but can be deployed to a server. The server is made to operate on a server, but can be deployed locally. What you have to decide is the exposition and scope of both. Giving public access to the `client.py` will have serious security risks.
+Author: Ophuscado
+Author-email: postbox@ophuscado.com
+License: BSD-2-Clause
+License-File: LICENSE
