@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+Mathexs/__init__.py
+Mathexs.egg-info/PKG-INFO
+Mathexs.egg-info/SOURCES.txt
+Mathexs.egg-info/dependency_links.txt
+Mathexs.egg-info/top_level.txt
