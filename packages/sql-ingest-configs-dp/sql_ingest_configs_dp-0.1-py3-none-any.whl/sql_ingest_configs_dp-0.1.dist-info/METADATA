@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: sql-ingest-configs-dp
+Version: 0.1
+Summary: Long description
+Author: Data Platform
+Author-email: heman@gamil.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE.txt
+Requires-Dist: pyyaml
+Requires-Dist: ruamel.yaml
+
