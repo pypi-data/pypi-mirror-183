@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: smpl-util
+Version: 1.0.6
+Summary: SiMPLe plotting and fitting
+Home-page: https://github.com/APN-Pucky/smpl_util
+Author: Alexander Puck Neuwirth
+Author-email: alexander@neuwirth-informatik.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy
+Requires-Dist: smpl_doc
+Project-URL: Repository, https://github.com/APN-Pucky/smpl_util
+Description-Content-Type: text/markdown
+
+smpl_io
+
