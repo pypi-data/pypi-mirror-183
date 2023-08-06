@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+zainpdf/__init__.py
+zainpdf/pdf2image.py
+zainpdf/pdf2text.py
+zainpdf_ivan.egg-info/PKG-INFO
+zainpdf_ivan.egg-info/SOURCES.txt
+zainpdf_ivan.egg-info/dependency_links.txt
+zainpdf_ivan.egg-info/top_level.txt
