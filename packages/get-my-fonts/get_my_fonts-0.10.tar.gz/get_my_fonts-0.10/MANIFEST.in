@@ -1,0 +1,4 @@
+include get_my_fonts/requirements.txt
+include get_my_fonts/thirdparty.json
+include get_my_fonts/README.MD
+include get_my_fonts/LICENSE

@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+get_my_fonts/LICENSE
+get_my_fonts/README.MD
+get_my_fonts/__init__.py
+get_my_fonts/requirements.txt
+get_my_fonts/thirdparty.json
+get_my_fonts.egg-info/PKG-INFO
+get_my_fonts.egg-info/SOURCES.txt
+get_my_fonts.egg-info/dependency_links.txt
+get_my_fonts.egg-info/requires.txt
+get_my_fonts.egg-info/top_level.txt
