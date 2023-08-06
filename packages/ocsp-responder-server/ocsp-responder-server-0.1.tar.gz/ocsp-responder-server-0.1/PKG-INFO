@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: ocsp-responder-server
+Version: 0.1
+Summary: Simple OCSP Responder RPC Server
+Home-page: https://github.com/deborahjalfont/ocsp-responder-server
+Author: Deborah Jalfon
+Author-email: deborah.jalfon@redis.com
+License: MIT
+Description: Simple OCSP Responder Server using json-rpc and openssl-ocsp-responder
+Keywords: ocsp,responder,server
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
