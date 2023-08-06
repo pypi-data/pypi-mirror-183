@@ -1,0 +1,12 @@
+crypto_otrs/__init__.py,sha256=MDgz1lMAvNkJG0G2N0ZRDYmUYavaBWrFpzLFr7TgdQ4,480
+crypto_otrs/__main__.py,sha256=0KUJj_2GSliWhc2eHNds1yIMgvhALrtJiKnYYnGN1Nk,115
+crypto_otrs/ring.c,sha256=A3R0zAGKHrAVZiJ-t3qJq3ePlhLwfkUTDXZXR1JrITU,11342
+crypto_otrs/ring.h,sha256=mzTWo9_WOj_dVSk3gZS0qCrZx1R1D0_aEIhQ00u38kY,1330
+crypto_otrs/ring.py,sha256=xI20Y-ZWM77xWt6rzYvYOb3mqDDhtFYgtEAfFeWmR5Y,4109
+crypto_otrs/sha2.c,sha256=eqrgDpejZpleEhJdkYmnxQ_Z6NHy9z-jl7tdYCh_-_c,6645
+crypto_otrs/sha2.h,sha256=DfBFT5qNyBKj51Fgi8RnusQhWdZWbEKM_5IjF5zNOJI,2812
+crypto_otrs-1.0.8.dist-info/METADATA,sha256=P9DjXPMeNV0aeotoU0DGR5_VEzVZg89yF5XEX9y9Ni0,4903
+crypto_otrs-1.0.8.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+crypto_otrs-1.0.8.dist-info/entry_points.txt,sha256=kVI81_UnOuq7--iegd-WBgS5KOlS4bUE6OG_L980CM4,57
+crypto_otrs-1.0.8.dist-info/top_level.txt,sha256=4O4Fwtj_JPpOSfWF5gtJyJZmGKKkrTaB0qR0_4Qprko,12
+crypto_otrs-1.0.8.dist-info/RECORD,,
