@@ -1,0 +1,8 @@
+restful_aws_lambda/__init__.py,sha256=H3nUwvXK19PM4EbD_uOvqjW8-zeuAW58JKYsMdTdtZM,143
+restful_aws_lambda/decorator.py,sha256=FAHUsIicR8DUCwuLFLedIa1w-InkPr7XUp73LDEv3eM,1561
+restful_aws_lambda/request.py,sha256=UKLT1GKZMV4B6H_AqVXF60QWpU0PE4STUQOelXvL3QM,2854
+restful_aws_lambda/route.py,sha256=LokB9SlnzNknepZk1Z9bNr52sfWEtKvXyPz5V5TW-MY,2399
+restful_aws_lambda-0.1.0.dist-info/LICENSE,sha256=v_0y77tkisx3TW2G7Sxfs_T3rkIRdBR8gbbG5oo6cn4,1073
+restful_aws_lambda-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+restful_aws_lambda-0.1.0.dist-info/METADATA,sha256=ttcrM6t7ZO8c0R25ohctD0P4oWf2DG7ZqizMtvV0wNk,5590
+restful_aws_lambda-0.1.0.dist-info/RECORD,,
