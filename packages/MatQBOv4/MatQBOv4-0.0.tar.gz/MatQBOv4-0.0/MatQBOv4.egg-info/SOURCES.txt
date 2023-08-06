@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+MatQBOv4/__init__.py
+MatQBOv4/matQUBO.py
+MatQBOv4/test.py
+MatQBOv4.egg-info/PKG-INFO
+MatQBOv4.egg-info/SOURCES.txt
+MatQBOv4.egg-info/dependency_links.txt
+MatQBOv4.egg-info/not-zip-safe
+MatQBOv4.egg-info/requires.txt
+MatQBOv4.egg-info/top_level.txt
