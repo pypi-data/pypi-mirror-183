@@ -1,0 +1,160 @@
+{
+    "mappings": {
+        "properties": {
+            "relatedURI": {
+                "type": "object",
+                "properties": {
+                    "COAR": {
+                        "type": "keyword"
+                    },
+                    "CrossrefFunderID": {
+                        "type": "keyword"
+                    },
+                    "ROR": {
+                        "type": "keyword"
+                    },
+                    "URL": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "marcCode": {
+                "type": "keyword"
+            },
+            "dataCiteCode": {
+                "type": "keyword"
+            },
+            "alpha3Code": {
+                "type": "keyword"
+            },
+            "alpha3CodeENG": {
+                "type": "keyword"
+            },
+            "alpha3CodeNative": {
+                "type": "keyword"
+            },
+            "acronym": {
+                "type": "keyword"
+            },
+            "RID": {
+                "type": "keyword"
+            },
+            "ICO": {
+                "type": "keyword"
+            },
+            "coarType": {
+                "type": "keyword"
+            },
+            "dataCiteType": {
+                "type": "keyword"
+            },
+            "nameType": {
+                "type": "keyword"
+            },
+            "nonpreferredLabels": {
+                "type": "object",
+                "properties": {
+                    "cs": {
+                        "type": "keyword"
+                    },
+                    "en": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "pair": {
+                "type": "keyword"
+            },
+            "hint": {
+                "type": "object",
+                "dynamic": true
+            },
+            "id": {
+                "type": "keyword"
+            },
+            "created": {
+                "type": "date"
+            },
+            "updated": {
+                "type": "date"
+            },
+            "$schema": {
+                "type": "keyword"
+            },
+            "uuid": {
+                "type": "keyword"
+            },
+            "indexed_at": {
+                "type": "date"
+            },
+            "type": {
+                "properties": {
+                    "pid_type": {
+                        "type": "keyword"
+                    },
+                    "id": {
+                        "type": "keyword"
+                    }
+                },
+                "type": "object"
+            },
+            "pid": {
+                "properties": {
+                    "pk": {
+                        "type": "integer"
+                    },
+                    "pid_type": {
+                        "type": "keyword"
+                    },
+                    "obj_type": {
+                        "type": "keyword"
+                    },
+                    "status": {
+                        "type": "keyword"
+                    }
+                },
+                "type": "object"
+            },
+            "title_sort": {
+                "type": "keyword"
+            },
+            "title": {
+                "type": "object",
+                "dynamic": true
+            },
+            "description": {
+                "type": "object",
+                "dynamic": true
+            },
+            "icon": {
+                "type": "keyword",
+                "index": false
+            },
+            "hierarchy": {
+                "type": "object",
+                "properties": {
+                    "level": {
+                        "type": "integer"
+                    },
+                    "path": {
+                        "type": "text",
+                        "copy_to": "hierarchy_reverse_path",
+                        "analyzer": "standard",
+                        "search_analyzer": "standard"
+                    },
+                    "reverse_path": {
+                        "type": "text",
+                        "analyzer": "standard",
+                        "search_analyzer": "standard"
+                    }
+                }
+            },
+            "contexts": {
+                "type": "keyword"
+            },
+            "tags": {
+                "type": "keyword"
+            }
+        }
+    }
+}

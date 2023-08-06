@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: nr-vocabularies
+Version: 1.0.2.dev1
+Summary: A sample application for nr_vocabularies
+Provides-Extra: tests
+
+Model builder plugin containing model definition of nr-vocabularies

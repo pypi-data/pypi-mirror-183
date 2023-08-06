@@ -1,0 +1,437 @@
+{
+    "settings": {
+        "package": "nr_vocabularies",
+        "schema-server": "local://",
+        "collection-url": "/v/",
+        "python": {
+            "record-prefix": "NRVocabularies",
+            "flask-extension-name": "nr-vocabularies",
+            "ext-class": "nr_vocabularies.ext.NRVocabulariesExt",
+            "record-class": "nr_vocabularies.records.api.NRVocabulary",
+            "record-schema-class": "nr_vocabularies.services.schema.NRVocabularySchema",
+            "use_isort": true,
+            "use_black": true,
+            "templates": {},
+            "marshmallow": {
+                "mapping": {}
+            },
+            "record-prefix-snake": "nr_vocabularies",
+            "record-resources-package": "nr_vocabularies.resources",
+            "record-services-package": "nr_vocabularies.services",
+            "record-records-package": "nr_vocabularies.records",
+            "config-package": "nr_vocabularies.config",
+            "config-dummy-class": "nr_vocabularies.config.DummyClass",
+            "config-resource-config-key": "NR_VOCABULARIES_RESOURCE_CONFIG",
+            "config-resource-class-key": "NR_VOCABULARIES_RESOURCE_CLASS",
+            "config-service-config-key": "NR_VOCABULARIES_SERVICE_CONFIG",
+            "config-service-class-key": "NR_VOCABULARIES_SERVICE_CLASS",
+            "config-resource-register-blueprint-key": "NR_VOCABULARIES_REGISTER_BLUEPRINT",
+            "proxies-current-resource": "nr_vocabularies.proxies.current_resource",
+            "proxies-current-service": "nr_vocabularies.proxies.current_service",
+            "record-metadata-class": "nr_vocabularies.records.models.NRVocabulariesMetadata",
+            "record-metadata-table-name": "nrvocabularies_metadata",
+            "record-mapping-setup-cfg": "nr_vocabularies",
+            "record-jsonschemas-setup-cfg": "nr_vocabularies",
+            "record-resource-config-class": "nr_vocabularies.resources.config.NRVocabulariesResourceConfig",
+            "record-resource-class": "nr_vocabularies.resources.resource.NRVocabulariesResource",
+            "record-permissions-class": "nr_vocabularies.services.permissions.NRVocabulariesPermissionPolicy",
+            "record-service-class": "nr_vocabularies.services.service.NRVocabulariesService",
+            "record-service-config-class": "nr_vocabularies.services.config.NRVocabulariesServiceConfig",
+            "record-service-config-bases": [],
+            "record-service-config-generate-links": true,
+            "record-schema-metadata-class": "nr_vocabularies.services.schema.NRVocabulariesMetadataSchema",
+            "record-dumper-class": "nr_vocabularies.records.dumper.NRVocabulariesDumper",
+            "record-search-options-class": "nr_vocabularies.services.search.NRVocabulariesSearchOptions",
+            "record-facets-class": "nr_vocabularies.services.facets.Test",
+            "record-schema-metadata-alembic": "nr_vocabularies",
+            "record-schema-metadata-setup-cfg": "nr_vocabularies",
+            "record-resource-blueprint-name": "NRVocabularies",
+            "create-blueprint-from-app": "nr_vocabularies.views.create_blueprint_from_app",
+            "invenio-config-extra-code": "",
+            "invenio-ext-extra-code": "",
+            "invenio-proxies-extra-code": "",
+            "invenio-record-extra-code": "",
+            "invenio-record-dumper-extra-code": "",
+            "invenio-record-facets-extra-code": "",
+            "invenio-record-metadata-extra-code": "",
+            "invenio-record-object-schema-extra-code": "",
+            "invenio-record-permissions-extra-code": "",
+            "invenio-record-resource-extra-code": "",
+            "invenio-record-resource-config-extra-code": "",
+            "invenio-record-schema-extra-code": "",
+            "invenio-record-search-options-extra-code": "",
+            "invenio-record-service-extra-code": "",
+            "invenio-record-service-config-extra-code": "",
+            "invenio-version-extra-code": "",
+            "invenio-views-extra-code": "",
+            "generate-record-pid-field": true,
+            "record-dumper-extensions": [],
+            "always-defined-import-prefixes": [
+                "ma",
+                "ma_fields",
+                "ma_valid"
+            ],
+            "script-import-sample-data-cli": "scripts.import_sample_data.cli"
+        },
+        "processing-order": [
+            "settings",
+            "*",
+            "model"
+        ],
+        "package-base": "nr_vocabularies",
+        "package-base-upper": "NR_VOCABULARIES",
+        "kebap-package": "nr-vocabularies",
+        "package-path": "nr_vocabularies",
+        "schema-version": "1.0.0",
+        "schema-name": "nr-vocabularies-1.0.0.json",
+        "schema-file": "nr_vocabularies/records/jsonschemas/nr-vocabularies-1.0.0.json",
+        "mapping-package": "nr_vocabularies.records.mappings",
+        "jsonschemas-package": "nr_vocabularies.records.jsonschemas",
+        "mapping-file": "nr_vocabularies/records/mappings/v7/nr_vocabularies/nr-vocabularies-1.0.0.json",
+        "index-name": "nr_vocabularies-nr-vocabularies-1.0.0",
+        "model-name": "nr_vocabularies",
+        "saved-model-file": "nr_vocabularies/models/model.json",
+        "inherited-model-file": "nr_vocabularies/models/inherited_model.json",
+        "script-import-sample-data": "scripts/sample_data.yaml",
+        "elasticsearch": {
+            "version": "v7",
+            "templates": {
+                "v7": {
+                    "mappings": {
+                        "properties": {}
+                    }
+                }
+            }
+        }
+    },
+    "model": {
+        "oarepo:marshmallow": {
+            "generate": true,
+            "class": "nr_vocabularies.services.schema.NRVocabularySchema",
+            "base-classes": [
+                "invenio_records_resources.services.records.schema.BaseRecordSchema"
+            ]
+        },
+        "properties": {
+            "relatedURI": {
+                "type": "object",
+                "oarepo:marshmallow": {
+                    "generate": true,
+                    "class": "nr_vocabularies.services.schema.RelatedURISchema"
+                },
+                "properties": {
+                    "COAR": {
+                        "type": "keyword"
+                    },
+                    "CrossrefFunderID": {
+                        "type": "keyword"
+                    },
+                    "ROR": {
+                        "type": "keyword"
+                    },
+                    "URL": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "marcCode": {
+                "type": "keyword"
+            },
+            "dataCiteCode": {
+                "type": "keyword"
+            },
+            "alpha3Code": {
+                "type": "keyword"
+            },
+            "alpha3CodeENG": {
+                "type": "keyword"
+            },
+            "alpha3CodeNative": {
+                "type": "keyword"
+            },
+            "acronym": {
+                "type": "keyword"
+            },
+            "RID": {
+                "type": "keyword"
+            },
+            "ICO": {
+                "type": "keyword"
+            },
+            "coarType": {
+                "type": "keyword"
+            },
+            "dataCiteType": {
+                "type": "keyword"
+            },
+            "nameType": {
+                "type": "keyword"
+            },
+            "nonpreferredLabels": {
+                "type": "object",
+                "oarepo:marshmallow": {
+                    "class": "nr_vocabularies.services.schema.NonPreferredLabels",
+                    "generate": true
+                },
+                "properties": {
+                    "cs": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword"
+                        }
+                    },
+                    "en": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword"
+                        }
+                    }
+                }
+            },
+            "pair": {
+                "type": "keyword"
+            },
+            "hint": {
+                "type": "object",
+                "propertyNames": {
+                    "pattern": "^[a-z]{2}$"
+                },
+                "additionalProperties": {
+                    "type": "keyword"
+                },
+                "oarepo:mapping": {
+                    "dynamic": true,
+                    "type": "object"
+                },
+                "oarepo:marshmallow": {
+                    "field": "vocabularies_schema.i18n_strings",
+                    "imports": [
+                        {
+                            "import": "invenio_vocabularies.services.schema",
+                            "alias": "vocabularies_schema"
+                        }
+                    ]
+                }
+            },
+            "id": {
+                "type": "keyword",
+                "oarepo:sample": {
+                    "skip": true
+                },
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "created": {
+                "type": "date",
+                "oarepo:sample": {
+                    "skip": true
+                },
+                "oarepo:marshmallow": {
+                    "write": false,
+                    "read": true
+                }
+            },
+            "updated": {
+                "type": "date",
+                "oarepo:sample": {
+                    "skip": true
+                },
+                "oarepo:marshmallow": {
+                    "write": false,
+                    "read": true
+                }
+            },
+            "$schema": {
+                "type": "keyword",
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "oarepo:sample": {
+                    "skip": true
+                }
+            },
+            "uuid": {
+                "type": "keyword",
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "indexed_at": {
+                "type": "date",
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "type": {
+                "properties": {
+                    "pid_type": {
+                        "type": "keyword"
+                    },
+                    "id": {
+                        "type": "keyword"
+                    }
+                },
+                "oarepo:marshmallow": {
+                    "field": "ma_fields.Str(required=True, attribute=\"type.id\")"
+                },
+                "type": "object"
+            },
+            "pid": {
+                "properties": {
+                    "pk": {
+                        "type": "integer",
+                        "oarepo:mapping": {
+                            "type": "integer"
+                        }
+                    },
+                    "pid_type": {
+                        "type": "keyword"
+                    },
+                    "obj_type": {
+                        "type": "keyword"
+                    },
+                    "status": {
+                        "type": "keyword"
+                    }
+                },
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "type": "object"
+            },
+            "title_sort": {
+                "type": "keyword",
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "title": {
+                "type": "object",
+                "propertyNames": {
+                    "pattern": "^[a-z]{2}$"
+                },
+                "additionalProperties": {
+                    "type": "keyword"
+                },
+                "oarepo:mapping": {
+                    "dynamic": true,
+                    "type": "object"
+                },
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "description": {
+                "type": "object",
+                "propertyNames": {
+                    "pattern": "^[a-z]{2}$"
+                },
+                "additionalProperties": {
+                    "type": "keyword"
+                },
+                "oarepo:mapping": {
+                    "dynamic": true,
+                    "type": "object"
+                },
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "icon": {
+                "type": "keyword",
+                "oarepo:mapping": {
+                    "index": false,
+                    "type": "keyword"
+                },
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                }
+            },
+            "hierarchy": {
+                "type": "object",
+                "oarepo:marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "properties": {
+                    "level": {
+                        "type": "integer",
+                        "oarepo:marshmallow": {
+                            "write": false,
+                            "read": false
+                        }
+                    },
+                    "path": {
+                        "type": "fulltext",
+                        "oarepo:mapping": {
+                            "type": "text",
+                            "copy_to": "hierarchy_reverse_path",
+                            "analyzer": "oarepo_hvocabularies_analyzer",
+                            "search_analyzer": "standard"
+                        },
+                        "oarepo:marshmallow": {
+                            "write": false,
+                            "read": false
+                        }
+                    },
+                    "reverse_path": {
+                        "type": "fulltext",
+                        "oarepo:mapping": {
+                            "type": "text",
+                            "analyzer": "oarepo_hvocabularies_reverse_analyzer",
+                            "search_analyzer": "standard"
+                        },
+                        "oarepo:marshmallow": {
+                            "write": false,
+                            "read": false
+                        }
+                    }
+                }
+            },
+            "contexts": {
+                "type": "array",
+                "items": {
+                    "type": "keyword"
+                }
+            },
+            "tags": {
+                "type": "array",
+                "items": {
+                    "type": "keyword"
+                }
+            }
+        },
+        "type": "object"
+    },
+    "plugins": {
+        "builder": {
+            "disable": [
+                "poetry",
+                "cookiecutter",
+                "invenio_ext_poetry",
+                "invenio_sample_app_poetry",
+                "invenio_record_metadata_alembic_poetry",
+                "invenio_record_metadata_models_poetry",
+                "invenio_record_resource_poetry",
+                "invenio_record_search_poetry",
+                "invenio_record_jsonschemas_poetry",
+                "invenio_script_bootstrap",
+                "invenio_script_runserver",
+                "invenio_script_import_sample_data",
+                "script_sample_data",
+                "invenio_script_runserver"
+            ]
+        }
+    },
+    "output-directory": "nr-vocabularies"
+}
