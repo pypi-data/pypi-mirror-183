@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/pybeyopticaltracker.egg-info/PKG-INFO
+src/pybeyopticaltracker.egg-info/SOURCES.txt
+src/pybeyopticaltracker.egg-info/dependency_links.txt
+src/pybeyopticaltracker.egg-info/top_level.txt
