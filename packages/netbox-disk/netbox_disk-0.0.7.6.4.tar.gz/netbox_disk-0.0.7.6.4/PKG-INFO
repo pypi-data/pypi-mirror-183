@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: netbox-disk
+Version: 0.0.7.6.4
+Summary: Netbox Disk Plugin
+Author: Tim Rhomberg
+Author-email: timrhomberg@hotmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+pip3 install poetry
+poetry build
+poetry publish
+
+git add . && git commit -m "add change to project" && git push
