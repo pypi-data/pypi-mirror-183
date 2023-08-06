@@ -1,0 +1,8 @@
+lmfit
+lxml
+matplotlib
+numpy
+pandas
+pyaniml
+seaborn
+scipy
