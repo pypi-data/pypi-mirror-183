@@ -1,0 +1,66 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+
+#  mtg_bd:
+#    build:
+#      context: .
+#      dockerfile: docker/mongo/Dockerfile
+#    image: mtg_bd:v1
+#    ports:
+#      - "1488:27017"
+#    networks:
+#      - mtg
+#    command:
+#      - python3 /bot.py
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+#      endpoint_mode: dnsrr
+
+  db_api:
+    build:
+      context: ..
+      dockerfile: api/Dockerfile
+    image: db_api:v1
+    ports:
+      - "8888:8080"
+    networks:
+      - mtg
+    command:
+      - python3 api.py
+    deploy:
+      mode: replicated
+      replicas: 2
+#      endpoint_mode: vip
+
+#  api:
+#    build:
+#      context: .
+#      dockerfile: docker/api/Dockerfile
+#    image: api:v1
+#    container_name: api
+#    command:
+#      - python3 api.py
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    container_name: mongo-ui
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+networks:
+  mtg:
