@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: colorise-terminal
+Version: 0.1.1
+Summary: Color text and background of terminal output
+Home-page: https://github.com/matiast1905/color_terminal
+Author: Matias Taron Simoes
+Author-email: matiastaron@gmail.com
+License: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Colorise Terminal
+
+This package allows you to change the text color and background color of the terminal output
