@@ -1,0 +1,10 @@
+README.md
+license.txt
+setup.py
+ProCursoDev/__init__.py
+ProCursoDev/camera.py
+ProCursoDev/video.py
+pro_curso_dev.egg-info/PKG-INFO
+pro_curso_dev.egg-info/SOURCES.txt
+pro_curso_dev.egg-info/dependency_links.txt
+pro_curso_dev.egg-info/top_level.txt
