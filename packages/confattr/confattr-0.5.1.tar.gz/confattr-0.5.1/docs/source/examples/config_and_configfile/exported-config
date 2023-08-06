@@ -1,0 +1,5 @@
+
+# traffic-law.speed-limit
+# -----------------------
+# an int in km/h
+set traffic-law.speed-limit = 30
