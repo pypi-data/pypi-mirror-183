@@ -1,0 +1,17 @@
+LICENSE.rst
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+bugtracker/__init__.py
+bugtracker/hooks.py
+bugtracker/plugin.py
+bugtracker/worker.py
+bugtracker/trackers/__init__.py
+bugtracker/trackers/yandex_tracker.py
+pytest_yc_bugtracker.egg-info/PKG-INFO
+pytest_yc_bugtracker.egg-info/SOURCES.txt
+pytest_yc_bugtracker.egg-info/dependency_links.txt
+pytest_yc_bugtracker.egg-info/entry_points.txt
+pytest_yc_bugtracker.egg-info/requires.txt
+pytest_yc_bugtracker.egg-info/top_level.txt
