@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/financial_pie/__init__.py
+src/financial_pie.egg-info/PKG-INFO
+src/financial_pie.egg-info/SOURCES.txt
+src/financial_pie.egg-info/dependency_links.txt
+src/financial_pie.egg-info/not-zip-safe
+src/financial_pie.egg-info/requires.txt
+src/financial_pie.egg-info/top_level.txt
