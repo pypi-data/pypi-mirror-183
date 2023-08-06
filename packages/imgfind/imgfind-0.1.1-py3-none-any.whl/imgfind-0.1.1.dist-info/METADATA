@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: imgfind
+Version: 0.1.1
+Summary: Find images in a directory, similar to findutils
+Project-URL: Source, https://github.com/Alanaktion/imgfind
+Requires: Pillow
+Requires-Dist: argparse
+Requires-Dist: glob
+Requires-Dist: importlib ; python_version >= "3.10"
+
