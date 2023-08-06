@@ -1,0 +1,12 @@
+[BASIC]
+good-names-rgxs =
+good-names=i,j,k,ex,Run,_,pk,x,y,fd
+
+[MESSAGES CONTROL]
+disable=
+    missing-function-docstring,
+    missing-module-docstring,
+    deprecated-decorator
+[SIMILARITIES]
+# Minimum lines number of a similarity.
+min-similarity-lines=1
