@@ -1,0 +1,4 @@
+[console_scripts]
+server=eudata_server.server:cli
+srv=eudata_server.server:cli
+
