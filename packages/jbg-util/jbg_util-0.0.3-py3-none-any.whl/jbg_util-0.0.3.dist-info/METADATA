@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: jbg_util
+Version: 0.0.3
+Summary: A general util package
+Author-email: Jonathan Gardner <jgardner85@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# JBG's General Util Package
+
+This is a general util package for performing logging, file management, and other general utility functions needed in most projects.
