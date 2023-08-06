@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: GoldenSectionSearch
+Version: 0.0.6
+Summary: This package is to print and plot Golden Section Algorithm
+Home-page: UNKNOWN
+Author: Vishal Pandey
+Author-email: vishalp316253@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: IPython
+Requires-Dist: time
+
+## Installation and Usage on Github Pages 
+[See Documentation](https://github.com/Vishalpandey1247/GoldenSectionSearch) 
+
+
+## Requirements
+```
+ python >= 3.6
+```
+
+## Dependencies
+```
+ numpy
+ matplotlib
+ IPython
+ time
+```
+
+## Installation
+
+Run the following to install:
+```python
+pip install GoldenSectionSearch
+```
+
+## Usage
+
+```python
+ from GoldenSectionSearch import GoldenSectionAlg
+
+ search = GoldenSectionAlg() 
+```
+
+### Get solution of Golden Section Search
+```python
+ x=np.linspace(0,6,100)
+ gss = GoldenSectionAlg(x)
+ gss.golden_search(0,6,'max',0.05)
+```
+Output:
+```
+Iteration:  1
+Error: 100.0
+Iteration:  2
+Error: 99.99999999999999
+Iteration:  3
+Error: 30.901699437494738
+Iteration:  4
+Error: 27.639320225002106
+Iteration:  5
+Error: 13.383054136359812
+Iteration:  6
+Error: 7.868932583326327
+.
+.
+.
+.
+```
+
+### Above All Points will have graphs according to input
+
+
+
