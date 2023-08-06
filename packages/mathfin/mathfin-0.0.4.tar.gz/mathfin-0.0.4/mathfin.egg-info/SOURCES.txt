@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+mathfin/__init__.py
+mathfin/mathfin.py
+mathfin.egg-info/PKG-INFO
+mathfin.egg-info/SOURCES.txt
+mathfin.egg-info/dependency_links.txt
+mathfin.egg-info/requires.txt
+mathfin.egg-info/top_level.txt
