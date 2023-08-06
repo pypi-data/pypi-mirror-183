@@ -1,0 +1,6 @@
+[console_scripts]
+atk-nitesh-consumer=atk_training_nitesh_psq.consumer:main
+atk-nitesh-manager=atk_training_nitesh_psq.manager:main
+atk-nitesh-producer=atk_training_nitesh_psq.producer:main
+atk-nitesh-queue=atk_training_nitesh_psq.sqlite_:init_
+
