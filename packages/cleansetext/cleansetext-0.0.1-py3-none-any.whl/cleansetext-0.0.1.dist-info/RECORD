@@ -1,0 +1,9 @@
+cleansetext/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cleansetext/pipeline.py,sha256=91p09JiTFl5E4OmxX29Mod08BUu3rA4L8S_bdo3JPOs,1041
+cleansetext/steps.py,sha256=DT9ALYY82w_UXd6wWxvPKFrvNTghHRpIevL0DCaFJKc,13804
+cleansetext/test.py,sha256=OfNp2GBsrCOSub8W5NVQhGnWmJCdJmvSG_6vbegjlLg,1056
+cleansetext-0.0.1.dist-info/LICENSE,sha256=03QCn89f1jlsNY6tVa1cRQEnOiWDhPkueBXzJQXc-EU,1097
+cleansetext-0.0.1.dist-info/METADATA,sha256=eQqZUBYpgP5qtFl-iasWHLjRzV8b0SltngCUMxUIOjY,1962
+cleansetext-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+cleansetext-0.0.1.dist-info/top_level.txt,sha256=3wfBgUslrRiThwIMwdIH9Qh1lcdQTeUfQQhNLe9D2g4,12
+cleansetext-0.0.1.dist-info/RECORD,,
