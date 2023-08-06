@@ -1,0 +1,10 @@
+measure_exec_time/LICENSE,sha256=q5AZUyTwx8nlW-2D2bxuQd36rLJ9EDulKh76xA09pj8,1069
+measure_exec_time/README.MD,sha256=6ocDv9AsB8tpaNmAagUdnlAUUyafV0fqc_8v3SCXQY0,581
+measure_exec_time/__init__.py,sha256=1HeX5jTqD5DB_v8-gQbLLU7Gnl9RYBARdU7M8_YDyGc,809
+measure_exec_time/requirements.txt,sha256=8S4oH4Msl2qQa60LukkIK9VXSfIOfpY0n4D7NRwOV98,8
+measure_exec_time/thirdparty.json,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+measure_exec_time-0.10.dist-info/LICENSE.rst,sha256=mUm-wCZOuzvKLxt9Gac_Zo5cah8QOM0gqn2Z-AluELM,1148
+measure_exec_time-0.10.dist-info/METADATA,sha256=pnAnq3liUPMm-9LaZ6zZh1-P27Wi7eDiN-kv0hVFO_Y,1498
+measure_exec_time-0.10.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+measure_exec_time-0.10.dist-info/top_level.txt,sha256=EnEH6_btvzeU1fkLZidF1X3-5rO6bsTt7H1PI8z3nM4,18
+measure_exec_time-0.10.dist-info/RECORD,,
