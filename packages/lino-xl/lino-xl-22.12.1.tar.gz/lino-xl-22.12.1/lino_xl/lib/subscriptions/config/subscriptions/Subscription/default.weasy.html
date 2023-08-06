@@ -1,0 +1,30 @@
+{% extends "subscriptions/Subscription/base.weasy.html" %}
+{%- block pagesize %}portrait{%- endblock %};
+{%- block main %}
+{{ super() }}
+
+<div class="footer_div">{{obj}}</div>
+
+{{obj.description}}
+
+<table border="1" width="45%">
+<thead><tr>
+<td>{{_("No.")}}</td>
+<td>{{_("Product")}}</td>
+<td>{{_("Quantity")}}</td>
+<td>{{_("Remark")}}</td>
+</tr></thead>
+<tbody>
+{% for oi in obj.items.all() %}
+<tr class="avoid">
+<td>{{loop.index}}</td>
+<td>{{tostring(oi.product)}}</td>
+<td>{{oi.title}}</td>
+<td>{{oi.qty}}</td>
+<td>{{oi.total_base}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{%- endblock %}
