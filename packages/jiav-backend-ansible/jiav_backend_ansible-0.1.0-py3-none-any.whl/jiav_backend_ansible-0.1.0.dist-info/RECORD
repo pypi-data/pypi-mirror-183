@@ -1,0 +1,5 @@
+jiav/api/backends/ansible.py,sha256=o7_8SeeQrXhtYpQY2c4mrKzsa6VhYF3bNXJ5lP7rAP4,5130
+jiav/api/schemas/ansible.py,sha256=Zl8W4Y9-qe5iOPAStWpJUJkHwivnkzUliqrp-bnKPB8,875
+jiav_backend_ansible-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+jiav_backend_ansible-0.1.0.dist-info/METADATA,sha256=x01bX72fl6qlZOkwFvheHvl8aXb2A9SrmRAcVVlQchY,1681
+jiav_backend_ansible-0.1.0.dist-info/RECORD,,
