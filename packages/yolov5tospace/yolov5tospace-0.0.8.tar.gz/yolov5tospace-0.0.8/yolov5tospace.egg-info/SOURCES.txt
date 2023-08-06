@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+yolov5tospace/__init__.py
+yolov5tospace/cli.py
+yolov5tospace/hf_utils.py
+yolov5tospace/space_utils.py
+yolov5tospace.egg-info/PKG-INFO
+yolov5tospace.egg-info/SOURCES.txt
+yolov5tospace.egg-info/dependency_links.txt
+yolov5tospace.egg-info/entry_points.txt
+yolov5tospace.egg-info/requires.txt
+yolov5tospace.egg-info/top_level.txt
