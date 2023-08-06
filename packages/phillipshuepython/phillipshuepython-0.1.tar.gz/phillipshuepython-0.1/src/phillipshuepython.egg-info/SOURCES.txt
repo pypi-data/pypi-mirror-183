@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.cfg
+setup.py
+src/phillipshuepython.egg-info/PKG-INFO
+src/phillipshuepython.egg-info/SOURCES.txt
+src/phillipshuepython.egg-info/dependency_links.txt
+src/phillipshuepython.egg-info/requires.txt
+src/phillipshuepython.egg-info/top_level.txt
