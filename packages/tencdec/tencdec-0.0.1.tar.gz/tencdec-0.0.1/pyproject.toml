@@ -1,0 +1,18 @@
+[project]
+name = "tencdec"
+version = "0.0.1"
+authors = [
+  { name="Facundo Batista", email="facundo@taniquetil.com.ar" },
+]
+description = "A number array to/from bytes high performance encoder/decoder."
+readme = "README.md"
+requires-python = ">=3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/facundobatista/tencdec"
+"Bug Tracker" = "https://github.com/facundobatista/tencdec/issues"

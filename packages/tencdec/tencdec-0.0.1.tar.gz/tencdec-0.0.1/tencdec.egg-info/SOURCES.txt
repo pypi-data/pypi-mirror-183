@@ -1,0 +1,8 @@
+LICENSE.md
+README.md
+pyproject.toml
+tencdec.py
+tencdec.egg-info/PKG-INFO
+tencdec.egg-info/SOURCES.txt
+tencdec.egg-info/dependency_links.txt
+tencdec.egg-info/top_level.txt
