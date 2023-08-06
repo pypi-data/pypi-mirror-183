@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+agify/__init__.py
+agify/wrappers.py
+agify.egg-info/PKG-INFO
+agify.egg-info/SOURCES.txt
+agify.egg-info/dependency_links.txt
+agify.egg-info/top_level.txt
