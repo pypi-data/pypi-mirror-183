@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "spoor"
+version = "0.3.3"
+description = "Track functions invocations"
+authors = ["Misha Behersky <bmwant@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+datadog = "^0.44.0"
+varname = "^0.10.0"
+rich = "^12.6.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+isort = "^5.11.4"
+black = "^22.12.0"
+mkdocs = "^1.4.2"
+python-semantic-release = "^7.32.2"
+
+[tool.semantic_release]
+version_toml = "pyproject.toml:tool.poetry.version"
+branch = "main"
+upload_to_repository = false
+dist_path = "dist/"
+upload_to_release = true  # do not upload distribution to GH releases
+build_command = "poetry build"
+major_on_zero = false
+tag_commit = true
+commit_subject = "Release {version}"
+changelog_file = "CHANGELOG.md"
+changelog_scope = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
