@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "starlite-users"
+version = "0.1.0"
+description = "Authentication and user management for Starlite"
+authors = ["Michael Bosch <michael@lonelyviking.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "starlite_users"}]
+
+[tool.poetry.dependencies]
+python = "^3.8,<4.0"
+passlib = "*"
+starlite = "^1.43.1"
+sqlalchemy = "^1.4.44"
+python-jose = "^3.3.0"
+cryptography = "^38.0.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+mkdocs = "^1.4.2"
+pre-commit = "^2.20.0"
+uvicorn = "^0.20.0"
+aiosqlite = "^0.17.0"
+mkdocs-material = "^8.5.11"
+mkdocstrings = {extras = ["python"], version = "^0.19.1"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
