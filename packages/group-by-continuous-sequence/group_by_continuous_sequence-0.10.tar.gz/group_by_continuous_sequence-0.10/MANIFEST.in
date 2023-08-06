@@ -1,0 +1,4 @@
+include group_by_continuous_sequence/requirements.txt
+include group_by_continuous_sequence/thirdparty.json
+include group_by_continuous_sequence/README.MD
+include group_by_continuous_sequence/LICENSE

@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+group_by_continuous_sequence/LICENSE
+group_by_continuous_sequence/README.MD
+group_by_continuous_sequence/__init__.py
+group_by_continuous_sequence/requirements.txt
+group_by_continuous_sequence/thirdparty.json
+group_by_continuous_sequence.egg-info/PKG-INFO
+group_by_continuous_sequence.egg-info/SOURCES.txt
+group_by_continuous_sequence.egg-info/dependency_links.txt
+group_by_continuous_sequence.egg-info/requires.txt
+group_by_continuous_sequence.egg-info/top_level.txt
