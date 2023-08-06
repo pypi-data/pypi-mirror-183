@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: votifier_py
+Version: 0.1.2
+Summary: A Python implementation of the Minecraft Votify project.
+License: MIT
+Author-email: Thaodan <unclethaodan@gmail.com>
+Requires-Python: >=3.10
+Project-URL: Repository, https://gitlab.com/UncleThaodan/votifier_py
+Description-Content-Type: text/markdown
+
+# votifier_py
+
+A Python implementation of the Minecraft Votify project.
+

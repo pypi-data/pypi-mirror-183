@@ -1,0 +1,37 @@
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=22.12.0",
+    "aiovotifier>=1.0.5",
+    "pytest>=7.2.0",
+    "pytest-asyncio>=0.20.3",
+    "coverage>=7.0.1",
+]
+
+[tool.black]
+line-length = 120
+skip-string-normalization = true
+
+[project]
+name = "votifier_py"
+version = "0.1.2"
+description = "A Python implementation of the Minecraft Votify project."
+authors = [
+    { name = "Thaodan", email = "unclethaodan@gmail.com" },
+]
+dependencies = [
+    "pydantic>=1.10.4",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Repository = "https://gitlab.com/UncleThaodan/votifier_py"
+
+[build-system]
+requires = [
+    "pdm-pep517>=1.0",
+]
+build-backend = "pdm.pep517.api"
