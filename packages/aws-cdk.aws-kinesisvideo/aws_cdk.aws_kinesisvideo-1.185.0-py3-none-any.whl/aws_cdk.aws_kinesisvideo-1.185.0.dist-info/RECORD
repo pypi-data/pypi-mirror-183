@@ -1,0 +1,10 @@
+aws_cdk/aws_kinesisvideo/__init__.py,sha256=95iksJgAUsVbGPFa2Jo8hLxXeMPSRlglWOfwHayUIMs,37885
+aws_cdk/aws_kinesisvideo/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/aws_kinesisvideo/_jsii/__init__.py,sha256=0eVhslVELo8vUAd6ackeNuCqUdOp7H5H8IUO_8WxWVE,406
+aws_cdk/aws_kinesisvideo/_jsii/aws-kinesisvideo@1.185.0.jsii.tgz,sha256=jc0SbpUtB58v1NkX0G0J8aaMmDJIXkz5x3B7Rrtc2GA,29286
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/LICENSE,sha256=wX3LqRrxZ97zcDpw0dQ58Zb9AQalEDmXs6nP39muv7o,11391
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/METADATA,sha256=EQhbPquAxYRABTvpM4Y_L4DDiOugEK33tMu29-txOLI,3163
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/NOTICE,sha256=piksgoXop22-zO1J9i3rVrv57wUN9siPK1pqGzZ7-AE,113
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.aws_kinesisvideo-1.185.0.dist-info/RECORD,,
