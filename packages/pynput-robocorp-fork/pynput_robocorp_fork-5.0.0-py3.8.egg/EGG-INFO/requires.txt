@@ -1,0 +1,12 @@
+six
+
+[:"linux" in sys_platform]
+python-xlib>=0.17
+
+[:python_version == "2.7"]
+enum34
+
+[:sys_platform == "darwin"]
+pyobjc-framework-ApplicationServices<10.0,>=8.0
+pyobjc-framework-Quartz<10.0,>=8.0
+pyobjc-core<10.0,>=8.0
