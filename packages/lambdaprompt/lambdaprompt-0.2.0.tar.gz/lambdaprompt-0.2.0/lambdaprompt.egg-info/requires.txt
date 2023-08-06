@@ -1,0 +1,12 @@
+requests
+aiohttp
+python-dotenv
+jinja2
+
+[all]
+lambdaprompt[server]
+
+[server]
+fastapi
+uvicorn
+aiosqlite
