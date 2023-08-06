@@ -1,0 +1,8 @@
+setup.py
+paandass/__init__.py
+paandass/paandass.py
+paandass.egg-info/PKG-INFO
+paandass.egg-info/SOURCES.txt
+paandass.egg-info/dependency_links.txt
+paandass.egg-info/not-zip-safe
+paandass.egg-info/top_level.txt
