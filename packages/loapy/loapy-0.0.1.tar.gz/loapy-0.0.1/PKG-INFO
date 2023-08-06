@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: loapy
+Version: 0.0.1
+Summary: An asynchronous sdk for lostark offical api.
+License: MIT
+Author: penggin
+Author-email: 77449586+penggin@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: aiohttp (>=3.8.3,<4.0.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Description-Content-Type: text/markdown
+
+# loapy
+ An asynchronous sdk for lostark offical api.
+

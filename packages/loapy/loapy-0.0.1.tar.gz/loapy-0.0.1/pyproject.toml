@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "loapy"
+version = "0.0.1"
+description = "An asynchronous sdk for lostark offical api."
+authors = ["penggin <77449586+penggin@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.2"
+aiohttp = "^3.8.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
