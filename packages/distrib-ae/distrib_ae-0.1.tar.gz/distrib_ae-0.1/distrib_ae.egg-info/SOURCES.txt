@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+distrib_ae/__init__.py
+distrib_ae/binomial.py
+distrib_ae/distribution.py
+distrib_ae/gaussian.py
+distrib_ae.egg-info/PKG-INFO
+distrib_ae.egg-info/SOURCES.txt
+distrib_ae.egg-info/dependency_links.txt
+distrib_ae.egg-info/not-zip-safe
+distrib_ae.egg-info/top_level.txt

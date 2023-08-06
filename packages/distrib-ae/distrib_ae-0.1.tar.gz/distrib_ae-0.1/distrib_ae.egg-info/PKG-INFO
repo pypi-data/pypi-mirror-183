@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: distrib-ae
+Version: 0.1
+Summary: Gaussian and binomial distribution
+Author: Alessandro Eusepi
+Author-email: eusepi.alessandro@gmail.com
+License-File: LICENSE
