@@ -1,0 +1,17 @@
+desper/__init__.py,sha256=3QD3g3CietCQkd8G5P9SOkoVF2Z6nF8QKWXnazn7wk8,1180
+desper/bisect.py,sha256=ydbqDeqnVeAzMb8P1jGHrLNFGfCCX5kHeCAaZMSKJhM,3016
+desper/events.py,sha256=AzjJLhvNSXctB39HcN7AHTUTFGROQ_2G23X1bDqCdnM,6138
+desper/loop.py,sha256=KzRtoRkX1AEAlkEYDTl7i4zvBY5XQTPx0BfTKNaWKdc,7575
+desper/math.py,sha256=TvZAbuSR_8WCcUkIeQuVdudxtBzFrWXQK2GcOtt62DQ,34427
+desper/logic/__init__.py,sha256=NcJlap9hh9d8UpKnLue5hrLkoWZy_ckx_xXXLbu3k_A,12536
+desper/logic/coroutines.py,sha256=0Q-EUMQ_T_yPF5vPgIYqbgZ6MNbNLLI1zQ3cSjKI6J8,10469
+desper/logic/spatial.py,sha256=5Xl69jqgTsoFlWsy1p7T6EZ0OkGtThgqTGr0RcPo9Uw,3671
+desper/logic/world.py,sha256=sR5fYnR4lyqeEv4I7Llp9ySppBD3UlUIcgLWbzWA_HU,20530
+desper/model/__init__.py,sha256=RKn6bv8JwRb6sWRCahXgpek5K5TOtPBuSd89sW6DhOc,7569
+desper/model/tree.py,sha256=eVwISb6pFG_GJ_BtZh5_dN2f6aNH6t9rv9cvksBlKWo,11261
+desper/model/world.py,sha256=hbE1v7jbqOoBHhlVRBtDdNE22HGchmlLnNgPY_o3EUk,11571
+desper-1.1.1.post0.dist-info/LICENSE,sha256=untOZFAmbvWuSXW8NEf3_t_GzCnCwZglA8Ci6nVwAIQ,1073
+desper-1.1.1.post0.dist-info/METADATA,sha256=Ejq1L0w-aA7oDtKyxKgFJ4MYRe-4-NQCBj8HEZwRpAc,2675
+desper-1.1.1.post0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+desper-1.1.1.post0.dist-info/top_level.txt,sha256=18bG9rRhPHsKrGV60y1UPtPzcKi6diYmyfiY2nHnMGY,7
+desper-1.1.1.post0.dist-info/RECORD,,
