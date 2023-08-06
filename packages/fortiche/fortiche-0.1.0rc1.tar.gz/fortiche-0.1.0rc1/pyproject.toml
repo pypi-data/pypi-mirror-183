@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fortiche"
+description = "The Fortiche Production Namespace"
+requires-python = ">=3.10"
+# keywords = ["kw_one", "k_two"]
+license = {text = "LGPLv2+"}
+classifiers = [
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Programming Language :: Python :: 3",
+
+]
+dependencies = [
+    # 'importlib-metadata; python_version<"3.8"',
+]
+dynamic = ["version", "readme"]
+
+[tool.setuptools.dynamic]
+version = {attr = "fortiche.__version__"}
+readme = {file = ["README.rst", "USAGE.rst"]}
+
+[project.optional-dependencies]
+dev = ["black", "build", "twine"]
+doc = ["sphinx"]
+
+# Only use this if not using a classing layout (src-layout, flat-layout, ...)
+# [tool.setuptools.packages.find]
+# where = ["src"]  # list of folders that contain the packages (["."] by default)
+# include = ["my_studio*"]  # package names should match these glob patterns (["*"] by default)
+# exclude = ["my_studio.tests*"]  # exclude packages matching these glob patterns (empty by default)
+# namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+# [project.scripts]
+# GUI = "my_studio.gui:main"

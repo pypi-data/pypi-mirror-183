@@ -1,0 +1,10 @@
+LICENSE.txt
+README.rst
+pyproject.toml
+src/fortiche/__init__.py
+src/fortiche/__version__.py
+src/fortiche.egg-info/PKG-INFO
+src/fortiche.egg-info/SOURCES.txt
+src/fortiche.egg-info/dependency_links.txt
+src/fortiche.egg-info/requires.txt
+src/fortiche.egg-info/top_level.txt
