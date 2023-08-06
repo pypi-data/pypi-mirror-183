@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: deepqmc
+Version: 1.0.1
+Summary: Deep-learning quantum Monte Carlo for electrons in real space
+Author-email: Jan Hermann <jan.hermann@fu-berlin.de>, Zeno Schätzle <zenoone@physik.fu-berlin.de>, Péter Bernát Szabó <peter.bernat.szabo@fu-berlin.de>
+License: MIT
+Project-URL: repository, https://github.com/deepqmc/deepqmc
+Project-URL: documentation, https://deepqmc.github.io
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: GPU :: NVIDIA CUDA
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dm-haiku
+Requires-Dist: e3nn-jax
+Requires-Dist: h5py
+Requires-Dist: hydra-core
+Requires-Dist: jax[cuda]
+Requires-Dist: jaxtyping
+Requires-Dist: kfac-jax
+Requires-Dist: pyscf
+Requires-Dist: tensorboard
+Requires-Dist: pyyaml
+Requires-Dist: tqdm
+Requires-Dist: uncertainties
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-regressions ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 (<6.0.0) ; extra == 'dev'
+Requires-Dist: flake8-bugbear ; extra == 'dev'
+Requires-Dist: flake8-comprehensions ; extra == 'dev'
+Requires-Dist: flake8-quotes ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pep8-naming ; extra == 'dev'
+Requires-Dist: pydocstyle ; extra == 'dev'
+
+# DeepQMC
+
+![checks](https://img.shields.io/github/actions/workflow/status/deepqmc/deepqmc/tests.yaml?label=tests)
+[![coverage](https://img.shields.io/codecov/c/github/deepqmc/deepqmc.svg)](https://codecov.io/gh/deepqmc/deepqmc)
+![python](https://img.shields.io/pypi/pyversions/deepqmc.svg)
+[![pypi](https://img.shields.io/pypi/v/deepqmc.svg)](https://pypi.org/project/deepqmc/)
+[![commits since](https://img.shields.io/github/commits-since/deepqmc/deepqmc/latest.svg)](https://github.com/deepqmc/deepqmc/releases)
+[![last commit](https://img.shields.io/github/last-commit/deepqmc/deepqmc.svg)](https://github.com/deepqmc/deepqmc/commits/master)
+[![license](https://img.shields.io/github/license/deepqmc/deepqmc.svg)](https://github.com/deepqmc/deepqmc/blob/master/LICENSE)
+[![code style](https://img.shields.io/badge/code%20style-black-202020.svg)](https://github.com/ambv/black)
+[![doi](https://img.shields.io/badge/doi-10.5281%2Fzenodo.3960826-blue)](http://doi.org/10.5281/zenodo.3960826)
+
+DeepQMC implements variational quantum Monte Carlo for electrons in molecules, using deep neural networks as trial wave functions. The package is based on [JAX](https://github.com/google/jax) and [Haiku](https://github.com/deepmind/dm-haiku). Besides the core functionality, it contains an implementation of the [PauliNet](https://doi.org/ghcm5p) ansatz.
+
+### Installing
+
+Install and update using [Pip](https://pip.pypa.io/en/stable/quickstart/):
+
+```
+pip install -U deepqmc -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+```
+
+To install DeepQMC from a local Git repository run:
+
+```
+git clone https://github.com/deepqmc/deepqmc
+cd deepqmc
+pip install -e .[dev] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+```
+
+### Documentation and exemplary usage
+
+For further information about the DeepQMC package and tutorials covering the basic usage visit the [documentation](https://deepqmc.github.io).
