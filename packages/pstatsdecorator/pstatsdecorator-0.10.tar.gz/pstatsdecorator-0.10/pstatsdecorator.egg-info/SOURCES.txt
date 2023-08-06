@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pstatsdecorator/LICENSE
+pstatsdecorator/README.MD
+pstatsdecorator/__init__.py
+pstatsdecorator/requirements.txt
+pstatsdecorator/thirdparty.json
+pstatsdecorator.egg-info/PKG-INFO
+pstatsdecorator.egg-info/SOURCES.txt
+pstatsdecorator.egg-info/dependency_links.txt
+pstatsdecorator.egg-info/top_level.txt

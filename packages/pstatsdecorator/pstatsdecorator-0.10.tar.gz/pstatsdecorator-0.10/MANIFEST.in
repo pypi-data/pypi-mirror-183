@@ -1,0 +1,4 @@
+include pstatsdecorator/requirements.txt
+include pstatsdecorator/thirdparty.json
+include pstatsdecorator/README.MD
+include pstatsdecorator/LICENSE
