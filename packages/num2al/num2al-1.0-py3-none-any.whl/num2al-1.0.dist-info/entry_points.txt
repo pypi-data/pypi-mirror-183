@@ -1,0 +1,2 @@
+[console_scripts]
+words = num2al:words
