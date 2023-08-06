@@ -1,0 +1,9 @@
+bankreport/.DS_Store,sha256=1lFlJ5EFymdzGAUAaI30vcaaLHt3F1LwpG7xILf9jsM,6148
+bankreport/__init__.py,sha256=v5FM8d7kEzbdkxDkQmCxpHguD-cQnK_sPaNatCxqOEE,47
+bankreport/__main__.py,sha256=qBq9tNps9F_3N6NbSudJqA-wUfc0Ny3VotqH--KJ9ew,106
+bankreport/cli.py,sha256=xWYSH10VNUkyH4yrmIpWMQtP3HU7K2YGL0n72F6HtIA,7971
+bankreport/templates.py,sha256=V9-cXvNiLIVCOhmr02vbaxz-XsClqgIG4g5XU5vtrbE,1541
+bankreport-0.1.6.dist-info/entry_points.txt,sha256=mK1plhcDx2nWm7rp0JCzvuzv6m97yvg1s2w76xaKPpQ,46
+bankreport-0.1.6.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+bankreport-0.1.6.dist-info/METADATA,sha256=KUH-bA21JhAGzaMKJBOi4uPkjmgSpLXS8Fc22QJ01Rw,616
+bankreport-0.1.6.dist-info/RECORD,,
