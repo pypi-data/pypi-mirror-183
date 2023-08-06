@@ -1,0 +1,15 @@
+gmn_python_api/__init__.py,sha256=JiwtQQw1hyAeNNuD5nq7eDSbUcu0RFV5Lh1zj4s2Sb8,469
+gmn_python_api/__main__.py,sha256=WwqjJOs5lUljMBcFd87bk6Hz2JQoPeCXdzqPo1XRnsM,218
+gmn_python_api/data_directory.py,sha256=X_JApxI7O1MKsLxhid2_pn9t3d4HatKuFfLbHkBq0sQ,7230
+gmn_python_api/data_models/traj_summary_20220304_solrange_344.0-345.0.txt,sha256=Wi3AwHzKMy6HYRgj5ezZfNbO3OEj59avNa6fqJJwf-s,496793
+gmn_python_api/data_models/traj_summary_20220304_solrange_344.0-345.0_one_row.txt,sha256=-JUidmULioI7jKhpsMs3ep2FDQJkDJCUtfrknGR3N-A,3758
+gmn_python_api/gmn_rest_api.py,sha256=tLfB2jKwJQHQPKhii6UzoUvy1z7BkCSXmbibtdfuu6s,6227
+gmn_python_api/iau_showers.py,sha256=Mz5GDierbm9A5H0bNYW0BeeVQPJmRk201fLPQoTi_Nk,1260
+gmn_python_api/meteor_summary_reader.py,sha256=RqPAqwAdNJ_JSzWWwvBPGiJb9HOzaFQFXextuu5pgpo,9445
+gmn_python_api/meteor_summary_schema.py,sha256=hM9fu7gsOwgWZLYpjztchVHce7SROqYVja_2p9nHpAg,1688
+gmn_python_api/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gmn_python_api-0.0.8.dist-info/entry_points.txt,sha256=XeKc2irCLM4nA3Nbhpekq9Mktikj7pn57RuqiL5vlgw,63
+gmn_python_api-0.0.8.dist-info/LICENSE,sha256=dkH4CAM7LIPKbVkc9Qra7iY8djwQiHDMK2D7K_nTwEQ,1072
+gmn_python_api-0.0.8.dist-info/WHEEL,sha256=DA86_h4QwwzGeRoz62o1svYt5kGEXpoUTuTtwzoTb30,83
+gmn_python_api-0.0.8.dist-info/METADATA,sha256=CUEHoyIUIdDIEvd7FBaoYms9DETm8P-RZhUGl3AGMZY,5619
+gmn_python_api-0.0.8.dist-info/RECORD,,
