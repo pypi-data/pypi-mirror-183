@@ -1,0 +1,50 @@
+##  fmanova - Package for Analysis of Variance
+**fmanova** package provides functions to perform, one-way and two-way analysis of variance. The package contains two functions:
+
+- ***anova1w(data):***  Performs one-way analysis of variance.
+- ***anova2w(data):***  Performs two-way analysis of variance.
+**Parameters:**
+**data:** **List, DataFrame, or ndarray,**
+**Returns:** **DataFrame**
+
+#### Dependencies:
+- Numpy
+- Pandas
+- SciPy
+
+#### Installation:
+In oder to perform analysis of variance, we must install **fmanova** . Use the package installer (**PIP**) or package management system (**conda**) to install **fmanova**.
+
+     pip install fmanova
+     python -m pip install fmanova
+     conda install fmanova
+
+#### How to use:
+    import required function from fmanova
+    provide input 
+    execute the code
+
+#### Example:
+Five different brands of headache tablets and their relief time in hours.
+
+| A  |B   |C   |D   |E   |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+|  5 |9   |3   |2   | 7  |
+| 4  | 7  | 5  | 3  | 6  |
+|  8 |8   | 2  | 4  | 9  |
+|  6 | 6  | 3  | 1  | 4  |
+|  3 | 9  | 7  | 4  | 7  |
+
+    from fmanova.anova import anova1w
+    mydata=[[5,4,8,6,3],[9,7,8,6,9],[3,5,2,3,7],[2,3,4,1,4],[7,6,9,4,7]]
+    anova1w(mydata)
+    
+    Source                   Sum_Sq   Dof   Mean_Sq         F             P_value
+    0  Column means   79.44       4      19.86             6.895833  0.00117
+    1      Residual          57.60      20     2.88
+
+#### Version History
+1.0.0 (Initial release)
+
+#### License
+This project is licensed under the **MIT** License - see the LICENSE.txt file for details
