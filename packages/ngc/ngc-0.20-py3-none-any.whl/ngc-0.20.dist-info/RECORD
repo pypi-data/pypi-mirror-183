@@ -1,0 +1,14 @@
+ngc/Android.py,sha256=Hp6bdk8GKz51kPeXSYBq-BOJR_LkUxOfzOQCd9Dg8LM,776
+ngc/Astro.py,sha256=Sf_tu24h5uyboHPB_Kfp3j6fimGNGlrjY8qodj_Fmgw,877
+ngc/Bin.py,sha256=GwT0Lffh0oo-orZ-G8vb1QlClhKVbaUxVhHVFR2Nni4,3994
+ngc/Doc.py,sha256=SRP8qKowmV04Bxzv4S5wM_zD8zmA9Upoc8D_jET9208,12525
+ngc/Lang.py,sha256=b-6F18Dm_VNr2CvUpzDGFLtUI2yuGFG7J2hGE-nOjbo,8110
+ngc/Media.py,sha256=LNdQ2hUl7xfTDrb2134upK4nGvvT2z9AWI88EITUOWM,14608
+ngc/UI.py,sha256=397WSZ3wUbjxkhW6LCXEhDckcJDtmgYnVnGLWtyiT20,1579
+ngc/Web.py,sha256=cf6WsPMd2luwy5PAPWYGaUAjdAr5RwD58EUyW7E6FNM,1610
+ngc/Windows.py,sha256=8jcYguiyW8_oZQsCdwsh2onMEARe_StqHWxhGlxTZk0,8760
+ngc/__init__.py,sha256=M54ZKcDl8eA5GW_pmV1fUgakb1TwTpQCIlRGkdP1OeQ,21780
+ngc-0.20.dist-info/METADATA,sha256=HAfhPchVElp2076EIOgYLPiXjyJkGWhcPvZWSq9uuf8,693
+ngc-0.20.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+ngc-0.20.dist-info/top_level.txt,sha256=OKXkE0r1WPeClLnGYvGCbLI4uA8ez0bKxXLZNnC3hqo,4
+ngc-0.20.dist-info/RECORD,,
