@@ -1,0 +1,9 @@
+License.txt .txt
+README.md
+setup.py
+FoxBox.egg-info/PKG-INFO
+FoxBox.egg-info/SOURCES.txt
+FoxBox.egg-info/dependency_links.txt
+FoxBox.egg-info/top_level.txt
+foxbox/__init__.py
+foxbox/tools.py

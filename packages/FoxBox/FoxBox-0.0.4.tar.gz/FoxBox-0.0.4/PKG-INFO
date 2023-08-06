@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: FoxBox
+Version: 0.0.4
+Summary: An usefull package
+Author: Batte
+Description-Content-Type: text/markdown
+License-File: License.txt .txt
+
+# FoxBox
+
+Foxbox is a python package to simplify messagebox and bin converter.
+
+## Installation
+
+
+```bash
+pip install foxbox
+```
+
+## Usage
+
+```python
+from foxbox import * #Be sure to add * to import all Subpackages
+
+int2bin(15)
+# returns 1111
+
+bin2int(1111)
+# returns 15
+
+str2bin('Text')
+# returns 01110100011001010111100001110100
+
+bin2str('01110100011001010111100001110100') #Add binairy text into ''
+
+box("Text", MB_ICONQUESTION | MB_CANCELTRYCONTINUE, "Title")
+           #Message box icon| Message box mode
+file('filename.anyformat')
+#create a file
+```
+
+## Message box mode list
+
+### Mode
+
+MB_ABORTRETRYIGNORE
+MB_CANCELTRYCONTINUE
+MB_HELP
+MB_OK
+MB_OKCANCEL
+MB_RETRYCANCEL
+MB_YESNO
+MB_YESNOCANCEL
+_________
+### Icons
+
+MB_ICONEXCLAMATION
+MB_ICONWARNING
+MB_ICONINFORMATION
+MB_ICONASTERISK
+MB_ICONQUESTION
+MB_ICONSTOP
+MB_ICONERROR
+MB_ICONHAND
+_____
+### Buttons value
+
+IDABORT = 3
+IDCANCEL = 2
+IDCONTINUE = 11
+IDIGNORE = 5
+IDNO = 7
+IDOK = 1
+IDRETRY = 4
+IDTRYAGAIN = 10
+IDYES = 6
+___
+
+#### Examples
+
+```python
+from foxbox import *
+mybox = box("SOMETHING WEN WRONG. would you like to restart?", MB_ICONERROR | MB_YESNO, "ERROR!")
+if mybox == IDYES:
+    print('Restarted!')
+if mybox == IDYES:
+    print('Closed')
+```
+
+## Help
+
+Thanks for use if you have any question join my Discord server link here [(--)](https://discord.gg/c6twk26h)
+
+## What's new?
+
+v0.0.1 - first release
+v0.0.2 - updating package file
+v0.0.3 - description added
+v0.0.4 - changed description (current)
+
