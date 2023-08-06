@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: resourcesManager
+Version: 4.0
+Summary: Criação de resources mais rápida
+Author: Luan Soares
+Author-email: piitszkdev@outlook.com
+License: MIT License
+Keywords: fivem
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Biblioteca para desenvolvedores python/fivem, focada na otimizaÃ§Ã£o do processo da criaÃ§Ã£o de alguma resource
+

@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+piitszk/__init__.py
+piitszk/main.py
+resourcesManager.egg-info/PKG-INFO
+resourcesManager.egg-info/SOURCES.txt
+resourcesManager.egg-info/dependency_links.txt
+resourcesManager.egg-info/top_level.txt
