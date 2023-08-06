@@ -1,0 +1,4 @@
+{
+  "test_company.py": true,
+  "test_company.py::test_parse_company_submission_json": true
+}
