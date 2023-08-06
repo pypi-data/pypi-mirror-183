@@ -1,0 +1,11 @@
+authwert/PROJECT.txt,sha256=dSBCkbFdpEfXRzsy7fIFdjKTtsiVOPoH_y0NhGXHL9E,390
+authwert/__init__.py,sha256=6X51hFKqq5oxoD2Ztz9RrRmGxLwYLwQKnC0pJCPVzhQ,4043
+authwert/etc/auth-wordpress.py,sha256=GWHV900GJSM6ajxH9Rv5hAI9nu27jnZFL4SMUFlCmMA,1334
+authwert/web/login.html,sha256=pcNpSGacPKyxmA1codCUubpvwFbC9yn1kpEw6L6MJPo,7329
+authwert/web/logout.html,sha256=F2EnjLySjTE4wdUF-ia5Wy7NEaoKKyWfWcLGQVBrMSM,5597
+authwert-0.1.5.data/scripts/authwert,sha256=Sx0G3XmFIzfYbJNNvY36fnEBymt1erfdQzFSUsnJdyU,9796
+authwert-0.1.5.dist-info/LICENSE,sha256=XMFKTwEouS7puOzZXEj9J9WP1_MdW2MVNLIsgq0LGm8,1060
+authwert-0.1.5.dist-info/METADATA,sha256=c3yLAgF5YzYQhzo7YU77W9TjQOe8XI4CUV5K9_Cu8Oc,3620
+authwert-0.1.5.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+authwert-0.1.5.dist-info/top_level.txt,sha256=YWg1tOu-TNfgXarDxVkJ8pQBN_TMvjWXlkwS_L4WDSE,9
+authwert-0.1.5.dist-info/RECORD,,
