@@ -1,0 +1,9 @@
+vulgata_spacy/__init__.py,sha256=0lA5tJa16mtaj6GVWQm51IcHFd1DNM7aQePUETs8FkM,43
+vulgata_spacy/vulgata_spacy.py,sha256=YMdS63Y07q8I-5hQXPkCqmQk7zJvuqrkNP86ouCPw08,6311
+vulgata_spacy/data/clem_partial.npy,sha256=FqKxf8DajO66BeyHRBp1GToSZYtLcKXcpoYPU550FjQ,66196928
+vulgata_spacy/data/clem_vulgate.csv,sha256=ykPi2eZEmlenmG0veM20szR-C9ac2FuzvrC3C3UYg-o,8378262
+vulgata_spacy/data/index_map_partial.json,sha256=Fr69qw5ArFNPgcdZQ1nMZomuoPuNycjhM7XZgdn63Jw,3475421
+vulgata_spacy-0.0.1.dist-info/METADATA,sha256=kG6GjXc9hv2fQHhKskhjQ60No6qSfhqqfTPc3MYzTn4,4955
+vulgata_spacy-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+vulgata_spacy-0.0.1.dist-info/top_level.txt,sha256=jVS3Mq_b9JNDYKmDtOO6gLjjWMd44RHDhJ6oqIGm874,14
+vulgata_spacy-0.0.1.dist-info/RECORD,,
