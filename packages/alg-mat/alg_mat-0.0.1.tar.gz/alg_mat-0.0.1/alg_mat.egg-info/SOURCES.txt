@@ -1,0 +1,10 @@
+LICENSE
+setup.py
+alg_mat.egg-info/PKG-INFO
+alg_mat.egg-info/SOURCES.txt
+alg_mat.egg-info/dependency_links.txt
+alg_mat.egg-info/top_level.txt
+src/__init__.py
+src/matadd.py
+src/matmul.py
+src/matsub.py
