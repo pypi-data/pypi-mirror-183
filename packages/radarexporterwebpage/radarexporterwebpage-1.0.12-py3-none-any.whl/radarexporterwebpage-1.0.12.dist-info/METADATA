@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: radarexporterwebpage
+Version: 1.0.12
+Summary: Get the latest radar exporter generate web page
+Home-page: UNKNOWN
+Author: Léo RICHER
+Author-email: leo.richer@sekost.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+
+UNKNOWN
+
+
