@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: reemployct-data-entry
+Version: 1.1.1
+Summary: Automated entry of weekly job search and certification data into Connecticut's DOL ReEmployCT portal.
+Author: Ariff
+Author-email: ariffjeff@icloud.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: colorama
+Requires-Dist: cryptography
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: selenium
+Requires-Dist: usaddress
+Description-Content-Type: text/markdown
+
+# DOLWeeklyClaimDataEntry
+ Automated entry of weekly certification data into Connecticut's DOL ReEmployCT portal.
+
