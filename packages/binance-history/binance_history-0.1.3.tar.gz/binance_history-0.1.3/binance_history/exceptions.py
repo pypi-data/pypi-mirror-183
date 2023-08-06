@@ -1,0 +1,2 @@
+class MissingTimeZone(Exception):
+    pass
