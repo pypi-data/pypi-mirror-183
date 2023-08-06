@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+all_against_all/LICENSE
+all_against_all/README.MD
+all_against_all/__init__.py
+all_against_all/requirements.txt
+all_against_all/thirdparty.json
+all_against_all.egg-info/PKG-INFO
+all_against_all.egg-info/SOURCES.txt
+all_against_all.egg-info/dependency_links.txt
+all_against_all.egg-info/top_level.txt

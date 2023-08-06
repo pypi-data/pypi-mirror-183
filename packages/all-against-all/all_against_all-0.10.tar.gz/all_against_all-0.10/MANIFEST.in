@@ -1,0 +1,4 @@
+include all_against_all/requirements.txt
+include all_against_all/thirdparty.json
+include all_against_all/README.MD
+include all_against_all/LICENSE
