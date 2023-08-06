@@ -1,0 +1,5 @@
+[console_scripts]
+flowtron-data=flowtron.data:main
+flowtron-inference=flowtron.inference:main
+flowtron-train=flowtron.train:main
+
