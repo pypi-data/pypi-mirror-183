@@ -1,0 +1,75 @@
+{
+    "title_buttons_color": {
+        "min": "#1f2d08",
+        "max": "#1f2d08",
+        "close": "#a3403c"
+    },
+
+    "bg": "#abbe9b",
+    "fg": "#1f2d08",
+    "light_color": "#94a684",
+
+    "search_box": {
+        "bg": "#354d1d",
+        "fg": "#f2f2f2",
+        "item": "#354d1d"
+    },
+
+    "address_edit": {
+        "bg": "#1f2d08",
+        "fg": "#dee9eb",
+        "border": "#354d1d",
+        "hover": "#354d1d"
+    },
+
+    "button": {
+        "bg": "#43423e",
+        "fg": "#ffffff",
+        "hover": "#94a684",
+        "border": "#a3403c"
+    },
+
+    "tab_widget": {
+        "bg": "#abbe9b",
+        "fg": "#1f2d08",
+        "select_bg": "#354d1d",
+        "select_fg": "#dfdfdf",
+        "hover": "#94a684"
+    },
+
+    "combobox": {
+        "bg": "#354d1d",
+        "fg": "#eeede6",
+        "select": "#eeede6",
+        "item": "#1f2d08"
+    },
+
+    "check_box": {
+        "normal": "#1f2d08",
+        "checked": "#a3403c"
+    },
+
+    "sections_panel": {
+        "bg": "#354d1d",
+        "fg": "#ffffff",
+        "select": "#a3403c",
+        "hover": "#667757"
+    },
+
+    "widget": {
+        "bg": "#94a684",
+        "fg": "#1f2d08"
+    },
+
+    "widget_title": {
+        "bg": "#354d1d",
+        "fg": "#eeede6"
+    },
+
+    "widget_title_btn": {
+        "bg": "#abbe9b",
+        "hover": "#667757"
+    },
+
+    "chunk": "#a3403c"
+}
