@@ -1,0 +1,8 @@
+__init__.py,sha256=OMRo-d97-kSXMBaLrZWqBe4doBxX14tgk3beOF_9K8M,49
+serial_comm.py,sha256=CaHokfW_IWRGqx2mQM-tybrrKidAgXWzyX1AXrHs4uw,1081
+sim_modem.py,sha256=xRMDqLs8D7c-jrOK66PcP0KPXr5UB9LTCXxE9s7TU8M,22758
+sim_modem-1.0.3.dist-info/LICENSE,sha256=kyUsIOcxwXZt8VCWDDe28O26PvcmI-T-zYww1xTHx78,1073
+sim_modem-1.0.3.dist-info/METADATA,sha256=dEqj60DKEtLGhmBO8QkAqYyMD3nXXTBeG6xSXtkWs2Q,7110
+sim_modem-1.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sim_modem-1.0.3.dist-info/top_level.txt,sha256=HbQz4zIm3cjDh6tc8-cYvgHtDmq5fl2oQfE2ZkIggIM,31
+sim_modem-1.0.3.dist-info/RECORD,,
