@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/simple_iot_device/__init__.py
+src/simple_iot_device.egg-info/PKG-INFO
+src/simple_iot_device.egg-info/SOURCES.txt
+src/simple_iot_device.egg-info/dependency_links.txt
+src/simple_iot_device.egg-info/requires.txt
+src/simple_iot_device.egg-info/top_level.txt
+src/simple_iot_device/device/__init__.py
+src/simple_iot_device/device/simple_iot_device.py
+src/simple_iot_device/device/utils/__init__.py
+src/simple_iot_device/device/utils/utils.py
+src/simple_iot_device/prototype/__init__.py
+src/simple_iot_device/prototype/iot.py
