@@ -1,0 +1,32 @@
+[build-system]
+requires = [ "poetry", "setuptools",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "MendiaFileScraper"
+version = "3.1.0"
+authors = [ "Lukas Riedersberger <lukas.riedersberger@posteo.de>",]
+readme = "README.md"
+license = "LICENSE"
+homepage = "https://gitlab.com/derfreak/MediaScrapper"
+documentation = "https://gitlab.com/derfreak/MediaScrapper"
+repository = "https://gitlab.com/derfreak/MediaScrapper"
+description = "File scrapper for clients to sync with a mendia rust application running on a server."
+keywords = [ "mendia", "movies", "collection",]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+websockets = "~=10.4"
+requests = "~=2.25.1"
+tmdbsimple = "~=2.7.0"
+pymediainfo = "~=5.0.3"
+dataclasses-json = "~=0.5.2"
+peewee = "^3.15.4"
+
+[tool.poetry.scripts.mendia-scraper]
+callable = "mendiafilescraper:__main__.main"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "*"
+pylint = "*"
+toml = "*"
