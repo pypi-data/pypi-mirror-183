@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: CircuitCalculator
+Version: 0.0.2
+Summary: Library for analysing and calculating electric networks.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# CircuitCalculator
