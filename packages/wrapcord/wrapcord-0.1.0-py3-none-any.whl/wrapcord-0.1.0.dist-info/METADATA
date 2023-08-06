@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wrapcord
+Version: 0.1.0
+Summary: Helpful tools for Discord.
+Home-page: https://github.com/Somespi/Wrapcord/
+Author: Someone
+Author-email: 
+License: MIT
+Keywords: API,wrapper,discord,tools,wrapcord
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# WrapCord
+##### Helpful tools for discord
+
+<hr> 
+
