@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+caddo_file_parser/__init__.py
+caddo_file_parser/caddo_file_parser.py
+caddo_file_parser.egg-info/PKG-INFO
+caddo_file_parser.egg-info/SOURCES.txt
+caddo_file_parser.egg-info/dependency_links.txt
+caddo_file_parser.egg-info/top_level.txt
+caddo_file_parser/models/__init__.py
+caddo_file_parser/models/caddo_file.py
+caddo_file_parser/models/fold.py
