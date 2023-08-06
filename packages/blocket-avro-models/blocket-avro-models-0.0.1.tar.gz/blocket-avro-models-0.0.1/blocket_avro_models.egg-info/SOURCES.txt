@@ -1,0 +1,5 @@
+setup.py
+blocket_avro_models.egg-info/PKG-INFO
+blocket_avro_models.egg-info/SOURCES.txt
+blocket_avro_models.egg-info/dependency_links.txt
+blocket_avro_models.egg-info/top_level.txt
