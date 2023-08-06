@@ -1,0 +1,7 @@
+setup.py
+YoutubeBot.egg-info/PKG-INFO
+YoutubeBot.egg-info/SOURCES.txt
+YoutubeBot.egg-info/dependency_links.txt
+YoutubeBot.egg-info/requires.txt
+YoutubeBot.egg-info/top_level.txt
+src/__init__.py

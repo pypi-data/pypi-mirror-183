@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: YoutubeBot
+Version: 0.1.1
+Summary: A very powerful YouTube view / live steam botter!
+Author: Shootas
+Author-email: <lashootas@gmail.com>
+Keywords: youtube,botter,bot,youtubebot,viewbot,views,twitchbot,viewbotter,viewerbot
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
