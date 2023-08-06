@@ -1,0 +1,2 @@
+[setuptools.installation]
+eggsecutable = barka.barka:use_requests
