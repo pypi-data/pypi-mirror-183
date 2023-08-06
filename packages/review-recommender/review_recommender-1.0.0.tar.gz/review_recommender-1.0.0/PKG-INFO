@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: review_recommender
+Version: 1.0.0
+Summary: A toll to rank possible reviewer for a pull request
+Project-URL: Homepage, https://github.com/manuelmaiorano/ReviewRecommender
+Project-URL: Bug Tracker, https://github.com/manuelmaiorano/ReviewRecommender/issues
+Author-email: Manuel Maiorano <manuelmaiorano01@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: requests-cache==0.9.7
+Description-Content-Type: text/markdown
+
+# ReviewRecommender
+Review recommender
