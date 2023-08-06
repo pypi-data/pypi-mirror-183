@@ -1,0 +1,5 @@
+setup.py
+logger4smfdp.egg-info/PKG-INFO
+logger4smfdp.egg-info/SOURCES.txt
+logger4smfdp.egg-info/dependency_links.txt
+logger4smfdp.egg-info/top_level.txt
