@@ -1,0 +1,11 @@
+uva/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+uva/__main__.py,sha256=lqdIP-qzSI8nByiFGlBLVWzxa-O93w97HWOyKQIsqvE,43
+uva/commands/__init__.py,sha256=bbHnRfgjNXRz_OQH5-v2PcGQi_Azqe6flgVHK47K1Ds,103
+uva/commands/commands.py,sha256=5iXKJhaE33EVVM4k1T_J1dFwec1arExPsRJVZBY4e4o,3034
+uva/localdb/__init__.py,sha256=VB3XBWQFLhhUWlaX3y73ZmZUuat0oEnHvcGWdEc4kFo,131
+uva/localdb/localdb.py,sha256=VUDbGtRK3tK9OjfWdnI4dxLBnxcyg4_oCtrVHD2I6o8,1181
+uva/main.py,sha256=JrPKB3oA4vRQ2m2u6_XTj8cJePeak-ST_xcbBCRD85o,864
+uva-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+uva-0.1.0.dist-info/entry_points.txt,sha256=XApny1WV-saQNpKDi9Dz9qmQ82sXEmHzGIjBegzPBPY,36
+uva-0.1.0.dist-info/METADATA,sha256=QoQByqBJJRBud7m_MigLHYQgLouYLaknbHUx6Xeob64,658
+uva-0.1.0.dist-info/RECORD,,
