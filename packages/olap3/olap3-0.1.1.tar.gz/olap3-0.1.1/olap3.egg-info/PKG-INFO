@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: olap3
+Version: 0.1.1
+Summary: Interface to OLAP DBs
+Home-page: https://github.com/robert-werner/olap3
+Author: Leonid Kolesnichenko
+Author-email: xperience439@gmail.com
+License: Apache Software License 2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+UNKNOWN
+
