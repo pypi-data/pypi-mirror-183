@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pylav\n"
+"POT-Creation-Date: 2023-01-01 22:01+0000\n"
+"PO-Revision-Date: 2023-01-01 22:13\n"
+"Last-Translator: \n"
+"Language-Team: Croatian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: redgettext 3.4.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: pylav\n"
+"X-Crowdin-Project-ID: 535244\n"
+"X-Crowdin-Language: hr\n"
+"X-Crowdin-File: /pylav/players/locales/messages.pot\n"
+"X-Crowdin-File-ID: 1037\n"
+"Language: hr_HR\n"
+
+#: pylav/players/manager.py:259
+msgid "No available nodes!"
+msgstr ""
+
+#: pylav/players/manager.py:349
+msgid "Music in {count} servers"
+msgstr ""
+
+#: pylav/players/player.py:1167
+msgid "There are no tracks currently in the player history"
+msgstr ""
+
+#: pylav/players/player.py:1876
+msgid "Current node has the Volume filter functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1898 pylav/players/player.py:2074
+#: pylav/players/player.py:2129
+msgid "Current node has the Equalizer functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1918
+msgid "Current node has the Karaoke functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1938 pylav/players/player.py:2076
+#: pylav/players/player.py:2131
+msgid "Current node has the Timescale functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1958
+msgid "Current node has the Tremolo functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1978
+msgid "Current node has the Vibrato functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:1998
+msgid "Current node has the Rotation functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:2018
+msgid "Current node has the Distortion functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:2038
+msgid "Current node has the LowPass functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:2058
+msgid "Current node has the Echo functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:2188
+msgid "Current node has the ChannelMix functionality disabled"
+msgstr ""
+
+#: pylav/players/player.py:2461 pylav/players/player.py:2506
+#: pylav/players/player.py:2521
+msgid "LIVE"
+msgstr ""
+
+#: pylav/players/player.py:2474
+msgid "Now Playing in"
+msgstr ""
+
+#: pylav/players/player.py:2492 pylav/players/player.py:2601
+msgid "Currently livestreaming"
+msgstr ""
+
+#: pylav/players/player.py:2494
+msgid "Playing: "
+msgstr ""
+
+#: pylav/players/player.py:2497 pylav/players/player.py:2513
+#: pylav/players/player.py:2528 pylav/players/player.py:2607
+msgid "Requester"
+msgstr ""
+
+#: pylav/players/player.py:2509 pylav/players/player.py:2524
+msgid "Duration"
+msgstr ""
+
+#: pylav/players/player.py:2515
+msgid "Previous Track"
+msgstr ""
+
+#: pylav/players/player.py:2530
+msgid "Next Track"
+msgstr ""
+
+#: pylav/players/player.py:2535
+msgid "{track_count} tracks, {queue_total_duration} remaining\n"
+msgstr ""
+
+#: pylav/players/player.py:2539 pylav/players/player.py:2635
+msgid "{translation}: {repeat_emoji}"
+msgstr ""
+
+#: pylav/players/player.py:2539 pylav/players/player.py:2635
+msgid "Repeating"
+msgstr ""
+
+#: pylav/players/player.py:2540 pylav/players/player.py:2636
+msgid "{space}{translation}: {autoplay_emoji}"
+msgstr ""
+
+#: pylav/players/player.py:2541 pylav/players/player.py:2637
+msgid "Auto Play"
+msgstr ""
+
+#: pylav/players/player.py:2543 pylav/players/player.py:2639
+msgid "{space}{translation}: {volume}%"
+msgstr ""
+
+#: pylav/players/player.py:2544 pylav/players/player.py:2640
+msgid "Volume"
+msgstr ""
+
+#: pylav/players/player.py:2584
+msgid "Recently Played for"
+msgstr ""
+
+#: pylav/players/player.py:2584
+msgid "Queue for"
+msgstr ""
+
+#: pylav/players/player.py:2604
+msgid "Playing"
+msgstr ""
+
+#: pylav/players/player.py:2620
+msgid "Queue order is may not be accurate due to auto-shuffle being enabled"
+msgstr ""
+
+#: pylav/players/player.py:2626
+msgid "Page {current_page}/{total_pages} | {track_number} tracks, {queue_total_duration} remaining\n"
+msgstr ""
+
