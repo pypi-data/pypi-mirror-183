@@ -1,0 +1,10 @@
+drf_http_serialization/__init__.py,sha256=Emxxhf4hh3dsZUmqH7roQfD6aue7UtIxLQlZj5kMeXg,77
+drf_http_serialization/core.py,sha256=I1S--8SPQg_uXlUJReD0PpdqS-z3VqwkWd-bNNZzuXw,9701
+drf_http_serialization/models.py,sha256=chXvHSi-sAjeiqqh8O4bzR0NGaF5NZuw2nod_h1NWSg,342
+drf_http_serialization/serializers.py,sha256=VV917RZiMnnFXVebqwa-OqTIkPFtj12nFobH6_QDQms,521
+drf_http_serialization/settings.py,sha256=F4p46VUOOfJ_zQE2nxwe_6oz9PbyrCFf4Jn3mjeSHig,3203
+drf_http_serialization-1.0.1.dist-info/LICENSE,sha256=9nnkJGdi_i7AYseHENTewUNMDUNi75xpZpt4FgV7HRU,1325
+drf_http_serialization-1.0.1.dist-info/METADATA,sha256=UBr6T7d_kuAJ0uQ8SIpypAqk2lupdzA2oyLs1BZfFrI,7443
+drf_http_serialization-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+drf_http_serialization-1.0.1.dist-info/top_level.txt,sha256=Xtqyf20FtYTw_nHOmNPzz5QoSKf-cTrtYcxXC1XPhdE,23
+drf_http_serialization-1.0.1.dist-info/RECORD,,
