@@ -1,0 +1,10 @@
+clickmod_auth/__init__.py,sha256=WB2aMcFEjAGiUIfJ04ZEi38rBqkbRT-_oR1ZFmrnbL0,65
+clickmod_auth/auth.py,sha256=tr93vzPEeZfcI6PLg9IQ3cCZihsUVUumvdEVJ2rRt3s,4718
+clickmod_auth/errors.py,sha256=XlkDWtfv6uu7RSrTAP0WIcQb6e5lseTNTES4a0I53Pw,1266
+clickmod_auth/middleware.py,sha256=s9q1EA5leCDgrJeamAeq1A3ZM21zar0eHrur3hP-DJk,868
+clickmod_auth/plugin.py,sha256=O-SK8Vuq3S1wml-YJXEINLKD1P-Unf1LVe1Ge2OQUd0,1265
+clickmod_auth/utils.py,sha256=arNJk2JzLgfckzllOTaWneDWrxLzrF5-FVJ5ffQ2vqQ,122
+clickmod_auth-0.1.0.dist-info/METADATA,sha256=xNpzzYTIlpz1Gk-LljlBs98dTok6Ow0vuOjlHNeO6Zg,686
+clickmod_auth-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+clickmod_auth-0.1.0.dist-info/entry_points.txt,sha256=nmGAyXEfESm-wsQHG11YAfXfrqsGpaH_3Dvc0yY69bA,45
+clickmod_auth-0.1.0.dist-info/RECORD,,

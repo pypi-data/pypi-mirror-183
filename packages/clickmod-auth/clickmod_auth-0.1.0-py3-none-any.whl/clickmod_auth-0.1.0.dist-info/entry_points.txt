@@ -1,0 +1,3 @@
+[clickmod]
+auth=clickmod_auth.plugin:plugin
+
