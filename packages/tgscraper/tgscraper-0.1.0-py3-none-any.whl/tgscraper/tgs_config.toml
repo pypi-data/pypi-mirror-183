@@ -1,0 +1,8 @@
+[telegram]
+api_id = 27868504
+api_hash = "49545eccefa56ca69b076a1457ed7af4"
+phone = "+79313008259"
+username = "timofeiryko"
+
+[input]
+channels = ["https://t.me/svtvnews"]
