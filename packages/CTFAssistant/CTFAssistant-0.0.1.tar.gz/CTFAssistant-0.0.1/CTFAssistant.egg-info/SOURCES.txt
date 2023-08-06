@@ -1,0 +1,8 @@
+README.md
+setup.py
+CTFAssistant/__init__.py
+CTFAssistant/main.py
+CTFAssistant.egg-info/PKG-INFO
+CTFAssistant.egg-info/SOURCES.txt
+CTFAssistant.egg-info/dependency_links.txt
+CTFAssistant.egg-info/top_level.txt
