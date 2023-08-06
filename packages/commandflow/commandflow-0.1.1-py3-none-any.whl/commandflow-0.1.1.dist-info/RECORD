@@ -1,0 +1,9 @@
+commandflow/__init__.py,sha256=Y6I5173vatCu1bkStFEqCQZ7ZMXGNLTCwPdBN0uNYOI,122
+commandflow/action.py,sha256=1lLcLyL2Ph3WdH8eVsbkYwZmnjhwADpAzjLShmypND8,3848
+commandflow/command.py,sha256=Wyen0Y7kUD7RkCA2F9fVoc-bHWHY-PBLMQ107HkBG6g,3625
+commandflow/preset/__init__.py,sha256=sIzAId3gjew68AxfofZMzpk_vbg4sX6uKM9iINiCr0M,31
+commandflow/preset/fastp/fastp.py,sha256=yDgCNnAoRJMNOrWgXolG9jTN_imOhYbFdVQIL2cOR1Q,3853
+commandflow/preset/fastp/README.md,sha256=s1kFdyejlXfdLP6FbdHQjWBg9e5qtN95KfVO235z7cY,12539
+commandflow-0.1.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+commandflow-0.1.1.dist-info/METADATA,sha256=dpwKSFzXjusrYrknYgBTz6Byy1XgPCME7oXUo6b4BDw,20273
+commandflow-0.1.1.dist-info/RECORD,,
