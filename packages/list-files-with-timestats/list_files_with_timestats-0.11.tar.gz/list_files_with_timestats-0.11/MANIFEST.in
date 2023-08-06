@@ -1,0 +1,4 @@
+include list_files_with_timestats/requirements.txt
+include list_files_with_timestats/thirdparty.json
+include list_files_with_timestats/README.MD
+include list_files_with_timestats/LICENSE

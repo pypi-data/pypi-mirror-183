@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+list_files_with_timestats/LICENSE
+list_files_with_timestats/README.MD
+list_files_with_timestats/__init__.py
+list_files_with_timestats/requirements.txt
+list_files_with_timestats/thirdparty.json
+list_files_with_timestats.egg-info/PKG-INFO
+list_files_with_timestats.egg-info/SOURCES.txt
+list_files_with_timestats.egg-info/dependency_links.txt
+list_files_with_timestats.egg-info/requires.txt
+list_files_with_timestats.egg-info/top_level.txt
