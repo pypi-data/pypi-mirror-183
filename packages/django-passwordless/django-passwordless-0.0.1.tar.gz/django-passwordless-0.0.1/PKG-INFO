@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: django-passwordless
+Version: 0.0.1
+Summary: Secure passwordless login for Django
+Home-page: https://github.com/joncombe/django-passwordless
+Author: Jon Combe
+Author-email: me@joncombe.net
+License: MIT licence, see LICENCE file
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+License-File: LICENSE
+License-File: AUTHORS
+
+View readme on github: https://github.com/joncombe/django-passwordless
+

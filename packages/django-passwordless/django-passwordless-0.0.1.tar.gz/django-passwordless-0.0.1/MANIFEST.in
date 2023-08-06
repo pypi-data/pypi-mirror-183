@@ -1,0 +1,6 @@
+include AUTHORS
+include LICENCE
+include README.md
+
+global-exclude *.py[co]
+
