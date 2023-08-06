@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/secret_santa_bpguasch/__init__.py
+src/secret_santa_bpguasch/algorithm.py
+src/secret_santa_bpguasch/config.py
+src/secret_santa_bpguasch/email.py
+src/secret_santa_bpguasch.egg-info/PKG-INFO
+src/secret_santa_bpguasch.egg-info/SOURCES.txt
+src/secret_santa_bpguasch.egg-info/dependency_links.txt
+src/secret_santa_bpguasch.egg-info/top_level.txt
