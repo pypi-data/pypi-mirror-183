@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: rdflib-store-trigdump
+Version: 1.0.0
+Summary: RDFLib store that reads and dumps TriG data on open and close
+Home-page: https://codeberg.org/Denkar.io/rdflib-store-trigdump
+License: BSD-3-Clause
+Keywords: rdf,cache,graph,rdflib
+Author: Dominik George
+Author-email: nik@naturalnet.de
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Database
+Requires-Dist: rdflib (>=6.2.0,<7.0.0)
+Project-URL: Repository, https://codeberg.org/Denkar.io/rdflib-store-trigdump
+Description-Content-Type: text/markdown
+
+# rdflib-store-trigdump
+
+This is a thin wrapper around [RDFLib](https://github.com/RDFLib/rdflib)'s
+[Memory store](https://rdflib.readthedocs.io/en/stable/apidocs/rdflib.plugins.stores.html#rdflib.plugins.stores.memory.Memory)
+adding (unsafe) persistence:
+
+ * When opening the store, data is read from a TriG file
+ * When closing the store, data is serialized to the TriG file
+
+## Usage
+
+```python
+from rdflib import Graph
+
+graph = Graph("TriGDump")
+graph.open("/path/to/my/file.trig", create=True)
+
+# do something
+
+graph.close()
+```
+
