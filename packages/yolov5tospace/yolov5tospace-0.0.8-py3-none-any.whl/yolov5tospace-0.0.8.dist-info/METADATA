@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: yolov5tospace
+Version: 0.0.8
+Summary: Automatically create Gradio apps from YOLOv5 models and push to the Space.
+Author: 
+License: MIT
+Keywords: machine-learning,deep-learning,ml,vision,yolov5,object-detection,huggingface,datasets,spaces,gradio
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: huggingface-hub
+Requires-Dist: fire
+Provides-Extra: dev
+Requires-Dist: black (==21.7b0) ; extra == 'dev'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'dev'
+Requires-Dist: isort (==5.9.2) ; extra == 'dev'
+Requires-Dist: click (==8.0.4) ; extra == 'dev'
+Requires-Dist: importlib-metadata (<4.3,>=1.1.0) ; (python_version < "3.8") and extra == 'dev'
+Provides-Extra: tests
+Requires-Dist: black (==21.7b0) ; extra == 'tests'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'tests'
+Requires-Dist: isort (==5.9.2) ; extra == 'tests'
+Requires-Dist: click (==8.0.4) ; extra == 'tests'
+Requires-Dist: importlib-metadata (<4.3,>=1.1.0) ; (python_version < "3.8") and extra == 'tests'
+
+# yolov5tospace
+Automatically create  Gradio apps from YOLOv5 models and push to the Spaces
+
+## installation
+
+```bash
+pip install yolov5tospace
+```
+
+## api usage
+
+```python
+from yolov5tospace import yolov5_to_space_pipeline
+
+yolov5_to_space_pipeline(
+    base_name="Visdrone",
+    model_types=["yolov5n"],
+    hfhub_username=YOUR-HFHUB-USERNAME,
+    task="object-detection",
+    test_images_folder=None,
+)
+
+```
+
+or
+
+```python
+from yolov5tospace import yolov5_to_space_pipeline
+
+yolov5_to_space_pipeline(
+    base_name="Visdrone",
+    hfhub_model_ids=[YOUR-HFHUB-MODELID-1, YOUR-HFHUB-MODELID-2],
+    hfhub_username=YOUR-HFHUB-USERNAME,
+    task="object-detection",
+    test_images_folder=None,
+)
+
+```

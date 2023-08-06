@@ -1,0 +1,10 @@
+yolov5tospace/__init__.py,sha256=WOOM_oUuezzC_ulSYXtUyY4vhH7ZdMjvPhpvx7TROSU,2000
+yolov5tospace/cli.py,sha256=IiGltLJqCjysxovJcvDp_LpQIhowM_ot5LakMgPxPnY,182
+yolov5tospace/hf_utils.py,sha256=cBxpHuDywRaXjDu5zJkX4kc4JUZ5TBTRqzw86tdu9rc,1036
+yolov5tospace/space_utils.py,sha256=JXuTzKHYLKDTf0YJi-GxUnGs9JaNez5wYj4-oQCK1tQ,3989
+yolov5tospace-0.0.8.dist-info/LICENSE,sha256=R7aKsddTmtLHMJGdtFnqeDr42Pu8JjU-xKjSZhmxycM,1062
+yolov5tospace-0.0.8.dist-info/METADATA,sha256=hgaTndo_O68PnoipHecrcqKprk67W1honej38ybZMzg,2260
+yolov5tospace-0.0.8.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+yolov5tospace-0.0.8.dist-info/entry_points.txt,sha256=Uwih4erm8_TK397nLAcoU8B1ji4b_kevLqZ8BUCwnWY,56
+yolov5tospace-0.0.8.dist-info/top_level.txt,sha256=wf35L8ZBu0_VzQMnJw8xqvTFG8br3IgvhV6tbhwV2iE,14
+yolov5tospace-0.0.8.dist-info/RECORD,,
