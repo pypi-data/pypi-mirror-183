@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/qparser/__init__.py
+src/qparser.egg-info/PKG-INFO
+src/qparser.egg-info/SOURCES.txt
+src/qparser.egg-info/dependency_links.txt
+src/qparser.egg-info/top_level.txt
