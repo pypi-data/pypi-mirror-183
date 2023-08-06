@@ -1,0 +1,4 @@
+include get_consecutive_filename/requirements.txt
+include get_consecutive_filename/thirdparty.json
+include get_consecutive_filename/README.MD
+include get_consecutive_filename/LICENSE

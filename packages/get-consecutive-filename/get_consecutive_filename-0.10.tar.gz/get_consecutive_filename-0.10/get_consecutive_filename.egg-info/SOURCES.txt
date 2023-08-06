@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+get_consecutive_filename/LICENSE
+get_consecutive_filename/README.MD
+get_consecutive_filename/__init__.py
+get_consecutive_filename/requirements.txt
+get_consecutive_filename/thirdparty.json
+get_consecutive_filename.egg-info/PKG-INFO
+get_consecutive_filename.egg-info/SOURCES.txt
+get_consecutive_filename.egg-info/dependency_links.txt
+get_consecutive_filename.egg-info/requires.txt
+get_consecutive_filename.egg-info/top_level.txt
