@@ -1,0 +1,8 @@
+setup.py
+testpackageJdka/__init__.py
+testpackageJdka/hello.py
+testpackageJdka/hi.py
+testpackageJdka.egg-info/PKG-INFO
+testpackageJdka.egg-info/SOURCES.txt
+testpackageJdka.egg-info/dependency_links.txt
+testpackageJdka.egg-info/top_level.txt
