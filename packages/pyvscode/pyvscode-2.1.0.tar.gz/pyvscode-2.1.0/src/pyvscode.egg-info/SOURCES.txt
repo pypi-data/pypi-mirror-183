@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/pyvscode/__init__.py
+src/pyvscode/extension.py
+src/pyvscode/pyvscode.py
+src/pyvscode/runner.py
+src/pyvscode.egg-info/PKG-INFO
+src/pyvscode.egg-info/SOURCES.txt
+src/pyvscode.egg-info/dependency_links.txt
+src/pyvscode.egg-info/top_level.txt
