@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "fullname": "Riza Masykur",
+        "email": "hanirizo@gmail.com",
+        "role": "root",
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "fullname": "Riza Admin",
+        "email": "hanirizo+admin@gmail.com",
+        "role": "admin",
+        "status": "active"
+    },
+    {
+        "id": 3,
+        "fullname": "Riza User",
+        "email": "hanirizo+user@gmail.com",
+        "role": "user",
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "fullname": "Johny User",
+        "email": "hanirizo+johny@gmail.com",
+        "role": "user",
+        "status": "inactive"
+    }
+]
