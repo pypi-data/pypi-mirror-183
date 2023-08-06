@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+testbroamigaos/__init__.py
+testbroamigaos.egg-info/PKG-INFO
+testbroamigaos.egg-info/SOURCES.txt
+testbroamigaos.egg-info/dependency_links.txt
+testbroamigaos.egg-info/top_level.txt
