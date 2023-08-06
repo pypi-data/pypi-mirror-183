@@ -1,0 +1,4 @@
+include a_selenium_errorhandler/requirements.txt
+include a_selenium_errorhandler/thirdparty.json
+include a_selenium_errorhandler/README.MD
+include a_selenium_errorhandler/LICENSE

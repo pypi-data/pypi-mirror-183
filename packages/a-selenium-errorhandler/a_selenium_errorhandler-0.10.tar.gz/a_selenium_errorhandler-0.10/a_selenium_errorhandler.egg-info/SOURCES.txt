@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_errorhandler/LICENSE
+a_selenium_errorhandler/README.MD
+a_selenium_errorhandler/__init__.py
+a_selenium_errorhandler/requirements.txt
+a_selenium_errorhandler/thirdparty.json
+a_selenium_errorhandler.egg-info/PKG-INFO
+a_selenium_errorhandler.egg-info/SOURCES.txt
+a_selenium_errorhandler.egg-info/dependency_links.txt
+a_selenium_errorhandler.egg-info/requires.txt
+a_selenium_errorhandler.egg-info/top_level.txt
