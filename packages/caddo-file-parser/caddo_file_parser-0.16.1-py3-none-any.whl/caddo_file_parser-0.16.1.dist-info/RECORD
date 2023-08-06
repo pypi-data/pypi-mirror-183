@@ -1,0 +1,9 @@
+caddo_file_parser/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+caddo_file_parser/caddo_file_parser.py,sha256=JhilPDtCgwbvB713Ewfa4d1vjv-YukGCMudA-QBR-d4,2836
+caddo_file_parser/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+caddo_file_parser/models/caddo_file.py,sha256=cpI93v1qYf9tdakJce4Bdd20cy-2PgLtLoT4or_eaJQ,246
+caddo_file_parser/models/fold.py,sha256=hHmcgeHZBDYASPIZlm4tzoKsA7LPRD0vbZmZigGcygw,241
+caddo_file_parser-0.16.1.dist-info/METADATA,sha256=T1qeXZMW8FkzZmlZNgNbnHUP_siHSKTsHgQz1xSw_bM,450
+caddo_file_parser-0.16.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+caddo_file_parser-0.16.1.dist-info/top_level.txt,sha256=rdGbcfrTosikapuV4lsV9eJsNUqtgDZx6GnKfYC4HZE,18
+caddo_file_parser-0.16.1.dist-info/RECORD,,
