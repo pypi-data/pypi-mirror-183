@@ -1,0 +1,2 @@
+[console_scripts]
+aliocrawler = ALIOCrawler.__main__:main
