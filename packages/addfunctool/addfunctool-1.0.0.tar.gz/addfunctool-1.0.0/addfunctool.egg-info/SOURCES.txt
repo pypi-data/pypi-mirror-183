@@ -1,0 +1,8 @@
+README.rst
+setup.py
+addfunctool/__init__.py
+addfunctool/functool.py
+addfunctool.egg-info/PKG-INFO
+addfunctool.egg-info/SOURCES.txt
+addfunctool.egg-info/dependency_links.txt
+addfunctool.egg-info/top_level.txt
