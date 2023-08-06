@@ -1,0 +1,9 @@
+korrel8/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+korrel8/downloader.py,sha256=7irUAFAsY9rzruqwZAkGyTo2PSZQRUqQaH0R0qifm6M,969
+korrel8/uploader.py,sha256=Ab5BPh2aL2UKNZk_vcU8JPfaQkVZUMhNHgP8PAnBZYQ,1088
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/test_uploader.py,sha256=1GBrFya1G8Z02yHOVSsZ2jLUX8kTxD312lFBRfPbJlY,200
+korrel8_data_ingest-1.2.5.dist-info/METADATA,sha256=PxAfeTrCV_9GYAibgyzEP10HQsQR2Nzdz0hEv3rmleE,516
+korrel8_data_ingest-1.2.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+korrel8_data_ingest-1.2.5.dist-info/top_level.txt,sha256=4GKtqTixGIlvhC9Yr8OqJIpRguMdxBvJxDJH-6Pz0iM,13
+korrel8_data_ingest-1.2.5.dist-info/RECORD,,
