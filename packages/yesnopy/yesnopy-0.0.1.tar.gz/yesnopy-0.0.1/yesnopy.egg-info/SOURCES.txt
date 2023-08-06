@@ -1,0 +1,5 @@
+setup.py
+yesnopy.egg-info/PKG-INFO
+yesnopy.egg-info/SOURCES.txt
+yesnopy.egg-info/dependency_links.txt
+yesnopy.egg-info/top_level.txt
