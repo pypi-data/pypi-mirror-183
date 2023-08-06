@@ -1,0 +1,10 @@
+dash
+dash_daq
+mne
+mne_bids
+numpy
+pandas
+plotly
+pybv
+pylsl
+pyxdf
