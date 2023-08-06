@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: ascii-dirtree
+Version: 1.1.0
+Summary: Small CLI app to print out a pretty ascii tree of a directory.
+Project-URL: Homepage, https://github.com/juso40/dirtree
+Project-URL: Bug Tracker, https://github.com/juso40/dirtree/issues
+Author: Justin Sostmann
+License-File: LICENSE
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# dirtree
+Generate good-looking ascii trees of directories and files.
+
+## Installation
+Install and update using [pip](https://pip.pypa.io/en/stable/quickstart/):
+```bash
+pip install -U ascii-dirtree
+```
+
+## Usage
+```yaml
+usage: dirtree [-h] [-p [PATH]] [-f] [-c] [-i [IGNORE ...]] [-d DEPTH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p [PATH], --path [PATH]
+                        Path to start from
+  -f, --files           print files
+  -c, --clip            copy to clipboard
+  -i [IGNORE ...], --ignore [IGNORE ...]
+                        ignore files matching glob
+  -d DEPTH, --depth DEPTH
+                        depth to traverse, negative for infinite
+```
+
+Example:  
+![](https://user-images.githubusercontent.com/39841117/209985305-bcdf7945-debc-439e-bf69-a0f935d08d03.gif)
