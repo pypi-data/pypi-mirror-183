@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: betwatch
+Version: 0.4.0
+Project-URL: Documentation, https://github.com/betwatch/betwatch-sdk-python#readme
+Project-URL: Issues, https://github.com/betwatch/betwatch-sdk-python/issues
+Project-URL: Source, https://github.com/betwatch/betwatch-sdk-python
+Project-URL: Betwatch.com, https://betwatch.com
+Author-email: Jamie Watts <jamie@betwatch.com>
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: gql[aiohttp,requests,websockets]~=3.5.0b0
+Requires-Dist: typedload~=2.20
+Description-Content-Type: text/markdown
+
+# Betwatch SDK Python
+
+[![PyPI - Version](https://img.shields.io/pypi/v/betwatch.svg)](https://pypi.org/project/betwatch)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/betwatch.svg)](https://pypi.org/project/betwatch)
+
+-----
+
+**Table of Contents**
+
+- [Betwatch SDK Python](#betwatch-sdk-python)
+  - [Installation](#installation)
+  - [License](#license)
+
+## Installation
+
+```console
+pip install betwatch
+```
+
+## License
+
+`betwatch-sdk-python` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
