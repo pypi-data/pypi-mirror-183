@@ -1,0 +1,8 @@
+Licence.txt
+setup.py
+AudioRecorder/__init__.py
+AudioRecorder.egg-info/PKG-INFO
+AudioRecorder.egg-info/SOURCES.txt
+AudioRecorder.egg-info/dependency_links.txt
+AudioRecorder.egg-info/requires.txt
+AudioRecorder.egg-info/top_level.txt
