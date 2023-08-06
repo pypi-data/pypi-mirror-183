@@ -1,0 +1,13 @@
+nuber-1.1.1.dist-info/METADATA,sha256=LI5uCT38_aXNE-4vJ7R_b_1RWIWfYH_aFXmOn6JSZTo,2296
+nuber-1.1.1.dist-info/WHEEL,sha256=s0yjBvEc6uQLpSsx9TSAnfwuCgJUgIANIcJJ0A3fUNA,129
+nuber-1.1.1.dist-info/entry_points.txt,sha256=oKxeLhzjvu9lEuhsfLSXtyRN1ReA2jK7GB_mA-La6wg,35
+nuber/__init__.py,sha256=6HKvEkHHqHJY4lE4AXlI_vlDjnY5Kcha9GsBvJHg618,498
+nuber/bookmarks.py,sha256=A7wmRIudAjU8PxJ-EsTtzYfwur1G9zLUueGs0T9OaoA,2316
+nuber/config.py,sha256=kpGGZI14Tkb_ZXHsqtWYg9VE47KAFa8cYZ_Bwqr9bQ0,1106
+nuber/toc.py,sha256=XxOtdWumb2m5fVLMRy7scps8PlvlegnfHsfT-TMQ0ik,566
+nuber/listview.py,sha256=xR-W6ZTd4CUiTUrnFwrS9WatWvESbm0lbSK7SSjNfaM,4706
+nuber/cmdline.py,sha256=OoSA-p6itbZztuK8BtT4u-ytZOi1PybZGon1o8-_YR0,2268
+nuber/reader.py,sha256=GgI3J7iEn4dhIr53DUlZaJYktqfD_DZOBYODITAkj9o,17523
+nuber/rust_module/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nuber/rust_module/nuber.cpython-37m-x86_64-linux-gnu.so,sha256=YPWbl_jdSsjTdWdiX-6jzQJmI35BilWbb2e55H_xPRg,8290888
+nuber-1.1.1.dist-info/RECORD,,
