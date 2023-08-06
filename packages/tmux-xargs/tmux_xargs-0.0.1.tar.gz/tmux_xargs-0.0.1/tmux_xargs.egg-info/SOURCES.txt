@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+targs.py
+tmux_xargs.egg-info/PKG-INFO
+tmux_xargs.egg-info/SOURCES.txt
+tmux_xargs.egg-info/dependency_links.txt
+tmux_xargs.egg-info/entry_points.txt
+tmux_xargs.egg-info/requires.txt
+tmux_xargs.egg-info/top_level.txt
