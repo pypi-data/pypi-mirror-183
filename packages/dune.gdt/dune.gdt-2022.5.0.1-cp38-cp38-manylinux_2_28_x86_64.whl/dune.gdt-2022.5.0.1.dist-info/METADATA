@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: dune.gdt
+Version: 2022.5.0.1
+Summary: Python for Dune-Gdt
+Home-page: https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-gdt
+Author: The dune-gdt devs
+Author-email: felix.schindler@wwu.de
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: dune.xt (==2022.5.0.1)
+Provides-Extra: all
+Requires-Dist: dune-xt[visualisation] (==2022.5.0.1) ; extra == 'all'
+Requires-Dist: dune-xt[infrastructure] (==2022.5.0.1) ; extra == 'all'
+Requires-Dist: dune-xt[parallel] (==2022.5.0.1) ; extra == 'all'
+Provides-Extra: infrastructure
+Requires-Dist: dune-xt[infrastructure] (==2022.5.0.1) ; extra == 'infrastructure'
+Provides-Extra: parallel
+Requires-Dist: dune-xt[parallel] (==2022.5.0.1) ; extra == 'parallel'
+Provides-Extra: visualisation
+Requires-Dist: dune-xt[visualisation] (==2022.5.0.1) ; extra == 'visualisation'
+
+```
+# This file is part of the dune-xt project:
+#   https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-xt
+# Copyright 2009-2021 dune-xt developers and contributors. All rights reserved.
+# License: Dual licensed as BSD 2-Clause License (http://opensource.org/licenses/BSD-2-Clause)
+#      or  GPL-2.0+ (http://opensource.org/licenses/gpl-license)
+#          with "runtime exception" (http://www.dune-project.org/license.html)
+# Authors:
+#   Felix Schindler (2017)
+#   René Fritze     (2016, 2018 - 2019)
+#   Tobias Leibner  (2020 - 2021)
+```
+
