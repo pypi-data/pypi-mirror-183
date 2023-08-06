@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: GolfGTI
+Version: 1.0.1
+Summary: A simple script that shows a Golf GTI when you accidentally type gti instead of git.
+Home-page: https://github.com/WoutervdVelde
+Author: Wouter van der Velde
+Author-email: woutervandervelde2000@hotmail.com
+License: MIT
+Requires-Python: >=3.1
+License-File: LICENSE
