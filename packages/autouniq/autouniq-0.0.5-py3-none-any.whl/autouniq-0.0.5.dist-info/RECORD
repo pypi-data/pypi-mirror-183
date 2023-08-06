@@ -1,0 +1,11 @@
+autouniq/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autouniq/case.py,sha256=TT3ihae92Cfh8a7RN3n1eNs0bmeZ3dYkpqC-7LFtwbw,4026
+autouniq/collection_framework.py,sha256=V6e95W7dBC-0QEmfly96XAx6fEtPRNFjOMR6D_G__XU,761
+autouniq/core.py,sha256=h7AvzPyFBOT4T0pGGVpBptfhsbmupjSL9UFcm-VHkF4,936
+autouniq/parcer.py,sha256=zdOmaYW3-lWp9_CTMUoj52m6PUQRbk2ZFF1GovxF0H0,364
+autouniq/test_new.py,sha256=jpOyXSG4zbmpPloTc9tUlIQ5_P6t30oHdt3UvQbf6Zk,2447
+autouniq/test_old.py,sha256=RR6AMxuBN1fYzEIkKIa_vtry-MlfBe5wX1_pcCrUtYU,4970
+autouniq-0.0.5.dist-info/METADATA,sha256=9sE96PHrzJ5vSYWyz2mtpCZGpInxRBn2KPQeOsNxdYQ,758
+autouniq-0.0.5.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+autouniq-0.0.5.dist-info/licenses/License,sha256=zMUmZL1ZDmneB3saq2_Kq7Y3_KsnPAQDnlNYNiyWoyo,1088
+autouniq-0.0.5.dist-info/RECORD,,
