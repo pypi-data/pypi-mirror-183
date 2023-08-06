@@ -1,0 +1,2 @@
+include src/crypto_otrs/*.c
+include src/crypto_otrs/*.h
