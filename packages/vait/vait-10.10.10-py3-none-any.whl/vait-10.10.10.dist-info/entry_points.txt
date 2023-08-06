@@ -1,0 +1,3 @@
+[console_scripts]
+vait=vait.main:main
+
