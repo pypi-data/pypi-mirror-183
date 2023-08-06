@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: transformers-rlfh
+Version: 0.0.1.dev2
+Summary: RLFH with transformers
+Requires-Dist: transformers
+Requires-Dist: torch
+Requires-Dist: numpy
+Requires-Dist: wandb
+Requires-Dist: optuna
+Requires-Dist: datasets
+Requires-Dist: tqdm
+Requires-Dist: torchtyping
+
+RLFH with transformers
