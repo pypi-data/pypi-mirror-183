@@ -1,0 +1,10 @@
+csgame/__init__.py,sha256=SUKcAzbdDXifwZ3-cvsd8aoKDFt60QsXFBNfA5-1DCA,101
+csgame/camera.py,sha256=2dvbKoR6iTPl0P14q81DWJH4WPav3FRzZ2MF5HrYC6I,2518
+csgame/colour.py,sha256=M1HvWs3vIGOLxBsrQflpR_wJuEBz7toTA9AMOxhNmM8,6250
+csgame/menu.py,sha256=Ra-KzG4R7wDfNZ7qhHgs4hqWr4a9sxni2KG2g6ecug8,10051
+csgame/player.py,sha256=BoxOlJZt7rvW0bLePiR0-TYJvlBL61Kol-B-c1PfLQs,12395
+csgame-0.1.1.dist-info/LICENSE,sha256=WAhBZanCNqp1lIBMjW8admcffRX4jDs-T4IXvXRYw4E,1083
+csgame-0.1.1.dist-info/METADATA,sha256=Ir9Bi-GJn1evVMXPnKGmtBtxCt57TzwekYYZoAGM_VI,1391
+csgame-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+csgame-0.1.1.dist-info/top_level.txt,sha256=ReQCVQ40mwPLY0g2Ztp5PU0XqX94wBAgyKgTJMsuhbc,7
+csgame-0.1.1.dist-info/RECORD,,
