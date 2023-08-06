@@ -1,0 +1,17 @@
+SELECT * WHERE {
+    OPTIONAL {
+        $iri rdfs:label ?label .
+    }
+
+    OPTIONAL {
+        $iri mkdocs:symbol ?symbol .
+    }
+
+    OPTIONAL {
+        $iri mkdocs:url ?url .
+    }
+
+    OPTIONAL {
+        $iri rdfs:comment ?comment .
+    }
+} ORDER BY DESC(?label) DESC(?symbol) DESC(?url) DESC(?comment)
