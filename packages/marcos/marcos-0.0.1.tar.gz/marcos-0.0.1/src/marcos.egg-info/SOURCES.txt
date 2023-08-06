@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/marcos.egg-info/PKG-INFO
+src/marcos.egg-info/SOURCES.txt
+src/marcos.egg-info/dependency_links.txt
+src/marcos.egg-info/top_level.txt
+src/patrekmod/IG_info.py
+src/patrekmod/__init__.py
