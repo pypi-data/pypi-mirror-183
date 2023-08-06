@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: cpanlp
+Version: 0.0.1
+Summary: A package to drive the linguistic turn of accounting
+Author: Draco Deng
+Author-email: dracodeng6@gmail.com
+Keywords: python,accounting,cpa,intelligent accounting,linguistic turn,linguistic
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+
+We are the Formal Accounting Research Group of Beijing Foreign Studies University
