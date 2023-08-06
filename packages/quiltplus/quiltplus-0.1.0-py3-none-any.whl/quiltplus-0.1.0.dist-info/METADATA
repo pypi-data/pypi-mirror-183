@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: quiltplus
+Version: 0.1.0
+Summary: Resource-oriented Python API for Quilt's decentralized social knowledge platform
+License: MIT
+Keywords: yaml,api,resource,quilt
+Author: Ernest Prabhakar
+Author-email: ernest@quiltdata.io
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fondat (>=4.0.19,<5.0.0)
+Requires-Dist: quilt3 (>=5.1.0,<6.0.0)
+Description-Content-Type: text/markdown
+
+# quiltplus
+Resource-oriented API for Quilt's decentralized social knowledge platform
+
+# Developmment
+## Setup
+
+```
+git clone https://github.com/quiltdata/quiltplus
+cd quiltplus
+poetry self update
+poetry install
+poetry run pytest-watch
+```
+## Pushing Changes
+```
+poetry version
+poetry publish
+```
