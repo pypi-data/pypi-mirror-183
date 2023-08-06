@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: cache-pandas
+Version: 0.0.1
+Summary: Easily cache pandas DataFrames to file and in memory.
+Author-email: Andrew Sansom <andrew@euleriancircuit.com>
+License: MIT
+Project-URL: homepage, https://github.com/qthequartermasterman/cache-pandas
+Project-URL: documentation, https://github.com/qthequartermasterman/cache-pandas
+Project-URL: repository, https://github.com/qthequartermasterman/cache-pandas
+Keywords: pandas,cache,csv
+Classifier: Topic :: Software Development
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# cache-pandas
+Easily cache pandas DataFrames to file and in memory.

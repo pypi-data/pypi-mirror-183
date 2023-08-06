@@ -1,0 +1,6 @@
+pandas
+
+[dev]
+black
+freezegun
+isort

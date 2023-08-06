@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+setup.py
+.github/workflows/python-package-conda.yml
+cache_pandas/__init__.py
+cache_pandas/file.py
+cache_pandas/time.py
+cache_pandas.egg-info/PKG-INFO
+cache_pandas.egg-info/SOURCES.txt
+cache_pandas.egg-info/dependency_links.txt
+cache_pandas.egg-info/requires.txt
+cache_pandas.egg-info/top_level.txt
+tests/__init__.py
+tests/test_file.py
