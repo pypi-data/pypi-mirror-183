@@ -1,0 +1,6 @@
+praw
+pandas
+numpy
+requests
+bcrypt
+nltk
