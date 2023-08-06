@@ -1,0 +1,6 @@
+httpx
+python-dateutil
+attrs
+
+[dev]
+black
