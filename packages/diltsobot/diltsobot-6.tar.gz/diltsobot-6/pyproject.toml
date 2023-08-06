@@ -1,0 +1,12 @@
+[build-system]
+requires = [
+	"setuptools>=54",
+	"py-cord==2.3.0",
+	"aiofiles",
+	"randseal==3.0.0",
+	"jishaku",
+	"pycord-prettyhelp",
+	"advlink",
+	"wheel"
+]
+build-backend = "setuptools.build_meta"
