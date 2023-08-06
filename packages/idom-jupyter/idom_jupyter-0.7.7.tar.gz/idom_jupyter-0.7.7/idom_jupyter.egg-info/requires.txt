@@ -1,0 +1,7 @@
+ipywidgets>=7.6.0
+idom<0.43,>=0.42
+appdirs
+requests
+jupyter_server
+notebook
+typing_extensions
