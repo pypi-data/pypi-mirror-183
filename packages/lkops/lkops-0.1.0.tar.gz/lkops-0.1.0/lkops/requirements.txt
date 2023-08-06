@@ -1,0 +1,10 @@
+flask
+poetry
+pandas
+urllib
+DBUtils
+py2neo
+gevent
+sqlalchemy
+flask_compress
+flask_apscheduler

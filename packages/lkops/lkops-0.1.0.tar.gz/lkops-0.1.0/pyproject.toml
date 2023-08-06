@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lkops"
+version = "0.1.0"
+description = "Easy ops."
+authors = ["songhaoyanga <1627635056@qq.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "^0.6.0"
+numpy = "^1.24.1"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple"
+default = true
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
