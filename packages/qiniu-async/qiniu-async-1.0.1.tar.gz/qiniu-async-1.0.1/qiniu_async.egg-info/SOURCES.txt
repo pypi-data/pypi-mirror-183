@@ -1,0 +1,8 @@
+README.md
+qiniu_async.py
+setup.py
+qiniu_async.egg-info/PKG-INFO
+qiniu_async.egg-info/SOURCES.txt
+qiniu_async.egg-info/dependency_links.txt
+qiniu_async.egg-info/requires.txt
+qiniu_async.egg-info/top_level.txt
