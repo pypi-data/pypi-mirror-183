@@ -1,0 +1,2 @@
+from handle_logointro.api import Api as HandleLogoIntroApi
+from handle_logointro.application import Application as HandleLogoIntroApp
