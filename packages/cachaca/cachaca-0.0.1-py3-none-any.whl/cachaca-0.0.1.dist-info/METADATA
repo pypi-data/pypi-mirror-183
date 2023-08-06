@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: cachaca
+Version: 0.0.1
+Summary: cachaca
+Project-URL: Homepage, https://github.com/ccwukong/cachaca
+Project-URL: Bug Tracker, https://github.com/ccwukong/cachaca/issues
+Author-email: Chen Cheng <ccwukong@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
