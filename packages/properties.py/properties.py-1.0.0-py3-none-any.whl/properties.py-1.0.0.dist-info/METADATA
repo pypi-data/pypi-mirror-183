@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: properties.py
+Version: 1.0.0
+Summary: Module for reading and writing properties-files.
+Home-page: https://github.com/romanin-rf/voicehelper.py
+Author: Romanin
+Author-email: semina054@gmail.com
+License: MIT
+Keywords: properties,java
+Platform: UNKNOWN
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# properties.py
+## Installation
+```cmd
+pip install --upgrade properties.py
+```
+## Usage
+```python
+import properties
+
+user = {"name": "NoName", "age": -1, "sex": "M", "data": {"region": 39, "keywords": ["man", "human", 14.88]}}
+
+with open("test.properties", "w", encoding="utf-8", errors="ignore") as file:
+    properties.dump(user, file)
+
+with open("test.properties", "r", encoding="utf-8", errors="ignore") as file:
+    data = properties.load(file)
+
+print(data) # {'name': 'NoName', 'age': -1, 'sex': 'M', 'data': {'region': 39, 'keywords': ['man', 'human', 14.88]}}
+```
+
