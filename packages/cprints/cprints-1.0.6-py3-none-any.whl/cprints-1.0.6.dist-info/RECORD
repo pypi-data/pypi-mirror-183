@@ -1,0 +1,10 @@
+cprints/__init__.py,sha256=KuLQYT05Xhmw2yxzPPYXIgoQ9yO6YHZCgESs9-nsreg,839
+cprints/color.py,sha256=URiRMcfl2OJAkWppm35GEgF1o8WGRtqa0VSsCfzEbw0,3103
+cprints/config.py,sha256=s9D8P77KYrxG6qWY-xriQTFdNSgJKpSKmxSDewUaZbA,812
+cprints/main.py,sha256=3gtq05MTHNt3ElhXgOMOeNDwU5zYdNAcX1WKJJ0qAhY,6243
+cprints/style.py,sha256=FQS2jA1UMNvcoNt6fX_9iuG0j19X2XhX1fexoHWYGGU,1941
+cprints-1.0.6.dist-info/LICENSE,sha256=qLyOL6x9QRs-xstZbXlC6M7Km_6GCLZ4UNTJe_2M9io,1079
+cprints-1.0.6.dist-info/METADATA,sha256=aE8Dk0WCDrhyUzykasjs_poFMaz-SguYEUpmqCBdoMY,587
+cprints-1.0.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+cprints-1.0.6.dist-info/top_level.txt,sha256=iVzzocScH5mOrvGXCw7n0LNwakX1uNzWTtF5lPtr9hA,8
+cprints-1.0.6.dist-info/RECORD,,
