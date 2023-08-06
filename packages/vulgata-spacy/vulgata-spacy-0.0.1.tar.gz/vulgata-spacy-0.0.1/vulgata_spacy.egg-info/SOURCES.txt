@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+vulgata_spacy/__init__.py
+vulgata_spacy/vulgata_spacy.py
+vulgata_spacy.egg-info/PKG-INFO
+vulgata_spacy.egg-info/SOURCES.txt
+vulgata_spacy.egg-info/dependency_links.txt
+vulgata_spacy.egg-info/requires.txt
+vulgata_spacy.egg-info/top_level.txt
+vulgata_spacy/data/clem_partial.npy
+vulgata_spacy/data/clem_vulgate.csv
+vulgata_spacy/data/index_map_partial.json
