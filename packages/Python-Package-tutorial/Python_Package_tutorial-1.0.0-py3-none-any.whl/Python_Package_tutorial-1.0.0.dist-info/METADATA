@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: Python-Package-tutorial
+Version: 1.0.0
+Summary: A simple Python package
+Author: Vikash Kumar Barnwal
+Author-email: vikashbarnwal1998@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# `basicpkg`
+
+The `Python_Package_tutorial` is a simple testing example to understand the basics of developing your first Python package. 
