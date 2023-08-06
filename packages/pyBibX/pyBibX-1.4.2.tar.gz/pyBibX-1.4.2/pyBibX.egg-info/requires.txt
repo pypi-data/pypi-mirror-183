@@ -1,0 +1,10 @@
+bertopic
+matplotlib
+networkx
+numpy
+pandas
+plotly
+squarify
+sklearn
+umap-learn
+wordcloud
