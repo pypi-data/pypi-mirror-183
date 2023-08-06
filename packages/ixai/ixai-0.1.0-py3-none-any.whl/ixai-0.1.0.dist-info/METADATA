@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: ixai
+Version: 0.1.0
+Summary: Explainable Artificial Intelligence for incremental models.
+Author: Rohit Jagtani
+Author-email: Maximilian Muschalik <Maximilian.Muschalik@ifi.lmu.de>, Fabian Fumagalli <ffumagalli@techfak.uni-bielefeld.de>
+License: MIT License
+        
+        Copyright (c) 2022 the iXAI developers
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/mmschlk/iXAI
+Keywords: python,machine learning,online learning,xai
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: river
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: sklearn ; extra == 'dev'
+Requires-Dist: torch ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+<p align="center">
+  <!-- License -->
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="mit_license">
+  </a>
+</p>
+
+# ixai: Incremental Explainable Artificial Intelligence
+
+This is the first iteration of our incremental explanation package.
+
+Currently, it includes two explanation methods: PFI and SAGE.
+
+Please look at the examples in the `examples` directory.
+
+Please help us in improving our work by contributing or pointing to issues. We will update this iteration soon with further information.
+
+## Installation
+ixai is intended to work with **Python 3.9 and above**. Installation can be done with `pip`:
+
+```sh
+pip install ixai
+```
