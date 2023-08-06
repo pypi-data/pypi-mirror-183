@@ -1,0 +1,10 @@
+gameyamlspiderandgenerator/plugin/itchio.py,sha256=72XP2HbQbIr7tGFD1iid_UCy2lbXd1pFvgylupoONgY,5195
+gameyamlspiderandgenerator/plugin/search.py,sha256=LEdzm30s55q6yXVNLaWO0AjnUaqgNcmMAF5m6ESylNE,2541
+gameyamlspiderandgenerator/plugin/steam.py,sha256=jidn5QJKUYRhgJG7chHNCmFCctDjUKpBdRKpCzDwWRQ,8655
+gameyamlspiderandgenerator/util/setting.py,sha256=j-7HZjw0jevEReLGT6DXFjykLny785MMgmt8WGEkays,120
+gameyamlspiderandgenerator/util/spider.py,sha256=7TwkdtFj1C3wXJWiS9Hjt6VqMbpgpSNfiA3PJCwSQc8,1776
+gameyamlspiderandgenerator/util/status_code.py,sha256=DLwUokGPwBB5TjQIdMOmbUQXb-P0cB5kBzgyBStvn-E,415
+gameyamlspiderandgenerator-0.3.1.dist-info/LICENSE,sha256=RLgiXOCyj2vs7pCeerSbpTjvfNTdvZbFFKBKBiC8Mac,1069
+gameyamlspiderandgenerator-0.3.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+gameyamlspiderandgenerator-0.3.1.dist-info/METADATA,sha256=igUvjTnlgzxod3lF8ggIHN6iYc0VVExpJtIzQA6oTbk,981
+gameyamlspiderandgenerator-0.3.1.dist-info/RECORD,,
