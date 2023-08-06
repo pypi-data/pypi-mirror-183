@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+dash_notice/DashNotice.py
+dash_notice/__init__.py
+dash_notice/_imports_.py
+dash_notice/dash_notice.min.js
+dash_notice/dash_notice.min.js.map
+dash_notice/metadata.json
+dash_notice/package-info.json
+dash_notice.egg-info/PKG-INFO
+dash_notice.egg-info/SOURCES.txt
+dash_notice.egg-info/dependency_links.txt
+dash_notice.egg-info/top_level.txt
