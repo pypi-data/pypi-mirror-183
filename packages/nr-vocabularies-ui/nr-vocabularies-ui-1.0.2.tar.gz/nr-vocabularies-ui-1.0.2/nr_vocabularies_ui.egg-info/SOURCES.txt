@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+nr_vocabularies_ui/__init__.py
+nr_vocabularies_ui/ui_components_specs.py
+nr_vocabularies_ui/version.py
+nr_vocabularies_ui.egg-info/PKG-INFO
+nr_vocabularies_ui.egg-info/SOURCES.txt
+nr_vocabularies_ui.egg-info/dependency_links.txt
+nr_vocabularies_ui.egg-info/requires.txt
+nr_vocabularies_ui.egg-info/top_level.txt
