@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: conventionalish
+Version: 0.1.0
+Summary: Extend the Commitizen Conventional-Commits implementation
+License: MIT
+Requires-Dist: commitizen
+
