@@ -1,0 +1,10 @@
+binance_history/__init__.py,sha256=L6kbT1Z9znQmcdJt-T7vO8CK4A37o6oKLd7UNYsjYx8,34
+binance_history/_exceptions.py,sha256=dBIA1CIf5Tzd9mOSuqKh-H62MOViSrGgUd1KBzstois,85
+binance_history/_klines.py,sha256=mO1vcy_XsAthwEMNQ33Kn9kaEVxSIjwIGpkHcWbM0i0,1242
+binance_history/_utils.py,sha256=EDMkwo5bMDGkstX-EBkbhYsE6Otj5mBk5pLkVRWfHwM,4635
+binance_history/config.py,sha256=qndWud2LqFB7H5ZepSSIBPyLTUmjPtwoiZ_8O1KwmoA,71
+binance_history/hello.py,sha256=2saTPbuzqCjA3PntUXbrJvtDtF_aBghqpEWACbeSG3g,163
+binance_history-0.1.1.dist-info/METADATA,sha256=laOp2Sn2_JEHNS4xHYHWqlF2-FV6btzALP4BTSjTUCw,3265
+binance_history-0.1.1.dist-info/LICENSE,sha256=Tuk1wbysJivAPnNYmPsAZEbaz_d4Gp35VqON8qdMwu8,1070
+binance_history-0.1.1.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+binance_history-0.1.1.dist-info/RECORD,,
