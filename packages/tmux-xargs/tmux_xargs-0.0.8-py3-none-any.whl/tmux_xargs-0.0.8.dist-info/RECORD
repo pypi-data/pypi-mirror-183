@@ -1,0 +1,12 @@
+targs.py,sha256=pITKE8avtpML_Xpt0sOLLRtfZNRsumXbHttBhJYsCOs,1518
+arguments/TargsArgumentParser.py,sha256=wkZq_zdOWoOC4k34hKB9oGax65Wd97qjHcy28IZntE0,966
+arguments/__init__.py,sha256=cGUxh0EMrhs5NlP2SZMkcQ8Zlvtzv9IW99IaKKJ0RcI,64
+arguments/parse.py,sha256=adyGorJd-5vkmjgHZFMwVG4obHCiQ36CEDsWSDaA7Ns,1502
+tmux/__init__.py,sha256=-TVL5TktHNyCpuGwLh68eUCz3tZdGeLAoRENCBUcqXI,122
+tmux/window.py,sha256=pFXyel7CDduYhD5YXjP21uuDj_hpP4zkOYuFTAPZmM8,959
+tmux_xargs-0.0.8.dist-info/LICENSE,sha256=LB0AmVDMcmplh6qnHRxpzfNfvU1tz3i1H_n-jjmrtFY,1070
+tmux_xargs-0.0.8.dist-info/METADATA,sha256=tiHE0hUA5NcPkCvTrzO3BTouXDEmfdLDVeDaymdmKoY,821
+tmux_xargs-0.0.8.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tmux_xargs-0.0.8.dist-info/entry_points.txt,sha256=pKfqXCGeQOWPrluT6QfYGw2CK_mhvNlt6DSiVDk2wuU,37
+tmux_xargs-0.0.8.dist-info/top_level.txt,sha256=yRXwrhk3cG-6bk6411A4do7LxdEFiF4SxuvLjXx1mSg,21
+tmux_xargs-0.0.8.dist-info/RECORD,,
