@@ -1,0 +1,6 @@
+setup.py
+httproxies/main.py
+httproxies.egg-info/PKG-INFO
+httproxies.egg-info/SOURCES.txt
+httproxies.egg-info/dependency_links.txt
+httproxies.egg-info/top_level.txt
