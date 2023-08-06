@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: coloredmatrix
+Version: 0.0.1
+Summary: ANSI color formatting for output in terminal
+Home-page: https://github.com/JewinV/coloredmatrix
+License: MIT
+Keywords: ANSI,ANSI color,ANSI colour,color,colour,formatting,termcolor,terminal,console,coloredmatrix
+Author: Jewin Varghese
+Author-email: jewinvarghese@protonmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://github.com/JewinV/coloredmatrix
+Description-Content-Type: text/markdown
+
+# Colored Console
+![GitHub](https://img.shields.io/github/license/JewinV/colored-console)
