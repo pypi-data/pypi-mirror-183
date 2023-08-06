@@ -1,0 +1,8 @@
+README.md
+setup.py
+qsnctf/__init__.py
+qsnctf/main.py
+qsnctf.egg-info/PKG-INFO
+qsnctf.egg-info/SOURCES.txt
+qsnctf.egg-info/dependency_links.txt
+qsnctf.egg-info/top_level.txt
