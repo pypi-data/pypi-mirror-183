@@ -1,0 +1,9 @@
+requests
+websocket-client
+colorlog
+sqlalchemy
+treelib
+PyYAML
+easy-ocr
+ddddocr
+selenium
