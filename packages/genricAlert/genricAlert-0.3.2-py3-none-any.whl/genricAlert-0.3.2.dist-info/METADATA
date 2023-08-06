@@ -1,0 +1,212 @@
+Metadata-Version: 2.1
+Name: genricAlert
+Version: 0.3.2
+Summary: check presence of s3Path, email reports, duplicacy in data and send mail.
+Home-page: https://github.com/vikrant462/pypi/genricAlert
+Author: vikrant
+Author-email: cvikrant462@gmail.com
+Project-URL: Bug Tracker, https://github.com/vikrant462/pypi/genricAlert/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Generic Alert Library
+************************************************************************************************************************
+
+This is a python module that is designed to provide a generic alert check mechanism which can be imported in any project for the following use cases that reduces boilerplate code.
+
+   * Check the report existence in S3.
+   * Validate Report Schema Definition including order sequence.
+   * Check Whether the File in S3 having Duplicate Rows.
+   * Check Whether the File in S3 is Empty.
+   * Email Alerts in case of success or failure.
+   * Status of Email existence for a given Subject.
+  
+## Installation
+*************************
+The source code is currently hosted on ____ at:         
+Binary installers for the latest released version are available at the Python Package Index (PyPI):
+``` python
+pip install genricAlert
+```
+#### Imports
+``` python
+from genricAlert import emailUtil, s3Util
+```
+# Library Usage
+***********************
+## 1) Sending an email:
+********************
+This method is used to send an email via SMTP using gmail with port 587. 
+#### Function Syntax:
+``` python
+send_email(user_name: str, password: str, subject: str, msg_body: str, recipient_list: str)
+```
+#### Parameters:
+* ```user_name```: &nbsp;Required. The email address of the sender.
+* ```password```: &nbsp;&nbsp; Required. The password of the user email.
+* ```subject ``` : &nbsp;&nbsp; Required. The subject of the email that needs to be sent.
+* ```msg_body ```: &nbsp;Required. The content of the body of an email.
+* ```recipient_list```: &nbsp;Required. The list of users to whom the email needs to be sent.
+#### Sample Input Data:
+``` python
+  messageBody = '<!DOCTYPE html> <html> <head> <style> #customers { font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%; } #customers td, #customers th { border: 1px solid #ddd; padding: 8px; } #customers tr:nth-child(even){background-color: #f2f2f2;} #customers tr:hover {background-color: #ddd;} #customers th { padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #6a4c6e; color: white; } </style> </head> <body> <center><table id="customers"> <caption><h2> Email Alert</h2></caption> <tr> <th>Date</th> <th>Subject</th> <th>Status</th> </tr><tr><td>12/12/2022</td><td>Send Email Alert Check</td><td bgcolor="green">Success</td></tr><tr><td>13/12/2022</td><td>Send Email Alert Check</td><td bgcolor="red">Failed:Login Unsuccessful</td></tr></table></body></html>'
+  emailUtil.send_email('testuser@testmail.com', 'Password*1234', "Send Email Alert Check", messageBody, ['recipient1@testmail.com','recipient2@testmail.com'])
+```
+#### Sample Output:
+| Output  | Scenario                                                                  |
+|---------|---------------------------------------------------------------------------|
+| Success | If the Email has been sent successfully.                                  |
+| Failed  | If the Email hasn't been sent successfully due to some errors/exceptions. |
+
+## 2) Check whether the Email Subject is present or not
+********************
+This method will check whether the email is available in the inbox or not based on the subject. If the email is present, the method will return True. Else, False will be returned.
+#### Function Syntax:
+``` python
+is_mail_present(subject : str, look_back_period : int=0)
+```
+#### Parameters:
+* ```subject```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Required. The subject of the email that needs to be sent. It is the primary search criteria.
+* ```look_back_period```: Optional(default will be 0).LookBack Period will be calculated as (today-```look_back_period```).<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+If ```look_back_period``` is 1,then the email search will be for (today-1).
+##### Syntax to create Email Object:
+``` python
+emailUtil.Config(report_email: str, email_password: str)
+```
+#### Parameters:
+* ```report_email```: &nbsp;&nbsp;&nbsp;&nbsp; Required. The email address of the sender.
+* ```email_password```: &nbsp;Required. The password of the user email.
+#### Sample Input Data:
+``` python
+# Email object has to be created before calling "is_mail_present" method
+email_obj = emailUtil.Config('testuser@testmail.com', 'Password*1234')
+
+# To check if email is present
+emailSubject = "Email Check In The Inbox"
+email_obj.is_mail_present(emailSubject, 0) 
+```
+#### Sample Output:
+| Output | Scenario                                  |
+|--------|-------------------------------------------|
+| True   | If the Email is present in the Inbox.     |
+| False  | If the Email is not present in the Inbox. |
+
+## 3) Check if a File exists in the S3 directory
+*********
+This method will check whether the file/report exists in the given S3 Directory or not. If the file is present in the S3 directory, the method will return True. Else, False will be returned.
+#### Function Syntax:
+``` python
+check_s3_path(s3_path: str)
+```
+#### Parameters:
+* ```s3_path```: Required. Path of the File/Report to be searched in the S3 Directory.
+#### Sample Input Data:
+``` python
+# S3 object should be created to access all the S3 related alert functionalities
+s3Obj = s3Util.Config()
+
+s3_path = 's3://test-root/sample-processed-data/test_delivery/Test_Id/'
+s3Obj.check_s3_path(s3_path)
+```
+#### Sample Output:
+| Output | Scenario                                                            |
+|--------|---------------------------------------------------------------------|
+| True   | If the File/Report is present in the given S3 Directory/Path.       |
+| False  | If the File/Report is not available in the given S3 Directory/Path. |
+
+## 4) Check Whether the File in S3 having any Duplicate Rows or not.
+***************
+This method will check whether the report contains any duplicates at row level or not. If there are duplicates, it will return the count of duplicate rows.
+#### Function Syntax:
+``` python
+check_duplicate_data(s3_path: str, file_type: str,  header: bool = True, compression: str = 'infer',skip_rows: int = 0, skip_footer: int = 0, sep: str = ',')
+```
+#### Parameters:
+* ```s3_path```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Required. Path of the File/Report to be checked for the Duplicate Rows.
+* ```file_type```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Required. The file format can be **parquet**, **csv** or **excel**.
+* ```header```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. By Default header would be **True**.
+* ```compression```: &nbsp;Optional. The Default compression would be **infer**.
+* ```skip_rows```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```skip_footer```:&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```sep```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default separator would be '**,**'.
+#### Sample Input Data:
+``` python
+# S3 object should be created to access all the S3 related alert functionalities
+s3Obj = s3Util.Config()
+
+s3_path = "s3://test-root/sample-processed-data/test_delivery/Test_Id/"
+s3Obj.check_duplicate_data(s3_path, 'parquet')
+```
+#### Sample Output:
+| Output                                                                                                       | Scenario                                        |
+|--------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| [{'report_name': 'test_1.snappy.parquet',<br/>'error': True,<br/>'message': 'Number of duplicate row is 2'}] | If the File contains dupliacte rows.            |
+| [{'report_name': 'test_2.snappy.parquet',<br/>'error': False,<br/>'message': 'No duplicate row found'}]      | If the File doesnot contain any dupliacte rows. |
+
+## 5) Check for the Empty Report File
+********
+This method will check whether the report is empty or not.It checks for the zero data records in the given file/report.
+#### Function syntax:
+``` python
+check_empty_data(self, s3_path: str, file_type: str, header: bool = True, compression: str = 'infer',skip_rows: int = 0, skip_footer: int = 0, sep: str = ',')
+```
+#### Parameters:
+* ```s3_path```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Required. Path of the File/Report to be checked for the Duplicate Rows.
+* ```file_type```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Required. The file format can be **parquet**, **csv** or **excel**.
+* ```header```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. By Default header would be **True**.
+* ```compression```: &nbsp;Optional. The Default compression would be **infer**.
+* ```skip_rows```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```skip_footer```:&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```sep```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default separator would be '**,**'.
+#### Sample Input Data:
+``` python
+# s3 object should be created to access all the s3 related alert functionalities
+s3Obj = s3Util.Config()
+
+s3_path = "s3://test-root/sample-processed-data/test_delivery/Test_Id/dayserial_numeric=20221225/"
+s3Obj.check_empty_data(s3_path, 'csv', sep='\t', compression='gzip')
+```
+#### Sample Output:
+| Output                                                                           | Scenario                                              |
+|----------------------------------------------------------------------------------|-------------------------------------------------------|
+| [{'report_name': '123456.tsv.gz','error': False,'message': 'Report has data'}]   | If the Report/File contains data.                     |
+| [{'report_name': '1234567.tsv.gz','error': True,'message': 'Report is empty'}]   | If the Report/File is empty without any data records. |
+
+## 6) Check the Schema of a File/Report
+********************
+This method will check the schema of a file/report against the given expected schema. If the file format is parquet, the method will check if all the columns exist or not. If the file format is other than parquet, the method will check the order of the expected schema with the schema of the input file. Also,headers and footers will be taken into account in case of csv and excel files.
+#### Function syntax:
+``` python
+check_schema(self, s3_path: str, file_type: str, expected_schema: list, header: bool = True, compression: str = 'infer', skip_rows: int = 0, skip_footer: int = 0, sep: str = ',')
+```
+#### Parameters:
+* ```s3_path```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Required. Path of the File/Report to be checked for the Duplicate Rows.
+* ```file_type```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Required. The file format can be **parquet**, **csv** or **excel**.
+* ```header```: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. By Default header would be **True**.
+* ```compression```: &nbsp;Optional. The Default compression would be **infer**.
+* ```skip_rows```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```skip_footer```:&nbsp;&nbsp;Optional. Default value would be **0**.
+* ```sep```:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optional. Default separator would be '**,**'.
+#### Sample Input Data:
+``` python
+# S3 object should be created to access all the S3 related alert functionalities
+s3Obj = s3Util.Config()
+
+s3_path = "s3_path = "s3://test-schema/test/Schema_Check_Lookup.xlsx"
+expected_schema = ['Column1.id', 'Column1.is_mobile', 'Column1.name']
+s3Obj.check_schema(s3_path, 'excel', expected_schema)
+```
+#### Sample Output:
+| Output                                                                                                                                                                                                     | Scenario                                                               |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [{'report_name': 'Schema_Check_Lookup.xlsx',<br/>'error': True,<br/>'message': 'Report schema order is different than expected',<br/>'report_schema': ['Column1.id', 'Column1.name', 'Column1.is_mobile']}] | If the Report Schema order is different than the Expected Schema Order.|
+| [{'report_name': 'Schema_Check_Lookup.xlsx',<br/>'error': False,<br/>'message': 'Success',<br/>'report_schema': ['Column1.id', 'Column1.name', 'Column1.is_mobile']}]                                     | If the Schema of the Report matches the Expected Schema.               |
+| [{'report_name': 'Schema_Check_Lookup.xlsx',<br/>'error': True,<br/>'message': 'Report schema is different than expected',<br/>'report_schema': ['Column1.id', 'Column1.name', 'Column1.is_mobile']}]     | If the Schema of the report is different than the expected Schema.     |
+# License
+********
+MIQ
