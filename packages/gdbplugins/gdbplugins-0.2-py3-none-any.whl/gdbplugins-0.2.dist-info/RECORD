@@ -1,0 +1,12 @@
+gdbplugins/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gdbplugins/clang_support.py,sha256=6hvEBO7FIBv-mFhTtitgsqKqokFULeapINht_yFILXA,812
+gdbplugins/deploy.py,sha256=48RuGBEj7UmVwkMgRxbayR9wkSAUJTl1AchPec7_mN0,2663
+gdbplugins/gdbinit,sha256=Fk2Oq4_PDDTLvCZCKJ-XtJ6WsgdHo39CMyt-6Pf5rv4,265
+gdbplugins/gdbplugins_loader.py,sha256=PruApthgLGzRbqj09XU-vsXdGA3OmD0Y3Ix2h-Er87c,567
+gdbplugins/python.py,sha256=5Qwwi2UfISttwUb4EilAEPVZPuixiIg__XvtOlchM7Q,3094
+gdbplugins/ruby.py,sha256=YcQwlPcynGGMtxic9t-uS2tpYVMFEpkpt81oNamqQIw,1241
+gdbplugins-0.2.dist-info/entry_points.txt,sha256=a9NTCOqZnbDxNCaTva4QBIemaUTqUDmbgSfbszuiqtI,159
+gdbplugins-0.2.dist-info/METADATA,sha256=xamcwJhdP_8a7oOs6hI0FlTYuXUlGw0LLxztVGycG04,1008
+gdbplugins-0.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+gdbplugins-0.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+gdbplugins-0.2.dist-info/RECORD,,

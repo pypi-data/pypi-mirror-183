@@ -1,0 +1,7 @@
+[console_scripts]
+deploy_gdbplugins_loader=gdbplugins.deploy:main
+
+[gdbplugins.plugins]
+python-plugin=gdbplugins.python:main
+ruby-plugin=gdbplugins.ruby:main
+
