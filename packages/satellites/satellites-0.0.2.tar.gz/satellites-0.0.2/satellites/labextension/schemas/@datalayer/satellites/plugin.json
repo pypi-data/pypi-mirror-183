@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@datalayer/satellites",
+  "description": "@datalayer/satellites settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
