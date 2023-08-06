@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: browser-profile-cookies
+Version: 0.1.0
+Summary: Decrypts encrypted cookies from multiple profiles in Chromium browsers on Windows.
+Home-page: https://github.com/yportne8/profile-cookies
+Author: C.Kim
+Author-email: yportne8@gmail.com
+License: mit
+Requires-Python: >=3.9
