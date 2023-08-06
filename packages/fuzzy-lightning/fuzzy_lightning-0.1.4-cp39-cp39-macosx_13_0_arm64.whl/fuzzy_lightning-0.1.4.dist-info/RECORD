@@ -1,0 +1,13 @@
+edit_distance.cpython-39-darwin.so,sha256=v25a08tU5kmn6pBN_nuv0u-1ugjw-y6V0mi5ODw6uXw,153183
+lcs.cpython-39-darwin.so,sha256=XNVKV4fTJwbij1JIOpqkgOB2MoFy66cibTQPfxCi0yM,178837
+fuzzy_lightning/__init__.py,sha256=o9QwY3UoG-hYD8cctv9xMG5kiczTs45N_ZO36PxQp4s,102
+fuzzy_lightning/fuzzy_match.py,sha256=2-eMG6STFuoqD5Uu-xv9MYbt-I0okpG_PRWWiZ1irPw,14676
+fuzzy_lightning/tokenize.py,sha256=sPsqPcgbAf8E1_oj79vekQyydMnn8umqiP-uv_RrMlA,1790
+fuzzy_lightning/cpp/array.h,sha256=1bbyQScuVrTMqrcAIJAgydiSrsYR7iPG19_tPkzOjSw,1112
+fuzzy_lightning/cpp/edit_distance.cpp,sha256=k4pdlewb-THlx5aibvq3QeQeNoRU68oJRn3TbwN8spQ,2954
+fuzzy_lightning/cpp/lcs.cpp,sha256=f8x7g0QGCpTj9bG6n9tOK5KEmQKlhcr1wZnmFfadVG0,7434
+fuzzy_lightning-0.1.4.dist-info/LICENSE,sha256=H8ZUdK78Q1oi5TETy1MLvEf95J9NGfnr0Ak9x9-l7yU,1069
+fuzzy_lightning-0.1.4.dist-info/METADATA,sha256=wbUT0PAS31gzD-zo1n1guGosrhAyaxkjM57XhoxxEJs,4745
+fuzzy_lightning-0.1.4.dist-info/WHEEL,sha256=vdGRUT1_mzZqXOm4csEYUDDemU9WJZJTwIoME2siXcg,108
+fuzzy_lightning-0.1.4.dist-info/top_level.txt,sha256=1UX29RdfA7aN4IzURBh9nXVBaveXvm3RJ8fB056MIgw,34
+fuzzy_lightning-0.1.4.dist-info/RECORD,,
