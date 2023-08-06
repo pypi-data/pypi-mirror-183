@@ -1,0 +1,7 @@
+License.txt
+README.md
+pyproject.toml
+3games.egg-info/PKG-INFO
+3games.egg-info/SOURCES.txt
+3games.egg-info/dependency_links.txt
+3games.egg-info/top_level.txt
