@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "cloudops-secret-manager-aws"
+packages = [{include = "cloudops"}]
+version = "0.1.0"
+description = "The cloudops-secret-manager-aws package"
+authors = ["Manuel Castillo <manucalop@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/manucalop/cloudops-secret-manager-aws"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+boto3 = "^1.26.37"
+pydantic = "^1.10.2"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.urls]
+Home = "https://github.com/manucalop/cloudops-secret-manager-aws"
