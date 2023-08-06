@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+BeyondHD_Parser.egg-info/PKG-INFO
+BeyondHD_Parser.egg-info/SOURCES.txt
+BeyondHD_Parser.egg-info/dependency_links.txt
+BeyondHD_Parser.egg-info/requires.txt
+BeyondHD_Parser.egg-info/top_level.txt
+beyondhd_parser/BeyondHD_Scrape.py
+beyondhd_parser/BeyondHD_Search.py
+beyondhd_parser/__init__.py
+beyondhd_parser/parsers/__init__.py
+beyondhd_parser/parsers/beyondhd_details.py
+beyondhd_parser/parsers/beyondhd_search.py
+beyondhd_parser/parsers/bhdstudio_nfo_parse.py
