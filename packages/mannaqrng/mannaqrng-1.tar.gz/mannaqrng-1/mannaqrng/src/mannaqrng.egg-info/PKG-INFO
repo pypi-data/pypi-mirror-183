@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mannaqrng
+Version: 1
+Summary: Truly random number generator
+Author: Neelanjan Manna
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+truly random number generator using only a pc
+
+even a celeron pc will do
+
+from mannaqrng import *
+
+save and fire
+

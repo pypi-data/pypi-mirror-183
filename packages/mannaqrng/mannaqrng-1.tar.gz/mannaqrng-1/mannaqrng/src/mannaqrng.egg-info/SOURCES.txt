@@ -1,0 +1,8 @@
+setup.py
+mannaqrng/src/mannaqrng.egg-info/PKG-INFO
+mannaqrng/src/mannaqrng.egg-info/SOURCES.txt
+mannaqrng/src/mannaqrng.egg-info/dependency_links.txt
+mannaqrng/src/mannaqrng.egg-info/requires.txt
+mannaqrng/src/mannaqrng.egg-info/top_level.txt
+mannaqrng/src/mannaqrng.py
+mannaqrng/src/mannaqrng.egg-info/SOURCES.txt
