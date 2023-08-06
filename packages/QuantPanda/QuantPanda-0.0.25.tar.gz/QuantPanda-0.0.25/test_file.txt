@@ -1,0 +1,10 @@
+
+df = pd.read_csv(r'C:\Users\91636\Desktop\Quantitative Research\Open Source Library\Archives/INFY.csv')
+
+tradelog_df = QuantPanda.WilliamRIndicator(df, 28 ,-20, -80,  'close')
+
+
+print(QuantPanda.PerformanceMetrics(tradelog_df))
+
+
+# print(QuantPanda.StocksClosingPositiveEveryYear(5))

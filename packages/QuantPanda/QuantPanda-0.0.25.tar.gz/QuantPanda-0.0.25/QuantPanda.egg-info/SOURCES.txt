@@ -1,0 +1,14 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+features.txt
+setup.py
+test_file.txt
+QuantPanda/__init__.py
+QuantPanda.egg-info/PKG-INFO
+QuantPanda.egg-info/SOURCES.txt
+QuantPanda.egg-info/dependency_links.txt
+QuantPanda.egg-info/requires.txt
+QuantPanda.egg-info/top_level.txt
+quantpanda/__init__.py
