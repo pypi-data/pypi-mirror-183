@@ -1,0 +1,3 @@
+[console_scripts]
+tacotron2-train=tacotron2.train:main
+
