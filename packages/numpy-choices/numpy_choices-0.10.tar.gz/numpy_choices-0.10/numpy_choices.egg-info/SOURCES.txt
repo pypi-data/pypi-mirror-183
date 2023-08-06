@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+numpy_choices/LICENSE
+numpy_choices/README.MD
+numpy_choices/__init__.py
+numpy_choices/requirements.txt
+numpy_choices/thirdparty.json
+numpy_choices.egg-info/PKG-INFO
+numpy_choices.egg-info/SOURCES.txt
+numpy_choices.egg-info/dependency_links.txt
+numpy_choices.egg-info/requires.txt
+numpy_choices.egg-info/top_level.txt

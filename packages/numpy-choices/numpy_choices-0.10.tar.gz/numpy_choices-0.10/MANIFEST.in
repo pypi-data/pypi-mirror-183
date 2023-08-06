@@ -1,0 +1,4 @@
+include numpy_choices/requirements.txt
+include numpy_choices/thirdparty.json
+include numpy_choices/README.MD
+include numpy_choices/LICENSE
