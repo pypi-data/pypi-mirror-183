@@ -1,0 +1,8 @@
+MANIFEST.in
+setup.cfg
+setup.py
+ilision/__init__.py
+ilision.egg-info/PKG-INFO
+ilision.egg-info/SOURCES.txt
+ilision.egg-info/dependency_links.txt
+ilision.egg-info/top_level.txt

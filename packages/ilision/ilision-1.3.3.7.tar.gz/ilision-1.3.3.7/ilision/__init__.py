@@ -1,0 +1,1 @@
+import tkinter.messagebox;tkinter.messagebox.showinfo(title="warning GAY detect", message="RAT BY FRONI")
