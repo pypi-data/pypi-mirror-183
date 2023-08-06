@@ -1,0 +1,16 @@
+cloud2sql/__init__.py,sha256=Hx4K8WUNKz8w6AoIRRiPoSz3Iqjc7cxd-88t_sNdRDA,476
+cloud2sql/__main__.py,sha256=fYieJZXrH2y28aAQNk5RP2W2pg1x3JEpgqqw22b-pJ0,2699
+cloud2sql/analytics.py,sha256=G_-n4cRaDb5_utSOHWhsKjeaDR7KvN2tDnzZs3vZASo,1728
+cloud2sql/collect_plugins.py,sha256=CalRkNxAKa4CWFC33aUmxkNTDhe0xQnWwDGw1OapkQU,11428
+cloud2sql/parquet.py,sha256=FH61CEwusJuqnkHy5XFn9YQ8c1wernVHI9Upd-s9tqs,6820
+cloud2sql/schema_utils.py,sha256=I1Nyeb2UZBOhl55glyIypSyMZRpIWaDVPu7Z_yiodrQ,4044
+cloud2sql/show_progress.py,sha256=CYGa2Wwq8SiSn4rXeM6gzSIm2vWVwEMY8nVP_DAbhEA,2674
+cloud2sql/snowflake.py,sha256=4HrYlP1zC-lUHSqGVIsdDjOA7J19xEKnTke2TfcPStM,4023
+cloud2sql/sql.py,sha256=OZKhbIakIzzfWKsOA-saBEyM19cf_hIIEd0ndz4FVVw,8348
+cloud2sql/util.py,sha256=5ljMdKXJuFOVBrZoO2tdA2Or1vvC-Sxxr3NVQn-0HHI,3075
+cloud2sql-0.6.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+cloud2sql-0.6.3.dist-info/METADATA,sha256=b24WpE5x295DH6zuoKIE1fRaxHvynchwy_xE_VDKUZA,6110
+cloud2sql-0.6.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+cloud2sql-0.6.3.dist-info/entry_points.txt,sha256=1WtVhQkWINENB3pEb9PLMZrnVggKe_xzFHM0NKHk5JE,54
+cloud2sql-0.6.3.dist-info/top_level.txt,sha256=dDilfeSpIQW2QJujBhyXIJOMBIkm9DmJRCJO_Kgb-6s,10
+cloud2sql-0.6.3.dist-info/RECORD,,
