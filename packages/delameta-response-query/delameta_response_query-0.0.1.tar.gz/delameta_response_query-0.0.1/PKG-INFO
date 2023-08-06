@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: delameta_response_query
+Version: 0.0.1
+Summary: Testting For Response
+Author-email: Arief Prabowo <ariefprabowosheldom@gmail.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Example Package
+
+This is a simple example package. You can use
+
+to write your content.
