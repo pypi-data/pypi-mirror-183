@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cv2_rectangle_around_center/LICENSE
+cv2_rectangle_around_center/README.MD
+cv2_rectangle_around_center/__init__.py
+cv2_rectangle_around_center/requirements.txt
+cv2_rectangle_around_center/thirdparty.json
+cv2_rectangle_around_center.egg-info/PKG-INFO
+cv2_rectangle_around_center.egg-info/SOURCES.txt
+cv2_rectangle_around_center.egg-info/dependency_links.txt
+cv2_rectangle_around_center.egg-info/requires.txt
+cv2_rectangle_around_center.egg-info/top_level.txt

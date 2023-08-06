@@ -1,0 +1,4 @@
+include cv2_rectangle_around_center/requirements.txt
+include cv2_rectangle_around_center/thirdparty.json
+include cv2_rectangle_around_center/README.MD
+include cv2_rectangle_around_center/LICENSE
