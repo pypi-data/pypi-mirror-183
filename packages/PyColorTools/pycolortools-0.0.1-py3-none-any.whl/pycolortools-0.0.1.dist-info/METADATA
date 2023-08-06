@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: PyColorTools
+Version: 0.0.1
+Summary: A colorfull package
+Author: Rayaan khan
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >3.7
+Description-Content-Type: text/markdown
+
+# PyColors
+
+## Description
+
+PyColors is a small python module for the people who
+dont know how to color code in python we have a 1 class containing
+all your needs for color output
