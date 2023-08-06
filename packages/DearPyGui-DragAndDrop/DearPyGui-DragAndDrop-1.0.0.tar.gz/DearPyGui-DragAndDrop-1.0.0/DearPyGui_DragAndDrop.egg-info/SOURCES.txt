@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+DearPyGui_DragAndDrop/__init__.py
+DearPyGui_DragAndDrop/main.py
+DearPyGui_DragAndDrop/setup.py
+DearPyGui_DragAndDrop/tools.py
+DearPyGui_DragAndDrop.egg-info/PKG-INFO
+DearPyGui_DragAndDrop.egg-info/SOURCES.txt
+DearPyGui_DragAndDrop.egg-info/dependency_links.txt
+DearPyGui_DragAndDrop.egg-info/requires.txt
+DearPyGui_DragAndDrop.egg-info/top_level.txt
