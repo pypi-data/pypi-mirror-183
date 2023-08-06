@@ -1,0 +1,9 @@
+README.md
+setup.py
+src/__init__.py
+src/kraken_functions.py
+src/libraries.py
+src/cripto_show.egg-info/PKG-INFO
+src/cripto_show.egg-info/SOURCES.txt
+src/cripto_show.egg-info/dependency_links.txt
+src/cripto_show.egg-info/top_level.txt

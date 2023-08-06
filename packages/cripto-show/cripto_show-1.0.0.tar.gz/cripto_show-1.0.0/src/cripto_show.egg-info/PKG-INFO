@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: cripto-show
+Version: 1.0.0
+Summary: Usefull library for web scrapping cripto currencys value and plotting with metrics on streamlit.
+Home-page: https://github.com/JavCaracuel/Cripto_show
+Author: Enrique and Javier
+Author-email: pepeelhackeos@gmail.com
