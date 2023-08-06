@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.cfg
+src/stuscraper/LICENCE
+src/stuscraper/__init__.py
+src/stuscraper/bootstrap.py
+src/stuscraper/dbmanipulation.py
+src/stuscraper/search.py
+src/stuscraper/stu_download.py
+src/stuscraper/stu_imgdl.py
+src/stuscraper/usercounter.py
+src/stuscraper.egg-info/PKG-INFO
+src/stuscraper.egg-info/SOURCES.txt
+src/stuscraper.egg-info/dependency_links.txt
+src/stuscraper.egg-info/entry_points.txt
+src/stuscraper.egg-info/requires.txt
+src/stuscraper.egg-info/top_level.txt
