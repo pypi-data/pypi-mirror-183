@@ -1,0 +1,3 @@
+[run]
+omit = 
+    src/pyreptasks/__init__.py
