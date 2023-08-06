@@ -1,0 +1,17 @@
+djangokit/cli/__init__.py,sha256=QvlVh4JTl3JL7jQAja76yKtT-IvF4631ASjWY1wS6AQ,22
+djangokit/cli/__main__.py,sha256=OmF3GJ2jGs8Mmqjcba42GPP3ohHLfLm3hQataLVJWtY,447
+djangokit/cli/app.py,sha256=dEIbZCSkjKs_iSICRv7OBBrLT4hukS5M7izfL127SPw,3997
+djangokit/cli/base.py,sha256=kHHS0WJYi7YxNLl7pxsnFD4OVu75NrpcPJOQxpPsxmA,5499
+djangokit/cli/build.py,sha256=oGgSPtpp7eGQQf2ptXBo-5UhtdZJ8ebVFylwlIayzWc,7014
+djangokit/cli/django.py,sha256=-ISXHotuXxSzOdV8bAQtUSmemkcBC6GrQRC9ZmCt_fU,9556
+djangokit/cli/scaffolding/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+djangokit/cli/scaffolding/routes.py,sha256=mQxmCb7GFYq4pZAO4wWcT96lc6pQGSMex28PI7f8cH4,4884
+djangokit/cli/utils/__init__.py,sha256=tQ43BD9J4re6uX2-MBKsqpEjuSCZdwWRk7D76VPCLxw,118
+djangokit/cli/utils/console.py,sha256=YyldLGC5vM1mQiycDPo8NaWqWPu_QFcyB-7eHRQyTFQ,1362
+djangokit/cli/utils/params.py,sha256=RbTXUDqCMu3nMKykO_eY4g6hHlULzPf9sI-gb5AbkXY,2473
+djangokit/cli/utils/run.py,sha256=PuLsBxUq9AFENDsH9TwK0-ikeAUNa2CB0ilUyN5YG8U,2388
+org_djangokit_cli-0.0.2.dist-info/LICENSE,sha256=AFNAUc9m2bTdgHvgz8qshBBYw_RLi8pOgN5dIDww37E,1053
+org_djangokit_cli-0.0.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+org_djangokit_cli-0.0.2.dist-info/entry_points.txt,sha256=OmN9Y4-9ZNV1uFZLvkY2MdYf89T0WADjeBiAphDOe08,86
+org_djangokit_cli-0.0.2.dist-info/METADATA,sha256=5sAiVneoIEznVC5x0jMDX4n7LZfeqefnnL3f3i5RHzQ,2147
+org_djangokit_cli-0.0.2.dist-info/RECORD,,
