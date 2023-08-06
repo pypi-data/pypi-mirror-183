@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+coordsystems.egg-info/PKG-INFO
+coordsystems.egg-info/SOURCES.txt
+coordsystems.egg-info/dependency_links.txt
+coordsystems.egg-info/requires.txt
+coordsystems.egg-info/top_level.txt
+src/__init__.py
