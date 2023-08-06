@@ -1,0 +1,6 @@
+easydict
+flask
+numpy
+pybullet
+pysolr
+scipy
