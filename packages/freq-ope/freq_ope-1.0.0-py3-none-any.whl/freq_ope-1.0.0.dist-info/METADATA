@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: freq-ope
+Version: 1.0.0
+Summary: A Frequency-Hiding Order-Preserving Encryption scheme
+Author: Yagaagowtham Palanikumar
+License: Apache-2.0
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: pycrypto
+
+UNKNOWN
+
