@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: chargpt-lfanke
+Version: 0.0.3
+Summary: from charget_lfanke import Session
+Home-page: UNKNOWN
+Author: Lfan_ke
+Author-email: chengkelfan@qq.com
+License: apache 3.0
+Platform: UNKNOWN
+Requires: requests
+Requires: openai
+
+UNKNOWN
+
