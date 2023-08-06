@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: dsptoolbox
+Version: 0.0.2
+Summary: Collection of dsp algorithms to be used for analysis of audio signals
+Project-URL: Homepage, https://github.com/nico-franco-gomez/dsptoolbox
+Project-URL: Bug Tracker, https://github.com/nico-franco-gomez/dsptoolbox/issues
+Project-URL: Documentation, https://dsptoolbox.readthedocs.io/en/latest/
+Author: Nicolas Franco-Gomez
+License-File: LICENSE
+Keywords: Digital Signal Processing,Prototyping,Research,dsp
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: sounddevice
+Requires-Dist: soundfile
+Description-Content-Type: text/x-rst
+
+======
+Readme
+======
+
+This is a toolbox in form of a python package that handles algorithms to be used in dsp (digital signal processing) projects.
+
+It is a personal project that is under active development and it will take some time until it reaches a certain level of maturity.
+If you find some implementations interesting or useful, please feel free to use it for your projects and expand or change
+functionalities.
+
+Getting Started
+===============
+
+Check out the `examples`_ for some basic examples of the dsptoolbox package
+and refer to the documentation for the complete description of classes and methods.
+
+.. note::
+    The documentation at `read the docs`_ is available but not working completely without errors
+    because of a bug in one of the modules needed to build the package. This will be fixed in the future.
+    Until then, please refer to the other available documentation.
+
+Installation
+============
+
+Use pip to install dsptoolbox
+
+.. code-block:: console
+
+    $ pip install dsptoolbox
+
+(Requires Python 3.10 or higher)
+
+.. _read the docs: http://dsptoolbox.readthedocs.io/
+.. _examples: https://github.com/nico-franco-gomez/dsptoolbox/tree/main/examples
