@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/emailgenerator/__init__.py
+src/emailgenerator/__main__.py
+src/emailgenerator.egg-info/PKG-INFO
+src/emailgenerator.egg-info/SOURCES.txt
+src/emailgenerator.egg-info/dependency_links.txt
+src/emailgenerator.egg-info/entry_points.txt
+src/emailgenerator.egg-info/top_level.txt
