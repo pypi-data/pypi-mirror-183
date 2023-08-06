@@ -1,0 +1,11 @@
+netbox_disk/__init__.py,sha256=TC4oI3aKT785tEbzhVpxPMmlcH0tn0p1DAwPzvKRMVY,1243
+netbox_disk/livestatus.py,sha256=t9GOfdRL5p5XRdw3HP5CKphJsw_s03be5JB2QREOq80,879
+netbox_disk/template_content.py,sha256=TaeRt8D92RU6fT4vCcpbj4GUz0lQ-nwJqaGWpLAP8EU,2423
+netbox_disk/templates/device_disk_box.html,sha256=Ywux41_8My1_YtdKhYys7R9RjSKDK7GAOGdbysD3t54,1045
+netbox_disk/templates/device_disk_buttons.html,sha256=2lRO4qJssbsaoXD8w1R-peCaqh59LGtNnxg5XojqXBg,190
+netbox_disk/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+netbox_disk/templatetags/disk.py,sha256=7m_cNC-OzrxWINqdXXHvtL7PbdgAlpwH8L01yDZsS7I,476
+netbox_disk/version.py,sha256=SooaRgHyz6aE7i5Ymd3zWQ8ho7ONqY_FJKThpV4D2zA,18
+netbox_disk-0.0.6.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+netbox_disk-0.0.6.dist-info/METADATA,sha256=WCx7sWg8pfYZpcZtp63acnuLAwiNsFXGa2DYTnvigoU,559
+netbox_disk-0.0.6.dist-info/RECORD,,
