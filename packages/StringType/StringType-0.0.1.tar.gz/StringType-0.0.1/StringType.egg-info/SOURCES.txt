@@ -1,0 +1,4 @@
+StringType.egg-info/PKG-INFO
+StringType.egg-info/SOURCES.txt
+StringType.egg-info/dependency_links.txt
+StringType.egg-info/top_level.txt
