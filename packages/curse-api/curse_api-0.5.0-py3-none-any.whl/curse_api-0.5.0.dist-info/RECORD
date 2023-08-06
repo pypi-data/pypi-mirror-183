@@ -1,0 +1,8 @@
+curse_api/__init__.py,sha256=jl03b4HdyeornANNJfNiEHJdPUO7n5spYKtpo3CmnY8,364
+curse_api/api.py,sha256=yHNmoPB5IJj1YE2oORYqwYfdXxRA_iX58P2GbUC_mZY,13093
+curse_api/async_api.py,sha256=Jgp3LFZpdFUopNElLgV0ctObGP2nI0LffS7vlNAZ_jI,13344
+curse_api/enums.py,sha256=DM5bu0BHNf-EqbDNsMkKqskKo6WQkoux8NPsyMfcVuE,2602
+curse_api/models.py,sha256=1HlGaOzx3Kc2QXFlfsunwI1H2YKjUOnKYpwH2oess2M,9793
+curse_api-0.5.0.dist-info/METADATA,sha256=8OUqF8eNLFXSLQ0sBVhZFj1ubDwGBhh1GQMSannP4wI,4265
+curse_api-0.5.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+curse_api-0.5.0.dist-info/RECORD,,
