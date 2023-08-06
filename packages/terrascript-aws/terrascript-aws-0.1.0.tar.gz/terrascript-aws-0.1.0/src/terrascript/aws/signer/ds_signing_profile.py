@@ -1,0 +1,116 @@
+from typing import Dict, List, Optional, Union
+
+import terrascript.core as core
+
+
+@core.schema
+class RevocationRecord(core.Schema):
+
+    revocation_effective_from: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    revoked_at: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    revoked_by: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    def __init__(
+        self,
+        *,
+        revocation_effective_from: Union[str, core.StringOut],
+        revoked_at: Union[str, core.StringOut],
+        revoked_by: Union[str, core.StringOut],
+    ):
+        super().__init__(
+            args=RevocationRecord.Args(
+                revocation_effective_from=revocation_effective_from,
+                revoked_at=revoked_at,
+                revoked_by=revoked_by,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        revocation_effective_from: Union[str, core.StringOut] = core.arg()
+
+        revoked_at: Union[str, core.StringOut] = core.arg()
+
+        revoked_by: Union[str, core.StringOut] = core.arg()
+
+
+@core.schema
+class SignatureValidityPeriod(core.Schema):
+
+    type: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    value: Union[int, core.IntOut] = core.attr(int, computed=True)
+
+    def __init__(
+        self,
+        *,
+        type: Union[str, core.StringOut],
+        value: Union[int, core.IntOut],
+    ):
+        super().__init__(
+            args=SignatureValidityPeriod.Args(
+                type=type,
+                value=value,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        type: Union[str, core.StringOut] = core.arg()
+
+        value: Union[int, core.IntOut] = core.arg()
+
+
+@core.data(type="aws_signer_signing_profile", namespace="aws_signer")
+class DsSigningProfile(core.Data):
+
+    arn: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    id: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    name: Union[str, core.StringOut] = core.attr(str)
+
+    platform_display_name: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    platform_id: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    revocation_record: Union[List[RevocationRecord], core.ArrayOut[RevocationRecord]] = core.attr(
+        RevocationRecord, computed=True, kind=core.Kind.array
+    )
+
+    signature_validity_period: Union[
+        List[SignatureValidityPeriod], core.ArrayOut[SignatureValidityPeriod]
+    ] = core.attr(SignatureValidityPeriod, computed=True, kind=core.Kind.array)
+
+    status: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    tags: Optional[Union[Dict[str, str], core.MapOut[core.StringOut]]] = core.attr(
+        str, default=None, computed=True, kind=core.Kind.map
+    )
+
+    version: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    version_arn: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    def __init__(
+        self,
+        data_name: str,
+        *,
+        name: Union[str, core.StringOut],
+        tags: Optional[Union[Dict[str, str], core.MapOut[core.StringOut]]] = None,
+    ):
+        super().__init__(
+            name=data_name,
+            args=DsSigningProfile.Args(
+                name=name,
+                tags=tags,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        name: Union[str, core.StringOut] = core.arg()
+
+        tags: Optional[Union[Dict[str, str], core.MapOut[core.StringOut]]] = core.arg(default=None)
