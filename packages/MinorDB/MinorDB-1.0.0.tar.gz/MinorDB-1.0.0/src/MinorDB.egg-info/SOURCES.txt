@@ -1,0 +1,8 @@
+LICENSE.txt
+README.txt
+pyproject.toml
+setup.cfg
+src/MinorDB.egg-info/PKG-INFO
+src/MinorDB.egg-info/SOURCES.txt
+src/MinorDB.egg-info/dependency_links.txt
+src/MinorDB.egg-info/top_level.txt
