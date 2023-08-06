@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autouniq"
+version = "0.0.5"
+authors = [
+  { name="Fedor Kuruts", email="fedorkuruts@gmail.com" },
+]
+keywords = ["stuped", "easy", "FoxmindED"]
+
+description = "collection_framework package"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/FedXL/collection_framework"
+"Bug Tracker" = "https://github.com/FedXL/collection_framework/issues"

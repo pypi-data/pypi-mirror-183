@@ -1,0 +1,16 @@
+/.idea/
+/venv
+
+.coverage
+.coverage.*
+.cache
+
+__pycache__/
+*.py[cod]
+src/blackhole/uniq/cash_try.py
+src/blackhole/uniq/wrapper.py
+src/blackhole/tests/.pytest_cache/
+src/blackhole/uniq/find_better.py
+src/blackhole/uniq/file.txt
+src/blackhole/uniq/file.png
+
