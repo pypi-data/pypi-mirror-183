@@ -1,0 +1,7 @@
+#!python
+
+import sys
+
+from vaers_downloader import download
+
+download.main(sys.argv[1:])
