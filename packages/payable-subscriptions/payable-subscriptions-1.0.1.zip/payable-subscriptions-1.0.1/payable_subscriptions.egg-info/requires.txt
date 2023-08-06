@@ -1,0 +1,2 @@
+django>=4.0
+django-flexible-subscriptions>=0.15.1
