@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+flashtext2/__init__.py
+flashtext2/trie_dict.py
+flashtext2.egg-info/PKG-INFO
+flashtext2.egg-info/SOURCES.txt
+flashtext2.egg-info/dependency_links.txt
+flashtext2.egg-info/top_level.txt
