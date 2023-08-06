@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: klovve
+Version: 0.2
+Summary: Python User Interfaces     
+Home-page: UNKNOWN
+Author: Josef Hahn
+Author-email: ale@ginger.ws
+License: AGPL 3
+Platform: UNKNOWN
+Description-Content-Type: text/plain
+
+
+Klovve is a UI lib.
+
+

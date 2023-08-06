@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<a:project xmlns:a="annize" xmlns:pino="annize:pinoprivate" xmlns:tst="annize:testing" xmlns:base="annize:base" xmlns:files="annize:files" xmlns:datainjections="annize:datainjections">
+    <Task xmlns="annize:task" a:name="release">
+        <pino:ReadmeToSources2/>
+        <tst:RunTests/>
+        <pino:PypiUpload xmlns="annize:distributables.store.pypi">
+            <a:reference name="package_pythonwheel"/>
+        </pino:PypiUpload>
+    </Task>
+</a:project>
