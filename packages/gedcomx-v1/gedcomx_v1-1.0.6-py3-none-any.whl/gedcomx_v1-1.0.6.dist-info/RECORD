@@ -1,0 +1,12 @@
+gedcomx/__init__.py,sha256=hvb1N_F-LjZ4Bf8az4v_8kTUPNtD246Gzgx1D-zDJA8,144
+gedcomx/_utila.py,sha256=jaL6a75wMS_X05mf_O65XwyAmJJk2wMlgjhiQUxCqmA,1429
+gedcomx/dateformal.py,sha256=nZ7VoNmvgXqm2zcFGEgwMYmQZD2miYqoMNWTwlmeF5Q,3976
+gedcomx/fs_session.py,sha256=hfvYCV1NssQnSJy0fsvZDcgBsbrrdmIVCt1X1JjxytI,11492
+gedcomx/gedcomx.py,sha256=ZWaW5oQCniDas5EKLIty3H_uTiak7CUwYjxoFl_G1_E,13782
+gedcomx/json.py,sha256=2u3z6mLIDHDQsp_95GBwlQ1WvpOAjNekf_x7WIQfKH0,5438
+gedcomx/xml.py,sha256=9jcic6hndB1igWyrrjhBisZlY3gQejedA-bIevXuToQ,6714
+gedcomx_v1-1.0.6.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+gedcomx_v1-1.0.6.dist-info/METADATA,sha256=pUOqwY-dxdBt1g26Lt1KofEQEXMYl8r27NfRK5EMn-o,1857
+gedcomx_v1-1.0.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+gedcomx_v1-1.0.6.dist-info/top_level.txt,sha256=smVBF4nxSU-mzCd6idtRYTbYjPICMMi8pTqewEmqF8Y,8
+gedcomx_v1-1.0.6.dist-info/RECORD,,
