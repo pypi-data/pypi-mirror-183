@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+setup.py
+ReCaptchaBreaker.egg-info/PKG-INFO
+ReCaptchaBreaker.egg-info/SOURCES.txt
+ReCaptchaBreaker.egg-info/dependency_links.txt
+ReCaptchaBreaker.egg-info/top_level.txt
+src/__init__.py
+src/constants.py
+src/main.py
+src/model.py
+src/utils.py
