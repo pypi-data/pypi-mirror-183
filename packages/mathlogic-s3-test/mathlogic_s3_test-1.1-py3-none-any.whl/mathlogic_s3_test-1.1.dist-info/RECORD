@@ -1,0 +1,7 @@
+mathlogic/__init__.py,sha256=PT9bSW5st3hv9R11McOJHFY9_AJeJKzUhVKUvHdlyAk,32
+mathlogic/credentials.py,sha256=4lVmb3PAjsDXmteFczU9BBClvvggDRNGjrlpjtSS_MA,110
+mathlogic/leaderboardutils.py,sha256=zTuVWBTWP9jR2ixBntqY6noNerTJVzfrcehulit3FZQ,13819
+mathlogic_s3_test-1.1.dist-info/METADATA,sha256=tgflS0DC_mrQhbFs7gOeZv2cACWEuz74R2gZoPv7TdA,364
+mathlogic_s3_test-1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mathlogic_s3_test-1.1.dist-info/top_level.txt,sha256=Yr1dIe11Jjg1_eShUnoZoM2wNcunjcIZovEzTEu-SR4,10
+mathlogic_s3_test-1.1.dist-info/RECORD,,
