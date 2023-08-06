@@ -1,0 +1,3 @@
+[console_scripts]
+s_compiler = s_interpreter.compiler:main
+s_interpreter = s_interpreter.interpreter:main
