@@ -1,0 +1,185 @@
+[project]
+name = "yapper"
+version = "0.4.0"
+description = "Parser for converting python docstrings to .astro files for the Astro static site generator."
+readme = "README.md"
+requires-python = ">=3.8,<4.0"
+keywords = [
+    "python",
+    "static-site-generator",
+    "astro",
+    "parser",
+    "documentation",
+    "docstrings",
+]
+authors = [
+    { name = "Gareth Simons", email = "info@benchmarkurbanism.com" },
+]
+maintainers = [
+    { name = "Gareth Simons", email = "info@benchmarkurbanism.com" },
+]
+classifiers = [
+    "Programming Language :: Python",
+]
+dependencies = [
+    "dominate<3.0.0,>=2.6.0",
+    "python-slugify<7.0.0,>=6.1.1",
+    "Markdown<4.0.0,>=3.3.6",
+    "toml>=0.10.2",
+    "griffe>=0.25.2",
+]
+
+[project.license]
+text = "MIT"
+
+[project.scripts]
+yapper = "yapper.cli:parse_cli"
+
+[project.optional-dependencies]
+
+[project.urls]
+homepage = "https://github.com/benchmark-urbanism/yapper"
+documentation = "https://github.com/benchmark-urbanism/yapper"
+repository = "https://github.com/benchmark-urbanism/yapper"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.1.1",
+    "setuptools-scm>=6.4.2",
+    "pylint>=2.13.7",
+    "black>=22.3.0",
+    "isort>=5.10.1",
+    "pydocstyle>=6.1.1",
+    "types-python-slugify>=5.0.4",
+    "types-toml>=0.10.7",
+    "pyright>=1.1.246",
+    "setuptools>=62.3.2",
+    "twine>=4.0.0",
+    "coverage>=6.4.1",
+]
+
+[tool.pdm.scripts]
+linting = "pylint --rcfile=pyproject.toml ./yapper"
+typechecks = "pyright"
+docstyle = "pydocstyle --config=pyproject.toml"
+tests = "pytest ./tests"
+coverage_run = "coverage run -m pytest ./tests"
+
+[tool.pdm.scripts.formatting]
+shell = "black --config=pyproject.toml ./ && isort --settings-file=pyproject.toml ./"
+
+[tool.pdm.scripts.coverage_report]
+shell = "coverage report --show-missing --skip-empty && coverage lcov"
+
+[tool.pdm.scripts.build_project]
+shell = "pdm run formatting && pdm run linting && pdm run typechecks && pdm run docstyle && pdm run tests && pdm build"
+
+[tool.setuptools]
+packages = [
+    "yapper",
+]
+
+[tool.black]
+line-length = 120
+color = true
+
+[tool.pylint.master]
+disable = [
+    "too-many-branches",
+    "too-many-statements",
+    "too-many-locals",
+    "missing-module-docstring",
+    "logging-fstring-interpolation",
+    "unspecified-encoding",
+]
+jobs = 0
+output-format = "colorized"
+
+[tool.pylint.basic]
+good-names = [
+    "a",
+    "h",
+    "i",
+    "j",
+    "s",
+    "md",
+]
+
+[tool.pylint.design]
+max-args = 10
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.logging]
+
+[tool.pyright]
+pythonVersion = "3.10"
+include = [
+    "yapper",
+]
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "__pypackages__",
+    "yapper/stubs",
+]
+typeCheckingMode = "strict"
+stubPath = "yapper/stubs"
+useLibraryCodeForTypes = true
+reportMissingTypeStubs = true
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+line_length = 120
+known_first_party = [
+    "yapper",
+]
+atomic = true
+filter_files = true
+src_paths = [
+    "yapper",
+    "tests",
+]
+
+[tool.pytest.ini_options]
+console_output_style = "count"
+log_cli = true
+log_cli_level = "INFO"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+source = [
+    "yapper",
+]
+branch = true
+omit = [
+    "**/__init__.py",
+]
+
+[tool.coverage.report]
+include = [
+    "yapper/**",
+]
+omit = [
+    "**/__init__.py",
+]
+
+[tool.pydocstyle]
+ignore = [
+    "D100",
+    "D200",
+    "D203",
+    "D212",
+]
+match = "(?!test_).*\\.py"
+match_dir = "^(?!(__pypackages__|build|tests|.venv)).*"
+
+[build-system]
+requires = [
+    "pdm-pep517",
+]
+build-backend = "pdm.pep517.api"
