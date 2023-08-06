@@ -1,0 +1,11 @@
+setup.py
+SomeToolspbc/WinConsole.py
+SomeToolspbc/__init__.py
+SomeToolspbc/file.py
+SomeToolspbc/gui.py
+SomeToolspbc/math.py
+SomeToolspbc/safely.py
+SomeToolspbc.egg-info/PKG-INFO
+SomeToolspbc.egg-info/SOURCES.txt
+SomeToolspbc.egg-info/dependency_links.txt
+SomeToolspbc.egg-info/top_level.txt
