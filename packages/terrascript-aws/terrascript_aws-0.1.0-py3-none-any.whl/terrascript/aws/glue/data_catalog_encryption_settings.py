@@ -1,0 +1,125 @@
+from typing import List, Optional, Union
+
+import terrascript.core as core
+
+
+@core.schema
+class EncryptionAtRest(core.Schema):
+
+    catalog_encryption_mode: Union[str, core.StringOut] = core.attr(str)
+
+    sse_aws_kms_key_id: Optional[Union[str, core.StringOut]] = core.attr(str, default=None)
+
+    def __init__(
+        self,
+        *,
+        catalog_encryption_mode: Union[str, core.StringOut],
+        sse_aws_kms_key_id: Optional[Union[str, core.StringOut]] = None,
+    ):
+        super().__init__(
+            args=EncryptionAtRest.Args(
+                catalog_encryption_mode=catalog_encryption_mode,
+                sse_aws_kms_key_id=sse_aws_kms_key_id,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        catalog_encryption_mode: Union[str, core.StringOut] = core.arg()
+
+        sse_aws_kms_key_id: Optional[Union[str, core.StringOut]] = core.arg(default=None)
+
+
+@core.schema
+class ConnectionPasswordEncryption(core.Schema):
+
+    aws_kms_key_id: Optional[Union[str, core.StringOut]] = core.attr(str, default=None)
+
+    return_connection_password_encrypted: Union[bool, core.BoolOut] = core.attr(bool)
+
+    def __init__(
+        self,
+        *,
+        return_connection_password_encrypted: Union[bool, core.BoolOut],
+        aws_kms_key_id: Optional[Union[str, core.StringOut]] = None,
+    ):
+        super().__init__(
+            args=ConnectionPasswordEncryption.Args(
+                return_connection_password_encrypted=return_connection_password_encrypted,
+                aws_kms_key_id=aws_kms_key_id,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        aws_kms_key_id: Optional[Union[str, core.StringOut]] = core.arg(default=None)
+
+        return_connection_password_encrypted: Union[bool, core.BoolOut] = core.arg()
+
+
+@core.schema
+class DataCatalogEncryptionSettingsBlk(core.Schema):
+
+    connection_password_encryption: ConnectionPasswordEncryption = core.attr(
+        ConnectionPasswordEncryption
+    )
+
+    encryption_at_rest: EncryptionAtRest = core.attr(EncryptionAtRest)
+
+    def __init__(
+        self,
+        *,
+        connection_password_encryption: ConnectionPasswordEncryption,
+        encryption_at_rest: EncryptionAtRest,
+    ):
+        super().__init__(
+            args=DataCatalogEncryptionSettingsBlk.Args(
+                connection_password_encryption=connection_password_encryption,
+                encryption_at_rest=encryption_at_rest,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.SchemaArgs):
+        connection_password_encryption: ConnectionPasswordEncryption = core.arg()
+
+        encryption_at_rest: EncryptionAtRest = core.arg()
+
+
+@core.resource(type="aws_glue_data_catalog_encryption_settings", namespace="aws_glue")
+class DataCatalogEncryptionSettings(core.Resource):
+
+    catalog_id: Optional[Union[str, core.StringOut]] = core.attr(str, default=None, computed=True)
+
+    data_catalog_encryption_settings: DataCatalogEncryptionSettingsBlk = core.attr(
+        DataCatalogEncryptionSettingsBlk
+    )
+
+    id: Union[str, core.StringOut] = core.attr(str, computed=True)
+
+    def __init__(
+        self,
+        resource_name: str,
+        *,
+        data_catalog_encryption_settings: DataCatalogEncryptionSettingsBlk,
+        catalog_id: Optional[Union[str, core.StringOut]] = None,
+        depends_on: Optional[Union[List[str], core.ArrayOut[core.StringOut]]] = None,
+        provider: Optional[Union[str, core.StringOut]] = None,
+        lifecycle: Optional[core.Lifecycle] = None,
+    ):
+        super().__init__(
+            name=resource_name,
+            args=DataCatalogEncryptionSettings.Args(
+                data_catalog_encryption_settings=data_catalog_encryption_settings,
+                catalog_id=catalog_id,
+                depends_on=depends_on,
+                provider=provider,
+                lifecycle=lifecycle,
+            ),
+        )
+
+    @core.schema_args
+    class Args(core.Resource.Args):
+        catalog_id: Optional[Union[str, core.StringOut]] = core.arg(default=None)
+
+        data_catalog_encryption_settings: DataCatalogEncryptionSettingsBlk = core.arg()
