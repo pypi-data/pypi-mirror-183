@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: excel_writer
+Version: 1.0.2
+Summary: Simple library to write excel files from dictionary or pandas datafra
+Home-page: https://github.com/encoresky/excel-writer
+Author: EncoreSky Technologies
+Author-email: coontact@encoresky.com
+License: MIT
