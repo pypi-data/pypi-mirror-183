@@ -1,0 +1,10 @@
+audiodiffusion/__init__.py,sha256=ClpGS2yljrzzajHQ8y2FPbjaeAvlWENSank42o57f_g,5296
+audiodiffusion/audio_encoder.py,sha256=Gge9IH5BLMRAYKe0RWh6F2NKa-qFJhnAkfzO7tQJ99s,3490
+audiodiffusion/mel.py,sha256=pvJbeE_KxozaPxRQjPzw3XRwlqKP25uwLGwnQv3MF2g,5671
+audiodiffusion/pipeline_audio_diffusion.py,sha256=kETTOROdSS5X5Fa8x6AV6itMgOqm2GNG3sUJRvN2AQU,11380
+audiodiffusion/utils.py,sha256=DUpbUtuLiNtTJLcYCEUjnmR1pdYBc9iKz9_RFQtAnCo,12150
+audiodiffusion-1.4.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+audiodiffusion-1.4.2.dist-info/METADATA,sha256=0SjXCrujt174OQ87YPEZDugIZkfL4LU-0c7rrqlfVgA,13631
+audiodiffusion-1.4.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+audiodiffusion-1.4.2.dist-info/top_level.txt,sha256=L-fiSc-OeXhyhqqta6kscvLph0VKSoxEV66uL2lqxoA,15
+audiodiffusion-1.4.2.dist-info/RECORD,,
