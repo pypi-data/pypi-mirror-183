@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+ocrscreen/__init__.py
+ocrscreen/common.py
+ocrscreen/core.c
+ocrscreen/learn.py
+ocrscreen/recognize.py
+ocrscreen/test.py
+ocrscreen.egg-info/PKG-INFO
+ocrscreen.egg-info/SOURCES.txt
+ocrscreen.egg-info/dependency_links.txt
+ocrscreen.egg-info/entry_points.txt
+ocrscreen.egg-info/requires.txt
+ocrscreen.egg-info/top_level.txt
