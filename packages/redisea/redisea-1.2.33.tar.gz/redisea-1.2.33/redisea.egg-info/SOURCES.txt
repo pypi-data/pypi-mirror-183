@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+redisea/__init__.py
+redisea/redisea.py
+redisea.egg-info/PKG-INFO
+redisea.egg-info/SOURCES.txt
+redisea.egg-info/dependency_links.txt
+redisea.egg-info/entry_points.txt
+redisea.egg-info/requires.txt
+redisea.egg-info/top_level.txt

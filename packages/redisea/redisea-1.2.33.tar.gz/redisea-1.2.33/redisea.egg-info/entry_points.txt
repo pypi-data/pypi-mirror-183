@@ -1,0 +1,2 @@
+[console_scripts]
+redisea = redisea.redisea:RediSea.main
