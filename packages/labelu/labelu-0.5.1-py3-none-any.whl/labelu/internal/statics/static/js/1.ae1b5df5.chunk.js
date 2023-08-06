@@ -1,0 +1,2 @@
+(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[1],{248:function(e){e.exports=JSON.parse('{"fileInfo":{"type":"img","list":[{"id":1,"url":"/src/img/example/bear2.webp","result":"[]"}]},"attribute":[{"key":"PPPP","value":"PPPP"}],"tools":[{"tool":"pointTool","config":{"upperLimit":10,"isShowCursor":false,"attributeConfigurable":true,"copyBackwardResult":false,"textConfigurable":true,"textCheckType":0,"customFormat":"","attributeList":[{"key":"pointTool","value":"pointTool"}]}}]}')}}]);
+//# sourceMappingURL=1.ae1b5df5.chunk.js.map

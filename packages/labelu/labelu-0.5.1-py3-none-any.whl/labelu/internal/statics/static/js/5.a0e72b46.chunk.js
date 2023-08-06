@@ -1,0 +1,2 @@
+(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[5],{252:function(e){e.exports=JSON.parse('{"fileInfo":{"type":"img","list":[{"id":1,"url":"/src/img/example/bear6.webp","result":"[]"}]},"textConfig":[{"label":"我的描述","key":"描述的关键","required":true,"default":"","maxLength":200},{"label":"我的描述1","key":"描述的关键1","required":true,"default":"","maxLength":200}],"tools":[{"tool":"textTool"}]}')}}]);
+//# sourceMappingURL=5.a0e72b46.chunk.js.map

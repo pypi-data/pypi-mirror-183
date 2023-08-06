@@ -1,0 +1,2 @@
+(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[14],{968:function(p,s,t){"use strict";t.r(s),s.default=t.p+"static/media/polygonImg.0a6f5034.png"}}]);
+//# sourceMappingURL=14.a4e30392.chunk.js.map
