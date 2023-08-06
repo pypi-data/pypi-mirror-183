@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: PyHLV
+Version: 1.1.4.8
+Summary: A minor revision...
+Home-page: https://pypi.org/project/PyHLV/
+Author: wjgo-unist
+Author-email: woo_go@yahoo.com
+License: MIT
+Requires-Python: >=3.8
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: ruptures
+Requires-Dist: tabulate
+Requires-Dist: pyfiglet
+Requires-Dist: argparse
+
