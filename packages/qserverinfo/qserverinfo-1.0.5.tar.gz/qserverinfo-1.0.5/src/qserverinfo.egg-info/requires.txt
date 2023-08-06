@@ -1,0 +1,4 @@
+colour==0.1.5
+Pillow==9.3.0
+PyGObject==3.42.2
+pyq3serverlist==0.2.0

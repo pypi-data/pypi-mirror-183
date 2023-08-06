@@ -1,0 +1,2 @@
+[console_scripts]
+qserverinfo = qserverinfo.entry:main
