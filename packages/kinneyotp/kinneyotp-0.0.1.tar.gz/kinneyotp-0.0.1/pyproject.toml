@@ -1,0 +1,13 @@
+[project]
+name = "kinneyotp"
+version = "0.0.1"
+authors = [
+  { name="Mike Kinney", email="mike.kinney@gmail.com" },
+]
+description = "One Time Pad (aka Vernam Cipher) encoding and decoding."
+readme = "readme.txt"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
