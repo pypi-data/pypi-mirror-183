@@ -1,0 +1,14 @@
+[
+  "test_company.py::test_parse_company_submission_json",
+  "test_filings.py::test_comany_specs",
+  "test_filings.py::test_file_specs",
+  "test_filings.py::test_filing_homepage",
+  "test_filings.py::test_filings_get_item_as_filing",
+  "test_filings.py::test_form_specs",
+  "test_filings.py::test_iterate_filings",
+  "test_filings.py::test_read_company_filing_index_year_and_quarter",
+  "test_filings.py::test_read_filing_index_year_and_quarter",
+  "test_filings.py::test_read_form_filing_index_xbrl",
+  "test_filings.py::test_read_form_filing_index_year",
+  "test_filings.py::test_read_form_filing_index_year_and_quarter"
+]

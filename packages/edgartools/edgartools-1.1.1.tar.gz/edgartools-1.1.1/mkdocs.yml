@@ -1,0 +1,14 @@
+site_name: edgartools
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+
+nav:
+  - Documentation: index.md
+  - reference.md
