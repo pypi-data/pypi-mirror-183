@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: citation-report
+Version: 0.0.9
+Summary: Parse legal citations having the publisher format - i.e. SCRA, PHIL, OFFG - referring to Philippine Supreme Court decisions.
+Author: Marcelino G. Veloso III
+Author-email: mars@veloso.one
+Requires-Python: ==3.11.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: citation-date (>=0.0.5,<0.0.6)
