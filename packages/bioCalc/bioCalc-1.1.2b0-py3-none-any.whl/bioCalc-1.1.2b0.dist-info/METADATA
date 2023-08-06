@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: bioCalc
+Version: 1.1.2b0
+Summary: biological calculator
+Home-page: https://github.com/DrTexxOfficial/bioCalc
+Author: Denver Pallis
+Project-URL: Bug Reports, https://github.com/DrTexxOfficial/bioCalc/issues
+Project-URL: Source, https://github.com/DrTexxOfficial/bioCalc/
+Keywords: development debugging testing console
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.6
+License-File: LICENSE
+Requires-Dist: dbi (==1.2.5)
+
+*******
+bioCalc
+*******
+
+General Information
+####################
+
+bioCalc is a biological calculator
+
+.. image:: /docs/test.png
+    :alt: test
+
