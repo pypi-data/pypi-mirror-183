@@ -1,0 +1,7 @@
+pytextspan-0.5.6.dist-info/METADATA,sha256=4aF3WYHEp2DaTgdLw7p0r77kJksqBgKgiw01UJv29A4,142
+pytextspan-0.5.6.dist-info/WHEEL,sha256=rAPOlxaRSQtVF5nhXUw5fbGf1f_YLVlJCcydtGG7AhQ,128
+textspan/__init__.py,sha256=2BWFBgRHpdAPu4xYEwy2zvF3qq4IjDO1ENz9nBFxWbI,399
+textspan/__init__.pyi,sha256=3T0G5W-1nDIxojN55uoUIZYFZIYZfBVwRtbL5IuiwuE,821
+textspan/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textspan/textspan.cpython-38-x86_64-linux-gnu.so,sha256=XQI1gpGCPFvRk9gimR-dR-GS5s48N_6SZXhatBEPXsQ,600480
+pytextspan-0.5.6.dist-info/RECORD,,
