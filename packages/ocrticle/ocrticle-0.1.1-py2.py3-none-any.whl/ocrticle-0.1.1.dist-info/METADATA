@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: OCRticle
+Version: 0.1.1
+Summary: OCRticle - Structured OCR for articles
+Author-email: Sofia Santos <sofiarsantos31@gmail.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: Kivy >= 2.1.0, <3
+Requires-Dist: pandas >= 1.5.1, <2
+Requires-Dist: Pillow >= 9.3.0, <10
+Requires-Dist: pytesseract >= 0.3.10, <1
+
+# Projeto PI
+
