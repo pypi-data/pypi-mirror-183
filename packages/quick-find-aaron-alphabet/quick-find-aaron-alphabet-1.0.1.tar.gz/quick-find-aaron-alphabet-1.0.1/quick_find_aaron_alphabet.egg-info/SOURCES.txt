@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+qf/__init__.py
+qf/__main__.py
+quick_find_aaron_alphabet.egg-info/PKG-INFO
+quick_find_aaron_alphabet.egg-info/SOURCES.txt
+quick_find_aaron_alphabet.egg-info/dependency_links.txt
+quick_find_aaron_alphabet.egg-info/entry_points.txt
+quick_find_aaron_alphabet.egg-info/top_level.txt
