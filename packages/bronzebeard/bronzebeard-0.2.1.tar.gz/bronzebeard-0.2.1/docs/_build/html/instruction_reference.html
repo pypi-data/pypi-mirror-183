@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instruction Reference &mdash; bronzebeard 0.2.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DFU Setup" href="dfu_setup.html" />
+    <link rel="prev" title="Assembly Language" href="assembly_language.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> bronzebeard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Bronzebeard Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_line_usage.html">Command Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly_language.html">Assembly Language</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instruction Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pseudo-instructions">Pseudo Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#expansion-of-li-rd-imm">Expansion of <code class="code docutils literal notranslate"><span class="pre">li</span> <span class="pre">rd,</span> <span class="pre">imm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expansion-of-call-offset">Expansion of <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">offset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expansion-of-tail-offset">Expansion of <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rv32i-base-instruction-set">RV32I Base Instruction Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rv32m-standard-extension">RV32M Standard Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rv32a-standard-extension">RV32A Standard Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rv32c-standard-extension">RV32C Standard Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zifencei-standard-extension">“Zifencei” Standard Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zicsr-standard-extension">“Zicsr” Standard Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dfu_setup.html">DFU Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bronzebeard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Instruction Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/instruction_reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="instruction-reference">
+<h1>Instruction Reference<a class="headerlink" href="#instruction-reference" title="Permalink to this heading">¶</a></h1>
+<p>These tables provide summaries for the baseline RISC-V instructions and common extensions.
+Full <a class="reference external" href="https://riscv.org/technical/specifications/">specifications</a> be found on the RISC-V website.
+Additionally, more details about each instruction can be found <a class="reference external" href="https://msyksphinz-self.github.io/riscv-isadoc/html/index.html">here</a>.</p>
+<section id="pseudo-instructions">
+<h2>Pseudo Instructions<a class="headerlink" href="#pseudo-instructions" title="Permalink to this heading">¶</a></h2>
+<p>These pseudo-instructions represent additional actions and can be used like regular instructions.
+One of the early passes in the assembler will transform them as described in this table.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Expansion</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">nop</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">addi</span> <span class="pre">x0,</span> <span class="pre">x0,</span> <span class="pre">0</span></code></p></td>
+<td><p>No operation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">li</span> <span class="pre">rd,</span> <span class="pre">imm</span></code></p></td>
+<td><p>See below</p></td>
+<td><p>Load immediate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">mv</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">addi</span> <span class="pre">rd,</span> <span class="pre">rs,</span> <span class="pre">0</span></code></p></td>
+<td><p>Copy register</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">not</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">xori</span> <span class="pre">rd,</span> <span class="pre">rs,</span> <span class="pre">-1</span></code></p></td>
+<td><p>One’s complement</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">neg</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">sub</span> <span class="pre">rd,</span> <span class="pre">x0,</span> <span class="pre">rs</span></code></p></td>
+<td><p>Two’s complement</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">seqz</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">sltiu</span> <span class="pre">rd,</span> <span class="pre">rs,</span> <span class="pre">1</span></code></p></td>
+<td><p>Set if == zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">snez</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">sltu</span> <span class="pre">rd,</span> <span class="pre">x0,</span> <span class="pre">rs</span></code></p></td>
+<td><p>Set if != zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sltz</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">slt</span> <span class="pre">rd,</span> <span class="pre">rs,</span> <span class="pre">x0</span></code></p></td>
+<td><p>Set if &lt; zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sgtz</span> <span class="pre">rd,</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">slt</span> <span class="pre">rd,</span> <span class="pre">x0,</span> <span class="pre">rs</span></code></p></td>
+<td><p>Set if &gt; zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">beqz</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">beq</span> <span class="pre">rs,</span> <span class="pre">x0,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if == zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">bnez</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bne</span> <span class="pre">rs,</span> <span class="pre">x0,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if != zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">blez</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bge</span> <span class="pre">x0,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &lt;= zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">bgez</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bge</span> <span class="pre">rs,</span> <span class="pre">x0,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &gt;= zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bltz</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">blt</span> <span class="pre">rs,</span> <span class="pre">x0,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &lt; zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">bgtz</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">blt</span> <span class="pre">x0,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &gt; zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bgt</span> <span class="pre">rs,</span> <span class="pre">rt,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">blt</span> <span class="pre">rt,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &gt;</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ble</span> <span class="pre">rs,</span> <span class="pre">rt,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bge</span> <span class="pre">rt,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &lt;=</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bgtu</span> <span class="pre">rs,</span> <span class="pre">rt,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bltu</span> <span class="pre">rt,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &gt; (unsigned)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">bleu</span> <span class="pre">rs,</span> <span class="pre">rt,</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">bgeu</span> <span class="pre">rt,</span> <span class="pre">rs,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Branch if &lt;= (unsigned)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">j</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">x0,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Jump</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">offset</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">x1,</span> <span class="pre">offset</span></code></p></td>
+<td><p>Jump and link</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">jr</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">x0,</span> <span class="pre">0(rs)</span></code></p></td>
+<td><p>Jump register</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">rs</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">x1,</span> <span class="pre">0(rs)</span></code></p></td>
+<td><p>Jump and link register</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">ret</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">x0,</span> <span class="pre">0(x1)</span></code></p></td>
+<td><p>Return from subroutine</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">offset</span></code></p></td>
+<td><p>See below</p></td>
+<td><p>Call far-away subroutine</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">offset</span></code></p></td>
+<td><p>See below</p></td>
+<td><p>Tail call far-away subroutine</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">fence</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">fence</span> <span class="pre">iorw,</span> <span class="pre">iorw</span></code></p></td>
+<td><p>Fence on all memory and I/O</p></td>
+</tr>
+</tbody>
+</table>
+<section id="expansion-of-li-rd-imm">
+<h3>Expansion of <code class="code docutils literal notranslate"><span class="pre">li</span> <span class="pre">rd,</span> <span class="pre">imm</span></code><a class="headerlink" href="#expansion-of-li-rd-imm" title="Permalink to this heading">¶</a></h3>
+<p>Depending on the value of the <code class="code docutils literal notranslate"><span class="pre">imm</span></code>, <code class="code docutils literal notranslate"><span class="pre">li</span></code> may get expanded into a few different combinations of instructions.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Criteria</p></th>
+<th class="head"><p>Expansion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">imm</span> <span class="pre">between</span> <span class="pre">[-2048,</span> <span class="pre">2047]</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">addi</span> <span class="pre">rd,</span> <span class="pre">x0,</span> <span class="pre">%lo(imm)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">imm</span> <span class="pre">&amp;</span> <span class="pre">0xfff</span> <span class="pre">==</span> <span class="pre">0</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">lui</span> <span class="pre">rd,</span> <span class="pre">%hi(imm)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>otherwise</p></td>
+<td><div class="line-block">
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">lui</span> <span class="pre">rd,</span> <span class="pre">%hi(imm)</span></code></div>
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">addi</span> <span class="pre">rd,</span> <span class="pre">rd,</span> <span class="pre">%lo(imm)</span></code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="expansion-of-call-offset">
+<h3>Expansion of <code class="code docutils literal notranslate"><span class="pre">call</span> <span class="pre">offset</span></code><a class="headerlink" href="#expansion-of-call-offset" title="Permalink to this heading">¶</a></h3>
+<p>Depending on how near / far away the label referred to by <code class="code docutils literal notranslate"><span class="pre">offset</span></code> is, <code class="code docutils literal notranslate"><span class="pre">call</span></code> may get expanded into a few different combinations of instructions.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Criteria</p></th>
+<th class="head"><p>Expansion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">offset</span></code> is near</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">x1,</span> <span class="pre">%lo(offset)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>otherwise</p></td>
+<td><div class="line-block">
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">auipc</span> <span class="pre">x1,</span> <span class="pre">%hi(offset)</span></code></div>
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">x1,</span> <span class="pre">x1,</span> <span class="pre">%lo(offset)</span></code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="expansion-of-tail-offset">
+<h3>Expansion of <code class="code docutils literal notranslate"><span class="pre">tail</span> <span class="pre">offset</span></code><a class="headerlink" href="#expansion-of-tail-offset" title="Permalink to this heading">¶</a></h3>
+<p>Depending on how near / far away the label referred to by <code class="code docutils literal notranslate"><span class="pre">offset</span></code> is, <code class="code docutils literal notranslate"><span class="pre">tail</span></code> may get expanded into a few different combinations of instructions.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Criteria</p></th>
+<th class="head"><p>Expansion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">offset</span></code> is near</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">x0,</span> <span class="pre">%lo(offset)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>otherwise</p></td>
+<td><div class="line-block">
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">auipc</span> <span class="pre">x6,</span> <span class="pre">%hi(offset)</span></code></div>
+<div class="line"><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">x0,</span> <span class="pre">x6,</span> <span class="pre">%lo(offset)</span></code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="rv32i-base-instruction-set">
+<h2>RV32I Base Instruction Set<a class="headerlink" href="#rv32i-base-instruction-set" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">lui</span> <span class="pre">rd,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load upper 20 bits of <code class="code docutils literal notranslate"><span class="pre">rd</span></code> with 20-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code>, fill lower 12 bits with zeroes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">auipc</span> <span class="pre">rd,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load upper 20 bits of <code class="code docutils literal notranslate"><span class="pre">pc</span></code> with 20-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code>, fill lower 12 bits with zeroes, add this offset to addr of this instruction and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">jal</span> <span class="pre">rd,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 20-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> and store return addr into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">jalr</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> plus <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store return addr into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">beq</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is equal to <code class="code docutils literal notranslate"><span class="pre">rs2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bne</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is not equal to <code class="code docutils literal notranslate"><span class="pre">rs2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">blt</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than <code class="code docutils literal notranslate"><span class="pre">rs2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bge</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is greater than or equal to <code class="code docutils literal notranslate"><span class="pre">rs2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">bltu</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (unsigned)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">bgeu</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 12-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is greater than or equal to <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (unsigned)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">lb</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 8-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (sign extend)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">lh</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 16-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (sign extend)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">lw</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 32-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">lbu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 8-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (zero extend)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">lhu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 16-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (zero extend)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sb</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>store 8-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sh</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>store 16-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sw</span> <span class="pre">rs1,</span> <span class="pre">rs2,</span> <span class="pre">imm</span></code></p></td>
+<td><p>store 32-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> plus 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">addi</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>add 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> to <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">slti</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>store 1 into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> else store 0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sltiu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>store 1 into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> (unsigned) else store 0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">xori</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>bitwise XOR 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ori</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>bitwise OR 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">andi</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">imm</span></code></p></td>
+<td><p>bitwise AND 12-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">slli</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">shamt</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> left by <code class="code docutils literal notranslate"><span class="pre">shamt</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">srli</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">shamt</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> right by <code class="code docutils literal notranslate"><span class="pre">shamt</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (shift in zeroes)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">srai</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">shamt</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> right by <code class="code docutils literal notranslate"><span class="pre">shamt</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (shift in sign bit)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">add</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>add <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> to <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sub</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>subtract <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> from <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sll</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> left by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">slt</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>store 1 into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> else store 0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sltu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>store 1 into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> is less than <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (unsigned) else store 0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">xor</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>bitwise XOR <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">srl</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> right by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (shift in zeroes)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sra</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> right by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> (shift in sign bit)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">or</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>bitwise OR <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">and</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>bitwise AND <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> with <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">fence</span> <span class="pre">succ,</span> <span class="pre">pred</span></code></p></td>
+<td><p>order device I/O and memory accesses</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ecall</span></code></p></td>
+<td><p>make a service request to the execution environment</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">ebreak</span></code></p></td>
+<td><p>return control to a debugging environment</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rv32m-standard-extension">
+<h2>RV32M Standard Extension<a class="headerlink" href="#rv32m-standard-extension" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">mul</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>multiply <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> (signed) by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (signed) and store lower 32 bits into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">mulh</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>multiply <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> (signed) by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (signed) and store upper 32 bits into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">mulhsu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>multiply <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> (signed) by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (unsigned) and store upper 32 bits into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">mulhu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>multiply <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> (unsigned) by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> (unsigned) and store upper 32 bits into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">div</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>divide (signed) <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">divu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>divide (unsigned) <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">rem</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>remainder (signed) of <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> divided by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">remu</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>remainder (unsigned) of <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> divided by <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rv32a-standard-extension">
+<h2>RV32A Standard Extension<a class="headerlink" href="#rv32a-standard-extension" title="Permalink to this heading">¶</a></h2>
+<p>All of the following atomic instructions also accept two additional parameters: <code class="code docutils literal notranslate"><span class="pre">aq</span></code> and <code class="code docutils literal notranslate"><span class="pre">rl</span></code>.
+These are short for “acquire” and “release” and must either be both specified or both unspecified.
+The default for each if unspecified is zero.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># both aq and rl are zero</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">w</span> <span class="n">t0</span> <span class="n">t1</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">w</span> <span class="n">t0</span> <span class="n">t1</span> <span class="mi">0</span> <span class="mi">0</span>
+
+<span class="c1"># both aq and rl are one</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">w</span> <span class="n">t0</span> <span class="n">t1</span> <span class="mi">1</span> <span class="mi">1</span>
+
+<span class="c1"># mix and match</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">w</span> <span class="n">t0</span> <span class="n">t1</span> <span class="mi">0</span> <span class="mi">1</span>  <span class="c1"># aq=0, rl=1</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">w</span> <span class="n">t0</span> <span class="n">t1</span> <span class="mi">1</span> <span class="mi">0</span>  <span class="c1"># aq=1, rl=0</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">lr.w</span> <span class="pre">rd,</span> <span class="pre">rs1</span></code></p></td>
+<td><p>load (reserved) 32-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code> and register a reservation set</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">sc.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>store (conditional) 32-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and write status to <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">amoswap.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, SWAP with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">amoadd.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, ADD to value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">amoxor.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, XOR with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">amoand.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, AND with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">amoor.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, OR with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">amomin.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, MIN with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">amomax.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, MAX with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">amominu.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, MIN (unsigned) with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">amomaxu.w</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">rs2</span></code></p></td>
+<td><p>atomically load value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, MAX (unsigned) with value in <code class="code docutils literal notranslate"><span class="pre">rs2</span></code>, store back to addr <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rv32c-standard-extension">
+<h2>RV32C Standard Extension<a class="headerlink" href="#rv32c-standard-extension" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.addi4spn</span> <span class="pre">rd',</span> <span class="pre">nzuimm</span></code></p></td>
+<td><p>add 8-bit MO4 <code class="code docutils literal notranslate"><span class="pre">nzuimm</span></code> to <code class="code docutils literal notranslate"><span class="pre">x2/sp</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.lw</span> <span class="pre">rd',</span> <span class="pre">rs1',</span> <span class="pre">uimm</span></code></p></td>
+<td><p>load 32-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">rs1'</span></code> plus 5-bit MO4 <code class="code docutils literal notranslate"><span class="pre">uimm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.sw</span> <span class="pre">rs1',</span> <span class="pre">rs2',</span> <span class="pre">uimm</span></code></p></td>
+<td><p>store 32-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2'</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">rs1'</span></code> plus 5-bit MO4 <code class="code docutils literal notranslate"><span class="pre">uimm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.nop</span></code></p></td>
+<td><p>no operation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.addi</span> <span class="pre">rd/rs1!=0,</span> <span class="pre">nzimm</span></code></p></td>
+<td><p>add 6-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> to <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.jal</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 11-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> and store return addr into <code class="code docutils literal notranslate"><span class="pre">x1/ra</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.li</span> <span class="pre">rd!=0,</span> <span class="pre">imm</span></code></p></td>
+<td><p>load 6-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, sign extend upper bits</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.addi16sp</span> <span class="pre">nzimm</span></code></p></td>
+<td><p>add 6-bit MO16 <code class="code docutils literal notranslate"><span class="pre">nzimm</span></code> to <code class="code docutils literal notranslate"><span class="pre">x2/sp</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">x2/sp</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.lui</span> <span class="pre">rd!={0,2},</span> <span class="pre">nzimm</span></code></p></td>
+<td><p>load 6-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> into middle bits [17:12] of <code class="code docutils literal notranslate"><span class="pre">rd</span></code>, sign extend upper bits, clear lower bits</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.srli</span> <span class="pre">rd'/rs1',</span> <span class="pre">nzuimm</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> right by <code class="code docutils literal notranslate"><span class="pre">nzuimm</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> (shift in zeroes)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.srai</span> <span class="pre">rd'/rs1',</span> <span class="pre">nzuimm</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> right by <code class="code docutils literal notranslate"><span class="pre">nzuimm</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> (shift in sign bit)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.andi</span> <span class="pre">rd'/rs1',</span> <span class="pre">imm</span></code></p></td>
+<td><p>bitwise AND 6-bit <code class="code docutils literal notranslate"><span class="pre">imm</span></code> with <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.sub</span> <span class="pre">rd'/rs1',</span> <span class="pre">rs2'</span></code></p></td>
+<td><p>subtract <code class="code docutils literal notranslate"><span class="pre">rs2'</span></code> from <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.xor</span> <span class="pre">rd'/rs1',</span> <span class="pre">rs2'</span></code></p></td>
+<td><p>bitwise XOR <code class="code docutils literal notranslate"><span class="pre">rs2'</span></code> with <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.or</span> <span class="pre">rd'/rs1',</span> <span class="pre">rs2'</span></code></p></td>
+<td><p>bitwise OR <code class="code docutils literal notranslate"><span class="pre">rs2'</span></code> with <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.and</span> <span class="pre">rd'/rs1',</span> <span class="pre">rs2'</span></code></p></td>
+<td><p>bitwise AND <code class="code docutils literal notranslate"><span class="pre">rs2'</span></code> with <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd'/rs1'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.j</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 11-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.beqz</span> <span class="pre">rs1',</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 8-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1'</span></code> is equal to zero</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.bnez</span> <span class="pre">rs1',</span> <span class="pre">imm</span></code></p></td>
+<td><p>jump offset 8-bit MO2 <code class="code docutils literal notranslate"><span class="pre">imm</span></code> if <code class="code docutils literal notranslate"><span class="pre">rs1'</span></code> is not equal to zero</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.slli</span> <span class="pre">rd/rs1!=0,</span> <span class="pre">nziumm</span></code></p></td>
+<td><p>shift <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code> left by <code class="code docutils literal notranslate"><span class="pre">nzuimm</span></code> bits and store into <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.lwsp</span> <span class="pre">rd!=0,</span> <span class="pre">uimm</span></code></p></td>
+<td><p>load 32-bit value from addr in <code class="code docutils literal notranslate"><span class="pre">x2/sp</span></code> plus 6-bit MO4 <code class="code docutils literal notranslate"><span class="pre">uimm</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.jr</span> <span class="pre">rs1!=0</span></code></p></td>
+<td><p>jump to addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.mv</span> <span class="pre">rd!=0,</span> <span class="pre">rs2!=0</span></code></p></td>
+<td><p>copy value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into <code class="code docutils literal notranslate"><span class="pre">rd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.ebreak</span></code></p></td>
+<td><p>return control to a debugging environment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.jalr</span> <span class="pre">rs1!=0</span></code></p></td>
+<td><p>jump to addr in <code class="code docutils literal notranslate"><span class="pre">rs1</span></code> and store return addr into <code class="code docutils literal notranslate"><span class="pre">x1/ra</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">c.add</span> <span class="pre">rd/rs1!=0,</span> <span class="pre">rs2!=0</span></code></p></td>
+<td><p>add <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> to <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code> and store into <code class="code docutils literal notranslate"><span class="pre">rd/rs1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">c.swsp</span> <span class="pre">rs2,</span> <span class="pre">uimm</span></code></p></td>
+<td><p>store 32-bit value from <code class="code docutils literal notranslate"><span class="pre">rs2</span></code> into addr in <code class="code docutils literal notranslate"><span class="pre">x2/sp</span></code> plus 6-bit MO4 <code class="code docutils literal notranslate"><span class="pre">uimm</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="zifencei-standard-extension">
+<h2>“Zifencei” Standard Extension<a class="headerlink" href="#zifencei-standard-extension" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">fence.i</span></code></p></td>
+<td><p>synchronize the instruction and data streams</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="zicsr-standard-extension">
+<h2>“Zicsr” Standard Extension<a class="headerlink" href="#zicsr-standard-extension" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrw</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically swap values in CSRs</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrs</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically read and set bits in CSRs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrc</span> <span class="pre">rd,</span> <span class="pre">rs1,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically read and clear bits in CSRs</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrwi</span> <span class="pre">rd,</span> <span class="pre">uimm,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically swap values in CSRs (immediate)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrsi</span> <span class="pre">rd,</span> <span class="pre">uimm,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically read and set bits in CSRs (immediate)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">csrrci</span> <span class="pre">rd,</span> <span class="pre">uimm,</span> <span class="pre">csr</span></code></p></td>
+<td><p>atomically read and clear bits in CSRs (immediate)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="assembly_language.html" class="btn btn-neutral float-left" title="Assembly Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dfu_setup.html" class="btn btn-neutral float-right" title="DFU Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrew Dailey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

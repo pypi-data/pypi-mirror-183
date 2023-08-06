@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line Usage &mdash; bronzebeard 0.2.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assembly Language" href="assembly_language.html" />
+    <link rel="prev" title="Bronzebeard" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> bronzebeard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Bronzebeard Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#required-arguments">Required Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-arguments">Optional Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verbose">Verbose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compress">Compress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include">Include</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#labels">Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hex-offset">Hex Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include-definitions">Include Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">Version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assembly_language.html">Assembly Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruction_reference.html">Instruction Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfu_setup.html">DFU Setup</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bronzebeard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Command Line Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/command_line_usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-usage">
+<h1>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading">¶</a></h1>
+<p>The Bronzebeard RISC-V assembler is a command line tool meant to be used from a terminal.
+As such, it has various parameters and flags that can be used to customize its inputs, outputs, and behavior.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usage: bronzebeard [-h] [-v] [-c] [-i DIR] [-o FILE] [-l FILE] [--hex-offset OFFSET]
+                   [--include-definitions] [--version]
+                   input_asm
+
+Assemble RISC-V source code
+
+positional arguments:
+  input_asm             input source file
+
+options:
+  -h, --help            show this help message and exit
+  -v, --verbose         verbose assembler output
+  -c, --compress        identify and compress eligible instructions
+  -i DIR, --include DIR
+                        add a directory to the assembler search path
+  -o FILE, --output FILE
+                        output binary file (default &quot;bb.out&quot;)
+  -l FILE, --labels FILE
+                        output resolved labels and their addresses
+  --hex-offset OFFSET   output an additional Intel HEX file with the given offset
+  --include-definitions
+                        update the assembler search path to include common chip and
+                        peripheral definitions
+  --version             print assembler version and exit
+</pre></div>
+</div>
+<section id="required-arguments">
+<h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this heading">¶</a></h2>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h3>
+<p>An assembly source file to be assembled.
+This file may include other files but the assembly process originates from a single file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard my_asm_file.asm
+</pre></div>
+</div>
+</section>
+</section>
+<section id="optional-arguments">
+<h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this heading">¶</a></h2>
+<section id="help">
+<h3>Help<a class="headerlink" href="#help" title="Permalink to this heading">¶</a></h3>
+<p>Print the assembler help message (shown above) and exit.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -h
+bronzebeard --help
+</pre></div>
+</div>
+</section>
+<section id="verbose">
+<h3>Verbose<a class="headerlink" href="#verbose" title="Permalink to this heading">¶</a></h3>
+<p>Output various diagnostic and debugging messages while assembling the source code.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -v my_asm_file.asm
+bronzebeard --verbose my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="compress">
+<h3>Compress<a class="headerlink" href="#compress" title="Permalink to this heading">¶</a></h3>
+<p>Identify and compress eligible RISC-V instructions.
+Note that while this option often reduces output binary size, compressed intructions may not be supported on all RV32 chips.
+Be sure to check for a <code class="code docutils literal notranslate"><span class="pre">C</span></code> in the CPU description such as in <code class="code docutils literal notranslate"><span class="pre">RV32IMAC</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -c my_asm_file.asm
+bronzebeard --compress my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="include">
+<h3>Include<a class="headerlink" href="#include" title="Permalink to this heading">¶</a></h3>
+<p>Add a directory to the assembler’s search path.
+This argument can be supplied multiple times and each invocation will add an additional directory to the search path.
+The search path is used by the assembler to find files specified by <code class="code docutils literal notranslate"><span class="pre">include</span></code> directives within the source code.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -i foo/ -i bar/ my_asm_file.asm
+bronzebeard --include foo/ --include bar/ my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this heading">¶</a></h3>
+<p>Specify the name and location of the output binary.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -o foo.out my_asm_file.asm
+bronzebeard --output foo.out my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="labels">
+<h3>Labels<a class="headerlink" href="#labels" title="Permalink to this heading">¶</a></h3>
+<p>Output resolved labels and their addresses to a specified file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard -l labels.txt my_asm_file.asm
+bronzebeard --labels labels.txt my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="hex-offset">
+<h3>Hex Offset<a class="headerlink" href="#hex-offset" title="Permalink to this heading">¶</a></h3>
+<p>Output an additional binary in the <a class="reference external" href="https://en.wikipedia.org/wiki/Intel_HEX">Intel HEX</a> format with the provided offset.
+The output file will be named the same as the original binary but with a <code class="code docutils literal notranslate"><span class="pre">.hex</span></code> suffix attached.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard --hex-offset 0x08000000 my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="include-definitions">
+<h3>Include Definitions<a class="headerlink" href="#include-definitions" title="Permalink to this heading">¶</a></h3>
+<p>Update the assembler’s search path to include common chip and peripheral definitions.
+This feature exists to absolve every project from having to redefine the large set of unchanging contants present in each RISC-V chip’s documentation.
+You can browse which devices and constants are supported <a class="reference external" href="https://github.com/theandrew168/bronzebeard/tree/master/bronzebeard/definitions">in the repo</a>.</p>
+<p>Once this argument is provided, you’ll still need to include the specific definitions file into your source code (<code class="code docutils literal notranslate"><span class="pre">include</span> <span class="pre">&quot;GD32VF103.asm&quot;</span></code> for example).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard --include-definitions my_asm_file.asm
+</pre></div>
+</div>
+</section>
+<section id="version">
+<h3>Version<a class="headerlink" href="#version" title="Permalink to this heading">¶</a></h3>
+<p>Print the assembler’s current version and exit.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bronzebeard --version
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Bronzebeard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="assembly_language.html" class="btn btn-neutral float-right" title="Assembly Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrew Dailey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
