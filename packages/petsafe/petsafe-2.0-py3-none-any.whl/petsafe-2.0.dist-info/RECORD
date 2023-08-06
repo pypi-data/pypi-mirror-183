@@ -1,0 +1,10 @@
+petsafe/__init__.py,sha256=iQJMUnQ_grr1WJanDpFVNF69GEHi7KNUTvxQMOdIwFE,58
+petsafe/__main__.py,sha256=DZAa8Hlj9CR3eUifk4eVLlbxmB4cZAqVJJu5JyqjraU,798
+petsafe/client.py,sha256=bin_jZuUw7vZTSqQghKaMkhhvd9dEX2xV43YIGg_91c,8636
+petsafe/const.py,sha256=bxS36gPGHr2UihdGy-yySOyWPrG0Kook4uj80-PPdgs,203
+petsafe/devices.py,sha256=MgwfRveEErM7q_NHkznJrDGt1hVHEFIogasmRW9tey4,13924
+petsafe-2.0.dist-info/LICENSE,sha256=Ci0bGPNEDIPZxvWHtVaBEXjBcbMC8JzpTDSXK-CgcOI,1077
+petsafe-2.0.dist-info/METADATA,sha256=QI4dJGhO5N8I3mlgNrqUIAQ3Z88y6RzUITl9UVP-Hoc,5721
+petsafe-2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+petsafe-2.0.dist-info/top_level.txt,sha256=5D0ZgkQJjlXEEVOeHs3F3TGlSXJO_bR1TaoSuKkggZA,8
+petsafe-2.0.dist-info/RECORD,,
