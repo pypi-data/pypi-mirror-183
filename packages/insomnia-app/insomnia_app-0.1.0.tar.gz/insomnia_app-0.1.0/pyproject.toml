@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "insomnia_app"
+version = "0.1.0"
+homepage = "https://github.com/davidfokkema/insomnia"
+description = "A TUI app to find out why your computer stays awake at night"
+authors = ["David Fokkema <davidfokkema@icloud.com>"]
+readme = "README.md"
+packages = [{include = "insomnia", from = "src"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: System Administrators",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+humanize = "^4.4.0"
+rich = "^13.0.0"
+textual = "^0.9.0"
+psutil = "^5.9.4"
+
+[tool.poetry.scripts]
+insomniascript = "insomnia.insomnia:main"
+insomnia = "insomnia.tui:main"
+
+[tool.poetry.group.dev.dependencies]
+textual = {version = "^0.9.0", extras = ["dev"]}
+ipython = "^8.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
