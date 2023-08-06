@@ -1,0 +1,2 @@
+[console_scripts]
+bsnotifier = bsnotifier.main:main

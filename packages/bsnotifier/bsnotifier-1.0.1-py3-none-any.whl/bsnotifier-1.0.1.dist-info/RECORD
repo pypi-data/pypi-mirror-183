@@ -1,0 +1,12 @@
+bsnotifier/__init__.py,sha256=isTWLu6fslzxztKj5eG1qYavQXKweUDlW9IbP8f70l8,93
+bsnotifier/__main__.py,sha256=dMqSxlUHdPW3VgoRpIWPRW7Qtpy1DOrk8NhHqXK6EXc,119
+bsnotifier/main.py,sha256=CXltxyVCu5G5tHNbezLNFqr5dZfSqE1VArJcn6zT8Iw,4508
+bsnotifier/version.py,sha256=2pgvaw63wfVTB2A7GH7q9rw3hGNix9eQHWP4uQNY4FA,42
+bsnotifier/media/audio/alarm.wav,sha256=EC6Yewt2rkvWz-FmuZzHAymGS37Jw8rUGBgnAP7knUE,176610
+bsnotifier/media/images/low-battery.ico,sha256=0JjZhzPvSVAwg4zeFwuUqKAZ5BhB2sFd2cPfXf2kGs0,170893
+bsnotifier-1.0.1.dist-info/LICENSE,sha256=9vg8ZveKuuzFF4o7qdDetAVcghK05EMK3S8dfxL_RIg,1064
+bsnotifier-1.0.1.dist-info/METADATA,sha256=-qr8ftcJDNCL3yMr2nFcy-Pg3EKR4G13HIfrJYKv7uw,7332
+bsnotifier-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+bsnotifier-1.0.1.dist-info/entry_points.txt,sha256=6ETHHjKBX_hOKJHGGCFjuBtlGYpT5F8O8_l-Tk3adOg,52
+bsnotifier-1.0.1.dist-info/top_level.txt,sha256=3q-tarBOxs0OCypkjdZqX_0lFUTPjDrLjGeIeW6Qihs,11
+bsnotifier-1.0.1.dist-info/RECORD,,
