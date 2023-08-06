@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: dbticketspy
+Version: 0.2.0
+Summary: A Python library to query the DB website for ticket information.
+Author: Lorenz Stangier
+Author-email: Lorenz Stangier <mail@lorenzstangier.de>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: requests
+
+# DBTicketsPY
+
+A library to retrieve information about booked tickets with the Deutsche Bahn Corporation. Retrieve information
+about a ticket in the following way:
+
+´´´
+from dbticketspy.tickets import query_ticket
+query_ticket("ABCXYZ", "Mustermann")
+´´´
