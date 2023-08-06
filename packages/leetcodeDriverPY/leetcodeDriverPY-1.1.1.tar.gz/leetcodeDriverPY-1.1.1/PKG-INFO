@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: leetcodeDriverPY
+Version: 1.1.1
+Summary: A simple library to help people run Leetcode testcases without the Leetcode online IDE.
+Home-page: UNKNOWN
+Author: Duve3
+Author-email: Duv3tabest@gmail.com
+License: MIT
+Project-URL: Github, https://github.com/Duve3/leetcodeDriverPY
+Project-URL: Issue Tracker, https://github.com/Duve3/leetcodeDriverPY/issues
+Keywords: leetcode
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+[![PyPI version](https://badge.fury.io/py/leetcodeDriverPY.svg)](https://badge.fury.io/py/leetcodeDriverPY) [![GitHub version](https://badge.fury.io/gh/Duve3%2FleetcodeDriverPY.svg)](https://badge.fury.io/gh/Duve3%2FleetcodeDriverPY)
+# leetcodeDriverPY
+A simple driver to allow you to use testcases in your own code :)
+
+If you would like to use this in your project, its a simple as
+just doing ```pip install leetcodeDriverPY```
+
+Then once you have done that inside of your python file you will
+want to do something like this:
+
+###### top of the file:
+```py
+from leetcodeDriverPY import driver
+```
+###### inbetween these two segments of code should be your solution class with the solution function inside.
+```py
+testcases = {  # create by doing: 'testcase': answer
+    'answer': 'correct_solution',
+}
+driver(solution, testcases)
+# ^ solution should be your Solution class REFERENCE (no parentheses) NOT AN INSTANCE OF YOUR CLASS
+# testcases should be the testcases that you want to use to test your program.
+```
+###### If you class has more than one function inside you may run into issues, for that reason I added a "optionalFunc" parameter.
+###### This would be how you use it:
+```py
+# this code is just the code from above but changed to use optionalFunc
+testcases = {  # create by doing: 'testcase': answer
+    'answer': 'correct_solution',
+}
+driver(solution, testcases, optionalFunc=solution.IntToRoman)
+# ^ optionalFunc should be your function REFERENCE! (ex: sol.IntToRoman)
+# You shouldn't actually call the function.
+```
+###### If you are having issues with the colors, OR just do not like them you can disable them with the "colorless" parameter
+```py
+# this code is just the code from above but changed to use colorless
+testcases = {  # create by doing: 'testcase': answer
+    'answer': 'correct_solution',
+}
+driver(solution, testcases, optionalFunc=solution.IntToRoman, colorless=True)  
+# ^ colorless is False by default so if you want to disable colors you would set it to true.
+```
+
+Change Log
+==========
+
+0.0.1 (12/30/2022)
+-------------------
+- First Release
+
+0.0.2 (12/30/2022)
+-------------------
+- I forgot to actually make it work
+
+0.0.3 (12/31/2022)
+-------------------
+- I actually did stuff???
+- Removed legacy code.
+- Added verification to ensure that the correct parameters are filled.
+- Separated the big &#95;__init&#95;__ file into some smaller files.
+- Changed the error text from FunctionNotFound.
+- Added "optionalFunc" parameter, incase you needed to give a direct reference to your function.
+- Updated the README.md to show how to use the optionalFunc parameter.
+- Added a print statement to inform you of what function is being used.
+- Added a NotEnoughTestcases Error.
+- Added a check to confirm that len(testcases) > 1 if it fails then it raises NotEnoughTestcases.
+
+1.0.0 (1/1/2022) (Happy New Year!)
+-------------------
+- I just wanted a reason to change the version number to 1.0.0
+- Added new "colorless" optional parameter that if set to True will disable all color output.
+- Updated README.md with colorless option and fixed some text errors.
+
+1.0.1 (1/1/2022)
+-------------------
+- Quick patch (I made a few mistakes in the last update...)
+- ^ Problem was related to parameter verification because of this, the "class" parameter is not verified anymore.
+- Fixed some typos throughout the package.
+
+1.0.2 (1/1/2022)
+-------------------
+- small update with minor bug fixes (typos, etc.)
+- fixed some incorrect links on the pypi.org page
+
+1.1.0 (1/2/2022)
+-------------------
+- Fixed bold adding extra lines for no reason.
+- Changed how classes are now given, this allows a more streamlined process of testing.
+- ^ More info in the README
+- Removed useless declarations
+- Changed the FAILED color to only show when over HALF of the testcases failed instead of just 2
+- Added links to PyPI page
+- + some minor changes.
+
+1.1.1 (1/2/2022)
+-------------------
+- Fixed bugs
+
