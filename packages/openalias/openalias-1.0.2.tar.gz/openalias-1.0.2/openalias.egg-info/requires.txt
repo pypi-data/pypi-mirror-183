@@ -1,0 +1,5 @@
+privex-helpers>=3.0.0
+dnspython>=2.0.0
+rich>=12
+requests
+httpx

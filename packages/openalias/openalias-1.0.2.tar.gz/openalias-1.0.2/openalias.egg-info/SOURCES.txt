@@ -1,0 +1,14 @@
+README.md
+setup.py
+bin/openaliaspy
+openalias/__init__.py
+openalias/__main__.py
+openalias/helpers.py
+openalias/openalias.py
+openalias/settings.py
+openalias/version.py
+openalias.egg-info/PKG-INFO
+openalias.egg-info/SOURCES.txt
+openalias.egg-info/dependency_links.txt
+openalias.egg-info/requires.txt
+openalias.egg-info/top_level.txt
