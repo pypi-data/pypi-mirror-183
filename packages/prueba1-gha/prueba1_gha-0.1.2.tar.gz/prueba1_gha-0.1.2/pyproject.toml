@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "prueba1-gha"
+packages = [{include = "prueba1_gha"}]
+version = "0.1.2"
+description = "Prueba Github actions"
+authors = ["Martin More <martinmore@mail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["github", "api", "rest"]
+
+homepage = "https://example.com/"
+repository = "https://github.com/martinmore-team/prueba1-gha/"
+documentation = "https://example.com/"
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+]
+include = ["prueba1_gha/py.typed"]
+
+[tool.poetry.urls]
+"Discord" = "https://discord.com/invite/example123"
+"Twitter" = "https://twitter.com/example123"
+"Mastodon" = "https://farbun.social/@example123"
+"Sponsor on GitHub" = "https://github.com/sponsors/example123"
+"Sponsor on Open Collective" = "https://opencollective.com/example123"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-emoji = "^0.2.0"
+pytest-asyncio = "^0.20.3"
+pytest-cov = "^4.0.0"
+
+[tool.autopub]
+git-username = "martin-more"
+git-email = "martinmore@gmail.com"
+project-name = "Prueba1 GHA"
+append-github-contributor = true
+
+src = ["prueba1_gha"]
