@@ -1,0 +1,12 @@
+pypup/__init__.py,sha256=XOnNmDDcASoqlthJyNaKSow5A4e2nZShsN0qa5yLASM,6
+pypup/pypup.py,sha256=Y3B8v1wtDU4dHUOuPwfiT08ZCYThQjaHntEH1oNsoAk,11809
+pypup/templates/aggrid.html,sha256=IYUpKUB4bMXeg5SIkfEFQ6F3PCySEzWq1CqGySjy57o,1096
+pypup/templates/bootstrap.html,sha256=2xenUBwT3c3zaDJZABmj08eBnq-Mo3qQBcT-1ZRO59E,3698
+pypup/templates/signin.html,sha256=qwPMuw8COxJjMbbqbcGkvmmfsQpLP24394o4x9-jthI,3308
+pypup/templates/test.html,sha256=M79lVYuiZ-c2znxTXw0SVWB1rKbXTXLdixukh5AjDWY,4470
+pypup/templates/tmp.html,sha256=wqgHnZVdYolnumC3AliYrI_0iUhlshYqfgNAYwf1hXg,13
+pypup-0.0.3.dist-info/LICENSE,sha256=TjmkPP03yYgleZfiYsvICRx71vqcxQuMBXkG6m2aV2k,1070
+pypup-0.0.3.dist-info/METADATA,sha256=cnLE3Pj_N6QP3SAkm60PzGXquEuFYJe9qHOVHHyqHKo,1767
+pypup-0.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pypup-0.0.3.dist-info/top_level.txt,sha256=PVAiYXFBL9eM_JFqdUjBLiYuVGF6KK6gmSyrYoS2v5o,6
+pypup-0.0.3.dist-info/RECORD,,
