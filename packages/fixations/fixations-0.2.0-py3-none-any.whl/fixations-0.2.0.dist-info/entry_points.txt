@@ -1,0 +1,5 @@
+[console_scripts]
+fix_parse_log=fix_parse_log:main
+fix_tags=fix_tags:main
+webfix=webfix:main
+
