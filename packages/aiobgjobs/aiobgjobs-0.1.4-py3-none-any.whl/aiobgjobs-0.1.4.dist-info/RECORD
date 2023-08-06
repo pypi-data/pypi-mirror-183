@@ -1,0 +1,8 @@
+aiobgjobs/__init__.py,sha256=Kip4xZWEjiJgCIotAUMzZZlJwZN2rXJmqAX984PPktM,89
+aiobgjobs/dispatcher.py,sha256=jf_s071dCrUCT2gHgW7oGbs_dhLYWEDhPfHmNo1Tdc4,3327
+aiobgjobs/handlers.py,sha256=v8nyk8ENIKSeqwHWrKeUUQwJZ-TG25EjHEF1ntvnYxg,4347
+aiobgjobs/jobs.py,sha256=WXLzug9_sBcV3OVbzoqSWqEImlT_GxBaiKArDi1MQO0,720
+aiobgjobs/types.py,sha256=OjLJn1zNMc5zKkE80gFbiMrC1QNavWETQOCxFU6V-ig,11257
+aiobgjobs-0.1.4.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+aiobgjobs-0.1.4.dist-info/METADATA,sha256=Se4pI9w3mANZO1KzLoUlY5-v1l4R9V6c59vMgygiuWw,6289
+aiobgjobs-0.1.4.dist-info/RECORD,,
