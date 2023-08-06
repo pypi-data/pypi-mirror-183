@@ -1,0 +1,12 @@
+speechbox/__init__.py,sha256=bSKq6aqgfe6IRuJ4k-iXnDOAOQ1Xp4BHvrEb0KyBSNQ,1620
+speechbox/dependency_versions_table.py,sha256=l3BzMOGEfMs39LbHdX5sENVWgxiShFq7yLk65Tqc8rg,466
+speechbox/restore.py,sha256=jsMaXDXHJ8LgPkVebVRs3MJ0bDC9dT9lCqBYNlF5eVw,13419
+speechbox/utils/__init__.py,sha256=hkqlNTxhLg9U8YX5-pHFQdVJar6Zp14DWA0erWMIPPo,138
+speechbox/utils/dummy_transformers_and_accelerate_objects.py,sha256=20QhbI6UV7eQWvCzHl-24gIv8L19i8JvNWeGeiNhQi8,600
+speechbox/utils/dummy_transformers_objects.py,sha256=Sss9fm9GCjNCtE0JUxDLAA_ZejNzMroOTTwwLbprTkw,544
+speechbox/utils/import_utils.py,sha256=juUgR3makTkeo4VbvmzLoTpktREIzvp0JHtVcv6Ic9w,3196
+speechbox-0.1.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+speechbox-0.1.1.dist-info/METADATA,sha256=1PAmeejEnmQ60HtXCMrNPD9XHV1hSoToXEI3pAcJvjk,6309
+speechbox-0.1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+speechbox-0.1.1.dist-info/top_level.txt,sha256=N7-zofJsuPMFE95yKHt-cmKG6TP_D4Kn0KOff_cuJLU,10
+speechbox-0.1.1.dist-info/RECORD,,
