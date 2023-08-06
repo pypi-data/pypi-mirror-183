@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: swagginfh
+Version: 0.0.1
+Summary: a library to read and write to .swaggin files
+Home-page: https://github.com/stripeysweatercat/swaggin-fh
+Download-URL: https://github.com/stripeysweatercat/swaggin-fh
+Author: perigonsr
+Author-email: stripeysweatercat@gmail.com
+License: MIT
+Keywords: swaggin,.swaggin
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: byteconvert
+
+# swaggin_fh
+a very shotty python library for handling .swaggin files. It should also be noted that these files have almost no intrinsic use, and are purely to be that extra bit swaggin
+
+
+## Installation
+With [PyPI](https://pypi.org/):
+```bash
+pip install swagginfh
+```
+Or from GitHub
+```bash
+https://github.com/stripeysweatercat/swaggin-fh
+```
+
+## Contributing
+hm. Why would you want to contribute to this lmfao. Pull requests and bug reports are welcome :)
+
+## License
+This module is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
