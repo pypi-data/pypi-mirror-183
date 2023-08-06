@@ -1,0 +1,7 @@
+from PFRWebScraper.Position.Scrapers.ScrapePassing import ScrapePassing
+from PFRWebScraper.Position.Scrapers.ScrapeRushingReceiving import ScrapeRushingReceiving
+from PFRWebScraper.Position.Scrapers.ScrapeScoring import ScrapeScoring
+from PFRWebScraper.Position.Scrapers.ScrapeDefenseAndFumbles import ScrapeDefenseAndFumbles
+from PFRWebScraper.Position.Scrapers.ScrapeReturns import ScrapeReturns
+from PFRWebScraper.Position.Scrapers.ScrapeSnapCounts import ScrapeSnapCounts
+from PFRWebScraper.Position.Scrapers.ScrapeKicking import ScrapeKicking

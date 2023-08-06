@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: PFRWebScraper
+Version: 1.0.0
+Summary: Scrapes statistics from https://www.pro-football-reference.com/
+Home-page: UNKNOWN
+Author: Devon Connors
+Author-email: <dconns1@outlook.com>
+License: MIT
+Keywords: python,pro-football-reference,football,fantasy football,american football,pro football reference,web scraper,scraper
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: beautifulsoup4
+Requires-Dist: random-user-agent
+
+A package that allows the user to scrape stats for a team, specific player, and also scrape URLs for players from a stat type.
+
+

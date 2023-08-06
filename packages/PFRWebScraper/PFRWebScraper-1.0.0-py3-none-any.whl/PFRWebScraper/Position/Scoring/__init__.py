@@ -1,0 +1,3 @@
+from PFRWebScraper.Position.Scoring.Scoring import ScoringData
+from PFRWebScraper.Position.Scoring.ScoringRegularSeason import ScoringRegularSeason
+from PFRWebScraper.Position.Scoring.ScoringPlayoffs import ScoringPlayoffs
