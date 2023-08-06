@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: helios-language-server
+Version: 0.1.0
+Summary: Language server for Helios, a non-Haskell Cardano smart contract DSL.
+License: MIT
+Keywords: cardano,helios,neovim,lsp
+Author: et
+Author-email: et
+Requires-Python: >=3.10.0,<3.11.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: pygls (>=0.13.1,<0.14.0)
+Requires-Dist: tree-sitter (>=0.20.1,<0.21.0)
