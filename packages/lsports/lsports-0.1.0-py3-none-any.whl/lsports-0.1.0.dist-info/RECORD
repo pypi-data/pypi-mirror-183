@@ -1,0 +1,12 @@
+lsports/__init__.py,sha256=0DROJSkgHVwnDhLcnxxgolCNxWYVAVpWieO1zW7GgME,566
+lsports/__main__.py,sha256=DMwWqfF9ZolwpZASYKDxOFGOtPWQtjpsCOXYHx35bBM,2455
+lsports/_common.py,sha256=46F4YOFA3Q9GYXt5Is56EU_4Llt8LS9JvScjl-B4c-U,4392
+lsports/_linux.py,sha256=pKexu16DrYxfxEdxIN7gfuhyeHpm-O5UIbdCvYQeWu0,3904
+lsports/_osx.py,sha256=D7UXqp7d83tIHeGD05z2NSnKbWZVMvQETVinvIKEq6M,10890
+lsports/_posix.py,sha256=sJ2ASThrj0Hk4cE2rYV1sFNhzgRb_MM5R4FVUhaAG9M,3044
+lsports/_windows.py,sha256=uacCM1AFkhx2LW5J9Xrjjp5cOHCl-qdU8HuTBPTK3LQ,17973
+lsports/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+lsports-0.1.0.dist-info/METADATA,sha256=Z6S-IoZPwGOJ0TWn46LFStKdUcybQS2ToBNMa165WQI,1620
+lsports-0.1.0.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+lsports-0.1.0.dist-info/licenses/LICENSE,sha256=dKnNGi8qlNRhlHLGcWeyUxAAsCDr6TYgealwAnAOSbg,2748
+lsports-0.1.0.dist-info/RECORD,,
