@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: sequoia
+Version: 0.0.3
+Summary: An awesome package that does something
+Home-page: http://pypi.python.org/pypi/PackageName/
+Author: An Awesome Coder
+Author-email: hanirizo@gmail.com
+License: LICENSE.txt
+Requires-Dist: fastapi
+Requires-Dist: sentry-sdk
+Requires-Dist: SQLAlchemy
+Requires-Dist: psycopg2-binary
+Requires-Dist: uvicorn
+Requires-Dist: PyJWT
+Requires-Dist: passlib
+Requires-Dist: bugsnag
+Requires-Dist: bcrypt
+Requires-Dist: python-slugify
+Requires-Dist: redis
+Requires-Dist: dnspython
+Requires-Dist: requests
+Requires-Dist: google-cloud-pubsub
+Requires-Dist: python-dotenv
+Requires-Dist: boto3
+Requires-Dist: toml
+Requires-Dist: python-multipart
+Requires-Dist: pydantic
+Requires-Dist: pydantic[email]
+Requires-Dist: device-detector
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Requires-Dist: munch
+Requires-Dist: pymongo
+Requires-Dist: click
+Requires-Dist: asyncpg
+Requires-Dist: ujson
+Requires-Dist: aioredis
+Requires-Dist: schedule
+Requires-Dist: slowapi
+
