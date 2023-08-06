@@ -1,0 +1,4 @@
+sniffio>=1.0.0
+
+[docs]
+sphinxcontrib-trio
