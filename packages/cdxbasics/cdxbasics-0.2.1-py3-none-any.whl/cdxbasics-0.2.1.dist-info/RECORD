@@ -1,0 +1,14 @@
+cdxbasics/__init__.py,sha256=AuVnrvEGbv7CttNRbp1PFpaetSXbI1o2_DyqVSUk_2A,231
+cdxbasics/config.py,sha256=AUnNwYPmObT1b4UQLopNKeJ2ZQDCO1zXo7KFbfkK8nc,36531
+cdxbasics/dynaplot.py,sha256=e5oIaFd33p-ddUvS0hRLROZ6iIFF5Pl1L8W6Bywq22k,17133
+cdxbasics/kwargs.py,sha256=6ub6SPFdumNBLiUFriI4PeN7wSDPSJE-XvqZInyZNy0,4353
+cdxbasics/logger.py,sha256=_wkyNTAC-FAj4Vt-W5snMG8z34NCBFf7GdQwgKtviQA,11272
+cdxbasics/prettydict.py,sha256=onQwwNOORJTTJO965TMPUx1ZJvrQlON7oUndw8L8SG0,4705
+cdxbasics/subdir.py,sha256=ZHOvOm5YUb5KXTjM9vK_eVFjtHLW9YoUTxdNTlKQUyY,30654
+cdxbasics/util.py,sha256=oVykGlWKSDWQ8wmtEKCW2QBsEZDF_KMG9pTIQk7fObw,15753
+cdxbasics/verbose.py,sha256=JURbrDRzhAr5caiXAyGfTlJgphS-vWFCTGpSX9d8l4k,9524
+cdxbasics-0.2.1.dist-info/LICENSE,sha256=zqsRHLzFG8Xs-UQoFeItWy2XCFEKpm8weNAwIE3YBuM,1089
+cdxbasics-0.2.1.dist-info/METADATA,sha256=3vjvgkKvCN27d5JABc-vu3kGxKY7O2pgjaNXikgFx9Y,19002
+cdxbasics-0.2.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+cdxbasics-0.2.1.dist-info/top_level.txt,sha256=5-E9EJNxYH8ieSUXHATSjWdkCzgiSLrVdwPyECjoYGk,10
+cdxbasics-0.2.1.dist-info/RECORD,,
