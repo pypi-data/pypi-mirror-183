@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: ftc-api
+Version: 0.0.0
+Summary: A python client to access the FIRST Tech Challenge API
+Author: Ashwin Naren
+Author-email: arihant2math@gmail.com
+License: MIT
