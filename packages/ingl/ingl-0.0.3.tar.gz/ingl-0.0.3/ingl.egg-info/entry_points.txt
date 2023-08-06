@@ -1,0 +1,2 @@
+[console_scripts]
+ingl = ingl_cli:entry
