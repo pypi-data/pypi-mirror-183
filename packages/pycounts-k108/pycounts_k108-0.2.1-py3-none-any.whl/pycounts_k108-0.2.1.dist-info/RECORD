@@ -1,0 +1,13 @@
+CHANGELOG.md,sha256=7gNWtdkLrvrkuwyuRaE6gR933Eak_SxUoOCZ3WDnLow,1373
+LICENSE,sha256=9AUuRyI3TEpF8CQd_i7BK3Hu3hgVe_P61mQuH9Lw8Qw,1077
+README.md,sha256=SKxiiW1dMLWR-gUEXzfb1zuGMkFoE2CKoHjnW4WNudM,790
+pycounts_k108/__init__.py,sha256=n_pa9KR5nDtpumQy_G9w7xw2JtVCl19sjO6qiKBUxZc,240
+pycounts_k108/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pycounts_k108/data/flatland.txt,sha256=L8uUtY3jmuz9ZzkWJbm5FdvCpddtazON2Gs4VpybXLQ,215049
+pycounts_k108/datasets.py,sha256=tC_HOLkzmZmToVdPcXA_nXwah_knWr9_zkbE4j8Ipyw,563
+pycounts_k108/plotting.py,sha256=Hwyx3YeYTVykJEvlChTCO9m9pv2ZoVHEmTLAcVK_Zo4,968
+pycounts_k108/pycounts.py,sha256=9IteoyJ8s4pg3TVpeGEp1CwvrxWGZmcO5QCurT2QlNg,1412
+pycounts_k108-0.2.1.dist-info/METADATA,sha256=vfHi6u4v6bEswLxIIf-B0CNmJP7g6JYfTuaBnHOXLP0,1249
+pycounts_k108-0.2.1.dist-info/LICENSE,sha256=9AUuRyI3TEpF8CQd_i7BK3Hu3hgVe_P61mQuH9Lw8Qw,1077
+pycounts_k108-0.2.1.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+pycounts_k108-0.2.1.dist-info/RECORD,,
