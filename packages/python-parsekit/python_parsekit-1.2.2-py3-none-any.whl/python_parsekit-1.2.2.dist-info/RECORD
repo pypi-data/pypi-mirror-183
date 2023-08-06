@@ -1,0 +1,10 @@
+parsekit/__init__.py,sha256=NLL1c2sNYN7f9boEqsTIhg5e6Fkz1SOsGaLHllaZElI,2397
+parsekit/combinators.py,sha256=rgpF_xsP0TdhH4ahvNtUfIsjFwYZR8-J5rbUpWXUsbI,4647
+parsekit/primitives.py,sha256=R422LOlOEY6gpnu0gus_bJFtDrpNbI1xyOJZCfhYq8c,1049
+parsekit/typing.py,sha256=FE79w8vBijnk1ko9RHGBxyVXy6MXcuwq9y50Kw0TQrc,98
+parsekit/utils.py,sha256=lj0QDDMdkpJ4A1q-mevFjKY4OSoXS1PUSnOCEqupY8s,484
+python_parsekit-1.2.2.dist-info/LICENSE,sha256=wuHfnfJM7rix9s1wcnKETMW-bvEo_RDQXkUxpNM7NAU,1071
+python_parsekit-1.2.2.dist-info/METADATA,sha256=A0S6ctzYM-XgAhLMUmwYFTUhHCac5UMQi-vLUKvt_qE,697
+python_parsekit-1.2.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+python_parsekit-1.2.2.dist-info/top_level.txt,sha256=mlcciZYGvbdzoGJMVp2HQcUZJdwVeePGh00gvFGrASg,9
+python_parsekit-1.2.2.dist-info/RECORD,,
