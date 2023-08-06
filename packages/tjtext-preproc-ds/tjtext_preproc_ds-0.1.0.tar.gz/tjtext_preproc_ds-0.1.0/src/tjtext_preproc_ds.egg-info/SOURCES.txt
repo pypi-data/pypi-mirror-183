@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/tj_text/__init__.py
+src/tj_text/tjtext_preproc_ds.py
+src/tjtext_preproc_ds.egg-info/PKG-INFO
+src/tjtext_preproc_ds.egg-info/SOURCES.txt
+src/tjtext_preproc_ds.egg-info/dependency_links.txt
+src/tjtext_preproc_ds.egg-info/requires.txt
+src/tjtext_preproc_ds.egg-info/top_level.txt
