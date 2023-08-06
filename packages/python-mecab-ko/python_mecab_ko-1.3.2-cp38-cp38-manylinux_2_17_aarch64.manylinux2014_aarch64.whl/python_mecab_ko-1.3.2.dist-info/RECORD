@@ -1,0 +1,14 @@
+_mecab.cpython-38-aarch64-linux-gnu.so,sha256=q32Sf86jDf02PPfL-fZjJpuqTziPr777Abg62Q_cwT4,748657
+mecab/utils.py,sha256=b_yZ4-O-cyY3pQ3nJW_Dc4nSiuMeO_UoSeOGPt7Bx7k,541
+mecab/types.py,sha256=iy3xOjwMtpy6Xg3A1CO-iOYvVOZnEHccIC38slDkASY,4207
+mecab/mecab.py,sha256=-id283PM-KdCugJ8wvb5E5iG97QpPKGvVf7eY1Z5PcI,3333
+mecab/__main__.py,sha256=YfFM6iyN6m4FrSTR6SMwZHzqLNhPOBey3mhtgZ0MMsQ,1472
+mecab/__init__.py,sha256=zFZfGNMHcM47f0Am8AK4Gs73kQsdX3DvEOfmRGO9o6k,256
+mecab/mecabrc,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mecab/pybind/_mecab/utils.h,sha256=QuOQaA6SlfhB1zguBmcGtj0CGorUA4GlrTjCKBRsjVc,286
+python_mecab_ko.libs/libmecab-9fdcf771.so.2.0.0,sha256=_NHSg29UbWrFosWY6xoZVsICIV-Q7kFVUjEyg9o3Nuc,1047233
+python_mecab_ko-1.3.2.dist-info/WHEEL,sha256=7ely3ZZDK-Ti4SbIzDQ-8x-LZGL2jcSW9FdL3LLQ8HY,150
+python_mecab_ko-1.3.2.dist-info/top_level.txt,sha256=Lf8XT2zNJYT5il6pTUd9pbfHEiuUp-0mQUBnr3UIFec,13
+python_mecab_ko-1.3.2.dist-info/LICENSE,sha256=p_yO0gG14Sqp5H-A6kfyYwkea1IfYeyiTHrlDg9qPLM,1460
+python_mecab_ko-1.3.2.dist-info/RECORD,,
+python_mecab_ko-1.3.2.dist-info/METADATA,sha256=aljcjijyWptAYmVcXUQ6Z_m48M8M-QemAGl9Ky8kc6s,3430
