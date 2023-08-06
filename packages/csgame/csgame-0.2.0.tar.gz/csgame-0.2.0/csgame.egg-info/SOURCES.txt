@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+csgame/__init__.py
+csgame/camera.py
+csgame/colour.py
+csgame/menu.py
+csgame/player.py
+csgame.egg-info/PKG-INFO
+csgame.egg-info/SOURCES.txt
+csgame.egg-info/dependency_links.txt
+csgame.egg-info/top_level.txt
