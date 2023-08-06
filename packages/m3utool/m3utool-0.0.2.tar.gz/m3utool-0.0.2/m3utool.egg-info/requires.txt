@@ -1,0 +1,6 @@
+xctools
+pycryptodome
+m3u8
+requests
+aiofiles
+aiohttp
