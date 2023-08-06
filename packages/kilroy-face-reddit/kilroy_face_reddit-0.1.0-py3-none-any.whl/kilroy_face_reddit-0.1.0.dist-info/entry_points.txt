@@ -1,0 +1,4 @@
+[console_scripts]
+kilroy-face-reddit=kilroy_face_reddit.__main__:cli
+kilroy-face-reddit-fetch-models=kilroy_face_reddit.models:fetch_models
+
