@@ -1,0 +1,14 @@
+tansy/__init__.py,sha256=BXrBwhGsQMjSvGclFA1DEJFz7vZjuha75PofiDrFTG0,469
+tansy/slash_commands.py,sha256=T0ThY_q8xt8MnxQMgOKHEY_oe8JH5WolIzAj_-EMYYM,18222
+tansy/slash_param.py,sha256=SK3gM4YJXuxMOZZ1Me9W02U7OjJ0Di_IRRwCN-sE6vM,7403
+tansy/utils.py,sha256=LgMI9_cePPTPl6eqH2GE5PcVbNvQn2QZYm66kNzmBdY,3229
+tansy/speedup/__init__.py,sha256=DYMOD8Mb_pw5Z85raVsyCykmzFUQ7XEFxAknj2Iu4Cg,81
+tansy/speedup/embed.py,sha256=CkuTFpTag2YFoO0RBIl-XgDUtrCxyhrsck6g_gC3Ob8,2208
+tansy/speedup/install.py,sha256=0sgaBGXExOT4O8gm_qbasekaERisIVPAAHxbReSOKe0,2503
+tansy/speedup/interaction_command.py,sha256=EKilIkLuNoRIY8yB10N_wOhvJ8YULNQF4Y9Kq9LDZWI,4530
+tansy/speedup/orjson_serialize.py,sha256=GXi3jwIL1UasX1er5MzXi0Xq5SMtjbOTy4800ODWXno,698
+tansy-0.5.2.dist-info/LICENSE,sha256=DaL-k8ibCo49OoZWrs72rFAftRTbj5bIxTmuo-EXTJw,1063
+tansy-0.5.2.dist-info/METADATA,sha256=dF_6Eckg3rl0HnbEgKCzN1004Mv35of4qQTkMYl8gB8,2136
+tansy-0.5.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tansy-0.5.2.dist-info/top_level.txt,sha256=NApnzcUn7a4oHVCf5HqHtuxbvribJNP3IuMopRwwmV0,6
+tansy-0.5.2.dist-info/RECORD,,
