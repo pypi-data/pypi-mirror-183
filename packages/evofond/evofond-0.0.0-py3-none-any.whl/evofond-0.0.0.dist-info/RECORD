@@ -1,0 +1,6 @@
+evofond/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evofond/hydrograph.py,sha256=PeXujSElfQJIPQZg_Ghs8AYiPUOL-3Q2baqDyXKl6BA,4742
+evofond/utils.py,sha256=2LKrQiYmiOBxAwHQVFsCM_rVz_3toiqgz6CxQRYmnaU,808
+evofond-0.0.0.dist-info/METADATA,sha256=uXPS3kol0mphk5li_PTJYwma6GZmCjqjWChIYM645CI,815
+evofond-0.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+evofond-0.0.0.dist-info/RECORD,,
