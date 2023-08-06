@@ -1,0 +1,10 @@
+pyproject.toml
+src/otrs/__init__.py
+src/otrs/__main__.py
+src/otrs/ring.py
+src/py_otrs_NickP05.egg-info/PKG-INFO
+src/py_otrs_NickP05.egg-info/SOURCES.txt
+src/py_otrs_NickP05.egg-info/dependency_links.txt
+src/py_otrs_NickP05.egg-info/entry_points.txt
+src/py_otrs_NickP05.egg-info/requires.txt
+src/py_otrs_NickP05.egg-info/top_level.txt
