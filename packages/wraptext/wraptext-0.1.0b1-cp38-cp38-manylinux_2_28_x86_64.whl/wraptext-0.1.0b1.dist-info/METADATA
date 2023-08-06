@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: wraptext
+Version: 0.1.0b1
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Text Processing
+License-File: LICENSE.md
+Summary: Python wrapper of Rust's 'textwrap' version
+Keywords: text,wrapping
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Repository, https://github.com/phoenixr-codes/wraptext
+Project-URL: Documentation, https://phoenixr-codes.github.io/wraptext/
+
+wraptext
+========
+
+`wraptext` is an alternative version of Python's built-in
+[textwrap](https://docs.python.org/3/library/textwrap.html) library.
+`wraptext` is ported from [Rust](https://www.rust-lang.org/) implementation.
+You can view the original project [here](https://github.com/mgeisler/textwrap).
+
+Features
+========
+
+- [x] `fill()`
+- [ ] `wrap()`
+
+Links
+=====
+
+- [Repository](https://github.com/phoenixr-codes/wraptext)
+- [PyPI](https://pypi.org/project/wraptext)
+
