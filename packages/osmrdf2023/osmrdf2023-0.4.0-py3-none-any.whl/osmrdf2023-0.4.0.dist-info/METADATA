@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: osmrdf2023
+Version: 0.4.0
+Summary: [RFC] Semantic Conventions for OpenStreetMap™ 2023 - Python library example
+Home-page: https://github.com/fititnt/osmrdf2023py
+Author: Emerson Rocha
+Author-email: rocha@ieee.org
+Project-URL: Bug Tracker, https://github.com/fititnt/osmrdf2023py/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: The Unlicense (Unlicense)
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# osmrdf2023py
+**Python installable library for the [RFC Semantic Conventions for OpenStreetMap™ 2023](https://github.com/EticaAI/openstreetmap-semantic-conventions-2023) ([live specification here](https://eticaai.github.io/openstreetmap-semantic-conventions-2023/))**
+
+## Installing
+
+```bash
+pip install osmrdf2023 --upgrade
+```
+
+## License
+
+Public domain
