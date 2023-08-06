@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: prfect
+Version: 0.29
+Summary: A tool to predict programmed ribosomal frameshifts
+Home-page: https://github.com/deprekate/prfect
+Author: Katelyn McNair
+Author-email: deprekate@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >3.5.2
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-learn (>=0.24.0)
+Requires-Dist: sklearn
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: genbank
+Requires-Dist: LinearFold
+Requires-Dist: hotknots
+Requires-Dist: score-rbs
+
+# prfect
+
+
+```
+python3 prfect.py test/covid19.gbk
+```
+and the output are genes that are predicted to utilize programmed ribosomal frameshifing
+(any already PRF genes that use the join keyword, are split into their two parts and also predicted
+```
+ribo frameshift detected in develop/prfect/test/covid19.gbk
+
+     CDS             join(266..13468,13468..21555)
+                     /ribosomal_slippage=-1
+                     /slippery_sequence=tttaaacggg
+                     /motif=is_threethree
+                     /label=1
+                     /product="ORF1ab polyprotein","ORF1ab polyprotein"
+
+```
