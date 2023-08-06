@@ -1,0 +1,73 @@
+{
+    "title_buttons_color": {
+        "min": "#54487a",
+        "max": "#54487a",
+        "close": "#d9534f"
+    },
+
+    "bg": "#FAFAFA",
+    "fg": "#54487A",
+    "light_color": "#DDDFFF",
+
+    "search_box": {
+        "bg": "#F2DEDE",
+        "fg": "#54487A"
+    },
+
+    "address_edit": {
+        "bg": "#DDDFFF",
+        "fg": "#54487A",
+        "border": "#54487a"
+    },
+
+    "button": {
+        "bg": "#FAFAFA",
+        "fg": "#54487A",
+        "hover": "#dddfff",
+        "border": "#d9534f"
+    },
+
+    "tab_widget": {
+        "bg": "#fafafa",
+        "fg": "#54487a",
+        "select_bg": "#54487a",
+        "select_fg": "#dfdfdf",
+        "hover": "#DDDFFF"
+    },
+
+    "combobox": {
+        "bg": "#dff0d8",
+        "fg": "#54487a",
+        "select": "#fcf8e3",
+        "item": "#d9534f"
+    },
+
+    "check_box": {
+        "normal": "#61538D",
+        "checked": "#d9534f"
+    },
+
+    "sections_panel": {
+        "bg": "#dddfff",
+        "fg": "#54487a",
+        "select": "#DFF0D8",
+        "hover": "#D9EDF7"
+    },
+
+    "widget": {
+        "bg": "#dddaec",
+        "fg": "#54487a"
+    },
+
+    "widget_title": {
+        "bg": "#54487a",
+        "fg": "#fafafa"
+    },
+
+    "widget_title_btn": {
+        "bg": "#dddaec",
+        "hover": "#f2dede"
+    },
+
+    "chunk": "#aa2f2f"
+}
