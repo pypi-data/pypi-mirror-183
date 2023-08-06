@@ -1,0 +1,3 @@
+[console_scripts]
+bh=binance_history.cli:main
+
