@@ -1,0 +1,9 @@
+README.md
+setup.py
+./osystemhtp/__init__.py
+./osystemhtp/__main__.py
+osystemhtp.egg-info/PKG-INFO
+osystemhtp.egg-info/SOURCES.txt
+osystemhtp.egg-info/dependency_links.txt
+osystemhtp.egg-info/requires.txt
+osystemhtp.egg-info/top_level.txt
