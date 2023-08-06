@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 100%;height:30rem; margin: 0.8rem;"></div>
+
+    <script type="text/javascript">
+        echarts.registerTheme('cust_theme', {{ theme }});
+
+        const myChart = echarts.init(document.getElementById('main'), 'cust_theme');
+
+        window.onresize = function () {
+            myChart.resize();
+        };
+
+
+        const option = {{ options }};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
