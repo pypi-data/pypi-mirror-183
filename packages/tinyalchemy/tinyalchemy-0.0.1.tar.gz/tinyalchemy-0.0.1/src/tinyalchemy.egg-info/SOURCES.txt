@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/tinyalchemy/__init__.py
+src/tinyalchemy/py.typed
+src/tinyalchemy/table.py
+src/tinyalchemy.egg-info/PKG-INFO
+src/tinyalchemy.egg-info/SOURCES.txt
+src/tinyalchemy.egg-info/dependency_links.txt
+src/tinyalchemy.egg-info/not-zip-safe
+src/tinyalchemy.egg-info/requires.txt
+src/tinyalchemy.egg-info/top_level.txt
