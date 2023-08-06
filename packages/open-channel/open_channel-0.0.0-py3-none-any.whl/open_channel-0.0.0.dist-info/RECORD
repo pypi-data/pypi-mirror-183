@@ -1,0 +1,7 @@
+open_channel/constants.py,sha256=kboJYRiqtTbMHhEzJlTWDNTgVv3p0vWFKBOOCyPfE1U,8
+open_channel/rectangular_section.py,sha256=vxJjRWBmREhn-9cA-tzpkN23KVA-W9llW-2noCExxl0,15564
+open_channel/section.py,sha256=74FyNa6RVmaABXlV3n44Hoo_x1EOufResiTZnAOgTCU,53
+open_channel-0.0.0.dist-info/LICENSE,sha256=aFLFZg6LEJFpTlNQ8su3__jw4GfV-xWBmC1cePkKZVw,35802
+open_channel-0.0.0.dist-info/METADATA,sha256=adNGBHA7aBe8OuBOsG0YgpBJDMKJTcidWb4Y3SF-Nck,830
+open_channel-0.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+open_channel-0.0.0.dist-info/RECORD,,
