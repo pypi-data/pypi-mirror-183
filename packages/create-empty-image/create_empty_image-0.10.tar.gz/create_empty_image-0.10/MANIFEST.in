@@ -1,0 +1,4 @@
+include create_empty_image/requirements.txt
+include create_empty_image/thirdparty.json
+include create_empty_image/README.MD
+include create_empty_image/LICENSE

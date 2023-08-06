@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+create_empty_image/LICENSE
+create_empty_image/README.MD
+create_empty_image/__init__.py
+create_empty_image/requirements.txt
+create_empty_image/thirdparty.json
+create_empty_image.egg-info/PKG-INFO
+create_empty_image.egg-info/SOURCES.txt
+create_empty_image.egg-info/dependency_links.txt
+create_empty_image.egg-info/requires.txt
+create_empty_image.egg-info/top_level.txt
