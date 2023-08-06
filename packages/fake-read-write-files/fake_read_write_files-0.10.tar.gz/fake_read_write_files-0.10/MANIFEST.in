@@ -1,0 +1,4 @@
+include fake_read_write_files/requirements.txt
+include fake_read_write_files/thirdparty.json
+include fake_read_write_files/README.MD
+include fake_read_write_files/LICENSE
