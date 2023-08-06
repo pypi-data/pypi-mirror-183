@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: corpus-base
+Version: 0.0.12
+Summary: Initialize justice, decision, citation, voting, and opinion tables.
+Author: Marcelino G. Veloso III
+Author-email: mars@veloso.one
+Requires-Python: ==3.11.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: citation-utils (>=0.0.17,<0.0.18)
+Requires-Dist: corpus-pax (>=0.0.8,<0.0.9)
+Requires-Dist: markdownify (>=0.11.6,<0.12.0)
+Requires-Dist: python-frontmatter (>=1.0.0,<2.0.0)
+Requires-Dist: unidecode (>=1.3.6,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Corpus-Base
+
+Builds on top of *corpus-pax* to create additional tables related to the Supreme Court.
+
+```python shell
+>>> from corpus_base import build_sc_tables
+>>> build_sc_tables(c)
+```
+
+This creates additional tables associated with:
+
+1. Justices
+2. Decisions
+   - Citations
+   - Votelines
+   - Titletags
+   - Opinions
+
+```python shell
+>>> from corpus_base import init_sc_cases
+>>> init_sc_cases(c, test_only=10)
+```
+
+Parse through a locally downloaded repository to populate tables. Since there are thousands of cases, can limit the number of downloads via the `test_only` function attribute. The path location of the downloaded repository is [hard-coded](./corpus_base/utils/resources.py) since this package is intended to be run locally. Instructions for downloading and updating the repository are discussed elsewhere.
+
+## Full steps
+
+```python
+from corpus_pax import init_persons, init_person_tables
+from corpus_base import build_sc_tables, setup_case, init_sc_cases
+from sqlpyd import Connection
+
+c = Connection(DatabasePath="test.db")  # type: ignore
+init_persons(c)  # for authors
+build_sc_tables(c)
+init_sc_cases(c, test_only=10)
+```
+
