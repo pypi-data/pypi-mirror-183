@@ -1,0 +1,3 @@
+[console_scripts]
+numpyVersion = pypinonevirgin:numpy_version
+pandasVersion = pypinonevirgin:pandas_version
