@@ -1,0 +1,11 @@
+MANIFEST.in
+PYPI_README.md
+README.md
+mon.py
+setup.py
+monsh.egg-info/PKG-INFO
+monsh.egg-info/SOURCES.txt
+monsh.egg-info/dependency_links.txt
+monsh.egg-info/entry_points.txt
+monsh.egg-info/requires.txt
+monsh.egg-info/top_level.txt
