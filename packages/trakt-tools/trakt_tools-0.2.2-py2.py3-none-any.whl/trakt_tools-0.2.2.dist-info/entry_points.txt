@@ -1,0 +1,2 @@
+[console_scripts]
+trakt_tools = trakt_tools.runner.main:main
