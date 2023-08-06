@@ -1,0 +1,5 @@
+pandas>=1.4.0
+progressbar>=2.5
+
+[dev]
+sklearn>=1.21.0

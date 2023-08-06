@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: daves-utilities
+Version: 0.1.1
+Author-email: David Kuchelmeister <kuchelmeister.david@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# daves_utilities
