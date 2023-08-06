@@ -1,0 +1,5 @@
+setup.py
+ctx_defrost_elasticsearch_queries.egg-info/PKG-INFO
+ctx_defrost_elasticsearch_queries.egg-info/SOURCES.txt
+ctx_defrost_elasticsearch_queries.egg-info/dependency_links.txt
+ctx_defrost_elasticsearch_queries.egg-info/top_level.txt
