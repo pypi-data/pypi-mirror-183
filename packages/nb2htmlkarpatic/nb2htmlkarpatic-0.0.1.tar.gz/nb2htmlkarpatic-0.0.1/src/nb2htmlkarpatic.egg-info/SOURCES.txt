@@ -1,0 +1,6 @@
+README.md
+pyproject.toml
+src/nb2htmlkarpatic.egg-info/PKG-INFO
+src/nb2htmlkarpatic.egg-info/SOURCES.txt
+src/nb2htmlkarpatic.egg-info/dependency_links.txt
+src/nb2htmlkarpatic.egg-info/top_level.txt

@@ -1,0 +1,5 @@
+admin
+images
+maps
+posts
+tables
