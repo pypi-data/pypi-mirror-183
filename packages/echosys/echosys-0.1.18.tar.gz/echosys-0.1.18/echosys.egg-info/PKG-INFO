@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: echosys
+Version: 0.1.18
+Summary: A python library for modeling and solving epistemic multi agents planning problems
+Home-page: https://github.com/DavideSolda/echosys
+Author: Davide Solda'
+Author-email: davide.solda@tuwien.ac.at
+License: GNU General Public License v3.0
+Description: #+Title: Hierarchical Epistemic Multi-Agent Planner
+        
+        Python library to encode in a declarative way the epistemic multi-agent planning problem.
+        
+        * How to install:
+        
+        You can simply use pip install bash command:
+        
+        #+BEGIN_SRC bash
+        pip install echosys
+        #+END_SRC
+        
+Platform: UNKNOWN
