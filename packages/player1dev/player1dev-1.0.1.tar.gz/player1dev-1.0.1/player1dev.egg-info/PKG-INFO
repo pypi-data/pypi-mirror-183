@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: player1dev
+Version: 1.0.1
+Summary: A framework for perfectionists to build at light speed. Powered by Flet (Flutter) and FastAPI.
+Author: Ophuscado
+Author-email: postbox@ophuscado.com
+License: BSD-2-Clause
+License-File: LICENSE

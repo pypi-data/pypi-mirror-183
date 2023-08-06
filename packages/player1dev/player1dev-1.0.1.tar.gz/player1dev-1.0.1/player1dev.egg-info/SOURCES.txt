@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+player1dev.egg-info/PKG-INFO
+player1dev.egg-info/SOURCES.txt
+player1dev.egg-info/dependency_links.txt
+player1dev.egg-info/top_level.txt
