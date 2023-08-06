@@ -1,0 +1,12 @@
+poem_plugins/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poem_plugins/base.py,sha256=USGpagPY9WVxYzCLZVdY5kvKG3WjbmSzRgK3ZM_MiFA,299
+poem_plugins/config.py,sha256=qc7KOyK8nuWxgj5u62E_zAfqgTITzp6SQI0NchrBb_Y,278
+poem_plugins/general/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poem_plugins/general/strenum.py,sha256=md-PhiukBvDne6cnp_z-_YEF5XiFUYyFiKp5vnq1s6w,108
+poem_plugins/versions/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poem_plugins/versions/git.py,sha256=fyQg6mt4IdPX_J6QczSewPzVcwgmEMg_a0RohLpOwZQ,3174
+poem_plugins-0.8.0.dist-info/LICENSE,sha256=p1QBGzGtD1luoJWuhlMJJx7AXGGWh6CAdoJvWZlM07E,1068
+poem_plugins-0.8.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+poem_plugins-0.8.0.dist-info/entry_points.txt,sha256=DXiXswdpLborAKeR2RRAHKFhyYDw67aKPkrZwQmoheM,93
+poem_plugins-0.8.0.dist-info/METADATA,sha256=WIboGMLpcBZB6DtDtpLlcrW-Q00CXnf5OUvTxWUfegY,2246
+poem_plugins-0.8.0.dist-info/RECORD,,
