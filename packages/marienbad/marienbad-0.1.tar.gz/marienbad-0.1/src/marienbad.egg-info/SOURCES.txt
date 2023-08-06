@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/marienbad/__init__.py
+src/marienbad/generator.py
+src/marienbad.egg-info/PKG-INFO
+src/marienbad.egg-info/SOURCES.txt
+src/marienbad.egg-info/dependency_links.txt
+src/marienbad.egg-info/entry_points.txt
+src/marienbad.egg-info/top_level.txt
