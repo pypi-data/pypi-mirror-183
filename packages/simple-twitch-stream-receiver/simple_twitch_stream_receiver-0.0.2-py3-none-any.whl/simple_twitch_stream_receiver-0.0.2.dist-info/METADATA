@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: simple-twitch-stream-receiver
+Version: 0.0.2
+Summary: A tiny package for creating a generator of np.ndarray frames from twitch stream
+Author-email: Jan Pawłowski <janpawlowskiof@gmail.com>
+Project-URL: Homepage, https://github.com/janpawlowskiof/simple_twitch_stream_receiver
+Project-URL: Bug Tracker, https://github.com/janpawlowskiof/simple_twitch_stream_receiver/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: streamlink (>=5.1.2)
+Requires-Dist: ffmpeg-python (>=0.2.0)
+Requires-Dist: numpy
+
+# Simple Twitch stream receiver
+
+Tiny project that allows one to create a generator of `np.ndarray` frames given a URL to a Twitch stream.
+
+Example usage:
+```python
+import cv2
+
+from simple_twitch_stream_receiver import SimpleTwitchStreamReceiver
+
+receiver = SimpleTwitchStreamReceiver("https://www.twitch.tv/darkviperau", quality="best")
+
+for frame in receiver:
+    cv2.imshow('frame', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cv2.destroyAllWindows()
+```
+
+Will raise `StreamNotAvailable` if streamer is offline or does not exist.
