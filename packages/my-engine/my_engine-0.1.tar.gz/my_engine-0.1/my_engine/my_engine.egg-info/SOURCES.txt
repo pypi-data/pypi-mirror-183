@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+my_engine/my_engine.egg-info/PKG-INFO
+my_engine/my_engine.egg-info/SOURCES.txt
+my_engine/my_engine.egg-info/dependency_links.txt
+my_engine/my_engine.egg-info/requires.txt
+my_engine/my_engine.egg-info/top_level.txt
