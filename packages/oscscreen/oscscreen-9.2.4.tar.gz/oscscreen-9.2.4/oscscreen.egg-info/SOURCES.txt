@@ -1,0 +1,6 @@
+setup.py
+oscscreen.egg-info/PKG-INFO
+oscscreen.egg-info/SOURCES.txt
+oscscreen.egg-info/dependency_links.txt
+oscscreen.egg-info/not-zip-safe
+oscscreen.egg-info/top_level.txt
