@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: weighted-levenshtein-substring
+Version: 0.0.3
+Summary: Library providing functions to calculate Levenshtein distance, Optimal String Alignment distance, and Damerau-Levenshtein distance, where the cost of each operation can be weighted by letter.
+Home-page: https://github.com/IsaacRe/weighed-levenshtein-substring
+Author: David Su (InfoScout)
+Author-email: david.su@infoscoutinc.com
+License: MIT
+Keywords: Levenshtein Damerau weight weighted distance
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Linguistic
+License-File: LICENSE.txt
+
+Weighted Levenshtein
+--------------------
+
+Codebase forked from https://github.com/infoscout/weighted-levenshtein
+
+Install
+~~~~~~~
+
+.. code:: bash
+
+   pip3 install weighted-levenshtein-substring
+
+Usage
+~~~~~
+
+Use
+
+.. code:: python
+
+   from weighted_levenshtein import mod_lev
+
+   distance: float = mod_lev(string, pattern)
+
+To find the lowest edit distance between ``pattern`` and any substring
+of ``string``.
