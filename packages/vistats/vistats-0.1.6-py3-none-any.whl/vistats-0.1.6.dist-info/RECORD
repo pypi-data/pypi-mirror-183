@@ -1,0 +1,7 @@
+vistats/__init__.py,sha256=KIXJ9IuBHnWSO4_gxDkvNLjL0rldac5dXgTzdwgc9qQ,71
+vistats/core.py,sha256=gtKFXR3IhCDU0JLv9Dk7y7xw7xjYhK3QMDj55jXssbM,4916
+vistats/test_core.py,sha256=4NT8r5WYWjVjnRnVz4oX7VGO6o3-_VQ2rXNzDFzbn4Y,58
+vistats/util.py,sha256=_yLVYV41zKq9NqUQ_qKVgNALWlwJW-HZH054MkL7aQk,1047
+vistats-0.1.6.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+vistats-0.1.6.dist-info/METADATA,sha256=FoJvaVCthW8aggAyL6fpo3y6vy_xLagqaHKGo2JjH80,1227
+vistats-0.1.6.dist-info/RECORD,,
