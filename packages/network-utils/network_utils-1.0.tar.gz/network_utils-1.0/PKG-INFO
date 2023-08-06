@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: network_utils
+Version: 1.0
+Summary: Helpful tools for building socket applications
+Home-page: UNKNOWN
+Author-email: leroy.ryan09@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Network Utils
+Network utils is a library designed to help make writing socket programs easier.
+It has builtin methods for setting up hybrid encryption as well as initialing connections and sending files.
+
+## Message Terminal
+The messsage terminal is a way of sending encrypted messages between the client and server.
+It has two initialization methods (for client and server) that sets up the encryption.
+The initialization methods will return None if there is no error.
+
+###### For the client:
+'''
+
+s = #socket code not shown
+
+s.connect((HOST, PORT))
+
+mt = MessageTerminal(s)
+
+mt.initializeAsClient()
+
+mt.close()
+
+'''
+
+###### For the server:
+'''
+
+s = #socket code not shown
+
+s.bind((HOST, PORT))
+
+s.listen()
+
+conn, addr = s.accept()
+
+mt = MessageTerminal(conn)
+
+mt.initializeAsServer()
+
+mt.close()
+
+'''
+
+## File Utilites
+'''
+
+extractFileBinary(filePath) #reads file binary
+
+writeFileBinary(filePath, data) #write file binary
+
+'''
+
+## Pre defined messages
+Standard messages that are used for setting up the server, sending files, and errors.
+'''
+
+#messages
+
+CLOSE_CONN = "!CLOSE_CONN!"
+
+MSG_RECIVED = "!MSG_RECIVED!"
+
+
+CONN_REQ = "!CONN_REQ!"
+
+CONN_COMF = "!CONN_COMF!"
+
+
+PING = "!PING!"
+
+PONG = "!PONG!"
+
+
+SHARE_PUBLIC_KEY = "!SHARE_PUBLIC_KEY!"
+
+SERVE_PUBLIC_KEY = "!SERVE_PUBLIC_KEY!"
+
+
+START_SYMMETRIC = "!START_SYMMETRIC!"
+
+SYMMETRIC_CONFIRMED = "!SYMMETRIC_CONFIRMED"
+
+
+FILE_TRANSFER = "!FILE_TRANSFER!"
+
+FILE_RECEIVED = "!FILE_RECEIVED!"
+
+
+#errors
+
+CONN_ERROR = "!CONN_ERROR!"
+
+ENCRYPTION_ERROR = "!ENCRYPTION_ERROR!"
+
+'''
+
