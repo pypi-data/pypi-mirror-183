@@ -1,0 +1,16 @@
+"""
+This file contains environment variables names used by manubot-ai-editor
+package.
+"""
+
+# TODO: document each environment variable, since this file is referenced from chatgpt-revision.yaml
+
+OPENAI_API_KEY = "OPENAI_API_KEY"
+LANGUAGE_MODEL = "AI_EDITOR_LANGUAGE_MODEL"
+MAX_TOKENS_PER_REQUEST = "AI_EDITOR_MAX_TOKENS_PER_REQUEST"
+TEMPERATURE = "AI_EDITOR_TEMPERATURE"
+TOP_P = "AI_EDITOR_TOP_P"
+PRESENCE_PENALTY = "AI_EDITOR_PRESENCE_PENALTY"
+FREQUENCY_PENALTY = "AI_EDITOR_FREQUENCY_PENALTY"
+BEST_OF = "AI_EDITOR_BEST_OF"
+SECTIONS_MAPPING = "AI_EDITOR_FILENAME_SECTION_MAPPING"
