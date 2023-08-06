@@ -1,0 +1,216 @@
+"""html module"""
+
+from typing import Sequence, Union
+
+import re
+from html import escape
+from IPython.display import display as IPythondisplay
+from IPython.core.display import HTML as IPythonHTML
+
+# Latest CDN version links
+CDN = {
+    "alpine": {"js": "https://unpkg.com/alpinejs@latest/dist/cdn.min.js"},
+    "bootstrap": {
+        "css": "https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css",
+        "js": "https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js",
+    },
+    "bulma": {"css": "https://cdn.jsdelivr.net/npm/bulma@latest/css/bulma.min.css"},
+    "minze": {"js": "https://unpkg.com/minze@latest"},
+    "normalize": {"css": "https://unpkg.com/normalize.css@latest"},
+    "tailwind": {"js": "https://cdn.tailwindcss.com"},
+    "vue": {"js": "https://unpkg.com/vue@latest/dist/vue.global.js"},
+}
+
+
+class HTML:
+    """
+    HTML class that prepares an HTML document, by inserting
+    provided HTML markup and including any CSS or JS file URLs.
+    """
+
+    def __init__(
+        self,
+        content: str,
+        css: Union[str, Sequence[str], None] = None,
+        js: Union[str, Sequence[str], None] = None,
+    ):
+        """
+        Parameters
+        ----------
+        content : str
+            A string containing HTML markup.
+        css : str, Sequence or None, default 'None'
+            A URL or a sequence of URLs to CSS files.
+        js : str, Sequence or None, default 'None'
+            A URL or a sequence of URLs to JavaScript files.
+
+        Examples
+        --------
+        >>> doc = HTML("<h1>Hello World!</h1>")
+        >>> doc.display()
+        <IPython.core.display.HTML object>
+
+        >>> doc = HTML("<h1>Hello World!</h1>", js="https://cdn.tailwindcss.com")
+        >>> doc.display()
+        <IPython.core.display.HTML object>
+        """
+        if not isinstance(content, str):
+            raise TypeError("Provided 'content' parameter is not a string.")
+
+        if not isinstance(css, (str, Sequence, type(None))):
+            raise TypeError(
+                "Provided 'css' parameter is neither a string, Sequence or None."
+            )
+
+        if not isinstance(js, (str, Sequence, type(None))):
+            raise TypeError(
+                "Provided 'js' parameter is neither a string, Sequence or None."
+            )
+
+        self.content = content
+        self.css = [css] if isinstance(css, str) else css
+        self.js = [js] if isinstance(js, str) else js
+
+    @property
+    def __styles(self):
+        """HTML stylesheets link tags."""
+
+        def template(href):
+            return f'<link href="{href}" rel="stylesheet">'
+
+        return "".join([template(href) for href in self.css]) if self.css else None
+
+    @property
+    def __scripts(self):
+        """HTML script tags."""
+
+        def template(src):
+            return f'<script src="{src}"></script>'
+
+        return "".join([template(src) for src in self.js]) if self.js else None
+
+    @property
+    def template(self):
+        """HTML document template."""
+        template = f"""
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+                {self.__styles or ''}
+                {self.__scripts or ''}
+                <style>html, body {{background: transparent; overflow: hidden; padding: 0; margin: 0;}}</style>
+            </head>
+            <body>
+                {self.content or ''}
+            </body>
+        </html>
+        """
+
+        return self.__minify(template)
+
+    @property
+    def __iframe(self):
+        """HTML iframe template."""
+        template = f"""
+            <style>[data-mime-type="text/html"] {{padding-right: 0;}}</style>
+            <iframe
+                srcdoc="{escape(self.template)}"
+                width="100%"
+                height="0"
+                fetchpriority="high"
+                loading="eager"
+                style="border: none;"
+                onload="new ResizeObserver(() => {{
+                    this.style.height = `${{this.contentDocument.body.scrollHeight}}px`
+                }}).observe(this.contentDocument.body)"
+            ></iframe>
+        """
+
+        return self.__minify(template)
+
+    def __minify(self, template: str):
+        """
+        Minifies a given HTML template string.
+
+        Parameters
+        ----------
+        template : str
+            A string containing HTML markup.
+
+        Returns
+        -------
+        str :
+            A string containing minified HTML markup.
+        """
+        return re.sub(r"<!--(.*?)-->|(?=>)\s+|\s+(?=<)|\s+$", "", "".join(template))
+
+    def display(self):
+        """
+        Displays HTML document.
+
+        Examples
+        --------
+        >>> doc = HTML("<h1>Hello World!</h1>")
+        >>> doc.display()
+        <IPython.core.display.HTML object>
+
+        >>> doc = HTML("<h1>Hello World!</h1>", js="https://cdn.tailwindcss.com")
+        >>> doc.display()
+        <IPython.core.display.HTML object>
+        """
+        IPythondisplay(IPythonHTML(self.__iframe))
+
+
+def html(
+    content: str,
+    load: Union[str, Sequence[str], None] = None,
+    raw: bool = False,
+):
+    """
+    Displays provided HTML string. Can be used with multiple CSS and JS frameworks/libraries,
+    by passing preset(s) for the `load` parameter, manually loading
+    via `<link>` and `<script>` tags, or loading them as ESModules.
+
+    Parameters
+    ----------
+    content : str
+        A string containing HTML markup.
+    load : str, Sequence or None, default 'None'
+        A string or Sequence of strings that define which libraries should be loaded.
+    raw : bool, default 'False'
+        A boolean that determines if the template should displayed or returned.
+
+    Returns
+    -------
+    str, DisplayHandle or None :
+        HTML document string, IPython display or None.
+
+    Examples
+    --------
+    >>> content = "<h1>Hello World!</h1>"
+    >>> html(content)
+    <IPython.core.display.HTML object>
+
+    >>> content = "<h1>Hello World!</h1>"
+    >>> html(content, ['tailwind', 'alpine'])
+    <IPython.core.display.HTML object>
+    """
+    if not isinstance(load, (str, Sequence, type(None))):
+        raise TypeError(
+            "Provided 'load' parameter is neither a string, Sequence or None."
+        )
+
+    load = [load] if isinstance(load, str) else load
+    missing = [x for x in load if x not in CDN] if load else None
+
+    if missing:
+        names = sorted(list(CDN.keys()))
+        raise ValueError(f"Can't load {missing}. Possible values: {names}")
+
+    css = [CDN[x]["css"] for x in load if "css" in CDN[x]] if load else None
+    js = [CDN[x]["js"] for x in load if "js" in CDN[x]] if load else None
+
+    doc = HTML(content, css, js)
+    return doc.template if raw else doc.display()
