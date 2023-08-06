@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rria-api"
+version = "1.0.0"
+description = ""
+authors = ["felipeadsm <97059009+felipeadsm@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{ include = "rria_api" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyniryo = "^1.1.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
