@@ -1,0 +1,10 @@
+jexon/REQUIREMENTS,sha256=Twe3vddEBi95wqLlj8j58FwmMGP2w-KjRXgPicuEMnk,14
+jexon/VERSION,sha256=axN4nkPlSFY0Uz3hamXYup00xMl1hYi2ZYBUNfgOsRU,5
+jexon/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jexon/execute.py,sha256=4uLnPM4oqhBtJNLyAfswbXuxCxzBKFG_t1u5qaRPprc,6803
+jexon/internal.py,sha256=9rwG3awbsrRo8KwvfSXRkafAr4dH1ZkLYVI4QgsFiZA,247
+jexon-0.0.1.dist-info/LICENSE,sha256=dpe5BibspE1cj9m0cbDnLXg87JuSuOgyAfXsiLI5o8U,1075
+jexon-0.0.1.dist-info/METADATA,sha256=okdTwp5_ue1CSmn4aCUJEveQaZEST-6U5VMB0s2_Qd8,253
+jexon-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+jexon-0.0.1.dist-info/top_level.txt,sha256=ID7K43F2sN9u0QBJA9BN2LFktlygqrWyVrmnWLQUya0,6
+jexon-0.0.1.dist-info/RECORD,,

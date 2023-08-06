@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: jexon
+Version: 0.0.1
+Summary: Executable json
+Home-page: https://github.com/JDiepolder/jexon
+Author: Johannes Diepolder
+Author-email: Johannes.Diepolder@tum.de
+License-File: LICENSE
+Requires-Dist: jsonschema
+
+Executable json
