@@ -1,0 +1,10 @@
+license expiry="31-dec-2023" features="Community OptConsole OptLib \
+	OptJava Integer Barrier Quadratic Network MosConsole MosRTLib \
+	MosMCLib MosRTJava MosMCJava IVE XPTuner ParaBar=1024 \
+	ParaMIP=1024 mmxprs mmxad mmsp mmodbc mmoci BCL BCLJava \
+	SLPConsole SLPLib MISLP mmxslp mmxnlp MINLP mminsight kalis" \
+	fico_xpress_release="9.0" hostid="any" platform="any" \
+	release="2022" static="uncounted" terminal-services sig="6123 \
+	7a69 164b 730e 18c5 705c f189 6a76 ff4f c24a a770 e9e8 75e5 \
+	e7e5 ee6b 07d0 62c7 2371 682a ccd0 001a b310 16ab f02d 1aae \
+	b92b 1f98 127e bd6f ecae 6eab bb89"
