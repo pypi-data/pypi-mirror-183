@@ -1,0 +1,7 @@
+README.md
+setup.py
+modernqueue/src/modernqueue.py
+modernqueue/src/modernqueue.egg-info/PKG-INFO
+modernqueue/src/modernqueue.egg-info/SOURCES.txt
+modernqueue/src/modernqueue.egg-info/dependency_links.txt
+modernqueue/src/modernqueue.egg-info/top_level.txt
