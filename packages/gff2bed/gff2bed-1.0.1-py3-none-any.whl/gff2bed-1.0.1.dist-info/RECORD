@@ -1,0 +1,7 @@
+gff2bed/__init__.py,sha256=saDQrgv2uet5Rl-JTselwiRYpLuXEyNwJWA_fsiNfmA,987
+gff2bed/gff2bed.py,sha256=U_aZz9E_7fWy-OhhxfoqIMnv90lejJSQ5tjhS9pN_DM,2465
+gff2bed/version.py,sha256=gH9PHDpt-EjYD4X3c0SuruJHiLfdfuCkknxFT_ZqODk,90
+gff2bed-1.0.1.dist-info/METADATA,sha256=hjBKh4CLw9YkGe48kmgvEwzfTVmKMPsKelU0e6_FPl0,4130
+gff2bed-1.0.1.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+gff2bed-1.0.1.dist-info/licenses/LICENSE,sha256=nA87f2MwZEUAgs8CukUCojuyMojiNZD1mJCnBbAxyFg,1059
+gff2bed-1.0.1.dist-info/RECORD,,
