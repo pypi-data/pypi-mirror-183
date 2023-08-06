@@ -1,0 +1,8 @@
+README.md
+setup.py
+shumu/__init__.py
+shumu/main.py
+shumu.egg-info/PKG-INFO
+shumu.egg-info/SOURCES.txt
+shumu.egg-info/dependency_links.txt
+shumu.egg-info/top_level.txt
