@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: DeepMIMO
+Version: 1.0
+Summary: DeepMIMO
+Home-page: https://deepmimo.net/
+Author: Umut Demirhan, Ahmed Alkhateeb
+Keywords: mmWave,MIMO,DeepMIMO,python,Beta
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+
+DeepMIMOv2 dataset generator library
