@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: nmk-badges
+Version: 0.0.1
+Summary: Readme badges generation plugin for nmk build system
+Home-page: https://github.com/dynod/nmk-badges
+Author: The dynod project
+Maintainer: The dynod project
+License: Mozilla Public License Version 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+Requires-Dist: nmk-base
+
+# nmk-badges
+Readme badges generation plugin for nmk build system
+
+
