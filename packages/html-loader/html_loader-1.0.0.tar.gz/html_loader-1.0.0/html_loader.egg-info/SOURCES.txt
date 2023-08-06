@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+html_loader/__init__.py
+html_loader/__main__.py
+html_loader.egg-info/PKG-INFO
+html_loader.egg-info/SOURCES.txt
+html_loader.egg-info/dependency_links.txt
+html_loader.egg-info/top_level.txt
