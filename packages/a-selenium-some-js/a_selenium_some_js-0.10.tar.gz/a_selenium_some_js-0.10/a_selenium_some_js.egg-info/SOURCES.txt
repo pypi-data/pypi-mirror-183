@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_some_js/LICENSE
+a_selenium_some_js/README.MD
+a_selenium_some_js/__init__.py
+a_selenium_some_js/requirements.txt
+a_selenium_some_js/thirdparty.json
+a_selenium_some_js.egg-info/PKG-INFO
+a_selenium_some_js.egg-info/SOURCES.txt
+a_selenium_some_js.egg-info/dependency_links.txt
+a_selenium_some_js.egg-info/top_level.txt

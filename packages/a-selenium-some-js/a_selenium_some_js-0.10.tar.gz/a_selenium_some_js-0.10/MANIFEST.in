@@ -1,0 +1,4 @@
+include a_selenium_some_js/requirements.txt
+include a_selenium_some_js/thirdparty.json
+include a_selenium_some_js/README.MD
+include a_selenium_some_js/LICENSE
