@@ -1,0 +1,4 @@
+include videoconcat/requirements.txt
+include videoconcat/thirdparty.json
+include videoconcat/README.MD
+include videoconcat/LICENSE
