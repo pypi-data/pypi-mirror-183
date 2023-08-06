@@ -1,0 +1,9 @@
+cheap_modbus_rtu/__init__.py,sha256=Nx7MqRo0YpA-S7BqDArQv6rqnqtH3sZYofvySNwgayk,159
+cheap_modbus_rtu/cheap_modbus_io.py,sha256=_FLKYUi5q54IIWJWmqQSKDXkCiL5Z-UkcSjk2tsCGXk,23283
+cheap_modbus_rtu/crc16_modbus.py,sha256=8lg35lF1-3bU9AmXLroXpYvbmB6eSfobGdqAXzpUyi0,2954
+cheap_modbus_rtu/modbus_rtu_master.py,sha256=9dK8pkMYXc93xOazUTa_mcZGHZFoKciF4afP3gz_wik,12816
+cheap_modbus_rtu-0.1.dist-info/LICENSE,sha256=WJ7YI-moTFb-uVrFjnzzhGJrnL9P2iqQe8NuED3hutI,35141
+cheap_modbus_rtu-0.1.dist-info/METADATA,sha256=5BCneH1lpavFPiZwXgY-lkqx6JMUIXXOJjHYyCb1gNw,44373
+cheap_modbus_rtu-0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+cheap_modbus_rtu-0.1.dist-info/top_level.txt,sha256=eTzRIOy41OJjeoPhACayHBNR5UCRea2o87IBL0hVSAQ,17
+cheap_modbus_rtu-0.1.dist-info/RECORD,,
