@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "orange3-flowgl"
+version = "0.1.0"
+description = ""
+authors = ["Flow Immersive <info@flow.gl>"]
+readme = "README.md"
+packages = [{include = "orangecontrib"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flowgl = "^0.1.2"
+pandas = "^1.5.2"
+AnyQt = "^0.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
