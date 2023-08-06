@@ -1,0 +1,2 @@
+[console_scripts]
+yacron = yacron.__main__:main
