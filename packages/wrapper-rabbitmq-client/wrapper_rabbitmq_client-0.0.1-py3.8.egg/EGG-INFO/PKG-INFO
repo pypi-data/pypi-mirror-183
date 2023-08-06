@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: wrapper-rabbitmq-client
+Version: 0.0.1
+Summary: Wrapper for RabbitMQ client
+Home-page: UNKNOWN
+Author: Tatianno Alves
+Author-email: tferreiraalves@gmail.com
+License: MIT License
+Description: # DESCRIÇÃO
+Keywords: asterisk ami rabbitmq producer
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
