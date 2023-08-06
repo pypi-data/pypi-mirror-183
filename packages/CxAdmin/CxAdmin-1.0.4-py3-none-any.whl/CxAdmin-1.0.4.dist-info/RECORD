@@ -1,0 +1,9 @@
+CxAdmin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+CxAdmin/cx.py,sha256=4Ct5DDnco1qgXPpSH8i0asR02QB8EkjLGh2LuhHilXU,2028
+CxAdmin/api/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+CxAdmin/api/httpClientModel.py,sha256=_lVb4MzvOZspMK8fSPlAmyh2qU01Ut0ANO6gxzxtl9g,551
+CxAdmin/api/httpclient.py,sha256=IVBmiHHBlktQL0aiuSLZjyZnbI1VXqyc3Jcmarmz2m0,2335
+CxAdmin-1.0.4.dist-info/METADATA,sha256=LjZwGOP7E_tt6nzKVulx_L9caSkyUSHB-Umod3J0Mfs,394
+CxAdmin-1.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+CxAdmin-1.0.4.dist-info/top_level.txt,sha256=8a1xEoqhWXqb_gwMX4FW0I2P2xtvF8qPZX8axcAUkk4,8
+CxAdmin-1.0.4.dist-info/RECORD,,
