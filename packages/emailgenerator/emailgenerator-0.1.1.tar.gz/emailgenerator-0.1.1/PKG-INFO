@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: emailgenerator
+Version: 0.1.1
+Summary: An email list generator that creates a list based on the most popular names and common number combinations
+Author-email: Subject_Alpha <contact@jacobstarr.me>
+Project-URL: Homepage, https://github.com/SubjectAlpha/emailgenerator
+Project-URL: Bug Tracker, https://github.com/SubjectAlpha/emailgenerator/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# emailgenerator
+
+This will generate a text file of emails based on the most popular first names and surnames in the US as well as include numbers such as birth/graduation year from 1950-2050 as well as include numbers in a 0-100 format.
+
+-   You can supply your own domains, but gmail, hotmail, and outlook will be used if none are supplied
+
+## Installation
+
+-   [Clone from Github](https://github.com/SubjectAlpha/emailgenerator)
+-   [Download from PyPi](https://pypi.org/project/emailgenerator/0.1.0/)
+
+## Usage
+
+![help image](imgs/help.png)
