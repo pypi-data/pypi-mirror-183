@@ -1,0 +1,89 @@
+[build-system]
+requires = [
+    "setuptools >=65.0",
+    "wheel >=0.36.2",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hudson"
+dynamic = [
+    "version",
+    "readme",
+    "license",
+]
+description = "Build multi-modal data applications with ease."
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi >=0.88.0",
+    "aiofiles >=0.8.0",
+    "httpx >=0.23.1",
+    "modal-client >=0.41.477",
+    "python-dotenv >=0.21.0",
+    "rich >=12.6.0",
+    "typer >=0.7.0",
+    "uvicorn >=0.20.0",
+    "sqlmodel >=0.0.5",
+    "alembic >=1.9.0",
+    "asyncpg >=0.27.0",
+    "datasets >=2.6.0",
+    "docarray >=0.19.1",
+    "greenlet >=2.0.1",
+    "polars >=0.15.6",
+    "pyarrow >=10.0.1",
+]
+[[project.authors]]
+name = "Anthony Corletti"
+email = "anthcor@gmail.com"
+
+[project.optional-dependencies]
+dev = [
+    "mypy >=0.991",
+    "black >=22.12.0",
+    "ruff >=0.0.183",
+    "pre-commit >=2.20.0",
+    "types-aiofiles >=0.7.0",
+    "torch >=1.13.0",
+]
+test = [
+    "pytest >=7.2.0",
+    "pytest-asyncio >=0.20.3",
+    "coverage >=6.5.0",
+    "pytest-cov >=4.0.0",
+]
+doc = [
+    "mkdocs >=1.4.2",
+    "mkdocs-material >=8.5.11",
+    "mdx-include >=1.4.2",
+]
+
+[project.urls]
+Home = "https://www.github.com/anthonycorletti/hudson"
+Documentation = "https://hudson.corletti.xyz"
+
+[project.scripts]
+hudson = "hudson.cli:app"
+
+[tool.ruff]
+line-length = 88
+ignore = [
+    "D10",
+]
+target-version = "py310"
+extend-ignore = [
+    "D203",
+    "D204",
+    "D213",
+    "D215",
+    "D400",
+    "D404",
+    "D406",
+    "D407",
+    "D408",
+    "D409",
+    "D413",
+    "D415",
+]
+
+[tool.setuptools.dynamic.version]
+attr = "hudson.__version__"
