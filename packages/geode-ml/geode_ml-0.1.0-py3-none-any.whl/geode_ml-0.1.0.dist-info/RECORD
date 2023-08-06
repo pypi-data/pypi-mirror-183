@@ -1,0 +1,9 @@
+geode/__init__.py,sha256=1D3AUNcbTta2Mn3SyRqvRcy2sN-GQU7r8PYsXJlZdOI,74
+geode/datasets.py,sha256=JZEx8XSdObO4prk438XpC3FHxfu6guvs9UbH-trbwYU,16352
+geode/generators.py,sha256=8e2DrGEwZIsavF7R5c5q45qWk11Y-C6x2IEDZXGiK30,3663
+geode/utilities.py,sha256=gq1zpbKUewPLdLtllTeU_KF6oaiPgKPTqb4qkhbQfPM,9814
+geode_ml-0.1.0.dist-info/LICENSE,sha256=FXq2WOoA4Lq3n9USGKKJPzPm2cyYxJQRSMPnwXOvED0,1089
+geode_ml-0.1.0.dist-info/METADATA,sha256=46p-l4CMja5hKQuVTbjQ2axwZLGbGx2B1fxylv8pW7o,3369
+geode_ml-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+geode_ml-0.1.0.dist-info/top_level.txt,sha256=vFUSnYNq5slDIr_8gNl_jOT4yTBiMlqZqWTJGTkRxQg,6
+geode_ml-0.1.0.dist-info/RECORD,,
