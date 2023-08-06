@@ -1,0 +1,12 @@
+enumfields/__init__.py,sha256=MfrgaNg0Jfe-k3usMSzdpQj3D_c270kij_R1tQ7jMQI,104
+enumfields/admin.py,sha256=fFI60K4W84bvDDoepXzzJeWisP_TUf-hXLLOKrmUntU,1377
+enumfields/enums.py,sha256=FnsF2vhFbgqbLNRQYz5n9IQLltBrBGc5iDXREeRgg38,1660
+enumfields/fields.py,sha256=xMuIZ9UWzqFnuB525jqbgX0fMQSLUw8WgEwlqAE7Yg8,5853
+enumfields/forms.py,sha256=Jl-PSYGa-lzEmBnFgeaVQoQc--bgXb5wpeWtYjcxAvM,797
+enumfields/drf/__init__.py,sha256=15Cc9e_v-DjnOywkYJL82zYcigdFaMV2N1EPmK5cJ0s,82
+enumfields/drf/fields.py,sha256=t3nm4gB1sM92iBAsX4v_GUak-5zejQRA4zCaVVoRVJk,2248
+enumfields/drf/serializers.py,sha256=tHMjYk6lYi7o-DqN6BR5-Iyfv1c4v_T8uE5BzDX9Ayo,796
+django_enumfields2-3.0.1.dist-info/METADATA,sha256=tUOkPX5zqkmBDR-Dmvk78dCntTGRHuhBKcUzliUhEvk,4252
+django_enumfields2-3.0.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+django_enumfields2-3.0.1.dist-info/licenses/LICENSE,sha256=aEmCj48SJxNahrq6CeK11rLKZo_NwUCUWNCnqzYNapM,1143
+django_enumfields2-3.0.1.dist-info/RECORD,,
