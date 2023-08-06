@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "clickmod_auth"
+version = "0.1.1"
+description = "ClickMod authentication module."
+authors = ["Luke Hodkinson <furious.luke@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+click = "^8.0.1"
+rich = "^12.5.1"
+python-gnupg = "^0.5.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.8.0"
+
+[tool.poetry.plugins."clickmod"]
+auth = "clickmod_auth.plugin:plugin"
+
+[tool.black]
+line-length = 119
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
