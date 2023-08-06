@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: zipndel
+Version: 0.1.0
+Summary: Zipndel is a lightweight python package equipped with two main functionalities; Zipndel or Unzipndel The Zipndel class provides automatic functionality for zipping or unzipping a password-protected pandas DataFrame file, and then deleting the original file.
+Author: QDaria
+Author-email: mo@qdaria.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: jupyterlab (>=3.5.2,<4.0.0)
+Requires-Dist: numpy (>=1.24.1,<2.0.0)
+Requires-Dist: pandas (==1.5.2)
