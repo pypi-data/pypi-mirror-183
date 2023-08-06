@@ -1,0 +1,9 @@
+cfractions-2.2.0.dist-info/RECORD,,
+cfractions-2.2.0.dist-info/METADATA,sha256=CdoTIGgoHcKvJgpvONeJtvzyhdl7dfUmVI0c26DGVsc,4433
+cfractions-2.2.0.dist-info/top_level.txt,sha256=-0o7heTWnRNqbvWo9xB3az4Pwry5jtc8epWfpx2fJxE,11
+cfractions-2.2.0.dist-info/LICENSE,sha256=lWjxwFgbsaMrk5XFafo8HW46FTrVNInUDMMQzbd_zD4,1069
+cfractions-2.2.0.dist-info/WHEEL,sha256=F5qJ9nq0Z7Rd02dpWQ9i8QohQ6Ct1IOhUBlVV76xxEI,146
+cfractions/_cfractions.cpython-39-s390x-linux-gnu.so,sha256=FCLqYY_gXGxl2kKvDroWImvFhidHlV0mm4Yb5GKqYb0,321744
+cfractions/__init__.py,sha256=DdKAItzUo_pH16G0Pkd7YSrM8PrOp4IV2CA9lq_PX_Y,8838
+cfractions/__init__.pyi,sha256=-exOQNCzabA5qg3m11exh8HwapovVAGOLA6MFGehYCM,5555
+cfractions/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
