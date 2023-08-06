@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/RESTful_Client2.egg-info/PKG-INFO
+src/RESTful_Client2.egg-info/SOURCES.txt
+src/RESTful_Client2.egg-info/dependency_links.txt
+src/RESTful_Client2.egg-info/requires.txt
+src/RESTful_Client2.egg-info/top_level.txt
+src/restful_client2/__init__.py
+src/restful_client2/clients.py
