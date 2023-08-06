@@ -1,0 +1,12 @@
+DocTest/__init__.py,sha256=esf_xi8nKDQ49J2x9mWXr8FjOM2-wSl62BHjQvlA9bo,12228
+DocTest/CompareImage.py,sha256=-A-aMCK6DBey6xwM8XTIiK9bW2imE9mLjOihWwIOyOo,23508
+DocTest/Downloader.py,sha256=Ae3v0iimqKgiX_GZctr8fL80RF0vz4fLzzblsQYy-BI,1508
+DocTest/Ocr.py,sha256=V8he4vVyJKITeWxPySzk2eZZayMWR13jZlqfMAy6YuY,7608
+DocTest/PdfTest.py,sha256=MFYxI2T8Hhs-xpl5IKOw1fbX2VcsYqxu305C50wajsE,9620
+DocTest/PrintJob.py,sha256=Vl9JZMjku1z2OMAqnzVhlCsKusKJr1HQpz8YAXLgPeY,147
+DocTest/PrintJobTests.py,sha256=5hw6y11B4xH4ndwYLIIaDb4YSbgRL3g4Rx5OKVNuvy8,18725
+DocTest/VisualTest.py,sha256=L54L2rJ87egb9syU_i2fZs15bc-mkdchnM0cTKNjw48,45367
+robotframework_doctestlibrary-0.8.1.dist-info/LICENSE,sha256=1-hnhyZ0wFfHRVpZUuyrqu75iBVVe8--GD-V5898FIU,10443
+robotframework_doctestlibrary-0.8.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+robotframework_doctestlibrary-0.8.1.dist-info/METADATA,sha256=8u0LliYgi-VucjznMAy3XywWaKzqKs_m2kOog_v_w8Y,12749
+robotframework_doctestlibrary-0.8.1.dist-info/RECORD,,
