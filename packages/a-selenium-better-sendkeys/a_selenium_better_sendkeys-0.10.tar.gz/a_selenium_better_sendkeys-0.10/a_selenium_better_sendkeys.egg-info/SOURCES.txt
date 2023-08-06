@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_better_sendkeys/LICENSE
+a_selenium_better_sendkeys/README.MD
+a_selenium_better_sendkeys/__init__.py
+a_selenium_better_sendkeys/requirements.txt
+a_selenium_better_sendkeys/thirdparty.json
+a_selenium_better_sendkeys.egg-info/PKG-INFO
+a_selenium_better_sendkeys.egg-info/SOURCES.txt
+a_selenium_better_sendkeys.egg-info/dependency_links.txt
+a_selenium_better_sendkeys.egg-info/top_level.txt
