@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: monazco
+Version: 0.1.1
+Summary: gym-like enviornment for the game Monazco, as well as the option to run in the terminal
+License: MIT
+Author: Charlie
+Author-email: CharlieJackGaynor@Gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+monazco game
+
+Use run.py to play in the console
+use monazco.monazcoEnv() to run the game as a gym-like environment
+
+Please see board.jpg for a picture of what the board looks like, so you can understand the tests and stuff
