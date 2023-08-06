@@ -1,0 +1,1 @@
+cv2_rectangle_around_center
