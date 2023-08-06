@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/xnlpy/__init__.py
+src/xnlpy/xnlpy.cp38-win_amd64.pyd
+src/xnlpy.egg-info/PKG-INFO
+src/xnlpy.egg-info/SOURCES.txt
+src/xnlpy.egg-info/dependency_links.txt
+src/xnlpy.egg-info/top_level.txt
