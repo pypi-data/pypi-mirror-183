@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: description-generator
+Version: 0.1.0
+Summary: Generate a personal description for a GitHub user's profile.
+Author: Wadjih Bencheikh
+Author-email: jw_bencheikh@esi.dz
+License-File: LICENSE.md
+Requires-Dist: openai
+Requires-Dist: requests
+
