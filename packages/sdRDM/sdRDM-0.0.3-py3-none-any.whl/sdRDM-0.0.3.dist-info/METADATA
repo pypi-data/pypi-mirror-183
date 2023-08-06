@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: sdRDM
+Version: 0.0.3
+Author: Range, Jan
+Author-email: jan.range@simtech.uni-stuttgart.de
+License: MIT License
+Requires-Dist: pydantic
+Requires-Dist: numpy
+Requires-Dist: deepdish
+Requires-Dist: lxml
+Requires-Dist: jinja2
+Requires-Dist: black
+Requires-Dist: typer
+Requires-Dist: pyyaml
+Requires-Dist: toml
+Requires-Dist: anytree
+Requires-Dist: typing-utils
+Requires-Dist: joblib
+Requires-Dist: nob
+Requires-Dist: validators
+Requires-Dist: sqlalchemy
+Requires-Dist: sqlalchemy-utils
+Requires-Dist: h5py
+Requires-Dist: GitPython
+Provides-Extra: dataverse
+Requires-Dist: easyDataverse ; extra == 'dataverse'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
