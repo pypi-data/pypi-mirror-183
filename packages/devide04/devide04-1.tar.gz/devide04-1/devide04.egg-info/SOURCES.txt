@@ -1,0 +1,9 @@
+README.md
+setup.py
+./devide04/__init__.py
+./devide04/__main__.py
+devide04.egg-info/PKG-INFO
+devide04.egg-info/SOURCES.txt
+devide04.egg-info/dependency_links.txt
+devide04.egg-info/requires.txt
+devide04.egg-info/top_level.txt
