@@ -1,0 +1,15 @@
+itk/StructurePreservingColorNormalizationPython.py,sha256=NAGeInTBhgdSDzsYyl-CsovgGRHajA4ZqVRfdOAmH2M,2622
+itk/_StructurePreservingColorNormalizationPython.pyd,sha256=dqtR825Ajsz3hzBAwdfpS2_mPt2giMIo-LsR9eA7xYw,2117632
+itk/__init_spcn__.py,sha256=tOKA6LZS2JQw5xSsHY-CdP7a4vKAxCxl_8VIAszF5DE,1177
+itk/itkStructurePreservingColorNormalizationFilterPython.py,sha256=pAlLUx-dsorFJyRj46kqUQRVNv6WV5OOMzmZrekAFFI,119338
+itk/Configuration/StructurePreservingColorNormalizationConfig.py,sha256=ZNPAJKTkdPevNLBf-N8yjht0prp5L5PWdgOBBQqen04,6360
+itk/Configuration/StructurePreservingColorNormalization_snake_case.py,sha256=kb4zJijHhD09vcwN0vKM_NxPSa3JbR1PnrwXzoroguA,78
+itk_spcn.libs/.load-order-itk_spcn-0.2.0,sha256=xEED_EW8Vf_zCWJJr6TSrDWgujMkcujMSwNzmKJYT24,25
+itk_spcn.libs/msvcp140.dll,sha256=8xDLPAoQdkHBe3ToLm_EVo-Q_xFnDT-kFf9azl2zxA8,579984
+itk_spcn.libs/tbb12.dll,sha256=3Ym0FW-dLjEApD2zv1XnQJvS8nxkBRLWEJ6dviOb1Tg,308736
+itk_spcn-0.2.0.dist-info/DELVEWHEEL,sha256=pl05-YO7HZJE9K88l8UcF7LMWDShGKKXp6cyKHORWfU,251
+itk_spcn-0.2.0.dist-info/LICENSE,sha256=6N4ac5NFfpyIdot45rp5BiL777BAzkgZTCyw8bbU6f8,11562
+itk_spcn-0.2.0.dist-info/METADATA,sha256=hBD-epDJYJ0TzPcieStZC2IQl6g49U3ffH8oNyBf3S0,8736
+itk_spcn-0.2.0.dist-info/WHEEL,sha256=eiP9qgHxSoKFHORrbxXKg_YXovNupGjfkGKwDhl96A4,94
+itk_spcn-0.2.0.dist-info/top_level.txt,sha256=K3Bo2NX2FvAd7ExrYg0rKrdBucaB6n6elW5QBc_g8FA,4
+itk_spcn-0.2.0.dist-info/RECORD,,
