@@ -1,0 +1,4 @@
+[console_scripts]
+o2wb-exp=o2wb.exp:main
+o2wb-imp=o2wb.imp:main
+
