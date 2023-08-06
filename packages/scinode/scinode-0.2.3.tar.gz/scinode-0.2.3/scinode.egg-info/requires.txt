@@ -1,0 +1,7 @@
+psutil
+numpy
+scipy
+click
+dnspython
+pymongo
+pandas
