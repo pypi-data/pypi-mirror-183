@@ -1,0 +1,4 @@
+[console_scripts]
+ocrscreen-learn = ocrscreen.learn:main
+ocrscreen-recognize = ocrscreen.recognize:main
+
