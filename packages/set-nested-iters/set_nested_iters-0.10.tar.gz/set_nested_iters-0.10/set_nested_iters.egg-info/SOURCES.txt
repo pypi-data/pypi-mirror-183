@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+set_nested_iters/LICENSE
+set_nested_iters/README.MD
+set_nested_iters/__init__.py
+set_nested_iters/requirements.txt
+set_nested_iters/thirdparty.json
+set_nested_iters.egg-info/PKG-INFO
+set_nested_iters.egg-info/SOURCES.txt
+set_nested_iters.egg-info/dependency_links.txt
+set_nested_iters.egg-info/requires.txt
+set_nested_iters.egg-info/top_level.txt

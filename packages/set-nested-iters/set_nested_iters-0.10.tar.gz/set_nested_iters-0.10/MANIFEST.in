@@ -1,0 +1,4 @@
+include set_nested_iters/requirements.txt
+include set_nested_iters/thirdparty.json
+include set_nested_iters/README.MD
+include set_nested_iters/LICENSE
