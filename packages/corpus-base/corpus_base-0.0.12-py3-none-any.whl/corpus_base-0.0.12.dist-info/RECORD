@@ -1,0 +1,17 @@
+corpus_base/__init__.py,sha256=N80NAFjJkG6R8RG-fH1-UlNaCuc_M63uZXYwC5Z9rFk,269
+corpus_base/__main__.py,sha256=ymzyihBLWJNiLsG6a1gUzAAatOAltV8Ek7YLbgzrcY8,2260
+corpus_base/decision.py,sha256=MzyIwC1LkRAqJNbEC3VFJRSbNwHbVKkFMfSyOoHCPW4,10935
+corpus_base/justice.py,sha256=ZsTu0MtL8eIZJWY_GyV2XAnsqG3HQhgrOkjhEC_5cmc,8506
+corpus_base/templates/chief_dates.sql,sha256=Xvk7KfK2oBCuaDu3ztnaGrnu_-KRJDPYMotGmC8brk4,1381
+corpus_base/templates/get_justice_id.sql,sha256=QN1lpBgdo_YoAHypFSc-J37qd5FZdPIEAkrDuxT0UtM,599
+corpus_base/templates/ids_to_investigate.sql,sha256=DyR9BCdtQJNDWoUY5TG2jq_V2cYNjrmt0p3sbJuaCJM,701
+corpus_base/templates/update_justice_ids.sql,sha256=5uNZ5WCOLh1cZ6oLV-NyAHD9S74KDnbwDkyyoSn2X5U,1324
+corpus_base/utils/__init__.py,sha256=flh_aNR6A8Wpn9FnL5LaYR3wlnwKFIXlqU3Xw1GQ7vY,409
+corpus_base/utils/convertor.py,sha256=JrBQggWPpkSKWPkx06Xq4JvFolEaaLfROkI1Urn7WwA,2752
+corpus_base/utils/ponente.py,sha256=ND_YgAzaqORhUSBgOS_24hFaaclzToPs3f06zVKDhhs,11619
+corpus_base/utils/resources.py,sha256=wUEXDvNTaAbtY0l3dXypO1906pmz-mBHCyyna0o1Dg0,2447
+corpus_base/utils/tags.py,sha256=X1CoLe1uttv9whgLhYJ1eCXLD_rkbe9yzgvL2XQbsIY,3865
+corpus_base/utils/voteline.py,sha256=eRTFh12oaVV8dwmQa75mqazW8TCBpMgbkLRO2sPFBsY,1842
+corpus_base-0.0.12.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+corpus_base-0.0.12.dist-info/METADATA,sha256=wbO2hHPJjeZ06BDrKAkSvcc_lkPyhvlmPKhIhwpPsY0,1742
+corpus_base-0.0.12.dist-info/RECORD,,
