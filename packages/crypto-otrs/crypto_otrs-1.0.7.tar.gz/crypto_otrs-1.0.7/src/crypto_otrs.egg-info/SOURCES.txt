@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+pyproject.toml
+src/crypto_otrs/__init__.py
+src/crypto_otrs/__main__.py
+src/crypto_otrs/libring.so
+src/crypto_otrs/ring.c
+src/crypto_otrs/ring.h
+src/crypto_otrs/ring.py
+src/crypto_otrs/sha2.c
+src/crypto_otrs/sha2.h
+src/crypto_otrs.egg-info/PKG-INFO
+src/crypto_otrs.egg-info/SOURCES.txt
+src/crypto_otrs.egg-info/dependency_links.txt
+src/crypto_otrs.egg-info/entry_points.txt
+src/crypto_otrs.egg-info/requires.txt
+src/crypto_otrs.egg-info/top_level.txt
