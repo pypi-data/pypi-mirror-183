@@ -1,0 +1,7 @@
+apache-airflow>=2.1
+great-expectations-cta>=0.15.42
+sqlalchemy>=1.3.16
+
+[tests]
+parameterized
+pytest
