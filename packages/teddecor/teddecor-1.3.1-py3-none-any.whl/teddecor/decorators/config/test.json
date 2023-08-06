@@ -1,0 +1,11 @@
+{
+  "day": "th",
+  "extensions": [
+    "tomorrow",
+    "senior"
+  ],
+  "validate": [
+    "junior",
+    "day"
+  ]
+}
