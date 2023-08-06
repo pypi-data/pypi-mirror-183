@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cv2multizoom/LICENSE
+cv2multizoom/README.MD
+cv2multizoom/__init__.py
+cv2multizoom/requirements.txt
+cv2multizoom/thirdparty.json
+cv2multizoom.egg-info/PKG-INFO
+cv2multizoom.egg-info/SOURCES.txt
+cv2multizoom.egg-info/dependency_links.txt
+cv2multizoom.egg-info/requires.txt
+cv2multizoom.egg-info/top_level.txt

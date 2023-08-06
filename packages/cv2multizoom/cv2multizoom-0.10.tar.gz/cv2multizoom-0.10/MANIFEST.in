@@ -1,0 +1,4 @@
+include cv2multizoom/requirements.txt
+include cv2multizoom/thirdparty.json
+include cv2multizoom/README.MD
+include cv2multizoom/LICENSE
