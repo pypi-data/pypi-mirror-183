@@ -1,0 +1,16 @@
+mido==1.2.10
+pandas
+requests
+pyarrow>=10
+dagster==1.1.6
+s3fs
+trino
+dbt-core
+dbt-trino
+dagster_dbt
+torch_geometric
+ray
+modin
+duckdb
+torchdata
+pytorch_forecasting
