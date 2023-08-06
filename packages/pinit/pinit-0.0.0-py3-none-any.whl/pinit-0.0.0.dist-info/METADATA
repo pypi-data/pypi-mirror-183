@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pinit
+Version: 0.0.0
+Summary: an application for creating shortcut for apps and scripts in linux
+Author: ramin
+Author-email: ramin.kishani.farahani@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+
