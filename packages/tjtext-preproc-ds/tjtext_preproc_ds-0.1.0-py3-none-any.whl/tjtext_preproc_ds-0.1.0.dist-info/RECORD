@@ -1,0 +1,7 @@
+setup.py,sha256=Yx0Uluq5_CZ2icfQVYEWDOg2ksKkqXkkb0CuLgvhjHg,517
+src/tj_text/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/tj_text/tjtext_preproc_ds.py,sha256=Y9gUv2PUZv-GsEKWvGIkK1DBGephOTn6XKJ6vi4AgrE,17208
+tjtext_preproc_ds-0.1.0.dist-info/METADATA,sha256=bTdQeZoCklclfTaOHiBzfRGLA1cwu8IDMqGHouL8Q1A,5467
+tjtext_preproc_ds-0.1.0.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+tjtext_preproc_ds-0.1.0.dist-info/licenses/LICENSE,sha256=4mT_lp7iCFlMUtNrV3g-_f4HZNeYjhDSH7HBDmBmxxs,1073
+tjtext_preproc_ds-0.1.0.dist-info/RECORD,,
