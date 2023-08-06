@@ -1,0 +1,8 @@
+setup.py
+diarray_simplex.egg-info/PKG-INFO
+diarray_simplex.egg-info/SOURCES.txt
+diarray_simplex.egg-info/dependency_links.txt
+diarray_simplex.egg-info/not-zip-safe
+diarray_simplex.egg-info/top_level.txt
+simplex_algo/__init__.py
+simplex_algo/simplex_algo.py

@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: diarray-simplex
+Version: 0.1
+Summary: An implementation of simplex algorithm for linear programming maximization and minimization problems.
+Author: Diarra Yacouba
