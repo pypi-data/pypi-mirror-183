@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "cli_app_yml"
+version = "1.0.2"
+description = "CLI application creater based out of argparse. entrypoints for different subcommands are defined using yml"
+authors = ["Varun Bhat <varunbhat@apple.com>"]
+readme = "README.md"
+packages = [{include = "cli"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyyaml = "^6.0"
+python-dotenv = "^0.21.0"
+
+
+[[tool.poetry.source]]
+name = "apple-pypi"
+url = "https://pypi.apple.com"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cli = "cli:run"
