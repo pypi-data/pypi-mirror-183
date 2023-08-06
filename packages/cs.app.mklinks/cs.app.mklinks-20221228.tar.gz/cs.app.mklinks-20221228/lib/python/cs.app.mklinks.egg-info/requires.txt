@@ -1,0 +1,8 @@
+cs.cmdutils>=20210404
+cs.fileutils>=20200914
+cs.logutils>=20220531
+cs.pfx>=20221118
+cs.progress>=20200718.3
+cs.py.func>=20221207
+cs.units
+cs.upd>=20200914

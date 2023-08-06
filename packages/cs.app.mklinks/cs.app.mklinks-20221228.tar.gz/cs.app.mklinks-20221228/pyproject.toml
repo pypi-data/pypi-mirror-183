@@ -1,0 +1,110 @@
+[project]
+name = "cs.app.mklinks"
+description = "Tool for finding and hardlinking identical files."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python2",
+    "python3",
+]
+dependencies = [
+    "cs.cmdutils>=20210404",
+    "cs.fileutils>=20200914",
+    "cs.logutils>=20220531",
+    "cs.pfx>=20221118",
+    "cs.progress>=20200718.3",
+    "cs.py.func>=20221207",
+    "cs.units",
+    "cs.upd>=20200914",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20221228"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+mklinks: tool for finding and hardlinking identical files
+
+*Latest release 20221228*:
+* Modernise command, pass a RunState to the merge methods.
+* merge: check runstate more frequently, tweak progress bar.
+* assimilate: plumb runstate.
+
+Mklinks walks supplied paths looking for files with the same content,
+based on a cryptographic checksum of their content. It hardlinks
+all such files found, keeping the newest version.
+
+Unlike some rather naive tools out there, mklinks only compares
+files with other files of the same size, and is hardlink aware - a
+partially hardlinked tree is processed efficiently and correctly.
+
+## Class `FileInfo`
+
+Information about a particular inode.
+
+*Method `FileInfo.__init__(self, dev, ino, size, mtime, paths=())`*:
+pylint: disable=too-many-arguments
+
+## Class `Linker`
+
+The class which links files with identical content.
+
+## Function `main(argv=None)`
+
+Main command line programme.
+
+## Class `MKLinksCmd(cs.cmdutils.BaseCommand)`
+
+Main programme command line class.
+
+Command line usage:
+
+    Usage: mklinkscmd paths...
+              Hard link files with identical contents.
+              -n    No action. Report proposed actions.
+
+# Release Log
+
+
+
+*Release 20221228*:
+* Modernise command, pass a RunState to the merge methods.
+* merge: check runstate more frequently, tweak progress bar.
+* assimilate: plumb runstate.
+
+*Release 20210404*:
+* FileInfo.checksum: bump read size to 1MiB.
+* Requirements bump to match cs.cmdutils change.
+
+*Release 20210401*:
+Major bugfix: subdirectory file paths were computed incorrectly.
+
+*Release 20210306*:
+Use cs.cmdutils.BaseCommand for main programme, add better progress reporting.
+
+*Release 20171228*:
+Initial PyPI release of cs.app.mklinks."""
+content-type = "text/markdown"
+
+[build-system]
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
