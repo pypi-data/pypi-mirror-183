@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: mmpos
+Version: 0.1.0
+Summary: CLI tool and API for the MMPOS REST API crypto mining platform
+Home-page: https://github.com/nvie/python-mmpos
+Author: Opselite
+Author-email: opselite@blockops.party
+License: BSD
+Keywords: mmpos mining gpus crypto blockchain platform rest
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click
+Requires-Dist: prettytable
+Requires-Dist: requests-cache
+
+CLI tool and API for the MMPOS REST API crypto mining platform
+
+
