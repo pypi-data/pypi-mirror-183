@@ -1,0 +1,12 @@
+neatpush/__init__.py,sha256=fSWhLjjofowL-4Sn9cQ5W0n7otC7KEKGENEFzSobGnc,434
+neatpush/__main__.py,sha256=a16_CXGGqS6CUR6XLnMxiZvu2c4Bc8ETRDYU0oVSLlU,1183
+neatpush/app.py,sha256=kAHRGUg8zUZQQorWmRJCO8kRETQ10xzRs2xLzraZ04U,926
+neatpush/config.py,sha256=jGjRvBC-iDUU9ah_6Gldn0r6BZ4_AnCjhooABngUCu0,1702
+neatpush/manga.py,sha256=PE9HBAyQmrtmN_sQXnrqDYCW7xLK94ggl5vY7u8q5Sw,4366
+neatpush/notify.py,sha256=QrB7773ObCH6kcCsbairMmfpokOyl-BjUbK6p-KqUAQ,900
+neatpush/scraping.py,sha256=JiFtExyo9VT3LXUcUb3eYY49FKkyuXGcuCkySYVXKyM,3907
+neatpush-0.1.5.dist-info/METADATA,sha256=_8BDKs9iYm5e2g9Ttqyi6IkRPt8Bqf_L04muxlzPUhI,3548
+neatpush-0.1.5.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+neatpush-0.1.5.dist-info/entry_points.txt,sha256=MZdanQlABHZYVGpjiQTMksytiRbMWa9bLSLSyDa-hvc,51
+neatpush-0.1.5.dist-info/licenses/LICENSE,sha256=xpk0plhUqRXCz4S1rUCwIKS-ZHt2USYmTIt9jmk1iBc,1097
+neatpush-0.1.5.dist-info/RECORD,,
