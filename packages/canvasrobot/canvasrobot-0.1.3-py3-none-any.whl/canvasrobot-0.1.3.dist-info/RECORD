@@ -1,0 +1,11 @@
+canvasrobot/__init__.py,sha256=fn4fxnRCIU49lJj4kQlaEcBeYRvoS15ia5f-VykozOo,120
+canvasrobot/canvas_robot.py,sha256=So8yYT3-4h0_lH1VuWXNQ4NpaNRs4h7nRCKMiY_CURU,63256
+canvasrobot/canvas_robot_model.py,sha256=nSW__2Mwtx2c3stnpb1EUrZaVMef49FV3PIll3gUnA8,8461
+canvasrobot/entities/__init__.py,sha256=FGwKAB8Ii9nAvw5zxUIawZbva9H_m9gXNPaNtFdFl0U,253
+canvasrobot/entities/course.py,sha256=Hm_HQOWxmyyoZXI41n4jppJKxVc8rYH5VoflyykCg5M,614
+canvasrobot/entities/guest.py,sha256=LmG3swCKX98EGCFNbrVtA0YzQmF3mSI-EtIzo1aLEmg,706
+canvasrobot/entities/quiz.py,sha256=z64iwBuHflxdC5ja35Kno7fHrlHepQTXe2k-iRYvFYo,1174
+canvasrobot/entities/user.py,sha256=W764oUSV-3Rup8Zoy4Q7KS_6xtma5lShWXXORW0zP8U,2289
+canvasrobot-0.1.3.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+canvasrobot-0.1.3.dist-info/METADATA,sha256=2VLtZ39fp2xv8n6DmBqUjLCW8HRmTXxyWhzn6eLO1k0,647
+canvasrobot-0.1.3.dist-info/RECORD,,
