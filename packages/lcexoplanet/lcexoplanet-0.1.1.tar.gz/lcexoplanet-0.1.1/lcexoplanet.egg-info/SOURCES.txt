@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+lcexoplanet/__init__.py
+lcexoplanet/utils.py
+lcexoplanet.egg-info/PKG-INFO
+lcexoplanet.egg-info/SOURCES.txt
+lcexoplanet.egg-info/dependency_links.txt
+lcexoplanet.egg-info/top_level.txt
