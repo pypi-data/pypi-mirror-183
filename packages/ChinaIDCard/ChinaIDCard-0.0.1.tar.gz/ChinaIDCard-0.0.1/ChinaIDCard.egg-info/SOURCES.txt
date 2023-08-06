@@ -1,0 +1,8 @@
+README.md
+setup.py
+ChinaIDCard/__init__.py
+ChinaIDCard/main.py
+ChinaIDCard.egg-info/PKG-INFO
+ChinaIDCard.egg-info/SOURCES.txt
+ChinaIDCard.egg-info/dependency_links.txt
+ChinaIDCard.egg-info/top_level.txt
