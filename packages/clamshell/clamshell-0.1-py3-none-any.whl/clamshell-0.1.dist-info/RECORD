@@ -1,0 +1,9 @@
+clamshell/.gitignore,sha256=AZMFlpeMzyufCx7--wyEfpZwZdJaujIlVbjHPUhl93A,20
+clamshell/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+clamshell/__main__.py,sha256=5igFahAZIWpr6iMNvqLP198ntsCVuupFpIlboo4Wyg8,575
+clamshell/key_bindings.py,sha256=xhKNFEt7niAkGzXoK2IgLgxDT9FvZQwMs-U-k2MC8cQ,316
+clamshell/shell.py,sha256=40fKwsaZB7I4vtUQmi1xT64DA822r2q_h9UIkkpXWLY,6813
+clamshell/utils.py,sha256=k7gr1lkRiGjvwrIZqwjweOX9zd6Sm9guh5pT6z9X38I,5327
+clamshell-0.1.dist-info/WHEEL,sha256=rSgq_JpHF9fHR1lx53qwg_1-2LypZE_qmcuXbVUq948,81
+clamshell-0.1.dist-info/METADATA,sha256=WyJcpcL-8YA1j2IU6rRJxwKNMBMAmyYvA2cUum6cqik,1507
+clamshell-0.1.dist-info/RECORD,,
