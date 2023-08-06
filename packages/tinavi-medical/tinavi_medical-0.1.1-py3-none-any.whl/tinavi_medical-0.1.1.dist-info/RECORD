@@ -1,0 +1,7 @@
+region_growth/Makefile,sha256=YSuWA5JoDZUiG4IMaIKis9ZmhL8wQOTeLbwhWrkrYXI,5961
+region_growth/_GPURegiongrowth.so,sha256=4rlKttwzhYFKcVH_yhsLm5NcDcZZm3aKE4VCZ6hRV9k,74440
+region_growth/__init__.py,sha256=36hjAW_656XGta4UiabdGtdtyg9K6ncR4Df6ET8JIas,1352
+region_growth/src/regionGrowth.cu,sha256=SHP8P2zCtO3aQklDBR1wKPrsgUspoatCnemmRJdLmx4,12460
+tinavi_medical-0.1.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+tinavi_medical-0.1.1.dist-info/METADATA,sha256=a0hxAfMrXuSCzyc_EvwDpX4P0AONCmahf1pi-6XJhbM,572
+tinavi_medical-0.1.1.dist-info/RECORD,,
