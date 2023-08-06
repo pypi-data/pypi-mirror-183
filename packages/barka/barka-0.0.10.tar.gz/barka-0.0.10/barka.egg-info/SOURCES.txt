@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+barka/__init__.py
+barka/barka.py
+barka.egg-info/PKG-INFO
+barka.egg-info/SOURCES.txt
+barka.egg-info/dependency_links.txt
+barka.egg-info/requires.txt
+barka.egg-info/top_level.txt
+barka/papiez/__init__.py
+barka/papiez/papiez.py
