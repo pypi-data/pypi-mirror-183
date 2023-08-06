@@ -1,0 +1,27 @@
+[package]
+name = "voronoiville"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+homepage = "https://github.com/pmbaumgartner/voronoiville"
+repository = "https://github.com/pmbaumgartner/voronoiville.git"
+readme = "readme.md"
+include = [
+    "/pyproject.toml",
+    "/readme.md",
+    "/LICENSE",
+    "/src",
+    "/.cargo",
+    "!__pycache__",
+    "!*.so",
+    "!/extra"
+]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "voronoiville"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.17.3", features = ["extension-module", "abi3-py37"] }
+voronoice = "0.2.0"
