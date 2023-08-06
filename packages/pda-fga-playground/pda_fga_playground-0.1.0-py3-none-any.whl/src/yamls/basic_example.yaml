@@ -1,0 +1,10 @@
+dag:
+  id: basic_example
+  description: DAG de teste
+  data_path:
+    - 'data/data_example.csv'
+    - 'data/data_example2.csv'
+  feature_engineering:
+    keyboard_smash:
+      columns:
+        - ['NUMBER', 'ADDRESS', 'ZIPCODE']
