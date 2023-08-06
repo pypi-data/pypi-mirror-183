@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+parsekit/__init__.py
+parsekit/combinators.py
+parsekit/primitives.py
+parsekit/typing.py
+parsekit/utils.py
+python_parsekit.egg-info/PKG-INFO
+python_parsekit.egg-info/SOURCES.txt
+python_parsekit.egg-info/dependency_links.txt
+python_parsekit.egg-info/top_level.txt
