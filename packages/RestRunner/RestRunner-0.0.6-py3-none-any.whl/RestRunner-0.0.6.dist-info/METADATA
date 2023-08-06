@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: RestRunner
+Version: 0.0.6
+Summary: A tool for run linux command with flask rest api.
+Author-email: Yusuf Düzgün <yzduzgun@gmail.com>
+Project-URL: Homepage, https://github.com/ysfduzgun/restrunner
+Project-URL: Bug Tracker, https://github.com/ysfduzgun/restrunner/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Flask
+Requires-Dist: Flask-RESTful
+Requires-Dist: tinydb
+
+RestRunner
+=====
+
+A tool for run linux command with flask rest api.
+
+```
+virtual env
+cd env && mkdir test
+cd test && touch test.py
+pip install RestRunner
+```
+
+test.py
+```py
+from restrunner import RestRunner
+
+app = RestRunner()
+app.set("debug", True)
+# app.set("port", 8000)
+# app.set("host", "0.0.0.0")
+# app.set("data_folder", "/tmp/")
+# print(app.config('port'))
+app.run()
+```
+
+```
+python test.py
+```
+
+gel all command
+http://127.0.0.1/commands <br>
+run test1 command
+http://127.0.0.1/commands/run/test1
