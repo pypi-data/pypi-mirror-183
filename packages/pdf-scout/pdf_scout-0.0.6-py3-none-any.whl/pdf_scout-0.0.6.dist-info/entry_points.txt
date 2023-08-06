@@ -1,0 +1,3 @@
+[console_scripts]
+pdf_scout=pdf_scout.app:start
+

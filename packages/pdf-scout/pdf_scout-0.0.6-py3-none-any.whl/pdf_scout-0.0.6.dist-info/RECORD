@@ -1,0 +1,14 @@
+pdf_scout/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pdf_scout/app.py,sha256=HdkfcF7GZJLF8wCIIaJHbtL2BJyBkZZ_0MxUeddp-Oo,2120
+pdf_scout/bookmarks.py,sha256=n2P-x5wb7FYeviYr9TV8qd0DHK8ssp_Y_Ycrq9bxLy4,3074
+pdf_scout/cache.py,sha256=ITQ-LQ2qh5Ybc6Hkq5az_Wp3rE96DogRjVUiJYoJGVY,208
+pdf_scout/custom_types.py,sha256=kNWUte-r1lTHLqAGu2er3dfETaJcCWRw38RBPfqgoHg,729
+pdf_scout/extract.py,sha256=pNYVcuGpvBrlk5MjABZ3DXy7_Z-eITLZBHW1lhaL3Us,9175
+pdf_scout/logger.py,sha256=1z7yB_lt0tzZHiqXBn-ZulVqMwHInEe1wyNTV0cvPSQ,234
+pdf_scout/paragraphs.py,sha256=m1mToMHicAJpzPt7LYKdP7c1Zfjmry_H3Zi3mcIAxd4,2357
+pdf_scout/scoring.py,sha256=waCFpDLDJJc4owNeJGNA48RLfpcLwxEbI9_iFyLr71E,3980
+pdf_scout/utils.py,sha256=Q4Wl9NybD_6vX0Fdyld4kGoFxJB4FVnzaO4DAQda6TA,2804
+pdf_scout-0.0.6.dist-info/entry_points.txt,sha256=1ll1TOV2vCyVePcuIY_mr9cRhannTJR4xSuuV2xQPhs,49
+pdf_scout-0.0.6.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+pdf_scout-0.0.6.dist-info/METADATA,sha256=ZJsc2MT-YWn9-H2RBddCNMrI_fI-yBd3vE26eb87JYA,3519
+pdf_scout-0.0.6.dist-info/RECORD,,
