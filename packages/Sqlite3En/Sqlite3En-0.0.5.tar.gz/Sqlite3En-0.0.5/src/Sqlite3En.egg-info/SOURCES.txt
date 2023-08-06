@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.cfg
+src/Sqlite3En/Sqlite3En.py
+src/Sqlite3En/__init__.py
+src/Sqlite3En.egg-info/PKG-INFO
+src/Sqlite3En.egg-info/SOURCES.txt
+src/Sqlite3En.egg-info/dependency_links.txt
+src/Sqlite3En.egg-info/top_level.txt
