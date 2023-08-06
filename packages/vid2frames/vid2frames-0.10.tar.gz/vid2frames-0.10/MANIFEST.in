@@ -1,0 +1,4 @@
+include vid2frames/requirements.txt
+include vid2frames/thirdparty.json
+include vid2frames/README.MD
+include vid2frames/LICENSE

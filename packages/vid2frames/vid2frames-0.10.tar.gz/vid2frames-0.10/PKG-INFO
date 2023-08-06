@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: vid2frames
+Version: 0.10
+Summary: Video to frames
+Home-page: https://github.com/hansalemaos/vid2frames
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: videos,frames,convert
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+<h2>Converts a video to frames </h2>
+
+
+```python
+# ffmpeg needs to be installed! 
+pip install vid2frames
+from vid2frames import convert_video_to_frames
+allfiles = convert_video_to_frames(
+    video=r"F:\newvidxx2.mp4",
+    output_folder="f:\\outputvi",  # folder will be created if it doesn't exists
+    fps=24,
+    fileprefix="videoframe",
+    zfill=8,  # videoframe_1.png -> videoframe_0000001.png
+)
+
+
+
+```
+
+
+

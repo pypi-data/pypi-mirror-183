@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+vid2frames/LICENSE
+vid2frames/README.MD
+vid2frames/__init__.py
+vid2frames/requirements.txt
+vid2frames/thirdparty.json
+vid2frames.egg-info/PKG-INFO
+vid2frames.egg-info/SOURCES.txt
+vid2frames.egg-info/dependency_links.txt
+vid2frames.egg-info/requires.txt
+vid2frames.egg-info/top_level.txt
