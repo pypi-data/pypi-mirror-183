@@ -1,0 +1,10 @@
+prefect_slack/__init__.py,sha256=Ru-XOV6bVBjqLDi5jr5xReyBCVJFs6lKxlYozzL-aV0,137
+prefect_slack/_version.py,sha256=GayUNi4KKkzjqRvw8ynpAnQOXhVk4hOwXBF6i08_m7Q,497
+prefect_slack/credentials.py,sha256=6XvQ4PyWl2CTv87iHFMkvIVbbbYDFezdYrw_rVYTw2w,2728
+prefect_slack/messages.py,sha256=sw4uecFy0GPE6V1sBy3qCS6FTRORnCWk8sUxUFI-UvA,5178
+prefect_slack-0.1.1.dist-info/LICENSE,sha256=tLKlrmr0sOnPybm5TUmA2SBT-cYajF3kILQME85pqpQ,11356
+prefect_slack-0.1.1.dist-info/METADATA,sha256=S1k9sraj9iT74HA3HolCTVZ3EkI0Ckl2N4POmpOqcMk,6666
+prefect_slack-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+prefect_slack-0.1.1.dist-info/entry_points.txt,sha256=d-bbAUnIxuDAEaz4e3NjI18b9EKQgahQcD2zwNWFleM,52
+prefect_slack-0.1.1.dist-info/top_level.txt,sha256=Yrab_ppTesbXaKXYUD21Mhu3y5yTaDBfPppb-r44l6Q,14
+prefect_slack-0.1.1.dist-info/RECORD,,
