@@ -1,0 +1,6 @@
+pyproject.toml
+subtract.py
+package_sub_rw.egg-info/PKG-INFO
+package_sub_rw.egg-info/SOURCES.txt
+package_sub_rw.egg-info/dependency_links.txt
+package_sub_rw.egg-info/top_level.txt
