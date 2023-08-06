@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: arunpyutils
+Version: 0.0.1
+Summary: Python Utilities grouped together.
+Home-page: UNKNOWN
+Author: Arun Kishore Voleti
+License: UNKNOWN
+Keywords: python,utility
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: sympy
+
+A package that has a lot of daily use python functions/ operations.
+
