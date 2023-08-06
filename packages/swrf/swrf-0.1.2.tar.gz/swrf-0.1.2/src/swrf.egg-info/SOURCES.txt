@@ -1,0 +1,17 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/swrf/__init__.py
+src/swrf/check.py
+src/swrf/config.py
+src/swrf/database.py
+src/swrf.egg-info/PKG-INFO
+src/swrf.egg-info/SOURCES.txt
+src/swrf.egg-info/dependency_links.txt
+src/swrf.egg-info/requires.txt
+src/swrf.egg-info/top_level.txt
+src/swrf/publish/__init__.py
+src/swrf/publish/check.py
+src/swrf/subscribe/__init__.py
+src/swrf/subscribe/database_check.py
+src/swrf/subscribe/print_check.py
