@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/authos/__init__.py
+src/authos/authos.py
+src/authos.egg-info/PKG-INFO
+src/authos.egg-info/SOURCES.txt
+src/authos.egg-info/dependency_links.txt
+src/authos.egg-info/top_level.txt
