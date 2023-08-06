@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: yesnopy
+Version: 0.0.2
+Summary: Save time by automatically checking user decision input
+Author-email: Arnav Nagpure <arnav.n256@gmail.com>
+Project-URL: Homepage, https://github.com/AN1001/yesnopy
+Project-URL: Bug Tracker, https://github.com/AN1001/yesnopy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Simpilfies vailidating user input and return True/False based on a list of expected inputs.
+List of possible entries and return values:
+True:..........False:
+
+y..............n
+yes............no
+true...........0
+yep............nope
+allright.......false
+alright........not
+verywell.......noindeed
+ofcourse.......absolutelynot
+byallmeans.....mostcertainlynot
+sure...........ofcoursenot
+certainly......undernocircumstances
+absolutely.....bynomeans
+indeed.........notatall
+affirmative....negative
+agreed.........never
+roger..........notreally
+aye............nothanks
+ayeaye.........nae
+yeah...........nope
+yah............nah
+yep............notonyourlife
+yup............noway
+uh-huh.........nofear
+okay...........notonyournelly
+ok.............nosiree
+okey-dokey.....naw
+okey-doke
+achcha
+righto
+righty-ho
+surely

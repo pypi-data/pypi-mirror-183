@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/yesnopy/__init__.py
+src/yesnopy/yesnopy.py
+src/yesnopy.egg-info/PKG-INFO
+src/yesnopy.egg-info/SOURCES.txt
+src/yesnopy.egg-info/dependency_links.txt
+src/yesnopy.egg-info/top_level.txt
