@@ -1,0 +1,7 @@
+LICENSE
+pyproject.toml
+setup.cfg
+functions_package.egg-info/PKG-INFO
+functions_package.egg-info/SOURCES.txt
+functions_package.egg-info/dependency_links.txt
+functions_package.egg-info/top_level.txt
