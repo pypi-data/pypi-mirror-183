@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pastypy
+Version: 1.0.3.post1
+Summary: Pasty API wrapper
+Home-page: https://github.com/zevaryx/pastypy
+Author: Zevaryx
+Author-email: zevaryx@gmail.com
+Requires-Python: >=3.10,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.8.3,<4.0.0)
+Requires-Dist: pycryptodome (>=3.14.1,<4.0.0)
+Requires-Dist: requests (>=2.27.1,<3.0.0)
+Requires-Dist: tomli (>=2.0.1,<3.0.0)
+Project-URL: Repository, https://github.com/zevaryx/pastypy
+Description-Content-Type: text/markdown
+
+# PastyPY
+
+[![pytest](https://github.com/zevaryx/pastypy/actions/workflows/pytest.yml/badge.svg)](https://github.com/zevaryx/pastypy/actions/workflows/pytest.yml) [![codecov](https://codecov.io/gh/zevaryx/pastypy/branch/main/graph/badge.svg?token=IPC1OMI36K)](https://codecov.io/gh/zevaryx/pastypy)
+
+A Python wrapper around [Pasty](https://github.com/lus/pasty) written by lus
+
+## Features
+
+- Full API coverage
+- `asyncio` support with `pastypy.AsyncPaste`
+- Encryption support
+
+## Examples
+
+See [examples](https://github.com/zevaryx/pastypy/tree/main/examples) for usage and examples
+
