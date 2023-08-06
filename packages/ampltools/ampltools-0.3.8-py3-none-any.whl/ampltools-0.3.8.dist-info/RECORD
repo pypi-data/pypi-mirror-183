@@ -1,0 +1,11 @@
+ampltools/__init__.py,sha256=UFnflkZkK-fwR_j7D6qgaD3mk-zNw8TVR-d3NEf5WYY,305
+ampltools/installer.py,sha256=cz2blhMDcVgiO3Rw22Bxti0xBRFEheslkuKvXzs39Ow,3995
+ampltools/licenses.py,sha256=UEHw-Y-1bT_PrjqtLIG0Eve1tl2Ewv0uVbMMyCjvR9M,1661
+ampltools/notebooks.py,sha256=wQQQP_CIal6zdr78RC5AjpW_9F8Pim75vqlei4cDyCM,5644
+ampltools/pymodules.py,sha256=YaBPZ4Wa-UxMM7oRUAWNFDAR0IRURQN9P6ntbrZKh7I,2220
+ampltools/utils.py,sha256=qCvha6goDfe52J1Zk3Qig0o4vlgr1wArmXvmsWB0enM,652
+ampltools-0.3.8.dist-info/LICENSE,sha256=dOwbb00xWOQYaT0jh5OU4yhmb8u7rUZQIzd1B7E0n_k,1522
+ampltools-0.3.8.dist-info/METADATA,sha256=7Bo5-CMUHYTtYk-d5sqL9LwltEAR4efKbEQXTbse8Nc,1199
+ampltools-0.3.8.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ampltools-0.3.8.dist-info/top_level.txt,sha256=ZcU9sHvt4BvgJ1NNT8fWTjwEmEqiogqTdQ-0LYrKH6Q,10
+ampltools-0.3.8.dist-info/RECORD,,
