@@ -1,0 +1,87 @@
+"@context":
+  mkdocs: https://iolanta-tech.github.io/mkdocs-iolanta/
+  iolanta: https://iolanta.tech/
+  table: https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  skos: http://www.w3.org/2004/02/skos/core#
+  owl: http://www.w3.org/2002/07/owl#
+
+$included:
+  - $id: table:Table
+    rdfs:comment: "Definition of a table."
+    iolanta:instanceFacet:
+      - $id: python://mkdocs_iolanta_tables.facets.Table
+        iolanta:supports:
+          $id: iolanta:html
+      - $id: templates://octadocs-table/table.html
+        $type: mkdocs:PageFacet
+    owl:equivalentClass:
+      owl:onProperty: iolanta:isSupportedBy
+      owl:hasValue:
+        $id: python://mkdocs_iolanta_tables.facets.self.SelfFacet
+
+  - $id: table:columns
+    rdfs:domain:
+      $id: table:Table
+    rdfs:range:
+      $id: table:ColumnList
+
+  - $id: table:ColumnList
+    comment: RDF List of table columns
+    owl:equivalentClass:
+      - owl:onProperty: rdf:first
+        ∀: table:Column
+        rdfs:comment: Head of the list is always a column
+      - owl:onProperty: rdf:rest
+        ∀: table:ColumnList
+        rdfs:comment: remainder of a list is always a list. These two clauses exist in order to mark `table:Column` instances as such.
+
+  - $id: table:Column
+    iolanta:instanceFacet:
+      $id: python://mkdocs_iolanta_tables.facets.legend.ColumnLegend
+      iolanta:supports:
+        $id: iolanta:html
+
+  - $id: table:thead
+    rdfs:subClassOf:
+      $id: iolanta:html
+    rdfs:label: Render nodes as content of <th> tags in table column headers.
+    iolanta:hasDefaultFacet:
+      $id: python://mkdocs_iolanta_tables.facets.Th
+
+  #- $id: mkdocs:Page
+  #  iolanta:instanceFacet:
+  #    $id: python://mkdocs_iolanta.facets.link
+  #    iolanta:supports:
+  #      $id: table:th
+
+  - $id: table:th
+    $type: iolanta:Environment
+    iolanta:hasDefaultFacet:
+      $id: python://mkdocs_iolanta_tables.facets.ThContent
+
+  - $id: table:td
+    $type: iolanta:Environment
+    skos:has-broader: iolanta:html
+    rdfs:label: <td>
+    iolanta:hasDefaultFacet:
+      $id: python://mkdocs_iolanta.facets.Default
+
+  - $id: python://mkdocs_iolanta.facets.bool_literal.BoolLiteral
+    iolanta:supports:
+      $id: table:td
+
+  - $id: table:self
+    iolanta:facet:
+      $id: python://mkdocs_iolanta_tables.facets.self.SelfFacet
+
+  - $id: table:OrderByDirection
+    rdfs:label: Ordering Direction
+    rdfs:comment: Direction (ascending or descending) to sort a table column.
+
+  - $id: table:asc
+    $type: table:OrderByDirection
+
+  - $id: table:desc
+    $type: table:OrderByDirection
