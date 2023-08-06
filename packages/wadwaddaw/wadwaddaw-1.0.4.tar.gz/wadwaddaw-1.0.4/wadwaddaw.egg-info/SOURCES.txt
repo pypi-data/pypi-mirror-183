@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+wadwaddaw/__init__.py
+wadwaddaw.egg-info/PKG-INFO
+wadwaddaw.egg-info/SOURCES.txt
+wadwaddaw.egg-info/dependency_links.txt
+wadwaddaw.egg-info/top_level.txt
