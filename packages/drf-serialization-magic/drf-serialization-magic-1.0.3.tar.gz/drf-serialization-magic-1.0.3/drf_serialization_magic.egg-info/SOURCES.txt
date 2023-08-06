@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements-dev.txt
+requirements.txt
+setup.cfg
+setup.py
+drf_serialization_magic/__init__.py
+drf_serialization_magic/core.py
+drf_serialization_magic/models.py
+drf_serialization_magic/serializers.py
+drf_serialization_magic.egg-info/PKG-INFO
+drf_serialization_magic.egg-info/SOURCES.txt
+drf_serialization_magic.egg-info/dependency_links.txt
+drf_serialization_magic.egg-info/requires.txt
+drf_serialization_magic.egg-info/top_level.txt
