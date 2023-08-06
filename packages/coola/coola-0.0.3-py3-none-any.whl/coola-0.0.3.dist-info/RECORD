@@ -1,0 +1,11 @@
+coola/__init__.py,sha256=0a--WKRUA1zLMM7aIOXQYlHENzzAvNVaM7XpDdqccTI,653
+coola/allclose.py,sha256=YYpTzkwk401vbQCHhqNPQ8JN86wNYnE2KqzWl3Ies1c,18458
+coola/equality.py,sha256=L1aGsP6YFcGpWyOvhTG7RqX_6ix9d6dhbb6z6fOwxDM,13169
+coola/format.py,sha256=UkCIvPSvLULelyV_Yq-nDGK2Z6XGLR4fY7hkRbfHo_M,2444
+coola/import_utils.py,sha256=1Q-1UKbs2WNSpiVq5iQ1PbXZu7HgFHimrgJ795UN1ss,375
+coola/ndarray.py,sha256=GCUdKxyZw22WX830W_dq-fnpkaZKP6xfXLuzsKVJfVY,4717
+coola/pytorch.py,sha256=uhgnBdtURjohYAnTUxdbb_asLwbpVihkCcOPwhN8V0w,8460
+coola-0.0.3.dist-info/METADATA,sha256=fjxkTwSXI6i0_wygB5-9Wc8UPmKmOjl9_EEXVi8NTuQ,5905
+coola-0.0.3.dist-info/LICENSE,sha256=nP63ZB3H79FVJ15_TZbXWvNH7XmXT2Ab1q11r-sDXkY,1501
+coola-0.0.3.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+coola-0.0.3.dist-info/RECORD,,
