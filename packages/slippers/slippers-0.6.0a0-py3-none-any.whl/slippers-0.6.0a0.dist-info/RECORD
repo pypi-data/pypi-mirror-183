@@ -1,0 +1,15 @@
+LICENSE,sha256=11zpjwdYyOOBWtHGQaT9-XbS3xV-OB5XkNrZDuJ5aKg,1072
+slippers/__init__.py,sha256=zMG7Ef_lZL9BYF75mFl00alyyx2L7C1XvyFJhy4GCVY,52
+slippers/apps.py,sha256=eloL9nLleC2rnVqb1uyfjQ6hLx40KUaEB_pOX7y7wRo,1861
+slippers/conf.py,sha256=aOFwK5nC0S4JxPO7UeT5Vr7Cg_0Q93ZkvoZuGEPccaU,807
+slippers/props.py,sha256=TBkvS-doRt89dJqjx5Lw_7j6DVhZUTHzMJEc0OOV_6Y,6215
+slippers/static/slippers/main.css,sha256=PT1I4qSB9qTQs3GbyYzFsvtFKNYLB94ZYqvDKICDdzQ,7367
+slippers/static/slippers/main.js,sha256=DPrKincERc6_dK5obBJUXEWd6T_DodScKjfFHwJun0k,145904
+slippers/template.py,sha256=ybZsuAbQ2zTidtph4oEC1Ml4P8LYmyI2EhrQ52PJreM,5801
+slippers/templates/slippers/errors.html,sha256=6gLfpeVrLvbU7dTQGLoeqB6qXM439SHr0-N4b7bJs3U,179
+slippers/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+slippers/templatetags/slippers.py,sha256=RZbJFqmZHTa-WSTuqEjmgoZgX8VN50UycyK1ivYjyog,9037
+slippers-0.6.0a0.dist-info/METADATA,sha256=jvxBUQ7SmIOqo7ek7fP75OVSTgD-h0J4aGcB9_t99xI,3401
+slippers-0.6.0a0.dist-info/LICENSE,sha256=11zpjwdYyOOBWtHGQaT9-XbS3xV-OB5XkNrZDuJ5aKg,1072
+slippers-0.6.0a0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+slippers-0.6.0a0.dist-info/RECORD,,
