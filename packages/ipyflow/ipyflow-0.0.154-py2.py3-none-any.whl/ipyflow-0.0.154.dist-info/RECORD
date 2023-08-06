@@ -1,0 +1,17 @@
+ipyflow-0.0.154.data/data/etc/jupyter/nbconfig/notebook.d/ipyflow.json,sha256=7aXeeNmJHGXRV12Y_LmO0UEAYSn35cG2pP8QNmwyvuM,57
+ipyflow-0.0.154.data/data/share/jupyter/kernels/ipyflow/kernel.json,sha256=Dbl5lFBm-ECEfVkrQMIxQoRLiGfNFtFqbIUdYvjcZHU,160
+ipyflow-0.0.154.data/data/share/jupyter/kernels/ipyflow/logo-32x32.png,sha256=P4IgKd3jcyDj0Rm8fP5xmLclv5XjZIACKL9VIIVlwu4,7010
+ipyflow-0.0.154.data/data/share/jupyter/kernels/ipyflow/logo-64x64.png,sha256=IdQGY4UVpoVp1jgsUnD_HeBioyDQsRkYWueCQ35u8mU,7449
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/package.json,sha256=23nf2VjdeqrwpSXGTgx2EpmJVI3NbcybzXOsYQdRKPY,2322
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/static/549.780992a9df8954c5e5b9.js,sha256=eAmSqd-JVMXluf5yTnztFKA92vz5Rty8Md9AvuJBv4U,5072
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/static/568.52b18f4874c6697e8adf.js,sha256=UrGPSHTGaX6K3_OHuiL9tVZN3KtjI1hzQbHSWWbDXYc,6044
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/static/remoteEntry.9b3ea95a5746f2f3a9a8.js,sha256=mz6pWldG8vOpqPm1jkZ7v5P8-iBqE1Le-yQcPIYkn9Q,7015
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/static/style.js,sha256=JkjrgLxr1IfEdDSkKcqmXsFdNZ6cZpBeyQpuT8ouOd0,162
+ipyflow-0.0.154.data/data/share/jupyter/labextensions/jupyterlab-ipyflow/static/third-party-licenses.json,sha256=P_VjLKCSMZ3sXuPckg8bDyB8Xn8JD7EsiIoRqvSP3h0,2452
+ipyflow-0.0.154.data/data/share/jupyter/nbextensions/ipyflow/index.js,sha256=vqJ8U2N5ukudNbTobrBxlip6kGQxm_YoRI9w2VO_S0k,14539
+ipyflow-0.0.154.data/data/share/jupyter/nbextensions/ipyflow/index.js.map,sha256=gX743o3e9GYU7S1jF1XVwuqm-2i2VMlxH0PTBjQXptY,43888
+ipyflow-0.0.154.dist-info/LICENSE.txt,sha256=khc4BM4h7m_i62dZOg8Ke6l1eZ1ul2BvgG3AW2l1NAM,1471
+ipyflow-0.0.154.dist-info/METADATA,sha256=lQQA-5Svd6aoAJjkMrIbK-Yvek_-lsMRdCoueSQm5i0,10279
+ipyflow-0.0.154.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+ipyflow-0.0.154.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+ipyflow-0.0.154.dist-info/RECORD,,
