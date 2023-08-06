@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "bstruct"
+version = "0.4.0"
+description = "Simple and efficient binary (de)serialization using regular type annotations."
+authors = ["flxbe <flxbe@mailbox.org>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/flxbe/bstruct"
+documentation = "https://pypi.org/project/bstruct/"
+
+[tool.poetry.urls]
+changelog = "https://github.com/flxbe/bstruct/blob/main/CHANGELOG.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typing-extensions = "^4.4.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1"
+black = "^22.8.0"
+pyright = "^1.1.271"
+construct = "2.10.68"
+pyperf = "^2.5.0"
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^5.3.0"
+myst-parser = "^0.18.1"
+furo = "^2022.12.7"
+snakeviz = "^2.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+reportMissingTypeStubs = false
