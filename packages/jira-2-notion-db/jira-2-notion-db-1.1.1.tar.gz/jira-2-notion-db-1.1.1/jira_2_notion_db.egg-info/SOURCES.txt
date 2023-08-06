@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+bin/jira-2-notion-db
+jira_2_notion_db/__init__.py
+jira_2_notion_db.egg-info/PKG-INFO
+jira_2_notion_db.egg-info/SOURCES.txt
+jira_2_notion_db.egg-info/dependency_links.txt
+jira_2_notion_db.egg-info/requires.txt
+jira_2_notion_db.egg-info/top_level.txt
+jira_2_notion_db/services/__init__.py
+jira_2_notion_db/services/jira_service.py
+jira_2_notion_db/services/notion_service.py
+jira_2_notion_db/utils/__init__.py
+jira_2_notion_db/utils/logger_util.py
