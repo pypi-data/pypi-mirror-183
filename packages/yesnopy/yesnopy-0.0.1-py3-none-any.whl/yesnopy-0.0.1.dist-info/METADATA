@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: yesnopy
+Version: 0.0.1
+Summary: Check user input and return True/False
+Home-page: UNKNOWN
+Author: Arnav Nagpure
+Author-email: <arnav.n256@gmail.com>
+License: UNKNOWN
+Keywords: userinput,user input,input
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+Checks the user input and returns True/False by comparing to a list of known entries e.g. "absolutely" --> True, "not on your life" --> False alongside other more common user inputs (yes,y,n,no)
+
+
