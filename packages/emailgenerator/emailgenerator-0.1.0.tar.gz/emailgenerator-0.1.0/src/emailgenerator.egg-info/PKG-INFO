@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: emailgenerator
+Version: 0.1.0
+Summary: An email list generator that creates a list based on the most popular names and common number combinations
+Author-email: Subject_Alpha <contact@jacobstarr.me>
+Project-URL: Homepage, https://github.com/SubjectAlpha/emailgenerator
+Project-URL: Bug Tracker, https://github.com/SubjectAlpha/emailgenerator/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# emailgenerator
