@@ -1,0 +1,10 @@
+vidimg_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vidimg_utils/object_detector/detection.py,sha256=1Q4taeq7gsf9kzDyeGGMcU0MRx9VS7Lrf7hSWBmb42U,1666
+vidimg_utils/object_detector/detector.py,sha256=Q1ftVptDbE-UhRqbth9YHZAONp5lzu_2M5SJ1-cd86E,1277
+vidimg_utils/object_detector/yolov3_detector.py,sha256=Xx_Jk9SWbpqk-LdyxD_3NVRAvxbgshtpEOk2ycX1qOU,5081
+vidimg_utils/screen/utils.py,sha256=lkgr_2H4zfcdey_NVb3eAaeGEEcfwQxAYCWDJUEHwPw,614
+vidimg_utils/video/stream.py,sha256=VcHUdZCKCtOhKT2qIMhCJTe-fd6QXMl69Y9yYhk2GpA,1885
+vidimg_utils-0.0.1.dist-info/METADATA,sha256=1Z9kEioi-QxfWJ0Ig_UGTS2MxhVdGSyOEEJBw4LA9C0,548
+vidimg_utils-0.0.1.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+vidimg_utils-0.0.1.dist-info/licenses/LICENSE,sha256=2q11M3oZSoeIU5w3K90KC5vAa8D4V1TIuegWIo7BNhk,1062
+vidimg_utils-0.0.1.dist-info/RECORD,,
