@@ -1,0 +1,13 @@
+md2latex_converter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+md2latex_converter/__main__.py,sha256=fovXVJWUmJoD43TuTASxHH-dLwxgtVQyYgBEixWXvJA,1266
+md2latex_converter/error.py,sha256=V2BzzIcz2jnPodmOboS2MnDurGLAgeSD00vH3OStvyE,1328
+md2latex_converter/inputhandler.py,sha256=cpEFLuQMgUXFNfGXDbB8pThwcfF3q9bfVmHID0elbM0,696
+md2latex_converter/parser.py,sha256=qUn9SdP1h_NJaXq-mF2K5LfnfevL0tAJ1w4GmpXTpts,8579
+md2latex_converter/regexlexer.py,sha256=uCOBulhKokshK4omcjxf-hIMRiQGpxMjoRaWqv9ThqE,1690
+md2latex_converter/sentences.py,sha256=oqjKE9BPxfUqmh2SHy8yLSZlUrbfcuDo6x20OxfVCvI,1912
+md2latex_converter-0.0.3.dist-info/LICENSE.txt,sha256=QAgx8nDoPyQVGJQ1_s1eqXnGCCquu6TQT29zwjbSH0s,1084
+md2latex_converter-0.0.3.dist-info/METADATA,sha256=7a6nbJzyKOuTXWg410BHEqdl3A_0uaEzpoDS00OiN8k,3038
+md2latex_converter-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+md2latex_converter-0.0.3.dist-info/entry_points.txt,sha256=NceWQR2iy8UQZ6E89l9460lbgJV6r7YneUcjEZprN7Q,57
+md2latex_converter-0.0.3.dist-info/top_level.txt,sha256=KUiLbJj2J1RdBphnjnD2NlhBTmwB4PGuImmR-QcbF10,19
+md2latex_converter-0.0.3.dist-info/RECORD,,
