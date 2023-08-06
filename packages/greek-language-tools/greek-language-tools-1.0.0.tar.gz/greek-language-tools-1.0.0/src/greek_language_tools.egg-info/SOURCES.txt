@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/greek_language_tools.egg-info/PKG-INFO
+src/greek_language_tools.egg-info/SOURCES.txt
+src/greek_language_tools.egg-info/dependency_links.txt
+src/greek_language_tools.egg-info/top_level.txt
+src/greeklt/__init__.py
+src/greeklt/capitalize.py
+src/greeklt/convert_final_s.py
+src/greeklt/greek_transliteration.py
+src/greeklt/remove_accentuation.py

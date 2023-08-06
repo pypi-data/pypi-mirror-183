@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "greek-language-tools"
+version = "1.0.0"
+authors = [
+  { name="John Zaras", email="john.zaras@yahoo.com" },
+]
+description = "A library with tools for easy Greek word transformations."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sinnec/greek-language-tools"
+"Bug Tracker" = "https://github.com/sinnec/greek-language-tools/issues"
