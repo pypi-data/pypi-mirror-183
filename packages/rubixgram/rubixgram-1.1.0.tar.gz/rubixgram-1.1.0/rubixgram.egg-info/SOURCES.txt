@@ -1,0 +1,13 @@
+LICENCE
+setup.py
+rubixgram/PostData.py
+rubixgram/WebAdress.py
+rubixgram/__init__.py
+rubixgram/encode.py
+rubixgram/method.py
+rubixgram/methodjson.py
+rubixgram/sendserver.py
+rubixgram.egg-info/PKG-INFO
+rubixgram.egg-info/SOURCES.txt
+rubixgram.egg-info/dependency_links.txt
+rubixgram.egg-info/top_level.txt
