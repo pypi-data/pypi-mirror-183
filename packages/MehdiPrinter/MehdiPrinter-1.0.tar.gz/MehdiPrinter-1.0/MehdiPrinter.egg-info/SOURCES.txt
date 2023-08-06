@@ -1,0 +1,6 @@
+README.md
+setup.py
+MehdiPrinter.egg-info/PKG-INFO
+MehdiPrinter.egg-info/SOURCES.txt
+MehdiPrinter.egg-info/dependency_links.txt
+MehdiPrinter.egg-info/top_level.txt
