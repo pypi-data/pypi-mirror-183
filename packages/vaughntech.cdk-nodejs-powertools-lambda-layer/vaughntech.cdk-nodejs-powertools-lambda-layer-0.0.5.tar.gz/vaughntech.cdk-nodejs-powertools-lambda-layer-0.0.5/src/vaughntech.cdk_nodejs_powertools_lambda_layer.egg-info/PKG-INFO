@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: vaughntech.cdk-nodejs-powertools-lambda-layer
+Version: 0.0.5
+Summary: A suite of utilities for AWS Lambda functions running on the Node.js runtime, to ease adopting best practices such as tracing, structured logging, custom metrics.
+Home-page: https://github.com/vaughngit/projen-nodejs-powertools-lambda-layer-cdk-construct.git
+Author: VaughnGit<alvin.vaughn@outlook.com>
+License: Apache-2.0
+Project-URL: Source, https://github.com/vaughngit/projen-nodejs-powertools-lambda-layer-cdk-construct.git
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Typing :: Typed
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Description:
+
+This repo packages together a suite of utilities for AWS Lambda functions running on the Node.js runtime, to ease adopting best practices such as tracing, structured logging, custom metrics.'
+
+
