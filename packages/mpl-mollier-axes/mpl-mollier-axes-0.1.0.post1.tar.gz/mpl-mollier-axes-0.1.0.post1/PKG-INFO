@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: mpl-mollier-axes
+Version: 0.1.0.post1
+Summary: Matplotlib Axes class providing the transform for plotting 'Mollier-style' psychrometric charts.
+Home-page: https://github.com/woistdiekatze/mpl-mollier-axes
+License: MIT
+Author: woistdiekatze
+Author-email: woistdiekatze.4x61i@simplelogin.com
+Requires-Python: >=3.8,<4.0
+Classifier: Framework :: Matplotlib
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Provides-Extra: CoolProp
+Requires-Dist: CoolProp (>=6.4.3,<7.0.0); extra == "CoolProp"
+Requires-Dist: PsychroLib (>=2.5.0,<3.0.0)
+Requires-Dist: matplotlib (>=3.6.2,<4.0.0)
+Project-URL: Repository, https://github.com/woistdiekatze/mpl-mollier-axes
+Description-Content-Type: text/x-rst
+
+
