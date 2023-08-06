@@ -1,0 +1,8 @@
+setup.py
+adm3/__init__.py
+adm3/main.py
+adm3.egg-info/PKG-INFO
+adm3.egg-info/SOURCES.txt
+adm3.egg-info/dependency_links.txt
+adm3.egg-info/requires.txt
+adm3.egg-info/top_level.txt
