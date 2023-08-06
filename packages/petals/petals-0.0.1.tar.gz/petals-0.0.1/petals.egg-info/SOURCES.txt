@@ -1,0 +1,7 @@
+pyproject.toml
+setup.cfg
+petals.egg-info/PKG-INFO
+petals.egg-info/SOURCES.txt
+petals.egg-info/dependency_links.txt
+petals.egg-info/requires.txt
+petals.egg-info/top_level.txt

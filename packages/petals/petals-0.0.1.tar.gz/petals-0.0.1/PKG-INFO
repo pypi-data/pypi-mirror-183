@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: petals
+Version: 0.0.1
+Summary: To install, follow instructions from https://github.com/bigscience-workshop/petals
+Home-page: https://github.com/bigscience-workshop/petals
+Author: Petals devs
+Author-email: hivemind-team@hotmail.com
+Project-URL: Bug Tracker, https://github.com/bigscience-workshop/petals/issues
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+To install, follow instructions from https://github.com/bigscience-workshop/petals
