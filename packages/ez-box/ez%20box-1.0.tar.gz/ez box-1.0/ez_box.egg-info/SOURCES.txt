@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+ez_box.egg-info/PKG-INFO
+ez_box.egg-info/SOURCES.txt
+ez_box.egg-info/dependency_links.txt
+ez_box.egg-info/requires.txt
+ez_box.egg-info/top_level.txt
