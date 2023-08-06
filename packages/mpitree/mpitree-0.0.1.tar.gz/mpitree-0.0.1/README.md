@@ -1,0 +1,72 @@
+![Build Status](https://github.com/duong-jason/mpilearn/workflows/Unit%20Tests/badge.svg)
+![Build Status](https://github.com/duong-jason/mpilearn/workflows/Lint/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+
+
+# mpitree
+
+A Parallel Decision Tree implementation using MPI *(Message Passing Interface)*
+
+## Installation
+
+```bash
+git clone https://github.com/duong-jason/mpitree.git
+cd mpitree
+```
+
+## Example
+
+```python
+from mpi4py import MPI
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+from mpitree.parallel_decision_tree import (
+    ParallelDecisionTreeClassifier,
+    world_comm,
+    world_rank,
+)
+
+if __name__ == "__main__":
+    iris = load_iris(as_frame=True)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data, iris.target, test_size=0.20, random_state=42
+    )
+
+    world_comm.Barrier()
+    start_time = MPI.Wtime()
+
+    pdt = ParallelDecisionTreeClassifier(criterion={'max_depth': 3})
+    pdt.fit(X_train, y_train)
+
+    score = pdt.score(X_test, y_test)
+
+    end_time = MPI.Wtime()
+    if not world_rank:
+        print(pdt)
+        print(f"Accuracy: {score:.2%}")
+        print(f"Parallel Execution Time: {end_time - start_time:.3f}s")
+```
+
+```bash
+>>> mpiexec -n 5 python3 main.py
+
+petal length (cm) (< 2.45)
+        0
+        petal length (cm) (< 4.75)
+                petal width (cm) (< 1.65)
+                        1
+                        2
+                petal width (cm) (< 1.75)
+                        2
+                        2
+Accuracy: 96.67%
+Parallel Execution Time: 1.895s
+```
+
+## Unit Tests
+```
+python3 -m pytest
+```
