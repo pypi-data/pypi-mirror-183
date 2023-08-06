@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/pgtty/PgTTY.py
+src/pgtty/__init__.py
+src/pgtty/font.ttf
+src/pgtty.egg-info/PKG-INFO
+src/pgtty.egg-info/SOURCES.txt
+src/pgtty.egg-info/dependency_links.txt
+src/pgtty.egg-info/requires.txt
+src/pgtty.egg-info/top_level.txt
