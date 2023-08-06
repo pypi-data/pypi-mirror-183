@@ -1,0 +1,5 @@
+include *.py
+include core
+include libs
+include modules
+include app
