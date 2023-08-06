@@ -1,0 +1,9 @@
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas3_good_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas3 > curl_atlas3_good.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas3_possible_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas3 > curl_atlas3_possible.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas3_attic_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas3 > curl_atlas3_attic.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas3_garbage_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas3 > curl_atlas3_garbage.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas4_good_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas4 > curl_atlas4_good.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas4_possible_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas4 > curl_atlas4_possible.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas4_attic_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas4 > curl_atlas4_attic.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas4_stars_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas4 > curl_atlas4_stars.sh
+python ../../utils/tsvToJSONCurl.py /Users/kws/atlas/nameserver_data/atlas4_garbage_objects.tst --token=5022dac0e3bda0504a77288bd7499675fafff1b5 --survey_database=atlas4 > curl_atlas4_garbage.sh

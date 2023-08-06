@@ -1,0 +1,12 @@
+mysqlclient
+django
+django-filter
+django_tables2
+markdown
+djangorestframework
+pyyaml
+docopt
+python-dotenv
+gkhtm
+gkutils>=0.2.18
+mod_wsgi
