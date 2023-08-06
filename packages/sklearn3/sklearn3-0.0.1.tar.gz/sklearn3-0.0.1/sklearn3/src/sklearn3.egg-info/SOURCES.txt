@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+sklearn3/src/sklearn3.egg-info/PKG-INFO
+sklearn3/src/sklearn3.egg-info/SOURCES.txt
+sklearn3/src/sklearn3.egg-info/dependency_links.txt
+sklearn3/src/sklearn3.egg-info/top_level.txt
+sklearn3/src/sklearn3.py
+sklearn3/src/sklearn3.egg-info/SOURCES.txt
