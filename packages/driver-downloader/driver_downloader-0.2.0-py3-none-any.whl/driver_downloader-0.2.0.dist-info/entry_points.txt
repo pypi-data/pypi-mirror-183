@@ -1,0 +1,3 @@
+[console_scripts]
+driver=driver.command:app
+
