@@ -1,0 +1,14 @@
+safejax/__init__.py,sha256=bVQJPbP8nSAUjHRoAzudjBogciNbLkG9xslW0HR7vy8,277
+safejax/flax.py,sha256=u73IyqWvXqqrGSVSpwXigeLZZ6nuS9-UfnCbAipEl7A,397
+safejax/haiku.py,sha256=j86vpsFZoJ0GRg5HKaJi1GWXxTcO_qLEA1pb-JxNaEY,316
+safejax/objax.py,sha256=Y8EhHiWhB3epn5dWKMl_mO7U-FWZ2ahG8Wy4mz0FLdQ,2478
+safejax/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+safejax/typing.py,sha256=7F5bEEbjWEFEjk6gy_yNPvEW6vFcLlNKMrsA01VZcnM,542
+safejax/utils.py,sha256=EX5GvGfI5OHjfeZM6UtxH_pkZEm7PyMiLESbII2G2CE,2762
+safejax/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+safejax/core/load.py,sha256=OIsIRSNEEhUQzpHNxcv5odsv8JjNPAYIGVfmrXaYwX0,2709
+safejax/core/save.py,sha256=GRNMKbr0wpqBn_QR_WH56hRUAZgHMzvVJnKjU3QOXsM,1562
+safejax-0.4.0.dist-info/METADATA,sha256=H7F8IDVJIL73eQH_J9JdVh36NlHPI4oSg4AHKw--WbQ,10920
+safejax-0.4.0.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+safejax-0.4.0.dist-info/licenses/LICENSE,sha256=pHCbcfMj4Zai8CwBPbjpRztb93igu9pZdCj_CdYYGr8,1104
+safejax-0.4.0.dist-info/RECORD,,
