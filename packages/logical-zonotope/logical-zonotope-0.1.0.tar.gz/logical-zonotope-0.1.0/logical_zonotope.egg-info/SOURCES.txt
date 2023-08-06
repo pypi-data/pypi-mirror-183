@@ -1,0 +1,9 @@
+README.md
+setup.py
+logical_zonotope/__init__.py
+logical_zonotope/logical_zonotope.py
+logical_zonotope/utility.py
+logical_zonotope.egg-info/PKG-INFO
+logical_zonotope.egg-info/SOURCES.txt
+logical_zonotope.egg-info/dependency_links.txt
+logical_zonotope.egg-info/top_level.txt
