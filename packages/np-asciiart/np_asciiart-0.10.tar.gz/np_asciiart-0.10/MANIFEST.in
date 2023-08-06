@@ -1,0 +1,4 @@
+include np_asciiart/requirements.txt
+include np_asciiart/thirdparty.json
+include np_asciiart/README.MD
+include np_asciiart/LICENSE

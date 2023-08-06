@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+np_asciiart/LICENSE
+np_asciiart/README.MD
+np_asciiart/__init__.py
+np_asciiart/requirements.txt
+np_asciiart/thirdparty.json
+np_asciiart.egg-info/PKG-INFO
+np_asciiart.egg-info/SOURCES.txt
+np_asciiart.egg-info/dependency_links.txt
+np_asciiart.egg-info/requires.txt
+np_asciiart.egg-info/top_level.txt
