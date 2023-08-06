@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@datalayer/jupyter-linkedin",
+  "description": "@datalayer/jupyter-linkedin settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
