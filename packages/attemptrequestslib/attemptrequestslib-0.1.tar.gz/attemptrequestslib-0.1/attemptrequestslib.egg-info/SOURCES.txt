@@ -1,0 +1,12 @@
+README.md
+setup.py
+attemp_requests/__init__.py
+attemp_requests/attempts_requests.py
+attemp_requests/unpack_payload_dict.py
+attemptrequestslib.egg-info/PKG-INFO
+attemptrequestslib.egg-info/SOURCES.txt
+attemptrequestslib.egg-info/dependency_links.txt
+attemptrequestslib.egg-info/requires.txt
+attemptrequestslib.egg-info/top_level.txt
+utils/__init__.py
+utils/logger_settings.py
