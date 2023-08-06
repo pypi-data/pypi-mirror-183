@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: raster-torch
+Version: 0.0.2
+Summary: A differentiable rasterization package
+Author-email: Hmrishav Bandyopadhyay <h.bandyopadhyay@surrey.ac.uk>
+Project-URL: Homepage, https://hmrishavbandy.github.io/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch (~=1.13.1)
+Requires-Dist: numpy (~=1.23.1)
+Requires-Dist: setuptools
+
+# Differentiable Rasterization
+
+Demo Package. More content coming here soon, including a mini tutorial
