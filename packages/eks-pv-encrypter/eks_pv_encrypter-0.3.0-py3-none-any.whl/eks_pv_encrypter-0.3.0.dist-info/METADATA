@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: eks-pv-encrypter
+Version: 0.3.0
+Summary: A simple tool to encrypt the EBS volumes linked to your EKS Persistent Volumes.
+Author: Vishnu Deva
+Author-email: vishnu.d@madstreetden.com
+Requires-Python: >=3.9,<3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: black[jupyter] (>=22.12.0,<23.0.0)
+Requires-Dist: boto3 (>=1.26.41,<2.0.0)
+Requires-Dist: fire (>=0.5.0,<0.6.0)
+Requires-Dist: ipykernel (>=6.19.4,<7.0.0)
+Requires-Dist: kubernetes (>=25.3.0,<26.0.0)
+Requires-Dist: rich (>=13.0.0,<14.0.0)
+Project-URL: repository, https://github.com/VishDev12/eks-pv-encrypter
+Description-Content-Type: text/markdown
+
+# EKS Persistent Volume Encrypter
+
+##  What is it?
+
+A tool to detect Persistent Volumes (PVs) in your EKS cluster that are backed by
+unencrypted EBS Volumes and encrypt them.
+
+## Do I need it?
+
+If you:
+
+➡️ Have an EKS Cluster.  
+➡️ Use Persistent Volumes backed by EBS Volumes.  
+➡️ Want to make sure all the EBS Volumes you use are encrypted.  
+➡️ Don't want to do it one-by-one.  
+
+Then this tool will help you speed up this process.
+
+## What does it contain?
+
+* A Jupyter Notebook which is the main interface.
+* A simple CLI that displays relevant information about your cluster.
+
+The CLI will be limited to read-only actions. The Notebook is the only way to execute
+constructive/destructive actions.
+
+## Installation
+
+Hosted on [PyPI](https://pypi.org/project/eks-pv-encrypter/).
+
+`pip install eks-pv-encrypter`
+
+## Usage
+
+1. Use the `pv_encrypter.ipynb` Notebook.
+2. If you want a read-only overview of your Cluster. Just run `pv-encrypter status`. 
+
+## Overview of the Process
+
+![Overview](https://raw.githubusercontent.com/VishDev12/eks-pv-encrypter/main/ebs-pv-encrypter.jpg)
+

@@ -1,0 +1,3 @@
+[console_scripts]
+pv-encrypter=eks_pv_encrypter.cli:main
+
