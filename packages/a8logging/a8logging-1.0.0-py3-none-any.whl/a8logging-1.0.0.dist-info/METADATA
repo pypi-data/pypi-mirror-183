@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: a8logging
+Version: 1.0.0
+Summary: A utility for logging events in Python projects
+Home-page: https://github.com/devdp/python-logging.git
+Author: Bramhesh Kumar Srivastava
+Author-email: brahmesh1996@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: elasticsearch
+Requires-Dist: logging
+Requires-Dist: traceback
+Requires-Dist: uuid
+
+A utility for logging events in Python projects with multiple output options such as logging to a file or pushing the logs to Elasticsearch
+
