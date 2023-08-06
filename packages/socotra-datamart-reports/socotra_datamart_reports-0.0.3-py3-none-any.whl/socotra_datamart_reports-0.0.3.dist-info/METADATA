@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: socotra-datamart-reports
+Version: 0.0.3
+Summary: Convenience functions for typical reports run against Socotra Data Mart
+Home-page: https://docs.socotra.com/production/data/datamartguide.html
+Author-email: "Mark Szymanski" <mark.szymanski@socotra.com>
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mysql-connector-python (>=8.0)
+
+# Data Mart Reporting
+
+A library for common [Data Mart](https://docs.socotra.com/production/data/datamartguide.html) reporting needs.
+
+## Reports
+
+Reports prefaced with `platform_` have [analogues in the Socotra platform](https://docs.socotra.com/production/data/reporting.html).
+
+You can run reports by passing database credentials to the report class instance, then calling the appropriate execution method.
+
+Example:
+
+```python
+from socotra_datamart_reports import TransactionFinancialImpactReport
+
+creds = {
+    'user': 'my-datamart-username',
+    'password': 'my-datamart-password',
+    'port': 'my-datamart-port',
+    'host': 'my-datamart-host',
+    'database': 'my-datamart-database'
+}
+
+tfir = TransactionFinancialImpactReport(creds)
+tfir.write_transaction_financial_impact_report(
+    'personal-auto', 1659326400000, 1664596800000, 'tx_report.csv')
+```
