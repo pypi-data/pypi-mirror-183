@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoking py2app &#8212; py2app 2.0a0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Py2app Configuration" href="pyproject.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pyproject.html" title="Py2app Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">py2app 2.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Invoking py2app</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="invoking-py2app">
+<h1>Invoking py2app<a class="headerlink" href="#invoking-py2app" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-line-interface">
+<h2>Command-line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h2>
+<p>The preferred interface for py2app is using it as a command-line tool:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 -m py2app
+</pre></div>
+</div>
+<p>This command reads configuration from a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file and
+performs the build. The command has a number of arugments that affect
+the build:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--pyproject-tom</span> <span class="pre">FILE</span></code></p>
+<p>Specify a different configuration file in the same format as
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. All paths in this file will be resolved
+relative to the directory containing the file.</p>
+<p>This option defaults to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> in the current directory.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--semi-standalone</span></code></p>
+<p>Perform a semi-standalone build. This creates a bundle that
+contains all code and resources except for the Python interpreter.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--alias</span></code></p>
+<p>Perform an alias build. This creates a bundle that contains
+symbolic links to code and is primarily useful during development
+because it allows for a quicker edit&amp;test cycle.</p>
+</li>
+</ul>
+<p>See <a class="reference internal" href="pyproject.html"><span class="doc">Py2app Configuration</span></a> for information on the structure of the pyproject
+configuration file.</p>
+</div>
+<div class="section" id="legacy-setuptools-interface">
+<h2>Legacy setuptools interface<a class="headerlink" href="#legacy-setuptools-interface" title="Permalink to this headline">¶</a></h2>
+<p>Py2app before version 2.0 was an extension command for setuptools
+and this interface is still supported, but is deprecated.</p>
+<p>This interface requires using a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file that contains
+configuration, use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">py2app</span></code> to invoke the
+setuptools command.</p>
+<p>See <a class="reference internal" href="setuptools.html"><span class="doc">py2app Setuptools Configuration</span></a> for more information on
+how to configure py2app.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Invoking py2app</a><ul>
+<li><a class="reference internal" href="#command-line-interface">Command-line interface</a></li>
+<li><a class="reference internal" href="#legacy-setuptools-interface">Legacy setuptools interface</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyproject.html"
+                        title="next chapter">Py2app Configuration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/command-line.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pyproject.html" title="Py2app Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">py2app 2.0a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Invoking py2app</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010, Ronald Oussoren, Bob Ippolito.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>

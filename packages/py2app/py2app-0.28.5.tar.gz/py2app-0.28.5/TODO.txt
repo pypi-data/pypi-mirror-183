@@ -1,0 +1,26 @@
+Phase 1:
+- Finish _setuptools_stub
+- "port" build_app to something new
+  (with minimal refactoring)
+- Refactor for easier testing
+
+Phase 2:
+- Documentation!
+- Port to modulegraph2
+- Rework recipes
+
+Phase 3:
+- Write macholib2
+- Port to macholib2
+
+Extras:
+- Start private github repository for
+  integration testing (possibly with
+  minimal variant here to make it easier
+  to ask for reproducers)
+- This repro will build and test with
+  various libraries (PyObjC, Tkinter, Qt,
+  anything requiring a recipe, ...)
+- See issue about recipes for top N
+  packages on PyPI, those need integration
+  tests as well.
