@@ -1,0 +1,11 @@
+overcome/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+overcome/overcome.py,sha256=UhSU0r1rgtFJw6xmMZ52uWktSHxuCCrxTe2bPzWlcPQ,8960
+overcome/stack.py,sha256=N4hlj1CBgGXx_W99-1XNBW0lnnxH4oSSUgeHQ9_2GgM,2650
+overcome/position/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+overcome/position/evaluation.py,sha256=thVipl2DdNiKHjWalGK8p32-RDR2QE_-BLF-YcgEFQk,1462
+overcome/position/positions.py,sha256=rR4AfG2qDPuCsfdV_KuWtIj36jK0Al-N-OewONPRmNM,178
+overcome-0.2.0.dist-info/LICENSE.txt,sha256=jOtLnuWt7d5Hsx6XXB2QxzrSe2sWWh3NgMfFRetluQM,35147
+overcome-0.2.0.dist-info/METADATA,sha256=IbQDz3r-Bsy1_-eudIzdn-TqKlX8etaz_wmfTqPFyUo,5208
+overcome-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+overcome-0.2.0.dist-info/top_level.txt,sha256=A1EHhMMGPqaYnk7Hhpi0cxpQh60PBJ8kBkWxP5-z-Qs,9
+overcome-0.2.0.dist-info/RECORD,,
