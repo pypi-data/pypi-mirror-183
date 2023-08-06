@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/max_contrast.py
+src/max_contrast.egg-info/PKG-INFO
+src/max_contrast.egg-info/SOURCES.txt
+src/max_contrast.egg-info/dependency_links.txt
+src/max_contrast.egg-info/requires.txt
+src/max_contrast.egg-info/top_level.txt
