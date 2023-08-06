@@ -1,0 +1,13 @@
+stackview/__init__.py,sha256=IiXH0NHFd7OC8MQ_DQWaT-Zc6UFNNRnrdnBZk011rNw,21953
+stackview/_annotate.py,sha256=ePCDnNhu-tkJmPLU4li_oJv5uFWXaZ2_NvvkGr9kc4c,7269
+stackview/_context.py,sha256=mdEouU2-f-AV4TrNFP7wm0nUBCGzWvO_ceA3w_nHvRQ,1519
+stackview/_image_widget.py,sha256=KkhEn203BaAsh-CJW5a9M4fBbaR8LYWrOVj5hr2XKsA,3979
+stackview/_slice_viewer.py,sha256=LtYaxRkjXnesA0Egz3AGDT8-GehUnmoJ9YYxWhCex6U,2186
+stackview/_static_view.py,sha256=WdQLs1KrpELg5f28nAaUidOmrfmut75kCfPORiJZ3Zo,8565
+stackview/_uint_field.py,sha256=X-6pgHg4ZE-MDQkicxQJJlcCFM08vQ1zl58UA11hUgc,1066
+stackview/_utilities.py,sha256=NQOnw1Bh6OOACmpvsxpEz7hfPx9bM0ocuSTI2nyU7L8,2099
+stackview-0.3.9.dist-info/LICENSE,sha256=wYffCRmhlInzcTaoToZM718meoEeMfDEd0a9eY2BcCs,1549
+stackview-0.3.9.dist-info/METADATA,sha256=6rHbS-Qmu-yVThPzlmL_SNGlu9Hsbv85xzElrJa-L2Y,8438
+stackview-0.3.9.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+stackview-0.3.9.dist-info/top_level.txt,sha256=uhs6pEyfNG9leCThx10gxAywWxqTz_dXh2F_P2S7i3U,10
+stackview-0.3.9.dist-info/RECORD,,
