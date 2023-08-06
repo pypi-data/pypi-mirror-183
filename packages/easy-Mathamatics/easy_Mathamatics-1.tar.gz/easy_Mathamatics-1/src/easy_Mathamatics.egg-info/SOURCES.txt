@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+src/easy_Mathamatics/__init__.py
+src/easy_Mathamatics.egg-info/PKG-INFO
+src/easy_Mathamatics.egg-info/SOURCES.txt
+src/easy_Mathamatics.egg-info/dependency_links.txt
+src/easy_Mathamatics.egg-info/requires.txt
+src/easy_Mathamatics.egg-info/top_level.txt
+src/easy_Mathamatics/exapmle/__init__.py
+src/easy_Mathamatics/exapmle/mathFunctions.py

@@ -1,0 +1,1 @@
+With this package you can do simple math functions with ease.
