@@ -1,0 +1,300 @@
+#!/usr/bin/env python3
+# This file is placed in the Public Domain.
+# pylint: disable=C0103,C0115,C0116,C0413,W0212,C0301,W0613,E0611,E0401
+
+
+"object programming"
+
+
+## imports
+
+
+import atexit
+import importlib
+import importlib.util
+import os
+import readline
+import rlcompleter
+import sys
+import shutil
+import time
+import termios
+import traceback
+
+
+sys.path.insert(0, os.getcwd())
+
+
+from op.message import Event
+from op.handler import Command, Handler
+from op.objects import Wd, cdir, edit, find, keys, last, printable, save, write
+from op.objects import fntime, match
+from op.running import Cfg, boot, command, scan, scandir, scanner, wait
+from op.threads import elapsed, launch
+from op.usersdb import User
+from op.version import __version__
+
+
+import op.mod
+
+
+## defines
+
+
+Cfg.name = "op"
+Wd.workdir = os.path.expanduser("~/.op")
+
+
+## classes
+
+
+class CLI(Handler):
+
+    @staticmethod
+    def announce(txt):
+        pass
+
+    @staticmethod
+    def raw(txt):
+        print(txt)
+        sys.stdout.flush()
+
+
+class Console(Handler):
+
+    @staticmethod
+    def announce(txt):
+        pass
+
+    @staticmethod
+    def handle(event):
+        Command.handle(event)
+        event.wait()
+
+    def poll(self):
+        event = Event()
+        event.txt = input("> ")
+        event.orig = repr(self)
+        return event
+
+    @staticmethod
+    def raw(txt):
+        print(txt)
+        sys.stdout.flush()
+
+
+class Completer(rlcompleter.Completer):
+
+    def __init__(self, options):
+        rlcompleter.Completer.__init__(self)
+        self.matches = []
+        self.options = options
+
+    def complete(self, text, state):
+        if state == 0:
+            if text:
+                self.matches = [
+                                s for s in self.options
+                                if s and s.startswith(text)
+                               ]
+            else:
+                self.matches = self.options[:]
+        try:
+            return self.matches[state]
+        except IndexError:
+            return None
+
+
+## utilities
+
+
+def daemon():
+    pid = os.fork()
+    if pid != 0:
+        os._exit(0)
+    os.setsid()
+    os.umask(0)
+    sis = open("/dev/null", 'r')
+    os.dup2(sis.fileno(), sys.stdin.fileno())
+    if not Cfg.verbose:
+        sos = open("/dev/null", 'a+')
+        ses = open("/dev/null", 'a+')
+        os.dup2(sos.fileno(), sys.stdout.fileno())
+        os.dup2(ses.fileno(), sys.stderr.fileno())
+
+
+def importer(mname, path=None):
+    if path is None:
+        spec = importlib.util.find_spec(mname)
+    else:
+        spec = importlib.util.spec_from_file_location(mname, path)
+    if spec:
+        mods = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mods)
+        return mods
+    return None
+
+
+def initer(mname, path=None):
+    mods = importer(mname, path)
+    if mods and "init" in dir(mods):
+        thr = launch(mods.init)
+        thr.join()
+    scan(mods)
+
+
+def scanner(mname, path=None):
+    mods = importer(mname, path)
+    scan(mods)
+
+
+def print_exc(ex):
+    traceback.print_exception(type(ex), ex, ex.__traceback__)
+
+
+def setcompleter(optionlist):
+    completer = Completer(optionlist)
+    readline.set_completer(completer.complete)
+    readline.parse_and_bind("tab: complete")
+    atexit.register(lambda: readline.set_completer(None))
+
+
+def wrap(func):
+    fds = sys.stdin.fileno()
+    gotterm = True
+    try:
+        old = termios.tcgetattr(fds)
+    except termios.error:
+        gotterm = False
+    try:
+        func()
+    except (EOFError, KeyboardInterrupt):
+        print("")
+    finally:
+        if gotterm:
+            termios.tcsetattr(fds, termios.TCSADRAIN, old)
+        for evt in Command.errors:
+            print_exc(evt.__exc__)
+
+
+## commands
+
+
+def cfg(event):
+    last(Cfg)
+    if not event.sets:
+        event.reply(printable(
+                              Cfg,
+                              keys(Cfg),
+                              skip="name,password,prs",
+                             )
+                   )
+    else:
+        edit(Cfg, event.sets)
+        write(Cfg)
+        event.done()
+
+
+def cmd(event):
+    event.reply(",".join(Command.cmd))
+
+
+def dlt(event):
+    if not event.args:
+        event.reply("dlt <username>")
+        return
+    selector = {"user": event.args[0]}
+    for obj in find("user", selector):
+        obj.__deleted__ = True
+        save(obj)
+        event.done()
+        break
+
+
+def met(event):
+    if not event.rest:
+        nmr = 0
+        for obj in find("user"):
+            event.reply("%s %s %s %s" % (
+                                         nmr,
+                                         obj.user,
+                                         obj.perms,
+                                         elapsed(time.time() - fntime(obj.__fnm__)))
+                                        )
+            nmr += 1
+        return
+    user = User()
+    user.user = event.rest
+    user.perms = ["USER"]
+    save(user)
+    event.done()
+
+
+def opr(event):
+    if not event.rest:
+        nmr = 0
+        for obj in find("user"):
+            event.reply("%s %s %s %s" % (
+                                         nmr,
+                                         obj.user,
+                                         obj.perms,
+                                         elapsed(time.time() - fntime(obj.__fnm__)))
+                                        )
+            nmr += 1
+        return
+    user = match("user", {"user": event.rest})
+    if not user:
+        user = User()
+    user.user = event.rest
+    if "OPER" not in user.perms:
+        user.perms.append("OPER")
+    write(user)
+    event.done()
+
+
+def ver(event):
+    event.reply("OP version %s" % __version__)
+
+
+## runtime
+
+
+def main():
+    boot()
+    Command.add(cmd)
+    Command.add(ver)
+    scandir("mod", importer, "mod")
+    scanner("op.mod")
+    if Cfg.prs.txt:
+        Command.add(cfg)
+        Command.add(dlt)
+        Command.add(met)
+        Command.add(opr)
+        cli = CLI()
+        return command(cli, Cfg.prs.otxt)
+    if Cfg.daemon:
+        daemon()
+        Cfg.wait = True
+    scandir("mod", initer, "mod")
+    scanner("op.mod")
+    if Cfg.console:
+        setcompleter(Command.cmd)
+        date = time.ctime(time.time()).replace("  ", " ")
+        print("%s started at %s %s" % (
+                                       Cfg.name.upper(),
+                                       date,
+                                       printable(
+                                                 Cfg,
+                                                 skip="name",
+                                                 plain=True)
+                                                )
+                                      )
+        cli = Console()
+        cli.start()
+        Cfg.wait = True
+    if Cfg.wait:
+        wait()
+    return None
+
+
+wrap(main)
