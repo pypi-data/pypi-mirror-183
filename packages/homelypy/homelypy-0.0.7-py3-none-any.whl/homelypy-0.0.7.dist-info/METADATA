@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: homelypy
+Version: 0.0.7
+Summary: A thin client wrapper for Homely API
+Project-URL: Homepage, https://github.com/kolaf/homelypy
+Project-URL: Bug Tracker, https://github.com/kolaf/homelypy/issues
+Author-email: Frank Olaf Sem-Jacobsen <frankose@ifi.uio.no>
+License-File: LICENCE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: python-dateutil
+Requires-Dist: websocket-client
+Description-Content-Type: text/markdown
+
+# homelypy
+A thin wrapper for the Homely alarm company API
