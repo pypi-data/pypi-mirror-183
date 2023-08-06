@@ -1,0 +1,6 @@
+pygame
+numpy
+noise
+pillow
+PyOpenGL
+PyOpenGL-accelerate
