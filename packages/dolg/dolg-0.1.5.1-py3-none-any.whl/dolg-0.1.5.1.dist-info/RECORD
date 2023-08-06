@@ -1,0 +1,14 @@
+dolg/dolg_model_pt.py,sha256=8gZHAW-EZgl6ieJgYV8_Jn1064hlrzA5egXwCsNvOLk,8523
+dolg/dolg_model_tf2.py,sha256=-X4MpoMJ1sfVU_yRCXVivAjQMKK1NkVvW_8UY6paJJM,9531
+dolg/resnet_pt.py,sha256=PsFUF5VNVg6FsEV_at5uV91Zlr6gWXWE5CdYvSwV7bY,9723
+dolg/resnet_tf2.py,sha256=-O3MCjNq258-4rgi7K1Fzxf2BTAKxA-VsL-nuOQSwyw,11147
+dolg/tests/test_model.py,sha256=vhFiQaBqUxSMpM47uf11BZDD_d9dxUTDXU252RVcfNQ,1729
+dolg/utils/__init__.py,sha256=M9j1NuexsmXRO0O_LLRNrLF7fEfPAHWIxm90hC6gV3I,27
+dolg/utils/convert_pt_to_tf2.py,sha256=I0DOPCm3EEQQEhVfTHJkSbHZ0BHToElUmf3evCPrJ3U,4832
+dolg/utils/download_weights.py,sha256=mIesCUbuOKrs1n3ThN5rGQ01zC8RVLghAE6JLdjWPr4,1272
+dolg/utils/extraction.py,sha256=ywSCdjnbh1RLFjroCCwiycjNbZFT-IYmpy6WNM5BLaA,2138
+dolg-0.1.5.1.dist-info/LICENSE,sha256=XEpz_DMJxiyrr6POXTfLD57-M2F6cYXvDgoNbYU83As,1086
+dolg-0.1.5.1.dist-info/METADATA,sha256=oh42I4YNKrbzprF9gVKZRlNnnyIqRurGmrnvknoIw1s,3563
+dolg-0.1.5.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dolg-0.1.5.1.dist-info/top_level.txt,sha256=1y_9keweC9FTm1ae5vqXYMvlIkz4pf5QAIKd7lr7ec8,5
+dolg-0.1.5.1.dist-info/RECORD,,
