@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ShynaTaskManager
+Version: 0.0.2
+Summary: Shyna Task Manager, Phase one
+Author: Shivam Sharma
+Author-email: shivamsharma1913@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ShynaTelegramBotNotification
+Requires-Dist: setuptools
+Requires-Dist: wheel
+Requires-Dist: google-speech
+Requires-Dist: Shyna-speaks
+Requires-Dist: shynais
+Requires-Dist: ShynaJokes
+Requires-Dist: mediawikiapi
+Requires-Dist: ShynaGreetings
+Requires-Dist: ShynaWeather
+
+# ShynaTaskManager
+
+Work in progress
