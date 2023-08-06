@@ -1,0 +1,3 @@
+[mdformat.parser_extension]
+simple_breaks=mdformat_simple_breaks
+
