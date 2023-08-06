@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling", "opencv-contrib-python>=4.5.5.64"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vidimg_utils"
+version = "0.0.2"
+authors = [
+  { name="Maksym Fedoryshyn", email="maksym.fedoryshyn@gmail.com" },
+]
+description = "A small utils to work with video and images"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://bitbucket.org/maksymfedoryshyn/video-and-imaging-tools/src/master/"
