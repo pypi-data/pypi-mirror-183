@@ -1,0 +1,14 @@
+[
+    {
+        "account_id": 1,
+        "alamat": "Jalan Swadaya 2 no 142, Yogyakarta"
+    },
+    {
+        "account_id": 1,
+        "alamat": "Jalan Kaliurang km 5 no 12"
+    },
+    {
+        "account_id": 2,
+        "alamat": "Jalan Wates no 89"
+    }
+]
