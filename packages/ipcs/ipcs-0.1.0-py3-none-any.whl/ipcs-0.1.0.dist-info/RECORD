@@ -1,0 +1,13 @@
+ipcs/__init__.py,sha256=J7SDz_9PweLXKLCOXJCFcimArqunAvTFC5Y_jmYVtDE,407
+ipcs/__main__.py,sha256=ZZHHOhu99ZI1JTc1UiohHaLMPhNsQ6x1lvHn9pErM50,1416
+ipcs/client.py,sha256=-tFMFUVXOwge9AexujHChkrR1Eq6VYZk1pF7PiwoEH0,19179
+ipcs/connection.py,sha256=gVD4z7kGgwJlM34rpcrpcmuduURT_xB2wJJHTscZfo8,3377
+ipcs/errors.py,sha256=cqSzzM3Bo_14dyaOvOvMdCMWhRT1iNeV9PqJmfbCDiA,1199
+ipcs/server.py,sha256=VGzZvppT4uS_tadQkgx7iYV_C7JMlJLT43pHxsaTyPk,5329
+ipcs/types_.py,sha256=NCJukEZYZPsNlpYADBRru2osV6jaA0o7ZMo8BmK929g,1886
+ipcs/utils.py,sha256=xGhU3_hSOKEYvAbAG4m0gyfRP2USdJhkfy4lAp4QgzA,2105
+ipcs-0.1.0.dist-info/LICENSE,sha256=Pp9w5yeFKdW3zb0WYpg9F-8WnSmba1F-ll3c2UVpTec,1070
+ipcs-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+ipcs-0.1.0.dist-info/entry_points.txt,sha256=GVZO3fEY-Cif8C1g7m0lbL0FRmaKcy85fGlGNZy-GOg,50
+ipcs-0.1.0.dist-info/METADATA,sha256=igpNytk2fkjPOT6BOwDMaebihT0ltxVyEe_dLRNRWPQ,2558
+ipcs-0.1.0.dist-info/RECORD,,
