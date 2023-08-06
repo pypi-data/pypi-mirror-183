@@ -1,0 +1,3 @@
+[console_scripts]
+acsaver=acsaver.__main__:cli
+
