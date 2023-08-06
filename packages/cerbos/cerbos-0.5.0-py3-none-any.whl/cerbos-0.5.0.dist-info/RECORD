@@ -1,0 +1,11 @@
+cerbos/__init__.py,sha256=FLhLTJ5ysJwJbu7xx1irMZr14EJbJnx-tfKpszkkEDM,167
+cerbos/sdk/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cerbos/sdk/_async/client.py,sha256=tL6ntRuN_LFZ610iBhoIqlUakPPlrXRmHuyvRWxUVzk,12680
+cerbos/sdk/_sync/client.py,sha256=kWM20FY-YAnBHDUlKh6GPjuTRnzfF5rnT6uS7WuJ9rw,12492
+cerbos/sdk/client.py,sha256=LWS8MkDpimd5Df0OQqUy6oxKAqrWuVuS7jCqE2Dze60,485
+cerbos/sdk/container.py,sha256=92jKPpwpivmsWbmApyvSFwaoC4HGM3xeHc7XVRoDr4o,759
+cerbos/sdk/model.py,sha256=u278sSXZ0XLQdjpsO4pwtFyqG6nRvoUT7LWCCb85hkc,6262
+cerbos-0.5.0.dist-info/WHEEL,sha256=_LDBqpgIVFNHZvvFOGbg2pvJOENq6RHAyT5px-HeX0U,87
+cerbos-0.5.0.dist-info/METADATA,sha256=kegM9jF5_STLN6ooCcBfRiGONqPHjOWf6MoIFiGsY24,3649
+cerbos-0.5.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+cerbos-0.5.0.dist-info/RECORD,,
