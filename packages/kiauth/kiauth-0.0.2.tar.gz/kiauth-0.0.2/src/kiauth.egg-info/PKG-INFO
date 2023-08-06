@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: kiauth
+Version: 0.0.2
+Summary: Dont put that shitty py file in your project, use this libs
+Author: Sysy's
+Author-email: Sysy's <sysys.owo@gmail.com>
+Keywords: keyauth,auth,key
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+Stop using keyauth shit file, use this libs instead ;)
