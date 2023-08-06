@@ -1,0 +1,8 @@
+README.md
+setup.py
+guiq/__init__.py
+guiq/guiq.py
+guiq.egg-info/PKG-INFO
+guiq.egg-info/SOURCES.txt
+guiq.egg-info/dependency_links.txt
+guiq.egg-info/top_level.txt
