@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: parametrization-cookbook
+Version: 0.16
+Summary: Implementation and helpers of the Parametrization Cookbook
+Home-page: UNKNOWN
+Author: Jean-Benoist Leger
+Author-email: jbleger@hds.utc.fr
+License: MIT
+Project-URL: Source, https://gitlab.com/jbleger/parametrization_cookbook
+Project-URL: Documentation, https://jbleger.gitlab.io/parametrization-cookbook/index.html
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+Parametrization Cookbook
+========================
+
+This is a module to handle bijective parametrizations for using Machine Learning
+methods in Statistical Inference.
+
+Common transformation of constrained problems to unconstrained problems are
+implemented. See [the documentation][doc] and [examples in the
+documentation][doc].
+
+To install:
+
+```bash
+pip install --upgrade parametrization-cookbook
+```
+
+[The documentation is available here.][doc]
+
+[doc]: https://jbleger.gitlab.io/parametrization-cookbook/index.html
+
+
