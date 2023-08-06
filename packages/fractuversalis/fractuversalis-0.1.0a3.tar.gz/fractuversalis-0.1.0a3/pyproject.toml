@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "fractuversalis"
+authors = [{name = "Belreau Cohen", email = "nuu.chah.nulth@disroot.org"}]
+readme = "README.md"
+dynamic = ["version", "description"]
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = []
+requires-python = ">=3.7,<4"
+
+[project.urls]
+Home = "https://github.com/Belstowe/fractuversalis.git"
+
+[tool.flit.sdist]
+exclude = [".github/"]
