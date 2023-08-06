@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: get-consecutive-filename
+Version: 0.10
+Summary: Next consecutive filename in folder
+Home-page: https://github.com/hansalemaos/get_consecutive_filename
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: folder
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+Requires-Dist: regex
+
+
+# Next consecutive filename in folder 
+
+
+```python
+# Tested with:
+# Python 3.9.13
+# Windows 10
+
+$pip install get-consecutive-filename
+
+from get_consecutive_filename import get_free_filename
+# What is it for?
+# You have a folder "F:\testfiles" with 2 files "00000.txt", "00001.txt"
+# and you want to get the next consecutive filename.
+
+fname = get_free_filename(folder="f:\\testfiles", fileextension=".txt", leadingzeros=5)
+print(fname)
+# f:\testfiles\00002.txt
+	
+```
+
+
+
+
