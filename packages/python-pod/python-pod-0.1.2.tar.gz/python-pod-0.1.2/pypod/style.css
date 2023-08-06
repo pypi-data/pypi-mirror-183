@@ -1,0 +1,67 @@
+Controls {
+    layout: horizontal;
+    content-align: center middle;
+    background: $boost;
+    height: 5;
+    margin: 0;
+    min-width: 60;
+    padding: 1;
+}
+
+Label#title {
+    content-align: center middle;
+    text-opacity: 60%;
+    width: 100%;
+    height: 3;
+    padding: 0 2;
+}
+
+ProgressDisplay {
+    content-align: center middle;
+    text-opacity: 80%;
+    height: 4;
+}
+
+Button {
+    height: 100%;
+    margin: 0 1;
+}
+
+#prev {
+    width: 1fr;
+}
+
+#play {
+    width: 2fr;
+}
+
+#next {
+    width: 1fr;
+}
+
+#playlist {
+    height: 15;
+}
+
+ListView {
+  width: 100%;
+  height: auto;
+  margin: 1 2;
+}
+
+ListItem {
+  layout: horizontal;
+}
+
+ListItem Label {
+  margin: 1 2;
+}
+
+.right {
+  dock: right;
+}
+
+.song-name {
+  width: 40;
+  padding: 0 2;
+}
