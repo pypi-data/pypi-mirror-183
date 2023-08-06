@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "check-gh-actions"
+version = "0.1.2"
+description = "Example package description"
+authors = ["Maxim V4S <maxim.d@v4scale.com>"]
+readme = "README.md"
+packages = [{include = "check_gh_actions"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
