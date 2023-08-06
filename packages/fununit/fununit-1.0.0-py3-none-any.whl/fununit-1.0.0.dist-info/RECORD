@@ -1,0 +1,11 @@
+fununit/TestCase.py,sha256=FI_CgkbHYRzqLmRY4xqEA9Grd2eoind73XltoT3ZjZA,281
+fununit/TestSuite.py,sha256=srYZPPOkOYtRra8v2qQ56Fg0P_NUGaVL1Vk1yrBAmIQ,562
+fununit/UnitTest.py,sha256=FqkswoV441eO5YzYaWT6yfhdl0M7TfZWxEi_tEWQapU,745
+fununit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fununit/adapters/__init__.py,sha256=7au1CxRdcdxcjWTn2Yq2fC2bXYhBNrdOJbOzqihssgs,81
+fununit/adapters/unittest.py,sha256=JecSrxPuT7e5VV3aPzlbRzCwUBS6JCiZGvyw6BQSfRw,959
+fununit-1.0.0.dist-info/LICENSE,sha256=lvF4V_PrKKfZPa2TC8CZo8tlqaKvs3Bpv9G6XsWWQ4k,483
+fununit-1.0.0.dist-info/METADATA,sha256=7WYe-tKG3is70-isXutXTkga25MiulmGDQrEXI8urWQ,4361
+fununit-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+fununit-1.0.0.dist-info/top_level.txt,sha256=oFoqoCCJM2lapMBJgjdANwxU2IFHL4ALz6mTBvPCbVQ,8
+fununit-1.0.0.dist-info/RECORD,,
