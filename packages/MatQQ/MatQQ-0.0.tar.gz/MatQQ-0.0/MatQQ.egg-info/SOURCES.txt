@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+MatQQ/MatQUBOa.py
+MatQQ/Mat_test.py
+MatQQ/__init__.py
+MatQQ.egg-info/PKG-INFO
+MatQQ.egg-info/SOURCES.txt
+MatQQ.egg-info/dependency_links.txt
+MatQQ.egg-info/not-zip-safe
+MatQQ.egg-info/requires.txt
+MatQQ.egg-info/top_level.txt
