@@ -1,0 +1,3 @@
+[console_scripts]
+yesmaster=yesmaster.yesmaster:run
+
