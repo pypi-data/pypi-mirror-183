@@ -1,0 +1,3 @@
+[console_scripts]
+reddit-comment-scrapper=reddit_comment_scrapper.main:app
+
