@@ -1,0 +1,36 @@
+# 构建
+[tool.poetry]
+name = "driver-downloader"
+version = "0.1.0"
+description = "chromedriver downloader"
+authors = ["Tai <flywacool@gmail.com>"]
+license = "MIT"
+maintainers = [
+    "Tai Hui <flywacool@gmail.com>",
+]
+readme = "readme.md"
+
+keywords = ["selenium", "chromedriver"]
+
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [
+    { include = "src/driver" },
+]
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.23.2"
+typer = "^0.7.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+pre-commit = "^2.21.0"
+nox = "^2022.11.21"
+
+[tool.poetry.scripts]
+driver = "driver.command:app"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
