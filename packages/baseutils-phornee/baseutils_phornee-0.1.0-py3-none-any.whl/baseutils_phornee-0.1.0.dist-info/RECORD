@@ -1,0 +1,13 @@
+baseutils_phornee/__init__.py,sha256=oXAdy9uHqkl9Hd9xwMOmtTJ1Jb5gY9aFGSk0DQVEIh8,106
+baseutils_phornee/config.py,sha256=beruVPYnHA1040ZuWnCu6MO3Dzq4wAcCkrkmaWD4znc,4467
+baseutils_phornee/logger.py,sha256=unDKyWS3FTI4S_YHliF9YzdUr6hSt5c0MmZJY_5dZD4,2542
+baseutils_phornee/managedclass.py,sha256=UzPGHmZb7C8Vy6hrvcBHaLWmcDJDDj8EXXLXOXwQBdA,2142
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_config.py,sha256=a_uZbDzLUySPXs8N8ojfxUmG10QnqsK6PBC9F4DnRNo,5749
+tests/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/data/config_existing.yml,sha256=Vc__DToE9i9zvxpkhAOuC-6tGps5zEZ1BKqSZMh9Wnw,56
+tests/data/config_template.yml,sha256=KFI_saJvok9UBmbai9wYe19NXFGbGF0H5s_eUj2gg1E,52
+baseutils_phornee-0.1.0.dist-info/METADATA,sha256=AbT9UMmSAheaT-vMOqIRGQPIUgClP4wmydeEgrtMPzg,574
+baseutils_phornee-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+baseutils_phornee-0.1.0.dist-info/top_level.txt,sha256=OaGzJgozuVPIJWPV493RqfIdvx2Jirb-kQZrlneomxc,24
+baseutils_phornee-0.1.0.dist-info/RECORD,,
