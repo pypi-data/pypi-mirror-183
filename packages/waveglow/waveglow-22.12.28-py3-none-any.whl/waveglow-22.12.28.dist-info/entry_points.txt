@@ -1,0 +1,4 @@
+[console_scripts]
+waveglow-inference=waveglow.inference:main
+waveglow-train=waveglow.train:main
+
