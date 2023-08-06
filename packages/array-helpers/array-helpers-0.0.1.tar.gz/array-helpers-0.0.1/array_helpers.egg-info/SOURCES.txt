@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+array_helpers/__init__.py
+array_helpers/array_helper.py
+array_helpers/predicate_class.py
+array_helpers.egg-info/PKG-INFO
+array_helpers.egg-info/SOURCES.txt
+array_helpers.egg-info/dependency_links.txt
+array_helpers.egg-info/top_level.txt
+tests/test_array_helper.py

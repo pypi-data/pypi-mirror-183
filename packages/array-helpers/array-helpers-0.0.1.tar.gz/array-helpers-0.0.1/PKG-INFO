@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: array-helpers
+Version: 0.0.1
+Summary: Add useful helper functions for lists with a wrapper class
+Home-page: https://github.com/liam-edwards/python-array-helpers
+Author: Liam Edwards
+Author-email: me@liamedwards.dev
+License: LICENSE.txt
+Project-URL: Documentation, https://github.com/liam-edwards/python-array-helpers
+Project-URL: Source, https://github.com/liam-edwards/python-array-helpers
+Project-URL: Tracker, https://github.com/liam-edwards/python-array-helpers/issues
+Keywords: array,list,helpers,human friendly,python
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+UNKNOWN
+
