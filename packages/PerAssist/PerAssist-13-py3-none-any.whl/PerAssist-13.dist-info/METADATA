@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: PerAssist
+Version: 13
+Summary: Personal Jesus
+Home-page: https://github.com/LarryLynne/PersonalAssistant
+Author: Проект_кор_група_2
+Author-email: vovka.drunique@gmail.com
+Requires-Dist: colorama
+
