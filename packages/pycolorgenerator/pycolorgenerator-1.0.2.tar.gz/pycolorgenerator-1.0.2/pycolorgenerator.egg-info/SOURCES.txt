@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+pycolorgenerator/__init__.py
+pycolorgenerator.egg-info/PKG-INFO
+pycolorgenerator.egg-info/SOURCES.txt
+pycolorgenerator.egg-info/dependency_links.txt
+pycolorgenerator.egg-info/top_level.txt
