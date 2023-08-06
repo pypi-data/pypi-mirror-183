@@ -1,0 +1,9 @@
+cosmonote/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cosmonote/app.py,sha256=h3tguOGXDAJKoQV2mDhvqlgarFsGRzEZXWKIRwh4SiU,6935
+cosmonote/entrypoint.py,sha256=cMWHTHoVlLV97sbAzOq-_9IlVeFo15pCXr2U2r0I9Ik,86
+cosmonote/notes.py,sha256=T7hVdAr3kuLurE76hF8Y9gqsfWrSdBUOeZlPvt6Xwqw,493
+cosmonote/utils.py,sha256=ek_Dq8WDPIymtvOeR-B2f6NZ9xkOIYFeb0OCeJfbgR4,472
+cosmonote-0.1.4.dist-info/METADATA,sha256=JdZKefS5yCjYhzDbhWMQ7HDtKR9ZR1gmq5o0rDnQhzs,767
+cosmonote-0.1.4.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+cosmonote-0.1.4.dist-info/entry_points.txt,sha256=VlKfodOI3XkKEM3EX50GeG7eW7relJ_-79hwH4K-NP8,57
+cosmonote-0.1.4.dist-info/RECORD,,
