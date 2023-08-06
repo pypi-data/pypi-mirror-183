@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: exploration-stats
+Version: 0.0.33
+Summary: An EDA Package which can perform multiple Eda Operations on your dataframe in one go and yes saves Time as well !!! ------ Developed by Lalit Sharma
+Author: Lalit Sharma (Tata Motors)
+Author-email: lalit.sharma1@tatamotors.com
+License: UNKNOWN
+Keywords: python,video,stream,video stream,camera stream,sockets
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: missingno
+Requires-Dist: colorama
+
+Exploration_Stats
+
+Overview
+
+This package provides EDA lifecycle fucntions like visualizations of missing values , their counts , distribution plots of different numerical columns , their skewness and kurtosis and many more which will save a lot of time 
+
+An Exploration is a sequence of steps, along with a sequence of decisions indicating where the explorer was at each step, a sequence of transitions indicating which transition was taken at each step, and a sequence of states indicating extra state at each step. These representations were developed with Metroidvania games in mind.
+
+Core capabilities include:
+
+Representing exploration processes as a series of steps including partial information about not-yet-explored decisions.
+Creating maps and explorations from various text formats, including exploration journal formats.
+Reasoning about reachability modulo transition requirements in terms of powers that must be possessed and/or tokens that must be spent for a transition. TODO
+The ability to represent fairly sophisticated game logic in the DecisionGraph, and even construct playable maps. Game logic that can't be captured this way can still be represented through making custom changes to maps between exploration steps. 
+
+TODO
+Dependencies:
+Python version 3.8+
+networkx For underlying graph structures.
+pytest for testing, install with [test] option to get it automatically.
+Installing
+Just run pip install exploration-stats . The egtool script should be installed along with the module.
+
+
+Getting Started:
+after installing the package 
+import exploration_stats as exp and call the exp.eda() fucntion 
+pass the dataframe and you are all set to go 
+
+example:
+
+pip install exploration_stats:
+
+import exploration_stats as exp:
+
+exp.eda(df)  ---> df is your dataframe and eda is the pre built function comes with this package 
+
+Plans
+Better support for open-source eda guides , where steps are not as closely linked to virtual space structure.
+
+Changelog
+There are also now a few built-in debug commands available for printing relvant stuff. More may be added as they become popular. It also introduces equivalences, stored in the DecisionGraph, which allow powers (but not tokens) to count as being obtained when one of a set of other requirements is met instead.
+v0.1.1 Still pre-alpha as it's in the process of being re-architected a bit, but some core functionality is present if rough (e.g., core.DecisionGraph and core.Exploration).
+v0.1 Initial pre-alpha upload.
+
+
