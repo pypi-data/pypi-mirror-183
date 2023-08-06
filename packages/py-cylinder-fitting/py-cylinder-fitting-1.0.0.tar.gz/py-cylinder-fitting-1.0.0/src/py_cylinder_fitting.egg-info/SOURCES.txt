@@ -1,0 +1,11 @@
+LICENSE
+README.rst
+pyproject.toml
+src/py_cylinder_fitting/__init__.py
+src/py_cylinder_fitting/_coordinate_transformations.py
+src/py_cylinder_fitting/best_fit_cylinder.py
+src/py_cylinder_fitting.egg-info/PKG-INFO
+src/py_cylinder_fitting.egg-info/SOURCES.txt
+src/py_cylinder_fitting.egg-info/dependency_links.txt
+src/py_cylinder_fitting.egg-info/requires.txt
+src/py_cylinder_fitting.egg-info/top_level.txt

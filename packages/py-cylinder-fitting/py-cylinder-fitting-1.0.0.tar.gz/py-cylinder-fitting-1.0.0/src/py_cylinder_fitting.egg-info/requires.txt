@@ -1,0 +1,2 @@
+scikit-spatial>=1.0.1
+scipy>=1.9.3
