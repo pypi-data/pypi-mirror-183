@@ -1,0 +1,5 @@
+[console_scripts]
+dev=eudata_server.server:develop
+prod=eudata_server.server:run
+sslprod=eudata_server.server:run_ssl
+
