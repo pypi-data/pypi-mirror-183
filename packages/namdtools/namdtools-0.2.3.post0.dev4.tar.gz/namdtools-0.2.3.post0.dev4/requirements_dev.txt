@@ -1,0 +1,7 @@
+codecov
+coverage
+Cython
+sphinx
+sphinx-copybutton
+wheel
+versioneer
