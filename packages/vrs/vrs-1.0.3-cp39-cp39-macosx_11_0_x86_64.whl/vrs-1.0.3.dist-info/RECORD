@@ -1,0 +1,12 @@
+pyvrs/__init__.py,sha256=e30u2ZALMnaceR5JjAfYtAMCl6SeEoxtlOHPJkmvkyU,1754
+pyvrs/base.py,sha256=cmBqc08h7Opkomk5dzfM99oQSWBEWU_huK0KGSicOd0,13681
+pyvrs/filter.py,sha256=Io3-WuX33eD1Eo4JXUzW5AmdUXr52jSM4nlnSU8Fyi4,20020
+pyvrs/reader.py,sha256=ac6D4JJ1qoRWhGLQaK5SDgJrA1Wg2Y7U4gfMe66OIGY,29775
+pyvrs/record.py,sha256=C-HB4bK2Bxv6wx5_9If_kwJP5UHaEEqXW9psAqsziDk,5628
+pyvrs/slice.py,sha256=UQL7RrI_jUFAH79HXMUr6_Oo2RUbz3QrdFnsyDU6kG0,5606
+pyvrs/utils.py,sha256=O64iJKDaa16ZX9VKqASaeqVFy0yW3KeOCUjVYiS36Lc,5325
+pyvrs/vrsbindings.cpython-39-darwin.so,sha256=pb4QCf3FuleEsKKY7g2JrVHQVOGOskNtUTb2Kd0CFSI,2869352
+vrs-1.0.3.dist-info/METADATA,sha256=s52vA-GwLOnPJac8Hv7jCX9Frqx0jlqplU8bUxGBIzY,995
+vrs-1.0.3.dist-info/WHEEL,sha256=Tb_t7JGjS9UNO7L5mRtd9E9oLUA9YQccQulkdRossZI,109
+vrs-1.0.3.dist-info/top_level.txt,sha256=MsgVAiE9_-pw7ouIdow9iiE7EpzZ2WMCQQ7GYJjWIlk,24
+vrs-1.0.3.dist-info/RECORD,,
