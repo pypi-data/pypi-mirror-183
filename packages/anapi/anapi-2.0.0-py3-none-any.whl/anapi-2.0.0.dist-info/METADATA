@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: anapi
+Version: 2.0.0
+Summary: AnAPI lib
+Home-page: https://ai.wispace.ru/
+Author: WiSpace
+Author-email: wiforumit@gmail.com
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# AnAPI
+
+## Class ChatAI
+
+Arguments:
+version="last",
+api_key="standart_key"
+
+**API key is not needed for API version 1.**
+
+Functions:
+get_answer(text: str) -> str — return answer from API
+create(filename: str) -> str — create new AI and return API key
+upload(filename: str) — edit AI
+
+
+# Example
+
+```py
+import anapi
+
+AI = anapi.ChatAI(2, api_key="Your api key")
+
+while True:
+    answer = AI.get_answer(input("You: "))
+
+    print("ChatBot:", answer)
+
+```
