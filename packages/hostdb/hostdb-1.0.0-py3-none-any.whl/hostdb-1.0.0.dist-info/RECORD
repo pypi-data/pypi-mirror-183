@@ -1,0 +1,11 @@
+hostdb/__init__.py,sha256=Vqg7DVQaMQZf7yQ3pCHJvbmrx8R51eVTkOeoKbCztUI,64
+hostdb/allocate_hostname.py,sha256=NrqQDYYNwjgi0zDVLt-N6bNNmXM2BICgTlphAJcDLVc,707
+hostdb/hostdb.py,sha256=hX5tudWt--3p3FZad-Uz0OWuVRTFUjQHbPrKNak_cE0,3984
+hostdb/inventory.py,sha256=e5AdQ7g3gUQ1td0dpo3ZMXol7TWI3N60yTuk7qZ6Z0c,4499
+hostdb/validate_hostdb.py,sha256=OUQAmkGn8OGeKbY_8UvThau5VlIfsyffLVpjhSBlCuU,470
+hostdb-1.0.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+hostdb-1.0.0.dist-info/METADATA,sha256=Q2-D5LX4QrZZKURXnM26LprgkKa5PfwwifgxD8_aNps,5346
+hostdb-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hostdb-1.0.0.dist-info/entry_points.txt,sha256=TI_2qwPmHB98rpabJ-a-geAiRztjGmkCrtsj1szHOf4,104
+hostdb-1.0.0.dist-info/top_level.txt,sha256=F6ElWndIO8rBaJH25ImwqtjPaRM5Gr5BpqPv8f4N_ys,7
+hostdb-1.0.0.dist-info/RECORD,,
