@@ -1,0 +1,7 @@
+fastcore
+numpy
+matplotlib
+jax[cpu]
+lovely-numpy>=0.2.8.dev2
+
+[dev]
