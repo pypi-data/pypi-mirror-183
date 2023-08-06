@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: streamlit_select_image
+Version: 0.0.1
+Summary: Simple Streamlit MUI Select with images.
+Home-page: https://github.com/victorC97/streamlit_select_image
+Author: victorC97
+Author-email: victor.cour@telecomnancy.net
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+License-File: LICENSE
+
+Adaptation of the MUI Select component but instead of plain text MuiItems, it's images.
+
