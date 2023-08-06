@@ -1,0 +1,9 @@
+clearskies_gql/__init__.py,sha256=gzP8Eeozw-UH6DNnuvier5HJLcsoj8YPn4q5-qTj9w0,23
+clearskies_gql/backends/__init__.py,sha256=Lk7xT72x9oWQCoH3FkwxTGFmZmsxoz3HZ_siJO-NQ4I,36
+clearskies_gql/backends/gql_backend.py,sha256=DuTB2Ol0I_ULkdwdF9gxlMJAI96s_HKPnJNisZtMuJk,9239
+clearskies_gql/backends/gql_backend_test.py,sha256=VSDc0p0kp_eabiYKajjNtTCqMkxkfwEB5ShM56rHFCg,3429
+clear_skies_gql-0.1.1.dist-info/LICENSE,sha256=3Ehd0g3YOpCj8sqj0Xjq5qbOtjjgk9qzhhD9YjRQgOA,1053
+clear_skies_gql-0.1.1.dist-info/METADATA,sha256=HgrqecBrx6539B6EmOlbeV2G0V15X1s2LnfCYjrTuFk,3563
+clear_skies_gql-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+clear_skies_gql-0.1.1.dist-info/top_level.txt,sha256=ISt0mENwpPhNV532F_njsHLNaa_elteNyp-4gCEkKOg,15
+clear_skies_gql-0.1.1.dist-info/RECORD,,
