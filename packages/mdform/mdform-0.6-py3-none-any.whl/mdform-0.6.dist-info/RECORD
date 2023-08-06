@@ -1,0 +1,12 @@
+mdform/__init__.py,sha256=irfJ5a7acSmCNZ4dkZBxfXHnA2PsSCrjOnmg5b7Tt1Q,959
+mdform/extension.py,sha256=ZxCj3F6vjq9Q9aq5cuCvuHcGckUPK7koHdPKERgvrcs,4847
+mdform/fields.py,sha256=nU20ZWOFuRSwGlMg_MLZ7gc9LZqmvRw5vsLxa59zLTk,13733
+mdform/testsuite/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mdform/testsuite/test_extension.py,sha256=-qMqwTz9HmNvUZPdbqiqRpMmXeKfM0oly4HgB5Z8Ua8,2314
+mdform/testsuite/test_fields.py,sha256=xjPnGqT8klIdxhcq2UdGdeQzP648r2OXCAwaaG8-N6c,11472
+mdform-0.6.dist-info/AUTHORS,sha256=t9HJMtlukeQHYWE50_wW5ArnxyYjpe09ZNkM72hcvgg,80
+mdform-0.6.dist-info/LICENSE,sha256=oEpg6cMtZ-3lBvuWY0sWZTnHtO4rfxj14-z_qIGHEC4,1584
+mdform-0.6.dist-info/METADATA,sha256=QcLQl1IFvGY0VovJAgWmhJX65lJuRIoX_THhYwxkHi8,14090
+mdform-0.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mdform-0.6.dist-info/top_level.txt,sha256=rmGWlazf3xRRbygy6lWgw1IqX2OOds8VCk6oHZC8XY4,7
+mdform-0.6.dist-info/RECORD,,
