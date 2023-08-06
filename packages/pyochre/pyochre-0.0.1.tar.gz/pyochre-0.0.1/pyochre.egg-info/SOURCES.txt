@@ -1,0 +1,8 @@
+README.md
+setup.py
+pyochre/__init__.py
+pyochre.egg-info/PKG-INFO
+pyochre.egg-info/SOURCES.txt
+pyochre.egg-info/dependency_links.txt
+pyochre.egg-info/requires.txt
+pyochre.egg-info/top_level.txt
