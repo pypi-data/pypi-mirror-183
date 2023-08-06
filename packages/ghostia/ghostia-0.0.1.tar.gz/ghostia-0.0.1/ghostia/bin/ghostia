@@ -1,0 +1,562 @@
+from ghostia.server.composer import composer
+import click,os
+import asyncio
+app=composer.objects["app"]
+looger=composer.logger("cli")
+from . import programs
+
+@app.cli.command('test',help="Ejecuta el test")
+@click.option("-m","mark")
+def do_test(mark):
+    if mark:
+        mark=" -m "+mark
+    else: mark=""
+    os.system("pytest "+app.config["BASE_DIR"]+mark+" --full-trace")
+
+
+@app.cli.command('record',help="Ejecuta el test")
+@click.option("-n","name")
+@click.option("-c","continued")
+def record(name="default",continued=False):
+    async def command():
+        worker=composer.load_worker("worker")({
+            "mode":"testing"})
+
+        await worker.record_desktop(name,continued)
+    asyncio.run(command())
+
+@app.cli.command('play',help="Ejecuta el test")
+@click.option("-n","name")
+def play(name):
+    async def command():
+        worker=composer.load_worker("worker")({
+            "mode":"testing"})
+        await worker.play_desktop(name)
+    asyncio.run(command())
+
+@app.cli.command('location')
+@click.argument("name")
+def do_location(name):
+    from ..models import UserRepository
+    UserRepository
+
+@app.cli.command('do')
+@click.argument("activity")
+def do_activity(activity):
+    async def command():
+        developer=composer.load_worker("developer")({"channel":"cli"})
+        status=await developer.do(activity)
+        if status==404:
+            developer.say("Disculpe señor no tengo conocimientos de como hacer esta tarea")
+
+    asyncio.run(command())
+
+@app.cli.command('learn')
+@click.argument("activity")
+@click.option('-i', '--interactive', is_flag=True,
+    help='Habilita un editor de texto para que atraves de deste\
+se le de las instrucciones de como hacer la tarea paso a paso')
+def do_activity(activity,interative):
+    """
+    El aprendizaje se basa en encontrar la serie de pasos que son
+    necesarios para realizar una determinada actividad y lograr
+    los resultados propuestos, aplicando tecnicas logicas resolutivas
+    a los distintos problemas que puedan presentarse durante la
+    realización  de la actividad
+    """
+    async def command():
+        learnner=composer.load_worker("learnner")({"channel":"cli"})
+        learnner.study(activity)
+        if interative:
+            BASE_DIR=app.config["BASE_DIR"]
+            "#INTRUCCIONES: "+name+\
+            "#--------------------------\n"+\
+            "# recuerde comenzar la instruccion con un * seguida de un verbo\n"+\
+            "#ejemplo: * abrimos el navegador y escribimos casas baratas en la barra de busqueda"
+            click.edit("#INTRUCCIONES: "+name)
+            os.system(BASE_DIR+"/files/study/")
+
+    asyncio.run(comamnd())
+
+@app.cli.command('study')
+@click.argument("target")#nombre de la entidad conocida
+@click.argument("type")#tipo de estudio
+def do_study(target):
+    """
+    El estudio es basicamente un analisis, la cosa es saber
+    que propiedad vamos a analizar del target. ejemplos:
+    * exploratorios/formulativos
+    * descriptivo
+    * explicativos
+    * correlacionales
+    * experimentales
+    * no experimentales
+    * analiticos
+    """
+    async def command():
+        pass
+    asyncio.run(command())
+
+@app.cli.command("activities")
+@click.option("-n","--name",help="Muestra informacion sobre esta actividad")
+@click.option("-w","--worker",help="Muestra la actividades segun el worker")
+@click.option("--stop",is_flag=True,default=False,help="detiene una actividad")
+@click.option("--pause",is_flag=True,default=False,help="pausa una actividad")
+@click.option("--restart",is_flag=True,default=False,help="continua una actividad")
+def manage_activities(name,worker,stop,pause,restart):
+    """
+    """
+    async def command():
+        pass
+    asyncio.run(command())
+@app.cli.command("routine")
+def do_routine(name):
+    """
+    Las routinas son una serie de generalmente acciones
+    programadas/agendadas son secuenciales y cumplen con
+    una funcion periodica
+    """
+    async def command():
+        all_process=[]
+        with click.progressbar(all_process) as step:
+            await step()
+    asyncio.run(command())
+
+@app.cli.command("routines",help="Lista las routinas conocidas por la IA")
+@click.option("-i","--interactive",is_flag=True,default=False)
+@click.option("--worker","-w",help="template de instrucciones")
+def routines(interactive=False,worker="developer"):
+    import yaml
+    import os
+    print("Ejecutando este comando")
+    from ghostia.server.composer import composer    
+    worker=composer.load_worker("developer")({"mode":"traning"})
+
+    import readline
+    if interactive:
+        routines= worker.get_routines()
+        def completer(text, state):
+            options=[  ]
+            for routine in routines:
+                if text in routine.split("/")[-1]:
+                    print(routine)
+                    options.append(routine)
+        
+            """
+            print("@@@@@@@@@@ ",text," ",state,[ routine.split("/")[-1] 
+                    for routine in routines])
+            print("hhhhh")
+            try:
+                options=list(filter(lambda routine: text in routine ,
+                [ routine.split("/")[-1] for routine in routines]))
+            except Exception as e:
+                print("ttttttt",e)
+            """
+            
+
+            
+            #options = [ routine.split("/")[-1][:len(".py")] if i.startswith(text) else None for routine in routines]
+
+            if state < len(options):
+                return options[state]
+            else:
+                return None
+
+        readline.parse_and_bind("tab: complete")
+        readline.set_completer(completer)
+        """
+        for routine in worker.get_routines():
+            
+            worker.run_routine(routine)
+        """
+
+        routine = input("> ")
+        worker.run_routine(routine)
+
+            
+        
+    else:
+        print("")
+        print("RUTINAS:")
+        for routine in worker.get_routines():
+            print(routine.split("/")[-1]+"   "+routine)
+        
+
+async def intent_manager(worker,ctx={}):
+    from ghostia.server.models.reasoning import Intent,IntentRepository
+    from smartinput import sinput
+    command=sinput("quiero decir:").strip()
+
+    if command and ctx["when say"]:
+        intent=Intent(**{
+            "when":ctx["when say"],
+            "want":command})
+        repository=IntentRepository.save(intent)
+
+        looger.warn("Intent saved")
+
+@app.cli.command("listen",help="Se mantiene escuchando los comandos de la terminal a partir de este momento")
+def listen():
+    pass
+
+@app.cli.command("edit",help="Permite editar los comandos guardados")
+def edit():
+    pass
+@app.cli.command("list",help="Lista todos los comandos guardados")
+def list():
+    pass
+@app.cli.command("pull",help="Actualiza la lista local de comandos")
+def pull():
+    pass
+@app.cli.command("push",help="Sube a nuestra nuve los comandos que hallamos creado")
+def push():
+    pass
+
+@app.cli.command("search",help="busca los comandos en local o en la nube segun descripcion o caracteristicas de entrada y salida (input_parametros,tag_action,endstate)")
+def search():
+    pass
+
+@app.cli.command("alias",help="Crea un alias para un comando guardado")
+def alias():
+    pass
+
+
+@app.cli.command("pause",help="Pausa una tarea en ejecucion, continua ejecutando otra tarea, no el proceso")
+def pause():
+    pass
+@app.cli.command("stop",help="Detiene una tarea en ejecucion, detiene el proceso de la tarea")
+def stop():
+    pass
+
+@app.cli.command("restart",help="Continua una tarea detenida")
+def restart():
+    pass
+
+@app.cli.command("terminate",help="Forza la terminacion de una tarea")
+def terminate():
+    pass
+@app.cli.command("resolve",help="Intenta realizar una tarea abstracta, bajo los siguiente informacion (input_parametros,tag_action,endstate)")
+def resolve():
+    pass
+
+@app.cli.command("remote",help="Ejecuta commandos remotos por SSH de forma inteligente")
+def remote():
+    pass
+
+@app.cli.command("jobs",help="Ve la lista de tareas ejecutandose por el asistente")
+def jobs():
+    pass
+
+@app.cli.command("serve",help="Ve la lista de tareas ejecutandose por el asistente")
+def serve():
+    from ghostia.server import app
+    import threading
+    import time
+    from uuid import uuid4
+
+    def loop():
+        from ghostia.server.composer import composer
+        daemon=composer.load_worker("developer")({})
+        asyncio.run(daemon.live())
+            
+    p=threading.Thread(target=loop)
+    p.start()
+    app.run(debug=True)
+
+@app.cli.command("task",help="")
+@click.argument("name")
+@click.option("-d","--description",help="Descripcion detallada del proposito de la tarea. porque y para que")
+@click.option("-i","--interactive",help="Activa el modo interactivo para definir cosas como el checklist o agregar comentarios")
+def task(name,description=None,interactive=None):
+    from ghostia.server.composer import composer
+    worker=composer.load_worker("developer")()
+    async def app():
+        pass
+    async def main_loop():
+        print("aaaaaaa")
+        developer=composer.load_worker("developer")({"channel":"cli"})
+        status=await developer.create_task(name)
+        print("lllll")
+        """
+        asyncio.gather(
+            worker.listen(),
+            worker.live(),
+            app())
+        """
+
+    asyncio.run(main_loop())
+
+
+@app.cli.command("generate_world",help="Este comando genera un mundo de \
+    simulacion donde puede interactuar diferentes workers a fin de evalucionar sus vidas")
+@click.option("-a","--agents",help="Descripcion detallada del proposito de la tarea. porque y para que")
+@click.option("-ra","--remote-agents",help="Descripcion detallada del proposito de la tarea. porque y para que")
+@click.option("-p","--password",help="Descripcion detallada del proposito de la tarea. porque y para que")
+async def generate_world(agents,remote_agents,password):
+    epochs=1000
+    steps=1000
+    from composer import composer
+    env=composer.load_world("free_live")
+    workers=[]
+    for elem in remote_agents:
+        socket=io.connect(elem)
+        env.connect(wrapper_env(socket))
+    for agent in agents:
+        for i in range(agent[0]):
+            worker=composer.load_worker(agent[1])({"mode":"traning"})
+            env.connect(worker)
+            workers.append(worker.live)
+
+
+    await asyncio.gather(*worker)
+    clock = pygame.time.Clock()
+    window = pygame.display.set_mode((1000, 500))
+    environment.init_render()
+    run = True
+    while run:
+        clock.tick(30) # set game speed to 30 fps
+        action =None # [...], get action
+        env.step(action) # calculate game step
+        env.render() # make pygame render calls to window
+        pygame.display.update() # update window
+    pygame.quit()
+
+
+@app.cli.command("batch_web_image",help="optimiza las imagenes para la web")
+@click.option("-o","--origin",help="carpeta de origen")
+@click.option("-d","--destiny",help="carpeta de destino")
+@click.option("-a","--autorename",help="autorenombrar")
+def batch_web_image(origin=None,destiny=None,autorename=True):
+    from PIL import Image
+    import os,shutil
+    def comprimir(src,dest,quality=70,max_width=2000):
+    	if not os.path.exists(dest):
+    		os.makedirs(dest)
+
+
+    	for path in os.listdir(src):
+    		if not src.endswith("/"):
+    			src+="/"
+    		if not os.path.isdir(src+path):
+        		img = Image.open(src+path)
+        		width,height=img.size
+        		if width>max_width:
+        			proporcion=width/max_width
+        			new_width=max_width
+        		else:
+        			new_width=width
+        			proporcion=1
+        		if not dest.endswith("/"):
+        			dest+="/"
+        		new_img = img.resize((int(new_width),int(height/proporcion)))
+        		new_img.save(dest+path,'jpeg', quality=quality)
+
+    origin=origin or os.getcwd()
+    destiny=destiny or os.getcwd()+"/comprezed/"
+
+    max_width= 2000
+    quality=70
+
+    print("Iniciando compresión...")
+    comprimir(origin,destiny,quality)
+    if autorename:
+        shutil.move(origin,origin+"_backup")
+    shutil.move(destiny,origin)
+    print("Optimización completa")
+
+@app.cli.command('projects')
+def get_projects():
+    """
+    El estudio es basicamente un analisis, la cosa es saber
+    que propiedad vamos a analizar del target. ejemplos:
+    * exploratorios/formulativos
+    * descriptivo
+    * explicativos
+    * correlacionales
+    * experimentales
+    * no experimentales
+    * analiticos
+    """
+    async def command():
+        
+        from ghostia.server.models.project import ProjectRepository
+        for project in ProjectRepository.find():
+            print(project)
+    asyncio.run(command())
+
+@app.cli.command("generate_project",help="Genera un proyecto segun la tecnologia")
+@click.option("-t","--template",help="template de instrucciones")
+@click.option("-w","--worker",help="template de instrucciones")
+def generate_project(template=None,worker="developer"):
+    import yaml
+    import os
+    print("Ejecutando este comando")
+
+
+    documents["worker"]=worker
+    documents["Project"]["name"]=name
+    documents["Project"]["path"]=path
+    worker.init_instructions(documents)
+    worker.backend.create_project(name)
+
+
+def interative(worker,parsed):
+    from cli import  programs
+
+    if not parsed["components"]:
+
+        worker.say("No entendi que quieres")
+        option=worker.ask("Me puedes explicar",
+            options=[
+                ("Quieres indicarme una intención","intent"),
+                ("Quieres identificar una regla gramatical","grammar_rule")
+            ],
+            say_options=True)
+        if option=="intent":
+            programs.learn_intent(worker)
+        elif option=="grammar_rule":
+            programs.grammar_rule(worker,parsed["posibleRules"])
+
+
+def interprete_manager(message):
+    from .console import console
+    import multiprocess as mp
+    console(message)
+    """
+    if intent.objective:
+        if intent.objective.type=="action":
+            actions=intent.objective.action.split(" y ")
+            print("bbbbbb ",actions)
+            for action in actions:
+                await worker.manage_action(action)
+            return
+            print("Por aqui pase")
+    
+    did=await composer.interprete(worker,ctx["input"])
+    print("WWWWWWWWWWWWW")
+    if not did:
+        print("jjjjjjj")
+        parsed=parse(ctx["input"],lambda parsed:interative(worker,parsed))
+        worker.ctx["_conversation"].append(parsed)
+        print("HHHHHH",parsed[0][0][0].model)
+    """
+modes={"when say":intent_manager,
+       "interprete":interprete_manager}
+
+def prompt_empty():
+    from smartinput import sinput
+    return sinput("...".ljust(len("[pandora]:")," ")).strip()
+
+
+@app.cli.command("console")
+@click.option("-c","--connect",help="direccion del servidor worker al que se conecta")
+def console(connect):
+    from ghostia.server.composer import composer
+    from watchdog.observers import Observer
+    from watchdog.events import PatternMatchingEventHandler
+    import time,threading
+    import multiprocess as mp
+    from queue import Queue
+    from subprocess import Popen
+    from threading import Timer
+    import requests,os
+
+    path=os.path.dirname(__file__)+"/../"
+    def run():
+        command=None
+        while command!=".exit":
+            command=input("[pandora]").strip()
+            if command:
+                req=requests.post("http://localhost:5000/command",
+                    json={"action":"interprete","payload":command})
+                print(req.json())
+    t=threading.Thread(target=run)
+    t.start()
+    if not connect:
+        
+        SCRIPT_FILENAME=path+"main.py"
+        ENV={
+         "USER":"ghost",
+         "HOME":"/home/ghost"
+        }
+
+        class Runner:
+            __proc = None
+            __handler_func = None
+
+            # Command to run the passed in script.
+            @staticmethod
+            def run():
+                # Run the python script and keep track of the process.
+                Runner.__proc = Popen([
+                    "/home/zerpa/anaconda3/envs/pandora/bin/python", 
+                    SCRIPT_FILENAME],env=ENV)
+
+
+            # Fires when watched files change.
+            @staticmethod
+            def handle_file_modified(event):
+                print("Modificado..")
+                # If there is previously running process
+                # from a previous reload then kill it.
+                if Runner.__proc != None:
+                    Runner.__proc.kill()
+
+                # Debouncing:
+
+                # If there is a script reload scheduled
+                # to occur in the future, cancel it.
+                if Runner.__handler_func != None:
+                    Runner.__handler_func.cancel()
+
+                # Schedule the reload to happen in .5 secs.
+                Runner.__handler_func = Timer(1, Runner.run)
+                Runner.__handler_func.start()
+
+
+        Runner.run()
+        # Initialize file watching object.
+        file_watcher = Observer()
+
+        file_modified_event_handler = PatternMatchingEventHandler(patterns=["./*.py"], ignore_patterns=["./cli/__init__.py"])
+
+        # Set the action to be taken when the "on_modified" action
+        # is detected (our debouncing method is called).
+        file_modified_event_handler.on_modified = Runner.handle_file_modified
+
+        # Initialize the file watching.
+        file_watcher.schedule(file_modified_event_handler, path, recursive=True)
+        file_watcher.start()
+
+
+        try:
+            while file_watcher.is_alive():
+                file_watcher.join(1)
+        except KeyboardInterrupt:
+            file_watcher.stop()
+
+        file_watcher.join()
+    
+    
+    
+        
+    
+
+ 
+
+    
+    #t2.join()
+   
+@app.cli.command("train")
+@click.option("name","--name",help="direccion del servidor worker al que se conecta")
+def train(name):
+	pass
+
+@app.cli.command("train")
+@click.option("name","--name",help="direccion del servidor worker al que se conecta")
+def training(name):
+	pass
+    
+
+
+#composer.init_programs(app)

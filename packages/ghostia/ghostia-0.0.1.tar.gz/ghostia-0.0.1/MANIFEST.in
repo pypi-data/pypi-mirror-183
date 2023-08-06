@@ -1,0 +1,4 @@
+exclude ghostia/files
+exclude ghostia/tests
+exclude ghostia/node_modules
+exclude ghostia/.env

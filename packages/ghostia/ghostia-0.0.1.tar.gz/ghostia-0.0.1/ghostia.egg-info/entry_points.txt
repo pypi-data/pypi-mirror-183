@@ -1,0 +1,3 @@
+[console_scripts]
+ghostia = ghostia:create_superuser
+
