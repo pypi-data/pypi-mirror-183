@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+Detection/__init__.py
+Detection/main.py
+Detection/DictDetector/__init__.py
+Detection/DictDetector/main.py
+ShortLanguageDetection.egg-info/PKG-INFO
+ShortLanguageDetection.egg-info/SOURCES.txt
+ShortLanguageDetection.egg-info/dependency_links.txt
+ShortLanguageDetection.egg-info/requires.txt
+ShortLanguageDetection.egg-info/top_level.txt
