@@ -1,0 +1,14 @@
+sparx/__init__.py,sha256=H9hRhHPpDO48NuNfJSWlVZnmCncBuF64aNPparCk4RM,418
+sparx/clustering.py,sha256=kgRMYv1EM68PFSDr_WFveGnl7Ff-EhR6KsChIdUFSSs,2952
+sparx/ffnn.py,sha256=XZtDZ1K6BJvJSkSf3GHXHYh86mtays25oOKdvPRkdtE,3457
+sparx/main.py,sha256=tK4s6zrj4swERcKk_TIHlR8ZzkjOaCd28wokZo51MAw,995
+sparx/merging.py,sha256=z3Oq0FxASi99gea5ZojWvs3MxtO00ry-zM6KX7IWlnI,7213
+sparx/model_encoder.py,sha256=nRnpDDJ2T-OR6SJXKW3Q5yzgN69NPx49GIx2cqH-JPc,2259
+sparx/user_input.py,sha256=dfqYaQ5UBN0XLnRD-EAAAIt22tyj9RHmkTII_9EPnHU,7479
+sparx/visualisation_graph.py,sha256=v1gG_VArJp2LXtxBuUHPlDsVyIMF7cRFJxzmvfmfuR4,3952
+sparx/visualiser.py,sha256=vhMU_muuIFvlDD4IFn7OElsLuyhsBa_2rM_cqE--6Zg,10182
+sparx_lib-1.0.1.dist-info/LICENSE,sha256=-cN1ob5KQfe3AwHdg8kcuJ5BVnR4hZt37vN1pS14JQU,18091
+sparx_lib-1.0.1.dist-info/METADATA,sha256=4lDGC5r6-qP2V39kcUvSb8cmOPdz83M6jMRlAS-yL-0,5109
+sparx_lib-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sparx_lib-1.0.1.dist-info/top_level.txt,sha256=527inxXOg9cxduZV4XaaFeohL4wYFqTak16FQHaXIOo,6
+sparx_lib-1.0.1.dist-info/RECORD,,
