@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: serverlessdl
+Version: 0.4.4
+Summary: Python tools for training Neural Networks in a serverless setup
+Author: Ning Wang originally from Diego Albo Martínez: diego.albo.martinez@gmail.com
+Author-email: nwang@futurewei.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+### main updates
+check redisAI to upload optimizer from RedisAI. Same as model
+
+
+
