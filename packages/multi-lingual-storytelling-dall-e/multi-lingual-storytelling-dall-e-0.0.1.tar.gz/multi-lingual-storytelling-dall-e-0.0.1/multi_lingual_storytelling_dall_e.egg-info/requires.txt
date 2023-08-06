@@ -1,0 +1,8 @@
+numpy
+matplotlib
+google
+openai
+PIL
+requests
+keras_ocr
+opencv

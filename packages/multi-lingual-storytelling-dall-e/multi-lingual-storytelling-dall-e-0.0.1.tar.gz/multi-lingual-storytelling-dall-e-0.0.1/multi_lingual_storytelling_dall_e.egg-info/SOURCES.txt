@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.py
+multi-lingual-storytelling-dall-e/__init__.py
+multi-lingual-storytelling-dall-e/main_functions_DALLE_HEBREW.py
+multi-lingual-storytelling-dall-e/masks_c.py
+multi_lingual_storytelling_dall_e.egg-info/PKG-INFO
+multi_lingual_storytelling_dall_e.egg-info/SOURCES.txt
+multi_lingual_storytelling_dall_e.egg-info/dependency_links.txt
+multi_lingual_storytelling_dall_e.egg-info/requires.txt
+multi_lingual_storytelling_dall_e.egg-info/top_level.txt
