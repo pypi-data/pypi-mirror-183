@@ -1,0 +1,21 @@
+# pyproject.toml
+
+[project]
+name = "decoder_ring"
+version = "0.1.0"
+description = "Type-hinted interface to use several decoders on text-generation models"
+readme = "README.md"
+authors = [{ name = "Nick Doiron", email = "ndoiron@mapmeld.com" }]
+license = { file = "LICENSE" }
+keywords = ["transformers", "decoder", "text generation"]
+dependencies = [
+    "transformers >= 4.24.0",
+    "torch >= 1.10.0",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "pylint", "mypy"]
+
+[project.urls]
+Homepage = "https://github.com/georeactor/decoder_ring"
