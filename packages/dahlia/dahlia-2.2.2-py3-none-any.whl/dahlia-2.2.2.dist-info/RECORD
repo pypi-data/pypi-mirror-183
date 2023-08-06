@@ -1,0 +1,12 @@
+dahlia/__init__.py,sha256=KHv-u2oAGb0r9D-rJyBVx7inYOKFm9tEU8iCP1fsV34,198
+dahlia/__main__.py,sha256=lDc11LNuDoqREZMZelAQHnDZW-vbnA9TjoDhwWuQTts,1097
+dahlia/constants.py,sha256=f_Bqgn6xlbqMmKgfdenxX7VBNPm8ei5_y8GbYBFhAMU,1851
+dahlia/dahlia.py,sha256=g5Ul5abW-4Ymkvrxn4hlJcHB3c30vjaQIs7jWs5hFUU,6043
+dahlia/legacy.py,sha256=S91g1WRm1qW8Fw1Hl_g_JfJvJhbegSRo9beaP3G-nv4,2056
+dahlia/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+dahlia/utils.py,sha256=FYc4LXaFmtKZzNrX2XkfUbJR_jcSfh5knO61qA4a7bc,1665
+dahlia-2.2.2.dist-info/LICENSE,sha256=UPS1mYnoyif6k1dp1ehM937hwqHv9rayAoKDjX5cPwM,1063
+dahlia-2.2.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+dahlia-2.2.2.dist-info/entry_points.txt,sha256=G_15pqfxNBqR9HEDEad6x-vYlG5JgXRRAJzyaJKRwaQ,47
+dahlia-2.2.2.dist-info/METADATA,sha256=JM5wO9CB5xGEMr9AJ6iHrkDgQXGus-BNkf3kIeHrUQQ,1911
+dahlia-2.2.2.dist-info/RECORD,,
