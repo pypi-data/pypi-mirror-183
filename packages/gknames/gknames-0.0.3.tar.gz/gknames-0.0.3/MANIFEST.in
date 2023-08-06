@@ -1,0 +1,3 @@
+graft nameserver
+prune nameserver/static
+global-exclude .gitignore __pycache__ *.py[cod] atlas*.sh curl*.sh *.tst *.log *.json
