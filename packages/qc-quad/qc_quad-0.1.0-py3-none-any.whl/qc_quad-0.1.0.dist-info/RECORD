@@ -1,0 +1,13 @@
+qc_quad/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qc_quad/gauss_lebedev_ball.py,sha256=59viPni6r0k_Go3QCEsuk_A1pmajlH17dQmA_sCtSbs,1126
+qc_quad/gauss_legendre.py,sha256=EFF_goGR8VNHPYednrnzRqSkc7PGkRMIs_aKwZSctng,1564
+qc_quad/lebedev/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qc_quad/lebedev/gen_oh.py,sha256=qK6Ye4n_eKgR635T3gfFUjkDwrFZLLbOl32MicA3mkc,7144
+qc_quad/lebedev/llq.py,sha256=zTez_utyCmkHNHW0s8a9I_Wh5VRShicmxgVGhVn5gck,1978
+qc_quad/lebedev/llq_all.py,sha256=Ml_n9Dxs4tKNOGezZDd0pC1cbsPp7PbzUj7qauaYnXY,101234
+qc_quad/lebedev/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qc_quad/lebedev/utils/code_generation.py,sha256=AcXxkxDcJndVwotlI-TkNHJ9xRVr3GqCgnJo0wI6bYQ,1675
+qc_quad-0.1.0.dist-info/LICENSE,sha256=lZd3wFiG3sNefZZyeufeM_o9aX-gmUagYW6KkBJTtyM,1068
+qc_quad-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+qc_quad-0.1.0.dist-info/METADATA,sha256=hq4_hKvbbcOkR6dZHBvI1OL4s6MB4GQBjs0m4h21CWA,5315
+qc_quad-0.1.0.dist-info/RECORD,,
