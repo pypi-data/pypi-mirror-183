@@ -1,0 +1,13 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+calculator.egg-info/SOURCES.txt
+calculator.egg-info/dependency_links.txt
+calculator.egg-info/top_level.txt
+calculatorbigluo/__init__.py
+calculatorbigluo.egg-info/PKG-INFO
+calculatorbigluo.egg-info/SOURCES.txt
+calculatorbigluo.egg-info/dependency_links.txt
+calculatorbigluo.egg-info/top_level.txt

@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: calculatorbigluo
+Version: 0.0.4
+Summary: a very basic calculator
+Home-page: UNKNOWN
+Author: bigluo
+Author-email: rnthking@gmail.com
+License: MIT
+Keywords: calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+this is calculator of python package testing.
+
+Change Log
+==========
+
+0.0.1(2022/12/31)
+-----------------
+- First Release
+
