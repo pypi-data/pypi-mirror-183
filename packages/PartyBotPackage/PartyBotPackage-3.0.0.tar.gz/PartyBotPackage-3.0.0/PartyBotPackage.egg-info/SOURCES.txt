@@ -1,0 +1,14 @@
+README.md
+setup.py
+PartyBotPackage/__init__.py
+PartyBotPackage/bot.py
+PartyBotPackage/client.py
+PartyBotPackage/defaults.py
+PartyBotPackage/deviceauths.py
+PartyBotPackage/sync.py
+PartyBotPackage/web.py
+PartyBotPackage.egg-info/PKG-INFO
+PartyBotPackage.egg-info/SOURCES.txt
+PartyBotPackage.egg-info/dependency_links.txt
+PartyBotPackage.egg-info/requires.txt
+PartyBotPackage.egg-info/top_level.txt
