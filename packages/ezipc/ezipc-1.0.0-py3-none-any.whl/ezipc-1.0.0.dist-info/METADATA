@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ezipc
+Version: 1.0.0
+Summary: Interprocess comunication in python
+Home-page: UNKNOWN
+Author: Kellan Butler
+Author-email: kellanbutler52@gmail.co,
+License: UNKNOWN
+Keywords: python,ipc
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+
+See https://github.com/kellantech/ezIPC for documentation
+
+
