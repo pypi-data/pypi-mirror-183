@@ -1,0 +1,11 @@
+itk_spcn-0.2.0.dist-info/WHEEL,sha256=vveaNgm-ny_P96uk_RjV4RDsqYe11cXYgHNeKg9ffbg,142
+itk_spcn-0.2.0.dist-info/top_level.txt,sha256=K3Bo2NX2FvAd7ExrYg0rKrdBucaB6n6elW5QBc_g8FA,4
+itk_spcn-0.2.0.dist-info/LICENSE,sha256=qsc7MUj20dcRHbyjIJn2jSbGRMaBOuHk8F9leaomY_4,11360
+itk_spcn-0.2.0.dist-info/RECORD,,
+itk_spcn-0.2.0.dist-info/METADATA,sha256=ssOWBBF9nbJr2bDKL9QzY6F7e5IYHSAR2Ds6rWuQHr0,8606
+itk_spcn.libs/libtbb-a0c974ac.so.12.3,sha256=bqgqED0VDlAmLUWUR3b-34M1gPmiyLKzuy3mRj7ncbc,444449
+itk/itkStructurePreservingColorNormalizationFilterPython.py,sha256=zwq-0k9EWKpGhB1WXEmGge3GvPdc22pFPxc00VozL08,117577
+itk/_StructurePreservingColorNormalizationPython.so,sha256=A3znYE4sptGVbYsU7B18PklylGMIppSnFirYLK6esOU,6816713
+itk/StructurePreservingColorNormalizationPython.py,sha256=X9VA6pRRTaR6loKJVk4Q-FzMBxYpB1x-1qQxF1seh8I,2545
+itk/Configuration/StructurePreservingColorNormalization_snake_case.py,sha256=ny0DAI00PFSaKRT5_MggG80fzHsqF8oPrOQDVDg5n3k,77
+itk/Configuration/StructurePreservingColorNormalizationConfig.py,sha256=vmz_t3DRvOWznL0EzSOvGO5pUf6fq-eZPC7slfz-CsQ,6327
