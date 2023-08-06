@@ -1,0 +1,2 @@
+[console_scripts]
+portfwd = cs.app.portfwd:main
