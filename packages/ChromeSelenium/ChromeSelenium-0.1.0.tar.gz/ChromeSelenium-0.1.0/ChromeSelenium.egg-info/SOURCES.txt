@@ -1,0 +1,6 @@
+setup.py
+ChromeSelenium.egg-info/PKG-INFO
+ChromeSelenium.egg-info/SOURCES.txt
+ChromeSelenium.egg-info/dependency_links.txt
+ChromeSelenium.egg-info/top_level.txt
+src/__init__.py
