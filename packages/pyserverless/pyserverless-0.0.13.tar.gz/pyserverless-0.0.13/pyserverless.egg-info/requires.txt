@@ -1,0 +1,9 @@
+authc
+codefast
+expiringdict
+fastapi
+hashids
+jieba
+pika
+redis
+uvicorn
