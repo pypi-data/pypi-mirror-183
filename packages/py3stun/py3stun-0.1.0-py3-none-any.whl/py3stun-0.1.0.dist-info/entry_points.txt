@@ -1,0 +1,2 @@
+[console_scripts]
+py3stun = stun.cli:main
