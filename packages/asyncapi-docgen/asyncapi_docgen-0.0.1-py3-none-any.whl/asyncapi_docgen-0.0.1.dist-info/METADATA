@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: asyncapi-docgen
+Version: 0.0.1
+Summary: AsyncAPI Documentation Generator
+Home-page: https://github.com/Voltane-EU/asyncapi-docgen
+Author: Manuel Stingl
+Author-email: opensource@voltane.eu
+License: GNU LGPLv2.1
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic (>=1.9.0)
+
+# asyncapi-docgen
+
+A library to generate (and serve) a AsyncAPI documentation.
+
+## 🚧 This project is WIP and is subject to change at any time
+
+This project is currently in the alpha state, even though it can be used in production with some caution. Make sure to fix the version in your requirements.txt and review changes frequently.
+
+## Installation
+
+`pip install asyncapi-docgen`
+
+## Features
+
+**TBD**
