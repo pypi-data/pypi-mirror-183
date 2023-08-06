@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+genolearn.egg-info/PKG-INFO
+genolearn.egg-info/SOURCES.txt
+genolearn.egg-info/dependency_links.txt
+genolearn.egg-info/entry_points.txt
+genolearn.egg-info/requires.txt
+genolearn.egg-info/top_level.txt
