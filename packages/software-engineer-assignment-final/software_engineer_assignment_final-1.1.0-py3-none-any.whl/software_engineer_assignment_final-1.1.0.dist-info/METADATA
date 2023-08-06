@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: software-engineer-assignment-final
+Version: 1.1.0
+Summary: Software Engineering assignment for job interview.
+Home-page: https://github.com/MartinP96/software_engineer_assignment
+Author: MartinP96
+Author-email: porenta.martin@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyqt5 (>=5.15.7,<6.0.0)
+Requires-Dist: pyqtgraph (>=0.13.1,<0.14.0)
+Requires-Dist: pyserial (>=3.5,<4.0)
+Project-URL: Repository, https://github.com/MartinP96/software_engineer_assignment
+Description-Content-Type: text/markdown
+
+# Software-engineer-assignment
++ Python project for software engineer job interview. 
+
+### Author
++ Martin P.
+
+### Purpose of the Package
++ Purpose of test assignment is 
+to develeop a simple GUI application for connecting and gathering data from encoder device.
+
+### Dependencies
++ serial
++ PyQt5
++ pyqtgraph
+
+
+### Modules
++ main_app.py - contains main method for the application
++ gui_main.py - contains main gui class 
++ gui_components.py - contains gui component classes for used PyQt widgets
++ gui_alarm_module.py - contains class for logging encoder alarms in to the file
++ encoder_interface.py - contains interface class for encoder
++ serial_interface.py - contains basic class for serial interface
+
+### Main Method/Usage
++ Start the application by calling App() method from main_app.py in your main.py script.
+
++ Example:
+
+	from software_engineer_assignment import app
+
+	if __name__ == '__main__':
+	    app()
+
+
+
