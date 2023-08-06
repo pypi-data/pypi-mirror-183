@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: GRLMerger
+Version: 0.7
+Summary: GRL Merger tool package for integrating two GRL models
+Home-page: UNKNOWN
+Author: Nadeen AlAmoudi
+Author-email: <nadeenamoudi1@gmail.com>
+License: UNKNOWN
+Keywords: python,GRL,merging,semantic-matching
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: random
+Requires-Dist: statistics
+Requires-Dist: neattext
+Requires-Dist: nltk
+Requires-Dist: warnings
+Requires-Dist: sentence-transformers
+
+A package that allows to merge two GRL models that are written in TGRL syntax.
+
+
