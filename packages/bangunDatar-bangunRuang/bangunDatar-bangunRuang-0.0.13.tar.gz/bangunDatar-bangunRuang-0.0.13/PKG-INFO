@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: bangunDatar-bangunRuang
+Version: 0.0.13
+Summary: Kumpulan Rumus Bangun Datar dan Bangun Ruang
+Author: Afif
+Author-email: <afifnurazizi@gmail.com>
+License: UNKNOWN
+Keywords: python,math
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+
+
+# Kumpulan Rumus Bangun Datar dan Bangun Ruang
+pakage ini di buat untuk latihan bikin package dan upload ke PIPY
+
+## Rumus yang bisa di pakai
+1. Luas Bola
+```
+from PythonPackaging.src.BangunRuang.bola import luas_bola
+
+b = luas_bola(12,2)
+```
+
