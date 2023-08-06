@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: fastoche
+Version: 0.1.0rc1
+Summary: The Fastoche Pipeline Namespace
+License: LGPLv2+
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE.txt
+
+# Fastoche Pipeline
+
+[WIP]

@@ -1,0 +1,10 @@
+LICENSE.txt
+README.rst
+pyproject.toml
+src/fastoche/__init__.py
+src/fastoche/__version__.py
+src/fastoche.egg-info/PKG-INFO
+src/fastoche.egg-info/SOURCES.txt
+src/fastoche.egg-info/dependency_links.txt
+src/fastoche.egg-info/requires.txt
+src/fastoche.egg-info/top_level.txt

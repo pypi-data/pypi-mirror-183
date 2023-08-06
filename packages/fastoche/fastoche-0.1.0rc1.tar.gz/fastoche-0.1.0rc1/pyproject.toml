@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastoche"
+description = "The Fastoche Pipeline Namespace"
+requires-python = ">=3.10"
+# keywords = ["kw_one", "k_two"]
+license = {text = "LGPLv2+"}
+classifiers = [
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Programming Language :: Python :: 3",
+
+]
+dependencies = [
+    # 'importlib-metadata; python_version<"3.8"',
+]
+dynamic = ["version", "readme"]
+
+[tool.setuptools.dynamic]
+version = {attr = "fastoche.__version__"}
+readme = {file = ["README.rst"]}
+
+[project.optional-dependencies]
+dev = ["black", "build", "twine"]
+doc = ["sphinx"]
+
+# namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+# [project.scripts]
+# fgo = "fastoche.fgo:main"
