@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+numbers_almost_equal/LICENSE
+numbers_almost_equal/README.MD
+numbers_almost_equal/__init__.py
+numbers_almost_equal/requirements.txt
+numbers_almost_equal/thirdparty.json
+numbers_almost_equal.egg-info/PKG-INFO
+numbers_almost_equal.egg-info/SOURCES.txt
+numbers_almost_equal.egg-info/dependency_links.txt
+numbers_almost_equal.egg-info/top_level.txt

@@ -1,0 +1,4 @@
+include numbers_almost_equal/requirements.txt
+include numbers_almost_equal/thirdparty.json
+include numbers_almost_equal/README.MD
+include numbers_almost_equal/LICENSE
