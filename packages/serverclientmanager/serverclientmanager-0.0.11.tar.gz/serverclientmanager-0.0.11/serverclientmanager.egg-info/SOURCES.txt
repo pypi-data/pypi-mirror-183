@@ -1,0 +1,9 @@
+LICENCE
+README.md
+setup.py
+server_client_manager/__init__.py
+server_client_manager/connection.py
+serverclientmanager.egg-info/PKG-INFO
+serverclientmanager.egg-info/SOURCES.txt
+serverclientmanager.egg-info/dependency_links.txt
+serverclientmanager.egg-info/top_level.txt
