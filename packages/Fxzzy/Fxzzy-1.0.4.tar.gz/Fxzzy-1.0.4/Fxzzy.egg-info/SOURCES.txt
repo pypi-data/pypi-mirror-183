@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+Fxzzy/__init__.py
+Fxzzy.egg-info/PKG-INFO
+Fxzzy.egg-info/SOURCES.txt
+Fxzzy.egg-info/dependency_links.txt
+Fxzzy.egg-info/top_level.txt
