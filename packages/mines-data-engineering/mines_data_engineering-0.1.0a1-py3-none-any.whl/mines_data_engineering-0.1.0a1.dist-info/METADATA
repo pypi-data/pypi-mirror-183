@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mines-data-engineering
+Version: 0.1.0a1
+Summary: Helper package for the Data Engineering course at Colorado School of Mines
+Author: Gabe Fierro
+Author-email: gtfierro@mines.edu
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pymongo (>=4.3.3,<5.0.0)
+Requires-Dist: spython (>=0.3.0,<0.4.0)
+Requires-Dist: xattr (>=0.10.1,<0.11.0)
+Description-Content-Type: text/markdown
+
+# Mines Data Engineering
+
