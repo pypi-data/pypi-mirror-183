@@ -1,0 +1,8 @@
+README.md
+cz_conventionalish.py
+setup.py
+conventionalish.egg-info/PKG-INFO
+conventionalish.egg-info/SOURCES.txt
+conventionalish.egg-info/dependency_links.txt
+conventionalish.egg-info/requires.txt
+conventionalish.egg-info/top_level.txt
