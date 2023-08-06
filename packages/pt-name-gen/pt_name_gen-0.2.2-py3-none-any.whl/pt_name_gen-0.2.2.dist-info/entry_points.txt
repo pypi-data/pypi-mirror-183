@@ -1,0 +1,2 @@
+[console_scripts]
+pt_name_gen = pt_name_gen:main
