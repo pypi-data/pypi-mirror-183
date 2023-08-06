@@ -1,0 +1,5 @@
+voice_api = "vosk"
+language = "en-us"
+enable_audio_response = false
+# openai_api_key = <insert_secret_key>
+# device_id = <audio_device_id>

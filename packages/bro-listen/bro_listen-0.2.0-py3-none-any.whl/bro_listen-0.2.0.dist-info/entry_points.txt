@@ -1,0 +1,3 @@
+[console_scripts]
+bro_listen=bro_listen.bro_listen:run
+
