@@ -1,0 +1,18 @@
+from setuptools import setup
+
+setup(name='mathlogic-s3-test',
+      version='1.1.3',
+      description='Python Utilities from MathLogic',
+      url='https://github.com/vermanurag/mathlogic-mathlogic',
+      author='Anurag Verma',
+      author_email='anurag.verma@fnmathlogic.com',
+      license='All Rights Reserved',
+      packages=['mathlogic'],
+      install_requires=[            # I get to this in a second
+          'pandas',
+          'jinja2',
+          'numpy',
+          'mysql',
+          'Ipython'
+      ],
+      )
