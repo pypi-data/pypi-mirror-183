@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: dendriform
+Version: 0.0.1
+Summary: dendriform client library
+Home-page: https://www.dendriform.io
+Requires-Python: >=3.6
+
+dendriform client

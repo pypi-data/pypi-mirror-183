@@ -1,0 +1,7 @@
+pyproject.toml
+setup.cfg
+setup.py
+dendriform.egg-info/PKG-INFO
+dendriform.egg-info/SOURCES.txt
+dendriform.egg-info/dependency_links.txt
+dendriform.egg-info/top_level.txt
