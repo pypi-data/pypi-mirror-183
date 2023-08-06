@@ -1,0 +1,3 @@
+[console_scripts]
+allocate_hostname = hostdb.allocate_hostname:main
+validate_hostdb = hostdb.validate_hostdb:main
