@@ -1,0 +1,7 @@
+click
+colorama
+pandas
+pyperclip
+
+[:platform_system == "Windows"]
+pywin32
