@@ -1,0 +1,5 @@
+aiomysql
+aiomysql
+codefast>=0.9.9
+fire
+simauth
