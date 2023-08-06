@@ -1,0 +1,118 @@
+{% load static %}
+<!doctype html>
+<html>
+  <body>
+    <h1>Code Mirror 6</h1>
+    <div id="editor"></div>
+    <script src="{% static 'cm6/cm6-sql-yjs.min.js' %}"></script>
+    <script>
+     const doc = `
+-- Some comment about awesomeness.
+
+SELECT foo, bar
+FROM this
+JOIN that
+ON this.abc = that.def
+     `.trim()
+
+     const fixedHeightEditor = CM6.EditorView.theme({
+         "&": {height: "300px"},
+         ".cm-scroller": {overflow: "auto"}
+     })
+
+     const sql_keywords = new Set("ALTER AND AS BETWEEN BY CASE CAST CONSTRAINT CREATE CROSS CUBE CURRENT_CATALOG CURRENT_DATE CURRENT_PATH CURRENT_ROLE CURRENT_SCHEMA CURRENT_TIME CURRENT_TIMESTAMP CURRENT_USER DEALLOCATE DELETE DESCRIBE DISTINCT DROP ELSE END ESCAPE EXCEPT EXECUTE EXISTS EXTRACT FALSE FOR FROM FULL GROUP GROUPING HAVING IN INNER INSERT INTERSECT INTO IS JOIN JSON_ARRAY JSON_EXISTS JSON_OBJECT JSON_QUERY JSON_VALUE LEFT LIKE LISTAGG LOCALTIME LOCALTIMESTAMP NATURAL NORMALIZE NOT NULL ON OR ORDER OUTER PREPARE RECURSIVE RIGHT ROLLUP SELECT SKIP TABLE THEN TRIM TRUE UESCAPE UNION UNNEST USING VALUES WHEN WHERE WITH".split(" "));
+
+     function myCompletions(context) {
+         let word = context.matchBefore(/\w*/)
+         if (word.from == word.to && !context.explicit)
+             return null
+         let content = context.state.doc.toString();
+         let all_matches = content.match(/\w+/g);
+         let set_matches = new Set(all_matches);
+         let value = content.slice(word.from, word.to);
+         let matches = [...set_matches].filter(x => !sql_keywords.has(x) && x != value);
+         let options = matches.map(word => ({label: word, type: "text"}));
+         let keywords = [...sql_keywords].map(word => ({label: word, type: "keyword"}));
+         options.push(...keywords);
+         // TODO: Add all SQL functions with "info" item.
+         // TODO: Add all SQL tables with "info" item.
+         // TODO: Add all SQL column names with "info" item.
+         let examples = [
+             {label: "hello", type: "variable", info: "(World)"},
+             {label: "magic", type: "text", apply: "⠁⭒*.✩.*⭒⠁", detail: "macro"}
+         ];
+         options.push(...examples);
+         return {
+             from: word.from,
+             options: options,
+             validFor: /^(\w+)$/
+         }
+     }
+
+     var ydoc = new CM6.Y.Doc()
+     var provider = new CM6.WebrtcProvider(
+         '899ab595-1070-470c-9203-f33004fbacfc/first',
+         ydoc,
+         {password: 'sekrit'}
+     )
+     var ytext = ydoc.getText('codemirror')  // 'codemirror' is the widget name
+     const undoManager = new CM6.Y.UndoManager(ytext)
+
+     provider.awareness.setLocalStateField('user', {
+         name: 'User ' + Math.floor(Math.random() * 100),
+         color: 'DarkGray',
+         colorLight: 'LightGray'
+     })
+
+     function statusPanel(view) {
+         let dom = document.createElement("div")
+         dom.id = 'status';
+         dom.textContent = 'Syncing ...';
+         return {dom}
+     }
+
+     const indentPlainTextExtension = CM6.indentService.of((context, pos) => {
+         const previousLine = context.lineAt(pos, -1)
+         return previousLine.text.match(/^(\s)*/)[0].length
+     });
+
+     let state = CM6.EditorState.create({
+         doc: ytext.toString(),
+         extensions: [
+             CM6.basicSetup,
+             CM6.indentationMarkers(),
+             CM6.keymap.of([CM6.indentWithTab]),
+             CM6.sql(),
+             CM6.autocompletion({override: [myCompletions]}),
+             CM6.EditorView.lineWrapping,
+             fixedHeightEditor,
+             CM6.yCollab(ytext, provider.awareness, { undoManager }),
+             CM6.showPanel.of(statusPanel),
+             indentPlainTextExtension,
+             CM6.indentUnit.of("    ")
+         ],
+     })
+
+     var editor = new CM6.EditorView({
+         state: state,
+         parent: document.querySelector("#editor")
+     })
+
+     var connected = false;
+
+     function observer(event, transaction) {
+         var el = document.querySelector('#status');
+         el.innerHTML = 'Ready';
+         connected = true;
+         ytext.unobserve(observer);
+     }
+     ytext.observe(observer);
+
+     setTimeout(function () {
+         if (!connected) {
+             ytext.insert(0, doc);
+         }
+     }, 2000);
+    </script>
+  </body>
+</html>
