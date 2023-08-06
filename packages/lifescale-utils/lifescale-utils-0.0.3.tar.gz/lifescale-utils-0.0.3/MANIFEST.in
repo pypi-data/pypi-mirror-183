@@ -1,0 +1,1 @@
+exclude lifescale/models/ls_run.py lifescale/scripts/run_gui.py
