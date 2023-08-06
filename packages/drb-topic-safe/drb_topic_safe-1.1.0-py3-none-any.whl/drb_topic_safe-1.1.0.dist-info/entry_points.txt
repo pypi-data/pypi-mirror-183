@@ -1,0 +1,3 @@
+[drb.topic]
+safe = drb.topics.safe
+
