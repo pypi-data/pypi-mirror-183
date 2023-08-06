@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cv2pencil/LICENSE
+cv2pencil/README.MD
+cv2pencil/__init__.py
+cv2pencil/requirements.txt
+cv2pencil/thirdparty.json
+cv2pencil.egg-info/PKG-INFO
+cv2pencil.egg-info/SOURCES.txt
+cv2pencil.egg-info/dependency_links.txt
+cv2pencil.egg-info/requires.txt
+cv2pencil.egg-info/top_level.txt

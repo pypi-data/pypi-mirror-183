@@ -1,0 +1,4 @@
+include cv2pencil/requirements.txt
+include cv2pencil/thirdparty.json
+include cv2pencil/README.MD
+include cv2pencil/LICENSE
