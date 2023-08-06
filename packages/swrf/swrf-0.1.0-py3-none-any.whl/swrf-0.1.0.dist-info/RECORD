@@ -1,0 +1,14 @@
+swrf/__init__.py,sha256=qGKfnc3SJlh3w4vJ3BtKZY16RahVvEmQK11XrmMHrV0,21
+swrf/check.py,sha256=gALWTAyUg1VjMnfCP80JD7AtzszfOe347brVQM6_yYI,2616
+swrf/config.py,sha256=kqo1ThZYyhukQzfQwOqMg0oKJaNapUbqNR5RPgdaR2I,963
+swrf/database.py,sha256=lLJz0vDgT_uitKM2GcbK4B5obIZbXJL6sTAfGJ2vp8E,2520
+swrf/publish/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+swrf/publish/check.py,sha256=tErn0KGNqNfXJluoga4zfI_K8GpwPXLlmOCBx9xBLdE,3763
+swrf/subscribe/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+swrf/subscribe/database_check.py,sha256=_y2d55PX5HluTWcHAG1n7Dc_6Nd0mRGkMdGtkBhyuHo,2658
+swrf/subscribe/print_check.py,sha256=PSqABoWEs_rkblu3hvYZcXw5s75jHx7ueeiTEtWHLWQ,2470
+swrf-0.1.0.dist-info/LICENSE.md,sha256=M7wm1EmMGDtwPRdg7kW4d00h1uAXjKOT3HFScYQMeiE,34916
+swrf-0.1.0.dist-info/METADATA,sha256=pSPHJi0S9Y616mBRw5swMYJtxeXm7WorABmD1ecIt2M,41338
+swrf-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+swrf-0.1.0.dist-info/top_level.txt,sha256=TrAdV2skLQkS_YjqEXpDEgbR3meT6yFk88jJ5dUbUhI,5
+swrf-0.1.0.dist-info/RECORD,,
