@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: ovos-audio-metadata
+Version: 0.12.0
+Summary: metadata extractor from audio files
+Home-page: https://github.com/OpenVoiceOS/ovos-audio-metadata
+Author: thebigmunch
+Author-email: mail@thebigmunch.me
+License: MIT
+Keywords: ovos ocp
+License-File: LICENSE
