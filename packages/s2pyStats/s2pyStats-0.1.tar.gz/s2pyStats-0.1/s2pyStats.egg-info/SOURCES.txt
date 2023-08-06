@@ -1,0 +1,8 @@
+setup.py
+s2pyStats/__init__.py
+s2pyStats/s2pyStats.py
+s2pyStats.egg-info/PKG-INFO
+s2pyStats.egg-info/SOURCES.txt
+s2pyStats.egg-info/dependency_links.txt
+s2pyStats.egg-info/not-zip-safe
+s2pyStats.egg-info/top_level.txt
