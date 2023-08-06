@@ -1,0 +1,4 @@
+ConservedWaterSearch
+MDAnalysis
+numpy<1.24
+wget
