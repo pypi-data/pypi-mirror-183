@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: pypleski
+Version: 0.0.6
+Summary: Simplified API to access the PLESK XML API
+Home-page: https://codingcow.de/pypleski
+Author: Uli Toll
+Author-email: pypleski@codingcow.de
+License: UNKNOWN
+Description: # pypleski 
+         pypleski makes requests to the Plesk XML API super easy. Setup your client and write your request with just a few lines of code.
+         ## Release 0.0.6
+         ### Bugfixes: 
+         * PleskRequestPacket.to_string() no longer returns a bytestring (b'') 
+         * add_data_to_node() method in PleskRequestPacket now makes sure the right symbol(_/-) is used in tag names
+        ### Changes:
+        * removed the managers module
+        * new modules where introduced and provide functions to forge requests
+        * add_filter() method and filter variable where removed PleskRequestPacket
+        ## How to use:
+        Use the PleskApiClient Class's request method in conjunction with the several plypleski modules functions to retrieve a PleskResponsePacket.
+        We moved away from building ManagerClasses and instead provide a functions based approach, which allows for simpler use. 
+         
+         ``` 
+         from pypleski.core import PleskApiClient 
+         from pypleski.datbase import get_database 
+         
+         #create client object
+        client = PleskApiClient('localhost') 
+         
+         #add your token or use set_credentials method 
+         client.set_access_token('IamAValidTokenLOL') 
+        
+         #make your request 
+         datbase_info = client.request(get_database('webspace-name', 'domain.name')) 
+        
+         #print out the response 
+         print(database_info)
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
