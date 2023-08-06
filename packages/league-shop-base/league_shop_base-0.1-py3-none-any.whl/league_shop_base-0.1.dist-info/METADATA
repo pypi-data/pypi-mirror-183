@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: league-shop-base
+Version: 0.1
+Summary: A reusable Django app for league shop.
+Home-page: https://github.com/sandbox-pokhara/league-shop-base.git
+Author: Anchal Gurung
+Author-email: anchalghale@gmail.com
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django (>=3.1)
+Requires-Dist: requests-futures
+Requires-Dist: cryptography
+
+# League Shop Base
+
+Reusable Django app
+
+## Quick start
+
+1. Add "base" to your INSTALLED_APPS setting like this::
+
+```
+    INSTALLED_APPS = [
+        ...
+        'base',
+    ]
+```
