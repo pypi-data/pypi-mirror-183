@@ -1,0 +1,7 @@
+argparse
+jinja2
+pyyaml
+fastapi
+uvicorn
+requests
+python-multipart
