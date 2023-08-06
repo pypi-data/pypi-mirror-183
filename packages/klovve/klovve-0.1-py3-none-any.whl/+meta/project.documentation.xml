@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<a:project xmlns:a="annize" xmlns:files="annize:files">
+    <ReadmeDocument xmlns="annize:documentation.sphinx" a:name="readme">
+        <RstDocument xmlns="annize:documentation.sphinx" a:name="readmetext">
+            <RstDocumentVariant culture="~reference culture_en~">
+                <files:File path="+meta/docs/readme.en.rst"/>
+            </RstDocumentVariant>
+        </RstDocument>
+        <ApiReferenceDocument xmlns="annize:documentation.sphinx" a:name="apiref">
+            <Python3ApiReferenceLanguage xmlns="annize:documentation.sphinx.python"/>
+            <files:ProjectDirectory/>
+        </ApiReferenceDocument>
+    </ReadmeDocument>
+    <GeneratedDocument xmlns="annize:documentation" a:name="readmepdfs" filename="README">
+        <a:reference name="readme"/>
+        <PdfOutputSpec/>
+    </GeneratedDocument>
+</a:project>

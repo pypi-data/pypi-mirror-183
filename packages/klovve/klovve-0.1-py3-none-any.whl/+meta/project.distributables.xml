@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns="annize:distributables" xmlns:base="annize:base" xmlns:i18n="annize:i18n">
+<!--    <base:Basket a:append_to="homepage">
+
+    </base:Basket>-->
+    <Dir xmlns="annize:files" a:name="cleaned_project_dir" path="">
+    <!--    <ExcludeByGitIgnores xmlns="annize:versioncontrol.git"/>-->
+    </Dir>
+    <Dir xmlns="annize:files" a:name="enriched_project_dir">
+        <DirPart root="~reference cleaned_project_dir~"/>
+    </Dir>
+
+    <Group a:name="packagegroup_pythonwheel">
+        <Group.title>
+            <i18n:String.stringtr>tr("an_int_PythonWheelPackage")</i18n:String.stringtr>
+        </Group.title>
+        <Package xmlns="annize:distributables.pythonwheel" version="~reference version~" a:name="package_pythonwheel">
+            <Dir xmlns="annize:files" root="~reference enriched_project_dir~"/>
+        </Package>
+    </Group>
+
+
+    <!-- TODO
+
+
+    <let k="distributables.pool.addgroup" linkto="../lawwenda.deb" name="Debian package">
+        <val k="sources" t="files.TaskExecution">
+            <val k="executablelinks">
+                <val k="lawwenda_cli" v="/usr/lib/python3/dist-packages/lawwenda/lawwenda_cli.py"/>
+            </val>
+            <val k="dependencies">
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="python3-werkzeug"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="python3-pil"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+            </val>
+            <val k="menuentries">
+                <val command="lawwenda_cli" icon="_meta/media/logo/lawwenda.64.png" name="lawwenda" t="packages.debian.MenuEntry" title="Lawwenda Console">
+                    <val k="category" oref="packages.debian.Category.ApplicationsSystem"/>
+                    <val k="gui" t="bool" v="False"/>
+                </val>
+            </val>
+            <val k="source" t="files.MergedFilestructure">
+                <val k="frommap">
+                    <val k="/usr/lib/python3/dist-packages/lawwenda" t="files.RemappedFilestructure">
+                        <val k="source" t="packages.RawPackage"/>
+                        <val k="frommap">
+                            <val k="/" v="/src/lawwenda"/>
+                        </val>
+                    </val>
+                    <val k="/usr/lib/python3/dist-packages/lawwenda/_aux/lawwenda.wsgi" path="/_meta/misc/lawwenda.wsgi" t="files.Filestructure" relative="1"/>
+                    <val k="/usr/lib/python3/dist-packages/lawwenda/_aux" t="files.RemappedFilestructure">
+                        <val k="source" t="packages.RawPackage"/>
+                        <val k="frommap">
+                            <val k="/README.pdf" v="/README.pdf"/>
+                            <val k="/plugin api.pdf" v="/plugin api.pdf"/>
+                        </val>
+                    </val>
+                </val>
+            </val>
+            <val k="task" oref="packages.debian.debpackage"/>
+        </val>
+    </let>
+    <let k="distributables.pool.addgroup" name="Python wheel package">
+        <val k="sources" t="files.TaskExecution">
+            <val k="requirements">
+                <val v="werkzeug"/>
+                <val v="Pillow"/>
+            </val>
+            <val k="applicationlinks">
+                <val linkname="lawwenda_cli" method="main" module="lawwenda.lawwenda_cli" t="packages.python.WheelApplicationLink">
+                    <val k="gui" t="bool" v="False"/>
+                </val>
+            </val>
+            <val k="source" t="files.MergedFilestructure">
+                <val k="frommap">
+                    <val k="/lawwenda" t="files.RemappedFilestructure">
+                        <val k="source" t="packages.RawPackage"/>
+                        <val k="frommap">
+                            <val k="/" v="/src/lawwenda"/>
+                        </val>
+                    </val>
+                    <val k="/lawwenda/_aux/lawwenda.wsgi" path="/_meta/misc/lawwenda.wsgi" t="files.Filestructure" relative="1"/>
+                    <val k="/lawwenda/_aux" t="files.RemappedFilestructure">
+                        <val k="source" t="packages.RawPackage"/>
+                        <val k="frommap">
+                            <val k="/README.pdf" v="/README.pdf"/>
+                            <val k="/plugin api.pdf" v="/plugin api.pdf"/>
+                        </val>
+                    </val>
+                </val>
+            </val>
+            <val k="task" oref="packages.python.wheelpackage"/>
+        </val>
+    </let>
+    <let k="distributables.pool.addgroup" linkto="../lawwenda.tgz" name="source tarball">
+        <val k="sources" t="files.TaskExecution">
+            <val k="source" t="packages.RawPackage"/>
+            <val k="task" oref="packages.tarpackage"/>
+        </val>
+    </let>
+     -->
+</a:project>

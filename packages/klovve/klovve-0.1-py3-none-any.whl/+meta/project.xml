@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<a:project xmlns:a="annize" xmlns:base="annize:base" xmlns:version="annize:version">
+    <base:Data project_name="klovve" pretty_project_name="Klovve"/>
+    <Author xmlns="annize:authors" fullname="Josef Hahn" email="ale@ginger.ws"/>
+    <!-- TODO
+    <BuildVersion xmlns="annize:versioncontrol" a:name="version" vcs="~reference vcs~">
+        <version:Version text="0.1" a:name="lineversion"/>
+    </BuildVersion>
+      -->
+    <version:Version text="0.1" a:name="version"/>
+    <Data.summary xmlns="annize:base">
+        Python User Interfaces
+    </Data.summary>
+    <Data.long_description xmlns="annize:base">
+        Klovve is a UI lib.
+    </Data.long_description>
+    <base:BrandColor red="0.33" green="0.2" blue="0.15"/>
+    <AGPLv3 xmlns="annize:licensing"/>
+    <!-- TODO <VersionControlSystem xmlns="annize:versioncontrol.piget" a:name="vcs"/>-->
+    <!-- TODO re
+    <a:if_unavailable feature="pinoprivate" do="skip_node" scope="project"/>
+    -->
+    <Auxiliary xmlns="annize:pinoprivate"/>
+    <ProjectCultures xmlns="annize:i18n">
+        <Culture iso_639_1_lang_code="en" a:name="culture_en"/>
+    </ProjectCultures>
+</a:project>

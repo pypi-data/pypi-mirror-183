@@ -1,0 +1,10 @@
+[
+  "data.py::test_fritten",
+  "data.py::test_fritten1",
+  "data.py::test_fritten2",
+  "data.py::test_fritten3",
+  "data.py::test_fritten4",
+  "data.py::test_fritten5",
+  "data.py::test_fritten6",
+  "view.py::test_simple_view"
+]
