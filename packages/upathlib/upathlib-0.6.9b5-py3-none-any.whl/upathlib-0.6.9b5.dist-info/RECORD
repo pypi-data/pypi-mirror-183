@@ -1,0 +1,13 @@
+upathlib/__init__.py,sha256=SUDyvCDAA29pUkSmFUeSdUfHl8fy42Cq1q-KvMCGZvY,2230
+upathlib/_blob.py,sha256=MNmvMyiICC2DhNtc_OwY-5SM2vZWJKow0vbrSkR6YT4,5210
+upathlib/_local.py,sha256=8EmyH5lnzaCk7cGYyyaCsFHc3UuCIXt_7AppYRtlXH8,9813
+upathlib/_tests.py,sha256=zzDGT3EzeQGHM48WL4f98Xmbe9R3BG9mmRE_fR1UZv0,6437
+upathlib/_upath.py,sha256=01qtn_wtgTb55ZO_QRDgX-kfQ-w1v1iN8KbiVcHTaTU,35819
+upathlib/azure.py,sha256=o5T225IjC9t9Qid2aVJhu_84FUwoMxwSf9SISIoeFvI,13491
+upathlib/gcs.py,sha256=9fYT0FOy8_Fy6ONkBZdmrW-2gngy_NhDNUt2zrrSW4k,22844
+upathlib/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+upathlib/serializer.py,sha256=C8bdQEwttul1ooifrBI5_LE7qhEe2H7aoILTBT3b_7I,3934
+upathlib-0.6.9b5.dist-info/LICENSE,sha256=WpBxWkoFURUAGOP0AGCsVk8eFtw_x0uX9oEWOJBXSkY,1067
+upathlib-0.6.9b5.dist-info/WHEEL,sha256=rSgq_JpHF9fHR1lx53qwg_1-2LypZE_qmcuXbVUq948,81
+upathlib-0.6.9b5.dist-info/METADATA,sha256=7uzMqsi3Js8PNxmmIXYEAzam-pD2EQ2sepR2iVQd_d0,2332
+upathlib-0.6.9b5.dist-info/RECORD,,
