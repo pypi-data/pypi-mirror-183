@@ -1,0 +1,8 @@
+fast_unzip/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fast_unzip/__main__.py,sha256=ciNoWoBcN0Z7aiiZ2CZcVZeN7OyAEn6tLwHYHR_4Q28,113
+fast_unzip/fast_unzip.py,sha256=7OE183vxYvY38PkhdLKZoPo2CUCIoLpMESU190oa_Xc,9742
+fast_unzip-1.0.0.dist-info/METADATA,sha256=yFdHlGaGhGNlMAc66FIG60vRCbNpaiw3w4kSp-qjxeY,3500
+fast_unzip-1.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+fast_unzip-1.0.0.dist-info/LICENSE,sha256=9Lg46X8mWkpn2ayMYDvW223Q3q6Kq0xLzvMa8EpGfYk,1071
+fast_unzip-1.0.0.dist-info/entry_points.txt,sha256=cV6alLVX6_2QPPddd1Ov9YJnSPgjmn5VTNLwHeJn4wM,61
+fast_unzip-1.0.0.dist-info/RECORD,,
