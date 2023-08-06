@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: st_mui_dialog
+Version: 0.0.2
+Summary: Streamlit Component for MUI Dialogs
+Home-page: 
+Author: 
+Author-email: 
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+Streamlit MUI Dialog Component
+===
+
+This streamlit component adds a Dialog (Modal) with two buttons to Streamlit Apps. 
+
+It implements the MUI Alert Dialog: https://mui.com/material-ui/react-dialog/
+
+Installation
+-----------
+
+    $ pip install st-mui-dialog
+
+
+Usage
+------------
+
+## Import the Component
+
+    $ from st_mui_dialog import st_mui_dialog
+
+    $ answer = st_mui_dialog(title="Confirmation", content="Please confirm that you want to save the changes", divider=True)
+
