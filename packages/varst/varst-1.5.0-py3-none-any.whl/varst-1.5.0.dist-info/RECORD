@@ -1,0 +1,12 @@
+varst/__init__.py,sha256=nBYfdOgNOIU0rmPl6ur9MwEtZ1itDzm3HzfVmar0Dls,95
+varst/application.py,sha256=ScQiVvG4ouymmmA-Xjuv47-d0Wcen15wf-E7y6oY9Ew,803
+varst/cli.py,sha256=CERmF6b3hng5bQ8EPxX2HrGGLrXgMxFnRJGqNZSNWdU,298
+varst/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+varst/utils/parser.py,sha256=b5Q5J6En9DXG5c_AnnjT3ZDsXs69Fe3kwVRSNpPo62Y,3114
+varst/utils/rst_file.py,sha256=0SPprTEB3R9RgSQcBaoCh5U6n6rS7PNIWTxPNclGSfU,623
+varst/utils/substitution.py,sha256=CRC7MczJbRKUZRoSxM0Ph_heYaVA9Z-wwW9XWcVIbBE,2247
+varst-1.5.0.dist-info/entry_points.txt,sha256=S6RzeJpdeXfyu9h8rqubTkIOnh-61Jd4XI6DUnCgqDo,40
+varst-1.5.0.dist-info/METADATA,sha256=GdIQsMaJIf8gbfFeJEuj-wCKgoYUpdPnWul0-uNUI9g,2584
+varst-1.5.0.dist-info/LICENSE,sha256=L-qpK-Ts6XkgLadKNW_W2Ka3JAWgMUz6RQmtvGBFFV4,1069
+varst-1.5.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+varst-1.5.0.dist-info/RECORD,,
