@@ -1,0 +1,7 @@
+README
+setup.py
+zlib1g_dev.egg-info/PKG-INFO
+zlib1g_dev.egg-info/SOURCES.txt
+zlib1g_dev.egg-info/dependency_links.txt
+zlib1g_dev.egg-info/not-zip-safe
+zlib1g_dev.egg-info/top_level.txt
