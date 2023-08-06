@@ -1,0 +1,9 @@
+dtsdk/__init__.py,sha256=A-tscf69n1Ucpn4iYHQf8EtfvtqlIOtIcj7lC3z3wbQ,201
+dtsdk/sdk.py,sha256=pgFpmDpP8lgnk5VvJ2gGkVZvmkuDjO0Ify97PwAMhYc,23991
+example/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+example/test.py,sha256=kTsWITNnPGTnnPJdZc1YoP4lKv3NbeeVoCA-9DxSB8E,1723
+dtsdk-1.1.0.dist-info/LICENSE,sha256=sbSlSN4UtZQevIMBK6jtI1BtexmVWOCTy8faJH3_Scc,558
+dtsdk-1.1.0.dist-info/METADATA,sha256=ZvFA8ozTke-KxCuieUPWyme9lruhBzK9qNuuCzAYISU,1247
+dtsdk-1.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+dtsdk-1.1.0.dist-info/top_level.txt,sha256=prhXvLpVAKKfOiwujqeK7ksoSnslG2TJbAuOHNaM8gI,14
+dtsdk-1.1.0.dist-info/RECORD,,
