@@ -1,0 +1,7 @@
+poetry_grpc_plugin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poetry_grpc_plugin/plugins.py,sha256=KIaLpspRwd-_7U3wrkePKxyyUgPZaIagvZy-9W_QcOM,5874
+poetry_grpc_plugin-0.1.4.dist-info/entry_points.txt,sha256=JLA1Hg4S6W_LhncDioUqmA56vdF2sl5Pxc4H2ZLMrAc,83
+poetry_grpc_plugin-0.1.4.dist-info/METADATA,sha256=TVHt3KQEUx7loXCJGaTgdpEuo6ZPp1f4QgUZ8aboRFI,2531
+poetry_grpc_plugin-0.1.4.dist-info/LICENSE,sha256=ZfvAJOZM4-Ee1ZBkRmQDfT1QlzYl6o__gdBddNMZZZw,1062
+poetry_grpc_plugin-0.1.4.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+poetry_grpc_plugin-0.1.4.dist-info/RECORD,,
