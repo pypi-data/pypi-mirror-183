@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+devopsarr/__init__.py
+devopsarr/sonarr.py
+devopsarr/sonarr_services/__init__.py
+devopsarr/sonarr_services/indexer_config.py
+devopsarr/sonarr_services/system_status.py
+sonarr_py.egg-info/PKG-INFO
+sonarr_py.egg-info/SOURCES.txt
+sonarr_py.egg-info/dependency_links.txt
+sonarr_py.egg-info/requires.txt
+sonarr_py.egg-info/top_level.txt
