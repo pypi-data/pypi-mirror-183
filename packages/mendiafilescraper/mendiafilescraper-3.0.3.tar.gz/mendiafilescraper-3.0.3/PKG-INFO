@@ -1,0 +1,150 @@
+Metadata-Version: 2.1
+Name: mendiafilescraper
+Version: 3.0.3
+Summary: File scrapper for clients to sync with a mendia rust application running on a server.
+Home-page: https://gitlab.com/derfreak/MediaScrapper
+License: LICENSE
+Keywords: mendia,movies,collection
+Author: Lukas Riedersberger
+Author-email: lukas.riedersberger@posteo.de
+Requires-Python: >=3.9
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: dataclasses-json (>=0.5.2,<0.6.0)
+Requires-Dist: peewee (>=3.15.4,<4.0.0)
+Requires-Dist: pymediainfo (>=5.0.3,<5.1.0)
+Requires-Dist: requests (>=2.25.1,<2.26.0)
+Requires-Dist: tmdbsimple (>=2.7.0,<2.8.0)
+Requires-Dist: toml
+Requires-Dist: websockets (>=10.4,<11.0)
+Project-URL: Documentation, https://gitlab.com/derfreak/MediaScrapper
+Project-URL: Repository, https://gitlab.com/derfreak/MediaScrapper
+Description-Content-Type: text/markdown
+
+# Mendia File Scraper
+
+## About
+
+This is a client for [mendia](https://crates.io/crates/mendia).
+It indexes local media (currently limited to movies), stores the findings in  a local database and publishes new additions to the server running mendia.
+
+## Installation:
+
+```console
+sudo apt update
+sudo apt install libmediainfo0v5
+pip install mendiafilescraper
+```
+
+> Note: This package needs the mediainfo library.
+>
+> Ubuntu/Debian: 'libmediainfo0v5'
+>
+> Arch: 'libmediainfo'
+
+## Usage:
+
+```--setup```:
+> Asks for
+> - Username
+> - Password
+> - Media folders
+> - Server address (e.g `wss://hostname/ws/`, depending on the `mendia` server)
+>
+> and stores everything in a config file in the home directory
+>
+> `~/.mendiafilescraper/config.txt`
+
+```--scan```:
+> Searches all given media folders for new additions and adds them to the database.
+
+```--publish```:
+> Sends new additions to the configured `mendia` server. Use only with `--scan`
+
+## Example:
+### Settings
+
+```console
+mendia-scraper --setup
+```
+
+***Add media paths, specify the server address and put in your username and password.***
+
+> Note: Ask the admin of your target `mendia` server to create a username/password for you.
+
+### First scan
+The initial scan populates the local database.
+`--publish` should not be used for the first scan, otherwise this might flood the server.
+
+```console
+mendia-scraper --scan
+```
+
+> Warning: ***Make sure that the initial scan worked before proceeding.***
+
+### Real scan
+
+After the first scan we can add `--publish`, from now on new movies will be sent to `mendia`.
+
+```console
+mendia-scraper --scan --publish
+```
+
+## Cronjob
+
+It makes sense to add the scan command to your crontab for automatic scans.
+
+```console
+crontab -e
+```
+
+For a daily scan add
+
+```console
+@daily mendia-scraper --scan --publish
+```
+
+## Problems:
+
+### I have a new movie but mendia did not inform about it
+
+It is possible to delete movies from the local database and to retry scanning the movie.
+
+> Note: It is easier to use a gui application with sqlite support, but on typical NAS systems there is no gui.
+
+```console
+sudo apt install sqlite3
+cd ~/.MendiaFileScraper
+sqlite3 database.db
+```
+
+Let's say we want to remove the movie "Captive State".
+
+In the sqlite3 shell:
+```sql
+SELECT title, hash FROM movies WHERE instr(title, 'Captive') > 0;
+```
+If you do not see any result, play with the search parameters until you found it.
+
+Let's say our result is:
+```
+Captive State|a67edf9ee879a7562c17092b97dfe672
+```
+
+The second value is the hash value that was computed based on the movie file.
+To delete the entry with the has "a67edf9ee879a7562c17092b97dfe672" we do:
+```sql
+DELETE FROM movies WHERE hash="a67edf9ee879a7562c17092b97dfe672";
+```
+
+`CTRL+D` to exit from the sqlite3 shell.
+
+Voila, the movie was removed and you can retry scanning with
+
+```console
+mendia-scraper --scan --publish
+```
+
