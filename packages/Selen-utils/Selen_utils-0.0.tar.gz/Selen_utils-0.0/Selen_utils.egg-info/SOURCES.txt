@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+Selen_utils/Flow.py
+Selen_utils/__init__.py
+Selen_utils/captcha.py
+Selen_utils/data_class.py
+Selen_utils/loguru_settings.py
+Selen_utils/proxy.py
+Selen_utils.egg-info/PKG-INFO
+Selen_utils.egg-info/SOURCES.txt
+Selen_utils.egg-info/dependency_links.txt
+Selen_utils.egg-info/not-zip-safe
+Selen_utils.egg-info/top_level.txt
