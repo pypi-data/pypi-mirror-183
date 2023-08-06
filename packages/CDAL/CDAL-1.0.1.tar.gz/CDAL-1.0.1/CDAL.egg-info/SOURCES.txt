@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+CDAL/GLOBAL.py
+CDAL/__init__.py
+CDAL.egg-info/PKG-INFO
+CDAL.egg-info/SOURCES.txt
+CDAL.egg-info/dependency_links.txt
+CDAL.egg-info/top_level.txt
