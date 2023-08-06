@@ -1,0 +1,52 @@
+{% set sdata = load_setup_py_data() %}
+
+package:
+  name: {{ pname }}
+  version: {{ sdata['version'] }}
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    {% for group,epoints in sdata.get("entry_points",{}).items() %}
+    {% for entry_point in epoints %}
+    - {{ entry_point }}
+    {% endfor %}
+    {% endfor %}
+
+requirements:
+  build:
+    {% for dep in builddeps %}
+    - "{{ dep }}"
+    {% endfor %}
+    
+  run:
+    - python {{ sdata.get('python_requires','') }}
+
+    {% for dep in sdata.get('install_requires',[]) %}
+    - "{{ namespace_map.get(dep, dep) }}"
+    {% endfor %}
+
+    {% for extra in extras %}
+     {% for dep in sdata.get('extras_require',{}).get(extra,[]) %}
+    - "{{ namespace_map.get(dep, dep) }}"
+     {% endfor %}
+    {% endfor %}
+
+test:
+  imports:
+    - {{ pname }}
+  {%if need_tests_deps %}
+  requires:
+    {% for dep in sdata['extras_require']['tests'] %}
+    - "{{ namespace_map.get(dep, dep) }}"
+    {% endfor %}
+  {% endif %}
+
+about:
+  home: {{ sdata['url'] }}
+  summary: {{ sdata['description'] }}
+  license: {{ sdata['license'] }}
