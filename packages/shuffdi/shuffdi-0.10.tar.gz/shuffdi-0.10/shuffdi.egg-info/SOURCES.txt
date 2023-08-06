@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+shuffdi/LICENSE
+shuffdi/README.MD
+shuffdi/__init__.py
+shuffdi/requirements.txt
+shuffdi/thirdparty.json
+shuffdi.egg-info/PKG-INFO
+shuffdi.egg-info/SOURCES.txt
+shuffdi.egg-info/dependency_links.txt
+shuffdi.egg-info/top_level.txt

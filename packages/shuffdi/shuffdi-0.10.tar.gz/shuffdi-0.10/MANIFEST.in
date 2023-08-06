@@ -1,0 +1,4 @@
+include shuffdi/requirements.txt
+include shuffdi/thirdparty.json
+include shuffdi/README.MD
+include shuffdi/LICENSE
