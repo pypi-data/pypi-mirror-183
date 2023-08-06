@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: Koi Language
+Version: 2.0.0
+Summary: Koi Programming Language
+Author: Israel Waldner
+Author-email: imky171@gmail.com
+License: MIT
+Project-URL: Homepage, https://github.com/IsraelWald/Koi
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Koi
+
+A python implementation of the language from Crafting Interpreters
