@@ -1,0 +1,17 @@
+{
+    "ssl": {
+        "ssl_key":"/etc/letsencrypt/live/api.veletanlic.org/privkey.pem",
+        "ssl_cert":"/etc/letsencrypt/live/api.veletanlic.org/fullchain.pem",
+        "ssl_dir":"/etc/letsencrypt/live/api.veletanlic.org/"
+    },
+
+    "server": {
+        "port": 8000,
+        "host": "0.0.0.0"
+    },
+    "local": {
+        "port": 8000,
+        "host": "127.0.0.1"
+    },
+    "remote": "https://api.veletanlic.org"
+}
