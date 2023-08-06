@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+exceltidy/__init__.py
+exceltidy/config.py
+exceltidy/exceltidy.py
+exceltidy.egg-info/PKG-INFO
+exceltidy.egg-info/SOURCES.txt
+exceltidy.egg-info/dependency_links.txt
+exceltidy.egg-info/requires.txt
+exceltidy.egg-info/top_level.txt
