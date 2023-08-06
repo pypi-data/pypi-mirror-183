@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: minimal_code
+Version: 1.0
+Summary: Collection of functions intended to simplify and automate specific tasks.
+Requires-Python: >=3.8
+License-File: LICENSE
