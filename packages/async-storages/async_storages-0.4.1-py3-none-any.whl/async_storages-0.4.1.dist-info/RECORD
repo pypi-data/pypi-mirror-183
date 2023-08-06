@@ -1,0 +1,7 @@
+async_storages/__init__.py,sha256=ebF5bsb6qxjH_VKoOG-XYKExdxMBVBQuRyL3fYM6s1A,175
+async_storages/file_server.py,sha256=DaFr5Woy2kNXUKofsiv60PCLWZ8e40hvU_axB1NBqMI,2384
+async_storages/storages.py,sha256=Sdqg1hCnhXc5DHUQL2LokHxHB-2WkaPOlV5MeUeZVJA,8894
+async_storages-0.4.1.dist-info/METADATA,sha256=EBvEzBI615KEmYakp5fkdvVSILVrZnq1f_CfojT1sxM,2127
+async_storages-0.4.1.dist-info/LICENSE,sha256=e7rSfX5G0RZFmKc2-m8WazsMidzrQjpt6O8cHw_gook,1074
+async_storages-0.4.1.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+async_storages-0.4.1.dist-info/RECORD,,
