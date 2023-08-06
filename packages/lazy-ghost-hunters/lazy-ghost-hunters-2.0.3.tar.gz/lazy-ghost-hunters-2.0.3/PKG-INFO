@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: lazy-ghost-hunters
+Version: 2.0.3
+Summary: Lazy Ghost Hunters is a solver for the game Ghost Hunters from Smart Games
+Home-page: https://github.com/matteli/lazy-ghost-hunters
+License: MIT
+Author: matteli
+Author-email: matthieu.nue@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/matteli/lazy-ghost-hunters
+Description-Content-Type: text/x-rst
+
+Lazy Ghost Hunters
+==================
+
+Ghost Hunters is a little game edited by Smart Games.
+The goal of the game is to light six ghosts arranged on a 4x4 grid with 6 transparent covers of different sizes on which are drawn 0, 1 or 2 torches.
+
+The goal of this program is to determine the solution. When the program is launched, indicate 4 rows of 4 numbers 0 (no ghost) or 1 (ghost) to indicate the arrangement of the ghosts. The solution will appear with "o" for the ghosts and colored arrows for the torches.
+
