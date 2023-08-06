@@ -1,0 +1,30 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tf-training-notifier"
+version = "1.0.1"
+description = "Sends telegram messages informing user about ML training job progress."
+readme = "README.md"
+authors = [{ name = "Bart Gebka", email = "bartg1259@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["tensorflow", "machine learning", "notifier", "monitor", "callback"]
+dependencies = [
+    "pytimeparse",
+    'tensorflow; python_version >= "2.9"',
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = []
+
+[project.urls]
+Homepage = "https://github.com/bart1259/tf-training-notifier"

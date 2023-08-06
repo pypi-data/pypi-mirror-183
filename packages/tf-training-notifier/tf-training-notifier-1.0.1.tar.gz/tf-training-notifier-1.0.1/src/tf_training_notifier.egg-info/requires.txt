@@ -1,0 +1,6 @@
+pytimeparse
+
+[:python_version >= "2.9"]
+tensorflow
+
+[dev]

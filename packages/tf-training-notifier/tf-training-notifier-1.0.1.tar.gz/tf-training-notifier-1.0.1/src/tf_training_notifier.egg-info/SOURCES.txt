@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/tf_training_notifier.egg-info/PKG-INFO
+src/tf_training_notifier.egg-info/SOURCES.txt
+src/tf_training_notifier.egg-info/dependency_links.txt
+src/tf_training_notifier.egg-info/requires.txt
+src/tf_training_notifier.egg-info/top_level.txt
+src/trainingnotifier/__init__.py
+src/trainingnotifier/notifierCallback.py
+src/trainingnotifier/build/lib/notifierCallback.py
