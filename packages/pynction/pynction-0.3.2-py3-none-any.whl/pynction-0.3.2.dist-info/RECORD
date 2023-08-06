@@ -1,0 +1,14 @@
+pynction/__init__.py,sha256=JvDOeKsZEG7d13_7GIlgMduz0IF6uIc99_OX5NWUlkM,827
+pynction/functors/__init__.py,sha256=St-u8WmpYd9TlcWtJhveYs4s2cbApjWfAq7d8W0SPII,286
+pynction/functors/function.py,sha256=2vpQ5nv6V0T6GxpyONeMgOStiYiD4RHFrwAiYfSo4Vw,9812
+pynction/monads/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pynction/monads/either.py,sha256=mlL0AsJ44EJWyBf35xXvdvvNlp-eP1P5C6_fxZiGMJg,7634
+pynction/monads/maybe.py,sha256=DtDx7MvzJev7HVEyPbQwk3u27y9Kpo8dCnm1jbIIwKM,10990
+pynction/monads/try_monad.py,sha256=gyC2bPgzrOOKXhojKQP-aEpVj-ldNklCDm0RdT2puaE,6554
+pynction/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pynction/streams/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pynction/streams/stream.py,sha256=os1XdH5xOIx5o9-9Qe07ij-tisAIHtmyyAotiBhHaSM,3481
+pynction-0.3.2.dist-info/METADATA,sha256=vX4-Zx4PfghnQkiTFD90rp3VJnwMG6A05bAUySKjwlQ,4533
+pynction-0.3.2.dist-info/LICENSE,sha256=6QIoWe7-AJHhsA7TS5cy92pwEkkciHWr8sk7MoNLYDk,1071
+pynction-0.3.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+pynction-0.3.2.dist-info/RECORD,,
