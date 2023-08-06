@@ -1,0 +1,16 @@
+apoc/__init__.py,sha256=ie4-dxEOtQIsHE8yxIj4lJ7tVhQXb9yFm-ERlxbkUNo,658
+apoc/_converter.py,sha256=U2yJkqw1tnOoHWYn49DpZYi6ZFWSnKvrPJrMFTdhwjE,4828
+apoc/_feature_sets.py,sha256=4ro2M-I_mUFEaBz92Xn48scVrC4vxodV1xTBo0w45xQ,3006
+apoc/_object_classifier.py,sha256=Rb9e2kQ8xrELsSAkvPxxFKjdQ7qyk_-jnUEETPGfRHI,11967
+apoc/_object_merger.py,sha256=aVeHXi7eCklnkJWQNatA329edWGoYMnxQDMrhDLvin0,7195
+apoc/_object_segmenter.py,sha256=xyEezjh3r4uFJj94GJiLiNZ9htayyjZbh1QcB878cQk,3389
+apoc/_object_selector.py,sha256=YLVHmTVK9VWIlgat4WAC3D7yr4pgbZ5Ko6TUDxipM8M,4184
+apoc/_pixel_classifier.py,sha256=6VKzEVGGVq-BPFCfsU4x8Y7oFGKvTA4pGTBpDOf0Eys,16907
+apoc/_probability_mapper.py,sha256=_Pgo7U950y-Hiizi0D1NWXWYT0prVz8ZSy7wV9h_Scg,1277
+apoc/_table_row_classifier.py,sha256=DVurmHK6v9TBHR03RgH4dlEaVfVSoUbpVN60U9jCHVg,11442
+apoc/_utils.py,sha256=i7kztQh9zTEDn_xUdJG7WdIYBeBd5KtooF15lvuHxIo,7869
+apoc-0.12.0.dist-info/LICENSE,sha256=lyVduyunt0X0XOgFXP7XjJUkMDm36ptktLLYA77z1-g,1579
+apoc-0.12.0.dist-info/METADATA,sha256=G1lKePCWBrA5lx-izMCSic9qoe9IFXtIig3IVmvJ26E,8071
+apoc-0.12.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+apoc-0.12.0.dist-info/top_level.txt,sha256=7rjuy2naqhf_zF-4G9x47pvnET5UJrrLYm1EIZlqNlg,5
+apoc-0.12.0.dist-info/RECORD,,
