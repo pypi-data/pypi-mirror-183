@@ -1,0 +1,8 @@
+selenium
+sqlalchemy
+colorlog
+ddddocr
+treelib
+requests
+pyyaml
+websocket-client
