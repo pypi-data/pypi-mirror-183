@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: testpackageJdka
+Version: 0.0.4
+Summary: Test python package
+Author: Jdka1 (Aryan Mehra)
+Author-email: staryan.mehra@gmail.com
+Keywords: python,video,stream,video stream,camera stream,sockets
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
