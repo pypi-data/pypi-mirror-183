@@ -1,0 +1,15 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.py
+scanhub/__init__.py
+scanhub/_version.py
+scanhub.egg-info/PKG-INFO
+scanhub.egg-info/SOURCES.txt
+scanhub.egg-info/dependency_links.txt
+scanhub.egg-info/not-zip-safe
+scanhub.egg-info/requires.txt
+scanhub.egg-info/top_level.txt
+scanhub/workflows/__init__.py
+scanhub/workflows/acquisition.py
+scanhub/workflows/mri.py
