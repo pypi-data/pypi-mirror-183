@@ -1,0 +1,4 @@
+pkcs7==0.1.2
+pycryptodome==3.16.0
+requests==2.27.1
+python-dotenv==0.21.0
