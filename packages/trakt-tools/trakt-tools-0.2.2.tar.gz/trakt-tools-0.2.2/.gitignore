@@ -1,0 +1,16 @@
+/.coverage
+/.eggs
+/.idea
+/.tox
+/backups
+/build
+/dist
+
+/*.egg-info
+/test-results.xml
+
+*.iml
+*.pyc
+
+.venv*/
+.env
