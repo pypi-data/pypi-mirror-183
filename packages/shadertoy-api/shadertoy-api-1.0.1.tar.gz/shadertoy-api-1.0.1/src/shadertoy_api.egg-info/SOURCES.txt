@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.cfg
+src/shadertoy/__init__.py
+src/shadertoy/shadertoy.py
+src/shadertoy_api.egg-info/PKG-INFO
+src/shadertoy_api.egg-info/SOURCES.txt
+src/shadertoy_api.egg-info/dependency_links.txt
+src/shadertoy_api.egg-info/requires.txt
+src/shadertoy_api.egg-info/top_level.txt
