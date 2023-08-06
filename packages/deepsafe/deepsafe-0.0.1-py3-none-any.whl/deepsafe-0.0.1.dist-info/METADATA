@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: deepsafe
+Version: 0.0.1
+Summary: Deep learning aided movie content moderation tools.
+Author: fcakyon
+License: MIT
+Keywords: machine-learning,deep-learning,ml,vision
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: streamlit (<2.0.0,>=1.15.1)
+Requires-Dist: moviepy (<2.0.0,>=1.0.3)
+Requires-Dist: scenedetect (<0.7.0.0,>=0.6.0.3)
+Requires-Dist: opencv-python (<4.7.0.0,>=4.6.0.66)
+Requires-Dist: plotly (<6.0.0,>=5.11.0)
+Requires-Dist: huggingface-hub (<0.12.0,>=0.11.0)
+Requires-Dist: ffsubsync (<0.5.0,>=0.4.20)
+Requires-Dist: pymoviedb (==0.0.3)
+Requires-Dist: requests-html (<0.11.0,>=0.10.0)
+Provides-Extra: dev
+Requires-Dist: black (==21.7b0) ; extra == 'dev'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'dev'
+Requires-Dist: isort (==5.9.2) ; extra == 'dev'
+Requires-Dist: click (==8.0.4) ; extra == 'dev'
+Requires-Dist: importlib-metadata (<4.3,>=1.1.0) ; (python_version < "3.8") and extra == 'dev'
+Provides-Extra: tests
+Requires-Dist: black (==21.7b0) ; extra == 'tests'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'tests'
+Requires-Dist: isort (==5.9.2) ; extra == 'tests'
+Requires-Dist: click (==8.0.4) ; extra == 'tests'
+Requires-Dist: importlib-metadata (<4.3,>=1.1.0) ; (python_version < "3.8") and extra == 'tests'
+
+# deepsafe
+Deep learning aided movie content moderation tools
