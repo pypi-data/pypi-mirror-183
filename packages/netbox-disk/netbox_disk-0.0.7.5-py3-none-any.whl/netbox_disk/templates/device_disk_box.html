@@ -1,0 +1,23 @@
+{% load disk %}
+
+<div class="card">
+    <h5 class="card-header">Disk</h5>
+    <div class="card-body">
+        <table class="table table-hover attr-table">
+            <tr>
+                <td><span class="mdi mdi-folder" aria-hidden="true"></span> VG Name</td>
+                <td>LV Name</td>
+                <td>Size</td>
+                <td><span class="mdi mdi-folder" aria-hidden="true"></span>Mount Path</td>
+            </tr>
+            {% for service in disk %}
+            <tr>
+                <td>{{ service.volume_group }}</td>
+                <td>{{ service.logical_volume }}</td>
+                <td>{{ service.size }}</td>
+                <td>{{ service.path }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
