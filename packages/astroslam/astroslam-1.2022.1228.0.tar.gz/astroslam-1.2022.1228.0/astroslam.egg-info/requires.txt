@@ -1,0 +1,10 @@
+numpy
+scipy
+matplotlib
+astropy
+scikit-learn==1.2.0
+joblib==1.2.0
+pandas
+emcee
+lmfit
+ipyparallel
