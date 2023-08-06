@@ -1,0 +1,9 @@
+django_thumbor/__init__.py,sha256=nTBPNgg0vQUa85KUWFef9Uv4A38Qpb0HJEakaLFZL7I,2358
+django_thumbor/conf.py,sha256=bIGVL83NdxmeGwPSMx4JN5PytFK4RL2dn-0IALDLw7E,1250
+django_thumbor/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_thumbor/templatetags/thumbor_tags.py,sha256=9EkMnu2oHiR5388-PgSFJYtUayPv5eCvdzfk4SBE6Eo,1227
+hmtvltk2_django_thumbor-1.0.2.dist-info/LICENSE,sha256=heim9ntcMN0SUgultB3Hbwb8FhbAlu5zAO6cvSmLzUo,1088
+hmtvltk2_django_thumbor-1.0.2.dist-info/METADATA,sha256=1SS3mOvdIxNPbNJN-I_vt4fqaNa8jvS2IcrkUXH2JeY,6146
+hmtvltk2_django_thumbor-1.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hmtvltk2_django_thumbor-1.0.2.dist-info/top_level.txt,sha256=3bUgg1RBkhD_JSAE7n2qk_4R7dHViKE5UgIpu5Vrwdw,15
+hmtvltk2_django_thumbor-1.0.2.dist-info/RECORD,,
