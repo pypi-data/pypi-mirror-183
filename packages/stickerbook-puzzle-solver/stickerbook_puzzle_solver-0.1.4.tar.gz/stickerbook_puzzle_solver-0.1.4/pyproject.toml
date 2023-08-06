@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "stickerbook_puzzle_solver"
+version = "0.1.4"
+description = "Solving a family of puzzles seen on mathoffstickerbook.com"
+authors = ["Belgin Seymenoglu <belgin.seymenoglu.10@ucl.ac.uk>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/SmokyFurby/stickerbook"
+packages = [{ include = "stickerbook_puzzle_solver", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">3.10"
+numpy = ">=1.22"
+click = ">=8.1"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+coverage = "*"
+nose2 = "^0.12"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
