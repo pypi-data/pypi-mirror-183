@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: fast-label-studio
+Version: 0.3.0
+Summary: 
+Author: Glaadiss
+Author-email: bartekgladys@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastai (>=2.7.10,<3.0.0)
+Requires-Dist: label-studio-ml (>=1.0.8,<2.0.0)
+Requires-Dist: python-dotenv (>=0.21.0,<0.22.0)
+Description-Content-Type: text/markdown
+
+
