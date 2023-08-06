@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/pybeysurgical.egg-info/PKG-INFO
+src/pybeysurgical.egg-info/SOURCES.txt
+src/pybeysurgical.egg-info/dependency_links.txt
+src/pybeysurgical.egg-info/top_level.txt
