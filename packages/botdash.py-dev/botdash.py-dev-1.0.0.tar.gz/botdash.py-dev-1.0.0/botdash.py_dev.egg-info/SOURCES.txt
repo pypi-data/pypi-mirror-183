@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+botdash/Client.py
+botdash/__init__.py
+botdash.py_dev.egg-info/PKG-INFO
+botdash.py_dev.egg-info/SOURCES.txt
+botdash.py_dev.egg-info/dependency_links.txt
+botdash.py_dev.egg-info/requires.txt
+botdash.py_dev.egg-info/top_level.txt
+botdash/lib/__init__.py
+botdash/lib/value.py
