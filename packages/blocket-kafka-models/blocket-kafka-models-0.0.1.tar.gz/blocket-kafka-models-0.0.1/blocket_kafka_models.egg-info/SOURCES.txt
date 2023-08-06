@@ -1,0 +1,5 @@
+setup.py
+blocket_kafka_models.egg-info/PKG-INFO
+blocket_kafka_models.egg-info/SOURCES.txt
+blocket_kafka_models.egg-info/dependency_links.txt
+blocket_kafka_models.egg-info/top_level.txt
