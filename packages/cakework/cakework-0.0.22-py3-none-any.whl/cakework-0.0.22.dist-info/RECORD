@@ -1,0 +1,15 @@
+cakework/__init__.py,sha256=O45D7VYrl31qWVBMORn8E16fF6h9GIsTYwS_660RZHs,47
+cakework/activity_server.py,sha256=ZhKFeXIfA23bJlmnx7TWDgi2bx2Qc5mWTVT83DE6X0E,4615
+cakework/app.py,sha256=IpZ5wmMsvhbqudkoLhQ9sLyMzohC-wgZRzHaUlYRq4w,6081
+cakework/cakework_pb2.py,sha256=Ozjc1q_1ZGkMjfphiAbLkylc-M1gp1SNg5BUn5OfkV8,1426
+cakework/cakework_pb2.pyi,sha256=xGsgESTy6ohNxwKoPLvQiqLtG8x_dTbk7F7tfeJYsBs,874
+cakework/cakework_pb2_grpc.py,sha256=Y3SmIdWsKbDuTn1fQ5evaBmsrLYpckh9Ez6GEsSHQoo,2369
+cakework/client.py,sha256=-o4HQ4a2YJmNQuURRZnEEwXS33Of6NyJSJHDKIdimJ4,2558
+cakework/frontend_pb2.py,sha256=Z1YRJK73hkNP9xsY9PZ82Wu2CQbljHo9KdfYD_9V5rk,1527
+cakework/frontend_pb2.pyi,sha256=wFg8mEiBipc5fcod9E0nEskXjopCHU_I4cqgT6JuYNY,974
+cakework/frontend_pb2_grpc.py,sha256=KPtMd9YoH5QpCHCM1I3TdQR-yq-EgC0BO6UQdhh_ZI0,2454
+cakework/requirements_cakework.txt,sha256=48jYJlforsGO3KEGaSiU5nwgxQM0441rFJ47d_HcpXc,49
+cakework-0.0.22.dist-info/METADATA,sha256=KTWz3rWFKZK0znn-PCLyImIcIfaeIIPrwKnL6-O346E,2383
+cakework-0.0.22.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+cakework-0.0.22.dist-info/licenses/LICENSE,sha256=smpfIM6D3IfpD7XPIM1E3wissVEFP8UIAFyfsR1UE0A,1065
+cakework-0.0.22.dist-info/RECORD,,
