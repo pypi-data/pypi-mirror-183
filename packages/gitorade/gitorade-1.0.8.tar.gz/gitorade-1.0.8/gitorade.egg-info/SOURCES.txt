@@ -1,0 +1,11 @@
+LICENSE
+README.md
+gitorade.py
+setup.cfg
+setup.py
+gitorade.egg-info/PKG-INFO
+gitorade.egg-info/SOURCES.txt
+gitorade.egg-info/dependency_links.txt
+gitorade.egg-info/entry_points.txt
+gitorade.egg-info/requires.txt
+gitorade.egg-info/top_level.txt
