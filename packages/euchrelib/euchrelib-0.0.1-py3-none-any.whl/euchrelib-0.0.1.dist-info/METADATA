@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: euchrelib
+Version: 0.0.1
+Summary: A utility library for managing state of euchre games
+Author-email: Mike Kutzma <mike@kutz.dev>
+Project-URL: Homepage, https://github.com/mikekutzma/euchre/euchrelib
+Project-URL: Bug Tracker, https://github.com/mikekutzma/euchre/euchrelib/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# euchrelib: A simple Euchre utility
