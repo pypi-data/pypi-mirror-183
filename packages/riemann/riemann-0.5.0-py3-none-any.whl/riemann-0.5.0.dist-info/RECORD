@@ -1,0 +1,11 @@
+riemann/__init__.py,sha256=9f1pK8-87nuvv8J8TTgUNOr12nS9Q7Cocw4HAOcLTog,1678
+riemann/structures.py,sha256=Te-aUnwLggJqj4dRPFTw9de0M-V7KJT2ASOQSGeFqDI,4925
+riemann/summation.py,sha256=5-fONGufwOyH-MxYQ5bDHBm8updG1NsquAVsqUUUHpA,3418
+riemann/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+riemann/tests/test_riemann.py,sha256=yUhUUs0PkN7Z43uqqbCvkySPWRoV0gWPp-FZWa0JlvE,8261
+riemann/tests/test_structures.py,sha256=CikIGhcE11w1Lr9Hue9j8lm-duLRfkcXrP68LgCYO4s,56
+riemann-0.5.0.dist-info/LICENSE,sha256=44-6R5E2RPoYTF5PtioqxZPG8PN_FNCUZhK6on1oLr4,1085
+riemann-0.5.0.dist-info/METADATA,sha256=5ZbP8qjV_RI7UyaYtOK1q49cjmeDQR0jfx8e_stDPjc,3993
+riemann-0.5.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+riemann-0.5.0.dist-info/top_level.txt,sha256=QenIgQl3H08Yw0aqA405aLKbhZ7EEVWpy5tG-nVtMM8,8
+riemann-0.5.0.dist-info/RECORD,,
