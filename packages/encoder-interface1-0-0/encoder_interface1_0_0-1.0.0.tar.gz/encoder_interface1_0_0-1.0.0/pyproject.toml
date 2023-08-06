@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "encoder-interface1.0.0"
+version = "1.0.0"
+description = ""
+authors = ["MartinP96 <porenta.martin@gmail.com>"]
+readme = "README.md"
+packages = [{include = "encoder_interface"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyserial = "^3.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
