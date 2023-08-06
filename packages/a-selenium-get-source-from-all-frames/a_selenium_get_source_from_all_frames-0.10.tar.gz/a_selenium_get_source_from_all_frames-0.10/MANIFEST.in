@@ -1,0 +1,4 @@
+include a_selenium_get_source_from_all_frames/requirements.txt
+include a_selenium_get_source_from_all_frames/thirdparty.json
+include a_selenium_get_source_from_all_frames/README.MD
+include a_selenium_get_source_from_all_frames/LICENSE

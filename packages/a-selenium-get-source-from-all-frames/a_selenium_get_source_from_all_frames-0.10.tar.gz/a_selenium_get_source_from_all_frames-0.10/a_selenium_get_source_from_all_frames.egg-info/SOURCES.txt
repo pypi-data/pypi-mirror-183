@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_get_source_from_all_frames/LICENSE
+a_selenium_get_source_from_all_frames/README.MD
+a_selenium_get_source_from_all_frames/__init__.py
+a_selenium_get_source_from_all_frames/requirements.txt
+a_selenium_get_source_from_all_frames/thirdparty.json
+a_selenium_get_source_from_all_frames.egg-info/PKG-INFO
+a_selenium_get_source_from_all_frames.egg-info/SOURCES.txt
+a_selenium_get_source_from_all_frames.egg-info/dependency_links.txt
+a_selenium_get_source_from_all_frames.egg-info/requires.txt
+a_selenium_get_source_from_all_frames.egg-info/top_level.txt
