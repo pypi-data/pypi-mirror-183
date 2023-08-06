@@ -1,0 +1,12 @@
+netbox_data_disk/__init__.py,sha256=MwNIq9Q6ZglH-1P7a25m1pioKIzX28v83tYi86twURc,303
+netbox_data_disk/forms.py,sha256=2L84fVdt1e3MUm4X-ymCLTW-YwV8zHw5KcB4LmmYkVI,1256
+netbox_data_disk/migrations/0001_initial.py,sha256=NDCLHulsZte_j4GuBZeqAAT1GasfSDuDkQwesCVmVLs,907
+netbox_data_disk/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+netbox_data_disk/models/disk.py,sha256=ijQ1mU7bbAq29GFHiS2ljkp_hsb1_prTRy3qFbHx9LM,2211
+netbox_data_disk/tables.py,sha256=yxW3xymUZTyG3hCpAf0XEJvdNt_lHLyHVPHeMPE3LDM,686
+netbox_data_disk/templates/netbox_data_disk/datadisk.html,sha256=z3PMGZmUAB4iRAn-yDd1_Tt33TCwT4r-mSJQybO8c5E,1024
+netbox_data_disk/urls.py,sha256=Vev90MVQsZHVh4wefC4Jc6mKvEehkvT8ED3uPI767uU,673
+netbox_data_disk/views.py,sha256=_4rGcbspEUfF7zwKv8FVX2LZoUKYTVEisPvPvQ2hPj4,947
+netbox_data_disk-0.0.0.0.10.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+netbox_data_disk-0.0.0.0.10.dist-info/METADATA,sha256=YidBaYd2ESAGpmDXanUQ02qvW6Ick1D_ADIWrjMd5uk,1090
+netbox_data_disk-0.0.0.0.10.dist-info/RECORD,,
