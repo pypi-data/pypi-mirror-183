@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+yamdgen/__init__.py
+yamdgen/yamd_helpers_function.py
+yamdgen/yamdgen.py
+yamdgen.egg-info/PKG-INFO
+yamdgen.egg-info/SOURCES.txt
+yamdgen.egg-info/dependency_links.txt
+yamdgen.egg-info/entry_points.txt
+yamdgen.egg-info/top_level.txt
