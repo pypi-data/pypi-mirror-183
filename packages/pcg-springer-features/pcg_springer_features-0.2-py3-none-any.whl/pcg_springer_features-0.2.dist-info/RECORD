@@ -1,0 +1,11 @@
+pcg_springer_features/__init__.py,sha256=dEThNvzydfvzGOAIiEYCGMdEFdPNYTd17RTv54fRZkY,244
+pcg_springer_features/schmidt_heart_rate.py,sha256=KEpGoO-_VRFd_oFJmrkdDQyXX7CBlibGIZyENdVhmVo,2363
+pcg_springer_features/schmidt_spike_removal.py,sha256=ODCnmTuCixXuvTxy3M1SuyPVD35ZHibKOesRjkyE2C8,2171
+pcg_springer_features/springer_dwt.py,sha256=egtWC0Vrga4AZm02o8W02HzW9cBbF_EdUpFxwC4oqg8,3933
+pcg_springer_features/springer_features.py,sha256=gSA8NdSbFsfo4WiqI-q8QYlKR1jZ6vIyR7dPxHyQ1D0,6988
+pcg_springer_features/version.py,sha256=Myupfp18EVZacE4Tp7qYqYpimE8TWJJr-zQjrBwIJiA,20
+pcg_springer_features-0.2.dist-info/LICENSE,sha256=YzadNjqKcrFHSLX7fMGdSqT4DiBndBSQYVoriV6Gjyw,1064
+pcg_springer_features-0.2.dist-info/METADATA,sha256=Lb1qbvIFVC7zCxKKsZ2hbKYGUw4ztVc7Z35PygKaZiY,2149
+pcg_springer_features-0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pcg_springer_features-0.2.dist-info/top_level.txt,sha256=rr-hXKdbGEl1a-W1vekvyX2cuHxLVvgzT8WjA25vZR4,22
+pcg_springer_features-0.2.dist-info/RECORD,,
