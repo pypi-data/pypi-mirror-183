@@ -1,0 +1,144 @@
+[project]
+name = "cs.app.portfwd"
+description = "Manage persistent ssh tunnels and port forwards."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python2",
+    "python3",
+]
+dependencies = [
+    "cs.app.flag>=20201228",
+    "cs.app.svcd>=20221228",
+    "cs.env>=20190103",
+    "cs.logutils>=20220531",
+    "cs.pfx>=20221118",
+    "cs.psutils>=20221228",
+    "cs.py.func>=20221207",
+    "cs.py3>=20220523",
+    "cs.sh",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20221228"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+Manage persistent ssh tunnels and port forwards.
+
+*Latest release 20221228*:
+get_ssh_options: be quiet.
+
+Portfwd runs a collection of ssh tunnel commands persistently,
+each in its own `cs.app.svcd <https://pypi.org/project/cs.app.svcd>`_ instance
+with all the visibility and process control that SvcD brings.
+
+It reads tunnel preconditions from special comments within the ssh config file.
+It uses the configuration options from the config file
+as the SvcD signature function
+thus restarting particular ssh tunnels when their specific configuration changes.
+It has an \"automatic\" mode (the -A option)
+which monitors the desired list of tunnels
+from statuses expressed via `cs.app.flag <https://pypi.org/project/cs.app.flag>`_
+which allows live addition or removal of tunnels as needed.
+
+## Function `Condition(portfwd, op, invert, *args)`
+
+Factory to construct a condition from a specification.
+
+## Class `FlagCondition(_PortfwdCondition)`
+
+A flag based condition.
+
+## Function `main(argv=None, environ=None)`
+
+Command line main programme.
+
+## Class `PingCondition(_PortfwdCondition)`
+
+A ping based condition.
+
+## Class `Portfwd(cs.app.flag.FlaggedMixin)`
+
+An ssh tunnel built on a SvcD.
+
+*Method `Portfwd.__init__(self, target, ssh_config=None, conditions=(), test_shcmd=None, trace=False, verbose=False, flags=None)`*:
+Initialise the Portfwd.
+
+Parameters:
+* `target`: the tunnel name, and also the name of the ssh configuration used
+* `ssh_config`: ssh configuration file if not the default
+* `conditions`: an iterable of `Condition`s
+  which must hold before the tunnel is set up;
+  the tunnel also aborts if these cease to hold
+* `test_shcmd`: a shell command which must succeed
+  before the tunnel is set up;
+  the tunnel also aborts if this command subsequently fails
+* `trace`: issue tracing messages; default `False`
+* `verbose`: be verbose; default `False`
+* `flags`: optional preexisting `Flags` instance
+
+## Class `Portfwds`
+
+A collection of `Portfwd` instances and associated control methods.
+
+*Method `Portfwds.__init__(self, ssh_config=None, environ=None, target_list=None, auto_mode=None, trace=False, verbose=False, flags=None)`*:
+Initialise the `Portfwds` instance.
+
+Parameters:
+* `ssh_config`: the ssh configuration file if not the default
+* `environ`: the environment mapping to use;
+  default: `os.environ`
+* `target_list`: an iterable of `Portfwd` target names
+* `auto_mode`: also derive target names
+  from the set of true `PORTFWD_`*name*`_AUTO` flags
+* `trace`: trace mode, default `False`
+* `verbose`: verbose mode, default `False`
+* `flags`: the `cs.app.flags.Flags` instance to use,
+  default is to construct a new one
+
+# Release Log
+
+
+
+*Release 20221228*:
+get_ssh_options: be quiet.
+
+*Release 20210316*:
+* Portfwds: accept any iterable for target_list.
+* Portability fix.
+
+*Release 20190602*:
+* Support alert groups.
+* ssh_argv no longer a property in order to support `bare` param.
+* New method `ssh_options` to wrap ssh_argv.
+* Drop sig_func, use ssh_options instead.
+* Remove local UNIX domain socket forward endpoints before starting ssh tunnel.
+* Improve option parse.
+
+*Release 20170906*:
+Initial PyPI release."""
+content-type = "text/markdown"
+
+[build-system]
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
