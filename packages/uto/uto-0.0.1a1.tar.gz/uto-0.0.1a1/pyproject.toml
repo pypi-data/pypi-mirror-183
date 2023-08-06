@@ -1,0 +1,83 @@
+[build-system]
+requires = ["flit_core ~=3.2"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "uto"
+dynamic = ["version"]
+description = """
+Universal Transfer Operator for Apache Airflow to transfer between files, tables, dataframes, apis.
+"""
+
+authors = [
+    { name = "Astronomer", email = "humans@astronomer.io" },
+]
+#readme = "README.md"
+#license = { file = "LICENSE" }
+
+requires-python = ">=3.7"
+dependencies = [
+    "apache-airflow>=2.2",
+    "attrs>=20.0",
+    "smart-open",
+]
+
+keywords = ["airflow", "provider", "astronomer", "decorator", "task flow", "elt", "etl", "dag", "transfer"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Database",
+    "Framework :: Apache Airflow",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "mypy",
+]
+google = [
+    "protobuf<=3.20", # Google bigquery client require protobuf <= 3.20.0. We can remove the limitation when this limitation is removed
+    "apache-airflow-providers-google>=6.4.0",
+    "smart-open[gcs]>=5.2.1"
+]
+amazon = [
+    "apache-airflow-providers-amazon>=5.0.0",
+    "s3fs",
+    "smart-open[s3]>=5.2.1",
+]
+
+all = [
+    "apache-airflow-providers-amazon",
+    "apache-airflow-providers-google>=6.4.0",
+    "smart-open[all]>=5.2.1",
+    "s3fs",
+    "protobuf<=3.20", # Google bigquery client require protobuf <= 3.20.0. We can remove the limitation when this limitation is removed
+]
+
+[project.urls]
+Home = "https://astronomer.io/"
+Source = "https://github.com/astronomer/astro-sdk/"
+
+[project.entry-points.apache_airflow_provider]
+provider_info = "uto.__init__:get_provider_info"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--durations=30 --durations-min=1.0"
+env_files = [".env"]
+testpaths = ["tests", "tests_integration"]
+
+[tool.flit.module]
+name = "uto"  # Or "astro.sql" if you just want this directory, not the entire 'astro'.
+
+
+[tool.black]
+line-length = 110
+target-version = ['py37', 'py38', 'py39', 'py310']

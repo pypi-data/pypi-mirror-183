@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: uto
+Version: 0.0.1a1
+Summary: Universal Transfer Operator for Apache Airflow to transfer between files, tables, dataframes, apis.
+Keywords: airflow,provider,astronomer,decorator,task flow,elt,etl,dag,transfer
+Author-email: Astronomer <humans@astronomer.io>
+Requires-Python: >=3.7
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Database
+Classifier: Framework :: Apache Airflow
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: apache-airflow>=2.2
+Requires-Dist: attrs>=20.0
+Requires-Dist: smart-open
+Requires-Dist: apache-airflow-providers-amazon ; extra == "all"
+Requires-Dist: apache-airflow-providers-google>=6.4.0 ; extra == "all"
+Requires-Dist: smart-open[all]>=5.2.1 ; extra == "all"
+Requires-Dist: s3fs ; extra == "all"
+Requires-Dist: protobuf<=3.20 ; extra == "all"
+Requires-Dist: apache-airflow-providers-amazon>=5.0.0 ; extra == "amazon"
+Requires-Dist: s3fs ; extra == "amazon"
+Requires-Dist: smart-open[s3]>=5.2.1 ; extra == "amazon"
+Requires-Dist: protobuf<=3.20 ; extra == "google"
+Requires-Dist: apache-airflow-providers-google>=6.4.0 ; extra == "google"
+Requires-Dist: smart-open[gcs]>=5.2.1 ; extra == "google"
+Requires-Dist: pytest>=6.0 ; extra == "tests"
+Requires-Dist: pytest-cov ; extra == "tests"
+Requires-Dist: mypy ; extra == "tests"
+Project-URL: Home, https://astronomer.io/
+Project-URL: Source, https://github.com/astronomer/astro-sdk/
+Provides-Extra: all
+Provides-Extra: amazon
+Provides-Extra: google
+Provides-Extra: tests
