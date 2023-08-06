@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: variantfinder
+Version: 0.3
+Summary: python package to scan bam files for alignemnts variants of interest
+License: MIT
+Author: StephanHolgerD
+Author-email: stephdruk@googlemail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: numpy (>=1.20.3,<2.0.0)
+Requires-Dist: pysam (>=0.19.0,<0.20.0)
+Requires-Dist: tqdm (>=4.61,<5.0)
