@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pushcart
+Version: 0.1.0
+Summary: Metadata based ingestion and transformation library for Databricks
+License: GPLv3
+Author: RevoData B.V.
+Author-email: support@revodata.nl
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: databricks-cli (>=0.17.4,<0.18.0)
+Requires-Dist: jobslib (>=3.2.0,<4.0.0)
+Requires-Dist: param (>=1.12.3,<2.0.0)
+Requires-Dist: pyspark (>=3.3.1,<4.0.0)
+Requires-Dist: pytest (>=7.2.0,<8.0.0)
+Requires-Dist: pytest-cov (>=4.0.0,<5.0.0)
+Description-Content-Type: text/markdown
+
+# pushcart
+
+Makes it simpler to move potatoes, bricks or data around.
+
