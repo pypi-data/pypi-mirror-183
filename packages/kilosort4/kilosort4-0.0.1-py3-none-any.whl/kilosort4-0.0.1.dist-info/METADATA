@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: kilosort4
+Version: 0.0.1
+Summary: A small example package
+Home-page: https://github.com/MouseLand/kilosort
+Author: Carsen Stringer & Marius Pachitariu
+Author-email: Carsen Stringer <carsen.stringer@gmail.com>
+License: BSD
+Project-URL: Homepage, https://github.com/mouseland/kilosort_dev
+Project-URL: Bug Tracker, https://github.com/mouseland/kilosort_dev/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.20.0)
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: tqdm
+Requires-Dist: torch (>=1.6)
+Requires-Dist: numba
+Requires-Dist: faiss-cpu
+Requires-Dist: matplotlib
+Provides-Extra: all
+Requires-Dist: pyqtgraph (<=0.12) ; extra == 'all'
+Requires-Dist: pyqt5 ; extra == 'all'
+Requires-Dist: pyqt5.sip ; extra == 'all'
+Requires-Dist: google-cloud-storage ; extra == 'all'
+Provides-Extra: docs
+Requires-Dist: sphinx (>=3.0) ; extra == 'docs'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: gui
+Requires-Dist: pyqtgraph (<=0.12) ; extra == 'gui'
+Requires-Dist: pyqt5 ; extra == 'gui'
+Requires-Dist: pyqt5.sip ; extra == 'gui'
+Requires-Dist: google-cloud-storage ; extra == 'gui'
+
+place holder for kilosort python package
