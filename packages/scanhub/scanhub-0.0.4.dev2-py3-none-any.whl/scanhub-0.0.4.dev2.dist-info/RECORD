@@ -1,0 +1,10 @@
+scanhub/__init__.py,sha256=LGIhZ2VWC3qGLu6otZDCLh3XD2WB2-UyGT5ltNAQcHQ,759
+scanhub/_version.py,sha256=CxVJ9XmXA1AtiWhG8zfRBwz-gk_PtPxDkhFKr6GGNUk,26
+scanhub/workflows/__init__.py,sha256=JUz2NCAB2qVWUXacfdwxo4Lb61sMWvHc04xqSmtoAQo,726
+scanhub/workflows/acquisition.py,sha256=cK8_TLcQp8w6qXqkZMBJo4cS4QSVQnfcu3W7Kvc_SAc,616
+scanhub/workflows/mri.py,sha256=GPIDIVdmdJ3IhTJ2p3kg92ycFiwdAlCuY0cefmg8IEY,469
+scanhub-0.0.4.dev2.dist-info/LICENSE,sha256=xUus51Pf0S4TBOkbR23gzQoutVm3lvxMbfyxNhaG9g8,1583
+scanhub-0.0.4.dev2.dist-info/METADATA,sha256=wyuynBqfqMbLsBTpZlq_LSteb1e0sxeSHKV7vt3of0M,3115
+scanhub-0.0.4.dev2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+scanhub-0.0.4.dev2.dist-info/top_level.txt,sha256=3GOUuwEws8gCjugHmdnJaDYoHYG1BuVeArhLIElnGPc,8
+scanhub-0.0.4.dev2.dist-info/RECORD,,
