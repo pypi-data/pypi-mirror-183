@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: repository-mirror
+Version: 1.0.1
+Summary: Cloudforet Sync repository tools
+Home-page: https://cloudforet.io/
+Author: MEGAZONE SpaceONE Team
+Author-email: admin@spaceone.dev
+License: Apache License 2.0
+Requires-Dist: spaceone-core
+Requires-Dist: spaceone-api
+Requires-Dist: click
+Requires-Dist: tabulate
+
