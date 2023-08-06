@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: py-proxy-checker
+Version: 0.2.2
+Summary: Proxy Checker is a python package that allows you to check the validity of a proxy
+Home-page: https://github.com/yassine20011/py-proxy-checker
+Author: Yassine Amjad
+Author-email: Yassine.amjad001@gmail.com
+License: MIT
+Keywords: proxy checker
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# py-proxy-checker
+
+This is a simple python script to check if a proxy is working or not and to check the speed of the proxy.
+
+## Installation
+
+```bash
+pip install py-proxy-checker
+```
+
+## Usage
+
+```python
+from proxychecker import Checker
+checker = Checker()
+
+#Check the proxies in the file "proxies.txt"
+proxies = checker.check("proxies.txt")
+print(proxies)
+
+    {
+    ...
+    2: {
+    'proxy': '77.109.178.218:80',
+    'Timeout': 529},
+    ...
+    }
+
+#Get the information of the proxy
+print(checker.info(proxies[2]['proxy']))
+
+    {
+        'ip': '210.245.124.131',
+        'network': '210.245.112.0/20',
+        'version': 'IPv4',
+        ...
+    }
+
+
+proxy_list = [proxies[proxy]['proxy'] for proxy in proxies]
+
+#Get the information of each proxy in the list
+print(checker.info(proxy_list=proxy_list))
+
+    [
+        ...,
+        {
+        'ip': '210.245.124.131',
+        'network': '210.245.112.0/20',
+        'version': 'IPv4',
+        ...
+        },
+        ...
+    ]
+    
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
