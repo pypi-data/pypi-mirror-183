@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: oanda-accessor-pyv20
+Version: 0.0.5
+Summary: This app lets you easily load candle data of Foreign Currency from Oanda API.
+Home-page: https://github.com/siruku6/oanda_accessor_pyv20
+Download-URL: https://github.com/siruku6/oanda_accessor_pyv20
+Author: siruku6
+Author-email: sirukufarios@gmail.com
+Maintainer: siruku6
+Maintainer-email: sirukufarios@gmail.com
+License: MIT License
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# oanda_accessor_pyv20
+This app lets you easily load candle data of Foreign Currency from Oanda API.
+
+## Dependencies
+
+You have to setup followging packages or modules on your host machine.
+
+- docker
+- docker compose
+
+## Setup development environment
+
+```bash
+$ docker compose build
+$ docker compose run package_base bash
+
+# Run unit test
+/opt# pipenv run pytest
+```
