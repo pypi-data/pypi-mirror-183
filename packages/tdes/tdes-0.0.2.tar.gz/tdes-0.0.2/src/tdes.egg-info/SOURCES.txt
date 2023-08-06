@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.py
+src/main.py
+src/module/DES3.py
+src/module/__init__.py
+src/module/utils.py
+src/tdes.egg-info/PKG-INFO
+src/tdes.egg-info/SOURCES.txt
+src/tdes.egg-info/dependency_links.txt
+src/tdes.egg-info/entry_points.txt
+src/tdes.egg-info/requires.txt
+src/tdes.egg-info/top_level.txt

@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: tdes
+Version: 0.0.2
+Summary: encrypting and decrypting files tool using triple DES
+Home-page: https://github.com/4bd4ll4h/tdes
+Author: 4bd4ll4h
+Author-email: 4bd4ll4h.m@gmail.com
+License: UNKNOWN
+Description: # TDes
+        
+        tdes is a Python CLI application for encrypting and decrypting files tool using [triple DES](https://en.wikipedia.org/wiki/Triple_DES).
+        
+        ## Installation
+        
+        Use the package manager [pip](https://pip.pypa.io/en/stable/) to install tdes.
+        
+        ```bash
+        pip install tdes
+        ```
+        
+        ## Usage
+        
+        ```bash
+        $tdes encrypt --path "E:\files\image.png"
+        
+        $tdes encryptall --path "E:\files\"
+        
+        $tdes decrypt --path "E:\files\image.png" --key1 hGGe314l --key2 342XCFGs
+        ```
+        
+        ## Contributing
+        
+        Pull requests are welcome. For major changes, please open an issue first
+        to discuss what you would like to change.
+        
+        Please make sure to update tests as appropriate.
+        
+        ## License
+        
+        [MIT](https://choosealicense.com/licenses/mit/)
+Platform: UNKNOWN
+Classifier: Topic :: Security :: Cryptography
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
