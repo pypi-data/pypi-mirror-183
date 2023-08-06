@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+attercop/__init__.py
+attercop/attercop.py
+attercop.egg-info/PKG-INFO
+attercop.egg-info/SOURCES.txt
+attercop.egg-info/dependency_links.txt
+attercop.egg-info/entry_points.txt
+attercop.egg-info/requires.txt
+attercop.egg-info/top_level.txt
