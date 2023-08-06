@@ -1,0 +1,4856 @@
+openapi: 3.0.3
+info:
+  title: FrontRunner API
+  version: 1.0.0
+paths:
+  /abbreviated_people/:
+    get:
+      operationId: abbreviated_people_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - abbreviated_people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonPart'
+          description: ''
+  /abbreviated_people/{id}/:
+    get:
+      operationId: abbreviated_people_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person.
+        required: true
+      tags:
+      - abbreviated_people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonPart'
+          description: ''
+  /abbreviated_users/:
+    get:
+      operationId: abbreviated_users_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - abbreviated_users
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TenantUserPart'
+          description: ''
+  /abbreviated_users/{id}/:
+    get:
+      operationId: abbreviated_users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tenant user profile.
+        required: true
+      tags:
+      - abbreviated_users
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantUserPart'
+          description: ''
+  /api/token/:
+    post:
+      operationId: api_token_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthTokenRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthTokenRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokenRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+  /feed/:
+    get:
+      operationId: feed_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - feed
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Action'
+          description: ''
+    post:
+      operationId: feed_create
+      tags:
+      - feed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+          description: ''
+  /feed/{id}/:
+    get:
+      operationId: feed_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this action.
+        required: true
+      tags:
+      - feed
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+          description: ''
+    put:
+      operationId: feed_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this action.
+        required: true
+      tags:
+      - feed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+          description: ''
+    patch:
+      operationId: feed_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this action.
+        required: true
+      tags:
+      - feed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PolyActionRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+          description: ''
+    delete:
+      operationId: feed_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this action.
+        required: true
+      tags:
+      - feed
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/facebook/:
+    get:
+      operationId: integration_settings_facebook_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FacebookSettings'
+          description: ''
+    post:
+      operationId: integration_settings_facebook_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacebookSettings'
+          description: ''
+  /integration_settings/facebook/{id}/:
+    get:
+      operationId: integration_settings_facebook_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Facebook Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacebookSettings'
+          description: ''
+    put:
+      operationId: integration_settings_facebook_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Facebook Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacebookSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_facebook_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Facebook Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FacebookSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacebookSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_facebook_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Facebook Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/mailchimp/:
+    get:
+      operationId: integration_settings_mailchimp_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MailchimpSettings'
+          description: ''
+    post:
+      operationId: integration_settings_mailchimp_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MailchimpSettings'
+          description: ''
+  /integration_settings/mailchimp/{id}/:
+    get:
+      operationId: integration_settings_mailchimp_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Mailchimp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MailchimpSettings'
+          description: ''
+    put:
+      operationId: integration_settings_mailchimp_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Mailchimp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MailchimpSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_mailchimp_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Mailchimp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MailchimpSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MailchimpSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_mailchimp_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Mailchimp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/prompt/:
+    get:
+      operationId: integration_settings_prompt_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PromptSettings'
+          description: ''
+    post:
+      operationId: integration_settings_prompt_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSettings'
+          description: ''
+  /integration_settings/prompt/{id}/:
+    get:
+      operationId: integration_settings_prompt_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Prompt Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSettings'
+          description: ''
+    put:
+      operationId: integration_settings_prompt_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Prompt Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_prompt_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Prompt Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PromptSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_prompt_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Prompt Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/revv/:
+    get:
+      operationId: integration_settings_revv_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RevvSettings'
+          description: ''
+    post:
+      operationId: integration_settings_revv_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevvSettings'
+          description: ''
+  /integration_settings/revv/{id}/:
+    get:
+      operationId: integration_settings_revv_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Revv Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevvSettings'
+          description: ''
+    put:
+      operationId: integration_settings_revv_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Revv Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevvSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_revv_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Revv Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RevvSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevvSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_revv_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Revv Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/twitter/:
+    get:
+      operationId: integration_settings_twitter_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TwitterSettings'
+          description: ''
+    post:
+      operationId: integration_settings_twitter_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterSettings'
+          description: ''
+  /integration_settings/twitter/{id}/:
+    get:
+      operationId: integration_settings_twitter_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Twitter Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterSettings'
+          description: ''
+    put:
+      operationId: integration_settings_twitter_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Twitter Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_twitter_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Twitter Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TwitterSettingsRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwitterSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_twitter_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Twitter Integration Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integration_settings/whatsapp/:
+    get:
+      operationId: integration_settings_whatsapp_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WhatsappSettings'
+          description: ''
+    post:
+      operationId: integration_settings_whatsapp_create
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappSettings'
+          description: ''
+  /integration_settings/whatsapp/{id}/:
+    get:
+      operationId: integration_settings_whatsapp_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Whatsapp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappSettings'
+          description: ''
+    put:
+      operationId: integration_settings_whatsapp_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Whatsapp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappSettings'
+          description: ''
+    patch:
+      operationId: integration_settings_whatsapp_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Whatsapp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WhatsappSettingsRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhatsappSettings'
+          description: ''
+    delete:
+      operationId: integration_settings_whatsapp_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Whatsapp Integration
+          Settings.
+        required: true
+      tags:
+      - integration_settings
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integrations/mailchimp/:
+    get:
+      operationId: integrations_mailchimp_list
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+          description: ''
+    post:
+      operationId: integrations_mailchimp_create
+      description: Override to update TwitterIntegrationSettings.since_id with new
+        tweet id.
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: ''
+  /integrations/mailchimp/{id}/:
+    get:
+      operationId: integrations_mailchimp_retrieve
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          description: Mailchimp campaign id
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: ''
+    put:
+      operationId: integrations_mailchimp_update
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          description: Mailchimp campaign id
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: ''
+    patch:
+      operationId: integrations_mailchimp_partial_update
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          description: Mailchimp campaign id
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+          description: ''
+    delete:
+      operationId: integrations_mailchimp_destroy
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          description: Mailchimp campaign id
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integrations/prompt/:
+    get:
+      operationId: integrations_prompt_list
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: query
+        name: description
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: integer
+      - in: query
+        name: latest
+        schema:
+          type: number
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Broadcast'
+          description: ''
+    post:
+      operationId: integrations_prompt_create
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broadcast'
+          description: ''
+  /integrations/prompt/{id}/:
+    get:
+      operationId: integrations_prompt_retrieve
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        description: A unique value identifying this broadcast.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broadcast'
+          description: ''
+    put:
+      operationId: integrations_prompt_update
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        description: A unique value identifying this broadcast.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broadcast'
+          description: ''
+    patch:
+      operationId: integrations_prompt_partial_update
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        description: A unique value identifying this broadcast.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broadcast'
+          description: ''
+    delete:
+      operationId: integrations_prompt_destroy
+      description: |-
+        The HTML form requires ContactList and DeliveryReport, however
+        these values can be excluded, or null, when passing JSON data.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        description: A unique value identifying this broadcast.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integrations/twitter/tweeters/:
+    get:
+      operationId: integrations_twitter_tweeters_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tweeter'
+          description: ''
+    post:
+      operationId: integrations_twitter_tweeters_create
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweeter'
+          description: ''
+  /integrations/twitter/tweeters/{id}/:
+    get:
+      operationId: integrations_twitter_tweeters_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweeter.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweeter'
+          description: ''
+    put:
+      operationId: integrations_twitter_tweeters_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweeter.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweeter'
+          description: ''
+    patch:
+      operationId: integrations_twitter_tweeters_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweeter.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweeterRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweeter'
+          description: ''
+    delete:
+      operationId: integrations_twitter_tweeters_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweeter.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integrations/twitter/tweets/:
+    get:
+      operationId: integrations_twitter_tweets_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tweet'
+          description: ''
+    post:
+      operationId: integrations_twitter_tweets_create
+      description: Override to update TwitterIntegrationSettings.since_id with new
+        tweet id.
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweet'
+          description: ''
+  /integrations/twitter/tweets/{id}/:
+    get:
+      operationId: integrations_twitter_tweets_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweet.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweet'
+          description: ''
+    put:
+      operationId: integrations_twitter_tweets_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweet.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweet'
+          description: ''
+    patch:
+      operationId: integrations_twitter_tweets_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweet.
+        required: true
+      tags:
+      - integrations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TweetRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tweet'
+          description: ''
+    delete:
+      operationId: integrations_twitter_tweets_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        description: A unique value identifying this tweet.
+        required: true
+      tags:
+      - integrations
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /integrations_all/:
+    get:
+      operationId: integrations_all_list
+      parameters:
+      - in: query
+        name: installed
+        schema:
+          type: boolean
+        description: Installed
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - integrations_all
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Integration'
+          description: ''
+  /integrations_all/{id}/:
+    get:
+      operationId: integrations_all_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this public integration.
+        required: true
+      tags:
+      - integrations_all
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+  /notes/:
+    get:
+      operationId: notes_list
+      parameters:
+      - in: query
+        name: author__id
+        schema:
+          type: integer
+      - in: query
+        name: linked_contacts__id
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - notes
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+          description: ''
+    post:
+      operationId: notes_create
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+  /notes/{id}/:
+    get:
+      operationId: notes_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    put:
+      operationId: notes_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    patch:
+      operationId: notes_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NoteCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+          description: ''
+    delete:
+      operationId: notes_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this note.
+        required: true
+      tags:
+      - notes
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /paginated_people/:
+    get:
+      operationId: paginated_people_list
+      description: API endpoint that allows users to be viewed in a paginated list.
+      parameters:
+      - in: query
+        name: age_group
+        schema:
+          type: string
+        description: Age group
+      - in: query
+        name: bookmarked
+        schema:
+          type: boolean
+        description: Bookmarked
+      - in: query
+        name: box_query
+        schema:
+          type: string
+        description: Box query
+      - in: query
+        name: email
+        schema:
+          type: string
+      - in: query
+        name: near_location
+        schema:
+          type: string
+        description: Near location
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: phone
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__city
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__county
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__state
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__zip
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: search_location_only
+        schema:
+          type: boolean
+        description: Search location only
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - -date_added
+            - -date_updated
+            - -dob
+            - -first_name
+            - -last_name
+            - date_added
+            - date_updated
+            - dob
+            - first_name
+            - last_name
+        description: Ordering
+        explode: false
+        style: form
+      - in: query
+        name: tags
+        schema:
+          type: string
+        description: Tags
+      tags:
+      - paginated_people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPersonList'
+          description: ''
+  /people/:
+    get:
+      operationId: people_list
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - in: query
+        name: age_group
+        schema:
+          type: string
+        description: Age group
+      - in: query
+        name: bookmarked
+        schema:
+          type: boolean
+        description: Bookmarked
+      - in: query
+        name: box_query
+        schema:
+          type: string
+        description: Box query
+      - in: query
+        name: email
+        schema:
+          type: string
+      - in: query
+        name: near_location
+        schema:
+          type: string
+        description: Near location
+      - in: query
+        name: phone
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__city
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__county
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__state
+        schema:
+          type: string
+      - in: query
+        name: primary_addr__zip
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: search_location_only
+        schema:
+          type: boolean
+        description: Search location only
+      - in: query
+        name: sort
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - -date_added
+            - -date_updated
+            - -dob
+            - -first_name
+            - -last_name
+            - date_added
+            - date_updated
+            - dob
+            - first_name
+            - last_name
+        description: Ordering
+        explode: false
+        style: form
+      - in: query
+        name: tags
+        schema:
+          type: string
+        description: Tags
+      tags:
+      - people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+          description: ''
+    post:
+      operationId: people_create
+      description: API endpoint that allows users to be viewed or edited.
+      tags:
+      - people
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+  /people/{id}/:
+    get:
+      operationId: people_retrieve
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person.
+        required: true
+      tags:
+      - people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    put:
+      operationId: people_update
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person.
+        required: true
+      tags:
+      - people
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    patch:
+      operationId: people_partial_update
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person.
+        required: true
+      tags:
+      - people
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PersonRequest'
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    delete:
+      operationId: people_destroy
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person.
+        required: true
+      tags:
+      - people
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /pull-jobs/:
+    get:
+      operationId: pull_jobs_list
+      description: Viewset for the PullJob model.
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - pull-jobs
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PullJob'
+          description: ''
+    post:
+      operationId: pull_jobs_create
+      description: Viewset for the PullJob model.
+      tags:
+      - pull-jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullJob'
+          description: ''
+  /pull-jobs/{id}/:
+    get:
+      operationId: pull_jobs_retrieve
+      description: Viewset for the PullJob model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this pull job.
+        required: true
+      tags:
+      - pull-jobs
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullJob'
+          description: ''
+    put:
+      operationId: pull_jobs_update
+      description: Viewset for the PullJob model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this pull job.
+        required: true
+      tags:
+      - pull-jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullJob'
+          description: ''
+    patch:
+      operationId: pull_jobs_partial_update
+      description: Viewset for the PullJob model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this pull job.
+        required: true
+      tags:
+      - pull-jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PullJobRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullJob'
+          description: ''
+    delete:
+      operationId: pull_jobs_destroy
+      description: Viewset for the PullJob model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this pull job.
+        required: true
+      tags:
+      - pull-jobs
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /tags/:
+    get:
+      operationId: tags_list
+      description: API endpoint that allows tags to be viewed only
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - tags
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonTag'
+          description: ''
+  /tags/{id}/:
+    get:
+      operationId: tags_retrieve
+      description: API endpoint that allows tags to be viewed only
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this person tag.
+        required: true
+      tags:
+      - tags
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonTag'
+          description: ''
+  /tasks/:
+    get:
+      operationId: tasks_list
+      parameters:
+      - in: query
+        name: assigned_to__id
+        schema:
+          type: integer
+      - in: query
+        name: author__id
+        schema:
+          type: integer
+      - in: query
+        name: completed
+        schema:
+          type: boolean
+      - in: query
+        name: linked_contacts__id
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - tasks
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+          description: ''
+    post:
+      operationId: tasks_create
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+  /tasks/{id}/:
+    get:
+      operationId: tasks_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - tasks
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    put:
+      operationId: tasks_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    patch:
+      operationId: tasks_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TaskCreateUpdateRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    delete:
+      operationId: tasks_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this task.
+        required: true
+      tags:
+      - tasks
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+  /tenants/:
+    get:
+      operationId: tenants_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - tenants
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tenant'
+          description: ''
+    post:
+      operationId: tenants_create
+      tags:
+      - tenants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: ''
+  /tenants/{id}/:
+    get:
+      operationId: tenants_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tenant.
+        required: true
+      tags:
+      - tenants
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: ''
+    put:
+      operationId: tenants_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tenant.
+        required: true
+      tags:
+      - tenants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: ''
+    patch:
+      operationId: tenants_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tenant.
+        required: true
+      tags:
+      - tenants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+        required: true
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: ''
+    delete:
+      operationId: tenants_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this tenant.
+        required: true
+      tags:
+      - tenants
+      security:
+      - basicAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - firebaseAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Action:
+      type: object
+      description: Serializer mixin for additional fields.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        actor:
+          $ref: '#/components/schemas/ActionActor'
+        verb:
+          type: string
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/ActionObject'
+        target:
+          $ref: '#/components/schemas/ActionTarget'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        total_revenue:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+        total_opens:
+          type: integer
+          nullable: true
+        successful_deliveries:
+          type: integer
+          nullable: true
+        donation_amount:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+      required:
+      - actor
+      - id
+      - verb
+    ActionActor:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileAction'
+          Vendor: '#/components/schemas/VendorAction'
+          Person: '#/components/schemas/PersonAction'
+          Campaign: '#/components/schemas/CampaignAction'
+          Broadcast: '#/components/schemas/BroadcastAction'
+          Tweet: '#/components/schemas/TweetAction'
+          Tweeter: '#/components/schemas/TweeterAction'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileAction'
+      - $ref: '#/components/schemas/VendorAction'
+      - $ref: '#/components/schemas/PersonAction'
+      - $ref: '#/components/schemas/CampaignAction'
+      - $ref: '#/components/schemas/BroadcastAction'
+      - $ref: '#/components/schemas/TweetAction'
+      - $ref: '#/components/schemas/TweeterAction'
+    ActionActorRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    ActionObject:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileAction'
+          Vendor: '#/components/schemas/VendorAction'
+          Person: '#/components/schemas/PersonAction'
+          Campaign: '#/components/schemas/CampaignAction'
+          Broadcast: '#/components/schemas/BroadcastAction'
+          Tweet: '#/components/schemas/TweetAction'
+          Tweeter: '#/components/schemas/TweeterAction'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileAction'
+      - $ref: '#/components/schemas/VendorAction'
+      - $ref: '#/components/schemas/PersonAction'
+      - $ref: '#/components/schemas/CampaignAction'
+      - $ref: '#/components/schemas/BroadcastAction'
+      - $ref: '#/components/schemas/TweetAction'
+      - $ref: '#/components/schemas/TweeterAction'
+    ActionObjectRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    ActionRequest:
+      type: object
+      description: Serializer mixin for additional fields.
+      properties:
+        actor:
+          $ref: '#/components/schemas/ActionActorRequest'
+        verb:
+          type: string
+          minLength: 1
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/ActionObjectRequest'
+        target:
+          $ref: '#/components/schemas/ActionTargetRequest'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        total_revenue:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+        total_opens:
+          type: integer
+          nullable: true
+        successful_deliveries:
+          type: integer
+          nullable: true
+        donation_amount:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+      required:
+      - actor
+      - verb
+    ActionTarget:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileAction'
+          Vendor: '#/components/schemas/VendorAction'
+          Person: '#/components/schemas/PersonAction'
+          Campaign: '#/components/schemas/CampaignAction'
+          Broadcast: '#/components/schemas/BroadcastAction'
+          Tweet: '#/components/schemas/TweetAction'
+          Tweeter: '#/components/schemas/TweeterAction'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileAction'
+      - $ref: '#/components/schemas/VendorAction'
+      - $ref: '#/components/schemas/PersonAction'
+      - $ref: '#/components/schemas/CampaignAction'
+      - $ref: '#/components/schemas/BroadcastAction'
+      - $ref: '#/components/schemas/TweetAction'
+      - $ref: '#/components/schemas/TweeterAction'
+    ActionTargetRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    Address:
+      type: object
+      properties:
+        address1:
+          type: string
+          maxLength: 50
+        address2:
+          type: string
+          maxLength: 30
+        county:
+          type: string
+          maxLength: 30
+        city:
+          type: string
+          maxLength: 30
+        state:
+          type: string
+          maxLength: 2
+        state_full:
+          type: string
+          maxLength: 30
+        zip:
+          type: string
+          maxLength: 30
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+    AddressRequest:
+      type: object
+      properties:
+        address1:
+          type: string
+          maxLength: 50
+        address2:
+          type: string
+          maxLength: 30
+        county:
+          type: string
+          maxLength: 30
+        city:
+          type: string
+          maxLength: 30
+        state:
+          type: string
+          maxLength: 2
+        state_full:
+          type: string
+          maxLength: 30
+        zip:
+          type: string
+          maxLength: 30
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+    AuthToken:
+      type: object
+      properties:
+        token:
+          type: string
+          readOnly: true
+      required:
+      - token
+    AuthTokenRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - password
+      - username
+    Broadcast:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        contact_list:
+          allOf:
+          - $ref: '#/components/schemas/ContactList'
+          nullable: true
+        delivery_report:
+          allOf:
+          - $ref: '#/components/schemas/DeliveryReport'
+          nullable: true
+        description:
+          type: string
+          maxLength: 250
+        message:
+          type: string
+        delivery_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        status:
+          enum:
+          - ABORTED
+          - SENDING
+          - COMPLETED
+          type: string
+      required:
+      - id
+    BroadcastAction:
+      type: object
+      properties:
+        class_name:
+          type: string
+          default: Broadcast
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+      required:
+      - id
+    BroadcastActionRequest:
+      type: object
+      properties:
+        class_name:
+          type: string
+          minLength: 1
+          default: Broadcast
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+      required:
+      - id
+    BroadcastRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        contact_list:
+          allOf:
+          - $ref: '#/components/schemas/ContactListRequest'
+          nullable: true
+        delivery_report:
+          allOf:
+          - $ref: '#/components/schemas/DeliveryReportRequest'
+          nullable: true
+        description:
+          type: string
+          minLength: 1
+          maxLength: 250
+        message:
+          type: string
+          minLength: 1
+        delivery_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        status:
+          enum:
+          - ABORTED
+          - SENDING
+          - COMPLETED
+          type: string
+      required:
+      - id
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Mailchimp campaign id
+          maxLength: 50
+        title:
+          type: string
+          maxLength: 250
+        send_time:
+          type: string
+          format: date-time
+      required:
+      - id
+    CampaignAction:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Mailchimp campaign id
+          maxLength: 50
+        class_name:
+          type: string
+          default: Campaign
+        title:
+          type: string
+          maxLength: 250
+      required:
+      - id
+    CampaignActionRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+          description: Mailchimp campaign id
+          maxLength: 50
+        class_name:
+          type: string
+          minLength: 1
+          default: Campaign
+        title:
+          type: string
+          minLength: 1
+          maxLength: 250
+      required:
+      - id
+    CampaignRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+          description: Mailchimp campaign id
+          maxLength: 50
+        title:
+          type: string
+          minLength: 1
+          maxLength: 250
+        send_time:
+          type: string
+          format: date-time
+      required:
+      - id
+    ContactList:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 250
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
+      required:
+      - contacts
+    ContactListRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 250
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonRequest'
+      required:
+      - contacts
+    DeliveryReport:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        delivered:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        queued:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        waiting:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        errors:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        replied:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        opt_outs:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+      required:
+      - id
+    DeliveryReportRequest:
+      type: object
+      properties:
+        delivered:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        queued:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        waiting:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        errors:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        replied:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        opt_outs:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+    FacebookSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    FacebookSettingsRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    Integration:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        slug:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        installed:
+          type: boolean
+          readOnly: true
+      required:
+      - id
+      - installed
+    MailchimpActionActorRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+    MailchimpActionObjectRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+    MailchimpActionRequest:
+      type: object
+      description: Serializer mixin for additional fields.
+      properties:
+        actor:
+          $ref: '#/components/schemas/MailchimpActionActorRequest'
+        verb:
+          type: string
+          minLength: 1
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/MailchimpActionObjectRequest'
+        target:
+          $ref: '#/components/schemas/MailchimpActionTargetRequest'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        total_revenue:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+        total_opens:
+          type: integer
+          nullable: true
+        successful_deliveries:
+          type: integer
+          nullable: true
+      required:
+      - actor
+      - verb
+    MailchimpActionTargetRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Campaign: '#/components/schemas/CampaignActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/CampaignActionRequest'
+    MailchimpSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    MailchimpSettingsRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    Note:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        author:
+          type: integer
+          readOnly: true
+        linked_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonPart'
+        content:
+          type: string
+          nullable: true
+        date_added:
+          type: string
+          format: date-time
+          readOnly: true
+        date_updated:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - author
+      - date_added
+      - date_updated
+      - id
+      - title
+    NoteCreateUpdateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 100
+        content:
+          type: string
+          nullable: true
+        linked_contacts:
+          type: array
+          items:
+            type: integer
+      required:
+      - title
+    PaginatedPersonList:
+      type: object
+      properties:
+        nextPage:
+          type: integer
+          nullable: true
+        previousPage:
+          type: integer
+          nullable: true
+        count:
+          type: integer
+        pageSize:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
+    Person:
+      type: object
+      properties:
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 50
+        dob:
+          type: string
+          format: date
+          nullable: true
+        date_added:
+          type: string
+          format: date
+          nullable: true
+        date_updated:
+          type: string
+          format: date
+          nullable: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          pattern: ^(\d{1,10})?$
+          maxLength: 10
+        primary_addr:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+          nullable: true
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonTag'
+        bookmarked:
+          type: boolean
+      required:
+      - pk
+    PersonAction:
+      type: object
+      properties:
+        class_name:
+          type: string
+          default: Person
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 50
+        dob:
+          type: string
+          format: date
+          nullable: true
+      required:
+      - pk
+    PersonActionRequest:
+      type: object
+      properties:
+        class_name:
+          type: string
+          minLength: 1
+          default: Person
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 50
+        dob:
+          type: string
+          format: date
+          nullable: true
+    PersonPart:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 50
+        primary_addr:
+          type: string
+          readOnly: true
+      required:
+      - id
+      - primary_addr
+    PersonRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 50
+        dob:
+          type: string
+          format: date
+          nullable: true
+        date_added:
+          type: string
+          format: date
+          nullable: true
+        date_updated:
+          type: string
+          format: date
+          nullable: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: string
+          pattern: ^(\d{1,10})?$
+          maxLength: 10
+        primary_addr:
+          allOf:
+          - $ref: '#/components/schemas/AddressRequest'
+          nullable: true
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonTagRequest'
+        bookmarked:
+          type: boolean
+    PersonTag:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - name
+    PersonTagRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 50
+      required:
+      - name
+    PolyActionRequest:
+      discriminator:
+        propertyName: action_type
+        mapping:
+          ? ''
+          : '#/components/schemas/ActionRequest'
+          Mailchimp: '#/components/schemas/MailchimpActionRequest'
+          Prompt: '#/components/schemas/PromptActionRequest'
+          Revv: '#/components/schemas/RevvActionRequest'
+          Tweet: '#/components/schemas/TwitterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/ActionRequest'
+      - $ref: '#/components/schemas/MailchimpActionRequest'
+      - $ref: '#/components/schemas/PromptActionRequest'
+      - $ref: '#/components/schemas/RevvActionRequest'
+      - $ref: '#/components/schemas/TwitterActionRequest'
+    PromptActionActorRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+    PromptActionObjectRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+    PromptActionRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/PromptActionActorRequest'
+        verb:
+          type: string
+          minLength: 1
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/PromptActionObjectRequest'
+        target:
+          $ref: '#/components/schemas/PromptActionTargetRequest'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - actor
+      - verb
+    PromptActionTargetRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Broadcast: '#/components/schemas/BroadcastActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/BroadcastActionRequest'
+    PromptSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    PromptSettingsRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    PulblicIntegration:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        slug:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+      required:
+      - id
+    PulblicIntegrationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        slug:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+    PullJob:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        public_integration:
+          $ref: '#/components/schemas/PulblicIntegration'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        payload:
+          type: object
+          additionalProperties: {}
+      required:
+      - created_at
+      - id
+      - public_integration
+    PullJobRequest:
+      type: object
+      properties:
+        public_integration:
+          $ref: '#/components/schemas/PulblicIntegrationRequest'
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        payload:
+          type: object
+          additionalProperties: {}
+      required:
+      - public_integration
+    RevvActionActorRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+    RevvActionObjectRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+    RevvActionRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/RevvActionActorRequest'
+        verb:
+          type: string
+          minLength: 1
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/RevvActionObjectRequest'
+        target:
+          $ref: '#/components/schemas/RevvActionTargetRequest'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        donation_amount:
+          type: number
+          format: double
+          maximum: 100000000
+          minimum: -100000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          nullable: true
+      required:
+      - actor
+      - verb
+    RevvActionTargetRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+    RevvSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    RevvSettingsRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        author:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 500
+        description:
+          type: string
+          nullable: true
+        date_added:
+          type: string
+          format: date-time
+          readOnly: true
+        date_updated:
+          type: string
+          format: date-time
+          readOnly: true
+        date_due:
+          type: string
+          format: date
+          nullable: true
+        completed:
+          type: boolean
+        assigned_to:
+          type: array
+          items:
+            $ref: '#/components/schemas/TenantUserPart'
+        linked_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonPart'
+        overdue:
+          type: boolean
+          readOnly: true
+      required:
+      - author
+      - date_added
+      - date_updated
+      - id
+      - overdue
+      - title
+    TaskCreateUpdateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 500
+        description:
+          type: string
+          nullable: true
+        date_due:
+          type: string
+          format: date
+          nullable: true
+        assigned_to:
+          type: array
+          items:
+            type: integer
+        linked_contacts:
+          type: array
+          items:
+            type: integer
+        completed:
+          type: boolean
+      required:
+      - title
+    Tenant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          pattern: ^[-a-zA-Z0-9_]+$
+        owned:
+          type: boolean
+          readOnly: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+      - name
+      - owned
+      - slug
+    TenantRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        slug:
+          type: string
+          minLength: 1
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          nullable: true
+          maxLength: 200
+      required:
+      - name
+      - slug
+    TenantUserPart:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        display_name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Tweet:
+      type: object
+      description: Serializer for Tweet model, converting tweets to and from JSON.
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        text:
+          type: string
+          maxLength: 280
+        url:
+          type: string
+          format: uri
+          maxLength: 200
+        tweeter:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - id
+      - tweeter
+      - url
+    TweetAction:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        class_name:
+          type: string
+          default: Tweet
+        text:
+          type: string
+          maxLength: 280
+        url:
+          type: string
+          format: uri
+          maxLength: 200
+      required:
+      - id
+      - url
+    TweetActionRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        class_name:
+          type: string
+          minLength: 1
+          default: Tweet
+        text:
+          type: string
+          minLength: 1
+          maxLength: 280
+        url:
+          type: string
+          format: uri
+          minLength: 1
+          maxLength: 200
+      required:
+      - id
+      - url
+    TweetRequest:
+      type: object
+      description: Serializer for Tweet model, converting tweets to and from JSON.
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        text:
+          type: string
+          minLength: 1
+          maxLength: 280
+        url:
+          type: string
+          format: uri
+          minLength: 1
+          maxLength: 200
+        tweeter:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - id
+      - tweeter
+      - url
+    Tweeter:
+      type: object
+      description: Serializer for Tweeter model, converting twitter users to and from
+        JSON.
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        handle:
+          type: string
+          maxLength: 15
+      required:
+      - handle
+      - id
+    TweeterAction:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        class_name:
+          type: string
+          default: Tweeter
+        handle:
+          type: string
+          maxLength: 15
+      required:
+      - handle
+      - id
+    TweeterActionRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        class_name:
+          type: string
+          minLength: 1
+          default: Tweeter
+        handle:
+          type: string
+          minLength: 1
+          maxLength: 15
+      required:
+      - handle
+      - id
+    TweeterRequest:
+      type: object
+      description: Serializer for Tweeter model, converting twitter users to and from
+        JSON.
+      properties:
+        id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        handle:
+          type: string
+          minLength: 1
+          maxLength: 15
+      required:
+      - handle
+      - id
+    TwitterActionActorRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    TwitterActionObjectRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    TwitterActionRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/TwitterActionActorRequest'
+        verb:
+          type: string
+          minLength: 1
+          maxLength: 255
+        action_object:
+          $ref: '#/components/schemas/TwitterActionObjectRequest'
+        target:
+          $ref: '#/components/schemas/TwitterActionTargetRequest'
+        public:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - actor
+      - verb
+    TwitterActionTargetRequest:
+      discriminator:
+        propertyName: class_name
+        mapping:
+          TenantUserProfile: '#/components/schemas/UserProfileActionRequest'
+          Vendor: '#/components/schemas/VendorActionRequest'
+          Person: '#/components/schemas/PersonActionRequest'
+          Tweet: '#/components/schemas/TweetActionRequest'
+          Tweeter: '#/components/schemas/TweeterActionRequest'
+      anyOf:
+      - $ref: '#/components/schemas/UserProfileActionRequest'
+      - $ref: '#/components/schemas/VendorActionRequest'
+      - $ref: '#/components/schemas/PersonActionRequest'
+      - $ref: '#/components/schemas/TweetActionRequest'
+      - $ref: '#/components/schemas/TweeterActionRequest'
+    TwitterSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    TwitterSettingsRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+    UserProfileAction:
+      type: object
+      properties:
+        class_name:
+          type: string
+          default: TenantUserProfile
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        first_name:
+          type: string
+          maxLength: 255
+        last_name:
+          type: string
+          maxLength: 255
+      required:
+      - pk
+    UserProfileActionRequest:
+      type: object
+      properties:
+        class_name:
+          type: string
+          minLength: 1
+          default: TenantUserProfile
+        first_name:
+          type: string
+          maxLength: 255
+        last_name:
+          type: string
+          maxLength: 255
+    VendorAction:
+      type: object
+      properties:
+        class_name:
+          type: string
+          default: Vendor
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - pk
+    VendorActionRequest:
+      type: object
+      properties:
+        class_name:
+          type: string
+          minLength: 1
+          default: Vendor
+        name:
+          type: string
+          maxLength: 255
+    WhatsappSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+        active:
+          type: boolean
+      required:
+      - id
+      - user
+    WhatsappSettingsRequest:
+      type: object
+      properties:
+        user:
+          type: integer
+        active:
+          type: boolean
+      required:
+      - user
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    firebaseAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
+servers:
+- url: https://{tenant_domain}.frontrunnerapp.dev
+  variables:
+    tenant_domain:
+      default: test
+      description: Tenant subdomain
+- url: https://frontrunnerapp.dev
