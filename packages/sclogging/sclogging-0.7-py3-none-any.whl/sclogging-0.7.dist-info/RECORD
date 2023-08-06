@@ -1,0 +1,9 @@
+sclogging/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sclogging/config.py,sha256=0Jz_4XhBeb8E3X2z6fc1XD5PQmEJr7bA2sAAlPoiS2c,1038
+sclogging/sclogging_main.py,sha256=hMEv9qTPJlGSlQXYJA351Q8aVpr-B-l-JhE3ALA4hZ8,25200
+sclogging/settings.toml,sha256=bXInad_zTK-127yUZ5o659nyjO-x6k030_S7vVrCq6A,299
+sclogging-0.7.dist-info/LICENSE,sha256=NLQqWhjA-Xdv1mBxoL-OI0Ugt2oqrrPpg4pXxBks4Dw,1087
+sclogging-0.7.dist-info/METADATA,sha256=YqesEanvDD57zY7DY6XI1aDXaZhcSou5nBqRRCvTBnM,1333
+sclogging-0.7.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sclogging-0.7.dist-info/top_level.txt,sha256=Nomxlhum3CTZYQxZ21DKW7M6J9RHoO6MJFT4BJBmkhM,10
+sclogging-0.7.dist-info/RECORD,,
