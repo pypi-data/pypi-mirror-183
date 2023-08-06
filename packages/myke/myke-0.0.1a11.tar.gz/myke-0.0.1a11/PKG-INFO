@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: myke
+Version: 0.0.1a11
+Home-page: https://codeberg.org/Fresh2dev/myke
+Author: donald
+Author-email: hello@Fresh2.dev
+Project-URL: Repository, https://codeberg.org/Fresh2dev/myke
+Project-URL: Issues, https://codeberg.org/Fresh2dev/myke/issues
+Project-URL: Documentation, https://www.Fresh2.dev/code/r/myke/i
+Project-URL: Changelog, https://www.Fresh2.dev/code/r/myke/i/changelog
+Project-URL: Funding, https://www.Fresh2.dev/tip
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: build
+Provides-Extra: docs
+Provides-Extra: dev
+Provides-Extra: tests
+Provides-Extra: io
+License-File: LICENSE
+
+# myke
+
+|               |                                           |
+| ------------- | ----------------------------------------- |
+| Repo          | https://codeberg.org/Fresh2dev/myke       |
+| Repo Mirror   | https://www.Fresh2.dev/code/r/myke        |
+| Documentation | https://www.Fresh2.dev/code/r/myke/i |
+| Funding       | https://www.Fresh2.dev/tip                |
+
+---
+
+```sh
+PYTHONPATH=./src python -m myke --myke-file tests/resources/Mykefile -h
+
+PYTHONPATH=./src ./tests/resources/Mykefile --myke-help
+```
+
+
+## Build
+
+```sh
+myke py-mkdocs
+```
+
+## Deploy
+
+```sh
+myke stack-up
+```
