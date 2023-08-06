@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/matrix_operations_raja.egg-info/PKG-INFO
+src/matrix_operations_raja.egg-info/SOURCES.txt
+src/matrix_operations_raja.egg-info/dependency_links.txt
+src/matrix_operations_raja.egg-info/top_level.txt
+src/matrixpython/__init__.py
+src/matrixpython/mat_addtion_properties.py
+src/matrixpython/mat_cramer_rule.py
+src/matrixpython/mat_determinant.py
+src/matrixpython/mat_inverse.py
+src/matrixpython/mat_multiple_properties.py
+src/matrixpython/mat_operations.py
+src/matrixpython/mat_orthogonal.py
+src/matrixpython/mat_transpose_property.py
