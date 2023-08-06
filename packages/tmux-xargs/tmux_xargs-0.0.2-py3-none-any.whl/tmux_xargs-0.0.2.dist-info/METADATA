@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: tmux-xargs
+Version: 0.0.2
+Summary: targs: tmux + xargs
+Home-page: https://github.com/ucchiee/targs
+Download-URL: https://github.com/ucchiee/targs
+Author: Yusuke Uchida
+Author-email: fantomyuu0623@gmail.com
+Maintainer: Yusuke Uchida
+Maintainer-email: fantomyuu0623@gmail.com
+License: MIT
+Keywords: tmux xargs targs
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: wheel
+Requires-Dist: setuptools
+
+# targs
+tmux + xargs
+
+## Install
+
+```bash
+pip install git+https://github.com/ucchiee/targs.git
+```
+
+## Usage
+
+`targs` reads newline delimited strings from the standard input and executes each of them in the automatically created panes.
+
+e.g.:
+
+```bash
+$ cat scripts
+# echo 1
+# echo 2
+# echo 3
+# echo 4
+
+$ tmux
+$ cat scripts | targs
+```
