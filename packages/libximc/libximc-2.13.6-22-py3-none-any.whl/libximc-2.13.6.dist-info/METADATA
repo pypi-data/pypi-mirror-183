@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: libximc
+Version: 2.13.6
+Summary: Libraries and python bindings required to use EPC's ximc
+Author-email: EPC MSU <info@physlab.ru>
+License: Copyright (c) 2022 EPC MSU 
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Кроссплатформенный пакет для управления устройствами XIMC
+
+Libximc - потокобезопасная, кроссплатформенная библиотека для работы с контроллерами 8SMC4-USB и 8SMC5-USB.
+
+Libximc управляет оборудованием с использованием интерфейсов: USB 2.0., RS232 и Ethernet, также использует распространенный и проверенный интерфейс виртуального последовательного порта, поэтому вы можете работать с модулями управления моторами через эту библиотеку под ОС Windows и Linux.
+
+Библиотека libximc поддерживает подключение и отключение устройств "на лету". C одним устройством в каждый момент может работать не более одного экземпляра управляющей программы - множественный доступ управляющих программ к одному и тому же устройству не допускается.
+
+# Обновление pip
+```bash
+python3 -m pip install --upgrade pip
+```
+
+# Установка
+
+```bash
+python3 -m pip install libximc
+```
+
+# Проверка установки
+```
+import libximc
+if libximc.lib is not None:
+    print("Installation successful")
+```
+
+# Пример использования
+
+```python
+from libximc import *
+from ctypes import *
+
+device_id = lib.open_device("xi-emu://testdevice.bin")
+print("Device id: " + repr(device_id))
+
+x_pos = get_position_t()
+result = lib.get_position(device_id, byref(x_pos))
+print("Result: " + repr(result))
+if result == Result.Ok:
+        print("Position: {0} steps, {1} microsteps".format(x_pos.Position, x_pos.uPosition))
+
+lib.close_device(byref(cast(device_id, POINTER(c_int))))
+```
