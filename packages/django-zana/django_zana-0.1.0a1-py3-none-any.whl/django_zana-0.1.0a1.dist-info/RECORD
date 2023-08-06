@@ -1,0 +1,8 @@
+zana/django/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+zana/django/apps.py,sha256=f0qhK0l5Hv5bC7CHfx-wVY1p9QUJZG5uadwaPAe98U8,568
+zana/django/models/__init__.py,sha256=zniZI2AKbCAyK7TmG04PZhq0p6yNmH1KNIja_X8uO2A,27
+zana/django/models/__init__.pyi,sha256=ci0t3nBK2poaCjG5S7YbKRxTaISxGTylV5DUc51rAr8,71
+zana/django/models/aliases.py,sha256=mZWnzoz9w0m13fPTf0HmydLyk6SLAHvkOHVCIOHiBhs,11573
+django_zana-0.1.0a1.dist-info/METADATA,sha256=e2Ij4M7gn2EXlKAzu3-WRMJV9Emi_6feD-0fB5ka9TM,596
+django_zana-0.1.0a1.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+django_zana-0.1.0a1.dist-info/RECORD,,
