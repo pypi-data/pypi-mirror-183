@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: leetcodeDriverPY
+Version: 0.0.1
+Summary: A library to help people run Leetcode testcases without the Leetcode online IDE
+Home-page: UNKNOWN
+Author: Duve3
+Author-email: 
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+leetcodeDriverPY
+A simple driver to allow you to use testcases in your own code :)
+
+If you would like to use this in your project, its a simple as
+just doing pip install leetcodeDriverPY
+
+
+Change Log
+==========
+
+0.0.1 (12/31/2022)
+-------------------
+- First Release
+
