@@ -1,0 +1,11 @@
+appdirs<2.0,>=1.4.4
+bitstruct<9.0,>=8.15.1
+flask<3.0,>=2.2.2
+hid_parser==0.0.3
+netifaces<2.0,>=0.11.0
+pyopenssl<23,>=22.1.0
+pyperclip<2.0,>=1.8.2
+requests<3.0,>=2.28
+rich<13,>=12.6.0
+safdie<3.0,>=2.0.1
+solaar<2.0,>=1.1.8
