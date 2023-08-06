@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+__init__.py
+color_groups.py
+colorize.py
+pyproject.toml
+setup.py
+colorize_colors.egg-info/PKG-INFO
+colorize_colors.egg-info/SOURCES.txt
+colorize_colors.egg-info/dependency_links.txt
+colorize_colors.egg-info/requires.txt
+colorize_colors.egg-info/top_level.txt
