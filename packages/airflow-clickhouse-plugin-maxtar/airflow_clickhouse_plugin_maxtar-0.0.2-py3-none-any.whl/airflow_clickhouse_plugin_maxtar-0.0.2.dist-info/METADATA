@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: airflow-clickhouse-plugin-maxtar
+Version: 0.0.2
+Summary: test
+Home-page: https://github.com/bryzgaloff/airflow-clickhouse-plugin
+Author: test
+Author-email: test@gmail.com
+License: MIT License
+Keywords: clickhouse,airflow
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: clickhouse-driver (~=0.2.0)
+Requires-Dist: apache-airflow (<2.6.0,>=2.0.0)
+Requires-Dist: apache-airflow-providers-common-sql
+Provides-Extra: pandas
+Requires-Dist: apache-airflow[pandas] (<2.6.0,>=2.0.0) ; extra == 'pandas'
+
