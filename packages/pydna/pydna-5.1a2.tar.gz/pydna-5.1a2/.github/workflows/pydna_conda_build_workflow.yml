@@ -1,0 +1,34 @@
+name: Conda Package Build
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    name: Build noarch python package
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 🌰 Cache conda
+        uses: actions/cache@v3
+        with:
+          path: ~/conda_pkgs_dir
+          key: conda-ubuntu-latest-python-3.11-${{ hashFiles('environment-ci.yml') }}
+      - name: 🌍 Install conda environment from pydna_build_environment with miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: pydna_build_environment
+          python-version: ${{ matrix.python-version }}
+          environment-file: pydna_build_environment.yml
+          auto-activate-base: false
+      - name: mamba info --all
+        shell: bash -l {0}
+        run: mamba info --all
+      - name: mamba config
+        shell: bash -l {0}
+        run: conda config --set anaconda_upload yes
+      - name: 🔩 Build conda package with mamba
+        shell: bash -l {0}
+        run: mamba build . --no-include-recipe --dirty --token ${{ secrets.ANACONDATOKEN }}
