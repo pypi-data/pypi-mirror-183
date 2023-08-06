@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+mozark-sdk/api_flow.py
+mozark_sdk.egg-info/PKG-INFO
+mozark_sdk.egg-info/SOURCES.txt
+mozark_sdk.egg-info/dependency_links.txt
+mozark_sdk.egg-info/requires.txt
+mozark_sdk.egg-info/top_level.txt
