@@ -1,0 +1,10 @@
+CHANGELOG.md,sha256=4TRjuKwUivbTA9lxhbwAgWLgoPn7hxgijH7GNx9M6Y8,778
+LICENSE,sha256=f6zJPNQ6aLo-cb38rSsaavAd6XpjS3Z6HQN9fx1iGLI,1068
+README.md,sha256=eZefxKht9wP9_s0OsjeiEGJ9QWN5LkCRfqpck9nkZbg,4679
+sqlitekg2vec/__init__.py,sha256=7tXJ9GMDScKT_nmIR3sTdT5XF7N8G-Eia7xbnsILdPw,287
+sqlitekg2vec/io.py,sha256=MffJ84d9PqTx1KVIGJ3rbEvy5NzgblJyS8lgaraLc9A,7510
+sqlitekg2vec/kg.py,sha256=b-2LgrsBmSR0jISq0D6JM-udlJRV6BEDBCQOv8yPgcE,16702
+sqlitekg2vec-0.2.0.dist-info/LICENSE,sha256=f6zJPNQ6aLo-cb38rSsaavAd6XpjS3Z6HQN9fx1iGLI,1068
+sqlitekg2vec-0.2.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+sqlitekg2vec-0.2.0.dist-info/METADATA,sha256=yv_enDcthwo-Sk-aeQyfxi2b7CgtKTiCf3zmwGRI6f8,5614
+sqlitekg2vec-0.2.0.dist-info/RECORD,,
