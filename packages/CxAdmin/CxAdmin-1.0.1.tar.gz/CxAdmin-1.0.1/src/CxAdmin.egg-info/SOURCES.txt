@@ -1,0 +1,9 @@
+pyproject.toml
+setup.cfg
+src/CxAdmin.egg-info/PKG-INFO
+src/CxAdmin.egg-info/SOURCES.txt
+src/CxAdmin.egg-info/dependency_links.txt
+src/CxAdmin.egg-info/top_level.txt
+src/api/__init__.py
+src/api/httpClientModel.py
+src/api/httpclient.py
