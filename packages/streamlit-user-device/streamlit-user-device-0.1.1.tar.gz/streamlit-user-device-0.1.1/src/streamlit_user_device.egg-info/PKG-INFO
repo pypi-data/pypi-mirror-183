@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: streamlit-user-device
+Version: 0.1.1
+Summary: Get User Device
+Home-page: https://github.com/phamxtien/streamlit-user-device
+Author: Pham Xuan Tien
+Author-email: phamxtien@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# streamlit_user_device
+
+Get user device as desktop | tablet | mobile
+
+## Example:
+
+import streamlit as st  
+from streamlit_user_device import user_device
+
+device = user_device()
+
+if device:  
+    st.write(device)
+    
+
+
