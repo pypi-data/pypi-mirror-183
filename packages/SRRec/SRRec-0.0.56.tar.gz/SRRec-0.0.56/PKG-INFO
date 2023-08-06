@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: SRRec
+Version: 0.0.56
+Summary: Short Reads Error Correction
+Home-page: https://github.com/Jappy0/ReadsCorrection
+Author: Penagyao Ping
+Author-email: ping.pengyao@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+.. image:: https://readthedocs.org/projects/srrec/badge/?version=latest
+    :target: https://srrec.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+SRRec: Short Reads restoration through accurate error Rectification
+===================================================================
+Documentation
+===================================================================
+Click the `SRRec <https://srrec.readthedocs.io/en/latest/>`__ documentation developed based on `Read the Docs <https://readthedocs.org/>`__.

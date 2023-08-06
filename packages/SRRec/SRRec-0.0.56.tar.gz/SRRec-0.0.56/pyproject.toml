@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools","wheel"] #, "flit_core >=3.2,<4"
+build-backend = "setuptools.build_meta"
+# , "flit_core.buildapi"]
+# [project]
+# name = "SRRec"
+# authors = [{name = "Pengyao Ping", email = "ping.pengyao@gmail.com"}]
+# dynamic = ["version", "description"]
