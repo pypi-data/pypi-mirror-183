@@ -1,0 +1,9 @@
+LICENCE.txt
+README.md
+setup.py
+TrigFunc/__init__.py
+TrigFunc/trig.py
+TrigFunc.egg-info/PKG-INFO
+TrigFunc.egg-info/SOURCES.txt
+TrigFunc.egg-info/dependency_links.txt
+TrigFunc.egg-info/top_level.txt
