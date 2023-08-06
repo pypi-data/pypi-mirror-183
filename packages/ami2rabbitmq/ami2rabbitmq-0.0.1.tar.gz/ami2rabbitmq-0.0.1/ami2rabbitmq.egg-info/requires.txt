@@ -1,0 +1,10 @@
+async-timeout
+certifi
+charset-normalizer
+idna
+pika
+pyst2
+redis
+requests
+six
+urllib3

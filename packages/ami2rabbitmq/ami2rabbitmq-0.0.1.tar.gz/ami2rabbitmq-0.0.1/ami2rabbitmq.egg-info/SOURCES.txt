@@ -1,0 +1,8 @@
+README.md
+setup.py
+ami2rabbitmq/__init__.py
+ami2rabbitmq.egg-info/PKG-INFO
+ami2rabbitmq.egg-info/SOURCES.txt
+ami2rabbitmq.egg-info/dependency_links.txt
+ami2rabbitmq.egg-info/requires.txt
+ami2rabbitmq.egg-info/top_level.txt
