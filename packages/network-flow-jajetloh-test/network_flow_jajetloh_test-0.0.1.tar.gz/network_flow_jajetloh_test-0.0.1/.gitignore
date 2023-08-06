@@ -1,0 +1,6 @@
+env
+.vscode
+__pycache__
+*.ipynb
+*.code-workspace
+*/*.pptx
