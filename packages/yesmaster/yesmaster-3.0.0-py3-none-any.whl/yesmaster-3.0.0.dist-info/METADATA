@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: yesmaster
+Version: 3.0.0
+Summary: Yesmaster is a terminal mastermind game. It's possible to play normally or let's play the computer with algorithm.
+Home-page: https://github.com/matteli/yesmaster
+License: MIT
+Author: matteli
+Author-email: matthieu.nue@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://github.com/matteli/yesmaster
