@@ -1,0 +1,7 @@
+setup.py
+neuralnetworkAI/__init__.py
+neuralnetworkAI/code.py
+neuralnetworkAI.egg-info/PKG-INFO
+neuralnetworkAI.egg-info/SOURCES.txt
+neuralnetworkAI.egg-info/dependency_links.txt
+neuralnetworkAI.egg-info/top_level.txt
