@@ -1,0 +1,9 @@
+LICENSE.md
+README.md
+setup.py
+src/epomodoro.egg-info/PKG-INFO
+src/epomodoro.egg-info/SOURCES.txt
+src/epomodoro.egg-info/dependency_links.txt
+src/epomodoro.egg-info/entry_points.txt
+src/epomodoro.egg-info/requires.txt
+src/epomodoro.egg-info/top_level.txt
