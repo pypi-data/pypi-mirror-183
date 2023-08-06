@@ -1,0 +1,2 @@
+[console_scripts]
+tcdd_bilet_kontrol = tcdd_bilet_kontrol:basla
