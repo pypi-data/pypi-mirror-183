@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+mlskeleton/__init__.py
+mlskeleton/folder_structure.json
+mlskeleton/generator.py
+mlskeleton.egg-info/PKG-INFO
+mlskeleton.egg-info/SOURCES.txt
+mlskeleton.egg-info/dependency_links.txt
+mlskeleton.egg-info/entry_points.txt
+mlskeleton.egg-info/not-zip-safe
+mlskeleton.egg-info/top_level.txt

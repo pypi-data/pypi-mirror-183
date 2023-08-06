@@ -1,0 +1,2 @@
+[console_scripts]
+mlskeleton = mlskeleton.generator:main
