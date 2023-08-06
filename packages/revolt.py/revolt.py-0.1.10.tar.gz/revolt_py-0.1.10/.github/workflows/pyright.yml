@@ -1,0 +1,16 @@
+on: [push, pull_request]
+name: pyright
+jobs:
+  pyright:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: pip install .[speedups,docs]
+      - uses: jakebailey/pyright-action@v1
+        with:
+          lib: true
+          python-version: 3.9
+          working-directory: revolt
