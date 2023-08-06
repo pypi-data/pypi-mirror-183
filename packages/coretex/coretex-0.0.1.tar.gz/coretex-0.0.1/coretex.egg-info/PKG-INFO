@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: coretex
+Version: 0.0.1
+Summary: A package for AI experiment tracking, infrastructure and dataset management using Coretex.ai platform.
+Author: Coretex LLC (Igor Peric)
+Author-email: igor@coretex.ai
