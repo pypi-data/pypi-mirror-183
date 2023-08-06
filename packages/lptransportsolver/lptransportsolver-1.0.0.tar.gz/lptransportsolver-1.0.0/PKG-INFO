@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: lptransportsolver
+Version: 1.0.0
+Summary: This is small library with GUI in future which help solve transport problem in linear programming
+Home-page: https://github.com/schubarkrsk/LPTransportSolver
+Author: S. Chubar, A. Semenova
+Author-email: stas-chubar@yandex.ru, asemenova@sfu-kras.ru
+License: GNU GPL-V3
+Platform: UNKNOWN
+License-File: LICENSE
+
+UNKNOWN
+
