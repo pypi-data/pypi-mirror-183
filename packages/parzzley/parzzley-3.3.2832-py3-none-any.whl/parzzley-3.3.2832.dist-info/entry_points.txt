@@ -1,0 +1,9 @@
+[console_scripts]
+parzzley = parzzley.syncengine.core:main
+parzzley-manageconflicts = parzzley.tools.infssyncmanageconflicts:run
+
+[gui_scripts]
+parzzley-gui = parzzley.gui.app_main:run
+parzzley-manageconflicts-gui = parzzley.gui.app_manageconflicts:run
+parzzley-report-gui = parzzley.gui.app_report:run
+
