@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+dcordts.egg-info/PKG-INFO
+dcordts.egg-info/SOURCES.txt
+dcordts.egg-info/dependency_links.txt
+dcordts.egg-info/requires.txt
+dcordts.egg-info/top_level.txt
+vidstream/__init__.py
+vidstream/streaming.py
