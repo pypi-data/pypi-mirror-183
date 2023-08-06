@@ -1,0 +1,7 @@
+setup.py
+cpanlp/__init__.py
+cpanlp/hello.py
+cpanlp.egg-info/PKG-INFO
+cpanlp.egg-info/SOURCES.txt
+cpanlp.egg-info/dependency_links.txt
+cpanlp.egg-info/top_level.txt
