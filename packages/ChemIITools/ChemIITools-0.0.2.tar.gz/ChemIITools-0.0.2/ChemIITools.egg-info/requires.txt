@@ -1,0 +1,9 @@
+fastcore
+pandas
+numpy
+rdkit
+matplotlib>3.5
+scipy
+sympy
+
+[dev]
