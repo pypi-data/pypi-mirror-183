@@ -1,0 +1,52 @@
+#past_activity {
+    height: 1fr;
+    border: $primary heavy;
+    padding: 0 1;
+}
+
+#current_activity {
+    layout: horizontal;
+    height: 3;
+    border: $primary heavy;
+}
+
+
+#tracking_state {
+    width: 1fr;
+    padding: 0 1;
+}
+
+#sleepiness {
+    width: 2fr;
+    padding: 0 1;
+}
+
+.log {
+    height: auto;
+    margin: 1;
+    padding: 1;
+}
+
+.active {
+    color: $text;
+}
+
+.slept {
+    background: $primary-background-darken-1;
+    color: $text-muted;
+}
+
+.started,
+.stopped {
+    height: 1;
+    padding: 0;
+    content-align: center middle;
+}
+
+.started {
+    background: $success-darken-2;
+}
+
+.stopped {
+    background: $error-darken-2;
+}

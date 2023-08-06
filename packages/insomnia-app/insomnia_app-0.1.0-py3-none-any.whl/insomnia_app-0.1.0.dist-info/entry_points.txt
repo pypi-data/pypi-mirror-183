@@ -1,0 +1,4 @@
+[console_scripts]
+insomnia=insomnia.tui:main
+insomniascript=insomnia.insomnia:main
+
