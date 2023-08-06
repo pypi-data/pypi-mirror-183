@@ -1,0 +1,462 @@
+Metadata-Version: 2.1
+Name: yogger
+Version: 0.0.4rc2
+Summary: Ideal logging setup with utilities to effectively represent interpreter stacks.
+Author-email: Nicholas Londowski <yaphott@proton.me>
+License: 
+                                         Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+Project-URL: homepage, https://github.com/yaphott/yogger
+Project-URL: repository, https://github.com/yaphott/yogger
+Keywords: logging,inspect,trace,stack,locals,dump,dumps,yogger
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: <4,>=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Yogger
+
+[Yogger](https://github.com/yaphott/yogger) aims to provide an ideal logging setup with utilities to effectively represent interpreter stacks.
+
+> Supports `requests.Request` and `requests.Response` objects if the **Requests** package is installed.
+
+### Requirements:
+
+**Yogger** requires Python 3.9 or higher, is platform independent, and requires no outside dependencies.
+
+## Installing
+
+Most stable version from [**PyPi**](https://pypi.org/project/yogger/):
+
+```bash
+pip install yogger
+```
+
+Development version from [**GitHub**](https://github.com/yaphott/yogger):
+
+```bash
+git clone git+https://github.com/yaphott/yogger.git
+cd yogger
+pip install .
+```
+
+## Usage
+
+Import packages and instantiate a logger:
+
+```python
+import logging
+import yogger
+
+logger = logging.getLogger(__name__)
+```
+
+Install the logger class and configure with your package name:
+
+> Place at the start of the top-level function.
+
+```python
+def _cli():
+    yogger.install()
+    yogger.configure(__name__, verbosity=1)
+```
+
+### Output
+
+Example of logger output:
+
+```text
+[ 2022-11-17 10:16:09.0918  INFO  yourapplication ]  Something we want to log.
+[ 2022-11-17 10:16:09.0918  DEBUG  yourapplication ]  Something we want to log.
+[ 2022-11-17 10:16:09.0918  WARNING  yourapplication ]  Something we want to log.
+[ 2022-11-17 10:16:09.0918  ERROR  yourapplication ]  Something we want to log.
+[ 2022-11-17 10:16:09.0918  CRITICAL  yourapplication ]  Something we want to log.
+```
+
+Example of dictionary representation in dump:
+
+```python
+example = {
+    "user_id": 123456790,
+    "profile": {
+        "name": "John Doe",
+        "birthdate": datetime.date(2000, 1, 1),
+        "weight_kg": 86.18,
+    },
+    "video_ids": [123, 456, 789],
+}
+```
+
+```text
+example = <builtins.dict>
+  example['user_id'] = 123456790
+  example['profile'] = <builtins.dict>
+    example['profile']['name'] = 'John Doe'
+    example['profile']['birthdate'] = datetime.date(2000, 1, 1)
+    example['profile']['weight_kg'] = 86.18
+  example['video_ids'] = [123, 456, 789]
+```
+
+Similarly for a dataclass:
+
+```python
+@dataclasses.dataclass
+class Example:
+    user_id: int
+    profile: dict[str, str | float | datetime.date]
+    video_ids: list[int]
+```
+
+```text
+example = <yourapplication.Example>
+  example.user_id = 'user_id' = example.user_id = 123456790
+  example.profile = 'profile' = example.profile = <builtins.dict>
+    example.profile['name'] = 'John Doe'
+    example.profile['birthdate'] = datetime.date(2000, 1, 1)
+    example.profile['weight_kg'] = 86.18
+  example.video_ids = 'video_ids' = example.video_ids = [123, 456, 789]
+```
+
+### About the `package_name` parameter
+
+The `package_name` parameter gives Yogger an idea of what belongs to your application. This name is used to identify which frames to dump in the stack. So it’s important what you provide there. If you are using a single module, `__name__` is always the correct value. If you are using a package, it’s usually recommended to hardcode the name of your package there.
+
+For example, if your application is defined in "yourapplication/app.py", you should create it with one of the two versions below:
+
+```python
+yogger.configure("yourapplication")
+```
+
+```python
+yogger.configure(__name__.split(".")[0])
+```
+
+Why is that? The application will work even with `__name__`, thanks to how resources are looked up. However, it will make debugging more painful. Yogger makes assumptions based on the import name of your application. If the import name is not properly set up, that debugging information may be lost.
+
+## Support for dumping the stack
+
+### Traces and exceptions
+
+Using the `dump_on_exception` **context manager** dumps the exception and trace if an exception is raised:
+
+```python
+with yogger.dump_on_exception(
+    # Uncomment to override
+    # dump_path="./stack_dump.txt",
+):
+    raise SomeException
+```
+
+This is nearly equivalent to:
+
+```python
+import inspect
+```
+
+```python
+try:
+    raise SomeException
+except Exception as e:
+    trace = inspect.trace()
+    if len(trace) > 1:
+        with open("./stack_dump.txt", mode="a", encoding="utf-8") as f:
+            yogger.dump(f, trace[1:], e=e, package_name="yourapplication")
+```
+
+### Stacks
+
+Setting `dump_locals=True` when running `yogger.configure` dumps a representation of the caller's stack upon logging with a level of warning or higher.
+
+To manually dump the stack, something like this would suffice:
+
+```python
+import inspect
+```
+
+```python
+stack = inspect.stack()
+if len(stack) > 2:
+    with open("./example.log", mode="w", encoding="utf-8") as fp:
+        yogger.dump(fp, stack[2:][::-1])
+```
+
+If you simply want the string representation, use the `yogger.dumps` function:
+
+```python
+stack = inspect.stack()
+if len(stack) > 2:
+    trace_repr = yogger.dumps(stack[2:][::-1])
+```
+
+---
+
+## Library
+
+### yogger.install
+
+Function to install the logger class and instantiate the global logger.
+
+| Function Signature |
+| :----------------- |
+| install()          |
+
+| Parameters |
+| :--------- |
+| Empty      |
+
+### yogger.configure
+
+Function to prepare for logging.
+
+| Function Signature                                                                                |
+| :------------------------------------------------------------------------------------------------ |
+| configure(package_name, \*, verbosity=0, dump_locals=False, dump_path=None, remove_handlers=True) |
+
+| Parameters                                           |                                                                                                                              |
+| :--------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| **package_name**_(str)_                              | Name of the package to dump from the stack.                                                                                  |
+| **verbosity**_(int)_                                 | Level of verbosity (0-2) for log messages.                                                                                   |
+| **dump_locals**_(bool)_                              | Dump the caller's stack when logging with a level of warning or higher.                                                      |
+| **dump_path**_(str \| bytes \| os.PathLike \| None)_ | Custom path to use when dumping with `dump_on_exception` or when `dump_locals=True`, otherwise use a temporary path if None. |
+| **remove_handlers**_(bool)_                          | Remove existing logging handlers before adding the new stream handler.                                                       |
+
+### yogger.dump_on_exception
+
+Context manager to dump a representation of the exception and trace stack to file if an exception is raised.
+
+| Function Signature                |
+| :-------------------------------- |
+| dump_on_exception(dump_path=None) |
+
+| Parameters                                           |                                             |
+| :--------------------------------------------------- | :------------------------------------------ |
+| **dump_path**_(str \| bytes \| os.PathLike \| None)_ | Override the file path to use for the dump. |
+
+### yogger.dump
+
+Function to write the representation of an interpreter stack using a file object.
+
+| Function Signature                             |
+| :--------------------------------------------- |
+| dump(fp, stack, \*, e=None, package_name=None) |
+
+| Parameters                            |                                                                                     |
+| :------------------------------------ | :---------------------------------------------------------------------------------- |
+| **fp**_(io.TextIOBase \| io.BytesIO)_ | File object to use for writing.                                                     |
+| **stack**_(list[inspect.FrameInfo])_  | Stack of frames to dump.                                                            |
+| **e**_(Exception \| None)_            | Exception that was raised.                                                          |
+| **package_name**_(str \| None)_       | Name of the package to dump from the stack, otherwise non-exclusive if set to None. |
+
+### yogger.dumps
+
+Function to create a string representation of an interpreter stack.
+
+| Function Signature                          |
+| :------------------------------------------ |
+| dumps(stack, \*, e=None, package_name=None) |
+
+| Parameters                           |                                                                                     |
+| :----------------------------------- | :---------------------------------------------------------------------------------- |
+| **stack**_(list[inspect.FrameInfo])_ | Stack of frames to represent.                                                       |
+| **e**_(Exception \| None)_           | Exception that was raised.                                                          |
+| **package_name**_(str \| None)_      | Name of the package to dump from the stack, otherwise non-exclusive if set to None. |
+
+### yogger.pformat
+
+Function to create a string representation of a variable's name and value.
+
+| Function Signature   |
+| :------------------- |
+| pformat(name, value) |
+
+| Parameters       |                                    |
+| :--------------- | :--------------------------------- |
+| **name**_(str)_  | Name of the variable to represent. |
+| **value**_(str)_ | Value to represent.                |
