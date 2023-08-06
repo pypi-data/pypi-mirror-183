@@ -1,0 +1,2 @@
+[console_scripts]
+description_generator = description_generator:main

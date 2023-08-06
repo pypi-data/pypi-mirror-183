@@ -1,0 +1,10 @@
+LICENSE.md
+README
+description_generator.py
+setup.py
+description_generator.egg-info/PKG-INFO
+description_generator.egg-info/SOURCES.txt
+description_generator.egg-info/dependency_links.txt
+description_generator.egg-info/entry_points.txt
+description_generator.egg-info/requires.txt
+description_generator.egg-info/top_level.txt
