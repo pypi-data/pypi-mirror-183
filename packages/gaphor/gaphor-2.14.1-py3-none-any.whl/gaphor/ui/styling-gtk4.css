@@ -1,0 +1,81 @@
+@import url("styling.css");
+
+.greeter preferencesgroup .title {
+  font-weight: bold;
+}
+
+.greeter preferencesgroup .subtitle {
+  font-weight: normal;
+}
+
+.greeter preferencesgroup row {
+  padding: 6px;
+  padding-right: 0px;
+  min-width: 400px;
+}
+
+box.propertypage > * {
+  margin-top: 6px;
+}
+
+expander-widget.propertypage {
+  margin-top: 12px;
+}
+
+.propertypage box.horizontal:not(.linked) {
+  border-spacing: 6px;
+}
+
+.propertypage .title {
+  font-weight: bold;
+}
+
+.propertypage .info {
+  margin: 3px 2px 0 2px;
+}
+
+frame > textview {
+  padding: 6px;
+}
+
+.info:hover {
+  background-color: @shade_color;
+}
+
+.info-popover {
+  margin: 6px;
+}
+
+#tree_component treeexpander {
+  margin: 0 6px;
+}
+
+#tree_component .editing {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+}
+
+#tree_component .editing selection {
+  background-color: alpha(@theme_selected_bg_color, 0.3);
+}
+
+#tree_component .move-element-above {
+  border-top: 12px solid lighter(@insensitive_fg_color);
+}
+
+#elementeditor {
+  border-left: 1px solid @unfocused_borders;
+}
+
+#toolbox > viewport > box {
+  margin: 6px;
+}
+
+/* For toolbox and greeter */
+flowboxchild:hover {
+  background-color: @shade_color;
+}
+
+flowboxchild:active {
+  background-color: alpha(@shade_color, 2);
+}
