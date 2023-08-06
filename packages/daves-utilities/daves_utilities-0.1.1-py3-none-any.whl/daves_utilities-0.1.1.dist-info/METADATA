@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: daves-utilities
+Version: 0.1.1
+Author-email: David Kuchelmeister <kuchelmeister.david@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas (>=1.4.0)
+Requires-Dist: progressbar (>=2.5)
+Provides-Extra: dev
+Requires-Dist: sklearn (>=1.21.0) ; extra == 'dev'
+
+# daves_utilities
