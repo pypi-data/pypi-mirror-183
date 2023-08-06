@@ -1,0 +1,9 @@
+gitlab_mr_note/.gitlab-ci.yml,sha256=1fK-Ozh3thO1g7kEJPIIjPbHf0F8UuTYdFVqJ0zp98I,87
+gitlab_mr_note/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gitlab_mr_note/cli.py,sha256=5ZdXVQx55PA-Zz8z5kycusec6VxZy5jhcs2LNsnrhOc,633
+gitlab_mr_note/config.py,sha256=K8JzOFAavrsMgIf1GoHAq3K7J_24qY7VZQdgkZmd3G8,945
+gitlab_mr_note/core.py,sha256=VDOGfD2PQ_EQHOq9Ueyz2JkdQxwmsHc3NiaBWlgxlpI,611
+gitlab_mr_note-1.0.0.dist-info/METADATA,sha256=lnMPuOBAZNVUknoAEWpRLS18KHftv_6Ie1yqjixBl9I,1741
+gitlab_mr_note-1.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+gitlab_mr_note-1.0.0.dist-info/entry_points.txt,sha256=Ab2OCDloGzLZVCL3JxsEUL_2c-Bb1l7E3mwD_Gt6ucA,58
+gitlab_mr_note-1.0.0.dist-info/RECORD,,
