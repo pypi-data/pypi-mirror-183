@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+dycode/__init__.py
+dycode.egg-info/PKG-INFO
+dycode.egg-info/SOURCES.txt
+dycode.egg-info/dependency_links.txt
+dycode.egg-info/top_level.txt
