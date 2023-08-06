@@ -1,0 +1,13 @@
+addition/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+addition/add.py,sha256=8Li0ojCgI02M9-aXXHQB-MIuCj9ZU-u3F0u_aRiIKug,55
+division/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+division/divide.py,sha256=1a78p5mAx5e7tOH4oBBM9NebchN9IPjLlJVY1-cRW0E,138
+multiplication/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+multiplication/multiply.py,sha256=vWIYdvjvl-wqMVvc_hY68rUaYKZEwRmwWuZQRLSQgxQ,60
+substraction/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+substraction/substract.py,sha256=V14dtwU9B_jFr_FSidcbmZA4fU7lgOoOkGgbz-0y9bc,61
+lody_calc_package-0.0.1.dist-info/LICENCE.txt,sha256=PR5nhRBgYiEvfHXp5R7FKLZ0NJ4yMZKaPYigFL67Djg,1080
+lody_calc_package-0.0.1.dist-info/METADATA,sha256=AvLlAY5ISJD6gfhK6dL3LRS1lelNtr2GUaXIzxExlgs,605
+lody_calc_package-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+lody_calc_package-0.0.1.dist-info/top_level.txt,sha256=TPz-3wOwrxAwRiqynBH7wfSha3p8G3Wam14i7zFmmB8,46
+lody_calc_package-0.0.1.dist-info/RECORD,,
