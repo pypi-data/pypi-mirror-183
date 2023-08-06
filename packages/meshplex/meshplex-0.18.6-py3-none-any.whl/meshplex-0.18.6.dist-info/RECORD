@@ -1,0 +1,13 @@
+meshplex/__about__.py,sha256=uKA6-JXiIkK71mAwJK5D762_yrliPWqnH0bkkAczVnU,23
+meshplex/__init__.py,sha256=rpWx4Abpr-I-hUsZ7vvYBxR5JHWnk_2uKKnplk4cFr8,333
+meshplex/_exceptions.py,sha256=4MQkrk0YR1sDuqxWA0xYNsyZchbxYl36i5I30ccniIc,41
+meshplex/_helpers.py,sha256=SMKi0rqn27ex3Su-RisVD9bO_ob6mwhdJOqacFMZAYU,1285
+meshplex/_license_validation.py,sha256=zP354DRWVpAUlxiykmtYR_A6PPSB2L60vkrbkvKzR70,961
+meshplex/_mesh.py,sha256=to9diuDDOnd8oV4uy4TjSHDIxpKszyPHOma4of_HvTg,54154
+meshplex/_mesh_tetra.py,sha256=2YP7BlmLs3weYhhYFxDQDEv3wv1cDTXsioZHfUrm-DI,12843
+meshplex/_mesh_tri.py,sha256=CBNgJ7RoXaLcbHCKmqmmqGGc_GOZHHScg69G9J52ONc,24053
+meshplex/_reader.py,sha256=XNYHdkAzKhdWJcQVP_J6doBbIrQd2djzzJ1GgkLColY,1096
+meshplex-0.18.6.dist-info/METADATA,sha256=cBv7sPX2W-3Jl2WMW6Ne2LK9AQ8E09VtstMu6VtY788,5413
+meshplex-0.18.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+meshplex-0.18.6.dist-info/top_level.txt,sha256=98SwEjhyZbR27fRE5D6CgqEBUE64pUltRTdA5GJUP1U,9
+meshplex-0.18.6.dist-info/RECORD,,
