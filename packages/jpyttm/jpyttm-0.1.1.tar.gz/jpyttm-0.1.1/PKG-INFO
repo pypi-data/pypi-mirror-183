@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: jpyttm
+Version: 0.1.1
+Summary: Historical JPY TTM rates
+Home-page: https://github.com/globophobe/jpyttm
+License: MIT
+Keywords: historical,jpy,ttm
+Author: Alex
+Author-email: globophobe@gmail.com
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+Requires-Dist: pytz
+Requires-Dist: requests
+Project-URL: Repository, https://github.com/globophobe/jpyttm
+Description-Content-Type: text/markdown
+
+JPY TTM Rates
+-------------
+
+Historical JPY TTM rates, basically for tax purposes.
+
+Install
+-------
+
+Install from PyPI:
+
+```pip install jpyttm```
+
+Usage
+-----
+
+```python
+from jpyttm import USD, get_historical_ttm
+
+ttm = get_historical_ttm(USD)
+for quote in ttm:
+    print(quote[0], quote[1])
+```
+
+To specify a range, call `get_historical_ttm` with optional parameters `timestamp_from` and/or `timestamp_to`
+

@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "jpyttm"
+version = "0.1.1"
+description = "Historical JPY TTM rates"
+authors = ["Alex <globophobe@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/globophobe/jpyttm"
+repository = "https://github.com/globophobe/jpyttm"
+keywords = ["historical", "jpy", "ttm"]
+classifiers = ["Operating System :: OS Independent"]
+packages = [{ include = "jpyttm" }]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+beautifulsoup4 = "*"
+lxml = "*"
+pytz = "*"
+requests = "*"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+isort = "*"
+flake8 = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
