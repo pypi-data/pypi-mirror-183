@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 90
+
+[tool.codespell]
+skip = "*.svg,*.eps,.git,env,*build,.mypy*"
+builtin = "clear,rare"
