@@ -1,0 +1,4 @@
+numpy
+requests
+requests-html
+urllib3
