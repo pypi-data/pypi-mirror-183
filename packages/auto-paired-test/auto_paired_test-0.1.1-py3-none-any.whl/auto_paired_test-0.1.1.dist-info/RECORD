@@ -1,0 +1,7 @@
+statlibs/__init__.py,sha256=pEM2ZkqqtA6o1uw7IXH-Zs8LA9FMerMIUOxGM79qGLY,48
+statlibs/bq_magic.py,sha256=X_rTQUERf_P91L4t6N-5SeEdwrn4Ks-gjKZ3S_c5ZPg,259
+statlibs/paired_ttest.py,sha256=mAbmgKIIpb_5I30TP_TfBoDpmg9oiwbhLrz0uZE0w10,3812
+auto_paired_test-0.1.1.dist-info/METADATA,sha256=fJhXzMMx0WzvqLkds1cCN0R8Gy2-Ztz4b7mKMZOLVV8,1043
+auto_paired_test-0.1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+auto_paired_test-0.1.1.dist-info/top_level.txt,sha256=GOpKtKs7bfR8s21I9YmgG15aU7uq5JxYcRQBZ636ElM,9
+auto_paired_test-0.1.1.dist-info/RECORD,,
