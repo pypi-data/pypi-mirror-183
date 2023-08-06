@@ -1,0 +1,9 @@
+weighted_levenshtein/__init__.py,sha256=NqOvUsuW-IerP_jltz7I-kx9wFY0uNjQxgnjXb98gH8,20
+weighted_levenshtein/clev.cpython-37m-darwin.so,sha256=asoo9LSkVOvogSNmIzHiH1-CZ3DuUVs5CjPjUrZ5dB4,234832
+weighted_levenshtein/clev.pxd,sha256=N3kyhcOwWTYGY2mWF7UXTlF0D8zRph4TBnJMHLuG6jE,812
+weighted_levenshtein/clev.pyx,sha256=CU4lSd3NAiaBg3pb1WS1Dpksj8OjPRCtrTJLShDhBSw,18350
+weighted_levenshtein_substring-0.0.2.dist-info/LICENSE.txt,sha256=kLe8sE83Pc3YGF8vkcSdRA3mdDFo4vPMUpmkMsm2kxY,1076
+weighted_levenshtein_substring-0.0.2.dist-info/METADATA,sha256=VCVF39pLG8HlFYeuuAFg1SMbm-7S2Gfri8HxAqOP9Dk,7936
+weighted_levenshtein_substring-0.0.2.dist-info/WHEEL,sha256=65_gdror4VDHS1i9xQgp9SfwHiJGzcbzYtDxUELWm-8,110
+weighted_levenshtein_substring-0.0.2.dist-info/top_level.txt,sha256=RVdyTHsTIpcOZvgXdDPp__ZHqL2sQ6rOII0GQ0Eq3i0,21
+weighted_levenshtein_substring-0.0.2.dist-info/RECORD,,
