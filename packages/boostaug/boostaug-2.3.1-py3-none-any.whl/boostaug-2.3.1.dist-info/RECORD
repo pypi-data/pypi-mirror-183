@@ -1,0 +1,8 @@
+boost_aug/__init__.py,sha256=YuFskG2k1_EM36bd_YNofl1U6yHDYtzlA_MdprOAvGc,139
+boost_aug/boostaug_core.py,sha256=IycdsQw0Loq-bns0Ea1b089TqCKOiDtOlmAJ-tNfHbs,94524
+experiments/__init__.py,sha256=gc8k6AdjgQJCPEWVZVIHdFfbl5saHmwpYN_R0Qdk4Lg,199
+experiments/test.py,sha256=QiQqdiUG38LSPeD7foi7EU_TWEu8FpNzHVhtnhPMDI0,2077
+boostaug-2.3.1.dist-info/METADATA,sha256=ZtPdLfcFk-fQwLSpZMwt27HzP74QxDqUd9MTVfRs5VY,391
+boostaug-2.3.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+boostaug-2.3.1.dist-info/top_level.txt,sha256=ZsLICtE6E1JSgZWISfCoopOqKjz2B2FySl8AeIxTK9E,22
+boostaug-2.3.1.dist-info/RECORD,,
