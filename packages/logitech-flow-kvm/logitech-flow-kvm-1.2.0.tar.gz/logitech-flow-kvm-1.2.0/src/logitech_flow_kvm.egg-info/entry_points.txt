@@ -1,0 +1,10 @@
+[console_scripts]
+logitech-flow-kvm = logitech_flow_kvm.cli:main
+
+[logitech_flow_kvm.commands]
+flow-client = logitech_flow_kvm.commands.flow_client:FlowClient
+flow-server = logitech_flow_kvm.commands.flow_server:FlowServer
+list-devices = logitech_flow_kvm.commands.list_devices:ListDevices
+switch-to-host = logitech_flow_kvm.commands.switch_to_host:SwitchToHost
+watch = logitech_flow_kvm.commands.watch:Watch
+
