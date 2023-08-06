@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refit_loader"
+version = "1.2.2"
+authors = [
+  { name="Mahnoor Shahid", email="mahnoor.shahid.shakir@outlook.com" },
+]
+description = "A simple, fast and handy data loader for REFIT dataset to explore the data at convenience, provided with basic transformations like resampling and extract activities by thresholding."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9.2"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "numpy>=1.20.3",
+  "pandas>=1.2.4",
+  "dask>=2021.06.2",
+  "scikit-learn>=1.1.2",
+]
+
+[project.urls]
+repository = "https://github.com/mahnoor-shahid/refit_loader"
+
+[tool.bumpver]
+current_version = "1.2.2"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/refit_loader/__init__.py" = ["{version}"]
+
