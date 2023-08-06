@@ -1,0 +1,14 @@
+README.rst
+setup.cfg
+setup.py
+phonetics/__init__.py
+phonetics/metaphone.py
+phonetics/nysiis.py
+phonetics/soundex.py
+phonetics/utils.py
+phonetics/tests/__init__.py
+phonetics/tests/test_metaphone.py
+phonetics_py.egg-info/PKG-INFO
+phonetics_py.egg-info/SOURCES.txt
+phonetics_py.egg-info/dependency_links.txt
+phonetics_py.egg-info/top_level.txt
