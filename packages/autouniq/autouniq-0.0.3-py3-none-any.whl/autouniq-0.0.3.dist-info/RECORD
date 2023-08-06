@@ -1,0 +1,9 @@
+src/blackhole/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/blackhole/case.py,sha256=TT3ihae92Cfh8a7RN3n1eNs0bmeZ3dYkpqC-7LFtwbw,4026
+src/blackhole/collection_framework.py,sha256=V6e95W7dBC-0QEmfly96XAx6fEtPRNFjOMR6D_G__XU,761
+src/blackhole/core.py,sha256=h7AvzPyFBOT4T0pGGVpBptfhsbmupjSL9UFcm-VHkF4,936
+src/blackhole/parcer.py,sha256=zdOmaYW3-lWp9_CTMUoj52m6PUQRbk2ZFF1GovxF0H0,364
+autouniq-0.0.3.dist-info/METADATA,sha256=YmNDHq-_Z6aLhQ0TXgwDMRqpIp9VzX1TRayzJhOqrrc,757
+autouniq-0.0.3.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+autouniq-0.0.3.dist-info/licenses/License,sha256=zMUmZL1ZDmneB3saq2_Kq7Y3_KsnPAQDnlNYNiyWoyo,1088
+autouniq-0.0.3.dist-info/RECORD,,

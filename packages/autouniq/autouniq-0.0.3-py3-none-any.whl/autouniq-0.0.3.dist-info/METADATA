@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: autouniq
+Version: 0.0.3
+Summary: collection_framework package
+Project-URL: Homepage, https://github.com/FedXL/collection_framework
+Project-URL: Bug Tracker, https://github.com/FedXL/collection_framework/issues
+Author-email: Fedor Kuruts <fedorkuruts@gmail.com>
+License-File: License
+Keywords: FoxmindED,easy,stuped
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Collection framework
+
+### This is little application to find uniq count in strings
+
+## **usage**:
+
+--string **your string**
+(find uniq count in string)
+
+--file **path to file**
+(find uniq count in file)
