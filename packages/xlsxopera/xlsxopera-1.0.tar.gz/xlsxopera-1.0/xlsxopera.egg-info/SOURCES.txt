@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+tests/__init__.py
+tests/conftest.py
+tests/test_file.py
+tests/test_rows_and_cols.py
+xlsxopera/Notebook.py
+xlsxopera/__init__.py
+xlsxopera.egg-info/PKG-INFO
+xlsxopera.egg-info/SOURCES.txt
+xlsxopera.egg-info/dependency_links.txt
+xlsxopera.egg-info/requires.txt
+xlsxopera.egg-info/top_level.txt
