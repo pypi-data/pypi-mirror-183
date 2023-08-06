@@ -1,0 +1,4 @@
+include cv2watermark/requirements.txt
+include cv2watermark/thirdparty.json
+include cv2watermark/README.MD
+include cv2watermark/LICENSE

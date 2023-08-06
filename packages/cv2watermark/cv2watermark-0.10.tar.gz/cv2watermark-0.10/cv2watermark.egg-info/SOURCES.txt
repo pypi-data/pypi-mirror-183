@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cv2watermark/LICENSE
+cv2watermark/README.MD
+cv2watermark/__init__.py
+cv2watermark/requirements.txt
+cv2watermark/thirdparty.json
+cv2watermark.egg-info/PKG-INFO
+cv2watermark.egg-info/SOURCES.txt
+cv2watermark.egg-info/dependency_links.txt
+cv2watermark.egg-info/requires.txt
+cv2watermark.egg-info/top_level.txt
