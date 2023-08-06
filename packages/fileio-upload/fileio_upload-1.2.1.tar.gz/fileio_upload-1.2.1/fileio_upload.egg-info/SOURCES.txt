@@ -1,0 +1,10 @@
+LICENCE
+README.md
+pyproject.toml
+fileio_upload/__init__.py
+fileio_upload/exceptions.py
+fileio_upload/fileio.py
+fileio_upload.egg-info/PKG-INFO
+fileio_upload.egg-info/SOURCES.txt
+fileio_upload.egg-info/dependency_links.txt
+fileio_upload.egg-info/top_level.txt
