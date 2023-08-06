@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: positor
+Version: 0.1.9
+Summary: Utilities for digital archives.
+Home-page: https://github.com/pragmar/positor
+Author: pragmar
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colorama (>=0.4.0)
+Requires-Dist: ffprobe-python (>=1.0.0)
+Requires-Dist: whisper.ai (>=1.0.0)
+
+# Positor
+
+## Description
+
+Word-level STT (speech to text).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+
