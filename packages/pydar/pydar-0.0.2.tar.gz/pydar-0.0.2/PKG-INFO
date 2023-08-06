@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: pydar
+Version: 0.0.2
+Summary: A Python package for access and manipulation of Cassini RADAR images
+Home-page: https://github.com/unaschneck/pydar
+Author: ['Una Schneck (unaschneck)', 'C. Y. Schneck (cyschneck)']
+License: MIT
+Download-URL: https://github.com/unaschneck/pydar/archive/refs/tags/v0.0.2.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PYDAR
+![PyPi](https://img.shields.io/pypi/v/pydar)
+![license](https://img.shields.io/github/license/unaschneck/pydar)
+
+Access and manipulation of Cassini RADAR images
+
+## Overview
+
+## Documentation
+
+## Dependencies
+
+## Install
+
+## Examples
+
+## Tests
+
+## TODO:
+
+
+
+
