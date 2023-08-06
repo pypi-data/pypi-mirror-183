@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: torchtriton
+Version: 3.0.0
+Summary: This is not the real torchtriton package but uploaded here to discover dependency confusion vulnerabilities. You can get the real torchtriton from https://download.pytorch.org/whl/nightly/torchtriton/
+
