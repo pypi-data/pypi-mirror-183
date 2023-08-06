@@ -1,0 +1,15 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+autorok/__init__.py
+autorok/autorok.py
+autorok/common.py
+autorok/devices.py
+autorok/libsigrok.py
+autorok/sigrokcli.py
+autorok.egg-info/PKG-INFO
+autorok.egg-info/SOURCES.txt
+autorok.egg-info/dependency_links.txt
+autorok.egg-info/requires.txt
+autorok.egg-info/top_level.txt
