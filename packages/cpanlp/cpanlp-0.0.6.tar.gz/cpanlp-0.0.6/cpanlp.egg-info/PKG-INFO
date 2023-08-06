@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: cpanlp
+Version: 0.0.6
+Summary: We are the Intelligent Accounting Team of Beijing Foreign Studies University. We develop A package to drive the linguistic turn of accounting
+Home-page: https://cpanlp.com
+Author: Draco Deng
+Author-email: dracodeng6@gmail.com
+Keywords: python,accounting,cpa,intelligent accounting,linguistic turn,linguistic,intelligent audit,natural language processing,machine learning,finance
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# CpaNlp: Accounting NLP toolkit
+Redefining [Accounting](https://cpanlp.com/overview/redefine)!
+Under construction! Not ready for use yet! Currently experimenting and planning!
+
+Developed by Bfsu Intelligent Accounting Team (c) 2023
+
+## Examples of How To Use (Buggy Alpha Version)
+
+Creating A Server
+
+```python
+import cpanlp
+# Other Code
+
+# When You Are Done
+```
+
+
+Check out: https://cpanlp.com
