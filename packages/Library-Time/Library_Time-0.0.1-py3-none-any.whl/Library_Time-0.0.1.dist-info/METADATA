@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: Library-Time
+Version: 0.0.1
+Summary: Library Time
+Keywords: Time,python
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+
+## Library Time
+
+You can import two times in this library , with sum of these two it deliver a new time. 
+
+```python
+from Time import Time
+t1=(23,4,1)
+t2=(1,25,8)
+print(t1+t2)
+____________ output____________
+24:29:9
+```
+
+---
+
+## Editing with Markdown output
+
+The [CKEditor 5 WYSIWYG](https://ckeditor.com/) editor lets you use this flexible yet simple markup language in the GitHub flavor. The editor-produced Markdown output supports the most important features, like [links](https://ckeditor.com/), **different** kinds of _emphasis_, `inline code formatting` or code blocks:
+
+```css
+p {
+    text-align: center;
+    color: red;
+  }
+```
+
+## Formatting blocks with Markdown
+
+Markdown can be used to create various block-level features, such as:
+
+*   Block quotes
+*   Headings
+    1.  Heading 1
+    2.  Heading 2
+    3.  Heading 3
+*   Lists, including nested ones
+    *   Numbered lists
+    *   Bulleted lists
+    *   To-do lists
+
+## Support for tables in Markdown
+
+Bear in mind that Markdown has only very basic support for tables, so things like table styles or merged cells will not work.
+
+|   | Income | Revenue |
+| --- | --- | --- |
+| Walker 3 | $104.000 | 15% |
+| Stroller | $12.000 | 10% |
+| Runner | $97.500 | 15% |
