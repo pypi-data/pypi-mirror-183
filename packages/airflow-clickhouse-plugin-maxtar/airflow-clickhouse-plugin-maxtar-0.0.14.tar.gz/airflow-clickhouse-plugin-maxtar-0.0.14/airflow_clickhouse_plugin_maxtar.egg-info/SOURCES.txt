@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+airflow_clickhouse_plugin_maxtar/__init__.py
+airflow_clickhouse_plugin_maxtar/__version__.py
+airflow_clickhouse_plugin_maxtar.egg-info/PKG-INFO
+airflow_clickhouse_plugin_maxtar.egg-info/SOURCES.txt
+airflow_clickhouse_plugin_maxtar.egg-info/dependency_links.txt
+airflow_clickhouse_plugin_maxtar.egg-info/not-zip-safe
+airflow_clickhouse_plugin_maxtar.egg-info/requires.txt
+airflow_clickhouse_plugin_maxtar.egg-info/top_level.txt
+airflow_clickhouse_plugin_maxtar/hooks/__init__.py
+airflow_clickhouse_plugin_maxtar/hooks/clickhouse_hook.py
+airflow_clickhouse_plugin_maxtar/operators/__init__.py
+airflow_clickhouse_plugin_maxtar/operators/clickhouse_operator.py
+airflow_clickhouse_plugin_maxtar/sensors/__init__.py
+airflow_clickhouse_plugin_maxtar/sensors/clickhouse_sql_sensor.py
