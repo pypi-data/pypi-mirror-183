@@ -1,0 +1,10 @@
+v2conf/__init__.py,sha256=F5ISuyqZUmvf5oqsX-0Y6718WP-HAqsQYXvCjiDDM7A,118
+v2conf/__main__.py,sha256=JI1t-TLdxF-GYyiLbzEPZxBUWGUXOcoi1hGQ5Le-kOE,8471
+v2conf/configs.py,sha256=2OF3v6_LgEKrbLSKKtEXDZM6t4Q4LzpJy6-Wv2oa7kY,8186
+v2conf/exclude.py,sha256=Mc6UUOIhS91fZ6_VVdvRN5ZNUKM5BNU2SJCpNDtzyKQ,1431
+v2conf/health.py,sha256=ua5OV8j4uN57-wQDqoHonrpJfVeaGcZwE-hHF9fyhPA,3143
+v2conf-0.0.7.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+v2conf-0.0.7.dist-info/entry_points.txt,sha256=zRaXJD2nRovVDHsBnGS3l2dzOzI8Sludq5cgqH583qE,47
+v2conf-0.0.7.dist-info/METADATA,sha256=xf5qogA54lAL0vqo4ToQI6vRZqR_SEcl814ZMyGCCGY,840
+v2conf-0.0.7.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+v2conf-0.0.7.dist-info/RECORD,,
