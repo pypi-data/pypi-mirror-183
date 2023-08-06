@@ -1,0 +1,9 @@
+taposockets/__init__.py,sha256=Pjy41ABkyrQK3GZStSKLTIKz1NOsDc5-7nkssLB8RKc,8261
+taposockets/__main__.py,sha256=jaDCe8eMgk-jjX7zqUQ58a9NBeMPo3cuYjGH9EW3Cv0,96
+taposockets/cipher.py,sha256=BA4z1DonI0Fapt_DMi5jn6VJVfbsi8tl5DEabUyy7Lw,732
+taposockets/cli.py,sha256=Lg1M27y2mx9qmNmVQfMe0yEFlVY8q4uEhi7W6YvJZiQ,1801
+taposockets/status_code.py,sha256=k1kckGkbgo8lIb7Q6TbCmUI4Cbi2O5RQjRoKz-tDolo,279
+taposocket-1.0.1.dist-info/METADATA,sha256=Yhe0x0-Po0cFZ39cuezCPE481L8yw0kPh6PUmeL7PHY,597
+taposocket-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+taposocket-1.0.1.dist-info/top_level.txt,sha256=w4o7V-KN7-wHNWcrRSC_TxUdYNvnHXgw2yka7OmlBVg,12
+taposocket-1.0.1.dist-info/RECORD,,
