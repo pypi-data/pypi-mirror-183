@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: py2n
+Version: 0.0.3
+Summary: Python library for 2N® devices
+Home-page: https://github.com/elektr0nisch/py2n
+Author: Linus Groschke
+Author-email: linus@elektronisch.dev
+License: MIT
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Py2N
+
+Asynchronous library to control [2N® devices](https://https://www.2n.com)
+
+**This library is under development**
+
+## Requirements
+
+- Python >= 3.9
+- aiohttp
+
+## Install
+```bash
+pip install py2n
+```
