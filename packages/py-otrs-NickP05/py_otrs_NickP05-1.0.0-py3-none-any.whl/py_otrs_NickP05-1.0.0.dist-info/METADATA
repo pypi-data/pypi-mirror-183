@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: py-otrs-NickP05
+Version: 1.0.0
+Summary: One-time Traceable Ring Signature of Alessandra Scafuro and Bihan Zhang implemented by @NickP05
+Author-email: One Time Traceable Ring Signature <truestop16@gmail.com>
+Project-URL: Homepage, https://github.com/NickP005/my-cryptography
+Keywords: cryptography,ring,signature,otrs,quantum-resistant
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
