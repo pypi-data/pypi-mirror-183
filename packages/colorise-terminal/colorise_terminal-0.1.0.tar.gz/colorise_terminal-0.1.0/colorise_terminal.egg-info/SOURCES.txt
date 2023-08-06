@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+./terminal_color/__init__.py
+./terminal_color/colors_dict.pkl
+./terminal_color/rgb.py
+./terminal_color/terminal_color.py
+./terminal_color/tests/__init__.py
+./terminal_color/tests/examples.py
+./terminal_color/tests/tests.py
+colorise_terminal.egg-info/PKG-INFO
+colorise_terminal.egg-info/SOURCES.txt
+colorise_terminal.egg-info/dependency_links.txt
+colorise_terminal.egg-info/top_level.txt

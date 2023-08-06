@@ -1,0 +1,2 @@
+include ./terminal_color/*.pkl
+recursive-exclude ./terminal_color/data_transformation/ *
