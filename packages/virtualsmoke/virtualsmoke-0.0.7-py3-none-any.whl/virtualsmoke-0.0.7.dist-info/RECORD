@@ -1,0 +1,9 @@
+virtualsmoke/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+virtualsmoke/meanpathcaler.gz,sha256=cRr94wkkFiM-cKJa2DcDJvIHjUKDX8Zuy_QnOsy6uaQ,517
+virtualsmoke/mfp_model.h5,sha256=DtUr5nxdv6hWL2rNrpEEp3wT_co6A7NYA70FFfZAQ4o,249768
+virtualsmoke/smoke.py,sha256=ICqIxYeD3AidceJyKQNw5TZGc_XDvo6yEMcXnCfagPM,1694
+virtualsmoke-0.0.7.dist-info/LICENSE,sha256=w1UKXDXzOM3J1kFMfQxxM7DGKkKOORDkad7Sp9Of8kE,1058
+virtualsmoke-0.0.7.dist-info/METADATA,sha256=15AhL82athsnUW_S6LieNLl6zoPRHJbFSxEbKcxilrw,1545
+virtualsmoke-0.0.7.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+virtualsmoke-0.0.7.dist-info/top_level.txt,sha256=TUGvzA-QffSK4Ql4RTUt5kiombwe9iwtjdl_W6p5650,13
+virtualsmoke-0.0.7.dist-info/RECORD,,
