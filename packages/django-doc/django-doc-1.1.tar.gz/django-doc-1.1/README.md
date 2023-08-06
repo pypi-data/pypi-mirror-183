@@ -1,0 +1,2 @@
+- Add `django-doc` to your installed_apps
+- Run Python `python manage.py collectdoc`

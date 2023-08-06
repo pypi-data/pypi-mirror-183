@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.py
+django_doc/__init__.py
+django_doc/main.py
+django_doc.egg-info/PKG-INFO
+django_doc.egg-info/SOURCES.txt
+django_doc.egg-info/dependency_links.txt
+django_doc.egg-info/top_level.txt
+django_doc/management/__init__.py
+django_doc/management/commands/__init__.py
+django_doc/management/commands/collectdoc.py
