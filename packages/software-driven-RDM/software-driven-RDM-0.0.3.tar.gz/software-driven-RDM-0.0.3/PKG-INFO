@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: software-driven-RDM
+Version: 0.0.3
+Author: Range, Jan
+Author-email: jan.range@simtech.uni-stuttgart.de
+License: MIT License
+Provides-Extra: test
+Provides-Extra: dataverse
