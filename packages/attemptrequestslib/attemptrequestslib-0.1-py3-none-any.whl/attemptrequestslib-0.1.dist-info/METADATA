@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: attemptrequestslib
+Version: 0.1
+Summary: Small lib with custom functions
+Home-page: https://bitbucket.org/nappsolutionsdev/napplib.git
+Author: Euardo Soares   
+Author-email: eduardolimasoares@gmail.com
+License: Proprietary
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: azure-storage-blob (==2.1.0)
+Requires-Dist: tinydb
+Requires-Dist: pandas
+Requires-Dist: patool (==1.12)
+Requires-Dist: google-api-core (==1.25.1)
+Requires-Dist: google-api-python-client (==1.12.8)
+Requires-Dist: google-auth (==1.25.0)
+Requires-Dist: google-auth-httplib2 (==0.0.4)
+Requires-Dist: google-auth-oauthlib (==0.4.2)
+Requires-Dist: googleapis-common-protos (==1.52.0)
+Requires-Dist: gspread (==3.7.0)
+Requires-Dist: lxml (==4.6.3)
+Requires-Dist: xmltodict (==0.12.0)
+Requires-Dist: loguru (==0.5.3)
+Requires-Dist: google-cloud-storage
+
+Packeage teste
+

@@ -1,0 +1,9 @@
+attemp_requests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+attemp_requests/attempts_requests.py,sha256=YuroaZ3hpXq2VVTvQTz9E-tpOjyJfVQMRN_qpBdIjDM,1908
+attemp_requests/unpack_payload_dict.py,sha256=F4ZiAnn1dQHnt9M5HlQCtSfIrg4V_CQolnGxbiCQo0k,1382
+utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+utils/logger_settings.py,sha256=eNLYW7ZPmggtIzrq0JXqA-b7NAW4Q67VyhOfE0hUXgE,269
+attemptrequestslib-0.1.dist-info/METADATA,sha256=a4NXmoQm5mLBLybIXiDOZBqVvs_dVPCUlU5dqJUeyeI,1054
+attemptrequestslib-0.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+attemptrequestslib-0.1.dist-info/top_level.txt,sha256=_2SE86NPsD8zXCMmGI-w7L_SvKiJ7YhaPanzKn0MvSE,22
+attemptrequestslib-0.1.dist-info/RECORD,,
