@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: nimb
+Version: 0.1.0
+Summary: NIMB - NIMB IRC Matrix Bridge
+Author: Susam Pal
+License: MIT
+Project-URL: homepage, https://github.com/susam/nimb
+Keywords: irc,matrix,bridge,service
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+NIMB
+====
+
+NIMB IRC Matrix Bridge (NIMB) is a simple tool that can establish a
+bridge between multiple IRC channels and Matrix rooms.
+
+NIMB can join multiple IRC and Matrix channels/rooms simultaneously.
+Whenever NIMB finds a new message posted to any channel/room, it
+forwards that message to all other channels/rooms NIMB has joined.
+
+Visit https://github.com/susam/nimb for more details.
