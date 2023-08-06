@@ -1,0 +1,34 @@
+{% extends 'generic/object.html' %}
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Data Disks</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Virtual Machine</th>
+              <td>{{ object.virtual_machine }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Size Action</th>
+              <td>{{ object.size }}</td>
+            </tr>
+            <tr>
+              <th scope="row">VG Name</th>
+              <td>{{ object.vg_name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">LV Name</th>
+              <td>{{ object.lv_name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Mount Path</th>
+              <td>{{ object.mount_path }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {% include 'inc/panels/custom_fields.html' %}
+    </div>
+  </div>
