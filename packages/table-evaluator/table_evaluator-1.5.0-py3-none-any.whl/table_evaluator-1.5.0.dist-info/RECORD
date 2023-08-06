@@ -1,0 +1,14 @@
+table_evaluator/__init__.py,sha256=6C6PRpTqG834UDbVgMmYza8wLwNRFkuR9yiWiCMA7T0,73
+table_evaluator/metrics.py,sha256=-jdzVKLnTwwXAukLA3De7kruSmR5Ea1eEa-pKak1zLI,5603
+table_evaluator/notebook.py,sha256=Al3fDj7tnHwhon1SVwpLnecnfCsxA6-Mhgxv_4cSm24,2177
+table_evaluator/table_evaluator.py,sha256=P6V7jkKbRn0uf1D9ZlmakFdtyew-DYbvlPnLTTLPDIQ,33413
+table_evaluator/utils.py,sha256=AMYSi7dJt02_OqmZLuQ3NLyeoN97alJ99HLpOwyQhnU,1792
+table_evaluator/viz.py,sha256=t4-nYdvd-eYZKEriEUlTd7Bbr5HgP22kHS3F-BV6CH8,10155
+tests/__init__.py,sha256=CbDSKq_Z4bpszpEH96fj4dx8VlvtmKNBRwmDmQQTAzU,32
+tests/metrics_test.py,sha256=iYx2_RGUZVI1R6zUE60KH7mzfvIpEEEWfFZKAUF7QKE,2921
+tests/table_evaluator_test.py,sha256=rmqu78yI-P15NNEQvILdZhoCiBJ5X79BY_lEZZEziLU,210
+table_evaluator-1.5.0.dist-info/LICENSE,sha256=QZCGy4b2qY-7U8s6G9z99ukMseEvtj4_bYn-3Gr5Jac,1076
+table_evaluator-1.5.0.dist-info/METADATA,sha256=cumDKhst_5culpsHQkgAHnPpzOEfn9w1cNp9Z33dd6U,8777
+table_evaluator-1.5.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+table_evaluator-1.5.0.dist-info/top_level.txt,sha256=Vvb2WFPNx49WrSxMkocd3GgS3uPQPvmJZbi4ZKAKLAg,22
+table_evaluator-1.5.0.dist-info/RECORD,,
