@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium2df/LICENSE
+a_selenium2df/README.MD
+a_selenium2df/__init__.py
+a_selenium2df/requirements.txt
+a_selenium2df/thirdparty.json
+a_selenium2df.egg-info/PKG-INFO
+a_selenium2df.egg-info/SOURCES.txt
+a_selenium2df.egg-info/dependency_links.txt
+a_selenium2df.egg-info/requires.txt
+a_selenium2df.egg-info/top_level.txt
