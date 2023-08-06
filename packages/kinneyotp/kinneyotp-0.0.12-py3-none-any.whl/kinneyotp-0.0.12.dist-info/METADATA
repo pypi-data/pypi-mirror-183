@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: kinneyotp
+Version: 0.0.12
+Summary: One Time Pad (aka Vernam Cipher) encoding and decoding.
+Author: Mike Kinney
+Author-email: mike.kinney@gmail.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+License-File: LICENSE
+
