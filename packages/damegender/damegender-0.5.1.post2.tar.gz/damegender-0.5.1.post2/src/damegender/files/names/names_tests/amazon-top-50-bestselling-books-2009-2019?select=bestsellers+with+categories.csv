@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Amazon Top 50 Bestselling Books 2009 - 2019 | Kaggle</title>
+  <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+  <meta name="description" content="Scrapped dataset on October 2020, categories (fiction/non-fiction) added" />
+  <meta name="turbolinks-cache-control" content="no-cache" />
+    <meta name="keywords" content="data visualization,data analytics,exploratory data analysis,literature,websites" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC" />
+  <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" type="text/javascript">
+    window["pageRequestStartTime"] = 1671149446800;
+    window["pageRequestEndTime"] = 1671149446893;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+  <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" media="print" id="async-google-font-2" />
+  <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+    <link rel="canonical" href="/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=06cb5cb9eaebcdbf169c" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=f3de59c4d46ee1b8c672" />
+  
+    
+ 
+      <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-12629138-1', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Datasets'
+        });
+    </script>
+    <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" async src="https://www.googletagmanager.com/gtag/js?id=UA-12629138-1"></script>
+
+  
+    
+    <meta property="og:url" content="/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019" />
+    <meta property="og:title" content="Amazon Top 50 Bestselling Books 2009 - 2019" />
+    <meta property="og:description" content="Scrapped dataset on October 2020, categories (fiction/non-fiction) added" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/918976/1556647/ec28fd79af9841a579728f5c298f12a3/dataset-card.jpg?t=2020-10-13-14-50-42" />
+    <meta property="fb:app_id" content="2665027677054710" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+
+
+  <meta name="twitter:site" content="@Kaggle" /> 
+  
+    
+    <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Amazon Top 50 Bestselling Books 2009 - 2019","description":"Dataset on Amazon's Top 50 bestselling books from 2009 to 2019. Contains 550 books, data has been categorized into fiction and non-fiction using Goodreads\n","url":"https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019","version":1,"keywords":["technique, data visualization","technique, data analytics","technique, exploratory data analysis","subject, arts and entertainment, literature","subject, science and technology, internet, websites"],"license":{"@type":"CreativeWork","name":"CC0: Public Domain","url":"https://creativecommons.org/publicdomain/zero/1.0/"},"identifier":["918976"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Sooter Saalu","url":"https://www.kaggle.com/sootersaalu","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/5821522-kg.jpeg"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019/download?datasetVersionNumber=1","contentSize":"14857 bytes"}],"commentCount":14,"dateModified":"2020-10-13T09:39:21.18Z","discussionUrl":"https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019/discussion","alternateName":"Scrapped dataset on October 2020, categories (fiction/non-fiction) added","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/918976/1556647/ec28fd79af9841a579728f5c298f12a3/dataset-card.jpg?t=2020-10-13-14-50-42","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":14},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":45958},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":278853},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":950}]}</script>
+
+
+  
+    
+
+  
+    
+
+
+    <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="Pev1uQ2RwnXlqJssUO9cqQ==" src="https://apis.google.com/js/api.js" defer
+    async></script>
+  <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" src="/static/assets/runtime.js?v=919c1e8b34e8ebff76d9" data-turbolinks-track="reload"></script>
+  <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" src="/static/assets/vendor.js?v=f295fd4b1ac0499a6731" data-turbolinks-track="reload"></script>
+  <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" src="/static/assets/app.js?v=cdf3ac9e631110bb2d08" data-turbolinks-track="reload"></script>
+    <script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '0'
+      }
+    </script>
+</head>
+
+<body data-turbolinks="false">
+  <main>
+    
+
+
+
+
+
+<div id="site-container"></div>
+<div data-component-name="NavigationContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="Pev1uQ2RwnXlqJssUO9cqQ==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"navigationType":"BOTH_NAV"});performance && performance.mark && performance.mark("NavigationContainer.componentCouldBootstrap");</script>
+<div id="site-body" class="hide">
+    
+
+<div data-component-name="DatasetMaterialContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="Pev1uQ2RwnXlqJssUO9cqQ==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"basics":{"datasetId":918976,"slug":"amazon-top-50-bestselling-books-2009-2019","title":"Amazon Top 50 Bestselling Books 2009 - 2019","description":"Dataset on Amazon\u0027s Top 50 bestselling books from 2009 to 2019. Contains 550 books, data has been categorized into fiction and non-fiction using Goodreads\n","viewCount":278853,"downloadCount":45958,"scriptCount":279,"topicCount":14,"owner":{"id":5821522,"imageUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/5821522-kg.jpeg","name":"Sooter Saalu","profileUrl":"/sootersaalu","slug":"sootersaalu","userTier":"EXPERT"},"license":{"id":1,"name":"CC0: Public Domain","url":"https://creativecommons.org/publicdomain/zero/1.0/"},"overview":"Scrapped dataset on October 2020, categories (fiction/non-fiction) added","collaboratorList":{"owner":{"userId":5821522,"profileUrl":"/sootersaalu","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/5821522-kg.jpeg","name":"Sooter Saalu","slug":"sootersaalu","userTier":"EXPERT","type":"OWNER"}},"coverImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/918976/1556647/ec28fd79af9841a579728f5c298f12a3/dataset-cover.jpg?t=2020-10-13-14-50-42","data":{"totalSize":14857,"isFileset":true,"canDownload":true,"firestorePath":"ALcRMbsc7NQHO1vChene/versions/deKGao6LjryzGiCmCc2p","downloadUrl":"/datasets/sootersaalu/sootersaalu/download?datasetVersionNumber=1","versionId":1591511,"id":940400},"voteCount":950,"medalUrl":"/static/images/medals/datasets/goldl@2x.png","downloadUrl":"/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019/download?datasetVersionNumber=1","lastUpdateTime":"2020-10-13T09:39:21.180Z","datasetVersionNumber":1,"creatorDisplayName":"Sooter Saalu","cardImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/918976/1556647/ec28fd79af9841a579728f5c298f12a3/dataset-card.jpg?t=2020-10-13-14-50-42","categories":{"tags":[{"id":13208,"name":"data visualization","fullPath":"technique \u003E data visualization","listingUrl":"/datasets?group=public\u0026tagids=13208","description":"The art of depicting data in a visual format. Using charts and graphs, it is easier to observe patterns, relationships, and outliers.","datasetCount":2647,"notebookCount":28760,"tagUrl":"/tags/data-visualization","displayName":"Data Visualization"},{"id":13215,"name":"data analytics","fullPath":"technique \u003E data analytics","listingUrl":"/datasets?group=public\u0026tagids=13215","description":"","datasetCount":2458,"competitionCount":8,"notebookCount":8292,"tagUrl":"/tags/marketing-analytics","displayName":"Data Analytics"},{"id":13201,"name":"exploratory data analysis","fullPath":"technique \u003E exploratory data analysis","listingUrl":"/datasets?group=public\u0026tagids=13201","description":"","datasetCount":2152,"notebookCount":25846,"tagUrl":"/tags/eda","displayName":"Exploratory Data Analysis"},{"id":2206,"name":"literature","fullPath":"subject \u003E arts and entertainment \u003E literature","listingUrl":"/datasets?group=public\u0026tagids=2206","description":"This tag is your digital library for varius copora such as Southern Literature, Paranormal Romance novels, and Urban Dictionary spelling variations.","datasetCount":1927,"competitionCount":3,"notebookCount":447,"tagUrl":"/tags/literature","displayName":"Literature"},{"id":1115,"name":"websites","fullPath":"subject \u003E science and technology \u003E internet \u003E websites","listingUrl":"/datasets?group=public\u0026tagids=1115","description":"Websites, like this one, are collections of content that can be found under a specific address. These datasets include information on individual websites or collections of websites.","datasetCount":252,"notebookCount":211,"tagUrl":"/tags/web-sites","displayName":"Websites"}]},"datasetExternalUrl":"https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019","forumId":934826,"datasetVersionId":1556647,"canCreateTasks":true,"moderationStatus":"PRIVATED_MODERATION_STATUS_NO_ABUSE","lastVersionNumber":1,"diffType":"VERSIONED"},"@wf": "Datasets.DatasetMaterialDtoWireFormat3"});performance && performance.mark && performance.mark("DatasetMaterialContainer.componentCouldBootstrap");</script><script nonce="Pev1uQ2RwnXlqJssUO9cqQ==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: ["Safe.js"],
+    });
+</script>
+<script type="text/javascript" nonce="Pev1uQ2RwnXlqJssUO9cqQ==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const useProdHosts = ["www.kaggle.com", "admin.kaggle.com"];
+    const subdomain = useProdHosts.includes(window.location.hostname) ? "www" : "staging";
+
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    lib.src = `https://${subdomain}.kaggleusercontent.com/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+
+
+
+</div>
+
+
+
+
+  </main>
+</body>
+
+</html>
