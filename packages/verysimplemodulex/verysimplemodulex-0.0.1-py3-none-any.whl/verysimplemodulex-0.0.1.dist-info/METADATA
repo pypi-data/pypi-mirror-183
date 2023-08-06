@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: verysimplemodulex
+Version: 0.0.1
+Summary: My first package
+Author: Seunfunmi Adegoke
+Author-email: adegokeseunfunmi1999@gmail.com
+Keywords: python,my first package
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+My very first package
