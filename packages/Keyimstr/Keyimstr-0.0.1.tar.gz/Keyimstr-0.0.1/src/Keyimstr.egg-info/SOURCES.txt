@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/Keyimstr.egg-info/PKG-INFO
+src/Keyimstr.egg-info/SOURCES.txt
+src/Keyimstr.egg-info/dependency_links.txt
+src/Keyimstr.egg-info/requires.txt
+src/Keyimstr.egg-info/top_level.txt
+src/keyimstr/__init__.py
+src/keyimstr/keyimstr.py
