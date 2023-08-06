@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+src/pyfilewatcher.egg-info/PKG-INFO
+src/pyfilewatcher.egg-info/SOURCES.txt
+src/pyfilewatcher.egg-info/dependency_links.txt
+src/pyfilewatcher.egg-info/requires.txt
+src/pyfilewatcher.egg-info/top_level.txt
