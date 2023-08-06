@@ -1,0 +1,2 @@
+(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[6],{992:function(t,e,a){"use strict";a.r(e);var b=a(994),i=a(66),n=a(22),s=a(296),c=a(1);e.default=function(){var t=Object(n.k)(),e=Object(s.b)().formatMessage;return Object(c.b)(b.a,{status:"404",title:"404",subTitle:e({id:"gloabal.tips.notfound"}),extra:Object(c.b)(i.a,{type:"primary",onClick:function(){return t("/")},children:e({id:"gloabal.tips.backHome"})})})}}}]);
+//# sourceMappingURL=404'.203bad5e.chunk.js.map
