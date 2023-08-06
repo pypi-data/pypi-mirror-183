@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+np_zoom_in/LICENSE
+np_zoom_in/README.MD
+np_zoom_in/__init__.py
+np_zoom_in/requirements.txt
+np_zoom_in/thirdparty.json
+np_zoom_in.egg-info/PKG-INFO
+np_zoom_in.egg-info/SOURCES.txt
+np_zoom_in.egg-info/dependency_links.txt
+np_zoom_in.egg-info/requires.txt
+np_zoom_in.egg-info/top_level.txt

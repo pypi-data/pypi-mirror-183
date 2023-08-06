@@ -1,0 +1,4 @@
+include np_zoom_in/requirements.txt
+include np_zoom_in/thirdparty.json
+include np_zoom_in/README.MD
+include np_zoom_in/LICENSE

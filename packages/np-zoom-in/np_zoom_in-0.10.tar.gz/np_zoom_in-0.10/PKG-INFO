@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: np_zoom_in
+Version: 0.10
+Summary: Zoom in on a picture
+Home-page: https://github.com/hansalemaos/np_zoom_in
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: image,zoom,numpy
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Zoom in on a picture
+
+```python
+$pip install np-zoom-in
+from np_zoom_in import np_zoom_in
+
+zoim = np_zoom_in(
+    r"C:\Users\Gamer\anaconda3\envs\dfdir\xxxxxxxxxx.png",
+    zoom_factor=1.2,
+    mode="mirror",
+)
+
+# Possible parameters:
+# https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html
+
+```
+
+
