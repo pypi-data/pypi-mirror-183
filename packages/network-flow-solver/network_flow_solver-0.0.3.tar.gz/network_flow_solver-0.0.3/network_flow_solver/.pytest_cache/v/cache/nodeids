@@ -1,0 +1,12 @@
+[
+  "main_test.py::test_aux_equation_fixes_otherwise_bad_equation_set",
+  "main_test.py::test_main",
+  "main_test.py::test_node_ids_can_be_strings",
+  "main_test.py::test_raise_error_if_initially_overconstrained",
+  "main_test.py::test_raise_error_if_initially_overconstrained_at_node",
+  "main_test.py::test_raise_error_if_not_obviously_overconstrained",
+  "main_test.py::test_raise_error_if_overconstrained_by_too_many_knowns",
+  "main_test.py::test_should_identify_when_aux_equations_required",
+  "main_test.py::test_solving_a_partial_case",
+  "main_test.py::test_solving_a_simple_network"
+]
