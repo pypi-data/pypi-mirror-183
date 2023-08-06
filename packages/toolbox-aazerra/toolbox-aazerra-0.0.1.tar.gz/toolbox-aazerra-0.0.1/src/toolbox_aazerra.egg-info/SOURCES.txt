@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/toolbox/__init__.py
+src/toolbox/list.py
+src/toolbox_aazerra.egg-info/PKG-INFO
+src/toolbox_aazerra.egg-info/SOURCES.txt
+src/toolbox_aazerra.egg-info/dependency_links.txt
+src/toolbox_aazerra.egg-info/top_level.txt
