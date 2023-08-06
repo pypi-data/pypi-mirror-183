@@ -1,0 +1,16 @@
+openwakeword/__init__.py,sha256=2EFF5t96QrGWhDKoyhSTdwXm5dUTnQOgCXAUt2IyMyg,978
+openwakeword/data.py,sha256=lavACIlxZSwpXgJLCQ14wCUgXRkiKrEf6xPWvXNZkvc,23046
+openwakeword/metrics.py,sha256=nicNwqg1rLPDKdnAA0GBCLhdIttALVb9prXV1RBx9oU,2831
+openwakeword/model.py,sha256=uSEZ6pJHug7uVpgVHyVHKOzlVrCSifzZu_Rntsy7ewA,10113
+openwakeword/utils.py,sha256=SoolJDtvfk8FAR2jVD5d2YtI8WQHLOYwBaG53qsKZ7I,16661
+openwakeword/resources/models/alexa_v0.1.onnx,sha256=b_VmoB0SZw6NnjxZ2jJlHbFXXRcnKmAbf4o5KD37rj4,854246
+openwakeword/resources/models/embedding_model.onnx,sha256=unVNs812ilJMZV6pBlXuXmBVpDuN_Sk2ahHpNxaunlE,1328103
+openwakeword/resources/models/hey_mycroft_v0.1.onnx,sha256=eFvfVlWGOuR1U7I3k6oQjHsBUtSCP3hptB8tLXZZEvw,503850
+openwakeword/resources/models/melspectrogram.onnx,sha256=uisOD4t7h1NposicsTNg_1O6xDbyiVzO2fR5-mXrF28,1087958
+openwakeword/resources/models/timer_v0.1.onnx,sha256=Nx5EU1RwopJIs7jxu7uvJSXIZBf9j3XGf88CrguWJt8,1742475
+openwakeword/resources/models/weather_v0.1.onnx,sha256=hEHajnRomejZaVKNW61WUc3VYwecBZYniPd3UwQfYOc,1149158
+openwakeword-0.1.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+openwakeword-0.1.1.dist-info/METADATA,sha256=LGBWIJ7mPUzFPd17eKm_0RNXBITjqoEljAYknerCBIs,17663
+openwakeword-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+openwakeword-0.1.1.dist-info/top_level.txt,sha256=F-oZfkRRKwZ2slLP6lybvE-TajgtNTFjny-6jY3-gBI,13
+openwakeword-0.1.1.dist-info/RECORD,,
