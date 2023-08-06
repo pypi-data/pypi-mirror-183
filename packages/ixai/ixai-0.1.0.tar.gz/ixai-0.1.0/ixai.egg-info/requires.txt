@@ -1,0 +1,12 @@
+river
+matplotlib
+pandas
+numpy
+tqdm
+
+[dev]
+sklearn
+torch
+bumpver
+pip-tools
+pytest
