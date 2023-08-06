@@ -1,0 +1,3 @@
+[console_scripts]
+a=sxxxs.main:main
+
