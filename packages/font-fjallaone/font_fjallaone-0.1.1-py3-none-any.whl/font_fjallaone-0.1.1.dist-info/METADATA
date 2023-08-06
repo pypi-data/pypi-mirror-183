@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: font-fjallaone
+Version: 0.1.1
+Summary: Fjalla One from from Sorkin Type as distributed by Google Fonts
+Author: IT-Reaktion
+Author-email: it@rabe.ch
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
