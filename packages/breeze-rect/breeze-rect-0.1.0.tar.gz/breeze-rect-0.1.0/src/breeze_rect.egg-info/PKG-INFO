@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: breeze-rect
+Version: 0.1.0
+Summary: A breeze plugin for the Rect programming language
+Home-page: UNKNOWN
+Author: mauro-balades
+Author-email: mauro.balades@tutanota.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+License-File: LICENSE
+
+# breeze-rect
+A breeze plugin for the Rect programming language
+
+
