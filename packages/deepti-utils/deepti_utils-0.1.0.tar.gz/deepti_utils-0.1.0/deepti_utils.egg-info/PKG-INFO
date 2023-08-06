@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: deepti-utils
+Version: 0.1.0
+Summary: Package of utility functions for Deepti Kannan
+Home-page: https://github.com/kannandeepti/deepti_utils
+Author: Deepti Kannan
+Author-email: dk.kannan97@gmail.com
+License: MIT
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Utilities
+License-File: LICENSE
+
+deepti_utils
+============
+
+A general package with utility functions useful for development and scientific analysis in Python
