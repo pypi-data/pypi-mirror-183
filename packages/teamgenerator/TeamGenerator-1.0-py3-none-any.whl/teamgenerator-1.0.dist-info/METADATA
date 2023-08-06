@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: teamgenerator
+Version: 1.0
+Summary: Use the createteam function to input two peramers list of strings (participants) and a integer (amtofteams) . It will then display the teams
+Author: Aidan
+Author-email: aidan.faulding@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
