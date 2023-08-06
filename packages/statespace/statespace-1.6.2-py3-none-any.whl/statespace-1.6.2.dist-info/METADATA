@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: statespace
+Version: 1.6.2
+Summary: 
+Author: noah smith
+Author-email: noah@statespace.dev
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: filterpy
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
