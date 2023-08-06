@@ -1,0 +1,12 @@
+ChemIITools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ChemIITools/_modidx.py,sha256=W1r6oJJQG3heKr1x1wtyaA3xzSHRzX6yTHMs076X6L4,5218
+ChemIITools/clusters.py,sha256=BKrVGBs2gUx2EyOxmhRVPHTECiqpj42Y6KinlRo8k9s,5801
+ChemIITools/huckel.py,sha256=mX3b82jjGyE7vc3BVy641RS92dj20BaA7C5fvLW6_lg,3956
+ChemIITools/kinetics.py,sha256=ovEmC3B6GX-XDporsUm-2BKzIIk8bKkmQ-jZ6qoSu6w,3694
+ChemIITools/optimisation.py,sha256=R9M4CwgYNC5LzWZJYBTDeCA_n2LgrEur0Lo9VvFPNL0,5123
+ChemIITools-0.0.1.dist-info/LICENSE,sha256=xV8xoN4VOL0uw9X8RSs2IMuD_Ss_a9yAbtGNeBWZwnw,11337
+ChemIITools-0.0.1.dist-info/METADATA,sha256=vOsil8y9z_3Wh9cFPrjf9_G3mLJ1gJl1PaPk7c34Aio,3863
+ChemIITools-0.0.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ChemIITools-0.0.1.dist-info/entry_points.txt,sha256=q0bMurkggEJMhrsC0uatcoeYxqOPaTQZTbQL-gtQWj0,44
+ChemIITools-0.0.1.dist-info/top_level.txt,sha256=74xArEGLCaTtc892Ie3wuZQn2v5f4Oj1VmwjQdjtw1g,12
+ChemIITools-0.0.1.dist-info/RECORD,,
