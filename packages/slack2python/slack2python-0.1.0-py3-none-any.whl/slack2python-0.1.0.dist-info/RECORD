@@ -1,0 +1,11 @@
+slack2python/__init__.py,sha256=2x2G6OoetKf8wmKArkeeXyzfSMUN4qFyCzKImfWhZes,154
+slack2python/channel.py,sha256=CctpHzg_-7FXCLFfXG8hd0N9cIQSf75j3i5d42iLo4g,2819
+slack2python/client.py,sha256=2SursFX8qLBm4KORFYfaJ09J9oEvobmh3zPBmTed-NA,1376
+slack2python/listen_manager.py,sha256=cWKAikw8z3LhKU_jCRr_eAbohH2Qn1Mu6N0F2R6wlL8,1451
+slack2python/member.py,sha256=1kTxFDJhlC_9g6gU33wFDquKcZqsPhg0EZxshAF8CbQ,3103
+slack2python/message.py,sha256=wWaSL61N04Ro9YeIdUtzkltcTB2mVF2RQq0xPxfFlAk,1857
+slack2python/util.py,sha256=L4GHW0wQr2N6dIvJNe7bM3DfC963RSioPFeEM2wxrg0,2351
+slack2python-0.1.0.dist-info/LICENSE,sha256=tJU3txXAOrVb7UNGWEpsjyU09olw2n9O9DFr8QIOMoU,1061
+slack2python-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+slack2python-0.1.0.dist-info/METADATA,sha256=7csVIPrbMPUEeAE6AlL04Yu-HmjVCGqDc6ax6MNUkMI,451
+slack2python-0.1.0.dist-info/RECORD,,
