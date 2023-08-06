@@ -1,0 +1,8 @@
+cloud_base_framework/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloud_base_framework/cloud_base_core.py,sha256=DmbyrZzmc444r18_uzIGDLDE88W0Baj3xBFKxcKoe2E,2836
+cloud_base_framework/cloud_base_exception.py,sha256=hdwTzQj3g19z5eux8dG_BbKmrk2B9uQMjoCaOJe80vc,363
+cloud_base_framework/cloud_base_log.py,sha256=KqPY4sh2n_o5fIjrIdUTLGsY20DBIpbw31fBXOSccCM,1538
+cloud_base_framework-0.0.3.dist-info/LICENSE,sha256=l5ckDzdg86jtIHxz6Yd42ZMDlscRgLVhPd86DCXM1qc,1089
+cloud_base_framework-0.0.3.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+cloud_base_framework-0.0.3.dist-info/METADATA,sha256=p6phGRIA1QYCeaEfZFmk5zZVHMyGjSa2YHInQC08Kns,517
+cloud_base_framework-0.0.3.dist-info/RECORD,,
