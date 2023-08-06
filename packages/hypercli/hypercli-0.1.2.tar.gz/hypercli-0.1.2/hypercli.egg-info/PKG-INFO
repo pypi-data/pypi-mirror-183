@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: hypercli
+Version: 0.1.2
+Summary: A python based CLI tool
+Home-page: https://github.com/the-hyperoot/hyper_cli
+Author: HYP3R00T
+Author-email: contact@hyperoot.live
+License: MIT
+License-File: LICENSE
+
+LONG DESCRIPTION
