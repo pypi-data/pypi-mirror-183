@@ -1,0 +1,11 @@
+manim_cad_drawing_utils/__init__.py,sha256=q_-z0riqXEfLOMLSCF2Q1e7rqYxfUNtCLBub5pblm18,154
+manim_cad_drawing_utils/dimensions.py,sha256=UNAQ5eVsCpm3pJBHLy7C_xG8liiBDmNhicg7CCUe6OM,15459
+manim_cad_drawing_utils/hatch.py,sha256=WPyCPTDiXwJxHOQ9VskAR_-PR0L8ul-P30ooCdr_id8,3337
+manim_cad_drawing_utils/path_mapper.py,sha256=wgOzDkxS2fFteNbUXTnypOhbQGaN4jbvx_ErIBGbf_k,17379
+manim_cad_drawing_utils/round_corners.py,sha256=FXoSgO-OT3b_aQ9EdYtk4QiErq8i3b0OqapZRZHK3GU,6269
+manim_cad_drawing_utils/utils.py,sha256=3lhSCMgUgdRn0GqjQxCBf13qO1nU4P4lUr4J-RiaQ9o,2278
+manim_cad_drawing_utils-0.0.2.dist-info/entry_points.txt,sha256=PHfFvsNaH2v1DaohocQ1SDP7TrNEpXwaQ1ztc1CfBr0,65
+manim_cad_drawing_utils-0.0.2.dist-info/LICENSE.txt,sha256=P0mBPAUnNU7TJoDwPfFQnuGucvZwoJbroQWY9IySN4A,1095
+manim_cad_drawing_utils-0.0.2.dist-info/METADATA,sha256=4NEnoKJXMZwManFyc18XoBcXK-ZGpjiXKuJox9YTuSU,6012
+manim_cad_drawing_utils-0.0.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+manim_cad_drawing_utils-0.0.2.dist-info/RECORD,,
