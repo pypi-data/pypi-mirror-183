@@ -1,0 +1,13 @@
+mmeson/__init__.py,sha256=lK4f_UeBxfIK0gP6amPhi8EjIHtMYB8tD16ZyjrNK-g,111
+mmeson/__main__.py,sha256=d2js8Ys_5QZhUSZT4MjrCdh5JwXtAydzLUk7KvQBrQA,242
+mmeson/cli.py,sha256=ii5Ur2IcUFipKej_Bit_PAU1v85VSZ53_-tNwt1FsGc,818
+mmeson/meson_interface.py,sha256=qfJeBTqSQECmnrdoWo6klxEUNCAKnoVD5cCMRKCfCTI,5737
+mmeson/options.py,sha256=QupVoI_X5oGZCVEg0KZ_l0NGWHebkZGrrdV6Ho_rTEk,4963
+mmeson/singleton.py,sha256=Uku-TzBdgmMvebf-kl_atLiYHNuyyNsntbSuddKAHOM,545
+mmeson/tui.py,sha256=AYOtL09gpj5hkyrBpDey01GkYBCFCqaI_50MVqmVFvM,19193
+mmeson-0.1.0.dist-info/LICENSE.txt,sha256=V_tC-80LA3zlKO2PcvHsCV1nvGgl7PFEj_Ob4f5opLQ,13792
+mmeson-0.1.0.dist-info/METADATA,sha256=qpAS1VZHr3JmIcWMGWEuZ9TlXwaCCd8wwvakb-iL8I8,18663
+mmeson-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mmeson-0.1.0.dist-info/entry_points.txt,sha256=3ru60Q_iGHYr1z_4-TS3EjHdpj_F8sq1m2QD_Um678g,43
+mmeson-0.1.0.dist-info/top_level.txt,sha256=Rbim8Cb7fVnpb5MGbDTc5qedsgsFgvk2AIgFCACu808,7
+mmeson-0.1.0.dist-info/RECORD,,
