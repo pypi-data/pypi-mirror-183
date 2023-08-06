@@ -1,0 +1,16 @@
+sphinxcontrib_django/__init__.py,sha256=3Ouq_ulknDIq5cDLYw88eZGZdSBtAMdEAN1pu4Pb_LA,643
+sphinxcontrib_django/roles.py,sha256=SE9Ban7sbvtj4H5Fbo3MuMJe78-LwqbBrPk8D6hCgkM,3093
+sphinxcontrib_django/docstrings/__init__.py,sha256=HLu5EhPXwJp9fNoseiMcCAX6qfJ19WON1hiAO-z-ySg,6279
+sphinxcontrib_django/docstrings/attributes.py,sha256=34qMq5y-kIv69n4l9KpEgNwvfeT9SaA3gAbUJ81MYEg,5358
+sphinxcontrib_django/docstrings/classes.py,sha256=H9XvnPWqp6RFnjQvJr-n3c4_e4WvGASP4tamX5Pk7JM,5177
+sphinxcontrib_django/docstrings/config.py,sha256=UkWwfjx9txdBz1KglwxnP7zZL-SYQJdgvh-Ns-NUas4,665
+sphinxcontrib_django/docstrings/data.py,sha256=G1CwUEOnFXdq4niO4FO1orZNYelgfIsLTn5ktdZz6ME,837
+sphinxcontrib_django/docstrings/field_utils.py,sha256=zYxSZimUap9ip8vLk6Mgq6M5MT0aRtTpdj5x2WusuG0,6496
+sphinxcontrib_django/docstrings/methods.py,sha256=rk45ZarMR0OZgIWqk1bKvZVuvo2wdaDEdTddcR_Y33k,2032
+sphinxcontrib_django/docstrings/patches.py,sha256=gmereR-NNvc8rmPoXzbbpMHRhgHOipTos_IssoIArIg,3392
+sphinxcontrib_django-2.0.dist-info/AUTHORS,sha256=pi9M96bu2Kvh3Nf9q8iu8TYO0WaXHBIfrZYfyVldnmY,106
+sphinxcontrib_django-2.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+sphinxcontrib_django-2.0.dist-info/METADATA,sha256=LKgZBGxEHQiENT6nlsqezX0MsZQhIO2i6Mr1p1bNRnw,6557
+sphinxcontrib_django-2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sphinxcontrib_django-2.0.dist-info/top_level.txt,sha256=ekCkDB0-7y9NcOv1Ak2bRz2vBI4QejBF1_I-JNB4teU,21
+sphinxcontrib_django-2.0.dist-info/RECORD,,
