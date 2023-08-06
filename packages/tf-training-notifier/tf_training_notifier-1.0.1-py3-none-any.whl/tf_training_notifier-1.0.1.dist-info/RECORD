@@ -1,0 +1,8 @@
+trainingnotifier/__init__.py,sha256=m26dG7_D0ZH3VKCrbxhU1FNZICH_FHMcgDb1XtZESoA,87
+trainingnotifier/notifierCallback.py,sha256=taz-RJ04rCigFWFJx9TAauP_0j5bplMMrtBZ4lUdjHs,3399
+trainingnotifier/build/lib/notifierCallback.py,sha256=6XoGjPtHOnQOE7-Fh3ZXB40lr0r6laZWvJgK_FALBmE,3321
+tf_training_notifier-1.0.1.dist-info/LICENSE,sha256=HYi3jTc72dyYZkCE-hOSjDTRykZ8vFIvarRZIhz9D5c,1086
+tf_training_notifier-1.0.1.dist-info/METADATA,sha256=pYq8F7_sB3V9t3JIc7BdjIUzvrdlIkB9OQbkWsjkORM,3672
+tf_training_notifier-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tf_training_notifier-1.0.1.dist-info/top_level.txt,sha256=Biprku3hR3WwMow5ZDA2GJmG6z8n0I9l1hMkEaZcoFg,17
+tf_training_notifier-1.0.1.dist-info/RECORD,,
