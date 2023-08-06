@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: p2p-crypto
+Version: 0.0.1.dev2
+Summary: Python3 library for interacting with P2P trading on different cryptoexchanges
+Home-page: https://github.com/exsplashit/p2p
+Author: exsplash.it
+License: MIT
+Project-URL: Documentation, https://github.com/exsplashit/p2p
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Say Thanks!, http://saythanks.io/to/example
+Project-URL: Source, https://github.com/exsplashit/p2p/
+Project-URL: Tracker, https://github.com/exsplashit/p2p/issues
+Keywords: p2p crypto
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.5
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pandas
+
+Python3 library for interacting with P2P trading on different cryptoexchanges
