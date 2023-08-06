@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: fintekkers-devops-scripts
+Version: 0.0.1
+Summary: Scripts to deploy services; generally Docker images to AWS
+Author-email: David Doherty <dave@fintekkers.org>
+Project-URL: Homepage, https://github.com/fintekkers/fintekkers-devops-scripts
+Project-URL: Bug Tracker, https://github.com/pfintekkers/fintekkers-devops-scripts/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Overview
+
+The scripts are designed to deploy services to AWS
+
+## Deploying the dummy service
+
+* At a minimum add the following to your environment variables:
+
+AWS_ACCESS_KEY_ID=AKIXXXSKSXECDXXXXX
+AWS_SECRET_ACCESS_KEY=pU7jAXXXG/vIyWXXXXXXLBP2h18V/FIDwsmsZuM
+FINTEKKERS_CLUSTER_NAME="fintekkers"
+
+* Run python scripts in src/fintekkers/devops in alphabetical order
+  * a_check*py
+  * b_build_docker*py
+  * c_create_ecs_service*py
+
+This will create an ECS service fronted by a load balancer, with the dummy service running on 2 tasks. If you kill a task the ECS cluster will spin up a new one. The load balancer will react accordingly. 
