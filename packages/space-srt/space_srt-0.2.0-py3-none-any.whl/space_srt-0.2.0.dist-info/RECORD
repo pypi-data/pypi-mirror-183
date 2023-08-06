@@ -1,0 +1,12 @@
+space/__init__.py,sha256=bOeKL_VpiZoalpaNVtf2t1H0W-vIGQJhNVdGgQiG6W0,110
+space/function.py,sha256=NtQRznA_X8rEZskELkh_Gavj3qiq60xvPRdiNuYLeXw,5540
+space/layer.py,sha256=AxiHtVZ2vbPAVKri1Sp8SiCR-A15734FUnLe40GXdIY,2241
+space/loss.py,sha256=gGjVgM9cML9kuG-PU7qbme5f3z4OX-x8y-5Xl9oCn-Q,826
+space/model.py,sha256=3xunkqdhhpx0IgA5fftAbC94jEgasOHXx7TEaRyr-Gw,2556
+space/train.py,sha256=sKRAWaBjfd8zYZTecNMqaduzM3Q7q7Xi96GLEdNeSyE,4725
+space/utils.py,sha256=HA_CocosfQ7_E17jqmqyR29anJfNUKjo-RBN3OJoeCs,1592
+space_srt-0.2.0.dist-info/LICENSE,sha256=9xziPIgynLdQ1hrl2dr3N5v0tOC0nQnrcvdRl59Xxcg,1065
+space_srt-0.2.0.dist-info/METADATA,sha256=L29wRkmIcQQXCtlCihznngTtb9p9gJ5pm1domK67ejY,1269
+space_srt-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+space_srt-0.2.0.dist-info/top_level.txt,sha256=nTl0VAPl-vZiRjsy1hPu30UDfQGAmDrovIf1OM8MllM,6
+space_srt-0.2.0.dist-info/RECORD,,
