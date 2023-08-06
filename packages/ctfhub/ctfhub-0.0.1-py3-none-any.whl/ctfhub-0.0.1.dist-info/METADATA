@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ctfhub
+Version: 0.0.1
+Summary: CTF-Python
+Home-page: https://github.com/Moxin1044/ctf-python
+Author: Moxin
+Author-email: 1044631097@qq.com
+License: MIT License
+Description-Content-Type: text/markdown
+
+# 关于CTF
+
+这是一个CTF常用功能库
