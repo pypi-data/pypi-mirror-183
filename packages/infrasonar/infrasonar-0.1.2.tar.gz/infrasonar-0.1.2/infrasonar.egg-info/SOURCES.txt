@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+bin/infrasonar
+infrasonar.egg-info/PKG-INFO
+infrasonar.egg-info/SOURCES.txt
+infrasonar.egg-info/dependency_links.txt
+infrasonar.egg-info/requires.txt
+infrasonar.egg-info/top_level.txt
