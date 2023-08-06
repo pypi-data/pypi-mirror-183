@@ -1,0 +1,14 @@
+romaniya_menim/__init__.py,sha256=tfg-2guWAyVuO5awheYPY29MxsOR2aG9X3OLScP7AmE,257
+romaniya_menim/classifiers.py,sha256=__budIcMm8iXfTPLjnK3OPxeks7LbsSHIDiHXLHJ3G4,1834
+romaniya_menim/utils.py,sha256=rY-QQz54zAMkC0jBNV0ULfhqkMg_-eOwLEK7ogYgYa0,4002
+romaniya_menim/data/ArrowHead_TEST.tsv,sha256=a8eoP2bAZR2V_v77JWABHWqHe2ykwRPdocB66u1HN-I,484229
+romaniya_menim/data/ArrowHead_TRAIN.tsv,sha256=BLuf0oJ2UNPsLzhFB_CD-9TDdI-RnLrOODH4fgr_Bqc,99664
+romaniya_menim/data/BirdChicken_TEST.tsv,sha256=BW59ETRyQdrcpdP91hA2AmnZn5EmVpGCScmpoRabkbs,114168
+romaniya_menim/data/BirdChicken_TRAIN.tsv,sha256=CF-scrR1s_kIxZAA-SylyD0jz2W6LgEL7WFKXGR96VY,113869
+romaniya_menim/data/Car_TEST.tsv,sha256=0bcVGbnTnQzopa3f5130xzOuyYesw4Z7oMvxufDgW0Y,380920
+romaniya_menim/data/Car_TRAIN.tsv,sha256=l38VpXiPPEinhJUboW9H99zS6LLK1hNyqyNroIg-4dM,380664
+romaniya_menim/data/__init__.py,sha256=tfg-2guWAyVuO5awheYPY29MxsOR2aG9X3OLScP7AmE,257
+romaniya_menim-0.0.11.dist-info/METADATA,sha256=K74WHKoJ2gDl29hr-TSpgy4-3MWf0He_T1-x0dDWWI4,566
+romaniya_menim-0.0.11.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+romaniya_menim-0.0.11.dist-info/top_level.txt,sha256=oMmTcB5Bmtm6LxFuchHRCRGG24A7hsnJAivGIhrMgeA,15
+romaniya_menim-0.0.11.dist-info/RECORD,,
