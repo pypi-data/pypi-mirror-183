@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+awewae/__init__.py
+awewae.egg-info/PKG-INFO
+awewae.egg-info/SOURCES.txt
+awewae.egg-info/dependency_links.txt
+awewae.egg-info/top_level.txt
