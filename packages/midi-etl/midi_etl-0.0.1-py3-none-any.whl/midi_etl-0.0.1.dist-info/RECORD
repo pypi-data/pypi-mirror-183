@@ -1,0 +1,12 @@
+lakh_midi/__init__.py,sha256=PhGMb19erBu43e9mrBJ6dO7BtlY6XFWLe0TDl0akIl8,1336
+lakh_midi/partitioned_parquet_io.py,sha256=tRQ7iL_895d7an5FnsUwndr-O8elALuP2v27Elv-7RE,12192
+lakh_midi/utils.py,sha256=j0eKIgG-8Fqj9xk7EJiQOBMu_U5PmJqgpfNMJ1NuEHQ,673
+midi_etl/__init__.py,sha256=5-KngoiXJN5GAnIziYDmWUiNK-AVOAvl99T2nw6ePCs,1706
+midi_etl/arrow_upath_iomanager.py,sha256=zldUinzUuhL4oUSPFGQ4OsFosRQr6AbOWmgo33sNcKc,7706
+midi_etl/constants.py,sha256=3FuDM1oNGP_nIS2E_o6260oy5i_kNbkOJgrqQyQv0YA,191
+midi_etl/partitions.py,sha256=7L9vHUfjuX7MZc8aIRMYUd2iYKFfULORGmnDqTsz9uk,289
+midi_etl/utils.py,sha256=LyVFvCPejOtOLhOLr1OKCfT9IniA5ScAeO9GC0Vaj4I,1093
+midi_etl-0.0.1.dist-info/METADATA,sha256=4_hao9ExWivjph3gXxtcuYeaEpj9u5-lzR9TMCHL6No,4988
+midi_etl-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+midi_etl-0.0.1.dist-info/top_level.txt,sha256=L-rOVi9eGx4q_A7ibCn_POjdsoXZgDbUJTlZ_v7yv0o,9
+midi_etl-0.0.1.dist-info/RECORD,,
