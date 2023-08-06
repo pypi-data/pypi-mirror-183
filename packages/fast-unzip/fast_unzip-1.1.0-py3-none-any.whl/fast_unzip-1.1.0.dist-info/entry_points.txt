@@ -1,0 +1,3 @@
+[console_scripts]
+fast_unzip=src.fast_unzip.fast_unzip:main
+
