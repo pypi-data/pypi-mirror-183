@@ -1,0 +1,118 @@
+[package]
+name = "zspell"
+version = "0.3.1"
+edition = "2021"
+authors = ["Trevor Gross <tmgross@umich.edu>"]
+description = "Native Rust library for spellchecking, with a command line interface"
+
+readme = "README.md"
+license-file = "LICENSE"
+
+documentation = "https://docs.rs/zspell"
+repository = "https://github.com/pluots/zspell"
+
+keywords = ["spellcheck", "spelling", "cli"]
+categories = ["algorithms", "text-processing", "command-line-utilities"]
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+# Config for the rust-usable library and the executable binary
+[lib]
+name = "zspell"
+path = "src/lib.rs"
+
+
+[dependencies]
+# Base dependencies
+atty = "0.2.14"
+cfg-if = "1.0"
+hashbrown = "0.13.1"
+home = "0.5.4"
+lazy_static = "1.4"
+regex = "1.7"
+stringmetrics = "2.2.2"
+sys-locale = "0.2.3"
+unicode-segmentation = "1.10.0"
+itertools = "0.10.5"
+visibility = "0.0.1"
+
+
+[dev-dependencies]
+criterion = "0.4"
+predicates = "2.1"
+pretty_assertions = "1.3"
+tempfile = "3.3"
+rand = "0.8.5"
+util = { path = "../util" }
+
+[build-dependencies]
+
+[features]
+unstable-suggestions = []
+unstable-analysis = []
+unstable-stem = []
+unstable-system = []
+zspell-unstable = ["unstable-suggestions", "unstable-analysis", "unstable-stem", "unstable-system"]
+
+[[bench]]
+name = "datastructure"
+harness = false
+
+[[bench]]
+name = "dict_integration"
+harness = false
+
+[[bench]]
+name = "slice_contains"
+harness = false
+
+[[bench]]
+name = "small_map"
+harness = false
+
+[[bench]]
+name = "word_splitter"
+harness = false
+
+[package.metadata.release]
+shared-version = true
+
+
+# Can't run replacements at workspace root. Need to use this "hacky" sort of way.
+[[package.metadata.release.pre-release-replacements]]
+file = "../../CHANGELOG.md"
+search = "Unreleased"
+replace = "{{version}}"
+
+[[package.metadata.release.pre-release-replacements]]
+file = "../../CHANGELOG.md"
+search = "\\.\\.\\.HEAD"
+replace = "...{{tag_name}}"
+exactly = 1
+
+[[package.metadata.release.pre-release-replacements]]
+file = "../../CHANGELOG.md"
+search = "ReleaseDate"
+replace = "{{date}}"
+
+[[package.metadata.release.pre-release-replacements]]
+file = "../../CHANGELOG.md"
+search = "<!-- next-header -->"
+replace = """\
+  <!-- next-header -->\n\n\
+  ## [Unreleased] - ReleaseDate\n\n\
+  ### Added\n\n\
+  ### Changed\n\n\
+  ### Removed\n\n\
+  """
+exactly = 1
+
+[[package.metadata.release.pre-release-replacements]]
+file = "../../CHANGELOG.md"
+search = "<!-- next-url -->"
+replace = """\
+  <!-- next-url -->\n\
+  [Unreleased]: https://github.com/pluots/zspell/compare/{{tag_name}}...HEAD\
+  """
+exactly = 1
