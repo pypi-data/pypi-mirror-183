@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+spatdapy/Spatial.py
+spatdapy/__init__.py
+spatdapy.egg-info/PKG-INFO
+spatdapy.egg-info/SOURCES.txt
+spatdapy.egg-info/dependency_links.txt
+spatdapy.egg-info/requires.txt
+spatdapy.egg-info/top_level.txt
