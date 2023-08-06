@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+matrixraja.egg-info/PKG-INFO
+matrixraja.egg-info/SOURCES.txt
+matrixraja.egg-info/dependency_links.txt
+matrixraja.egg-info/top_level.txt
+source/matrixraja/__init__.py
+source/matrixraja/matrixraja.py
