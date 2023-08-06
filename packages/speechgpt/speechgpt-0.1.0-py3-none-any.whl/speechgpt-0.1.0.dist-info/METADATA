@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: speechgpt
+Version: 0.1.0
+Summary: A voice interface for OpenAI's ChatGPT
+Author: Jdka (Aryan Mehra)
+Author-email: staryan.mehra@gmail.com
+Keywords: python,ai,voice,text to speech
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: pyChatGPT
+Requires-Dist: pyttsx3
+Requires-Dist: SpeechRecognition
+Requires-Dist: pyaudio
+
