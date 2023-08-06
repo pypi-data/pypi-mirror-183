@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%title%></title>
+    <link rel='stylesheet' href='../../../css/index.css' />
+    <link rel="icon" href="<%favicon%>">
+</head>
+<body class="light">
+    html-scope
+    <button onclick="changeMode(this)" class="changeMode">切换颜色</button>
+
+    <script type="text/javascript">
+
+        function changeMode(box) {
+            let body = document.body;
+            let markdown_part = document.getElementById('markdown')
+            if (box.state == null) {
+                box.state = false;
+            }
+            if (box.state) {
+                body.className = 'light';
+                markdown_part.className = 'markdown-body markdown-light'
+            } else {
+                body.className = 'dark';
+                markdown_part.className = 'markdown-body markdown-dark'
+            }
+            box.state = !box.state;
+        }
+    </script>
+
+</body>
+</html>
