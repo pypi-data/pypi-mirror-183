@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gqylpy
+Version: 1.0
+Summary: The GQYLPY.
+Home-page: http://gqylpy.com
+Author: 竹永康
+Author-email: <gqylpy@outlook.com>
+License: Apache 2.0
+Project-URL: Source, https://github.com/gqylpy/gqylpy
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+[<img alt="LOGO" src="http://www.gqylpy.com/static/img/favicon.ico" height="21" width="21"/>](http://www.gqylpy.com/)
+[![Version](https://img.shields.io/pypi/v/gqylpy)](https://pypi.org/project/gqylpy/)
+[![License](https://img.shields.io/pypi/l/gqylpy)](https://github.com/gqylpy/gqylpy/blob/main/LICENSE)
+
+# gqylpy
+
+> The GQYLPY.
+
+
