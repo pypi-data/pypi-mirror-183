@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/cir_model/__init__.py
+src/cir_model/cir_model.py
+src/cir_model.egg-info/PKG-INFO
+src/cir_model.egg-info/SOURCES.txt
+src/cir_model.egg-info/dependency_links.txt
+src/cir_model.egg-info/requires.txt
+src/cir_model.egg-info/top_level.txt
