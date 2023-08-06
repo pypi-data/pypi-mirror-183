@@ -1,0 +1,6 @@
+from simauth import simauth
+
+accounts = {'gAAAAABjsEvnSapNh8jBbcEBAvk5p4uotT-kGThYEKPjgUP37UUvjX6vNKJulNntIT8CVhPjgfpW0a54e4Oi-hQ3EBXn6NvhoQ==': 'gAAAAABjsEvn35VJc1i7C4RXM4fJVHaAp6StyJWI-xaDyBBLl4a2Z4cabn8FTulIayFWI6R-nyR7JQkF0NxeGzRyIZofiW-WTAzo6l-n0zgWsP8TMmu8amTRr5aL74HhQwPY5HCneOYl', 'gAAAAABjsEvn4AgvjJZQiUocLEooaY5Tu-8QpfTJCGlCbl6D3egDV6LxglDxSMM3x5t_gCbKQ1jNfJUQAVfIQ4CnEkaprUFZdQ==': 'gAAAAABjsEvn5qRIhI1ytSrKWvwGos0jGvI-z0yEzcy6kBzgnllg6EGxosWLMtEPQyuKXRO2hFDaIcH8cV7zw9qQt9dR8v3wQUBoaK6XdaHUnbdvVUNDChpqbKobE0Cg3aRIvcR24TjeiXE3efsh65yX1BYaClt3JrSMFVviC7aRgESzkc-YHlFteMAEAniZlwxeb_k15Tr_', 'gAAAAABjsEvno1IcCRe3KIca94JisnlIcTBCreCkhZRkbpMF_to8tig9wq2OoFxbKS2kAIilqX0Ql4yYPT_gsboYia0g2mQMOQ==': 'gAAAAABjsEvnho1oB0ZlLPEhGef2yBBrzxg4OiWsZFYsCPguBumRPmMuGc11hwT_xAImWNunNMKLVA4a57Y0klPwjeXo_mN5TmuTHPq5H0eSiKPlGX6vp34='}
+paths = ['~/.config/ojbk_fernet_key', '/data/ojbk_fernet_key', './local/fernet.key']
+
+auth = simauth(accounts, paths)
