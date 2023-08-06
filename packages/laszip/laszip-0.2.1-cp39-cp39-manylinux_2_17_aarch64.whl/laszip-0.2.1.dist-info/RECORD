@@ -1,0 +1,6 @@
+laszip/__init__.py,sha256=OqDP9Rm4eEe4TWAlygF-OU4mXDZLDhudLm0DQxKPcxc,22
+laszip/laszip.cpython-39-aarch64-linux-gnu.so,sha256=WnK0Kraoj8Ubap5PSTOzvHRP-hy2G1KXi50nu-IK8_Q,397840
+laszip-0.2.1.dist-info/METADATA,sha256=eqAdnIdI37SGrlynJfnotcIdhBPj3pf_Byw-sb8fn4U,1161
+laszip-0.2.1.dist-info/WHEEL,sha256=62ZdIqdEaCIyZN7gYMCt5QwWRxlpvFdtV38NcxjvMz0,104
+laszip-0.2.1.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+laszip-0.2.1.dist-info/RECORD,,
