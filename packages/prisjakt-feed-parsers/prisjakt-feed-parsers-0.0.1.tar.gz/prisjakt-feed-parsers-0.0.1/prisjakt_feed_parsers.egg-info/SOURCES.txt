@@ -1,0 +1,5 @@
+setup.py
+prisjakt_feed_parsers.egg-info/PKG-INFO
+prisjakt_feed_parsers.egg-info/SOURCES.txt
+prisjakt_feed_parsers.egg-info/dependency_links.txt
+prisjakt_feed_parsers.egg-info/top_level.txt
