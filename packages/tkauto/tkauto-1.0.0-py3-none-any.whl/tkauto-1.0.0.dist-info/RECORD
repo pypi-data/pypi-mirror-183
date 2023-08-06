@@ -1,0 +1,17 @@
+tkauto/Capture.py,sha256=u-a4M9ah9lNcbamF9Qz5THvJLraD_9VGj-myWaBGzNI,713
+tkauto/FindCharacterByTag.py,sha256=wpQjeR17Qh5ahsy_50GdhiTIHGCMyviVFNAvIIlRoQc,9278
+tkauto/ImgProcessing.py,sha256=foq1y2gDHzbVKMtBANGBVxBEaa-AUMkZhgRVMy-r5Eo,777
+tkauto/TesseractOCR.py,sha256=dw1kcv0cwdJUBylB-IBXvR1MmhM7POKw3PcfUY-EzSM,248
+tkauto/Util.py,sha256=GJLHTso3iqBWmdZZUTdYFUd1fP1BloVGNIB9DCx4_4E,910
+tkauto/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tkauto/main.py,sha256=PV_L0NpQkSM_FJaerz1PnUBmslRVnMaM6ZGMcKNQX9g,9116
+tkauto/tkfm_UI.ui,sha256=76XwlWwJy5qe0JqXdE3_WQbXZaZdkaSdoyKuaZ1XbKs,16381
+tkauto/data/CharacterInfo.json,sha256=kXmRmqHyeFmptUzW4VuT99c3NkCtS4NjCr4-vSn16c4,6004
+tkauto/data/CharacterTag.json,sha256=LeS9VytfP51EnaxfJwhRdTcCVkg12SCY2Uuu2cxHt64,5957
+tkauto/data/KorInfo.json,sha256=kTwtLIkULh--rqpMgoCA-oY6jvXJrFdTFx8CGZpcQNA,5231
+tkauto/data/tags_dictionary.txt,sha256=0Px-nhRbdhOLz61eD8UqvR59rjcT9LQuHj4LNE6m0Xw,805
+tkauto-1.0.0.dist-info/LICENSE,sha256=HbcuB00OVurpeOO4APpXDcHDdACVx1oDQmr7mAs_Go0,1090
+tkauto-1.0.0.dist-info/METADATA,sha256=kGjeL4FbHLCml69-exl0v70kjxqMVgj0-S15TGJx_jU,1490
+tkauto-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tkauto-1.0.0.dist-info/top_level.txt,sha256=u0XPwT7Dyoji4_WbbzOPz6icouCY_5ceUfJl0OWDloE,7
+tkauto-1.0.0.dist-info/RECORD,,
