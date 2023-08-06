@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: casestyles
+Version: 1.0
+Summary: A package for converting case styles to each other
+Home-page: https://github.com/Chebotarev-Alexey/CaseStyles
+Author: Alexey-Chebotarev
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+## CaseStyles
+
+### Install
+```
+pip install casestyles
+```
+
+### Import
+```python
+from casestyles import Name
+```
+
+### Create name
+```python
+name = Name.from_snake_case("snake_case_name")
+```
+
+```python
+name = Name.from_camel_case("camelCaseName")
+```
+
+```python
+name = Name.from_pascal_case("PascalCaseName")
+```
+
+### Transform name
+snake_case_name = name.snake_case
+camel_case_name = name.camel_case
+pascal_case_name = name.pascal_case
+```
