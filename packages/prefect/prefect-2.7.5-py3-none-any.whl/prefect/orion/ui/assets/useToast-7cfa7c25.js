@@ -1,0 +1,1 @@
+import{L as r}from"./prefect-design-a921a7c6.js";import{y as n}from"./index-4d9fe32c-718dc5d9.js";function m(){const o=[];return n(()=>o.forEach(t=>t.dismiss())),(...t)=>{const s=r(...t);return o.push(s),s}}export{m as u};

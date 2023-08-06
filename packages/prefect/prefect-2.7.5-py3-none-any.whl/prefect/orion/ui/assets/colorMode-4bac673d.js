@@ -1,0 +1,1 @@
+import{j as r,ad as t,ae as s}from"./index-4d9fe32c-718dc5d9.js";import{f as l}from"./vue-compositions-55710141.js";const a="orion-color-mode",e=localStorage.getItem(a),n=s(e)?e:null,{value:c,set:d}=l(a,n),i=r({get(){return c.value},set(o){d(o),t(o)}});function f(){t(i.value)}export{i as a,f as i};
