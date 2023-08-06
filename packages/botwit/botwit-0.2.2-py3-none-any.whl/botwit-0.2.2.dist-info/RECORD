@@ -1,0 +1,12 @@
+botwit/__init__.py,sha256=inHtyLFg2nOs7O9eEyjT-jArtv2dYwYTQxyVUMPrImk,105
+botwit/__main__.py,sha256=nCJ41bj2jIh2aACIvub_c75a3U81G2X7cQQKnHhh1-w,956
+botwit/app.py,sha256=CxTFD4Xgo5tjo0_FLmEbUeqKpJvg0A1x71Y2mgUEvhc,455
+botwit/config.py,sha256=kYx1LIAjIjD86XtBIiifD7vlAPn2d62JZ7O920VdTow,556
+botwit/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+botwit/sync_memo.py,sha256=e4tfy-fvOsSj_JtqpQ6ylFP6A2sKBX32Qk_aZN77Fbk,5281
+botwit/twitter_client.py,sha256=O0nRQthyRYIsBbS8gBWReaUQwd09cBFZ_WfGwP8vS74,12210
+botwit-0.2.2.dist-info/METADATA,sha256=Uhcx2CF1CZCeG7yhvN1g_-WBbzag2tEdUQT7nKX_olM,3389
+botwit-0.2.2.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+botwit-0.2.2.dist-info/entry_points.txt,sha256=sETYw-poBkAtFTtIYv-0zLSjLCA5FhzaWbzXM0_k7hQ,47
+botwit-0.2.2.dist-info/licenses/LICENSE,sha256=xpk0plhUqRXCz4S1rUCwIKS-ZHt2USYmTIt9jmk1iBc,1097
+botwit-0.2.2.dist-info/RECORD,,
