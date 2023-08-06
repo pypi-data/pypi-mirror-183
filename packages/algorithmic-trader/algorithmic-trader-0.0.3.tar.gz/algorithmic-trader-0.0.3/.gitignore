@@ -1,0 +1,13 @@
+.idea
+.DS_Store
+*.pyc
+*.log
+run/
+.env
+private/
+dist/
+build/
+*.egg-info
+*.egg
+logs/
+.coverage
