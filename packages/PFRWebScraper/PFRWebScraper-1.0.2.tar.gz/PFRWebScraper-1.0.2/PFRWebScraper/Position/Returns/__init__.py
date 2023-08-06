@@ -1,0 +1,3 @@
+from PFRWebScraper.Position.Returns.Returns import ReturnsData
+from PFRWebScraper.Position.Returns.ReturnsRegularSeason import ReturnsRegularSeason
+from PFRWebScraper.Position.Returns.ReturnsPlayoffs import ReturnsPlayoffs

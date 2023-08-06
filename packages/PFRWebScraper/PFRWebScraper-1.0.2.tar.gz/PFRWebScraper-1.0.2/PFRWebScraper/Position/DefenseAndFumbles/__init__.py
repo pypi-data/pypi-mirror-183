@@ -1,0 +1,3 @@
+from PFRWebScraper.Position.DefenseAndFumbles.DefenseAndFumbles import DefenseAndFumblesData
+from PFRWebScraper.Position.DefenseAndFumbles.DefenseAndFumblesRegularSeason import DefenseAndFumblesRegularSeason
+from PFRWebScraper.Position.DefenseAndFumbles.DefenseAndFumblesPlayoffs import DefenseAndFumblesPlayoffs

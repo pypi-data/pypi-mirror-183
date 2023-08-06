@@ -1,0 +1,4 @@
+pandas
+beautifulsoup4
+random_user_agent
+lxml

@@ -1,0 +1,2 @@
+from PFRWebScraper.TeamData.TeamOffenseData import TeamOffenseData
+from PFRWebScraper.TeamData.TeamDefenseData import TeamDefenseData
