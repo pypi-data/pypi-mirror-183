@@ -1,0 +1,110 @@
+[tool.poetry]
+name = "doodlin-ai"
+version = "0.0.2a2"
+description = "Doodlin AI Archaiver"
+authors = [
+    "한일석 <x2ever.han@gmail.com>",
+]
+license = "MIT"
+readme = "README.md"
+
+documentation = "https://doodlincorp.github.io/doodlin-ai"
+homepage = "https://doodlincorp.github.io/doodlin-ai"
+repository = "https://github.com/doodlincorp/doodlin-ai"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+packages = [
+    { include = "doodlin_ai", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8, <4.0"
+huggingface = "^0.0.1"
+boto3 = "^1.26.37"
+tqdm = "^4.64.1"
+pillow = "^9.3.0"
+pandas = "^1.5.2"
+types-pillow = "^9.3.0.4"
+types-tqdm = "^4.64.7.9"
+pre-commit = "^2.21.0"
+moto = {extras = ["all"], version = "^4.0.12"}
+
+[tool.poetry.dev-dependencies]
+autoflake = "*"
+black = "*"
+flake8 = "*"
+flake8-bugbear = "*"
+flake8-builtins = "*"
+flake8-comprehensions = "*"
+flake8-debugger = "*"
+flake8-eradicate = "*"
+flake8-logging-format = "*"
+isort = "*"
+mkdocstrings = {version = ">=0.18", extras = ["python"]}
+mkdocs-material = "*"
+mypy = "*"
+pep8-naming = "*"
+pre-commit = "*"
+pymdown-extensions = "*"
+pytest = "*"
+pytest-github-actions-annotate-failures = "*"
+pytest-cov = "*"
+python-kacl = "*"
+pyupgrade = "*"
+tryceratops = "*"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-srcpaths = "^1.2.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+src_paths = ["src", "tests"]
+
+[tool.black]
+target-version = ["py37", "py38", "py39"]
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+addopts = """\
+    --cov doodlin_ai \
+    --cov tests \
+    --cov-report term-missing \
+    --no-cov-on-fail \
+"""
+pythonpath = ["src"]
+
+[tool.coverage.report]
+fail_under = 95
+exclude_lines = [
+    'if TYPE_CHECKING:',
+    'pragma: no cover'
+]
+
+[tool.mypy]
+disallow_any_unimported = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+check_untyped_defs = true
+show_error_codes = true
