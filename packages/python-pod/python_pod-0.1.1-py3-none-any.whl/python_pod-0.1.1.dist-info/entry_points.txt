@@ -1,0 +1,3 @@
+[console_scripts]
+pypod=pypod.cli:cli
+
