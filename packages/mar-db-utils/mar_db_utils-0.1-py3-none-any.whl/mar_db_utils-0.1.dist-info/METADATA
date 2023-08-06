@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mar-db-utils
+Version: 0.1
+Summary: A simple set of Posgres DB utilities
+Home-page: https://github.com/maradder/db_utils
+Author: Marcus Radder
+Author-email: marcusradder@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: psycopg2-binary
+Requires-Dist: pytest
+Requires-Dist: load-dotenv
+
