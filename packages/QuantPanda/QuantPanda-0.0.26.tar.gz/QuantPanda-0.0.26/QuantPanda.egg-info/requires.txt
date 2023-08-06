@@ -1,0 +1,4 @@
+pandas_ta
+pandas
+numpy
+boto3
