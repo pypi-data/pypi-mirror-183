@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "zipndel"
+version = "0.1.0"
+description = "Zipndel is a lightweight python package equipped with two main functionalities; Zipndel or Unzipndel The Zipndel class provides automatic functionality for zipping or unzipping a password-protected pandas DataFrame file, and then deleting the original file."
+authors = ["QDaria <mo@qdaria.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "1.5.2"
+numpy = "^1.24.1"
+jupyterlab = "^3.5.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "zipndel"
+version = "0.1.0"
+authors = [
+  { name="Daniel Mo Houshmand", email="mo@qdaria.com" },
+]
+description = "Zipndel is a lightweight python package equipped with two main functionalities; Zipndel or Unzipndel The Zipndel class provides automatic functionality for zipping or unzipping a password-protected pandas DataFrame file, and then deleting the original file."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/QDaria/zipndel"
+"Bug Tracker" = "https://github.com/QDaria/zipndel/issues"
