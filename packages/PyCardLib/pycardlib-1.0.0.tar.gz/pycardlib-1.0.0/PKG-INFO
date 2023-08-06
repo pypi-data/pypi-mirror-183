@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: PyCardLib
+Version: 1.0.0
+Summary: A simple card game library
+Project-URL: Homepage, https://github.com/abnachtrab/cards.py
+Author-email: Adam Nachtrab <adam@nachtrab.one>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# PyCardLib
+This is a simple playing card library
+
+Currently includes a Card class and a Deck class along with definitions of the "standard" 52 playing card deck along with its suits and ranks.
