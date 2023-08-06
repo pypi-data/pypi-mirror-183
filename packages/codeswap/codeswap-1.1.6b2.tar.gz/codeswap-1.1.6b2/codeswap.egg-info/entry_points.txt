@@ -1,0 +1,3 @@
+[console_scripts]
+cswap = src.main:main
+
