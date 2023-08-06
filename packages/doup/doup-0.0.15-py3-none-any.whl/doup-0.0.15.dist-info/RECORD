@@ -1,0 +1,12 @@
+doup/DockerImage.py,sha256=kiP40Ml4sBBNaZcx55wj1wehvd-UY4k4_KyujCLk3UY,2808
+doup/DockerVersionGrepper.py,sha256=tIkwM-agj2mVxRN6R-zdq-ZzlxVOpJwd2SmgR9gD8Oc,2759
+doup/DockerVersionUpdater.py,sha256=Zk5-ddh_sr47gz0FPvmtXWXcxCTJE7fgkSCdCWFKMv8,2291
+doup/EntryPoint.py,sha256=jMFSMEBDuQma6jIzsJdwNzUTqo8iiNwzBzaBwv_7p4w,1252
+doup/Utility.py,sha256=Pb4sUqaBMxfaXtK4SNIFVNBB52F-M5yztZxRATCm6-Y,753
+doup/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+doup-0.0.15.dist-info/LICENSE,sha256=abPomD3jEcrp0NpU6WLRZqZrCeFUe48UEV8pmDmJzqU,1061
+doup-0.0.15.dist-info/METADATA,sha256=OfJ1ySuGci0C4nETwdqbIb-Ilhoy7Dv8qjMYZuxGPaU,1851
+doup-0.0.15.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+doup-0.0.15.dist-info/entry_points.txt,sha256=m-BGAgaQn7WuLQEUqsrku2sherKaAnn_ZNfsl6G5CzI,46
+doup-0.0.15.dist-info/top_level.txt,sha256=ixqtTdI05bkRGW1jmMG6_domqsYhRivUHCdCWEYd7Co,5
+doup-0.0.15.dist-info/RECORD,,
