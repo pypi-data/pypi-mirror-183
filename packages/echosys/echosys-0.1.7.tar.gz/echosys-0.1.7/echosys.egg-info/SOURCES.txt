@@ -1,0 +1,7 @@
+README.md
+setup.py
+echosys.egg-info/PKG-INFO
+echosys.egg-info/SOURCES.txt
+echosys.egg-info/dependency_links.txt
+echosys.egg-info/requires.txt
+echosys.egg-info/top_level.txt
