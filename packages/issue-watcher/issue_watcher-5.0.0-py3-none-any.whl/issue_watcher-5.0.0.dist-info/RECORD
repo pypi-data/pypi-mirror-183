@@ -1,0 +1,9 @@
+issue_watcher/__init__.py,sha256=y2aBci9b4mUsEdzDEck1WKxd76j61cuQXwjT8ua-lrA,69
+issue_watcher/constants.py,sha256=KOHNQPxxOTYzMl9JL0Ep1b1sD_0ylk8xKTg1KzTLVwQ,34
+issue_watcher/github.py,sha256=v2HO6bd4h9wcNbFTeETUipP2x5LPXICesh0yIpgZz_c,11378
+issue_watcher/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+issue_watcher/temporary_cache.py,sha256=O5Pps8l3EjNhi_n6NSIC61akU0XqvGKVbbeY2RmWp0A,3039
+issue_watcher-5.0.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+issue_watcher-5.0.0.dist-info/METADATA,sha256=bT5p7Z8Y3a4XK9mHTdrERzLIvtfxIdTsJ3mGjtkFqpA,6802
+issue_watcher-5.0.0.dist-info/LICENSE,sha256=7HCZI82fOd3Inn9YfMCagl1Riv1XnJZw2JzcGsdfMcc,1067
+issue_watcher-5.0.0.dist-info/RECORD,,
