@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "reddit-comment-scrapper"
+version = "0.3.0"
+description = "Simple Script for scraping the reddit comment graph"
+authors = ["Prarabdha <prabodhkumarsrivastav70@gmail.com>"]
+readme = "README.md"
+packages = [{include = "reddit_comment_scrapper"}]
+
+[tool.poetry.scripts]
+reddit-comment-scrapper = "reddit_comment_scrapper.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = {extras = ["all"], version = "^0.7.0"}
+praw = "^7.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
