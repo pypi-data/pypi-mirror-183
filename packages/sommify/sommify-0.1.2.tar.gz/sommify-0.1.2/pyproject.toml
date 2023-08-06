@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sommify"
+version = "0.1.2"
+authors = [
+  { name="Tomas Bedej", email="tomas@sommify.ai" },
+]
+description = "A package for recipe parsing"
+readme = "README.md"
+requires-python = ">=3.8.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
