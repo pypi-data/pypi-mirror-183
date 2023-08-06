@@ -1,0 +1,6 @@
+fake_useragent
+httpx
+aiohttp
+colorama
+nonebot2
+nonebot_adapter_onebot
