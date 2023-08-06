@@ -1,0 +1,9 @@
+ReWord/__init__.py,sha256=JFWu_ujbArzwCNVDho0sVOdAt4FTiI1Jtc8Y7oDoXBE,145
+ReWord/configuration.py,sha256=sPKBJypE_Zzz2SkaQ-cJbXOuYVhKKDEaekWmg4ojuLw,1997
+ReWord/dataloader.py,sha256=r9AVaul9HANiT2wJebkyQgQpQ7xON4wgRMyoJ1QbWMs,2335
+ReWord/model.py,sha256=ZdsPY9-Xia3CULKncG7q75MWxCk8xQYGK2OXoVmVsVE,3905
+ReWord/pl_wrapper.py,sha256=lfWq1Wr3wh5x-_G_ByL-EIWX0lEnqXPyTlKV9jcVfT0,3584
+ReWord-0.1.0.dist-info/METADATA,sha256=9yFTiOznK80Jo6LK5a-Vo4C-ByblaleZNlT2_f5nOak,1477
+ReWord-0.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ReWord-0.1.0.dist-info/top_level.txt,sha256=gAfraLVpW8TYsDd9TpNJiGhnHyu4HbB7yBxHB8bnxX0,7
+ReWord-0.1.0.dist-info/RECORD,,
