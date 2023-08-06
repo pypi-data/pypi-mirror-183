@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Pigeon-Game-Engine
+Version: 1.1
+Summary: Game Engine for Python called "Pigeon Game Engine"
+Author: Demandes
+License: MIT
+Requires-Dist: keyboard
+Requires-Dist: PIL
+
