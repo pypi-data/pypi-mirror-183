@@ -1,0 +1,8 @@
+pyproject.toml
+setup.cfg
+setup.py
+aidoc.genmfa.egg-info/PKG-INFO
+aidoc.genmfa.egg-info/SOURCES.txt
+aidoc.genmfa.egg-info/dependency_links.txt
+aidoc.genmfa.egg-info/entry_points.txt
+aidoc.genmfa.egg-info/top_level.txt

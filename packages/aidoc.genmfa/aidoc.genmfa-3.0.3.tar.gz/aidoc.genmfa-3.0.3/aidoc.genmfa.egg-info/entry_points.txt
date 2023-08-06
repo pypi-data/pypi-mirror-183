@@ -1,0 +1,2 @@
+[console_scripts]
+realpython = aidoc.genmfa.__main__:main
