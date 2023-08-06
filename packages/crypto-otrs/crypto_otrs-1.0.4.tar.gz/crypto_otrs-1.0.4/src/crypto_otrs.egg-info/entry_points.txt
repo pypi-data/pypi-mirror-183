@@ -1,0 +1,2 @@
+[console_scripts]
+realpython = crypto_otrs.__main__:main
