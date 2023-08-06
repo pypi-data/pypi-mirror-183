@@ -1,0 +1,10 @@
+yagc/cli.py,sha256=KLRxWIJ2WkOiNYCiUfH9waoimpbchb4n0hU21OAeiFw,463
+yagc/git/branch_validator.py,sha256=El88-N-ZIN4pIaRvDgsMJId8tfyF5CV3HGcVRo8vsWY,1124
+yagc/github/repository_settings.py,sha256=Ell2N2cHwy85c-fPSVhi8l78O9gk-jfoff7me-pt274,1140
+yagc/tests/git/test_branch.py,sha256=9Lrp46fRIk_YFBNyzoN_xu50X6vXKYWzac6Cf7sgR8w,2123
+yagc/tests/github/test_repository_settings.py,sha256=5FKPwx4EFMLR3Fm06lzGuQjRh6GfN2aRPCEv0wKo50M,675
+yagc-0.0.4.dist-info/entry_points.txt,sha256=IhR_RDtACfED8ejwk7A890oawjtKVlzbEyLJWILWh8k,38
+yagc-0.0.4.dist-info/METADATA,sha256=Yc0meA00qgazzk1K4q8UXjfbHC1_NIvD1QGuDZVShg4,640
+yagc-0.0.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+yagc-0.0.4.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+yagc-0.0.4.dist-info/RECORD,,

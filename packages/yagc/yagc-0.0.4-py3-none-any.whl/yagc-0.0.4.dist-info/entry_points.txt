@@ -1,0 +1,3 @@
+[console_scripts]
+yagc=yagc.cli:main
+
