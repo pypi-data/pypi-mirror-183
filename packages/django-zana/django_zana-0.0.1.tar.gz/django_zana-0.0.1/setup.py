@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+package_dir = \
+{'': 'src'}
+
+packages = \
+['zana', 'zana.django', 'zana.django.models', 'zana.django.types']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['Django>=3.2.0', 'typing-extensions>=4.4.0']
+
+setup_kwargs = {
+    'name': 'django-zana',
+    'version': '0.0.1',
+    'description': 'Django Tool Kit ',
+    'long_description': 'None',
+    'author': 'David Kyalo',
+    'author_email': 'davidmkyalo@gmail.com',
+    'maintainer': 'None',
+    'maintainer_email': 'None',
+    'url': 'None',
+    'package_dir': package_dir,
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.9',
+}
+
+
+setup(**setup_kwargs)
