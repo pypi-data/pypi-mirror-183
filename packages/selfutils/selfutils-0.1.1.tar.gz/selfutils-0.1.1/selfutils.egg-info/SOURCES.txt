@@ -1,0 +1,13 @@
+LICENSE.txt
+README.rst
+setup.py
+self_utils/__init__.py
+self_utils/ahps.py
+self_utils/coast.py
+self_utils/metrics.py
+self_utils/norms.py
+selfutils.egg-info/PKG-INFO
+selfutils.egg-info/SOURCES.txt
+selfutils.egg-info/dependency_links.txt
+selfutils.egg-info/requires.txt
+selfutils.egg-info/top_level.txt
