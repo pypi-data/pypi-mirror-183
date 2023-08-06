@@ -1,0 +1,8 @@
+CHANGELOG.md,sha256=ZJ8StYTfJjNvtWRrywmaOk1AasatFySKClu8kgz7Q5Q,2210
+datev_splitter/__init__.py,sha256=3MD1kCW7VhkQcqejRQXgQDnw2U3-kjiD13yP4Rmk94M,1614
+datev_splitter/__version__.py,sha256=bqu4G7Is-8Were-hMi-SthEalL7QW-PAbKWGZ9pVB6U,22
+datev_splitter/pdf_extract.py,sha256=qcLRclAq9BlPF-Z77fzlAs49GVDDyuf80XSGISqGoiA,3539
+Datev_Splitter-0.3.2.dist-info/entry_points.txt,sha256=9JC1qQoHWb1KjKSXZ7Hmdt7TrdFVQQIOLzaJ8NrtQGE,59
+Datev_Splitter-0.3.2.dist-info/WHEEL,sha256=_LDBqpgIVFNHZvvFOGbg2pvJOENq6RHAyT5px-HeX0U,87
+Datev_Splitter-0.3.2.dist-info/METADATA,sha256=GRGkSE1IMexe7JmfYLBvXN2KGWjZHSDj3eAw2s_TaY4,2611
+Datev_Splitter-0.3.2.dist-info/RECORD,,
