@@ -1,0 +1,10 @@
+Pillow>=9.3.0
+art>=5.8
+numpy>=1.24.0
+
+[testing]
+pytest>=6.0
+pytest-cov>=2.0
+mypy>=0.910
+flake8>=3.9
+tox>=3.24
