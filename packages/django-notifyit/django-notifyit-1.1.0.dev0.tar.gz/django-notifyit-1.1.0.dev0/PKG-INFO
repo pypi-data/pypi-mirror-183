@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: django-notifyit
+Version: 1.1.0.dev0
+Summary: A Django app to to create notifications for other services.
+Home-page: https://www.example.com/
+Author: merlygood
+Author-email: dodullo.khayrulloev@email.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+=====
+NotifyIt
+=====
+
+NotifyIt is a Django app to conduct Web-based notification. User can create a notification for other services.
+
+Detailed documentation is in the "docs" directory.
+
+Quick start
+-----------
+
+1. Add "polls" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'django-notifyit',
+    ]
+
+2. Include the polls URLconf in your project urls.py like this::
+
+    path('notifyit/', include('django-notifyit.urls')),
+
+3. Run ``python manage.py migrate`` to create the notifyit models.
+
+4. Start the development server and visit POST: http://127.0.0.1:8000/notifyit/
+   to create a notification.
+
+5. Visit GET: http://127.0.0.1:8000/notifyit/ to get list of notifications.
+
