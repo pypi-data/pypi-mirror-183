@@ -1,0 +1,3 @@
+[
+  "tests/test_jsonschema_specifications.py::test_it_imports"
+]
