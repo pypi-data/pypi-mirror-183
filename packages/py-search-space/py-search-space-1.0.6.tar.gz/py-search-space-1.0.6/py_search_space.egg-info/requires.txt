@@ -1,0 +1,9 @@
+typing-extensions==4.4.0
+numpy==1.23.3
+
+[dev]
+ipykernel
+autopep8
+pytest==7.1.2
+matplotlib==3.5.3
+pandas==1.5.1
