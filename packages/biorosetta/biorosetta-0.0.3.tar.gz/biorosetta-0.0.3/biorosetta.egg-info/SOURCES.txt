@@ -1,0 +1,7 @@
+LICENSE
+README.md
+pyproject.toml
+biorosetta.egg-info/PKG-INFO
+biorosetta.egg-info/SOURCES.txt
+biorosetta.egg-info/dependency_links.txt
+biorosetta.egg-info/top_level.txt
