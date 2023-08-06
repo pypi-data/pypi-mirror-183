@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: byteconvert
+Version: 0.0.3
+Summary: character to byte conversion package
+Author: perigonsr
+Author-email: stripeysweatercat@gmail.com
+License: MIT
+Keywords: conversion
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+
+A package that converts an ASCII character into a byte-writable number
