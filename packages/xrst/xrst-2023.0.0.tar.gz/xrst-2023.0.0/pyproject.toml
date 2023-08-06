@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+# ----------------------------------------------------------------------------
+
+[build-system]
+requires      = ['hatchling']
+build-backend = 'hatchling.build'
+
+[project]
+name    = 'xrst'
+version = '2023.0.0'
+authors = [
+  {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
+]
+description       = 'Exract Sphinx RST Files'
+readme            = 'readme.md'
+license           = { file = 'gpl-3.0.txt' }
+requires-python   = '>=3.0'
+classifiers       = [
+'Programming Language :: Python :: 3',
+'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+'Operating System :: OS Independent',
+]
+dependencies  = [
+   'furo',
+   'pyspellchecker',
+   'sphinx',
+   'sphinx-rtd-theme',
+   'sphinx-book-theme',
+   'toml',
+]
+
+[project.scripts]
+xrst = 'xrst:run_xrst'
+
+[project.urls]
+'Homepage'    = 'https://bradbell.github.io/xrst'
+'Bug Tracker' = 'https://github.com/bradbell/xrst/issues'
