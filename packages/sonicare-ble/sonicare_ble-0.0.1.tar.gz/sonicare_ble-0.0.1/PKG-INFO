@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: sonicare-ble
+Version: 0.0.1
+Summary: Bluetooth library for Sonicare devices
+Home-page: https://github.com/nubicula/sonicare-ble
+License: MIT
+Author: Nubicula
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=5.0,<6.0) ; extra == "docs"
+Requires-Dist: bluetooth-data-tools (>=0.1.2)
+Requires-Dist: bluetooth-sensor-state-data (>=1.6.0)
+Requires-Dist: home-assistant-bluetooth (>=1.6.0)
+Requires-Dist: myst-parser (>=0.18,<0.19) ; extra == "docs"
+Requires-Dist: sphinx-rtd-theme (>=1.0,<2.0) ; extra == "docs"
+Project-URL: Bug Tracker, https://github.com/nubicula/sonicare-ble/issues
+Project-URL: Changelog, https://github.com/nubicula/sonicare-ble/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://sonicare-ble.readthedocs.io
+Project-URL: Repository, https://github.com/nubicula/sonicare-ble
+Description-Content-Type: text/markdown
+
+# SONICARE BLE
+
+Bluetooth library for Sonicare devices
+
+## Installation
+
+Install this via pip (or your favourite package manager):
+
+`pip install sonicare-ble`
+
