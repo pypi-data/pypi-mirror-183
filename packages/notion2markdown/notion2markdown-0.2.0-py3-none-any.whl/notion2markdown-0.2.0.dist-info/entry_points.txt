@@ -1,0 +1,3 @@
+[console_scripts]
+n2md = notion2markdown.cli:main
+notion2markdown = notion2markdown.cli:main
