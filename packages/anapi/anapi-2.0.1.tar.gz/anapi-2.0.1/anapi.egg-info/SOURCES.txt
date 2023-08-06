@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+anapi/__init__.py
+anapi.egg-info/PKG-INFO
+anapi.egg-info/SOURCES.txt
+anapi.egg-info/dependency_links.txt
+anapi.egg-info/top_level.txt
