@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: srtranslator
+Version: 0.1.0
+Summary: Traslate a .SRT file using any custom translator
+Home-page: https://github.com/sinedie/SRTranslator
+Author: EAR
+Author-email: sinedie@protonmail.com
+License: FREE
+Keywords: python,srt,languages,translator,subtitles
+Platform: UNKNOWN
+Requires-Python: >=3.6
+License-File: LICENSE.md
+
+UNKNOWN
+
