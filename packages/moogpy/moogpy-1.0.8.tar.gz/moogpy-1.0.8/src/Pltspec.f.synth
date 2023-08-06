@@ -1,0 +1,419 @@
+
+
+      subroutine pltspec (line,ncall)
+c******************************************************************************
+c     This subroutine controls the plotting of the synthesized and 
+c     observed data
+c******************************************************************************
+ 
+      implicit real*8 (a-h,o-z)
+      include 'Atmos.com'
+      include 'Linex.com'
+      include 'Pstuff.com'
+      include 'Equivs.com'
+      real*8 xnum
+      real*4 yyadd, xxadd, vveladd, yymult
+      integer ncall
+
+
+c*****initialize some variables, or re-set them to old values
+c3     if (ncall .eq. 1) then
+c         if (iscale .eq. 0) then
+c            choice = 's'
+c         else
+c            choice = '1'
+c         endif
+c      else
+c         call plotremember (4)
+c      endif
+
+
+c*****make a special "choice" for grid syntheses, which go directly to
+c*****postscript files if desired
+c      if (control.eq.'gridsyn' .or. control.eq.'gridend' .or.
+c     .    control.eq.'gridplo') then
+c         choice = 'g'
+c      endif
+
+
+c*****begin by reading in an observed spectrum
+c      if (specfileopt.ge.1 .and. plotopt.eq.2 .and. ncall.eq.1) then
+c         call readobs (line)
+c         if (lount .eq. -1) then
+c            array = 'OBSERVED SPECTRUM FILE PROBLEM!  I QUIT.'
+c            istat = ivwrite (line+4,3,array,40)
+c            stop
+c         endif
+c      endif
+      
+
+c*****go through the option list; the routine may be exited at this point
+c      istat = ivcleof(4,1)
+c1     if (choice .eq. 'q') return
+
+
+c*****or a default plot may be made upon entering the routine
+c      if (choice.eq.'1' .or. choice.eq.'g') then
+c*****make a cross correlation to line up synthetic and observed spectra 
+c*****in velocity (wavelength) space; the user can turn this off/on
+c*****not working for you
+         call smooth (-1,ncall)
+c----------------------------------------------------------------------------
+c         if (plotopt.eq.2 .and. ncall.eq.1) then
+c            vfactor = 1.0 + veladd/2.99795e+5
+c            do i=1,lount
+c               xobs(i) = vfactor*xobs(i)
+c            enddo
+c            if (maxshift .gt. 0) then
+c               call correl (maxshift)
+c               vfactor = 1.0 + deltavel/2.99795e+5
+c               do i=1,lount
+c                  xobs(i) = vfactor*xobs(i)
+c               enddo
+c            endif
+c         endif
+c----------------------------------------------------------------------------
+c         if (ncall .eq. 1) then
+c            wmiddle = (start + sstop)/2.
+c            if (iunits .eq. 1) wmiddle = 1.d-4*wmiddle
+c            if (ymult .eq. 0.0) ymult = 1.0
+c            do i=1,lount
+c               yobs(i) = ymult*yobs(i)
+c               yobs(i) = yadd+yobs(i)
+c            enddo
+c            if (xlo .eq. xhi) then
+c               xlo = start
+c               xhi = sstop
+c               if (iunits .eq. 1) then
+c                  xlo = 1.d-4*xlo
+c                  xhi = 1.d-4*xhi
+c               endif
+c            endif
+c            if (ylo .eq. yhi) then
+c               ylo = 0.
+c               yhi = 1.1
+c            endif
+c         endif
+c         call boxit
+c      endif
+            
+         
+c*****or the synthetic spectra may be resmoothed; if a problem develops in
+c     a user-specified parameter (like a Gaussian FWHM that is too large),
+c     then output a warning and let user decide what to do next
+c      if (choice .eq. 's') then
+c         call smooth (line+2,1)
+c2        if (smtype .eq. 'e') then
+c            array = 'REDO THE SMOOTHING (y/n)? '
+c            nchars = 26
+c            call getasci (nchars,line+9)
+c            smtype = chinfo(1:1)
+c            if (smtype .eq. 'n') then
+c               go to 100
+c            else
+c               istat = ivcleof (10,1)
+c               go to 2
+c            endif
+c         endif
+c         if (xlo .eq. 0.0 .and. xhi .eq. 0.0) then
+c            xlo = start
+c            xhi = sstop
+c            if (iunits .eq. 1) then
+c               xlo = 1.d-4*xlo
+c               xhi = 1.d-4*xhi
+c            endif
+c         endif
+c      endif
+
+
+c*****or the observations may be rescaled
+c      if (choice .eq. 'r') then
+c         array = 'MULTIPLY THE OBSERVED POINTS BY WHAT FACTOR? '
+c         nchars = 45
+c         call getnum (nchars,13,xnum,yymult)
+c         ymult = ymult*yymult
+c         do i=1,lount
+c            yobs(i) = yymult*yobs(i)
+c         enddo
+c      endif
+
+
+c*****or the observations may be shifted by an additive constant
+c      if (choice .eq. 'a') then
+c         array = 'ADD WHAT NUMBER TO THE OBSERVED POINTS? '
+c         nchars = 40
+c         call getnum (nchars,13,xnum,yyadd)
+c         yadd = yadd + yyadd
+c         do i=1,lount
+c            yobs(i) = yyadd + yobs(i)
+c         enddo
+c      endif
+
+
+c*****or the observations may be shifted by a constant wavelength
+c      if (choice .eq. 'w') then
+c         array = 'SHIFT THE OBSERVED POINTS BY WHAT WAVELENGTH? '
+c         nchars = 46
+c         call getnum (nchars,13,xnum,xxadd)
+c         wfactor = xxadd/((start+sstop)/2.)
+c         veladd = veladd + wfactor*2.99795d+5
+c         vfactor = 1.0 + wfactor
+c         do i=1,lount
+c            xobs(i) = vfactor*xobs(i)
+c         enddo
+c      endif
+
+
+c*****or the observations may be shifted by a constant velocity
+c      if (choice .eq. 'v') then
+c         array = 'SHIFT THE OBSERVED POINTS BY WHAT VELOCITY (KM/S)? '
+c         nchars = 51
+c         call getnum (nchars,13,xnum,vveladd)
+c         veladd = veladd + vveladd
+c         vfactor = 1.0 + vveladd/2.99795d+5
+c         do i=1,lount
+c            xobs(i) = vfactor*xobs(i)
+c         enddo
+c      endif
+
+
+c*****or the plot boundaries may be changed
+c      if (choice .eq. 'c') then
+c         write (array,1001) xlo
+c         nchars = 29
+c         call getnum (nchars,15,xnum,xlo)
+c         write (array,1002) xhi
+c         nchars = 30
+c         call getnum (nchars,15,xnum,xhi)
+c         write (array,1003) ylo
+c         nchars = 34
+c         call getnum (nchars,15,xnum,ylo)
+c         write (array,1004) yhi
+c         nchars = 31
+c         call getnum (nchars,15,xnum,yhi)
+c         call boxit
+c      endif
+
+
+c*****or the cross hairs can be used to zoom in on a part of the plot
+c      if (choice .eq. 'z') then
+c         array = 'MARK THE LOWER LEFT HAND CORNER WITH THE CURSOR'
+c         istat = ivcleof(13,1)
+c         istat = ivwrite(13,3,array,47)
+c         call pointcurs
+c         xlo = xplotpos
+c         ylo = yplotpos
+c         array = 'MARK THE UPPER RIGHT HAND CORNER WITH THE CURSOR'
+c         istat = ivcleof(14,1)
+c         istat = ivwrite (14,1,array,48)
+c         call pointcurs
+c         xhi = xplotpos
+c         yhi = yplotpos
+c         call boxit
+c         if (iunits .eq. 1) then
+c            xlo = 1.d-4*xlo
+c            xhi = 1.d-4*xhi
+c         endif
+c         whichwin = '1of1'
+c      endif
+
+
+
+c*****or cursor position can be returned
+c      if (choice .eq. 'p') then
+c         array = 'MARK THE POSITION WITH THE CURSOR'
+c         istat=ivcleof(21,1)
+c         istat=ivwrite(13,3,array,34)
+c         call drawcurs
+c         go to 100
+c      endif
+
+
+c*****or the title of the model can be changed
+c      if (choice .eq. 't') then
+c         array = 'ENTER THE NEW TITLE'
+c         istat = ivcleof(21,1)
+c         istat = ivwrite (13,3,array,19)
+c         read (*,1005) moditle
+c      endif
+   
+
+c*****or the spectra can be replotted, with a separate plot showing the 
+c     observed/synthtic spectrum differences
+c      if (choice .eq. 'd') then
+c         deviations = 1
+c         whichwin = '2of2'
+c      endif
+
+
+c*****or the plot boundaries may be reset to the original values;
+c     this is a basic starting over plot
+c      if (choice .eq. 'o') then
+c         xlo = start
+c         xhi = sstop
+c         if (iunits .eq. 1) then
+c            xlo = 1.d-4*xlo
+c            xhi = 1.d-4*xhi
+c         endif
+c         xlo = origxlo
+c         xhi = origxhi
+c         ylo = origylo
+c         yhi = origyhi
+c         lim1obs = 1
+c         lim2obs = lount
+c         deviations = 0
+c         call boxit
+c      endif
+
+
+c*****or the plot can simply be redone
+c      if (choice .eq. 'm') then
+c         go to 90
+c      endif
+
+
+c*****now either here make a hardcopy plot
+c      if (choice .eq. 'h') then
+c         if (control .eq. 'binary ') then
+c            plotroutine = 'hard_land_bin '
+c         else
+c            plotroutine = 'hard_land_spec'
+c         endif
+c         if (deviations .eq. 0) then
+c            whichwin = '1of1'
+c         else
+c            whichwin = '2of2'
+c         endif
+c         lscreen = 12
+c         call makeplot (lscreen)
+c         go to 100
+c      endif
+
+
+c*****or write the plot to a postscript file
+c      if (choice.eq.'f' .or. choice.eq.'g') then
+c         if (control .eq. 'binary ') then
+c            plotroutine = 'file_land_bin '
+c         else
+c            plotroutine = 'file_land_spec'
+c         endif
+c         if (deviations .eq. 0) then
+c            whichwin = '1of1'
+c         else
+c            whichwin = '2of2'
+c         endif
+c         lscreen = 12
+c         call makeplot (lscreen)
+c         if (choice .eq. 'g') then
+c            return
+c         else
+c            go to 90
+c         endif
+c      endif
+
+      
+c*****or return to the calling routine in order to change abundances
+c      if (choice .eq. 'n') then
+c         call plotremember (3)
+c         return
+c      endif
+
+
+c*****or add an additional uniform amount of flux, expressed in terms of
+c     the current continuum flux; this only is approximately physically
+c     correct if spectrograph smoothing is negligible compared to other
+c     smoothing
+c      if (choice .eq. 'l') then
+c         write (array,*)
+c     .      'WHAT IS THE ADDITIONAL FLUX IN TERMS OF CONTINUUM [0.0]? '
+c         nchars = 57
+c         call getnum (nchars,15,xnum,addflux)
+c         call smooth (-1,ncall)
+c      endif
+
+      
+ 
+c*****or if total confusion has happened in the plotting, reset all parameters
+c     to their original values, and replot
+c      if (choice .eq. 'u') then
+c         call plotremember (2)
+c         ncall = 1
+c         go to 3
+c      endif
+ 
+ 
+c*****or plot on the terminal
+c90    if (control.eq.'gridsyn' .or. control.eq.'gridend' .or.
+c     .    control .eq. 'gridplo') return
+c      if (control .eq. 'binary ') then
+c         plotroutine = 'term_land_bin '
+c      else
+c         plotroutine = 'term_land_spec'
+c      endif
+c      lscreen = 12
+c      if (choice.eq.'f' .or. choice.eq.'h') choice = 'm'
+c      if (deviations .eq. 0) then
+c         whichwin = '1of1'
+c      else
+c         whichwin = '2of2'
+c      endif
+c      call makeplot (lscreen)
+
+
+c*****finally, print the option table
+c100   istat = ivcleof (5,1)
+c      array = 'OPTIONS?    s=new smoothing     r=rescale obs.     '
+c      istat = ivwrite (5,3,array,48)
+c      array = '            a=add # to obs.     h=hardcopy         '
+c      istat = ivwrite (6,3,array,48)
+c      array = '            c=change bounds     q=quit             '
+c      istat = ivwrite (7,3,array,48)
+c      array = '            m=redo same plot    o=orig. plot bounds'
+c      istat = ivwrite (8,3,array,51)
+c      array = '            v=velocity shift    w=wavelength shift '
+c      istat = ivwrite (9,3,array,51)
+c      array = '            z=zoom in on plot   p=cursor position  '
+c      istat = ivwrite (10,3,array,51)
+c      array = '            t=change title      f=postscript file  '
+c      istat = ivwrite (11,3,array,51)
+c      array = '            n=new abundances    d=obs/syn deviation'
+c      istat = ivwrite (12,3,array,51)
+c      array = '            l=add veiling       u=undo all; replot '
+c      istat = ivwrite (13,3,array,51)
+c      array = 'What is your choice? '
+c      nchars = 21
+c      call getasci (nchars,15)
+c      choice = chinfo(1:1)
+
+
+c*****reprint the option table if the choice is not understood
+c     or take action on the choice
+c      if (choice.eq.'s' .or. choice.eq.'r' .or.
+c     .    choice.eq.'a' .or. choice.eq.'h' .or.
+c     .    choice.eq.'c' .or. choice.eq.'q' .or.
+c     .    choice.eq.'m' .or. choice.eq.'o' .or.
+c     .    choice.eq.'v' .or. choice.eq.'w' .or.
+c     .    choice.eq.'z' .or. choice.eq.'p' .or.
+c     .    choice.eq.'t' .or. choice.eq.'f' .or.
+c     .    choice.eq.'n' .or. choice.eq.'d' .or.
+c     .    choice.eq.'l' .or. choice.eq.'u') then
+c         go to 1
+c      else 
+c         go to 100
+c      endif
+
+
+c*****format statements
+1001     format ('LEFT WAVELENGTH (',f9.2,'): ')
+1002     format ('RIGHT WAVELENGTH (',f9.2,'): ')
+1003     format ('BOTTOM RELATIVE FLUX (',f9.2,'): ')
+1004     format ('TOP RELATIVE FLUX (',f9.2,'): ')
+1005     format(a80)
+
+
+      end
+      
+
+
+
+

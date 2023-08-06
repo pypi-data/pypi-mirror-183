@@ -1,0 +1,38 @@
+synth
+terminal       x11
+plot           2 
+standard_out   out1
+summary_out    out2
+smoothed_out   out3
+damping        0 
+strong         1
+stronglines_in 'stronglines.txt'
+model_in       't3710g083m+000.txt'
+observed_in    'sp19410822.txt'
+atmosphere     1
+molecules      1
+lines          1
+flux/int       0
+isotopes   14    1 
+  108.00116       1.001   1.001   1.001
+  606.01212       1.1     1.1     1.1 
+  606.01213       14      10      10   
+  606.01313       81      81      81   
+  607.01214       1.1     1.1     1.1 
+  607.01314       14      10      10   
+  607.01215       273     273     273  
+  608.01216       1.1     1.1     1.1  
+  608.01316       14      1.0      10    
+  608.01217       1101    1101    1101
+  608.01218       551     551     551  
+  114.00128       1.011   1.011   1.011 
+  114.00129        20      20      20   
+  114.00130        30      30      30   
+abundances      4    1 
+  26       -0.00  -0.00  +0.20   -0.10   +0.10
+   6        0.00
+   7        0.00
+   8        0.00
+synlimits
+16200.0      16300.0     0.04     8.00
+obspectrum     5
