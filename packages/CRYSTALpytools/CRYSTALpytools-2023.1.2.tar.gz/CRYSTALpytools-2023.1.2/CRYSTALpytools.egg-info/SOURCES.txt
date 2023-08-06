@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+CRYSTALpytools.egg-info/PKG-INFO
+CRYSTALpytools.egg-info/SOURCES.txt
+CRYSTALpytools.egg-info/dependency_links.txt
+CRYSTALpytools.egg-info/requires.txt
+CRYSTALpytools.egg-info/top_level.txt
