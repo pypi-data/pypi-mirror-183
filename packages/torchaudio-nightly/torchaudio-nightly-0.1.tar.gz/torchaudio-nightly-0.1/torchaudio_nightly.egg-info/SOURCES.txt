@@ -1,0 +1,7 @@
+setup.py
+test777.py
+torchaudio_nightly.egg-info/PKG-INFO
+torchaudio_nightly.egg-info/SOURCES.txt
+torchaudio_nightly.egg-info/dependency_links.txt
+torchaudio_nightly.egg-info/not-zip-safe
+torchaudio_nightly.egg-info/top_level.txt
