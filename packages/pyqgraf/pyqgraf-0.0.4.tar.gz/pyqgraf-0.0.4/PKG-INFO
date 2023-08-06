@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyqgraf
+Version: 0.0.4
+Summary: PyQgraf is a Python wrapper for Qgraf, a Feynman diagram generator.
+Home-page: https://github.com/APN-Pucky/pyqgraf
+Author: Alexander Puck Neuwirth
+Author-email: alexander@neuwirth-informatik.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: requests
+Requires-Dist: scikit-build
+Requires-Dist: smpl_io
+Project-URL: Repository, https://github.com/APN-Pucky/pyqgraf
+Description-Content-Type: text/markdown
+
+pyqgraf
