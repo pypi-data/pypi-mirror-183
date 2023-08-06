@@ -1,0 +1,12 @@
+jinjang/LICENSE.txt,sha256=4cCtcomD2KVzNeUs8QZPGv_R1FQXPYzr0-2LSnK0hwQ,35121
+jinjang/README.md,sha256=osyUVRWIOKIYqXQg-0EWiYeuPZCdGhFOfBD2_Vx5mMc,9363
+jinjang/__init__.py,sha256=413uPPRf-83L3c2PaE07M5Mz1LhCxGEcs7Hjj3wtbck,72
+jinjang/__main__.py,sha256=OdEr6RukllHMOtYJdxy7u_5Fi7kgeKmToX7HPr5tpCc,4250
+jinjang/config/__init__.py,sha256=ygKokrhDtqp2iaQ3jG7yQucsJhw5p8nVRNHPztka7Hk,51
+jinjang/config/jngflavours.py,sha256=QJjmq-WK-SEPS8fxKbFyfcEsPUszCO814oLI9dM9aKw,2389
+jinjang/jngbuild.py,sha256=2peTaugIfVC1R8jdAILHb8ZP0LbFkleum0YvS2I6WD8,7028
+jinjang/jngconfig.py,sha256=v6t2Es_LQb28kU4zr2VHt5AGHIHKbrgAthccO011-Gw,315
+jinjang/jngdatas.py,sha256=dNvPn8CfwvYzOqxv1D4e_LtyW3xDvoRkY7gsHBxKUeQ,3330
+jinjang-0.0.0b0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+jinjang-0.0.0b0.dist-info/METADATA,sha256=rxHGPtBb4uCN5vdtalhplw8bQeekellIfP1FPOkjwzs,10059
+jinjang-0.0.0b0.dist-info/RECORD,,
