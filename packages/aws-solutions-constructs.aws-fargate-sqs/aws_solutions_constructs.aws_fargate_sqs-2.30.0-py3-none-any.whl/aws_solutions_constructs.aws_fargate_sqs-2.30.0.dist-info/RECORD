@@ -1,0 +1,9 @@
+aws_solutions_constructs/aws_fargate_sqs/__init__.py,sha256=3KPsjHqCDz2Fr4oUD4XZZPW-SZW7wiKQJsdrSC-iqIU,48300
+aws_solutions_constructs/aws_fargate_sqs/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_solutions_constructs/aws_fargate_sqs/_jsii/__init__.py,sha256=83Hq1VM5BwmmdsdTSzoi8iPhDOAJ3XPr8yLrhE2a9mo,481
+aws_solutions_constructs/aws_fargate_sqs/_jsii/aws-fargate-sqs@2.30.0.jsii.tgz,sha256=xLNL-e_dP3NDk0TtnOp1ppI_-FDInwgx427BCFxSe_0,152113
+aws_solutions_constructs.aws_fargate_sqs-2.30.0.dist-info/LICENSE,sha256=wnT4A3LZDAEpNzcPDh8VCH0i4wjvmLJ86l3A0tCINmw,10279
+aws_solutions_constructs.aws_fargate_sqs-2.30.0.dist-info/METADATA,sha256=yoey8EPIQe3Q2LxqveVo0Iq_ApA_q9DWLWtdPlMr_Vc,11268
+aws_solutions_constructs.aws_fargate_sqs-2.30.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+aws_solutions_constructs.aws_fargate_sqs-2.30.0.dist-info/top_level.txt,sha256=hi3us_KW7V1ocfOqVsNq1o3w552jCEgu_KsCckqYWsg,25
+aws_solutions_constructs.aws_fargate_sqs-2.30.0.dist-info/RECORD,,
