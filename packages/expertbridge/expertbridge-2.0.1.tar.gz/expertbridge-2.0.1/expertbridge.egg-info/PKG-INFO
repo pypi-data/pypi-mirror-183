@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: expertbridge
+Version: 2.0.1
+Summary: A modern, enterprise-ready business intelligence web application
+Home-page: https://expertbridge.apache.org/
+Download-URL: https://www.apache.org/dist/expertbridge/2.0.1
+Author: Apache Software Foundation
+Author-email: dev@expertbridge.apache.org
+License: License, Version 2.0
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: ~=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: athena
+Provides-Extra: aurora-data-api
+Provides-Extra: bigquery
+Provides-Extra: clickhouse
+Provides-Extra: cockroachdb
+Provides-Extra: cors
+Provides-Extra: crate
+Provides-Extra: databricks
+Provides-Extra: db2
+Provides-Extra: dremio
+Provides-Extra: drill
+Provides-Extra: druid
+Provides-Extra: solr
+Provides-Extra: elasticsearch
+Provides-Extra: exasol
+Provides-Extra: excel
+Provides-Extra: firebird
+Provides-Extra: firebolt
+Provides-Extra: gsheets
+Provides-Extra: hana
+Provides-Extra: hive
+Provides-Extra: impala
+Provides-Extra: kusto
+Provides-Extra: kylin
+Provides-Extra: mssql
+Provides-Extra: mysql
+Provides-Extra: oracle
+Provides-Extra: pinot
+Provides-Extra: postgres
+Provides-Extra: presto
+Provides-Extra: trino
+Provides-Extra: prophet
+Provides-Extra: redshift
+Provides-Extra: rockset
+Provides-Extra: shillelagh
+Provides-Extra: snowflake
+Provides-Extra: teradata
+Provides-Extra: thumbnails
+Provides-Extra: vertica
+Provides-Extra: netezza
+License-File: LICENSE.txt
+License-File: NOTICE
