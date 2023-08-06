@@ -1,0 +1,5 @@
+setuptools>=50
+pillow
+matplotlib
+langcodes
+pyhyphen
