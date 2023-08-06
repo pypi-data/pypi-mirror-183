@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: linked
+Version: 0.0.2
+Summary: Create and transform graphs
+Home-page: https://github.com/i2mint/linked
+Author: OtoSense
+License: apache-2.0
+Platform: any
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# linked
+Create and transform graphs
+
+
+To install:	```pip install linked```
