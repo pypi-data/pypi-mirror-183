@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+REQUIREMENTS.txt
+pyproject.toml
+src/__init__.py
+src/main.py
+src/sim_modem_cli.egg-info/PKG-INFO
+src/sim_modem_cli.egg-info/SOURCES.txt
+src/sim_modem_cli.egg-info/dependency_links.txt
+src/sim_modem_cli.egg-info/entry_points.txt
+src/sim_modem_cli.egg-info/requires.txt
+src/sim_modem_cli.egg-info/top_level.txt
