@@ -1,0 +1,17 @@
+hypernn/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hypernn/base.py,sha256=ACJMA926Xj2oW_ckwcpI7fO4lkcPRJEbQO46C35zy5E,6485
+hypernn/jax/__init__.py,sha256=1RqHBM6b1w8Ggy5tVKj_boLW_FXSgeIXw56SILErYek,345
+hypernn/jax/dynamic_hypernet.py,sha256=oWDZRfa5EKt3GPDSqYqaXQEIsLIkApa_nwvPiR7cY1I,3937
+hypernn/jax/hypernet.py,sha256=8szlhLmgK743KJhUcRY_1-gJAlyvzBi6rpSnaP1XV1s,5642
+hypernn/jax/linear_hypernet.py,sha256=xk6Fjcppwt7uKQtGf_9CridYKf7__TY_kJo7_9vrr2Y,3180
+hypernn/jax/utils.py,sha256=L3ZKFcjb1sfwxRYGRH4id_UTHgpgF5KYOa-R_yMuE0c,1349
+hypernn/torch/__init__.py,sha256=Ao7rnKYTteuNrukDtsV3T2wOw1MR7V5Rlp_vLL2nU3M,367
+hypernn/torch/dynamic_hypernet.py,sha256=iFRGj4gIcqd6YDgZeIyio_Y-hszS6XESyBAsSPh1Cus,3601
+hypernn/torch/hypernet.py,sha256=SIMMVdot39wm9tZ4RUWeNG5lIkRFXYtLwlPqtVCYgr4,4918
+hypernn/torch/linear_hypernet.py,sha256=0GqbMyhw7TWAxLmszej8Fq6Zxn4yacfnjvE0j4G5H9E,2183
+hypernn/torch/utils.py,sha256=rTfonpDyBlx9chslzO8Y056Vy_ktY4ov_6omd7m7kG4,1886
+hyper_nn-0.2.2.dist-info/LICENSE,sha256=urSlEICHpZRspHx5PM67DhqO_cRvR-dv4qwxLyFzEnk,1082
+hyper_nn-0.2.2.dist-info/METADATA,sha256=eQ5nO3M5GtWy6pdp0jZjhzoqhVjNbVdDS4LxMLDeCKw,21059
+hyper_nn-0.2.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hyper_nn-0.2.2.dist-info/top_level.txt,sha256=Ym6ZXaacNT4xYWvSfpr-JhBCqw25wU-38Y0fk429eoY,8
+hyper_nn-0.2.2.dist-info/RECORD,,
