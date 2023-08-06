@@ -1,0 +1,6 @@
+edge_addons_api/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+edge_addons_api/client.py,sha256=4TpyE1we-y5PhiCVKe1iufB0lfNjeqt-6BCJ3P-stHw,2369
+edge_addons_api/responses.py,sha256=_7Qee1G8ciRIHNVNVvKBhNp0oWyggbwT8phIoshoacU,104
+edge_addons_api-0.2.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+edge_addons_api-0.2.0.dist-info/METADATA,sha256=syA3LbaKAEKGu5vkkxUQuW9Qm8V8uNGeJDAiamcxAWM,1493
+edge_addons_api-0.2.0.dist-info/RECORD,,
