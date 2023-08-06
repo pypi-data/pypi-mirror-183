@@ -1,0 +1,9 @@
+mo-dots==9.300.22349
+mo-imports==7.298.22349
+mo-parsing==8.309.22362
+mo-streams==1.325.22362
+
+[tests]
+mo-testing
+mo-files
+mo-streams
