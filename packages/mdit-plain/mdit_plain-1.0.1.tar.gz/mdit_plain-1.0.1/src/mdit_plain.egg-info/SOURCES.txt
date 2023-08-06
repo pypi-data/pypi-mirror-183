@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/mdit_plain/renderer.py
+src/mdit_plain.egg-info/PKG-INFO
+src/mdit_plain.egg-info/SOURCES.txt
+src/mdit_plain.egg-info/dependency_links.txt
+src/mdit_plain.egg-info/requires.txt
+src/mdit_plain.egg-info/top_level.txt
