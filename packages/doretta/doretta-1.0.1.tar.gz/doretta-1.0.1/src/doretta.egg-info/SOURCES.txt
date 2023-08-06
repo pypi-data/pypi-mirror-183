@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/doretta/__init__.py
+src/doretta/dot_validator.py
+src/doretta/frontend.py
+src/doretta.egg-info/PKG-INFO
+src/doretta.egg-info/SOURCES.txt
+src/doretta.egg-info/dependency_links.txt
+src/doretta.egg-info/entry_points.txt
+src/doretta.egg-info/requires.txt
+src/doretta.egg-info/top_level.txt
