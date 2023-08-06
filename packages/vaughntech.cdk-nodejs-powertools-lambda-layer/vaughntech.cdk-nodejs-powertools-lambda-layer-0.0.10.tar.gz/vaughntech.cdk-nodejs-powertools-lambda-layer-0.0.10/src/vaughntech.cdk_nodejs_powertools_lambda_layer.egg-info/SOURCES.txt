@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/vaughntech.cdk_nodejs_powertools_lambda_layer.egg-info/PKG-INFO
+src/vaughntech.cdk_nodejs_powertools_lambda_layer.egg-info/SOURCES.txt
+src/vaughntech.cdk_nodejs_powertools_lambda_layer.egg-info/dependency_links.txt
+src/vaughntech.cdk_nodejs_powertools_lambda_layer.egg-info/requires.txt
+src/vaughntech.cdk_nodejs_powertools_lambda_layer.egg-info/top_level.txt
+src/vaughntech_cdk_nodejs_powertools_lambda_layer/__init__.py
+src/vaughntech_cdk_nodejs_powertools_lambda_layer/py.typed
+src/vaughntech_cdk_nodejs_powertools_lambda_layer/_jsii/__init__.py
+src/vaughntech_cdk_nodejs_powertools_lambda_layer/_jsii/vaughntech-nodejs-powertools-lambdalayer@0.0.10.jsii.tgz
