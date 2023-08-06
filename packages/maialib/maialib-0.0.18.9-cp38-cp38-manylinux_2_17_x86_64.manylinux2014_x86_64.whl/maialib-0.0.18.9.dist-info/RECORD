@@ -1,0 +1,10 @@
+maiacore.cpython-38-x86_64-linux-gnu.so,sha256=ul0fuT5QbA2EiQ22tCGrXPhpkTiWao50jmSSrcKA9JI,3864808
+maialib-0.0.18.9.dist-info/LICENSE.txt,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+maialib-0.0.18.9.dist-info/RECORD,,
+maialib-0.0.18.9.dist-info/METADATA,sha256=kVhZhZt1I136W_dtDQBEr4YNIf513iqHCGvadSxJtMo,4959
+maialib-0.0.18.9.dist-info/top_level.txt,sha256=sZWQaa-Up2ba00WpAxBhOLKM6qQYTpUKJMXgSE0Nc48,17
+maialib-0.0.18.9.dist-info/WHEEL,sha256=82Wkr2Lag2dORBGM375Z9_JVKxb2Fhvp7wOacHsh7mU,148
+maialib/maiapy/__init__.py,sha256=5TC7SNJp2Z7xWcpDIm2UKxfhuqtIwIjFXdZXh326FYk,62
+maialib/maiapy/other.py,sha256=bUSpks9s_ld9RtPmiYtzEottnx0T8R0qzWf0NeloNKo,33
+maialib/maiapy/math.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+maialib/maiapy/plots.py,sha256=jPM_6hHWgPIweqARUin6QDQRAskfIXFsafBU7xcKWow,60
