@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsontextmc"
+description = "Tool to translate old Minecraft formatting codes to the modern JSON format"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "3.2.0"
+license = {text = "GPL-3.0-or-later"}
+authors = [{name = "WhoAteMyButter"}]
+keywords = [
+    "minecraft",
+    "fonts",
+    "minecraft fonts",
+    "font exporting",
+    "minecraft opentype",
+    "minecraft font",
+    "minecraft export font",
+    "mc font",
+    "mc fonts",
+    "mcfonts"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Localization",
+    "Topic :: Text Processing :: General",
+    "Topic :: Utilities",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Indexing"
+]
+
+[project.urls]
+Source = "https://gitlab.com/whoatembutter/jsontextmc"
+Changelog = "https://gitlab.com/whoatemybutter/jsontextmc/-/blob/master/CHANGELOG.md"
+
+[tool.black]
+line-length = 120
+
+[tool.pylint."MASTER"]
+jobs = 8
+py-version = "3.10"
+max-line-length = 120
+
+[tool.mypy]
+ignore_missing_imports = true
