@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: SBL.py
+Version: 0.1.0
+Summary: A Python api wrapper for https://smartbots.tk/ api
+Home-page: https://github.com/Rishiraj0100/SBL.py
+Author: Rishiraj0100
+License: MIT
+Project-URL: Documentation, https://py.docs.smartbots.tk/en/latest/
+Project-URL: Issue tracker, https://github.com/Rishiraj0100/SBL.py/issues
+Keywords: SBL SmartBotList SmartBots
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# SBL.py
+An API wrapper for https://smartbots.tk api
+
+## Documentation
+https://py.docs.smartbots.tk
