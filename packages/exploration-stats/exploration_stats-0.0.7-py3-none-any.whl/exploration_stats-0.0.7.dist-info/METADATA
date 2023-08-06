@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: exploration-stats
+Version: 0.0.7
+Summary: its a Extraplotary data anslysis package which perform basic eda operatrions on your dataframe 
+Author: Lalit Sharma (Tata Motors)
+Author-email: lalit.sharma1@tatamotors.com
+Keywords: python,video,stream,video stream,camera stream,sockets
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+
+There is a long list of visualizations which this package is capable of including visualizations of outliers, basic eda, missing values
