@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: russ
+Version: 0.0.2
+Summary: Russian words stress detection
+Home-page: https://github.com/IlyaGusev/russ
+Download-URL: https://github.com/IlyaGusev/russ/archive/0.0.2.tar.gz
+Author: Ilya Gusev
+Author-email: phoenixilya@gmail.com
+License: UNKNOWN
+Keywords: nlp,russian,stress
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Russian
+Classifier: Programming Language :: Python :: 3.7
+License-File: LICENSE
+License-File: NOTICE
+
+UNKNOWN
+
