@@ -1,0 +1,4 @@
+include windows_filepath/requirements.txt
+include windows_filepath/thirdparty.json
+include windows_filepath/README.MD
+include windows_filepath/LICENSE

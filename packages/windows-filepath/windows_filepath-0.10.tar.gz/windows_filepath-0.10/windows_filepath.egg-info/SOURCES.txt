@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+windows_filepath/LICENSE
+windows_filepath/README.MD
+windows_filepath/__init__.py
+windows_filepath/requirements.txt
+windows_filepath/thirdparty.json
+windows_filepath.egg-info/PKG-INFO
+windows_filepath.egg-info/SOURCES.txt
+windows_filepath.egg-info/dependency_links.txt
+windows_filepath.egg-info/requires.txt
+windows_filepath.egg-info/top_level.txt
