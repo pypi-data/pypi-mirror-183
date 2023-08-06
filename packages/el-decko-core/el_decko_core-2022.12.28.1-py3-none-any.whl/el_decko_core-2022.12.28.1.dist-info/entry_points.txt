@@ -1,0 +1,6 @@
+[console_scripts]
+ed-core = ed_core:run
+
+[eldecko.core]
+backends = ed_core:backends
+start = ed_core:run
