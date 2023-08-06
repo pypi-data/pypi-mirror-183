@@ -1,0 +1,9 @@
+README.md
+setup.py
+VCFRIDER/__init__.py
+VCFRIDER/vcfrider.py
+VCFRIDER.egg-info/PKG-INFO
+VCFRIDER.egg-info/SOURCES.txt
+VCFRIDER.egg-info/dependency_links.txt
+VCFRIDER.egg-info/not-zip-safe
+VCFRIDER.egg-info/top_level.txt

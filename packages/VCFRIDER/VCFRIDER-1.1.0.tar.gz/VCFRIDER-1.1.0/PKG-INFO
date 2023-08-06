@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: VCFRIDER
+Version: 1.1.0
+Summary: VCFRIDER python for VCF data analysis
+Home-page: https://github.com/sasurasa/VCFRIDER/tree/main.
+Author: Surasak Sangkhathat
+Author-email: s.sangkhathat@gmail.com
+License: Prince of Songkla University
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+VCFRIDER is a collection of Python commands intended to be used for gene casting from genome VCF, from data importing, cleaning-up, annotation by gene list. (from SURPY import soap as sp)
+
+Data importing from CSV file.
+
+Manual will come later.
+
+
+
