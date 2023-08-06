@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.py
+Streamlit_menu/__init__.py
+Streamlit_menu/main.py
+Streamlit_menu/multipage.py
+Streamlit_menu/st_menu/__init__.py
+Streamlit_menu/st_menu/register.py
+st_menu_component.egg-info/PKG-INFO
+st_menu_component.egg-info/SOURCES.txt
+st_menu_component.egg-info/dependency_links.txt
+st_menu_component.egg-info/requires.txt
+st_menu_component.egg-info/top_level.txt
