@@ -1,0 +1,11 @@
+earsegmentationai/__init__.py,sha256=MbXxDHTRf9g92ZruCaxcOWVFgtK_kdNQIMzG6_C_crc,298
+earsegmentationai/camera_mode.py,sha256=2FM6GWEm9rfnkmiV784DcoCYQfLxSgXAost4NxOg0pw,3420
+earsegmentationai/ear_models.py,sha256=FbIKflamIv0r0PKvryelWRGhIOO7nmgA2H2Joa4A3Nw,4076
+earsegmentationai/image_mode.py,sha256=w6fY8zXBxJlTuauWgAVaTlIC3VjAZTb1bYGMBd9kPIc,2178
+earsegmentationai/main.py,sha256=UVPn_o7nYWBUpdjtjnreS8RqowAD2MDpsVC1NqZYgJw,2550
+earsegmentationai/model_ear/.gitkeep,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+earsegmentationai-1.0.2.dist-info/entry_points.txt,sha256=OoOrsGXYmoiXGDSoIejphM5_Xfr9Q_1aN_mqxbOC-8w,65
+earsegmentationai-1.0.2.dist-info/METADATA,sha256=y5lNP7VjX8URMVk651MVn2VeDT__0KyOEUc3_VY-KPk,5082
+earsegmentationai-1.0.2.dist-info/LICENSE,sha256=szQutHkEc7fo5OJVUvN2tQSLavVcklDqZ1vPGJk6-RA,1089
+earsegmentationai-1.0.2.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+earsegmentationai-1.0.2.dist-info/RECORD,,
