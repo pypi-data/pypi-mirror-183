@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: prueba1-gha
+Version: 0.2.0.dev1672604128
+Summary: Prueba Github actions
+Home-page: https://example.com/
+License: MIT
+Keywords: github,api,rest
+Author: Martin More
+Author-email: martinmore@mail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Documentation, https://example.com/
+Project-URL: Discord, https://discord.com/invite/example123
+Project-URL: Mastodon, https://farbun.social/@example123
+Project-URL: Repository, https://github.com/martinmore-team/prueba1-gha/
+Project-URL: Sponsor on GitHub, https://github.com/sponsors/example123
+Project-URL: Sponsor on Open Collective, https://opencollective.com/example123
+Project-URL: Twitter, https://twitter.com/example123
+Description-Content-Type: text/markdown
+
+## Readme
+
+
+
+
+[![PyPI](https://img.shields.io/pypi/v/prueba1-gha?logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/prueba1-gha/)
+
+
