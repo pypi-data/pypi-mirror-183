@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "devjournal"
+description = ''
+readme = "README.md"
+requires-python = ">=3.7"
+license = ""
+keywords = []
+authors = [
+  { name = "Filip Lange", email = "filip.lange@ericsson.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "typer==0.7.0",
+  "GitPython==3.1.29",
+]
+dynamic = ["version"]
+
+[project.urls]
+
+[project.scripts]
+dj = "devjournal.__main__:app"
+
+[tool.hatch.version]
+path = "devjournal/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "black",
+  "flake8",
+  "isort",
+  "mypy",
+  "pre-commit"
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=devjournal --cov=tests {args}"
+no-cov = "cov --no-cov {args}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311"]
+
+[tool.coverage.run]
+parallel = true
+omit = [
+  "devjournal/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.isort]
+multi_line_output=3
+include_trailing_comma=true
+force_grid_wrap=0
+use_parentheses=true
+line_length=88
+
+[tool.mypy]
+files = [
+  "devjournal",
+  "tests"
+]
+ignore_missing_imports=true
