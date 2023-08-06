@@ -1,0 +1,2 @@
+[console_scripts]
+hudson = hudson.cli:app
