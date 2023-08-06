@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: jobx
+Version: 0.0.1.3
+Summary: Run batch scripts in a managed way
+Home-page: UNKNOWN
+Author: Wang Pei
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jobx
+---
+run batch scripts in a managed way
+
+1. 安装 jobx : pip install -U -i https:pypi.org/simple jobx
+2. 创建任务配置文件，如tasks.yaml
+3. 启动任务 
+   1. 运行所有任务 jobx tasks.yaml
+   2. 运行指定任务 jobx tasks.yaml demo1
+   3. 运行多个指定任务 jobx tasks.yaml demo1,demo3
+   4. 运行通配符匹配的所有任务 jobx tasks.yaml demo*,*2
+
+
+
