@@ -1,0 +1,10 @@
+equalityml/__init__.py,sha256=-wwgx63PGn-ZkXuCy9HZf1ABZC6aF6BjhtaCg7-rT6c,189
+equalityml/check_equalityml.py,sha256=tHNm5tAMR1aTlf7OgXugT4me5wadtAmDSXR6os_s2ys,3969
+equalityml/fair.py,sha256=cq3Jibe5EKpuP9Cp9FESZmEgTyKrRrNFRw5z3vYPrWo,22038
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_fair.py,sha256=b6wOhNnq6RanJRBZF6nVm1rfsypIARm9oOWrWxlpzEI,5463
+equalityml-0.1.0a1.dist-info/LICENSE,sha256=MHEJl0ikHAfojraUWhuSC_hGxa3pY4HkVlxBScZ1kXo,11360
+equalityml-0.1.0a1.dist-info/METADATA,sha256=EkVh-3k0YHDu5GOeR7Q9NIpQlFxrrG_27fZ3c-TT-aU,17637
+equalityml-0.1.0a1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+equalityml-0.1.0a1.dist-info/top_level.txt,sha256=HeZva2JXPL9Xu4ZXS6cLRVUbNCERY8UMaYs0Uf1IUeM,17
+equalityml-0.1.0a1.dist-info/RECORD,,
