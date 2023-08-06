@@ -1,0 +1,10 @@
+ShynaTelegramBotNotification
+setuptools
+wheel
+google_speech
+Shyna_speaks
+shynais
+ShynaJokes
+mediawikiapi
+ShynaGreetings
+ShynaWeather

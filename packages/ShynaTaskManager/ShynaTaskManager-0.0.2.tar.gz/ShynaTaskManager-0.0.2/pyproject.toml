@@ -1,0 +1,5 @@
+[build-system]
+requires = ['ShynaTelegramBotNotification','setuptools', 'wheel',
+                    'google_speech','Shyna_speaks', 'shynais', 'ShynaJokes',
+                    'mediawikiapi', 'ShynaGreetings', 'ShynaWeather']
+build-backend = "setuptools.build_meta"
