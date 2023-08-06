@@ -1,0 +1,5 @@
+tgscraper/tgs_config.toml.example,sha256=A2Hxg7CrjdstUgjO9l5Pk6hrtLfVwrVnj-SHvvI8-rI,212
+tgscraper/tgscraper.py,sha256=WeNUNC1FNMkrlVQF3udI-ZbuHrcMIGlj2IzfFZC7fiA,4036
+tgscraper-0.1.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+tgscraper-0.1.1.dist-info/METADATA,sha256=zgV8jJKlzQ6dqNWLanRj2CHht0z4mBCDA5UsMYIHFjk,3665
+tgscraper-0.1.1.dist-info/RECORD,,
