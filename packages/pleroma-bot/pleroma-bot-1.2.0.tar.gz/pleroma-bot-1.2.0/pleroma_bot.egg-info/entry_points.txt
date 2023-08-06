@@ -1,0 +1,2 @@
+[console_scripts]
+pleroma-bot = pleroma_bot.cli:init
