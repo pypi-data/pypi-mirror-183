@@ -1,0 +1,11 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=HTeSzzr1LRfyyo0vWSo9KcBgKQzuzihhNZtUuxkekVs,381
+tests/test_file.py,sha256=4-0hhXrEaED0v0rtuUcRKg_P1sTjwwcIUqHLmnefS6U,589
+tests/test_rows_and_cols.py,sha256=H0emSvB8gQ1oPUF9BNp8PeebA12QX2_ztTlrMWQkIpo,6999
+xlsxopera/Notebook.py,sha256=yUA9OzgGLeMMKgL7wwm9vYoTMgHDK15wqV5im5QJsqI,4220
+xlsxopera/__init__.py,sha256=6BCAEX-LkBFwBQV902AQ9t0DBSWJLRwo7BZim4s7HR8,24
+xlsxopera-1.1.dist-info/LICENSE,sha256=ls5b2_4f7k0aVX57taj6VHLE9utFs2Hq3mgEMHjtnqM,1065
+xlsxopera-1.1.dist-info/METADATA,sha256=PgFqRhy0w9GIyVaG-lDPAjH5fWYN7VW2e8SZDmFl-BI,1416
+xlsxopera-1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+xlsxopera-1.1.dist-info/top_level.txt,sha256=3OaTXRbJoWimgUUrDwTYaFqFNHWqELXXsjDDo9x-VLY,16
+xlsxopera-1.1.dist-info/RECORD,,
