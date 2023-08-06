@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: qomohub
+Version: 0.0.4
+Summary: Signal data of Qomolangma (the largest Geoscience Language Model)
+Home-page: https://github.com/davendw49/qomolangma-datahub/
+Author: Cheng Deng
+Author-email: davendw@sjtu.edu.cn
+License: Apache
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# qomohub (qomolangma-datahub)
+
+Signal datahub of Geoscience Language Model Qomolangma
+
+- backend: [DataLab](https://github.com/ExpressAI/DataLab) from ExpressAI
+- data source: [GAKG](https://gakg.deep-time.org)
+
+**qomohub** can be installed from PyPi and it is dependent on DataLab
+
+```shell
+pip install --upgrade pip
+pip install qomohub
+python -m nltk.downloader omw-1.4 # to support more feature calculation
+```
+
+---
+
+## Usage
+
+```python
+from qomohub import load_signal
+
+signal = load_signal("ddescholar_title_abstract")
+print(signal['train'][0])
+```
+
