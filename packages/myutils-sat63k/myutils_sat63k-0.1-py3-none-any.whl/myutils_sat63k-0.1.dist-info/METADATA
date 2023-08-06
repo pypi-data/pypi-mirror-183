@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: myutils-sat63k
+Version: 0.1
+Summary: Various utility functions
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Info
+This repository contains some of the Python utility functions that I use. 
+
+# Build
+```bash
+# build a wheel
+python -m build --wheel .
+
+# install locally
+pip install .
+```
