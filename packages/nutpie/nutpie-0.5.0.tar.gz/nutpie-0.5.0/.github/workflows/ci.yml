@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  PYTHON_VERSION: "3.9"
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          architecture: x64
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          default: true
+      - name: Build wheels - x86_64
+        uses: messense/maturin-action@v1
+        with:
+          target: x86_64
+          args: --release --out dist -i python
+      - name: Install built wheel - x86_64
+        run: |
+          pip install dist/nutpie-*.whl --force-reinstall
+          pip install numba pytest
+          pip install https://github.com/pymc-devs/pymc/archive/main.zip
+          cd tests && pytest
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          architecture: x64
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          default: true
+      - name: Build wheels
+        uses: messense/maturin-action@v1
+        with:
+          target: x86_64
+          args: --release --out dist -i python
+      - name: Install built wheel
+        run: |
+          pip install --no-index --find-links ./dist nutpie
+          pip install numba pytest
+          pip install https://github.com/pymc-devs/pymc/archive/main.zip
+          cd tests && pytest
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+        architecture: x64
+    - name: Build wheels
+      uses: messense/maturin-action@v1
+      with:
+        target: x86_64
+        rust-toolchain: nightly
+        args: --release --out dist -i python
+    - name: Install built wheel
+      run: |
+        pip install dist/nutpie-*.whl --force-reinstall
+        pip install numba pytest
+        pip install https://github.com/pymc-devs/pymc/archive/main.zip
+        cd tests && pytest
