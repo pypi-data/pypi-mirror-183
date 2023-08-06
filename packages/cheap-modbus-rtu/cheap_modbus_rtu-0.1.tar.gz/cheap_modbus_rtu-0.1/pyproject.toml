@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cheap_modbus_rtu"
+description = "Lightweight control of cheap Modbus RTU components using Python"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name="Ulrich Lukas", email="ul-gh@datenparkplatz.de"},
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version"]
+dependencies = [
+    "pyserial",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ul-gh/cheap_modbus_rtu"
+
+[tool.setuptools_scm]
