@@ -1,0 +1,9 @@
+speedrunapi/__init__.py,sha256=D0dZp4IRgs_5eam9S6xieJYyK0aGCLkTNzqjdzE9g14,88
+speedrunapi/speedrunapi.py,sha256=_V1lnRSkQICudJQ5Ct9Rkrqnw4XeExeo5Vfe1jD9EgU,3178
+speedrunapi/data/game_data.py,sha256=zfPhHKFB0rpPB-Yv6zwVU1yd6l70gukOOHMgrjhgcRE,5786
+speedrunapi/data/user_data.py,sha256=Cyw5Gjv3nXlNyLteF9Zi5BIL6UeX0mG52Pe-jmr6ye4,2762
+speedrunapi-0.2.0.dist-info/LICENSE,sha256=-vWda5MwDG98grkogvorOF7zUEA0f1wD0Nd8jyvLA2w,1105
+speedrunapi-0.2.0.dist-info/METADATA,sha256=81pLNnEdI9qRokynteGldb6tJPf55nEoJDrHZttkFMc,4167
+speedrunapi-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+speedrunapi-0.2.0.dist-info/top_level.txt,sha256=TiNvP6Z7Oh5HYHWTi6jBl0CAw5jD_VHRp3yXsxE4vIs,12
+speedrunapi-0.2.0.dist-info/RECORD,,
