@@ -1,0 +1,6 @@
+
+[testing]
+httpx==0.23.*
+starlette==0.23.*
+flask-restx==1.*
+pytest-cov==4.*
