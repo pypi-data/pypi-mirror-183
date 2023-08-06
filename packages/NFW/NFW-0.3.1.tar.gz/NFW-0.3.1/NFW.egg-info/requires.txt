@@ -1,0 +1,7 @@
+numpy>=1.9
+scipy>=0.16
+astropy>=2.0
+
+[dev]
+pytest
+pytest-cov
