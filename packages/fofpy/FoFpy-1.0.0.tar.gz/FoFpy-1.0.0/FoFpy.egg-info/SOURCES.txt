@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+FoFpy.egg-info/PKG-INFO
+FoFpy.egg-info/SOURCES.txt
+FoFpy.egg-info/dependency_links.txt
+FoFpy.egg-info/top_level.txt
