@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/my_package/client.py
+src/my_package/server.py
+src/pythonSftpServerManuel.egg-info/PKG-INFO
+src/pythonSftpServerManuel.egg-info/SOURCES.txt
+src/pythonSftpServerManuel.egg-info/dependency_links.txt
+src/pythonSftpServerManuel.egg-info/top_level.txt
