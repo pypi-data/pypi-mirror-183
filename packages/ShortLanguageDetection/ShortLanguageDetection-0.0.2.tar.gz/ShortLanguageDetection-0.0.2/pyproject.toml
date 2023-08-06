@@ -1,0 +1,10 @@
+[project]
+name = "ShortLanguageDetection"
+description = "A language detector for short string or chat."
+readme = "README.md"
+version = "0.0.2"
+dependencies = [
+    "fasttext",
+    'emoji',
+    'lingua-language-detector',
+]
