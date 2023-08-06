@@ -1,0 +1,11 @@
+mfac/__init__.py,sha256=tGrzxXkycMKt88lF0gOCUeYB-1KxF7bf98YYv7a6y_4,65
+mfac/mfac.py,sha256=Dzg5nv_c-TLKyOPrMo-kKEsgw9v6fMvuz8n-rTmz7SM,1707
+mfac/controllers/__init__.py,sha256=Ki3FBde4FfqfZ_qAinNe9qdgizGdJSpUy_w4za0yhxs,146
+mfac/controllers/cfdl.py,sha256=_4fc3QK1TnI3NuMC9lDwr1rCkS9WOFirDziDx0h6i2c,2345
+mfac/controllers/ffdl.py,sha256=-vrAxcKQ6309pJbXYuOk_cTkVn2f89gVJHifOub0NUo,937
+mfac/controllers/pfdl.py,sha256=QR3K6CSkMFMux-1EuUol1UEi54tvw0ZrxI8P3GS0YqE,2568
+mfac-0.1.6.dist-info/LICENSE,sha256=xh8S2nza1Sa9y-1HpMCmA-YNu_2vi2aTPNCI6RMsMD8,32472
+mfac-0.1.6.dist-info/METADATA,sha256=l4v6zePFq7RKX6uISK_8W1d2WTxvTLkV-QR9YBaH4YY,8662
+mfac-0.1.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mfac-0.1.6.dist-info/top_level.txt,sha256=yZ87bsYRvYXL-xAmMMH6yoZigp08nBuf2YSdqQNHeFI,5
+mfac-0.1.6.dist-info/RECORD,,
