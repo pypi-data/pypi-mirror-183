@@ -1,0 +1,18 @@
+{
+    "ssl": {
+        "ssl_key":"/home/arnov/.ssl/archive/api.veletanlic.org/privkey1.pem",
+        "ssl_cert":"/home/arnov/.ssl/archive/api.veletanlic.org/cert1.pem",
+        "ssl_fullchain":"/home/arnov/.ssl/archive/api.veletanlic.org/fullchain1.pem",
+        "ssl_dir":"/home/arnov/.ssl/archive/api.veletanlic.org/"
+    },
+
+    "server": {
+        "port": 8000,
+        "host": "0.0.0.0"
+    },
+    "local": {
+        "port": 8000,
+        "host": "127.0.0.1"
+    },
+    "remote": "https://api.veletanlic.org"
+}
