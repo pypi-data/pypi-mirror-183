@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: CRUDXWORKERTEJAS1899
+Version: 0.4
+Summary: This is django CRUD web application 2
+Home-page: UNKNOWN
+Author: wati
+Author-email: wati@wati.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: asgiref (==3.6.0)
+Requires-Dist: Django (==4.1.4)
+Requires-Dist: django-crispy-forms (==1.14.0)
+Requires-Dist: mssql-django (==1.2)
+Requires-Dist: mysqlclient (==2.1.1)
+Requires-Dist: pyodbc (==4.0.35)
+Requires-Dist: pytz (==2022.7)
+Requires-Dist: sqlparse (==0.4.3)
+Requires-Dist: tzdata (==2022.7)
+
+This is django CRUD web application 2 contain Create Read,Update,Delete operations
+
