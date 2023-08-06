@@ -1,0 +1,130 @@
+Metadata-Version: 2.1
+Name: shadertoy-api
+Version: 1.0.1
+Summary: A library for easily accessing the Shadertoy API.
+Home-page: UNKNOWN
+Author: Elijah Bevers
+Author-email: pythontales@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.25.1)
+
+# Shadertoy API for Python
+
+![Python Versions][pyversions-shield]
+[![license][license-button]][license-link]
+
+[pyversions-shield]: https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue
+[license-button]: https://img.shields.io/badge/license-CC%20BY%20SA%204.0-green
+[license-link]: https://creativecommons.org/licenses/by-sa/4.0/
+
+shadertoy-api is a library for easily accessing the Shadertoy API.\
+For more info about the Shadertoy API, refer to [shadertoy.com/howto](https://www.shadertoy.com/howto)\
+Note: only shaders listed as Public+API are available through the Shadertoy API.
+
+## Using the Shadertoy API
+
+To start using the Shadertoy API you first need to create an instance of the App class provided by shadertoy-api
+
+``` python
+>>> import shadertoy
+>>> app = shadertoy.App(api_key)
+```
+
+To get an API key for your application you must have an account on [shadertoy](https://www.shadertoy.com) (go to [shadertoy.com/signin](https://www.shadertoy.com/signin)).\
+Once logged in, you can create an API key at [shadertoy.com/myapps](https://www.shadertoy.com/myapps)
+
+The App class provides access to all documented features of the Shadertoy API.
+
+## Search the Shadertoy database
+
+``` python
+query(keywords=[], sort_by=None, filter=None, start_index=0, num_shaders="all")
+```
+
+> Queries the shadertoy database for shaders matching the given filter
+  and returns a list with the given number of their IDs, starting at the
+  given index and sorted by the given classifier.
+
+Classifiers: "name", "love", "popular", "newest", "hot"\
+Filters: "vr", "soundoutput", "soundinput", "webcam", "multipass", "musicstream"
+
+A list of all classifiers and filters is provided by shadertoy-api
+
+``` python
+>>> shadertoy.classifiers
+('name', 'love', 'popular', 'newest', 'hot')
+>>> shadertoy.filters
+('vr', 'soundoutput', 'soundinput', 'webcam', 'multipass', 'musicstream')
+```
+
+### Example
+
+``` python
+>>> app.query(keywords=["fluid", "simulation"], sort_by="newest", num_shaders=10)
+['DsSSzm', 'fdcyzr', 'NldXWf', 'ftySzR', 'NtKGRc', '7tKGzK', '7tyGW1', 'slKGRw', '7ttGR4', 'sdd3zj']
+```
+
+## Get shader data (name, creator, description, likes, views, code, input media...)
+
+``` python
+get_shader(shader_id)
+```
+
+> Returns a dictionary containing data about the shader with the given ID.
+
+### Example
+
+``` python
+>>> shader = app.get_shader("WdVXWy")
+>>> shader["info"]["name"]
+'molten bismuth'
+```
+
+## Get all available shader IDs
+
+``` python
+get_all_shaders()
+```
+
+> Returns a list of the IDs of all available shaders.
+
+### Example
+
+``` python
+>>> all_shaders = app.get_all_shaders()
+>>> len(all_shaders)
+25859
+```
+
+## Load Shadertoy media files
+
+``` python
+load_media_file(path)
+```
+
+> Loads a shadertoy media file from the given path (relative to shadertoy.com)
+  and returns it as a file-like io.BytesIO object.
+
+### Example
+
+``` python
+>>> Image_input0 = shader["renderpass"][0]["inputs"][0]
+>>> media = app.load_media_file(Image_input0["src"])
+>>> type(media)
+<class '_io.BytesIO'>
+```
+
+If you have [pillow](https://pypi.org/project/Pillow/) installed, try this as well:
+
+``` python
+>>> from PIL import Image
+>>> img = Image.open(media)
+>>> img.show()
+```
+
