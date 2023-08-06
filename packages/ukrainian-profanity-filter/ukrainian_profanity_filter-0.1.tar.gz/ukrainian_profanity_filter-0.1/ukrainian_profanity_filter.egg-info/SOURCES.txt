@@ -1,0 +1,8 @@
+setup.py
+ukrainian_profanity_filter/__init__.py
+ukrainian_profanity_filter/ukrainian_profanity_filter.py
+ukrainian_profanity_filter.egg-info/PKG-INFO
+ukrainian_profanity_filter.egg-info/SOURCES.txt
+ukrainian_profanity_filter.egg-info/dependency_links.txt
+ukrainian_profanity_filter.egg-info/not-zip-safe
+ukrainian_profanity_filter.egg-info/top_level.txt

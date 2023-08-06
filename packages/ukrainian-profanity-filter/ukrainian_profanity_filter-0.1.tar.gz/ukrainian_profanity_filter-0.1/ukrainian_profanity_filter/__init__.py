@@ -1,0 +1,1 @@
+from .ukrainian_profanity_filter import ProfanityFilter
