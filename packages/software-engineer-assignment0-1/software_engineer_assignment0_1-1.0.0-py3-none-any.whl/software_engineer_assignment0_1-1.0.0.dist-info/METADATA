@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: software-engineer-assignment0-1
+Version: 1.0.0
+Summary: Software Engineering assignment for job interview.
+Author: MartinP96
+Author-email: porenta.martin@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyqt5 (>=5.15.7,<6.0.0)
+Requires-Dist: pyqtgraph (>=0.13.1,<0.14.0)
+Requires-Dist: pyserial (>=3.5,<4.0)
+Description-Content-Type: text/markdown
+
+Software Engineering Assignment
+
+
+
