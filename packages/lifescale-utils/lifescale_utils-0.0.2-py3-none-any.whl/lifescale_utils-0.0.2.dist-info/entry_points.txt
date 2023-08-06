@@ -1,0 +1,2 @@
+[console_scripts]
+ls2csv = lifescale.command_line.command_line:ls2csv
