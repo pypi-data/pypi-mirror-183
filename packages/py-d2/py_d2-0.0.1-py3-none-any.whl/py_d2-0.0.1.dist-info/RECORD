@@ -1,0 +1,12 @@
+py_d2/D2Diagram.py,sha256=SYyDiTTTIbzxUWTrdRT-EdV4Dznf2acOC4gH1lqdemc,674
+py_d2/D2Link.py,sha256=WpiU9MKNRgCgKNrTKPTXIDvLfWbVCvMYe1lYQRgmfwk,510
+py_d2/D2Node.py,sha256=5R0dPxZ1IpR3eqmVO87MQhygIeVudG3d9JbrhWbq8M4,1285
+py_d2/D2Style.py,sha256=4JFuhpFH6DCZN52IIleKyXsW8LPrTHrFczE1AdGC2h0,1642
+py_d2/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+py_d2/helpers.py,sha256=pW7oxBQgbMfau5ZeUEjwLISMAkaFQ3iyiCeCSsyxRWM,796
+py_d2/main.py,sha256=bc4gaoprIqsH2E6rW-b0xI_2FvV9L_S-qz6NBi-58k8,666
+py_d2-0.0.1.dist-info/entry_points.txt,sha256=BbMwg12OZ6ux8M2gh5X3go77qYMCUBnuKmAAOyH5Ovc,46
+py_d2-0.0.1.dist-info/METADATA,sha256=SRMUFeZmZ_06pJepRtexvO9NPvMI8s4gufHauFP3-gE,3108
+py_d2-0.0.1.dist-info/LICENSE,sha256=3HpTb3sByRzfDLMZJJ_VlKcT6lDng-D1A-26OczctkI,1061
+py_d2-0.0.1.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+py_d2-0.0.1.dist-info/RECORD,,
