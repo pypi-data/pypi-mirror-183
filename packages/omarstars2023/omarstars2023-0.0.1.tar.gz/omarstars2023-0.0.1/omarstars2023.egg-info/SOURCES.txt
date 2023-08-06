@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+Omarstars/__init__.py
+omarstars2023.egg-info/PKG-INFO
+omarstars2023.egg-info/SOURCES.txt
+omarstars2023.egg-info/dependency_links.txt
+omarstars2023.egg-info/top_level.txt
