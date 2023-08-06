@@ -1,0 +1,6 @@
+fast_label_studio/__init__.py,sha256=E63cNzcKBIhgaEw68Ek-6xqxRxniWUL8I1MCyAy8s10,49
+fast_label_studio/brush.py,sha256=YS2OCNMdjfbLogMSNdkI_8ol_FHKrOu0wui97ZcaOvY,12397
+fast_label_studio/segmentation_model.py,sha256=2YMGvW61Dn9r8zojjbT68nm3G0Eb_JCiXq-Yv9NtQuM,5238
+fast_label_studio-0.3.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+fast_label_studio-0.3.0.dist-info/METADATA,sha256=QWWb6KcSHpQACXzxSxPKqZQGCY0RB7F0-vyuRDfioJE,631
+fast_label_studio-0.3.0.dist-info/RECORD,,
