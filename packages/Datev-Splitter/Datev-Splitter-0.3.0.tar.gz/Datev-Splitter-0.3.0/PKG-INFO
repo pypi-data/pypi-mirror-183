@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: Datev-Splitter
+Version: 0.3.0
+Summary: Splits Datev-Reports into single pdf files per Personalnummer.
+License: MIT
+Author-email: Christoph Becker <christoph.becker@exb.de>
+Requires-Python: >=3.10
