@@ -1,0 +1,5 @@
+setup.py
+blocket_kafkaregistry_avro.egg-info/PKG-INFO
+blocket_kafkaregistry_avro.egg-info/SOURCES.txt
+blocket_kafkaregistry_avro.egg-info/dependency_links.txt
+blocket_kafkaregistry_avro.egg-info/top_level.txt
