@@ -1,0 +1,75 @@
+# This is a shortened en_US affix file
+SET UTF-8
+TRY esianrtolcdugmphbyfvkwzESIANRTOLCDUGMPHBYFVKWZ'
+ICONV 1
+ICONV ’ '
+NOSUGGEST !
+
+# ordinal numbers
+COMPOUNDMIN 1
+# only in compounds: 1th, 2th, 3th
+ONLYINCOMPOUND c
+# compound rules:
+# 1. [0-9]*1[0-9]th (10th, 11th, 12th, 56714th, etc.)
+# 2. [0-9]*[02-9](1st|2nd|3rd|[4-9]th) (21st, 22nd, 123rd, 1234th, etc.)
+COMPOUNDRULE 2
+COMPOUNDRULE n*1t
+COMPOUNDRULE n*mp
+WORDCHARS 0123456789
+
+PFX A Y 1
+PFX A   0     re         .
+
+SFX V N 2
+SFX V   e     ive        e
+SFX V   0     ive        [^e]
+
+SFX N Y 3
+SFX N   e     ion        e
+SFX N   y     ication    y
+SFX N   0     en         [^ey]
+
+SFX G Y 2
+SFX G   e     ing        e
+SFX G   0     ing        [^e]
+
+SFX D Y 4
+SFX D   0     d          e
+SFX D   y     ied        [^aeiou]y
+SFX D   0     ed         [^ey]
+SFX D   0     ed         [aeiou]y
+
+SFX T N 4
+SFX T   0     st         e
+SFX T   y     iest       [^aeiou]y
+SFX T   0     est        [aeiou]y
+SFX T   0     est        [^ey]
+
+SFX R Y 4
+SFX R   0     r          e
+SFX R   y     ier        [^aeiou]y
+SFX R   0     er         [aeiou]y
+SFX R   0     er         [^ey]
+
+SFX S Y 4
+SFX S   y     ies        [^aeiou]y
+SFX S   0     s          [aeiou]y
+SFX S   0     es         [sxzh]
+SFX S   0     s          [^sxzhy]
+
+SFX M Y 1
+SFX M   0     's         .
+
+REP 12
+REP a ei
+REP ei a
+REP a ey
+REP ey a
+REP ai ie
+REP ie ai
+REP alot a_lot
+REP are air
+REP are ear
+REP are eir
+REP air are
+REP air ere

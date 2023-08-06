@@ -1,0 +1,10 @@
+[package]
+name = "util"
+version = "0.3.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+zspell = { path = "../zspell", features = ["zspell-unstable"] }
+regex = "1.7"
+pretty_assertions = "1.3"
