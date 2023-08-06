@@ -1,0 +1,2 @@
+[console_scripts]
+filetools = filetools.__main__:main
