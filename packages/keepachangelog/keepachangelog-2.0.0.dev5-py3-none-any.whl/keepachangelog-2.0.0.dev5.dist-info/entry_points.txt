@@ -1,0 +1,3 @@
+[console_scripts]
+keepachangelog = keepachangelog.__main__:main
+
