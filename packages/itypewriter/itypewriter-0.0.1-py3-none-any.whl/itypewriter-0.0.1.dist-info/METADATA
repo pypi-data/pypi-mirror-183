@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: itypewriter
+Version: 0.0.1
+Summary: iTypewriter - print text a character at a time,like typewriting.
+Home-page: https://github.com/Jcharis/itypewriter
+License: MIT
+Keywords: iTypewriter,itypewriter,typewriter,typewrite,character a a time,chat,iterative chat,jcharistech,clean text,text preprocessing,text cleaning,ftfy,pandas,normalize
+Author: Jesse E.Agbe(JCharis)
+Author-email: jcharistech@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/Jcharis/itypewriter
+Description-Content-Type: text/markdown
+
+### iTypeWriter
++ A simple package for printing and displaying characters one at a time as if you were typing.
++ With `itypewriter` you can display values as if you were typing a text.
+
+
+#### Installation
+```bash
+pip install itypewriter
+```
+
+#### Usage
+`itypewriter` can be used either via the functional approach or via the object oriented approach.
+
+##### Via Functional Approach
+```python
+>>> import itypewriter
+>>> itypewriter.itype("Hello Sentient Typing")
+
+```
+
+There is also the `iprint` option
+```python
+>>> from itypewriter import iprint
+>>> iprint("Hello Sentient Typing")
+
+>>> iprint("Hello",num_of_chars=3)
+```
+
+Each of these functions accepts optional params for customising the number of characters (`num_of_chars`)
+and the delay inbetween the appearance of characters (`delay`).
+
+##### Specifying the Delay Time
+
+```python
+>>> from itypewriter import iprint
+>>> iprint("Hello Sentient Typing",delay=0.2)
+```
+
+#### OOP Approach
+```python
+>>> from itypewriter import TypeText
+>>> docx = """Some wonderful text"""
+>>> tt = TypeText(docx,num_of_chars=1)
+>>> tt.iprint()
+```
+
