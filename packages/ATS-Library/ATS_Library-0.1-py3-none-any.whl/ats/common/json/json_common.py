@@ -1,0 +1,3 @@
+class JsonCommon(object):
+
+    ...
