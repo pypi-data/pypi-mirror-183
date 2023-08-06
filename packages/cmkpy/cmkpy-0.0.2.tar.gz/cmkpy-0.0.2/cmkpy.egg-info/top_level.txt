@@ -1,0 +1,5 @@
+cmkpy
+cmkpy/chem_data
+cmkpy/chem_struct
+cmkpy/chem_struct/smiles
+cmkpy/utils_general
