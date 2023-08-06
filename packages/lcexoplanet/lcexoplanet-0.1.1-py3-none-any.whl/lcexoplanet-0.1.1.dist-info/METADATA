@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: lcexoplanet
+Version: 0.1.1
+Summary: Light Curves for Exoplanets
+Home-page: https://github.com/DiegoHS79/lcexoplanet
+Author: Diego Hidalgo Soto
+Author-email: diego.hidalgo@hotmail.es
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# lcexoplanet
+Ligth Curves for Exoplanets
