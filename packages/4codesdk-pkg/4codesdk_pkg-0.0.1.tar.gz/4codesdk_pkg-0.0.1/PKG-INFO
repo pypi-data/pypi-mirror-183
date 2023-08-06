@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: 4codesdk_pkg
+Version: 0.0.1
+Summary: Common usage tools
+Home-page: https://github.com/4ngry-GitHub
+Author: 4ngry
+Author-email: 4ngry24@gmail.com
+Project-URL: Bug Tracker, https://github.com/4ngry-GitHub?tab=repositories
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# 4Code Software Developement Kit
+#### Common functions in one place.
+
+
+This library is written for economy time of developement.
+Common usage tools in one touch. Free license.
+
+
+### Authors nicnames:
+<ul>
+<li> AngryDanny+ </li>
+<li> N_XY </li>
+</ul>
