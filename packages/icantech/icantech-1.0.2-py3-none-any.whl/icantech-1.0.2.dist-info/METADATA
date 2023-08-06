@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: icantech
+Version: 1.0.2
+Summary: Python library for ICANTECH
+Home-page: https://github.com/GE-Teacher/icantech-pythonlib
+Author: hlight
+Author-email: tqh.workmail@gmail.com
+License: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires: inspect
+Requires: ast
+Requires: multiprocessing
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Comming soon.
