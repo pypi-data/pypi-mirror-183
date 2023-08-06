@@ -1,0 +1,1 @@
+from .hexconvertion import c2bn, bn2c

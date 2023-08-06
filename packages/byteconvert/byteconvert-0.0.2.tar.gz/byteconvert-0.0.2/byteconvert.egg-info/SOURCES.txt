@@ -1,0 +1,7 @@
+setup.py
+byteconvert/__init__.py
+byteconvert/hexconvertion.py
+byteconvert.egg-info/PKG-INFO
+byteconvert.egg-info/SOURCES.txt
+byteconvert.egg-info/dependency_links.txt
+byteconvert.egg-info/top_level.txt
