@@ -1,0 +1,5 @@
+setup.py
+steelseriesgen_api.egg-info/PKG-INFO
+steelseriesgen_api.egg-info/SOURCES.txt
+steelseriesgen_api.egg-info/dependency_links.txt
+steelseriesgen_api.egg-info/top_level.txt
