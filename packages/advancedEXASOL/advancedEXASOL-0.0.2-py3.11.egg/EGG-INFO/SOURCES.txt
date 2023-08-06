@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+pyproject.toml
+setup.py
+advancedEXASOL/__init__.py
+advancedEXASOL/advanced_exasol.py
+advancedEXASOL/decorator.py
+advancedEXASOL.egg-info/PKG-INFO
+advancedEXASOL.egg-info/SOURCES.txt
+advancedEXASOL.egg-info/dependency_links.txt
+advancedEXASOL.egg-info/requires.txt
+advancedEXASOL.egg-info/top_level.txt
