@@ -1,0 +1,13 @@
+lbl2vec/__init__.py,sha256=Y6YTjGOgv1AqkfxwOxbjTX1g85P4Ue1CZ_jlwWnA-3c,135
+lbl2vec/_version.py,sha256=C8nyPP5-54GgYCcP38Lbel_pRimOW-Ra4bw6Vzp2lmE,21
+lbl2vec/lbl2transformervec.py,sha256=F-SxL4I_svXCjUsGGTL0_TaBGofIXqmxRDzOgdcbOPc,26550
+lbl2vec/lbl2vec.py,sha256=U85YUnQBVr0r9o7Iv9x5azxeRljuMvg7PFWDgFzeiAY,37277
+lbl2vec/utils.py,sha256=WEFkLu6RlHhm6jRrikTZRHWsSFrQPVfhZqrW71XcBMw,8165
+lbl2vec-1.0.2.data/data/requirements/requirements.txt,sha256=h7DMbM2mHt49rCiZDaqOmB02B78fHfnztYtWeLrwbLw,164
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_lbl2vec.py,sha256=X4TfKYXbFHbwdViDVjyNSmB15SNMgJATZaR1kA-f0U8,6759
+lbl2vec-1.0.2.dist-info/LICENSE,sha256=7IvvtgVbYPq1J_Y9WdfG9CZ-rm-gy4TEL_6MnfwBq8I,1542
+lbl2vec-1.0.2.dist-info/METADATA,sha256=d0SovJsYKfCZDX5SY8yoFuWwJXTysGMlsIXo6fy_aEQ,15552
+lbl2vec-1.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+lbl2vec-1.0.2.dist-info/top_level.txt,sha256=xvMfM6al94FGzzo8dJdl2SQGQ_WL5LVFDhQmGFKEmfA,14
+lbl2vec-1.0.2.dist-info/RECORD,,
