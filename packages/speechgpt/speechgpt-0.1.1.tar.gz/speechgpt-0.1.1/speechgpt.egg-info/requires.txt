@@ -1,0 +1,3 @@
+pyChatGPT
+pyttsx3
+SpeechRecognition

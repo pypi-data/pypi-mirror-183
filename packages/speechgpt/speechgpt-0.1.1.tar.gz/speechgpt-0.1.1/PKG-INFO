@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: speechgpt
+Version: 0.1.1
+Summary: A voice interface for OpenAI's ChatGPT
+Author-email: Jdka1 <arymehr@nuevaschool.org>
+Project-URL: Homepage, https://github.com/Jdka1/SpeechGPT
+Project-URL: Bug Tracker, https://github.com/Jdka1/SpeechGPT/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# SpeechGPT
+
+# Credit terry
+
+# wake word
+
+# stop listening => quit
+
+# returns answer
+
+# need to install portaudio with homebrew pypi
