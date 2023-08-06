@@ -1,0 +1,8 @@
+setup.py
+libname/__init__.py
+libname/eda.py
+spiderstats.egg-info/PKG-INFO
+spiderstats.egg-info/SOURCES.txt
+spiderstats.egg-info/dependency_links.txt
+spiderstats.egg-info/requires.txt
+spiderstats.egg-info/top_level.txt
