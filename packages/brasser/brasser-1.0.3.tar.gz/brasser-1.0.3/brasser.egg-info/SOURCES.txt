@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+brasser/__init__.py
+brasser/brasser.py
+brasser.egg-info/PKG-INFO
+brasser.egg-info/SOURCES.txt
+brasser.egg-info/dependency_links.txt
+brasser.egg-info/top_level.txt
