@@ -1,0 +1,12 @@
+satcatalogquery/Const.py,sha256=TfU_OP_GIa6dZEIDEs7Jt-0KFlKcdBcVyg8AMECjn4k,362
+satcatalogquery/__init__.py,sha256=F-wFL4jtGbDl4qxI5jqCeh2yUfx9n4cJsk9K81rTDAE,171
+satcatalogquery/data_download.py,sha256=RpLaNM25EE0-SPSgCL7VtJcmgsEWZ6WH3CmKkxM0ocs,6251
+satcatalogquery/data_prepare.py,sha256=-DnRxHrhdqxmBkFS8h9NxW0SBjrCoqffAXnuFjwGreM,339
+satcatalogquery/query.py,sha256=hrg3eTq3IIuBnzrZJErFvLbg1iUNeBGoJCJ3PYVCoKU,37141
+satcatalogquery/satcatclass.py,sha256=Q9Tif2dD4RrMBZbi8frqdU32o0S3QYjVsyG_aymRXTI,3489
+satcatalogquery/try_download.py,sha256=_Wxs_6Zm7-bL6lgnHbbI-F4nBoF8GDdz73NkJ9PlC14,461
+satcatalogquery-0.1.1.dist-info/LICENSE,sha256=1mo8gGwn9nEfzoruoWYAD1ttN40DofMYGQNef1rsytY,1068
+satcatalogquery-0.1.1.dist-info/METADATA,sha256=-I-lXoJ5vOIs9niHDz0EZSbTCf5nmvUHlah3EKTJrgc,4478
+satcatalogquery-0.1.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+satcatalogquery-0.1.1.dist-info/top_level.txt,sha256=HoHpR1NJLfGlD0rCuFAoleEfAzeVKVIHkczHFQBSjg8,16
+satcatalogquery-0.1.1.dist-info/RECORD,,
