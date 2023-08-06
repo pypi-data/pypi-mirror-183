@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@datalayer/telescopes",
+  "description": "@datalayer/telescopes settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
