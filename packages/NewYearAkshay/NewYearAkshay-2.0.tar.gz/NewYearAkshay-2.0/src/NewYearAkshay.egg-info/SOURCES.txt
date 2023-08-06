@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+setup.py
+src/AkshayNewYear.py
+src/NewYearAkshay.egg-info/PKG-INFO
+src/NewYearAkshay.egg-info/SOURCES.txt
+src/NewYearAkshay.egg-info/dependency_links.txt
+src/NewYearAkshay.egg-info/requires.txt
+src/NewYearAkshay.egg-info/top_level.txt
