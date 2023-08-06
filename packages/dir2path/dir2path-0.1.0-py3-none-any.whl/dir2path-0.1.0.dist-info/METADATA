@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: dir2path
+Version: 0.1.0
+Summary: Add current directory to your PATH
+Author: Josh Burns
+Author-email: joshyburnss@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# Dir2Path
+
+`dir2path` is a simple utility that appends the current directory to your shells `$PATH`. Currently supports ZSH and BASH.
+
+## Installation
+
+installation via pip
+
+```shell
+$ pip install dir2path
+```
+
+## Usage
+
+```shell
+$ cd ~/my/local/bin/folder
+$ dir2path
+```
+

@@ -1,0 +1,3 @@
+[console_scripts]
+dir2path=dir2path.console:run
+
