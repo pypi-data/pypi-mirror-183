@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: hlvox
+Version: 0.4.1
+Summary: Pieces together voice files to form sentences
+Home-page: https://gitlab.com/bhagen/hlvox
+Author: Blair Hagen
+Author-email: bhagen55@gmail.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+License-File: LICENSE.md
+License-File: AUTHORS
+Requires-Dist: psycopg2 (==2.9.5)
+Requires-Dist: pydub (==0.25.1)
+Requires-Dist: sqlalchemy (==1.4.45)
+Requires-Dist: greenlet (==2.0.1) ; (python_version >= '3' and platform_machine == 'aarch64' orplatform_machine == 'ppc64le' or (platform_machine == 'x86_64' or (platform_machine == 'amd64' or (platform_machine == 'AMD64' or (platform_machine == 'win32' or platform_machine == 'WIN32')))))
+
+Originally intended to create sentences from the word snippets for the
+Half Life 1 Vox, this project can take a folder of word audio files and piece
+them into sentences.
+
