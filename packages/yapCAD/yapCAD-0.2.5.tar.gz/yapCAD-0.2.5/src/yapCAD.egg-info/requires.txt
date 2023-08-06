@@ -1,0 +1,11 @@
+ezdxf
+pyglet<2
+mpmath
+
+[testing]
+pytest
+pytest-cov
+
+[tests]
+pytest
+pytest-cov
