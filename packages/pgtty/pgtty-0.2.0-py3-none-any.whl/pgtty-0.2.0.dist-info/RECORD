@@ -1,0 +1,8 @@
+pgtty/PgTTY.py,sha256=FcPXOVOpiXX1ARRETbHV6V5XJbGNSs380kWPbZ0AfUA,4865
+pgtty/__init__.py,sha256=yicSxp67lRm8kR3U4xAdT-qWRXMBJCvDUe5M6nxE8Bw,24
+pgtty/font.ttf,sha256=VszZhijgU55NgIbT_07Nbb9RNjVVjO7waS5Cdxaewsw,26128
+pgtty-0.2.0.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+pgtty-0.2.0.dist-info/METADATA,sha256=VQleoS2Q8MtpltiWvBZ1YgPdv0eW3vvwAK9l3r2QAI4,1666
+pgtty-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pgtty-0.2.0.dist-info/top_level.txt,sha256=D8__X8FqDIMK1wQaCjJ_IyNiT3eUBXp7wy7ANCoxzCM,6
+pgtty-0.2.0.dist-info/RECORD,,
