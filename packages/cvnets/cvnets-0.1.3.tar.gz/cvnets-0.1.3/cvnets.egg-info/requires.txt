@@ -1,0 +1,4 @@
+pyyaml==5.4.1
+scikit-learn
+matplotlib
+opencv-python==4.6.0.66
