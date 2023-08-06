@@ -1,0 +1,4 @@
+include *.in
+recursive-include pybotter/template *.py
+recursive-include pybotter *.py
+recursive-include pybotter/sound *.mp3
