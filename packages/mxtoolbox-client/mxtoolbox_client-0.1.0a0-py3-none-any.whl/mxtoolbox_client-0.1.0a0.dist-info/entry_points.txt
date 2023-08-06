@@ -1,0 +1,2 @@
+[console_scripts]
+mxtoolbox = mxtoolbox:cli
