@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/euchrelib/__init__.py
+src/euchrelib/deck.py
+src/euchrelib/game.py
+src/euchrelib.egg-info/PKG-INFO
+src/euchrelib.egg-info/SOURCES.txt
+src/euchrelib.egg-info/dependency_links.txt
+src/euchrelib.egg-info/requires.txt
+src/euchrelib.egg-info/top_level.txt
+src/euchrelib/data/animals.txt
