@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pushcart"
+version = "0.1.2"
+description = "Metadata based ingestion and transformation library for Databricks"
+authors = ["RevoData B.V. <support@revodata.nl>"]
+license = "GPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+databricks-cli = "^0.17.4"
+param = "^1.12.3"
+jobslib = "^3.2.0"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+pyyaml = "^6.0"
+toml = "^0.10.2"
+traitlets = "^5.8.0"
+
+[tool.poetry.group.dev.dependencies]
+black = { version = "^23.1a1", allow-prereleases = true }
+dbx = "^0.8.7"
+pyspark = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
