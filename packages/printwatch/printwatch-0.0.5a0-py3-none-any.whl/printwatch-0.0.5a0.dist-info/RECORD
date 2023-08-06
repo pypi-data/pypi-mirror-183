@@ -1,0 +1,10 @@
+printwatch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+printwatch/app.py,sha256=kSzRLtVpIqmb9EcJCVeTA5XQ0ZSWAkjnN-Dz2PMDoCY,1314
+printwatch/redirection.py,sha256=YUpXotIPFh9LiE2gfcctgik10w8ZyyLzrVTnkYQ7z4s,1286
+printwatch/utils.py,sha256=5XbmF-qwh3VzI9Kc81dXc24j468CQKVk8AW4C1q6hbg,250
+printwatch/templates/home.html,sha256=YTZi0HvYV1xLh0L6QFjG8UA-jGyQv3y74_CoblQFm-M,2471
+printwatch/templates/logs.html,sha256=7WiMTBKKyd31KQOXI-N0gDOznnW5SGF5WYvx-1x3-K0,2623
+printwatch-0.0.5a0.dist-info/METADATA,sha256=Mj_8MakIVDEIVjckVI99lv2_G6FvLWRx1_mpq0t02vs,661
+printwatch-0.0.5a0.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+printwatch-0.0.5a0.dist-info/licenses/LICENSE,sha256=Xu7I4n9Pf5wld0cjcp-Pfuk7Vo_QO4m4rfobDhXG3Kc,1099
+printwatch-0.0.5a0.dist-info/RECORD,,
