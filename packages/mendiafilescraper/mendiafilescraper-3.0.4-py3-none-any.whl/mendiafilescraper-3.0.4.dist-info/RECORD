@@ -1,0 +1,13 @@
+mendiafilescraper/Database.py,sha256=mXBajRgtwkqRtFrGX0jOK7BLwKlfJkhwXyLRvyCpgSQ,830
+mendiafilescraper/Hasher.py,sha256=BgUoxZL1ZNU83nTO3kVXToD0OxaydzYP01b50q2Q_bI,840
+mendiafilescraper/Mendia.py,sha256=AEr0keWI6mgdqZMnWQAoE-Tck5Z6-scZHGRL7kGMgTc,3215
+mendiafilescraper/MovieScrapper.py,sha256=wuAOJ7JmbUXGjo6ji73Xwo92k3TcBUpfxIQ_26-RRFs,16949
+mendiafilescraper/PathElement.py,sha256=0777ynk3yJkE3zz9TBdZbjr67JLGHOKlW7ijkuGqfq4,872
+mendiafilescraper/Scraper.py,sha256=RmFuJhHZxPpmO9DuQo38NIYJ35pHa9URCGTX0Y0DY1I,6041
+mendiafilescraper/__init__.py,sha256=ODAptb9urGJNeshrI8Qt-Nf_tPI2djrkkVYTSLmVVTU,140
+mendiafilescraper/__main__.py,sha256=4HsVjih8ATHjkq4QZYXLYVfk2oZHEsWD2_eZ25scI5Y,1343
+mendiafilescraper-3.0.4.dist-info/LICENSE,sha256=LMxdz6flCRRUt7IQhJ8WlA77zKzl7NM1tqHVyd0mwKI,1059
+mendiafilescraper-3.0.4.dist-info/entry_points.txt,sha256=evNS-hTcxjNtxNeGEBD2HtbpTQ-hk6Y8awOfj3ttamw,66
+mendiafilescraper-3.0.4.dist-info/METADATA,sha256=BRyTPyVUVrrYsN-wh80sOUxNrmDyczjZBrJbjkti4v0,3930
+mendiafilescraper-3.0.4.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+mendiafilescraper-3.0.4.dist-info/RECORD,,
