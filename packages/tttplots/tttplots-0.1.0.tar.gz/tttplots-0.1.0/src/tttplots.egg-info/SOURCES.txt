@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/tttplots/__init__.py
+src/tttplots/__main__.py
+src/tttplots/tttplots.py
+src/tttplots/version.py
+src/tttplots.egg-info/PKG-INFO
+src/tttplots.egg-info/SOURCES.txt
+src/tttplots.egg-info/dependency_links.txt
+src/tttplots.egg-info/entry_points.txt
+src/tttplots.egg-info/requires.txt
+src/tttplots.egg-info/top_level.txt
