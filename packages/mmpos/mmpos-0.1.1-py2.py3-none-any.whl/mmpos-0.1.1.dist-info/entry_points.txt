@@ -1,0 +1,3 @@
+[console_scripts]
+mmpos = mmpos.cli.cli:main
+
