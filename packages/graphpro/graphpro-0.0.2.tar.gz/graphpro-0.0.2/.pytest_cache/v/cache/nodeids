@@ -1,0 +1,3 @@
+[
+  "test/graphpro/graphgen_test.py::test_graph_generation_from_mdanalysis"
+]
