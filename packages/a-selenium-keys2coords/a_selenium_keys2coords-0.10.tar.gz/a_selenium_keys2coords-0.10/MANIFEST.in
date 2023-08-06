@@ -1,0 +1,4 @@
+include a_selenium_keys2coords/requirements.txt
+include a_selenium_keys2coords/thirdparty.json
+include a_selenium_keys2coords/README.MD
+include a_selenium_keys2coords/LICENSE

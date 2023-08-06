@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_keys2coords/LICENSE
+a_selenium_keys2coords/README.MD
+a_selenium_keys2coords/__init__.py
+a_selenium_keys2coords/requirements.txt
+a_selenium_keys2coords/thirdparty.json
+a_selenium_keys2coords.egg-info/PKG-INFO
+a_selenium_keys2coords.egg-info/SOURCES.txt
+a_selenium_keys2coords.egg-info/dependency_links.txt
+a_selenium_keys2coords.egg-info/top_level.txt
