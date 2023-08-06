@@ -1,0 +1,3 @@
+[console_scripts]
+kamilu=kamilu.main:main
+
