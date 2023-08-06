@@ -1,0 +1,7 @@
+LICENSE
+setup.py
+quicksamplemule/src/quicksamplemule.py
+quicksamplemule/src/quicksamplemule.egg-info/PKG-INFO
+quicksamplemule/src/quicksamplemule.egg-info/SOURCES.txt
+quicksamplemule/src/quicksamplemule.egg-info/dependency_links.txt
+quicksamplemule/src/quicksamplemule.egg-info/top_level.txt
