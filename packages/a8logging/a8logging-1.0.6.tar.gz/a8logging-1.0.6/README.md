@@ -1,0 +1,52 @@
+# python-logging
+
+The a8logging function is a utility for logging events in Python projects. It provides a consistent and flexible way to log successes, errors, and other events, and supports multiple output options such as logging to a file or pushing the logs to Elasticsearch.
+
+### Features
+- Logs events with the following fields: message, function name, project name, version, and status (success or error).
+- Optionally logs error tracebacks in case of errors.
+- Supports logging to a file, with the option to specify the file name and log rotation settings.
+- Supports logging to Elasticsearch, with the option to specify the Elasticsearch host and port, and other connection settings.
+- Provides a generalized function that can be easily integrated into any Python project.
+
+### Installation
+To install the log_event function, you will need to install the following dependencies:
+- logging: A built-in Python library for logging events.
+- traceback: A built-in Python library for printing stack traces in case of errors.
+- uuid: A built-in Python library for generating unique IDs.
+- elasticsearch: A third-party library for pushing logs to Elasticsearch.
+- You can install these dependencies by running the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Usage
+To use the log_event function, you will need to import it into your Python code and call it with the appropriate arguments.
+Here is an example of how to log a success event:
+```python3
+from a8logging import a8logging
+
+a8logging('success', "Test message", function_name='test_function', project_name='test_project', version='1.0.0')
+```
+
+This will log a success event with the message 'Test message', the function name 'test_function', the project name 'test_project', and the version '1.0.0'.
+To log an error event, you can pass the error argument with an Exception object:
+```python3
+from a8logging import a8logging
+
+try:
+    # Some code that may throw an exception
+    raise Exception('Test error')
+except Exception as e:
+    a8logging('error', "Test error", function_name='test_function', error=e, project_name='test_project', version='1.0.0')
+```
+This will log an error event with the message 'Test error', the function name 'test_function', the project name 'test_project', and the version '1.0.0'. The error traceback will also be logged.
+
+To log to a file, you can pass the save_to_file argument with a value of True and the file_name argument with the desired file name:
+```python3
+from a8logging import a8logging
+
+a8logging('success', "Test message", function_name='test_function', project_name='test_project', version='1.0.0', save_to_file=True, file_name='test.txt')
+```
+This will log the event to the file 'test.txt'.
