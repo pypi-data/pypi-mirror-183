@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "surface_erode"
+version = "0.1.0"
+description = "erode medical image surface"
+authors = ["安兴乐 <anxingle@163.com>"]
+readme = "README.md"
+packages = [{include = "surface_erode"}]
+exclude = ["example/*"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.20.0"
+importlib-metadata = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.10b0"
+pre-commit = "^2.2.0"
+flake8 = "^3.7.9"
+mypy = "^0.790"
+isort = "^5.9.0"
+click = "8.0.2"
+
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
