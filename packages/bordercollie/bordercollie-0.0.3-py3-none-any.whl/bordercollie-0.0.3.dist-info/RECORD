@@ -1,0 +1,13 @@
+bordercollie/__init__.py,sha256=PLZIgEHuKhiixK0LPX8DiOHbQ54jJ-nrU3Sk-Iy1St8,1610
+bordercollie/asrsummary.py,sha256=Rvkt4tAaCtSyurcjLcoyVCe72JihurFLQddGTHAVeXk,8069
+bordercollie/auth.py,sha256=UPZXSerJ6qvtYSVT9-fDt4nNkBj-e5TnPKmnsKF4dxY,1885
+bordercollie/sql.py,sha256=VOBBl5Qtn3IMyBObQfjl41aJiehAUOb_CHe1XCoz8Iw,2959
+bordercollie/utils.py,sha256=73oWgt4g-i2dAwWMLBGblqcW88XfOoJQwQHCDoNPkhk,361
+bordercollie/apps/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bordercollie/apps/monitor.py,sha256=6ZbyN7ELtt3KyXmMhQXbqXxOBmVZHFQw-2CZkcElAqA,888
+bordercollie/base/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bordercollie-0.0.3.dist-info/METADATA,sha256=DIlliM_bXxOjHZvHqOE65YuLhsE12IsGv37VXBpFPqU,560
+bordercollie-0.0.3.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+bordercollie-0.0.3.dist-info/entry_points.txt,sha256=gtrQevabziawGqkTkGfkO4DBe0pRWfcnGwzJiCEZZBY,55
+bordercollie-0.0.3.dist-info/top_level.txt,sha256=GkjIUEUZdrYAaNiF6YwCrZ_Ent83CU5pRxLfCaBAtyI,13
+bordercollie-0.0.3.dist-info/RECORD,,
