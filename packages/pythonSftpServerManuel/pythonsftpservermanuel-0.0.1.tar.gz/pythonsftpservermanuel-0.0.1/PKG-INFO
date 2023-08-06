@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pythonSftpServerManuel
+Version: 0.0.1
+Summary: Python SFTP Server connection client and server
+Project-URL: url, https://github.com/BeastFPV/Hausarbeite_Hacking_with_Python
+Author-email: BeastFPV <beastfpv12@gmail.com>
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+#Do not run this package if you're not familiar with it!
