@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pycolorgenerator
+Version: 1.0
+Summary: A package for useful python templates.
+Home-page: https://github.com/Chebotarev-Alexey/pycolorgenerator
+Author: Alexey-Chebotarev
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyColorGenerator
+```python
+from pycolorgenerator import ColorGenerator
+
+
+color_generator = ColorGenerator()
+
+print(next(color_generator))
+
+for color in color_generator:
+	print(color)
+```
+
