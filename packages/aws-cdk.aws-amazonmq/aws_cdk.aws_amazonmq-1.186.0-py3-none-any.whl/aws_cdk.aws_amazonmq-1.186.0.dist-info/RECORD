@@ -1,0 +1,10 @@
+aws_cdk/aws_amazonmq/__init__.py,sha256=dsCGJysXnODurs2pYXEBnzHoJFx567gBdOqI6ENvKsM,161204
+aws_cdk/aws_amazonmq/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/aws_amazonmq/_jsii/__init__.py,sha256=dErvl7PME-R7vOhxWHc4s276DoBsfGure52oX1O4M1k,409
+aws_cdk/aws_amazonmq/_jsii/aws-amazonmq@1.186.0.jsii.tgz,sha256=KLqOrO1gRtvpI7lk6GI7pReUQo-OarPA0S7pVFLn2H4,75538
+aws_cdk.aws_amazonmq-1.186.0.dist-info/LICENSE,sha256=wX3LqRrxZ97zcDpw0dQ58Zb9AQalEDmXs6nP39muv7o,11391
+aws_cdk.aws_amazonmq-1.186.0.dist-info/METADATA,sha256=sLXFy1tag_MV7EEM3VDV-5wKR2N0fBOnMl6pJ00FbOk,3171
+aws_cdk.aws_amazonmq-1.186.0.dist-info/NOTICE,sha256=piksgoXop22-zO1J9i3rVrv57wUN9siPK1pqGzZ7-AE,113
+aws_cdk.aws_amazonmq-1.186.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+aws_cdk.aws_amazonmq-1.186.0.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.aws_amazonmq-1.186.0.dist-info/RECORD,,
