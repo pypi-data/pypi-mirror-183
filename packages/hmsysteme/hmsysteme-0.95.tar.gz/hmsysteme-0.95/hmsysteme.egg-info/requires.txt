@@ -1,0 +1,5 @@
+matplotlib
+pygame
+pyserial
+remi
+smbus2
