@@ -1,0 +1,5 @@
+setup.py
+blocket_kafkaregistry_protobuf.egg-info/PKG-INFO
+blocket_kafkaregistry_protobuf.egg-info/SOURCES.txt
+blocket_kafkaregistry_protobuf.egg-info/dependency_links.txt
+blocket_kafkaregistry_protobuf.egg-info/top_level.txt
