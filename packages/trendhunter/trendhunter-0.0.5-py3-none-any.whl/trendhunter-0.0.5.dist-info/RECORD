@@ -1,0 +1,14 @@
+trendhunter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trendhunter/api.py,sha256=w6ZFWOOtDI7A8SBMa7kLbQE50gJhcV-zgzy-yJ85x3s,11188
+trendhunter/formatters.py,sha256=TvZPvEqW_qitS3wxTwChjpBPIHm2pMJWEeg039DNT2Y,1408
+trendhunter/taxonomies.py,sha256=o1gK8LUmdmp7D0Y1uKK5r-A48ImVo2dqaxwQ62hwLmI,204
+trendhunter/tuples.py,sha256=3aLgwbL00pu_kHBR-c5Q5X9JHI2Q8cJajkcSeynNqs0,884
+trendhunter/utils.py,sha256=4tHL1EGiajro2YMG-oRz5IMCqobOGIUlIaEJsdxPgCU,1414
+trendhunter/bin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trendhunter/bin/console.py,sha256=ZnqMj5nrdzgQECKhZcC6rA-9CynO46lwFsbndDF9_RM,7502
+trendhunter-0.0.5.dist-info/LICENSE,sha256=mHm_W-32dhoiBuWGyYwFCcuxdO-16fHY-t3P2_gbhDY,1072
+trendhunter-0.0.5.dist-info/METADATA,sha256=Fvy2_KxsXjwIu91HrBn9EZ-X0RqB8d9m3h1APueiCvY,7085
+trendhunter-0.0.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+trendhunter-0.0.5.dist-info/entry_points.txt,sha256=5e2uOXXUb-1yeVIIKkLzMlgDTjrAveeGh0-jZQKEsMw,60
+trendhunter-0.0.5.dist-info/top_level.txt,sha256=xucX4LaN_OoKPqjQEzOXcsj-AhoVw1d197jMRn4vQvA,12
+trendhunter-0.0.5.dist-info/RECORD,,
