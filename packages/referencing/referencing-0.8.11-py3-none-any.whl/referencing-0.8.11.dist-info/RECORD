@@ -1,0 +1,11 @@
+referencing/__init__.py,sha256=g-Bxs9yTGWMizflQOJLy1tdGc0BSN7kUWmiu-sOC_JQ,112
+referencing/_attrs.py,sha256=lztB2XhN5w4UY3TR3dq14piZP38fYC9rMuhfyT07iFk,717
+referencing/_core.py,sha256=RvCIZlQP73lTiww17MofsQm_v0cZ28rqryyc2UXLlg4,9093
+referencing/jsonschema.py,sha256=2c8rkpNYTr3PNO-s_iHV9Ok0d8MMTI6YKebsIK2tYD8,7039
+referencing/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+referencing/typing.py,sha256=XKjQrJd-LqILReJLmo3-hHlT_A2CbxdIKAGFgh9pT0g,800
+referencing/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+referencing-0.8.11.dist-info/METADATA,sha256=apwhGnU5yKZPkfyq5J9ORBiItGtn4nGOhODuliFujH8,2641
+referencing-0.8.11.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+referencing-0.8.11.dist-info/licenses/COPYING,sha256=QtzWNJX4e063x3V6-jebtVpT-Ur9el9lfZrfVyNuUVw,1057
+referencing-0.8.11.dist-info/RECORD,,
