@@ -1,0 +1,5 @@
+matplotlib
+numpy
+pandas
+random2
+thompson-sampling
