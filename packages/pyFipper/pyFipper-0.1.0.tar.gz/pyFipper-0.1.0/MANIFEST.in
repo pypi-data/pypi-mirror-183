@@ -1,0 +1,11 @@
+## Include
+include README.md LICENSE NOTICE requirements.txt
+recursive-include compiler *.py *.tl *.tsv *.txt
+recursive-include tests *.py
+
+## Exclude
+prune pyFipper/errors/exceptions
+prune pyFipper/raw/functions
+prune pyFipper/raw/types
+prune pyFipper/raw/base
+exclude pyFipper/raw/all.py
