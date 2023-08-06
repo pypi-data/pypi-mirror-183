@@ -1,0 +1,3 @@
+[console_scripts]
+listme = listme.parser:main
+listme-config = listme.config:wizard

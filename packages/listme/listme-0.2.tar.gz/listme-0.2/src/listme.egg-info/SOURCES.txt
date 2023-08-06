@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/listme/__init__.py
+src/listme/_main.py
+src/listme/config.py
+src/listme/git_tools.py
+src/listme/parser.py
+src/listme.egg-info/PKG-INFO
+src/listme.egg-info/SOURCES.txt
+src/listme.egg-info/dependency_links.txt
+src/listme.egg-info/entry_points.txt
+src/listme.egg-info/requires.txt
+src/listme.egg-info/top_level.txt
