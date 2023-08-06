@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: Arduino-debuger
+Version: 1.0.0
+Summary: A small and simple debuger for Arduino
+Author: fatdog_xie
+Author-email: 940409716@qq.com
+License: MIT License
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE.txt
+
+It's a simple debuger for arduino. It can check        simple variable, change value of variable, pause the program, and so on.            Details will be revealed in vedio.

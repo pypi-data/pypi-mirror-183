@@ -1,0 +1,14 @@
+LICENSE.txt
+README.rst
+setup.py
+Arduino_debuger.egg-info/PKG-INFO
+Arduino_debuger.egg-info/SOURCES.txt
+Arduino_debuger.egg-info/dependency_links.txt
+Arduino_debuger.egg-info/requires.txt
+Arduino_debuger.egg-info/top_level.txt
+debugerv2/__init__.py
+debugerv2/arduinohooker.py
+debugerv2/commandhooker.py
+debugerv2/debugerv2.py
+debugerv2/interpreter.py
+debugerv2/user.py
