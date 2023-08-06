@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soccer-sdk-utils"
+version = "0.1.6"
+authors = [
+  { name="Omar Crosby", email="omar.crosby@gmail.com" },
+]
+description = "A python module housing Soccer SDK utilities"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent",
+]
+keywords = [
+    "soccer",
+    "scraping"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ocrosby/soccer-sdk-utils"
+"Bug Tracker" = "https://github.com/ocrosby/soccer-sdk-utils/issues"
+
+[tool.semantic_release]
+version_source = "commit"
+version_variable = [
+    "soccer_sdk_utils/__init__.py:__version__"
+]
+version_toml = [
+    "pyproject.toml:project.version"
+]
+major_on_zero = true
+branch = "main"
+upload_to_pypi = true
+upload_to_release = true
+commit_subject = "chore: release {version} [skip ci] ***NO_CI***"
+build_command = "python3 -m pip install --upgrade build && python3 -m build"
