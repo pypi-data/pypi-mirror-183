@@ -1,0 +1,9 @@
+README.md
+setup.py
+./colorema/__init__.py
+./colorema/__main__.py
+colorema.egg-info/PKG-INFO
+colorema.egg-info/SOURCES.txt
+colorema.egg-info/dependency_links.txt
+colorema.egg-info/requires.txt
+colorema.egg-info/top_level.txt
