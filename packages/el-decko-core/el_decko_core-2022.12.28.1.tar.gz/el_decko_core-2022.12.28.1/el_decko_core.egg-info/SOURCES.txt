@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+ed_core/__init__.py
+ed_core/dyn_data.py
+ed_core/streamdeck.py
+ed_core/streamdeck_config.py
+el_decko_core.egg-info/PKG-INFO
+el_decko_core.egg-info/SOURCES.txt
+el_decko_core.egg-info/dependency_links.txt
+el_decko_core.egg-info/entry_points.txt
+el_decko_core.egg-info/requires.txt
+el_decko_core.egg-info/top_level.txt
