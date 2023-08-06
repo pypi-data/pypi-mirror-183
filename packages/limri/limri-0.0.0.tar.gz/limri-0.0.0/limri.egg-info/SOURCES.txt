@@ -1,0 +1,17 @@
+README.rst
+setup.cfg
+setup.py
+limri/__init__.py
+limri/color_utils.py
+limri/info.py
+limri/normtools.py
+limri/regtools.py
+limri/utils.py
+limri/workflows.py
+limri.egg-info/PKG-INFO
+limri.egg-info/SOURCES.txt
+limri.egg-info/dependency_links.txt
+limri.egg-info/requires.txt
+limri.egg-info/top_level.txt
+limri/resources/MNI152_T1_2mm.nii.gz
+limri/scripts/limri
