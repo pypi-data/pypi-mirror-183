@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+roaringbitmap.egg-info/PKG-INFO
+roaringbitmap.egg-info/SOURCES.txt
+roaringbitmap.egg-info/dependency_links.txt
+roaringbitmap.egg-info/top_level.txt
+src/_arrayops.h
+src/bitcount.h
+src/macros.h
+src/roaringbitmap.c
