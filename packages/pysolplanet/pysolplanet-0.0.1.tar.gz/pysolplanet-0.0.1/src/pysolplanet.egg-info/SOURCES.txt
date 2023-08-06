@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/pysolplanet/__init__.py
+src/pysolplanet/__main__.py
+src/pysolplanet.egg-info/PKG-INFO
+src/pysolplanet.egg-info/SOURCES.txt
+src/pysolplanet.egg-info/dependency_links.txt
+src/pysolplanet.egg-info/requires.txt
+src/pysolplanet.egg-info/top_level.txt
