@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: bulkhead
+Version: 0.1.2
+Summary: package providing objects for API interaction
+Author: Julian M. Kleber
+Author-email: julian.m.kleber@gmail.com
+Requires-Python: >3.9
+License-File: LICENSE
+Requires-Dist: python-dotenv
+
