@@ -1,0 +1,76 @@
+mdform Changelog
+================
+
+0.6 (2023-02-02)
+----------------
+
+- Migrated project structure to use pyproject.toml.
+- Migrated typing to PEP585.
+- Python 3.8 is no longer supported.
+
+
+0.5.2 (2021-12-21)
+------------------
+
+- Fixed bug in FloatField defining min, max or step.
+- Changed FloatField representation to #.#f[min:max:step]
+  (notice the trailing f).
+- Added DecimalField with representation #.#[min:max:step:places].
+- Added tests for Fields.
+- Fixed parsing bug in RadioField / CheckBoxField for labels with
+  more than 1 letter.
+
+
+0.5.1 (2021-12-16)
+------------------
+
+- Add parse convenience function.
+- Improve docs.
+
+
+0.5 (2021-12-16)
+----------------
+
+- Migrated fields to use dataclasses
+- Added typing information
+- Improved testing and coverage
+
+
+0.4 (2021-12-09)
+----------------
+
+- Added typing information.
+- Reorganize code and base classes.
+
+
+0.3.1 (2021-04-25)
+------------------
+
+- Re-export Markdown
+
+
+0.3 (2021-04-25)
+----------------
+
+- Implemented IntegerField
+- Implemented FloatField
+- Improved coverage, testing and docstrings
+- `.Form` has been renamed to `mdform_definitions`
+  BACKWARDS INCOMPATIBLE CHANGE
+- mdform now provide very basic formatting, adding a hook
+  to format fields.
+
+
+0.2 (2020-03-26)
+----------------
+
+- Implemented DateField
+- Implemented TimeField
+- Implemented TextAreaField
+- Implemented collapsable parts
+
+
+0.1 (2020-02-15)
+----------------
+
+- first public release.
