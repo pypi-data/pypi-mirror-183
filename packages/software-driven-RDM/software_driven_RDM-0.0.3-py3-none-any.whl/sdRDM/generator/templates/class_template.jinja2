@@ -1,0 +1,20 @@
+@forge_signature
+class {{name}}({% if inherit is not none %}
+                {{inherit.name}}
+                {% else %}sdRDM.DataModel{% endif %}):
+
+                
+    {% if docstring is not none %}"""{{ docstring }}"""{% endif %}
+    
+    id: str = Field(
+            description="Unique identifier of the given object.",
+            default_factory=IDGenerator("{{name.lower()}}INDEX"),
+            xml="@id"
+    )
+    {% for attribute in attributes -%}
+    {{ attribute }}
+    {% endfor -%}
+    
+    {% if repo is not none %}__repo__: Optional[str] = PrivateAttr(default="{{url}}"){% endif %}
+    {% if commit is not none %}__commit__: Optional[str] = PrivateAttr(default="{{commit}}"){% endif %}
+    
