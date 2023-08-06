@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+targs.py
+arguments/ArgumentParser.py
+arguments/__init__.py
+arguments/util.py
+tmux/__init__.py
+tmux/window.py
+tmux_xargs.egg-info/PKG-INFO
+tmux_xargs.egg-info/SOURCES.txt
+tmux_xargs.egg-info/dependency_links.txt
+tmux_xargs.egg-info/entry_points.txt
+tmux_xargs.egg-info/top_level.txt
