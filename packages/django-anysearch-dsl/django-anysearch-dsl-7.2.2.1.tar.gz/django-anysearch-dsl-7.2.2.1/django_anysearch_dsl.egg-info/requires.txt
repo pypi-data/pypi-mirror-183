@@ -1,0 +1,10 @@
+six
+anysearch>=0.2.2
+
+[elasticsearch]
+elasticsearch
+elasticsearch-dsl
+
+[opensearch]
+opensearch-py
+opensearch-dsl
