@@ -1,0 +1,14 @@
+removebg_infusiblecoder/__init__.py,sha256=TymT88AF-qeMAPEVOnzFzvfRDuDVbIsxwEbeuJNoIBg,144
+removebg_infusiblecoder/_version.py,sha256=qaegdtAsyTFr2MOsucvWMab92EMT_cKok_CsewOol7U,23855
+removebg_infusiblecoder/bg.py,sha256=FUZHrnoXbtHD-QdSJcQlDLMdWOAbFjsMxCu3tytSpc8,7185
+removebg_infusiblecoder/cli.py,sha256=Tj5ca9k3lxTUkKQxF_snSCTm9JAwA_jG6JyyVRXkbuk,13700
+removebg_infusiblecoder/session_base.py,sha256=8HnJ6B30sCZRVsiFU4DA0k_2qzh7bldWKJ7ya19MqD8,1243
+removebg_infusiblecoder/session_cloth.py,sha256=gluUV_kNrmVk9EWLdAw32wvGHkS1H6HTjxkDB1Omi1k,1589
+removebg_infusiblecoder/session_factory.py,sha256=4nfG_ZDNqP5eJlBu_qi61Zcgn44kyKMiCb7TVuWXEAE,2403
+removebg_infusiblecoder/session_simple.py,sha256=9sPH96WMsFOLSKz6x2OzHIXA1x85UUVEqHhOl17qOXU,771
+removebg_infusiblecoder-0.0.4.dist-info/LICENSE.txt,sha256=RXm8HjNAvrIhk2HmNKPtzKJf6Hyv2AP5ia7XiCa0Kqg,1094
+removebg_infusiblecoder-0.0.4.dist-info/METADATA,sha256=rhVWmInlxYrhsOPjtmqW8pY16gu2BNk4nB__fUPTySM,9654
+removebg_infusiblecoder-0.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+removebg_infusiblecoder-0.0.4.dist-info/entry_points.txt,sha256=bSzt180c2SuymirKRRJJKpJCrRhvWqQJccrHq-ckP7Y,77
+removebg_infusiblecoder-0.0.4.dist-info/top_level.txt,sha256=15r5yY1tTTLtSDuE3xkDsANV-r87IR7sCRh8WnlagxM,24
+removebg_infusiblecoder-0.0.4.dist-info/RECORD,,
