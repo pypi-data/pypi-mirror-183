@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mitmproxy_rs
+Version: 0.2.0b1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Development Status :: 3 - Alpha
+Author: Fabio Valentini <decathorpe@gmail.com>, Maximilian Hils <cargo@maximilianhils.com>
+Author-email: Fabio Valentini <decathorpe@gmail.com>, Maximilian Hils <cargo@maximilianhils.com>
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Source Code, https://github.com/mitmproxy/mitmproxy-rs
+
+# mitmproxy-rs/ffi
+
+This crate is responsible for our Python/Rust interoperability. It produces the `mitmproxy_rs` Python package.
+
