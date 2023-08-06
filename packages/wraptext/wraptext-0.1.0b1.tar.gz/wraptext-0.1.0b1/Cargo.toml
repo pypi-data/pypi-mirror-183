@@ -1,0 +1,19 @@
+[package]
+name = "wraptext"
+version = "0.1.0"
+edition = "2021"
+description = "Python wrapper of Rust's 'textwrap' version"
+documentation = "https://phoenixr-codes.github.io/wraptext/"
+repository = "https://github.com/phoenixr-codes/wraptext"
+license-file = "LICENSE.md"
+keywords = ["text", "wrapping"]
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "wraptext"
+crate-type = ["cdylib"]
+
+[dependencies]
+textwrap = "0.16"
+pyo3 = { version = "0.17.3", features = ["extension-module"] }

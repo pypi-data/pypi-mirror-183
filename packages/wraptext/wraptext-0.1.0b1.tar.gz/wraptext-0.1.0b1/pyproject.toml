@@ -1,0 +1,26 @@
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
+
+[project]
+name = "wraptext"
+version = "0.1.0b1"
+description = "Python wrapper of Rust's 'textwrap' version"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Text Processing",
+]
+keywords = ["text", "wrapping"]
+license = {text = "MIT"}
+
+[project.urls]
+Documentation = "https://phoenixr-codes.github.io/wraptext/"
+Repository = "https://github.com/phoenixr-codes/wraptext"
+
