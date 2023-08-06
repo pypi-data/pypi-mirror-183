@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+egybest/__init__.py
+egybest.egg-info/PKG-INFO
+egybest.egg-info/SOURCES.txt
+egybest.egg-info/dependency_links.txt
+egybest.egg-info/requires.txt
+egybest.egg-info/top_level.txt

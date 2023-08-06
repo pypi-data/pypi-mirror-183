@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: egybest
+Version: 2.2.0
+Summary: A Selenium-less Python EgyBest Library
+Home-page: https://gitlab.com/SafwanLjd/PyEgyBest
+Download-URL: https://gitlab.com/SafwanLjd/PyEgyBest/-/archive/v2.2.0/PyEgyBest-v2.2.0.tar.gz
+Author: Safwan Ljd
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyEgyBest
+
+**This Project Has Been Discontinued**
+
+This is a Selenium-less Python Library that allows you to interact with EgyBest
+
+## Installation
+
+You can simply install the library from PyPI with this command:
+
+```bash
+pip install egybest
+
+```
