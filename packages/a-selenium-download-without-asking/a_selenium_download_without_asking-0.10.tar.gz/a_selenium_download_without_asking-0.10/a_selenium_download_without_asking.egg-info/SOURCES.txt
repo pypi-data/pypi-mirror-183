@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_download_without_asking/LICENSE
+a_selenium_download_without_asking/README.MD
+a_selenium_download_without_asking/__init__.py
+a_selenium_download_without_asking/requirements.txt
+a_selenium_download_without_asking/thirdparty.json
+a_selenium_download_without_asking.egg-info/PKG-INFO
+a_selenium_download_without_asking.egg-info/SOURCES.txt
+a_selenium_download_without_asking.egg-info/dependency_links.txt
+a_selenium_download_without_asking.egg-info/top_level.txt
