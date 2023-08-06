@@ -1,0 +1,13 @@
+dumbo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dumbo/api.py,sha256=39Po2DgB6_ulE05lFBP95vFdKKsvKETV7xoDBLuLYBg,3791
+dumbo/middleware.py,sha256=udcT34cjF3kL2raHrsrhmZKfx2xJir4lTDDnS1J6MfY,673
+dumbo/response.py,sha256=34KlF8xu9Wv-EvgRHGY0pwm5lb5jx4XLv3amvTgS1jM,955
+dumbo_marek/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dumbo_marek/api.py,sha256=39Po2DgB6_ulE05lFBP95vFdKKsvKETV7xoDBLuLYBg,3791
+dumbo_marek/middleware.py,sha256=udcT34cjF3kL2raHrsrhmZKfx2xJir4lTDDnS1J6MfY,673
+dumbo_marek/orm.py,sha256=Rmp-BA5QaW8XNpH_ySoRWS8hBmNbNkbZfd0dLpjhxAA,6287
+dumbo_marek/response.py,sha256=34KlF8xu9Wv-EvgRHGY0pwm5lb5jx4XLv3amvTgS1jM,955
+dumbo_marek-0.0.6.dist-info/METADATA,sha256=3u-R2nhyeqlyTR3mkHOYdSnP3LRPdOd-qcxZjjBm30U,4039
+dumbo_marek-0.0.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+dumbo_marek-0.0.6.dist-info/top_level.txt,sha256=jijdVdT7pwHCrdwGfdAq_-Bg3He0CYOjw6BFKat_uVQ,12
+dumbo_marek-0.0.6.dist-info/RECORD,,
