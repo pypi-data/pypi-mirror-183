@@ -1,0 +1,6 @@
+datahub_postgres_lineage/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datahub_postgres_lineage/ingestion.py,sha256=T_VZxpz3xWx82rs5lYFxWnGPQmMmfZjCSz6zVZu6W_8,10465
+datahub_postgres_lineage-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+datahub_postgres_lineage-0.1.0.dist-info/LICENSE,sha256=kP5YkJ5L9RQdYTj7OTvGikgxmBtqufsoAC9rNLwOflU,11343
+datahub_postgres_lineage-0.1.0.dist-info/METADATA,sha256=wlX35Rf5kMlq2x_3qAI99GRbuMpMjNuYu_OI5vDwceI,553
+datahub_postgres_lineage-0.1.0.dist-info/RECORD,,
