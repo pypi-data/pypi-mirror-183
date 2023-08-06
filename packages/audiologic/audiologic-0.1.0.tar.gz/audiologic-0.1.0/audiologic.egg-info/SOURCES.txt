@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+audiologic/__init__.py
+audiologic/audio.py
+audiologic/utils.py
+audiologic.egg-info/PKG-INFO
+audiologic.egg-info/SOURCES.txt
+audiologic.egg-info/dependency_links.txt
+audiologic.egg-info/top_level.txt
