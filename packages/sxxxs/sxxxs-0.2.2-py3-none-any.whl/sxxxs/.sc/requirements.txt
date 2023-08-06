@@ -1,0 +1,3 @@
+piccolo[sqlite]
+eel
+desktop-file
