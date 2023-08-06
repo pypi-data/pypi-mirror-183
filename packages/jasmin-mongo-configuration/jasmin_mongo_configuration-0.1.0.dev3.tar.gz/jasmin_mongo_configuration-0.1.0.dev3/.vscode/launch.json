@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Python: jasmin_mongo_configuration",
+            "type": "python",
+            "request": "launch",
+            "module": "jasmin_mongo_configuration",
+            "justMyCode": false
+        }
+    ]
+}
