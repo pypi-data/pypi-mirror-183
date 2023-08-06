@@ -1,0 +1,5 @@
+setup.py
+prisjakt_sql_client.egg-info/PKG-INFO
+prisjakt_sql_client.egg-info/SOURCES.txt
+prisjakt_sql_client.egg-info/dependency_links.txt
+prisjakt_sql_client.egg-info/top_level.txt
