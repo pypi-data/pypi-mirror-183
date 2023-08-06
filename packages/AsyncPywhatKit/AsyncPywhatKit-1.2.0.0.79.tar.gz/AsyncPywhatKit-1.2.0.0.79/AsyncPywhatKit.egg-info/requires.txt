@@ -1,0 +1,8 @@
+Pillow
+aiohttp
+asyncio
+flask
+keyboard
+pyperclip
+Pyautogui
+wikipedia
