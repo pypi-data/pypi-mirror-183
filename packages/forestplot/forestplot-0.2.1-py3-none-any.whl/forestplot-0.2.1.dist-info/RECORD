@@ -1,0 +1,11 @@
+forestplot/__init__.py,sha256=etmyNE249_RbiHTkeyyQ_8SD6Da-HIS-TEHkq_QmP6A,158
+forestplot/arg_validators.py,sha256=13lTh6qax87f28EYTYsSZS2SvRwi74ziwVPuZHF0fBE,10777
+forestplot/dataframe_utils.py,sha256=aoAK1NhlHVgmu-gzWGVDpgjCdSj8AuC4ivh9X3t0FPQ,5167
+forestplot/graph_utils.py,sha256=wUriRISmiCtkQYkMGzE9iJerZJDVpYlr21XbMV3dj_g,21895
+forestplot/plot.py,sha256=n47ORdh2_O6vrcsZYxNlyMnHa3-BAvWniefUbexorBY,15144
+forestplot/text_utils.py,sha256=-oSfyFXHatpHPwwbDcmAvbb_0O198IgmZf6GQb0wYXU,21295
+forestplot-0.2.1.dist-info/LICENSE,sha256=Db2F5y8iNZa12-2PGj4GbdmB59TeBFBjcfbnVM4yBmU,1094
+forestplot-0.2.1.dist-info/METADATA,sha256=Mq5EINBvYS7aM_JozWYFJGN4gJXKRpPOUeXCGt4pFRg,28605
+forestplot-0.2.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+forestplot-0.2.1.dist-info/top_level.txt,sha256=STrQvSt4MkL0kHlKTfmo5RFzYTGoJa-Zfd0-ioL3oGo,11
+forestplot-0.2.1.dist-info/RECORD,,
