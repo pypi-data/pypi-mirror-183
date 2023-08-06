@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+mavefund/__init__.py
+mavefund/client.py
+mavefund/error.py
+mavefund/symbol.py
+mavefund.egg-info/PKG-INFO
+mavefund.egg-info/SOURCES.txt
+mavefund.egg-info/dependency_links.txt
+mavefund.egg-info/requires.txt
+mavefund.egg-info/top_level.txt
