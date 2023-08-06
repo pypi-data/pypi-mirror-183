@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: coretex
+Version: 0.0.2
+Summary: A package for AI experiment tracking, infrastructure and dataset management using Coretex.ai platform.
+Home-page: UNKNOWN
+Author: Coretex LLC (Igor Peric)
+Author-email: admin@coretex.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: inflection
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: pillow
+Requires-Dist: protobuf (~=3.19.0)
+Requires-Dist: requests
+Requires-Dist: scikit-image
+Requires-Dist: shapely
+Requires-Dist: tensorflow (==2.8)
+Requires-Dist: tensorflowjs
+Requires-Dist: termcolor
+Requires-Dist: torch
+Requires-Dist: typed-argument-parser
+
+UNKNOWN
+
+
