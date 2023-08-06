@@ -1,0 +1,13 @@
+cbv_inspect/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cbv_inspect/apps.py,sha256=XDcUgN6j25TctEOXdD0_gnioPFutu0RZOPZEIgZxwYo,96
+cbv_inspect/decorators.py,sha256=MHgWzBvGrwrpb8wMRap4N08x1sHzsFMHCSHgPzDISfo,1009
+cbv_inspect/middleware.py,sha256=TcP1lycysCyhif3kxAziqu8wjNKvpc8tDxCf1t9I9gw,5130
+cbv_inspect/mixins.py,sha256=uZ2UYxHatWbU1tq3s-QU4NKJCvUn-G7M1DtOJrD5Wus,2634
+cbv_inspect/utils.py,sha256=ipi7R3nlMX2EZ2Vn83UUi797QYi8CZucMUqAVEuyIko,11658
+cbv_inspect/views.py,sha256=c1J-ADjPcO4m7kfiKKX0ogqLY8dI_e16bX0X4g4W6x8,589
+cbv_inspect/templates/cbv_inspect/toolbar.html,sha256=nyRkUhIXBxnekpxaA1_6kvDIs--gZ_US4BdxeiV0VHk,14357
+django_cbv_inspect-0.2.1.dist-info/LICENSE,sha256=DjoF5qphzT-c97-FECcELBWKS5gK6KlSprVPutGaK0g,1075
+django_cbv_inspect-0.2.1.dist-info/METADATA,sha256=k2aDPuax0OHBIHNviSG9JX6OwVgvQNYxIum3ma4hIWs,5604
+django_cbv_inspect-0.2.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+django_cbv_inspect-0.2.1.dist-info/top_level.txt,sha256=IslW3cEpBckWyinHhWpf51P_L_FyKMHTe9FquPJcJu8,12
+django_cbv_inspect-0.2.1.dist-info/RECORD,,
