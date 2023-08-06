@@ -1,0 +1,9 @@
+README.md
+setup.py
+Megapper/__init__.py
+Megapper/core.py
+Megapper.egg-info/PKG-INFO
+Megapper.egg-info/SOURCES.txt
+Megapper.egg-info/dependency_links.txt
+Megapper.egg-info/requires.txt
+Megapper.egg-info/top_level.txt

@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: Megapper
+Version: 1.0.0
+Summary: End-to-end image upscaling toolkit
+Home-page: https://github.com/giladleef/megapper
+Author: GiladLeef
+Author-email: giladleefbox@gmail.com
+Keywords: deep learning,super resolution
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3 
+Description-Content-Type: text/markdown
+
+# Megapper
+
+A python library for end-to-end image upscaling.
