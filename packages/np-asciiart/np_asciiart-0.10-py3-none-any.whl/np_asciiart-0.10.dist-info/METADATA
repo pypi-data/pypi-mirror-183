@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: np-asciiart
+Version: 0.10
+Summary: Ascii art with numpy
+Home-page: https://github.com/hansalemaos/np_asciiart
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: Ascii,numpy
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+Requires-Dist: a-cv-imwrite-imread-plus
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: pandas
+
+
+# Ascii art with numpy
+
+```python
+$pip install np-asciiart
+
+from np_asciiart import img2ascii
+asciistring = img2ascii(
+    img=r"https://raw.githubusercontent.com/hansalemaos/screenshots/main/pic1.png",
+    width=100,
+    letters=r'.,:ilwWQ@";',
+    filler="X",
+    printimg=True,
+)
+
+```
+
+
+<img src="https://raw.githubusercontent.com/hansalemaos/screenshots/main/pic1.png"/>
+
+
+
+<img src="https://github.com/hansalemaos/screenshots/raw/main/asciiart.png"/>
