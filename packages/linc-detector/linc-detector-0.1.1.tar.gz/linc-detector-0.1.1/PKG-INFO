@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: linc-detector
+Version: 0.1.1
+Summary: Python package that holds model to detect lion facial parts
+Author: Lion Guardians
+Author-email:  tech@linclion.org
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+See https://github.com/linc-lion/LINC-detector
