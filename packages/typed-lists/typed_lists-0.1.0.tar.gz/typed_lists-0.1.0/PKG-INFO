@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: typed-lists
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov[all]; extra == 'dev'
+Provides-Extra: dev
+License-File: LICENSE
+Keywords: lists,rust
+Author: Zach Coleman
+Author-email: zacharywcoleman@gmail.com
+License: Apache 2.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://github.com/zachcoleman/typed-lists
+
+# typed-lists
+Parallelized, typed lists for Python implemented in Rust
+
