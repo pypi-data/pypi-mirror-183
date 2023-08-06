@@ -1,0 +1,5 @@
+wrapt>=1.13.3
+
+[dev]
+black
+pytest
