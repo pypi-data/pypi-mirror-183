@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: artextest
+Version: 0.0.2
+Summary: One function that gets the greatest common divisor between two numbers.
+Home-page: 
+Author: Arwen Terpstra
+Author-email: arwenterpstra1@gmail.com
+Keywords: algorithm
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+This is a simple library with just a single algorithm that gets the greatest common divisor between two given numbers.
+
+Function:
+getGCD(m, n)
+
+Example:
+```print(getGCD(166,44))```
+
+Output:
+```2```
+
+Change Log
+==========
+
+0.0.1 (2023/01/02)
+------------------
+First Release
+
+0.0.2 (2023/01/02)
+------------------
+Second Release
