@@ -1,0 +1,7 @@
+LICENCE.txt
+setup.py
+matalg/__init__.py
+matrix_alg.egg-info/PKG-INFO
+matrix_alg.egg-info/SOURCES.txt
+matrix_alg.egg-info/dependency_links.txt
+matrix_alg.egg-info/top_level.txt
