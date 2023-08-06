@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: get-video-len
+Version: 0.11
+Summary: Gets the duration, frame rate and total frames from a video file
+Home-page: https://github.com/hansalemaos/get_video_len
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: video,duration
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Gets the duration, frame rate and total frames from a video file 
+
+```python
+$pip install get-video-len
+
+from pprint import pprint
+from get_video_len import get_video_len_and_frames
+videoinfos = get_video_len_and_frames(videofile=r"F:\convertedvideossocialnet\newvidxx2.mp4")
+pprint(videoinfos)
+ {'duration': 139.83983983983984,
+  'file_path': 'F:\\convertedvideossocialnet\\newvidxx2.mp4',
+  'frame_rate': 29.97,
+  'total_frames': 4191.0}
+
+```
+
+
+
+
