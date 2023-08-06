@@ -1,0 +1,12 @@
+LICENSE
+NOTICE
+README.md
+setup.cfg
+setup.py
+AmazonPay/__init__.py
+AmazonPay/client.py
+AmazonPayClient.egg-info/PKG-INFO
+AmazonPayClient.egg-info/SOURCES.txt
+AmazonPayClient.egg-info/dependency_links.txt
+AmazonPayClient.egg-info/requires.txt
+AmazonPayClient.egg-info/top_level.txt
