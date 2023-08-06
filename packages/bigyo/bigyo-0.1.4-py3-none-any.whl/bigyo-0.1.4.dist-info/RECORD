@@ -1,0 +1,9 @@
+bigyo/__init__.py,sha256=SS6aXnmPRDPUr6bNIXxsRlAv8zlshqjo6N9wyNkq394,309
+bigyo/_bigyo.py,sha256=Xocvr9S3_TZzc9uo6ODjM0OzgpZj-QWD24O7-WKLKmo,6724
+bigyo/bigyo_renderer/__init__.py,sha256=DuaKkAhMb6k8q-VE8CGUMCxEJtHuJtyTbROxXtOZpv0,292
+bigyo/bigyo_renderer/_bigyo_renderer.py,sha256=00eVj5vYjfEUhZM_3rZ70CCgqBOsuq9n2xnuTsSnDLc,6395
+bigyo-0.1.4.dist-info/LICENSE,sha256=Q5kPvWTSLs5oyAZKwhM1-wpryLE7OOqhbVHziyiVDFk,1066
+bigyo-0.1.4.dist-info/METADATA,sha256=uFL3EnPvQBl4oZh6z8JVC9PbR1Zm_xzyb1Qlu85v828,3598
+bigyo-0.1.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+bigyo-0.1.4.dist-info/top_level.txt,sha256=L-ZOTDH0PrGlRfp-VDOEbQ8DcX68nsz7MZ1G-794z0s,6
+bigyo-0.1.4.dist-info/RECORD,,
