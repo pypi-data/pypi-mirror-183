@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: make-even-odd
+Version: 0.10
+Summary: Make numbers even/odd
+Home-page: https://github.com/hansalemaos/make_even_odd
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: numbers,even,odd
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Make numbers even/odd
+
+```python
+
+from make_even_odd import make_even_ceil, make_even_floor, make_odd_ceil, make_odd_floor
+print(list(make_even_ceil(*[198, 7, 12, 3])))
+print(list(make_even_floor(*[198, 7, 12, 2, 1])))
+print(list(make_odd_ceil(*[198, 7, 12, 3])))
+print(list(make_odd_floor(*[198, 7, 12, 2, 1])))
+
+[198, 8, 12, 4]
+[198, 6, 12, 2, 0]
+[199, 7, 13, 3]
+[197, 7, 11, 1, 1]
+
+
+```
+
+

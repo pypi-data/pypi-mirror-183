@@ -1,0 +1,4 @@
+include make_even_odd/requirements.txt
+include make_even_odd/thirdparty.json
+include make_even_odd/README.MD
+include make_even_odd/LICENSE

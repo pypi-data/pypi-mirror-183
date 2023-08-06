@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+make_even_odd/LICENSE
+make_even_odd/README.MD
+make_even_odd/__init__.py
+make_even_odd/requirements.txt
+make_even_odd/thirdparty.json
+make_even_odd.egg-info/PKG-INFO
+make_even_odd.egg-info/SOURCES.txt
+make_even_odd.egg-info/dependency_links.txt
+make_even_odd.egg-info/top_level.txt
