@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: mathfin
+Version: 0.0.5
+Summary: Lib com funções de matematica financeira
+Home-page: UNKNOWN
+Author: Naoki Yokoyama
+Author-email: naokity@msn.com
+License: MIT License
+Keywords: math fin
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# lib com calculos para matematica financeira 
+### tabela SAC Price, 
+### PMT, PV, FV, i da HP 12c
+
+
+### Sac metodo dataframe() // pago() // juros_pg()
+### Price metodo dataframe() // pago() // juros_pg()
+### Hp12c metodo value_future() // present_value () payment () taxa_juros()
+
+
