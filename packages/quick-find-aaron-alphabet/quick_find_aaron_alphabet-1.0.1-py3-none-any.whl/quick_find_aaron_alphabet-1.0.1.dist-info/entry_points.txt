@@ -1,0 +1,2 @@
+[console_scripts]
+quick-find = qf.__init__:main
