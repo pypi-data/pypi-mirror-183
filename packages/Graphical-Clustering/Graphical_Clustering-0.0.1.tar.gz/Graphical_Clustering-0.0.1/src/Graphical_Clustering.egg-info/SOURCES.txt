@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/GraphicalClustering/__int__.py
+src/GraphicalClustering/graph_cluster.py
+src/Graphical_Clustering.egg-info/PKG-INFO
+src/Graphical_Clustering.egg-info/SOURCES.txt
+src/Graphical_Clustering.egg-info/dependency_links.txt
+src/Graphical_Clustering.egg-info/requires.txt
+src/Graphical_Clustering.egg-info/top_level.txt
