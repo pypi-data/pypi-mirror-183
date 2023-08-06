@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+transparent_rotate/LICENSE
+transparent_rotate/README.MD
+transparent_rotate/__init__.py
+transparent_rotate/requirements.txt
+transparent_rotate/thirdparty.json
+transparent_rotate.egg-info/PKG-INFO
+transparent_rotate.egg-info/SOURCES.txt
+transparent_rotate.egg-info/dependency_links.txt
+transparent_rotate.egg-info/requires.txt
+transparent_rotate.egg-info/top_level.txt

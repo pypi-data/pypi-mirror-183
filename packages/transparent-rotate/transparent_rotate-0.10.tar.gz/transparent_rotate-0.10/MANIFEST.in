@@ -1,0 +1,4 @@
+include transparent_rotate/requirements.txt
+include transparent_rotate/thirdparty.json
+include transparent_rotate/README.MD
+include transparent_rotate/LICENSE
