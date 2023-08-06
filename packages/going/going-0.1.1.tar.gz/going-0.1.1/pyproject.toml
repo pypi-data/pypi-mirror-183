@@ -1,0 +1,26 @@
+[project]
+name = "going"
+dynamic = ["version"]
+description = "Event-driven support"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Konrad Rymczak", email = "me@teserak.com" },
+]
+
+[project.urls]
+Homepage = "https://github.com/teserak/going"
+Source = "https://github.com/teserak/going"
+
+[tool.hatch.version]
+path = "going/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/going",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

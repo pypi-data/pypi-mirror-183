@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: going
+Version: 0.1.1
+Summary: Event-driven support
+Project-URL: Homepage, https://github.com/teserak/going
+Project-URL: Source, https://github.com/teserak/going
+Author-email: Konrad Rymczak <me@teserak.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+Going
+=====
+
+Event-driven support
