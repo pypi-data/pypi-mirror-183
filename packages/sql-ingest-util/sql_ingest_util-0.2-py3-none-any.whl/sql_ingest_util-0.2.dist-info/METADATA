@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: sql-ingest-util
+Version: 0.2
+Summary: Long description
+Author: Himanshu
+Author-email: abc@gamil.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+License-File: LICENSE.txt
+Requires-Dist: ruamel.yaml (==0.17.21)
+Requires-Dist: pyyaml (==6.0)
+
