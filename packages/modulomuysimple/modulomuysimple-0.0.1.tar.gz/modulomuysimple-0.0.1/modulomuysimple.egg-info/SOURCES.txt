@@ -1,0 +1,11 @@
+setup.py
+modulomuysimple/__init__.py
+modulomuysimple/resta.py
+modulomuysimple/suma.py
+modulomuysimple.egg-info/PKG-INFO
+modulomuysimple.egg-info/SOURCES.txt
+modulomuysimple.egg-info/dependency_links.txt
+modulomuysimple.egg-info/top_level.txt
+modulomuysimple/extras/__init__.py
+modulomuysimple/extras/divide.py
+modulomuysimple/extras/multiplica.py
