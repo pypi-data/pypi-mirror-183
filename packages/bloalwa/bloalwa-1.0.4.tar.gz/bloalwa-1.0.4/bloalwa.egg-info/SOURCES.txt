@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+bloalwa/__init__.py
+bloalwa.egg-info/PKG-INFO
+bloalwa.egg-info/SOURCES.txt
+bloalwa.egg-info/dependency_links.txt
+bloalwa.egg-info/top_level.txt
