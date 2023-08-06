@@ -1,0 +1,25 @@
+{% load disk %}
+
+<div class="card">
+    <h5 class="card-header">Disk</h5>
+    <div class="card-body">
+        <table class="table table-hover attr-table">
+            <tr>
+                <td>
+                    <a href='{{ disk_base_url }}status.cgi?host={{ object.name }}' target="_blank">
+                        <span class="mdi mdi-server-network" aria-hidden="true"></span> Host Status
+                    </a>
+                </td>
+                <td><span class="badge bg-{{ disk.state|disk_status_color }}">{{ disk.state|disk_status_string }}</span></td>
+                <td></td>
+            </tr>
+            {% for service in disk %}
+            <tr>
+                <td><a href='{{ disk_base_url }}extinfo.cgi?type=2&host={{ object.name }}&service={{ service }}' target="_blank">{{ service }}</a></td>
+                <td><span class="badge bg-success">{{ service }}</span></td>
+                <td>{{ service }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
