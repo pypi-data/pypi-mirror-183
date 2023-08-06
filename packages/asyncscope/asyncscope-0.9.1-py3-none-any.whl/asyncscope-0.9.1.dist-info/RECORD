@@ -1,0 +1,7 @@
+asyncscope/__init__.py,sha256=006Xi0bn1MrDeAGuZ8dUFcmVpKysJtksbFfKEZx_8YU,18204
+tests/__init__.py,sha256=-ecB60Crp0LfgBCe-0_m7yIXEUJyypM_4EnubX9Iiks,1157
+tests/test_basic.py,sha256=3KHLP5zxEDEsOreoTdXMuAOFwClaDjtY9SluKyJELNc,3976
+asyncscope-0.9.1.dist-info/METADATA,sha256=OKkFPwW3k69WAI6Nt2bjkmiEBNTjhImYLfQdJZJ2Krg,11888
+asyncscope-0.9.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+asyncscope-0.9.1.dist-info/top_level.txt,sha256=Ts1MOGiy9MgdntYh8MChVPbFAkudcFZW_DUacM_8liw,17
+asyncscope-0.9.1.dist-info/RECORD,,
