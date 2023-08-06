@@ -1,0 +1,10 @@
+.vscode
+venv
+htmlcov
+.coverage
+__pycache__
+*.egg-info
+*.tar.gz
+.mypy_cache
+junit
+coverage.xml
