@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+add_colorprint/LICENSE
+add_colorprint/README.MD
+add_colorprint/__init__.py
+add_colorprint/requirements.txt
+add_colorprint/thirdparty.json
+add_colorprint.egg-info/PKG-INFO
+add_colorprint.egg-info/SOURCES.txt
+add_colorprint.egg-info/dependency_links.txt
+add_colorprint.egg-info/requires.txt
+add_colorprint.egg-info/top_level.txt

@@ -1,0 +1,4 @@
+include add_colorprint/requirements.txt
+include add_colorprint/thirdparty.json
+include add_colorprint/README.MD
+include add_colorprint/LICENSE
