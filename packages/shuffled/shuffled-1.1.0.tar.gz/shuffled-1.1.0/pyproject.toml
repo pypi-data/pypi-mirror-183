@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "shuffled"
+version = "1.1.0"
+description = "Iterate randomly over integer ranges"
+readme = "README.md"
+homepage = "https://github.com/bbc2/shuffled"
+authors = ["Bertrand Bonnefoy-Claudet <bertrand@bertrandbc.com>"]
+license = "MIT"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Typing :: Typed",
+]
+keywords = ["random", "integer", "iterator"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+cryptography = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = {version = "^22.12.0"}
+flake8 = {version = "^5.0.4"}
+mypy = {version = "^0.991"}
+pytest = {version = "^7.2.0"}
+pytest-benchmark = {version = "^4.0.0"}
+pytest-cov = {version = "^4.0.0"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
