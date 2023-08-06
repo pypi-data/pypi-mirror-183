@@ -1,0 +1,3 @@
+[console_scripts]
+monitescript=monitescript.monitescript:main
+
