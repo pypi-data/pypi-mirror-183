@@ -1,0 +1,1 @@
+alembic -x schema=public downgrade base;alembic -x schema=public upgrade head
