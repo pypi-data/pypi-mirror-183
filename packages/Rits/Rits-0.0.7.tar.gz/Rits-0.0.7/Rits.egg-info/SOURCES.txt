@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+PythonDictExp/DictToList.py
+PythonDictExp/MergeDict.py
+PythonDictExp/__init__.py
+Rits.egg-info/PKG-INFO
+Rits.egg-info/SOURCES.txt
+Rits.egg-info/dependency_links.txt
+Rits.egg-info/top_level.txt
