@@ -1,0 +1,3 @@
+[console_scripts]
+collie = bugfinder.__init__:main
+
