@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: LePotatoPi.GPIO
+Version: 0.0.4
+Summary: Le Potato Port of RPi.GPIO to help allow Le Potato Developers to follow coding tutorials
+Home-page: https://github.com/solrobson/le-potato-pi
+Author: solrobson
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Hardware
+Description-Content-Type: text/markdown
+
+This package is to give a RPi.GPIO like API for the Le Potato.
+
+import LePotatoPi.GPIO as GPIO
+
+instead of
+
+import RPi.GPIO as GPIO
+
+
