@@ -1,0 +1,4 @@
+[console_scripts]
+jasminmongoconf_mo_interceptor = jasmin_mongo_configuration.configurationstreamer:interceptMOFromCLI
+jasminmongoconf_mt_interceptor = jasmin_mongo_configuration.configurationstreamer:interceptMTFromCLI
+jasminmongoconfd = jasmin_mongo_configuration.configurationstreamer:startFromCLI

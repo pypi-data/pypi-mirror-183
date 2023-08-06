@@ -1,0 +1,12 @@
+jasmin_mongo_configuration/__init__.py,sha256=_iGcQmcm3qYi0yGKRU5xfvxwQiD39ORlF3FwusCqXuE,101
+jasmin_mongo_configuration/__main__.py,sha256=e5lu6vBL4vErln795jjfkSYUBpyHgBeeGNAqTsZtnn0,79
+jasmin_mongo_configuration/configurationstreamer.py,sha256=SqSeZBgoAFaCw4Xr8BIeT5UbqK1iz25WIy8GyElv0Gw,19336
+jasmin_mongo_configuration/defaults.py,sha256=Teo985wKcIQAdeJSJjOQ3FCzR0sOCQdYRxm6IQoaMEk,486
+jasmin_mongo_configuration/mongodb.py,sha256=IK3cEk5Xl6KgxzZBuOTBszae6t1P5ikeXmU2DBFuXUs,12073
+jasmin_mongo_configuration/interceptors/mo.py,sha256=NxlfpR7DPuT5wu7McxmZu_xqmO0gCbkhyLBAT2uprKs,3459
+jasmin_mongo_configuration/interceptors/mt.py,sha256=iq4h8lPZ4eMyNAb6TS3GwtWmcy9RSSKjFixG5l0zlnM,2911
+jasmin_mongo_configuration-0.1.0.dev3.dist-info/METADATA,sha256=gph1UV-ZpMJvAbnDLW2DWPsMkIjM1cgYqFdPHWmY170,8666
+jasmin_mongo_configuration-0.1.0.dev3.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+jasmin_mongo_configuration-0.1.0.dev3.dist-info/entry_points.txt,sha256=uWwzdTk9krvUAspW3nbKgPD_CeXQQP5h1OqYbT14qM0,301
+jasmin_mongo_configuration-0.1.0.dev3.dist-info/licenses/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+jasmin_mongo_configuration-0.1.0.dev3.dist-info/RECORD,,
