@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling>=1.11.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lsports"
+version = "0.1.0"
+description = "List serial ports."
+authors = [
+  {name="Ali Hamdan", email="ali.hamdan.dev@gmail.com"},
+]
+readme = "README.md"
+license = "MIT"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+keywords = ["serial", "lsports", "list-ports", "USB", "COM"]
+dependencies = []
+requires-python = ">=3.7"
+
+[project.urls]
+Homepage = "https://github.com/hamdanal/lsports"
+Documentation = "https://github.com/hamdanal/lsports#lsports"
+Issue-Tracker = "https://github.com/hamdanal/lsports/issues"
+
+[tool.hatch.build]
+only-include = ["lsports"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py37,py38,py39,py310,py311,py312
+isolated_build = true
+skip_missing_interpreters = true
+[testenv]
+deps =
+  pytest
+commands =
+  pytest {posargs}
+"""
+
+[tool.black]
+line_length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+check_untyped_defs = false
+disallow_untyped_defs = false
+disallow_incomplete_defs = false

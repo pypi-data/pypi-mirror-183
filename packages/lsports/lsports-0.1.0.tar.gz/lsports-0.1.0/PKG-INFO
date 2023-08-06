@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: lsports
+Version: 0.1.0
+Summary: List serial ports.
+Project-URL: Homepage, https://github.com/hamdanal/lsports
+Project-URL: Documentation, https://github.com/hamdanal/lsports#lsports
+Project-URL: Issue-Tracker, https://github.com/hamdanal/lsports/issues
+Author-email: Ali Hamdan <ali.hamdan.dev@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: COM,USB,list-ports,lsports,serial
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# lsports
+
+A simple Python 3.7+ module to list serial ports on Windows, Linux, and macOS.
+
+This is a modified version of `serial.tools.list_ports` from
+[pySerial](https://github.com/pyserial/pyserial) by Chris Liechti.
+
+## Installation
+
+```bash
+pip install lsports
+```
+
+## Usage
+
+The module provides a single function `comports` that returns a list of `PortInfo` objects.
+Each `PortInfo` object contains information about a connected serial port.
+```python
+from lsports import comports
+
+for port in comports():
+    print(port.device, port.product, port.hwid)
+```
+For a full list of available attributes, see the `PortInfo` class. Only `comports` and `PortInfo`
+are considered public API.
