@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: invertmeeg
+Version: 0.0.4
+Summary: A high-level M/EEG Python library for EEG inverse solutions
+Home-page: https://github.com/LukeTheHecker/inverse
+Author: Lukas Hecker
+Author-email: lukas_hecker@web.de
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tensorflow
+Requires-Dist: mne
+Requires-Dist: scipy
+Requires-Dist: colorednoise
+Requires-Dist: matplotlib
+Requires-Dist: pyvista
+Requires-Dist: pyvistaqt
+Requires-Dist: PyQt5
+Requires-Dist: vtk
+Requires-Dist: tqdm
+Requires-Dist: pytest
+Requires-Dist: dill
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+
+# **invertmeeg** - A high-level M/EEG Python library for EEG inverse solutions
+
+This package contains various approaches to solve the M/EEG inverse problems. It
+integrates with the [mne-python](https://mne.tools) framework.
+
+Read the [Documentation here!](https://lukethehecker.github.io/invert/)
+
+Install the package from [pypi](https://pypi.org/project/invertmeeg/):
+
+```
+pip install invertmeeg
+```
+
+To check if the installation works run:
+
+```
+python -c 'import invert'
+```
+
+To test the package simply run:
+
+```
+pytest tests
+```
+
+To calculate an inverse solution using *minimum norm estimates* simply type:
+
+```
+from invert import Solver
+
+# fwd = ...
+# evoked = ...
+
+# Create a Solver instance
+solver_name = "MNE"
+solver = Solver(solver_name)
+
+# Calculate the inverse operator
+solver.make_inverse_operator(fwd)
+
+# Apply the inverse operator to your data
+stc = solver.apply_inverse_operator(evoked)
+
+# Plot the resulting source estimate
+stc.plot()
+```
+
+There are many solvers implemented in the package, and you can find them
+[here!](https://lukethehecker.github.io/invert/content/solvers.html)
