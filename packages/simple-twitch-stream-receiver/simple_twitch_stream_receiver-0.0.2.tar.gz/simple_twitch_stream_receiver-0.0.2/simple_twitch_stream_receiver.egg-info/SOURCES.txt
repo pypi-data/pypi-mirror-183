@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+simple_twitch_stream_receiver/__init__.py
+simple_twitch_stream_receiver/exceptions.py
+simple_twitch_stream_receiver/receiver.py
+simple_twitch_stream_receiver.egg-info/PKG-INFO
+simple_twitch_stream_receiver.egg-info/SOURCES.txt
+simple_twitch_stream_receiver.egg-info/dependency_links.txt
+simple_twitch_stream_receiver.egg-info/requires.txt
+simple_twitch_stream_receiver.egg-info/top_level.txt

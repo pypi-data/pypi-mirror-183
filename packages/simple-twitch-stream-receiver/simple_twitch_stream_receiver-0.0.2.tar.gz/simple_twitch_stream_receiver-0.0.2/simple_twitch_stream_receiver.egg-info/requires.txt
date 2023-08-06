@@ -1,0 +1,4 @@
+setuptools
+streamlink>=5.1.2
+ffmpeg-python>=0.2.0
+numpy
