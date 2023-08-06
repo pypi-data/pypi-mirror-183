@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: xmq
+Version: 0.0.2
+Summary: A package for xmq server and client.
+Home-page: https://gitee.com
+Author: ZQX
+Author-email: 262293446@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# xmq
+
+
