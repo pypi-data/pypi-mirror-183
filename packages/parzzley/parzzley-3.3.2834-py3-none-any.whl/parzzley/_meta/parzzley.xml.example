@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<parzzleyconfig>
+    <!--
+    <sync name="example" interval="5m">
+        <fs type="LocalFilesystem" path="/data/storage/f1" name="foo">
+            <aspect type="TrashRemove"/>
+        </fs>
+        <fs type="SshfsFilesystem" path="/mnt/f1" sshtarget="pino@prellwitz" idfile="/idfiles/myidfile" name="bar">
+            <aspect type="TrashRemove"/>
+        </fs>
+        <aspect type="DefaultSync"/>
+        <aspect type="ApplyPathAcceptor" function="defaultpathacceptor(path, fs)"/>
+        <aspect type="Logging" logupdate="1" logcreate="1" logremove="1" />
+    </sync>
+    -->
+    <logger minseverity="debug" maxseverity="debug">
+        <out type="FilestreamLoggerout" />
+        <formatter type="PlaintextLogformat" color="4"/>
+    </logger>
+    <logger minseverity="info" maxseverity="error">
+        <out type="FilestreamLoggerout" />
+        <formatter type="PlaintextLogformat" color="3"/>
+    </logger>
+</parzzleyconfig>

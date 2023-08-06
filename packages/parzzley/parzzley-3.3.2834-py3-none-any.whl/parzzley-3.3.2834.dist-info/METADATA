@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: parzzley
+Version: 3.3.2834
+Summary: a modular python-based file synchronization tool
+Home-page: https://pseudopolis.eu/pino/parzzley
+Author: Josef Hahn
+Author-email: parzzley@pseudopolis.eu
+License: AGPL 3
+Keywords: python filesystem file synchronization scripting
+Platform: UNKNOWN
+Description-Content-Type: text/plain
+
+
+        a modular python-based file synchronization tool
+    
+

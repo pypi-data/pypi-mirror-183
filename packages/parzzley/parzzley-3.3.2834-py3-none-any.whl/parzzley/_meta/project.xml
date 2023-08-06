@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:base="annize:base" xmlns:version="annize:version">
+    <base:Data project_name="parzzley" pretty_project_name="Parzzley"
+               homepage_url="https://pseudopolis.eu/pino/parzzley"/>
+    <base:Keywords from_string="python filesystem file synchronization scripting"/>
+    <Author xmlns="annize:authors" fullname="Josef Hahn" email="parzzley@pseudopolis.eu"/>
+    <BuildVersion a:name="version" xmlns="annize:versioncontrol" vcs="~reference vcs~">
+        <version:Version text="3.3" a:name="lineversion"/>
+    </BuildVersion>
+    <Data.summary xmlns="annize:base">
+        a modular python-based file synchronization tool
+    </Data.summary><!-- TODO i18n -->
+    <Data.long_description xmlns="annize:base">
+        a modular python-based file synchronization tool
+    </Data.long_description><!-- TODO i18n -->
+    <base:BrandColor red="0.1" green="0.7" blue="0.4"/>
+    <AGPLv3 xmlns="annize:licensing"/>
+    <VersionControlSystem xmlns="annize:versioncontrol.git" a:name="vcs"/>
+    <base:Basket a:name="packagestore">
+        <PackageStore xmlns="annize:pinoprivate"/>
+    </base:Basket>
+    <a:if_unavailable feature="pinoprivate" do="skip_node" scope="project"/>
+    <Auxiliary xmlns="annize:pinoprivate"/>
+
+    <!-- TODO
+    <val k="base.longdescription">
+Parzzley keeps a configured set of places in file systems in sync.
+
+Features:
+
+- Keeps configured file system places in sync (local and ssh)
+- Robust infrastructure with working retry and error handling
+- Customizable behavior with the availability to add additional program logic for various situations
+- Optional 'move to sink mode': always moves all files from the source to a sink and so keep the source empty
+- Has a mechanism for metadata synchronization (tags, rating, ...)
+- Can be used stand-alone or embedded in other tools with a flexible and extensible api
+- Rich graphical interface for configuration and for executing synchronization
+- Graphical interface for manually resolving conflicts that occurred in a synchronization run
+- Designed for being driven by a scheduled task (a.k.a. cronjob), which executes a background command (e.g. each minute)
+- In background mode: Own handling of synchronization intervals (independent of the interval for the scheduled task)
+    </val>
+
+
+
+
+
+   <let k="base.pyscript">
+        <val k="code">
+def handler():
+    podir = f"{universe.specialpaths.projectdir}/_meta/po"
+    def update_pofiles():
+        allfiles = []
+        for dirtup in os.walk("."):
+            for f in dirtup[2]:
+                ff = f"{dirtup[0]}/{f}"
+                if [suf for suf in [".py", ".ui"] if ff.endswith(suf)]:
+                    allfiles.append(ff)
+        subprocess.check_call(["xgettext", "- -keyword=tr", "- -add-comments", "- -from-code", "utf-8", "- -sort-output", "-o", "/tmp/parsley.pot", *allfiles])
+        for fpofile in os.listdir(podir):
+            subprocess.check_call(["msgmerge", "- -no-fuzzy-matching", "- -backup=none", "- -update", f"{podir}/{fpofile}", "/tmp/parsley.pot"])
+    def withinitpys(fstruct):
+        with open(f"{fstruct.path}/__init__.py", "ab"):
+            pass
+        for f in os.listdir(fstruct.path):
+            ff = f"{fstruct.path}/{f}"
+            if os.path.isdir(ff):
+                withinitpys(anise.framework.files.Filestructure(ff))
+        return fstruct
+    def locales():
+        result = files.TempDir()
+        for pofile in os.listdir(podir):
+            outdir = f"{result.path}/{pofile[:-3]}/LC_MESSAGES"
+            os.makedirs(outdir)
+            subprocess.check_call(["msgfmt", f"- -output-file={outdir}/parsley.mo", f"{podir}/{pofile}"])
+        return result
+    universe.update_pofiles = update_pofiles
+    universe.withinitpys = withinitpys
+    universe.locales = locales
+        </val>
+        <val k="hook" oref="features.HOOK_BEFORE_EXECUTION"/>
+    </let>
+
+     -->
+</a:project>

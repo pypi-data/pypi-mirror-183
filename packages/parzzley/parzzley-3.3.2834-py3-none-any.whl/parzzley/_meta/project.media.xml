@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:mediagal="annize:mediagalleries">
+    <!--TODO
+    <mediagal:Gallery a:append_to="homepage" a:name="gallery">
+        <Dir path="_meta/screenshots" xmlns="annize:files"/>
+    </mediagal:Gallery>
+
+        <let k="mediagalleries.pool.add">
+        <val k="gallery" t="mediagalleries.MediaGallery" path="_meta/screenshots"/>
+    </let>
+    -->
+    <ProjectIcon charcode="11138" xmlns="annize:pinoprivate">
+        <ProjectIconDestination piecename="64.png" destination="/parzzley/gui/icons/parzzley.png"/>
+    </ProjectIcon>
+</a:project>

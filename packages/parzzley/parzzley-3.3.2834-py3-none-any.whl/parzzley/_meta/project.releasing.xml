@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:pino="annize:pinoprivate" xmlns:tst="annize:testing" xmlns:base="annize:base"
+           xmlns:files="annize:files" xmlns:datainjections="annize:datainjections">
+    <Task a:name="release" xmlns="annize:task">
+        <pino:PullVCS/>
+        <a:reference name="sync_translations"/>
+        <datainjections:Inject injection="~reference pyinjection~">
+            <files:Dir path="parzzley/runtime"/>
+        </datainjections:Inject>
+        <tst:RunTests/>
+        <pino:PushVCS/>
+        <!--
+        <Upload xmlns="annize:files.transfer" destination_path="/data/daemondata/pihomepage/projects/parzzley">
+            <base:FirstOf>
+                <pino:ServerEndpoint/>
+                <FsEndpoint xmlns="annize:files.transfer" path="/tmp/annize-out"/>
+            </base:FirstOf>
+            <GeneratedHomepage xmlns="annize:homepage" homepage="~reference homepage~"/>
+        </Upload>
+        -->
+        <pino:PypiUpload xmlns="annize:distributables.store.pypi">
+            <a:reference name="package_pythonwheel"/>
+        </pino:PypiUpload>
+    </Task>
+</a:project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:files="annize:files" xmlns:gettext="annize:i18n.gettext">
+    <Task a:name="sync_translations" xmlns="annize:task">
+    <!-- TODO
+
+     -->
+    </Task>
+    <ProjectCultures xmlns="annize:i18n">
+        <Culture iso_639_1_lang_code="en" a:name="culture_en"/>
+    </ProjectCultures>
+</a:project>

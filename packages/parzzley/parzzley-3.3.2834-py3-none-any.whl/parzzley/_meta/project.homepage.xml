@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns="annize:homepage">
+    <SimpleProjectHomepage a:name="homepage"><!-- TODO  languages="de en" -->
+        <a:reference name="dependencies"/><!-- TODO inline Reference -->
+    </SimpleProjectHomepage>
+    <PinoHomepageAuxInfo xmlns="annize:pinoprivate" a:append_to="homepage"/>
+</a:project>

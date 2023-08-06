@@ -1,0 +1,886 @@
+# SPDX-FileCopyrightText: © 2014 Josef Hahn
+# SPDX-License-Identifier: AGPL-3.0-only
+# pino <shallot@pseudopolis.eu>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: parzzley\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-24 01:13+0100\n"
+"PO-Revision-Date: 2021-01-24 01:15+0100\n"
+"Last-Translator: pino <shallot@pseudopolis.eu>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: parsley/gui/app_report/performancepanel.py:109
+msgid "-"
+msgstr "-"
+
+#: parsley/gui/app_main/configitem.py:324
+#: parsley/gui/app_main/configitem.py:354
+msgid "Add aspect"
+msgstr "Aspekt hinzufügen"
+
+#: parsley/gui/app_main/configitem.py:717
+msgid "Add item"
+msgstr "Element hinzufügen"
+
+#: parsley/gui/app_main/configitem.py:323
+#: parsley/gui/app_main/configitem.py:338
+#: parsley/gui/app_main/configitem.py:352
+#: parsley/gui/app_main/configitem.py:366
+#: parsley/gui/app_main/configitem.py:381
+#: parsley/gui/app_main/configitem.py:560
+#: parsley/gui/app_main/configitem.py:568
+msgid "Add parameter"
+msgstr "Parameter hinzufügen"
+
+#: parsley/gui/aspect/applypathacceptor.py:23
+msgid "Add path acceptor filter"
+msgstr "Pfad-Akzeptor Filter hinzufügen"
+
+#: parsley/gui/app_main/configitem.py:325
+msgid "Add preparation"
+msgstr "Preparation hinzufügen"
+
+#: parsley/gui/app_report/performancepanel.ui:222
+msgid "Aggregation:"
+msgstr "Aggregation:"
+
+#: parsley/gui/app_report/performancepanel.ui:13
+msgid "Analyze synchronization performance here."
+msgstr "Analysieren Sie die Synchronisierungs-Performance hier."
+
+#: parsley/gui/app_manageconflicts/main.ui:11
+msgid "Apply decisions"
+msgstr "Entscheidungen anwenden"
+
+#: parsley/gui/app_main/configitem.py:304
+#: parsley/gui/app_main/configitem.py:313
+#, python-brace-format
+msgid "Aspect '{0}'"
+msgstr "Aspekt '{0}'"
+
+#: parsley/gui/app_report/__init__.py:39
+msgid "At first, go to the Parzzley sync directory you want to see reports for."
+msgstr ""
+"Gehen Sie zuerst zu dem Parzzley-synchronisierten Verzeichnis, dessen Reports "
+"Sie sehen möchten."
+
+#: parsley/gui/app_report/performancepanel.py:114
+msgid "Average"
+msgstr "Durchschnitt"
+
+#: parsley/gui/app_report/performancepanel.ui:286
+msgid "Axes"
+msgstr "Achsen"
+
+#: parsley/gui/filesystem/sshfs.py:36
+msgid ""
+"Be aware that ssh filesystems will only work if the destination is a known "
+"host to ssh and the ssh program can connect without doubts.\n"
+"\n"
+"It will also need an 'ssh identity file' for it as well (search the internet "
+"for more info).\n"
+"\n"
+"Please choose one in the next dialog."
+msgstr ""
+"SSH-Dateisysteme funktionieren nur dann, wenn der Zielhost für ssh bekannt "
+"ist und ssh ohne Probleme die Verbindung herstellen kann.\n"
+"\n"
+"Ferner wird eine 'ssh identity file' benötigt (weitere Infos siehe "
+"Internet).\n"
+"\n"
+"Bitte wählen Sie diese Datei im nächsten Dialog aus."
+
+#: parsley/gui/app_main/runsyncdialog.py:62
+#: parsley/gui/app_main/runsyncdialog.ui:27
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: parsley/gui/app_main/configitem.py:531
+#: parsley/gui/app_main/configitem.py:537
+#: parsley/gui/app_main/configitem.py:677
+msgid "Change"
+msgstr "Ändern"
+
+#: parsley/gui/app_main/configitem.py:339
+#: parsley/gui/app_main/configitem.py:353
+#: parsley/gui/app_main/configitem.py:367
+#: parsley/gui/app_main/configitem.py:382
+#: parsley/gui/app_main/configitem.py:562
+#: parsley/gui/app_main/configitem.py:570
+msgid "Change type"
+msgstr "Typ ändern"
+
+#: parsley/gui/app_main/configitem.py:330
+#: parsley/gui/app_main/configitem.py:345
+#: parsley/gui/app_main/configitem.py:359
+#: parsley/gui/app_main/configitem.py:374
+#: parsley/gui/app_main/configitem.py:390
+#: parsley/gui/app_main/configitem.py:543
+#: parsley/gui/app_main/configitem.py:552
+msgid "Change value"
+msgstr "Wert ändern"
+
+#: parsley/gui/app_main/__init__.py:100
+msgid "Choose a configuration file"
+msgstr "Wählen Sie eine Konfigurationsdatei..."
+
+#: parsley/gui/app_main/configitem.py:276
+#: parsley/gui/app_main/configitem.py:500
+msgid ""
+"Click on one of the nodes below in order to configure it.\n"
+"Warning: Changes might break your configuration!"
+msgstr ""
+"Klicken Sie auf einen der Knoten unterhalb, um ihn zu konfigurieren.\n"
+"Warnung: Änderungen könnten die Konfiguration beeinträchtigen!"
+
+#: parsley/gui/app_main/runsyncdialog.py:55
+msgid "Close"
+msgstr "Schließen"
+
+#: parsley/gui/app_main/configitem.py:258
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: parsley/gui/app_main/configitem.py:629
+msgid "Content"
+msgstr "Inhalt"
+
+#: parsley/gui/app_main/main.ui:229
+msgid "Custom Aspect"
+msgstr "Benutzerdefinierter Aspekt"
+
+#: parsley/gui/app_main/configitem.py:584
+#, python-brace-format
+msgid "Custom Aspect '{0}'"
+msgstr "Benutzerdefinierter Aspekt '{0}'"
+
+#: parsley/gui/app_report/timelinepanel.ui:22
+msgid "Day"
+msgstr "Tag"
+
+#: parsley/gui/aspect/highlevelcustomization.py:28
+msgid "Disable high level customization support"
+msgstr "High-Level Anpassbarkeit deaktivieren"
+
+#: parsley/gui/aspect/metadata.py:52
+msgid "Disable metadata storage"
+msgstr "Metadata Storage deaktivieren"
+
+#: parsley/gui/aspect/revisiontracking.py:23
+msgid "Disable revision tracking"
+msgstr "Revisionsverfolgung deaktivieren"
+
+#: parsley/gui/gtk/volumeapp/__init__.py:81
+msgid "Do you really want to drop the resolution decisions you made so far?"
+msgstr ""
+"Möchten Sie die bisher vorgenommenen Entscheidungen wirklich verwerfen?"
+
+#: parsley/gui/app_main/configitem.py:406
+#, python-brace-format
+msgid "Do you really want to remove the '{0}' aspect?"
+msgstr "Möchten Sie den Aspekt '{0}' wirklich entfernen?"
+
+#: parsley/gui/app_main/configitem.py:202
+#, python-brace-format
+msgid "Do you really want to remove the '{0}' parameter?"
+msgstr "Möchten Sie den Parameter '{0}' wirklich entfernen?"
+
+#: parsley/gui/app_main/configitem.py:397
+#, python-brace-format
+msgid "Do you really want to remove the '{0}' preparation?"
+msgstr "Möchten Sie diese Preparation '{0}' wirklich entfernen?"
+
+#: parsley/gui/app_main/configitem.py:183
+msgid "Do you really want to remove this item?"
+msgstr "Möchten Sie dieses Element wirklich entfernen?"
+
+#: parsley/gui/app_main/configitem.py:444
+msgid "Do you really want to run this synchronization task now?"
+msgstr "Möchten Sie diese Synchronisation jetzt wirklich ausführen?"
+
+#: parsley/gui/aspect/permissions.py:22
+msgid "Do you want to enable or disable a forced ownership and permission set?"
+msgstr ""
+"Möchten Sie die erzwungene Eigentümerschaft und Erlaubnisvergabe aktivieren "
+"oder deaktivieren?"
+
+#: parsley/gui/app_main/configitem.py:592
+msgid "Edit code"
+msgstr "Code editieren"
+
+#: parsley/gui/aspect/highlevelcustomization.py:30
+msgid "Enable high level customization support"
+msgstr "High-Level Anpassbarkeit aktivieren"
+
+#: parsley/gui/aspect/metadata.py:54
+msgid "Enable metadata storage"
+msgstr "Metadata Storage aktivieren"
+
+#: parsley/gui/aspect/revisiontracking.py:25
+msgid "Enable revision tracking"
+msgstr "Revisionsverfolgung aktivieren"
+
+#: parsley/gui/app_report/performancepanel.py:106
+msgid "Event handler"
+msgstr "Ereignisroutine"
+
+#: parsley/gui/app_report/performancepanel.ui:62
+msgid "Event handler:"
+msgstr "Ereignisroutine:"
+
+#: parsley/gui/app_main/main.ui:242
+msgid "File Include"
+msgstr "Datei-Include"
+
+#: parsley/gui/app_main/configitem.py:621
+#, python-brace-format
+msgid "File Include '{0}'"
+msgstr "Datei-Inklude '{0}'"
+
+#: parsley/gui/app_report/performancepanel.py:107
+msgid "Filesystem"
+msgstr "Dateisystem"
+
+#: parsley/gui/app_main/configitem.py:295
+#, python-brace-format
+msgid "Filesystem '{0}' ({1})"
+msgstr "Dateisystem '{0}' ('{1}')"
+
+#: parsley/gui/app_main/configitem.py:296
+#, python-brace-format
+msgid "Filesystem ({0})"
+msgstr "Dateisystem ({0})"
+
+#: parsley/gui/app_report/performancepanel.ui:73
+msgid "Filesystem:"
+msgstr "Dateisystem:"
+
+#: parsley/gui/app_report/performancepanel.ui:175
+msgid "Filtering"
+msgstr "Filter"
+
+#: parsley/gui/aspect/permissions.py:57
+msgid "Force file ownerships and permissions"
+msgstr "Dateieigentümer/-erlaubnisse forcieren"
+
+#: parsley/gui/app_main/configitem.py:513
+#, python-brace-format
+msgid "Formatter '{0}'"
+msgstr "Formatter '{0}'"
+
+#: parsley/gui/app_main/configitem.py:280
+msgid "General"
+msgstr "Allgemein"
+
+#: parsley/gui/gtk/volumeapp/main.ui:29
+msgid "Go To Directory"
+msgstr "Gehe zu Verzeichnis"
+
+#: parsley/gui/app_main/runsyncdialog.ui:215
+msgid ""
+"Hint: You could also run this from command line or in background. Read the "
+"documentation for details."
+msgstr ""
+"Tip: Sie können dies auch per Kommandozeile oder im Hintergrund ausführen. "
+"Lesen Sie die Dokumentation für Details."
+
+#: parsley/gui/app_report/performancepanel.ui:200
+msgid "Horizontally:"
+msgstr "Horizontal:"
+
+#: parsley/gui/app_report/timelinepanel.ui:26
+msgid "Hour"
+msgstr "Stunde"
+
+#: parsley/gui/app_report/main.ui:57
+msgid "Log"
+msgstr "Log"
+
+#: parsley/gui/app_main/configitem.py:485 parsley/gui/app_main/main.ui:216
+msgid "Logger"
+msgstr "Logger"
+
+#: parsley/gui/app_main/configitem.py:520
+#, python-brace-format
+msgid "Loggerout '{0}'"
+msgstr "Loggerout '{0}'"
+
+#: parsley/gui/app_report/timelinepanel.ui:14
+msgid "Month"
+msgstr "Monat"
+
+#: parsley/gui/app_main/configitem.py:203
+#: parsley/gui/app_main/configitem.py:398
+#: parsley/gui/app_main/configitem.py:407
+#: parsley/gui/app_main/configitem.py:444
+msgid "No"
+msgstr "Nein"
+
+#: parsley/gui/aspect/logging.py:14
+msgid "No logging"
+msgstr "Kein Logging"
+
+#: parsley/gui/app_manageconflicts/main.ui:31
+msgid ""
+"Now you can resolve sync file conflicts. For each file, you can decide which "
+"version to take.\n"
+"You are free to skip some decisions if you want to resolve that later. When "
+"you are done, commit your resolution."
+msgstr ""
+"Nun können Sie Synchronisationskonflikte auflösen. Sie können für jede Datei "
+"entscheiden, welche Version weiter verwendet werden soll.\n"
+"Jede Entscheidung kann übersprungen und später gelöst werden. Wenden Sie "
+"Ihre Entscheidungen an, sobald Sie entschieden haben."
+
+#: parsley/gui/gtk/userfeedback.py:32
+msgid "OK"
+msgstr "OK"
+
+#: parsley/gui/aspect/logging.py:14
+msgid "Only problems"
+msgstr "Nur Probleme"
+
+#: parsley/gui/app_main/main.ui:29
+msgid "Open another configuration file"
+msgstr "Andere Konfigurationsdatei öffnen"
+
+#: parsley/gui/app_main/__init__.py:89 parsley/gui/app_main/__init__.py:248
+msgid "Parzzley"
+msgstr "Parzzley"
+
+#: parsley/gui/app_report/__init__.py:38
+msgid "Parzzley Report Viewer"
+msgstr "Parzzley Reportbetrachter"
+
+#: parsley/gui/app_manageconflicts/__init__.py:38
+msgid "Parzzley Sync Conflict Manager"
+msgstr "Parzzley Synchronisationskonflikte-Manager"
+
+#: parsley/gui/app_manageconflicts/__init__.py:111
+#: parsley/gui/app_report/performancepanel.py:108
+msgid "Path"
+msgstr "Pfad"
+
+#: parsley/gui/app_report/performancepanel.ui:84
+msgid "Path:"
+msgstr "Pfad:"
+
+#: parsley/gui/app_report/main.ui:160
+msgid "Performance"
+msgstr "Performance"
+
+#: parsley/gui/aspect/remove.py:30
+msgid "Please choose a trash-to-cleanup interval (e.g. '100h' or '4d')."
+msgstr ""
+"Bitte wählen Sie eine Vorhaltezeit für den Papierkorb (z.B. '100h' oder "
+"'4d')."
+
+#: parsley/gui/filesystem/sshfs.py:40
+msgid "Please choose an ssh identity file."
+msgstr "Bitte wählen Sie eine ssh identity file."
+
+#: parsley/gui/aspect/remove.py:24
+#, python-brace-format
+msgid "Please choose if you want to enable or disable the trashbin in '{0}'."
+msgstr ""
+"Bitte wählen Sie, ob Sie den Papierkorb in '{0}' aktivieren oder "
+"deaktivieren möchten."
+
+#: parsley/gui/aspect/permissions.py:18
+msgid ""
+"Please choose on which filesystem you want to force file ownerships and "
+"permissions."
+msgstr ""
+"Bitte wählen Sie, für welches Dateisystem Sie Dateieigentümer und -"
+"erlaubnisse forcieren möchten."
+
+#: parsley/gui/aspect/remove.py:19
+msgid "Please choose on which filesystem you want to setup the trashbin."
+msgstr ""
+"Bitte wählen Sie, für welches Dateisystem Sie den Papierkorb einstellen "
+"möchten."
+
+#: parsley/gui/aspect/metadata.py:27
+msgid ""
+"Please choose on which filesystem you want to store the metadata shadow."
+msgstr ""
+"Bitte wählen Sie, für welches Dateisystem Sie den Metadata-Storage "
+"einrichten möchten."
+
+#: parsley/gui/app_main/__init__.py:145
+#, python-brace-format
+msgid "Please choose the type for the {0}. filesystem."
+msgstr "Bitte wählen Sie den Typ für das {0}. Dateisystem."
+
+#: parsley/gui/app_main/main.ui:175
+msgid "Please choose what you want to add."
+msgstr "Bitte wählen Sie, was Sie hinzufügen möchten."
+
+#: parsley/gui/aspect/defaults.py:69
+msgid "Please choose which filesystem is the read-only one."
+msgstr ""
+"Bitte wählen Sie, welches Dateisystem nur für Lesezugriffe vorgesehen ist."
+
+#: parsley/gui/aspect/defaults.py:34
+msgid ""
+"Please choose which filesystem shall be the data sink (the 'storage place'). "
+"The other filesystem will become the source, which will regularly be pulled "
+"and purged."
+msgstr ""
+"Bitte wählen Sie, welches Dateisystem als Datensenke (der 'Storage') "
+"vorgesehen ist. Das andere Dateisystem wird dann die Quelle, die abgerufen "
+"und bereinigt wird."
+
+#: parsley/gui/app_main/__init__.py:228
+msgid ""
+"Please enter the full name (dot-separated including package and module "
+"names) of the Python object (class, function, ...) you want to import."
+msgstr ""
+"Bitte geben Sie den vollen Namen (Punkt-getrennt inklusive Package- und "
+"Modulnamen) des Python-Objekts (Klasse, Funktion, ...), das Sie importieren "
+"möchten."
+
+#: parsley/gui/app_main/__init__.py:236
+msgid ""
+"Please enter the name (without dots) you want to make this object available "
+"as."
+msgstr ""
+"Bitte geben Sie den Namen (ohne Punkte) ein, unter dem Sie dieses Objekt "
+"verfügbar machen möchten."
+
+#: parsley/gui/app_main/configitem.py:422
+msgid "Please enter the new aspect type name."
+msgstr "Bitte geben Sie den neuen Aspekttypen ein."
+
+#: parsley/gui/app_main/configitem.py:667
+msgid "Please enter the new full name of the Python object you want to import."
+msgstr ""
+"Bitte geben Sie den neuen vollen Namen des Python-Objekts ein, das Sie "
+"importieren möchten."
+
+#: parsley/gui/app_main/configitem.py:505
+msgid "Please enter the new maximum severity for this logger."
+msgstr "Bitte geben Sie den neuen maximalen Schweregrad für diesen Logger ein."
+
+#: parsley/gui/app_main/configitem.py:504
+msgid "Please enter the new minimum severity for this logger."
+msgstr "Bitte geben Sie den neuen minimalen Schweregrad für diesen Logger ein."
+
+#: parsley/gui/app_main/configitem.py:669
+msgid "Please enter the new name you want to make this object available as."
+msgstr ""
+"Bitte geben Sie den neuen Namen ein, unter dem Sie dieses Objekt verfügbar "
+"machen möchten."
+
+#: parsley/gui/app_main/configitem.py:217
+msgid "Please enter the new object type name."
+msgstr "Bitte geben Sie den neuen Objektnamen ein."
+
+#: parsley/gui/app_main/configitem.py:210
+msgid "Please enter the new parameter name."
+msgstr "Bitte geben Sie den neuen Parameternamen ein."
+
+#: parsley/gui/app_main/configitem.py:194
+msgid "Please enter the new parameter value."
+msgstr "Bitte geben Sie den neuen Parameterwert ein."
+
+#: parsley/gui/app_main/configitem.py:414
+msgid "Please enter the new preparation type name."
+msgstr "Bitte geben Sie den neuen Preparationstypen ein."
+
+#: parsley/gui/gtk/volumeapp/__init__.py:58
+msgid ""
+"Please find the directory you want to resolve conflicts in. It is sufficient "
+"to find the root directory of your Parzzley volume."
+msgstr ""
+"Bitte wählen Sie das Verzeichnis, in dem Konflikte auflösen möchten. Es ist "
+"ausreichend, das Wurzelverzeichnis des Parzzley-Volumes zu finden."
+
+#: parsley/gui/app_main/configitem.py:602
+msgid "Please make your code changes here."
+msgstr "Bitte machen Sie hier Ihre Codeänderungen."
+
+#: parsley/gui/aspect/permissions.py:34
+msgid "Please specify a bitmask of permissions to add on each directory."
+msgstr ""
+"Bitte spezifizieren Sie eine Bitmaske für zusätzliche Erlaubnisse für jedes "
+"Verzeichnis."
+
+#: parsley/gui/aspect/permissions.py:31
+msgid "Please specify a bitmask of permissions to add on each file."
+msgstr ""
+"Bitte spezifizieren Sie eine Bitmaske für zusätzliche Erlaubnisse für jede "
+"Datei."
+
+#: parsley/gui/aspect/permissions.py:40
+msgid "Please specify a bitmask of permissions to remove on each directory."
+msgstr ""
+"Bitte spezifizieren Sie eine Bitmaske für zu entziehende Erlaubnisse für "
+"jedes Verzeichnis."
+
+#: parsley/gui/aspect/permissions.py:37
+msgid "Please specify a bitmask of permissions to remove on each file."
+msgstr ""
+"Bitte spezifizieren Sie eine Bitmaske für zu entziehende Erlaubnisse für "
+"jede Datei."
+
+#: parsley/gui/app_main/__init__.py:205
+msgid ""
+"Please specify a file name (or relative path) to include.\n"
+"\n"
+"If this file does not exist, it will be created."
+msgstr ""
+"Bitte spezifizieren Sie den Dateinamen (oder relativen Pfad), den Sie "
+"inkludieren möchten.\n"
+"\n"
+"Falls diese Datei nicht existiert, wird sie erzeugt."
+
+#: parsley/gui/aspect/logging.py:15
+msgid "Please specify a log level."
+msgstr "Bitte spezifizieren Sie einen Loglevel."
+
+#. not cancelled
+#: parsley/gui/app_main/__init__.py:158
+msgid "Please specify a name for this synchronization task."
+msgstr "Bitte spezifizieren Sie einen Namen für diesen Synchronisationstask."
+
+#: parsley/gui/aspect/applypathacceptor.py:14
+msgid ""
+"Please specify a path acceptor filter as Python expression. The parameter "
+"'path' holds the path, 'fs' the filesystem."
+msgstr ""
+"Bitte spezifizieren Sie einen Pfad-Akzeptor Filter als Python-Ausdruck. Der "
+"Parameter 'path' empfängt den Pfad, 'fs' das Dateisystem."
+
+#: parsley/gui/app_main/__init__.py:179
+msgid "Please specify a type name for the new custom aspect."
+msgstr ""
+"Bitte spezifizieren Sie einen Typnamen für den neuen benutzerdefinierten "
+"Aspekt."
+
+#: parsley/gui/filesystem/sshfs.py:21
+msgid "Please specify the destination machine hostname."
+msgstr "Bitte spezifizieren Sie den Hostnamen der Zielmaschine."
+
+#: parsley/gui/filesystem/sshfs.py:30
+msgid "Please specify the filesystem path on the destination machine."
+msgstr "Bitte spezifizieren Sie den Dateisystempfad auf der Zielmaschine."
+
+#: parsley/gui/aspect/permissions.py:28
+msgid "Please specify the owner group (prepend '#' for a gid)."
+msgstr ""
+"Bitte spezifizieren Sie die Eigentümergruppe (stellen Sie '#' voran für eine "
+"gid)."
+
+#: parsley/gui/aspect/permissions.py:25
+msgid "Please specify the owner user (prepend '#' for a uid)."
+msgstr ""
+"Bitte spezifizieren Sie den Eigentümernutzer (stellen Sie '#' voran für eine "
+"uid)."
+
+#: parsley/gui/filesystem/local.py:19
+msgid "Please specify the root directory."
+msgstr "Bitte spezifizieren Sie das Wurzelverzeichnis."
+
+#: parsley/gui/filesystem/sshfs.py:26
+msgid "Please specify the ssh user name."
+msgstr "Bitte spezifizieren Sie den ssh Benutzernamen."
+
+#: parsley/gui/app_main/configitem.py:287
+#, python-brace-format
+msgid "Preparation '{0}'"
+msgstr "Preparation '{0}'"
+
+#: parsley/gui/aspect/logging.py:14
+msgid "Problems & file changes"
+msgstr "Probleme & Dateiänderungen"
+
+#: parsley/gui/app_main/configitem.py:261
+#: parsley/gui/app_main/configitem.py:493
+#: parsley/gui/app_main/configitem.py:660
+msgid "Properties"
+msgstr "Eigenschaften"
+
+#: parsley/gui/app_main/main.ui:255
+msgid "Python Import"
+msgstr "Python-Import"
+
+#: parsley/gui/app_main/configitem.py:652
+#, python-brace-format
+msgid "Python Import '{0}'"
+msgstr "Python-Import '{0}'"
+
+#: parsley/gui/app_main/main.ui:119
+msgid ""
+"Read and change your Parzzley configuration here, execute the "
+"synchronization, or run some other actions from here. Just scroll down and "
+"find the elements of your current configuration."
+msgstr ""
+"Lesen und ändern Sie Ihre Parzzley-Konfiguration hier, führen Sie die "
+"Synchronisation aus, oder lösen Sie einige andere Aktionen aus. Scrollen Sie "
+"abwärts um alle Elemente Ihrer aktuellen Konfiguration zu sehen."
+
+#: parsley/gui/app_main/configitem.py:264
+#: parsley/gui/app_main/configitem.py:332
+#: parsley/gui/app_main/configitem.py:340
+#: parsley/gui/app_main/configitem.py:347
+#: parsley/gui/app_main/configitem.py:361
+#: parsley/gui/app_main/configitem.py:368
+#: parsley/gui/app_main/configitem.py:376
+#: parsley/gui/app_main/configitem.py:383
+#: parsley/gui/app_main/configitem.py:392
+#: parsley/gui/app_main/configitem.py:496
+#: parsley/gui/app_main/configitem.py:546
+#: parsley/gui/app_main/configitem.py:554
+#: parsley/gui/app_main/configitem.py:595
+#: parsley/gui/app_main/configitem.py:632
+#: parsley/gui/app_main/configitem.py:663
+msgid "Remove"
+msgstr "Löschen"
+
+#: parsley/gui/app_main/configitem.py:272
+msgid "Reports"
+msgstr "Reporte"
+
+#: parsley/gui/app_manageconflicts/__init__.py:39
+msgid ""
+"Resolve Parzzley sync conflicts here. At first, go to the sync directory you "
+"got conflicts in."
+msgstr ""
+"Lösen Sie hier Parzzley-Synchronisationskonflikte auf. Gehen Sie zuerst zu "
+"dem Synchronisationsverzeichnis, in dem Konflikte aufgetreten sind."
+
+#: parsley/gui/app_main/configitem.py:269
+msgid "Resolve conflicts"
+msgstr "Konflikte lösen"
+
+#: parsley/gui/app_main/configitem.py:255
+msgid "Run"
+msgstr "Ausführen"
+
+#: parsley/gui/app_report/timelinepanel.ui:39
+msgid "See when this directory was synchronized."
+msgstr "Betrachten Sie hier, wann Ihr Verzeichnis synchrosiert worden ist."
+
+#: parsley/gui/aspect/defaults.py:54
+msgid "Set major behavior to default"
+msgstr "Setze Hauptverhalten zu Standard"
+
+#: parsley/gui/aspect/defaults.py:57
+msgid "Set major behavior to pull&purge"
+msgstr "Setze Hauptverhalten zu Abrufen&Bereinigen"
+
+#: parsley/gui/aspect/defaults.py:85
+msgid "Set to replication mode for a read-only filesystem"
+msgstr "Setze Replikationsmodus für Nur-lese-Dateisystem"
+
+#: parsley/gui/aspect/logging.py:30
+msgid "Setup logging"
+msgstr "Logging einrichten"
+
+#: parsley/gui/aspect/remove.py:55
+msgid "Setup trashbin"
+msgstr "Papierkorb einrichten"
+
+#: parsley/gui/app_report/performancepanel.py:113
+msgid "Sum"
+msgstr "Summe"
+
+#: parsley/gui/app_main/configitem.py:246 parsley/gui/app_main/main.ui:192
+msgid "Sync Task"
+msgstr "Sync-Task"
+
+#: parsley/gui/app_main/configitem.py:246
+#, python-brace-format
+msgid "Sync Task '{0}'"
+msgstr "Sync-Task '{0}'"
+
+#: parsley/gui/app_report/performancepanel.py:105
+msgid "Sync run"
+msgstr "Sync-Lauf"
+
+#: parsley/gui/app_report/performancepanel.ui:51
+msgid "Sync run:"
+msgstr "Sync-Lauf:"
+
+#: parsley/gui/app_report/performancepanel.py:104
+msgid "Sync task"
+msgstr "Sync-Task"
+
+#: parsley/gui/app_report/performancepanel.ui:40
+msgid "Sync task:"
+msgstr "Sync-Task:"
+
+#: parsley/gui/app_main/runsyncdialog.ui:71
+msgid "Synchronization had problems!"
+msgstr "Bei der Synchronisation sind Probleme aufgetreten!"
+
+#: parsley/gui/app_main/runsyncdialog.ui:110
+msgid "Synchronized successfully!"
+msgstr "Synchronisation war erfolgreich!"
+
+#: parsley/gui/app_main/runsyncdialog.ui:149
+msgid "Synchronizing..."
+msgstr "Synchronisation läuft..."
+
+#: parsley/gui/app_manageconflicts/__init__.py:112
+msgid "Task"
+msgstr "Task"
+
+#: parsley/gui/app_manageconflicts/main.ui:87
+msgid "There are no conflicts to solve here."
+msgstr "Hier sind keine Konflikte aufzulösen."
+
+#: parsley/gui/gtk/volumeapp/main.ui:72
+msgid ""
+"This directory seems not to be synchronized by Parzzley.\n"
+"\n"
+"Please choose another directory."
+msgstr ""
+"Dieses Verzeichnis scheint nicht Parzzley-synchronisiert zu sein.\n"
+"\n"
+"Bitte wählen Sie ein anderes Verzeichnis."
+
+#: parsley/gui/app_main/main.ui:92
+msgid ""
+"This is not a valid Parzzley configuration file. You should open another file."
+msgstr ""
+"Dies ist keine gültige Parzzley Konfigurationsdatei. Sie sollten eine andere "
+"Datei öffnen."
+
+#: parsley/gui/aspect/highlevelcustomization.py:19
+msgid ""
+"This option allows you to customize the synchronization behavior by placing "
+"'.parzzley.custom.py' script pieces somewhere in the sync tree. See the "
+"documentation for more details.\n"
+"\n"
+"Find a sample script in '_meta/parzzley.custom.py.example' inside the Parzzley "
+"package."
+msgstr ""
+"Diese Option erlaubt die Anpassung des Synchronisationsverhaltens durch "
+"Ablegen von '.parzzley.custom.py' Skripten an beliebigen Stellen innerhalb "
+"des Verzeichnisbaums. Lesen Sie die Dokumentation für weitere Details.\n"
+"\n"
+"Lesen Sie auch das Beispielskript '_meta/parzzley.custom.py.example' "
+"innerhalb des Parzzley-Pakets."
+
+#: parsley/gui/app_report/logpanel.ui:13
+msgid ""
+"Those are the last log messages. If you need more verbosity or an own "
+"deletion plan, you should create a Logger in your configuration."
+msgstr ""
+"Dies sind die letzten Logmeldungen. Für mehr Ausführlichkeit oder einen "
+"anderen Löschplan sollten Sie in Ihrer Konfiguration einen weiteren Logger "
+"anlegen."
+
+#: parsley/gui/app_report/timelinepanel.ui:61
+msgid "Time span:"
+msgstr "Zeitspanne:"
+
+#: parsley/gui/app_report/main.ui:108
+msgid "Timeline"
+msgstr "Zeitlinie"
+
+#: parsley/gui/aspect/defaults.py:83
+msgid "Unset replication mode for a read-only filesystem"
+msgstr "Setze Replikationsmodus für Nur-lese-Dateisystem zurück"
+
+#: parsley/gui/app_report/performancepanel.ui:211
+msgid "Vertically:"
+msgstr "Vertikal:"
+
+#: parsley/gui/app_report/timelinepanel.ui:18
+msgid "Week"
+msgstr "Woche"
+
+#: parsley/gui/app_main/__init__.py:281
+msgid ""
+"Welcome to Parzzley!\n"
+"\n"
+"At first you should add at least one sync task. You can then run it directly "
+"from here, but maybe should configure it for automated background syncing "
+"later.\n"
+"\n"
+"Be aware that you use Parzzley at your own risk. Misuse (and also software "
+"errors) could screw up your data."
+msgstr ""
+"Willkommen bei Parzzley!\n\n"
+"Zuerst sollten Sie einen neuen Sync-Task anlegen. Sie können ihn dann direkt"
+" von hier ausführen, sollten später aber eventuell die Synchronisation im"
+" Hintergrund konfigurieren.\n\n"
+"Die Nutzung von Parzzley erfolgt auf eigenes Risiko. Fehlbenutzung (und auch"
+" Softwarefehler) könnten Ihren Datenbestand beschädigen."
+
+#: parsley/gui/gtk/volumeapp/__init__.py:106
+#, python-brace-format
+msgid "Welcome to {0}."
+msgstr "Willkommen bei {0}."
+
+#: parsley/gui/app_main/__init__.py:105
+msgid "XML files"
+msgstr "XML-Dateien"
+
+#: parsley/gui/app_main/configitem.py:203
+#: parsley/gui/app_main/configitem.py:398
+#: parsley/gui/app_main/configitem.py:407
+#: parsley/gui/app_main/configitem.py:444
+msgid "Yes"
+msgstr "Ja"
+
+#: parsley/gui/aspect/metadata.py:21
+msgid "You need at least one LocalFilesystem for that feature."
+msgstr "Diese Funktionalität setzt mindestens ein LocalFilesystem voraus."
+
+#: parsley/gui/app_report/performancepanel.py:65
+msgid "[times in ms]"
+msgstr "[Zeiten in ms]"
+
+#: parsley/gui/app_main/__init__.py:93
+#, python-brace-format
+msgid ""
+"built: {0}\n"
+"\n"
+"{1}"
+msgstr ""
+"erzeugt: {0}\n"
+"\n"
+"{1}"
+
+#: parsley/gui/aspect/remove.py:26 parsley/gui/aspect/permissions.py:23
+msgid "disable"
+msgstr "deaktivieren"
+
+#: parsley/gui/aspect/remove.py:26 parsley/gui/aspect/permissions.py:23
+msgid "enable"
+msgstr "aktivieren"
+
+#: parsley/gui/app_report/timelinepanel.py:154
+msgid "failed prematurely"
+msgstr "vorzeitig fehlgeschlagen"
+
+#: parsley/gui/app_report/timelinepanel.py:154
+msgid "finished"
+msgstr "abgeschlossen"
+
+#: parsley/gui/app_report/timelinepanel.py:153
+msgid "from"
+msgstr "von"
+
+#: parsley/gui/filesystem/local.py:14
+msgid "local filesystem"
+msgstr "Lokales Dateisystem"
+
+#: parsley/gui/filesystem/sshfs.py:17
+msgid "ssh filesystem"
+msgstr "ssh Dateisystem"
+
+#: parsley/gui/app_report/timelinepanel.py:153
+msgid "to"
+msgstr "bis"

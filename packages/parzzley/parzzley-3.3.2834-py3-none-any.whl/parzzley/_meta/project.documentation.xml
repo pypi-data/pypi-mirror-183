@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize">
+    <ReadmeDocument a:name="readme" a:append_to="homepage" xmlns="annize:documentation.sphinx">
+        <a:reference name="dependencies"/><!-- TODO inline Reference -->
+        <!-- TODO -->
+    </ReadmeDocument>
+    <GeneratedDocument xmlns="annize:documentation" a:name="readmepdfs" filename="README">
+        <a:reference name="readme"/>
+        <PdfOutputSpec/>
+    </GeneratedDocument>
+    <!--
+    <ReadmeDocument xmlns="annize:documentation.sphinx" a:name="readme" a:append_to="homepage">
+        <RstDocument xmlns="annize:documentation.sphinx.rst" a:name="readmetext">
+            <RstDocumentVariant language="de">
+                <Dir path="docs/readme.de.rst" xmlns="annize:files"/>
+            </RstDocumentVariant>
+            <RstDocumentVariant language="en">
+                <Dir path="docs/readme.en.rst" xmlns="annize:files"/>
+            </RstDocumentVariant>
+        </RstDocument>
+        <ArgparseCommandLineInterfaceDocument xmlns="annize:documentation.sphinx" a:name="cliref"
+                                              parserfactory="annize.annize_cli.get_parser" programname="annize">
+            <Dir name="annize" path="src/annize" xmlns="annize:files"/>
+        </ArgparseCommandLineInterfaceDocument>
+        <ApiReferenceDocument xmlns="annize:documentation.sphinx" a:name="apiref">
+            <Python3ApiReferenceLanguage xmlns="annize:documentation.sphinx.python"/>
+            <Dir name="annize" path="src/annize" xmlns="annize:files"/>
+        </ApiReferenceDocument>
+    </ReadmeDocument>
+    TODO
+-->
+    <!-- TODO
+   <let k="documentation.pieces.add_api_reference" name="APIREF">
+        <val k="language" t="documentation.Python3ApiReferenceLanguage">
+            <val k="exclude">
+                <val v="/parsley/tools/PyDepsEngine"/>
+                <val v="/parsley.py"/>
+            </val>
+        </val>
+    </let>
+    <val k="documentation.readme_params">
+        <val k="include_in_toc">
+            <val v="FULLREADME"/>
+            <val v="APIREF"/>
+        </val>
+    </val>
+     -->
+</a:project>

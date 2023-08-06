@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:files="annize:files" xmlns:pytest="annize:testing.pytest"
+           xmlns:pylint="annize:testing.pylint">
+<!--TODO re
+    <pytest:Test a:name="coretests" testdir="tests/core" src="src"/>
+    <pytest:Test a:name="featurestests" testdir="tests/features" src="src"/>
+    <pylint:Test a:name="pylinttests">
+        <files:ProjectDir path="src/annize"/>
+    </pylint:Test>
+-->
+    <!-- TODO
+
+
+    <let k="base.pyscript">
+        <val k="hook" oref="engine.HOOK_AFTER_PREPARATION"/>
+        <val k="code">
+def handler():
+    testdir = universe().specialpaths.projectdir + &quot;/_meta/parzzleytest&quot;
+    for testpkg in sorted([x[6:] for x in os.listdir(testdir) if x.startswith(&quot;tests_&quot;)]):
+        tlfpath = testdir + &quot;/tests_&quot; + testpkg
+        for test in sorted([x[:-3] for x in os.listdir(tlfpath) if not x.startswith(&quot;_&quot;)]):
+            universe().testing.tests.add(testpkg, test, universe().testing.generic.generictest, command=[tlfpath + &quot;/&quot; + test + &quot;.py&quot;])
+        </val>
+    </let>
+     -->
+</a:project>

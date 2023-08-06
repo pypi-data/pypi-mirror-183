@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize">
+    <Injection a:name="pyinjection" xmlns="annize:datainjections.python" version="~reference version~"/>
+</a:project>

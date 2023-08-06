@@ -1,0 +1,78 @@
+/*
+* SPDX-FileCopyrightText: © 2014 Josef Hahn
+* SPDX-License-Identifier: AGPL-3.0-only
+*/
+
+configitem {
+    border: 1pt solid black;
+    border-radius: 3pt;
+    box-shadow: 2pt 2pt 2pt black;
+}
+
+configitem.fileinclude {
+    border-color: #5c5d5d;
+    box-shadow: 2pt 2pt 2pt #5c5d5d;
+}
+
+configitem.fileinclude .configitemhead {
+    color: #5c5d5d;
+}
+
+configitem.synctask {
+    border-color: #006600;
+    box-shadow: 2pt 2pt 2pt #006600;
+}
+
+configitem.synctask .configitemhead {
+    color: #006600;
+}
+
+configitem.logger {
+    border-color: #666600;
+    box-shadow: 2pt 2pt 2pt #666600;
+}
+
+configitem.logger .configitemhead {
+    color: #666600;
+}
+
+configitem.customaspect {
+    border-color: #733876;
+    box-shadow: 2pt 2pt 2pt #733876;
+}
+
+configitem.customaspect .configitemhead {
+    color: #733876;
+}
+
+configitem.pythonimport {
+    border-color: #884488;
+    box-shadow: 2pt 2pt 2pt #884488;
+}
+
+configitem.pythonimport .configitemhead {
+    color: #884488;
+}
+
+configitem .pnlconfigbody button {
+    color: #000066;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+configitem .pnlconfigbody button:hover {
+    color: #0000ff;
+}
+
+configitem .pnlconfigbody .configparamkey {
+    opacity: 0.6;
+}
+
+configitem .pnlconfigbody {
+    color: #000066;
+}
+
+configitem .configblock {
+    font-size: 1.2em;
+}

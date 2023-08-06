@@ -1,0 +1,9 @@
+def beforeupdate(filesystem, path, event):
+    if path == "/foo" and (event.isnew or event.ischanged):
+        with open(filesystem.rootpath + path, "r") as f:
+            cnt = f.read()
+        with open(filesystem.rootpath + path, "w") as f:
+            f.write(cnt.upper())
+        event.continue_touched()
+    else:
+        event.continue_untouched()

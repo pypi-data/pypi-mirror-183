@@ -1,0 +1,19 @@
+/*
+* SPDX-FileCopyrightText: © 2014 Josef Hahn
+* SPDX-License-Identifier: AGPL-3.0-only
+*/
+
+button.syncevent {
+    padding: 1px;
+    margin: 0px;
+}
+
+button.syncevent.successful {
+    background: #00dd00;
+    border-color: #006600;
+}
+
+button.syncevent.notsuccessful {
+    background: #dd0000;
+    border-color: #660000;
+}
