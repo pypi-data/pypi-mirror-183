@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "op_research"
+version = "0.0.1"
+description = "package for solving operational research problems"
+authors = ["rehan ahmed <rehanahmedahmed007@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Rehan-stack/op-research"
+repository = "https://github.com/Rehan-stack/op-research"
+keywords = ["op-research","operational-research","simplex-method","two-phase method","math"]
+
+
+
+classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Operating System :: OS Independent",
+    ]
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
