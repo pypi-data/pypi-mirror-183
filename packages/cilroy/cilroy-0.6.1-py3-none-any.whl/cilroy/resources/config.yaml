@@ -1,0 +1,16 @@
+# default configuration
+controller:
+  online:
+    postSchedulerType: "interval"
+    postSchedulersParams:
+      interval:
+        interval: 3600
+    scoreSchedulerType: "interval"
+    scoreSchedulersParams:
+      interval:
+        interval: 86400
+  autosave:
+    schedulerType: "interval"
+    schedulersParams:
+      interval:
+        interval: 3600
