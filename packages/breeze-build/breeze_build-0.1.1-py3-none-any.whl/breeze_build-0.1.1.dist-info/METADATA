@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: breeze-build
+Version: 0.1.1
+Summary: Breeze is a light-weight, highly-customizable build tool for different languages such as C(++) and Java
+Home-page: UNKNOWN
+Author: mauro-balades
+Author-email: mauro.balades@tutanota.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+License-File: LICENSE
+
+Breeze
+=======
+
+Breeze is a light-weight, highly-customizable build tool for different languages such as C(++) and Java
+
+
