@@ -1,0 +1,29 @@
+body.map-body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(/static/images/PurpleWave-Dark.png);
+    font-family: "Roboto", sans-serif;
+}
+
+svg.map-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+span.map-buttons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 3vh;
+    background-color: #604aa4;
+}
+
+span.map-container {
+    position: absolute;
+    top: 3vh;
+    left: 0;
+    width: 100vw;
+    height: 97vh;
+}
