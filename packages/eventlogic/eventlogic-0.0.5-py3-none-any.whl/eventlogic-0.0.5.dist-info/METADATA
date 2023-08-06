@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: eventlogic
+Version: 0.0.5
+Requires-Dist: numpy
+Requires-Dist: importlib-metadata ; python_version >= "3.6"
+
