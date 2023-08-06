@@ -1,0 +1,17 @@
+inboard/__init__.py,sha256=0fYofN0h_0k55Ibgqwxnx_7dW2wRRZxItIwnE5tbyg4,707
+inboard/gunicorn_conf.py,sha256=Gf7hrly3MPg5C67BtZoyy8kZIHt9TC9E3iQ-OqW2Fos,1365
+inboard/logging_conf.py,sha256=Aiqo_TsT46btFEXizmRLtBIi3mBWAc2WspGoxEyRjuo,6246
+inboard/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+inboard/start.py,sha256=n6VrKe1ANHUvutZkMQfh7B6yQHURHB6ObqQq3kwEY1w,5233
+inboard/types.py,sha256=9nlPTWxMoT5AiVsC2JqUL5jZpW78WkxIKQYvfYwnjL0,5396
+inboard/app/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+inboard/app/main_base.py,sha256=WPaPxTwJrgv1BjKMaTsCsNWZKFT9WwhMAZvAyjSFfsg,1583
+inboard/app/main_fastapi.py,sha256=Cx0L3KwtAzZpuPG9KacAGYk4RUzR9_vBzqPbh_yXr8E,1757
+inboard/app/main_starlette.py,sha256=hzt2oLYxH0qEsLeTXG3qfGErrRBrhGcG9TJ-wTcwdLE,1916
+inboard/app/prestart.py,sha256=gIGU0MhuLsvXHV_TlvVONeBwsiOTUfIOBmita3F-pTE,176
+inboard/app/utilities_fastapi.py,sha256=pS99jxluYIfoTQlOdKcgZ0h6oLLPgAyWCR4y85ZBxQM,1143
+inboard/app/utilities_starlette.py,sha256=AFIxE9CJxlPpSBLsFNSElRoDEoftaPEUGsvKlEC5n4c,1570
+inboard-0.38.0a0.dist-info/METADATA,sha256=id9GHdIYX7TFHypGM3grIhCkyqlyMTKgwQ34Yb33yFQ,5568
+inboard-0.38.0a0.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+inboard-0.38.0a0.dist-info/licenses/LICENSE,sha256=7GtMR7oOIs6VoXl6fJImIA1oBXlFvIXWS5m5rB_clg0,1070
+inboard-0.38.0a0.dist-info/RECORD,,
