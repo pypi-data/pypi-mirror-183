@@ -1,0 +1,11 @@
+pyvscode/__init__.py,sha256=GvV1CUdlShSdPwinz6H7mJ0s_CEVEkhgCXaGpnbzEPc,1182
+pyvscode/extension.py,sha256=EzROFBAqu_ItyLMGeAHLdUF24F4YPTFZmGitp7Y4EJs,3611
+pyvscode/extension.pyi,sha256=AyuqAghZAWuuaI8eW5Q9acyOYZygoLKjEfWeMYYmMz4,865
+pyvscode/pyvscode.py,sha256=asGMmBC43-IFDJMrAUOiEx1K4l6MqXXmiXj-5_pHghk,723
+pyvscode/pyvscode.pyi,sha256=hvLdOkjz7uVa1wlRCcf9l3lFL38GrkFoVzFfYr_Y9fE,76
+pyvscode/runner.py,sha256=BQI7-UeSBZ59zIXR-0HY7fZvQway-J15JL2twlv8VMc,5100
+pyvscode/runner.pyi,sha256=unNiltGSzku2PCHJU0NRwy9AqGWYqTpUbqaGwZohuss,1484
+pyvscode-2.2.0.dist-info/METADATA,sha256=wDLiduuWLgG0W4hYD8u5cD9ivk-Zpy5r8ujKP0O5TiY,1038
+pyvscode-2.2.0.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+pyvscode-2.2.0.dist-info/licenses/LICENSE,sha256=0dYUDqXFqWG4gqF_1ik6Q2M4bgeKJcmpSSMgCGZ4zac,1129
+pyvscode-2.2.0.dist-info/RECORD,,
