@@ -1,0 +1,17 @@
+mango/__init__.py,sha256=Bsv3bP6dgoX_Y3XJa8dtQ-iGrn-gnYGOYk4wqqOY4dk,467
+mango/drive.py,sha256=gR8wPBbrmvG5BxTlzBa-20_TJgpUH5OjAjDFGEZ4Dc0,4505
+mango/encoder.py,sha256=n_K2WubOr7qHM68VqEa8omxc0VHJ-Jp-FJxQIxKLg1c,1145
+mango/expression.py,sha256=DqPI8z-Z0rZpscuGKHndE0WLvIPlo1f1juePVaLs_z8,5637
+mango/fields.py,sha256=O1HpEXLQOesdBLQDgoZnNzwgs14JAqtO-dRZV2Pyeo0,3416
+mango/index.py,sha256=tGHK67jp8T32UxpdNvXYjur2MWkRVVpvQ3tGuAZr6_U,1737
+mango/meta.py,sha256=VmKUdPqdzP64IBW5CUDzd75_Ad5A7NYG2c6dph_qNf4,1015
+mango/models.py,sha256=jA_dAz8uNx0qWqjjSgaQrThwZG7cVVm2Hk5A2hRwvHk,9096
+mango/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mango/result.py,sha256=tlux3YJPt24oDXXwXvADCZho1DqUd5RfPGeBHjMFvRA,6716
+mango/source.py,sha256=G8icH01oFF0J_p2LBx51UJ0wc6QQXVoMj_FoIn_hzOE,2263
+mango/stage.py,sha256=kVvF9N0s328y5w9CzC8Y5nEstkHM4Y_iej24-pzJIoQ,16528
+mango/utils.py,sha256=NQ9cHNgSjsgnoxEgSOqNdTY_9Rd6BIv3m4OD14Mv5rg,4546
+mango_odm-0.3.0.dist-info/LICENSE,sha256=zZL_gU6B0jJi3o-yG-qk10HWaVg9DoyKur4bxwW1SHI,1085
+mango_odm-0.3.0.dist-info/METADATA,sha256=Q5Avigc8uk0BktIqeae67s4FcH9RanDuXJlEEihhoPE,6103
+mango_odm-0.3.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+mango_odm-0.3.0.dist-info/RECORD,,
