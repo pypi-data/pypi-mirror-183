@@ -1,0 +1,17 @@
+BangunDatar/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BangunDatar/jajar_genjang.py,sha256=4lswbusNuOLoyzG56xN5qkby2QS9bkU2SDkDFsYtcsg,155
+BangunDatar/persegi.py,sha256=NmCqPPwyaYWZ_kaf20tF1wV_UEmCjkS23cRk6bejMM0,154
+BangunDatar/persegi_panjang.py,sha256=sF8rnI1Sci_m-NjYj8IfnAiT9xaBXSs6EXOQH3Gi1bU,167
+BangunDatar/trapesium.py,sha256=D7yuAxyiS9kjEIS1oZmJEM5jaSQIS8I8TH5zPp-iDDs,208
+BangunRuang/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BangunRuang/balok.py,sha256=oLN-MxqBaefYsSxajMKsgjli94bDUZfnOhiu1i0fElM,117
+BangunRuang/bola.py,sha256=HFn_Mb9wBVz5vuAL-X8jNIFrD3xqzQHstp4BDzicUbw,98
+BangunRuang/kerucut.py,sha256=wcyd_dgdQ3nPC8Ga8hdPGtLVTOFE4Q94r2kZm1IpW9Q,137
+BangunRuang/kubus.py,sha256=WV1gqm_0W31zsgbSq9oN0-fSeG8zZqq0Bk09p6tvShY,79
+BangunRuang/limas_segi_empat.py,sha256=U2OLC3dk9BkXOA23mPWZwdSStIdgCwSdY2ABf7gXaXQ,176
+BangunRuang/tabung.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bangunDatar_bangunRuang-0.0.13.dist-info/LICENCE.txt,sha256=5HfttYlP4z5BG6i2nkMMcuMSigyB6y8nVAZXc-6xMLk,1068
+bangunDatar_bangunRuang-0.0.13.dist-info/METADATA,sha256=gweWswqdWZ-g5odSm4kLSWZu5H3-eChEoJ5XfgxJqls,821
+bangunDatar_bangunRuang-0.0.13.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+bangunDatar_bangunRuang-0.0.13.dist-info/top_level.txt,sha256=uAYjwLmChofIglWpiyXOO0Z4J0pnhPBHRwGtJq_Fdpc,24
+bangunDatar_bangunRuang-0.0.13.dist-info/RECORD,,
