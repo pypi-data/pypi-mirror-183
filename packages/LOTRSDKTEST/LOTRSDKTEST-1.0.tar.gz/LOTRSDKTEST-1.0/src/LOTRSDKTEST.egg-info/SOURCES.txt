@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+src/LOTRSDKTEST/__init__.py
+src/LOTRSDKTEST/client.py
+src/LOTRSDKTEST/example.py
+src/LOTRSDKTEST.egg-info/PKG-INFO
+src/LOTRSDKTEST.egg-info/SOURCES.txt
+src/LOTRSDKTEST.egg-info/dependency_links.txt
+src/LOTRSDKTEST.egg-info/requires.txt
+src/LOTRSDKTEST.egg-info/top_level.txt
