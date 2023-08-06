@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/tableplus_macos_update_creds/__init__.py
+src/tableplus_macos_update_creds/get_teamid.py
+src/tableplus_macos_update_creds/update_creds.py
+src/tableplus_macos_update_creds/update_password_in_keychain.py
+src/tableplus_macos_update_creds.egg-info/PKG-INFO
+src/tableplus_macos_update_creds.egg-info/SOURCES.txt
+src/tableplus_macos_update_creds.egg-info/dependency_links.txt
+src/tableplus_macos_update_creds.egg-info/top_level.txt
