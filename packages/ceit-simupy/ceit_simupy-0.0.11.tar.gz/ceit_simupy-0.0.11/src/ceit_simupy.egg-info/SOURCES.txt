@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/ceit_simupy/__init__.py
+src/ceit_simupy/main.py
+src/ceit_simupy.egg-info/PKG-INFO
+src/ceit_simupy.egg-info/SOURCES.txt
+src/ceit_simupy.egg-info/dependency_links.txt
+src/ceit_simupy.egg-info/requires.txt
+src/ceit_simupy.egg-info/top_level.txt
+src/ceit_simupy/data/anom/Info_15_minutos.txt
+src/ceit_simupy/data/anom/Info_laboratorio.txt
+src/ceit_simupy/data/norm/Info_15_minutos.txt
+src/ceit_simupy/data/norm/Info_laboratorio.txt

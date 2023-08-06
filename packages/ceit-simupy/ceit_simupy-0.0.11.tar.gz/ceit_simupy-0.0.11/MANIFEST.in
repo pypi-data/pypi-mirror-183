@@ -1,0 +1,2 @@
+include src/ceit_simupy/data/norm/*.txt
+include src/ceit_simupy/data/anom/*.txt

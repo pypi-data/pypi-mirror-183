@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: ceit-simupy
+Version: 0.0.11
+Summary: A small package for an easier use of our Simulink tool
+Author: Aitor Domec
+Author-email: adomec@ceit.es
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Esto es un ejemplo de creaciÃ³n de paquetes en Python.
+# CompilaciÃ³n
+Se compila con el siguiente comando:
+"py -m build"
+
+Esto generara varios archivos, pero las distribuciones que queremos subir se encuentran en la carpeta generada "dist" donde estara el paquete comprimido.
+
+# Subida
+Subimos el paquete con el siguiente comando:
+"py -m twine upload --repository testpypi dist/*"
+
+Donde el usuario sera: __token__
+y la contraseÃ±a la generada una unica vez.
+Esto lo sube a "testpypi", un repositorio temporal de paquetes de python. Si quisieramos subirlo de manera definitiva a Pypi (repositorio real de paquetes oficiales) bastarÃ­a con usar el comando:
+"twine upload dist/*".
+
+Se instalarÃ­a como un paquete normal.
+
+
+# Notas
+A la hora de realizar cualquier clase de cambio en el paquete, habria que cambiar la version, de lo contrario no dejara subirlo.
+
+
+
+# Enlaces utiles
+-https://packaging.python.org/en/latest/tutorials/packaging-projects/
