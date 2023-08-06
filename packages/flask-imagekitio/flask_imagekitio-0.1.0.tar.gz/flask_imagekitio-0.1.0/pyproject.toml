@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "flask-imagekitio"
+version = "0.1.0"
+description = "A simple interface to use ImageKiIO API with Flask."
+authors = ["Sebastian Salinas <seba.salinas.delrio@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "flask_imagekitio"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.2.2"
+imagekitio = "^3.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
