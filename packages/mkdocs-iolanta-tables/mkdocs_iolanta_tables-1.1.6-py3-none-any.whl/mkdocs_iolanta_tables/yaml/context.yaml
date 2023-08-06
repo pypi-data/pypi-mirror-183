@@ -1,0 +1,30 @@
+"@context":
+  table: https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/
+
+  table:class:
+    "@type": "@id"
+
+  table:rows:
+    "@type": "@id"
+
+  table:columns:
+    "@type": "@id"
+    "@container": "@list"
+
+  table:order-by:
+    "@type": "@id"
+    "@container": "@list"
+
+  table:direction:
+    "@type": "@id"
+    "@context":
+      "@base": https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/
+
+  table:empty-values:
+    "@type": "@id"
+    "@context":
+      "@base": https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/
+      first:
+        "@id": https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/first
+      last:
+        "@id": https://iolanta-tech.github.io/mkdocs-iolanta-tables/vocabulary/last
