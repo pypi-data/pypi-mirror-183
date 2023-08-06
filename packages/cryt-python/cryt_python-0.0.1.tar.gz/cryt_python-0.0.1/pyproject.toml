@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cryt-python"
+version = "0.0.1"
+description = ""
+authors = ["Aleksander Skiridomov <aleksander.skiridomov@cryt.com>"]
+readme = "README.md"
+packages = [{include = "cryt"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.8.3"
+requests = "^2.28.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = {version = "^23.1a1", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
