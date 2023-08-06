@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: BAPlotter
+Version: 1.1.2b1
+Summary: Plotting of band gap alignments for a list of materials. The user can specify the material names, valence band maximum energies, and conduction band minimum energies. The resulting plot includes a gradient representation of the valence band minimum and conduction band maximum for each material
+Home-page: https://github.com/SaraTolba/BandAligmentPlotter
+Author: Sara A. Tolba
+Author-email: sarahtolba1@gmail.com
+License: MIT
+Keywords: band gap alignment plotter,conduction band,valence band,fermi level
+Requires-Python: >=3
+License-File: LICENSE

@@ -1,0 +1,9 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+src/BAPlotter.egg-info/PKG-INFO
+src/BAPlotter.egg-info/SOURCES.txt
+src/BAPlotter.egg-info/dependency_links.txt
+src/BAPlotter.egg-info/requires.txt
+src/BAPlotter.egg-info/top_level.txt
