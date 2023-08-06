@@ -1,0 +1,17 @@
+damealgorithms
+damebasics
+dameformats
+damenltk
+damenumpy
+damepandas
+dameopencv
+damescipy
+damescraping
+damescikit
+damewebutils
+
+[dev]
+check-manifest
+
+[test]
+coverage
