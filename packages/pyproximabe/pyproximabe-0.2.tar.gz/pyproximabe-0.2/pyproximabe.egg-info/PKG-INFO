@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pyproximabe
+Version: 0.2
+Summary: open source proximabiling service engine
+Author-email: proximabe <proxima.damo@gmail.com>
+Project-URL: Homepage, https://https://github.com/alibaba/proxima
+Project-URL: Bug Tracker, https://https://github.com/alibaba/proxima/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+This is python sdk for project proximabilin. Please refer to https://github.com/alibaba/proxima/blob/master/README.md
