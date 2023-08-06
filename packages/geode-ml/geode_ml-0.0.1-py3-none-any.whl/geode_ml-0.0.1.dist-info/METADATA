@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: geode-ml
+Version: 0.0.1
+Summary: Classes and methods to help with the creation of geospatial training datasets for deep-learning models.
+Author-email: Matt Reichenbach <matthew.reichenbach@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 mpreichenbach
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/mpreichenbach/geode
+Keywords: deep-learning,training,dataset,geospatial
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gdal
+Requires-Dist: numpy
+
+How to Install Geode
+====================
+
+The Geode package depends on **GDAL** for most of its functionality. It is easiest to install **GDAL** using the
+**conda** package manager:
+
+```
+conda create -n "geode_env" python>=3.7
+conda activate geode_env
+conda install gdal
+```
+
+After activating an environment which has **GDAL**, use **pip** to install **geode**:
+
+```
+pip install geode-ml
+```
+
+The Geode Package
+=================
+This package contains methods and classes to process geospatial imagery into useful training data, particularly for 
+deep-learning applications.
+
+The datasets module
+-------------------
+
+The datasets module currently contains the class:
+
+1. SemanticSegmentation
+	* creates and processes pairs of imagery and label rasters for scenes
+
+The generators module
+---------------------
+
+The generators module currently contains the class:
+
+1. TrainingGenerator
+	* supplies batches of imagery/label pairs for model training
+	* from_tiles() method reads from generated tile files
+	* from_source() method (in development) reads from the larger source rasters
+
+The utilities module
+--------------------
+
+The utilities module currently contains functions to process, single examples of geospatial data. The datasets module
+imports these functions to apply to batches of data; however, this module exists so they they can be used by themselves.
