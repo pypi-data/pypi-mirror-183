@@ -1,0 +1,11 @@
+PartyBotPackage/__init__.py,sha256=z4qhbvUgTt90MdamBK22OsSPuubzMaKKwIGQajV3Fyk,1194
+PartyBotPackage/bot.py,sha256=Ir9UiEhuMEk0Q0YjSurPTlAvquvnZvUipjaCiufYDWk,9919
+PartyBotPackage/client.py,sha256=px-dLzyvG0fDMN0_FckB70CxMr9dNLUVCjnEeeW5Ejg,4501
+PartyBotPackage/defaults.py,sha256=QUKBVn2W0wgZ1YeTvRO-qV5VIERw4eg_vpjRylCuFYQ,1908
+PartyBotPackage/deviceauths.py,sha256=N2ocAeRRQZTXeC1hXqOV5-pzgdhqd20wQTKZLT-P2aE,2398
+PartyBotPackage/sync.py,sha256=oGEdHaWIjwVzoUhOBCniVJCW-Yaw9AxNLsmmXK5bbfo,2179
+PartyBotPackage/web.py,sha256=-Y5ev0NJgtmvcAEh9pbrnu8mn5mT_7C-gGMzaodr90I,6328
+PartyBotPackage-3.0.0.dist-info/METADATA,sha256=9L_NnHmEd-co8ws5GCSTCBs-uA24WNI21daOiFg78WA,639
+PartyBotPackage-3.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+PartyBotPackage-3.0.0.dist-info/top_level.txt,sha256=PlMxY8aS4vvdcW0C7CgtfKqDA1doIzTV5Asr2yP2frs,16
+PartyBotPackage-3.0.0.dist-info/RECORD,,
