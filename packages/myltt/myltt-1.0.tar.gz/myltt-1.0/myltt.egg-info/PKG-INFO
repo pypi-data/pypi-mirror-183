@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: myltt
+Version: 1.0
+Summary: A Simple MyLTT API Helper
+Home-page: https://gitlab.com/SafwanLjd/MyLTT
+Download-URL: https://gitlab.com/SafwanLjd/MyLTT/-/archive/v1.0/MyLTT-v1.0.tar.gz
+Author: Safwan Ljd
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# MyLTT
+
+This is a Simple MyLTT API Helper, Written in Python
+
+## Installation
+
+You can simply install the library from PyPI with this command:
+
+```bash
+pip install myltt
+
+```
