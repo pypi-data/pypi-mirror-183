@@ -1,0 +1,3 @@
+[console_scripts]
+variantfinder=variantfinder.__main__:main
+
