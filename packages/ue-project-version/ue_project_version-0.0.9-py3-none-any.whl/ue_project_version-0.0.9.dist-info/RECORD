@@ -1,0 +1,12 @@
+CHANGELOG.md,sha256=Xsvw9TJC7JW9Wfy3v08-aqvJRD22UKDCI49l1CsPGLk,516
+bootloader/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/cli/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/cli/ueprjver.py,sha256=hrI7wEuxdKJIj_TwkeUwG6jgar2hjeOP5433733CcPM,5782
+bootloader/unreal_engine/utils/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/utils/project_version.py,sha256=UnPisLB4CJ1mDvY_hEudh__tj1CLlrW9xS4z3XlCqjM,6369
+ue_project_version-0.0.9.dist-info/entry_points.txt,sha256=Zv7kMj71R48ATaA0JkakaMdhrLZ9lbPdeAJbn9W-glI,70
+ue_project_version-0.0.9.dist-info/LICENSE,sha256=uekfoVOv1SqqJAeHJXWX8mdu6rH3Y1q6ACxhSLXT2Q4,1067
+ue_project_version-0.0.9.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+ue_project_version-0.0.9.dist-info/METADATA,sha256=Ah9SN-4iLmOk1_E4VlsC913Er86Jfq_gklmr9TCj_qs,1188
+ue_project_version-0.0.9.dist-info/RECORD,,
