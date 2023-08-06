@@ -1,0 +1,10 @@
+nimagen/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nimagen/genes.py,sha256=k5b4qFqRqe75zJsuHIyujXpIKKcQ4T8cdGKMDVBxIRE,13764
+nimagen/graph.py,sha256=0XXsK_UXNFLbrJfle7_SxMRP9IL4v_uLVFCdcH_UbIU,22569
+nimagen/stats.py,sha256=zm-h8opXn9XpKStjps6jiFMusCHhHqJqMNxwPDK8L5Y,47375
+nimagen/visualisation.py,sha256=ACwZLV6GCbtPVBhHaUupNp7dmEPL4UnSvSC8yk40dSo,80520
+nimagen-0.0.1.dist-info/LICENSE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+nimagen-0.0.1.dist-info/METADATA,sha256=EYGelQGcNoXmJflGyoZ0n1JcZezV8tS3V8OQ0pwq9C0,720
+nimagen-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+nimagen-0.0.1.dist-info/top_level.txt,sha256=4wCaGV67eIunCj2AYQqQm-Z2ZYC3p1wWAxuTuDUoG0M,8
+nimagen-0.0.1.dist-info/RECORD,,
