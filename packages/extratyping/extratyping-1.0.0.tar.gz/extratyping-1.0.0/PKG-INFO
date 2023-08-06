@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: extratyping
+Version: 1.0.0
+Summary: Mini Python module for type annotations of primitive immutable or mutable types.
+Home-page: https://github.com/DWolfNineteen/extratyping
+Author: DWolf_19
+License: MIT License
+License-File: LICENSE
