@@ -1,0 +1,15 @@
+todoist_service/consts.py,sha256=C4cE_F7gY7KylKN-dgLkE5UZTMvbggTSA2EVwpAmg7w,292
+todoist_service/db.py,sha256=INrXDW6pNKV4qlHmboCwkurEfd6uK--FI6k0a9rewXs,2659
+todoist_service/server/authorization/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+todoist_service/server/authorization/authorization.py,sha256=2Dnq0YarI3CY5CYgvs80aysgZ38QQ3R-13n7Up61kFo,2507
+todoist_service/server/authorization/consts.py,sha256=QLQaHohLx777wRzliqETYUp_yN5yoRxzMQqTQOfP9Ro,317
+todoist_service/server/authorization/registration.py,sha256=chAjinKde47MFAVLcguAFQ01fxG6rJ5sQkabl5q310g,388
+todoist_service/todoist_wrapper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+todoist_service/todoist_wrapper/consts.py,sha256=VLOWdBIE0o1z6T0O_k9kuB_dz5Fk2kEMAV0qYxqEjcY,67
+todoist_service/todoist_wrapper/mock_todoist_wrapper.py,sha256=gCyKOvmXWjBmsleVwwu7M2NP8m8vHdq_EFwzzC07bgM,373
+todoist_service/todoist_wrapper/todoist_api_wrapper.py,sha256=e_hsrrtSyw4Bs0NfGMMJvCirW3kE5ko-2sPItIDAVao,1220
+todoist_service/todoist_wrapper/todoist_wrapper.py,sha256=TQRRNw-790yEpGJ6KhAsYZgjipdy6VYYdcRuFly97po,1045
+todoist_service-1.4.dist-info/METADATA,sha256=0SBBFt2H5Yx76Roqwq4MC3rjeRhheRLto55438iysvo,1285
+todoist_service-1.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+todoist_service-1.4.dist-info/top_level.txt,sha256=hGrJ60gzFvLbv3YeqhzYUunqdm-rkDWLTNpZbuOrgKo,16
+todoist_service-1.4.dist-info/RECORD,,
