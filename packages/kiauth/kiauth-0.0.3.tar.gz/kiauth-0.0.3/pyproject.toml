@@ -1,0 +1,19 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kiauth"
+version = "0.0.3"
+description = "Dont put that shitty py file in your project, use this libs"
+readme = "README.md"
+authors = [{ name = "Sysy's", email = "sysys.owo@gmail.com" }]
+keywords = ["keyauth", "auth", "key"]
+dependencies = [
+    "requests",
+    "pycryptodome",
+    "pywin32"
+]
+requires-python = ">=3"
