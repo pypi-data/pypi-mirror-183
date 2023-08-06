@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mtgclient
+Version: 0.0.1
+Summary: A small package to interact with database
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Author-email: Alexandr Golubkin <aalexandr.golubkin@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# MTG_client
+Client for DataBase actions for business cases

@@ -1,0 +1,7 @@
+mtgclient/__init__.py,sha256=AWmpbvSGbUj7sLHsKP0THh-HJPoxvH7qp_ERNcVh_oE,19
+mtgclient/business_client.py,sha256=FpQVuqr1bDPk13vTwvGafqoM-Slv9Ne1tXgqD9ngggQ,1410
+mtgclient/db_client.py,sha256=F1ydueO1ttj5j7s1dB30sXWp-pWo3GsvVjwhMTeVwMk,11103
+mtgclient-0.0.1.dist-info/METADATA,sha256=opnAOwq8z4-UXMSUErAOEEwT9S4ov6mD5RQCJkO06ik,591
+mtgclient-0.0.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+mtgclient-0.0.1.dist-info/licenses/LICENSE,sha256=7EI8xVBu6h_7_JlVw-yPhhOZlpY9hP8wal7kHtqKT_E,1074
+mtgclient-0.0.1.dist-info/RECORD,,
