@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_absolute_screencoords/LICENSE
+a_selenium_absolute_screencoords/README.MD
+a_selenium_absolute_screencoords/__init__.py
+a_selenium_absolute_screencoords/requirements.txt
+a_selenium_absolute_screencoords/thirdparty.json
+a_selenium_absolute_screencoords.egg-info/PKG-INFO
+a_selenium_absolute_screencoords.egg-info/SOURCES.txt
+a_selenium_absolute_screencoords.egg-info/dependency_links.txt
+a_selenium_absolute_screencoords.egg-info/requires.txt
+a_selenium_absolute_screencoords.egg-info/top_level.txt
