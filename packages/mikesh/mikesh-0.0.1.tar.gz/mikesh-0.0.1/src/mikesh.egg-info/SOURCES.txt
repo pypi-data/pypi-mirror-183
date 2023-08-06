@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/mikesh/__init__.py
+src/mikesh/spectrum.py
+src/mikesh.egg-info/PKG-INFO
+src/mikesh.egg-info/SOURCES.txt
+src/mikesh.egg-info/dependency_links.txt
+src/mikesh.egg-info/top_level.txt
+src/mikesh/spectrum_methods/_constructor.py
+src/mikesh/spectrum_methods/_equal.py
+src/mikesh/spectrum_methods/_export.py
+src/mikesh/spectrum_methods/_groups.py
+src/mikesh/spectrum_methods/_integral.py
+src/mikesh/spectrum_methods/_integrity.py
+src/mikesh/spectrum_methods/_regroup.py
