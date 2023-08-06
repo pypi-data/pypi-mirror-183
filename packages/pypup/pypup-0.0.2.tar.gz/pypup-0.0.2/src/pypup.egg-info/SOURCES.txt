@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/pypup/__init__.py
+src/pypup/pypup.py
+src/pypup.egg-info/PKG-INFO
+src/pypup.egg-info/SOURCES.txt
+src/pypup.egg-info/dependency_links.txt
+src/pypup.egg-info/requires.txt
+src/pypup.egg-info/top_level.txt
