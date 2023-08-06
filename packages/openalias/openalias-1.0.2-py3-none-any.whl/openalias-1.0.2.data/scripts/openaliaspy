@@ -1,0 +1,4 @@
+#!python
+from openalias.openalias import handle_command
+
+handle_command()
