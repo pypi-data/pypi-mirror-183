@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/breeze_rect/__init__.py
+src/breeze_rect.egg-info/PKG-INFO
+src/breeze_rect.egg-info/SOURCES.txt
+src/breeze_rect.egg-info/dependency_links.txt
+src/breeze_rect.egg-info/requires.txt
+src/breeze_rect.egg-info/top_level.txt
