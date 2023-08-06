@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ffmpeg_stream_to_numpy/LICENSE
+ffmpeg_stream_to_numpy/README.MD
+ffmpeg_stream_to_numpy/__init__.py
+ffmpeg_stream_to_numpy/requirements.txt
+ffmpeg_stream_to_numpy/thirdparty.json
+ffmpeg_stream_to_numpy.egg-info/PKG-INFO
+ffmpeg_stream_to_numpy.egg-info/SOURCES.txt
+ffmpeg_stream_to_numpy.egg-info/dependency_links.txt
+ffmpeg_stream_to_numpy.egg-info/requires.txt
+ffmpeg_stream_to_numpy.egg-info/top_level.txt

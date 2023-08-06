@@ -1,0 +1,4 @@
+include ffmpeg_stream_to_numpy/requirements.txt
+include ffmpeg_stream_to_numpy/thirdparty.json
+include ffmpeg_stream_to_numpy/README.MD
+include ffmpeg_stream_to_numpy/LICENSE
