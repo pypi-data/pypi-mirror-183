@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: diffuzers
+Version: 0.0.8
+Summary: diffuzers
+Home-page: https://github.com/abhishekkrthakur/diffuzers
+Author: Abhishek Thakur
+License: UNKNOWN
+Keywords: diffuzers diffusers
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: accelerate (==0.15.0)
+Requires-Dist: diffusers (>=0.11.1)
+Requires-Dist: loguru (==0.6.0)
+Requires-Dist: streamlit (==1.16.0)
+Requires-Dist: streamlit-drawable-canvas (==0.9.0)
+Requires-Dist: streamlit-ext (==0.1.5)
+Requires-Dist: st-clickable-images (==0.0.3)
+Requires-Dist: torch (>=1.12.0)
+Requires-Dist: transformers (==4.25.1)
+Provides-Extra: dev
+Requires-Dist: black (~=22.0) ; extra == 'dev'
+Requires-Dist: isort (==5.8.0) ; extra == 'dev'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'dev'
+Requires-Dist: mypy (==0.901) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: recommonmark ; extra == 'docs'
+Requires-Dist: sphinx (==3.1.2) ; extra == 'docs'
+Requires-Dist: sphinx-markdown-tables ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (==0.4.3) ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Provides-Extra: quality
+Requires-Dist: black (~=22.0) ; extra == 'quality'
+Requires-Dist: isort (==5.8.0) ; extra == 'quality'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'quality'
+Requires-Dist: mypy (==0.901) ; extra == 'quality'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# diffuzers
+
+A web ui for [🤗 diffusers](https://github.com/huggingface/diffusers).
+
+< under development, request features using issues, prs not accepted atm >
+
+![image](static/screenshot_st.png)
+
+
+## Installation
+
+To install bleeding edge version of diffuzers, clone the repo and install it using pip.
+
+```bash
+git clone https://github.com/abhishekkrthakur/diffuzers
+cd diffuzers
+pip install -e .
+```
+
+Installation using pip:
+    
+```bash 
+pip install diffuzers
+```
+
+## Usage
+
+To run the web app, run the following command:
+
+```bash
+diffuzers run
+```
+
+## All CLI Options:
+
+```bash
+❯ diffuzers run --help
+
+usage: diffuzers <command> [<args>] run [-h] [--output OUTPUT] [--share] [--port PORT] [--host HOST]
+                                        [--device DEVICE]
+
+✨ Run diffuzers app
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --output OUTPUT  Output path is optional, but if provided, all generations will automatically be saved to this
+                   path.
+  --share          Share the app
+  --port PORT      Port to run the app on
+  --host HOST      Host to run the app on
+  --device DEVICE  Device to use, e.g. cpu, cuda, cuda:0, mps (for m1 mac) etc.
+```
+
