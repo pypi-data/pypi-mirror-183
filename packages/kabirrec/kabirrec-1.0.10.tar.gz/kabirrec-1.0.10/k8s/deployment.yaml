@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kabirrec-app
+  creationTimestamp: null
+  labels:
+    app: kabirrec-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kabirrec-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kabirrec-app
+    spec:
+      containers:
+      - image: kabirrec:2.0
+        name: kabirrec-server
+        resources: {}
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+          - mountPath: /app/config.json
+            subPath: config.json
+            name: config-map
+            readOnly: true
+          - mountPath: /app/dataset
+            name: dataset
+      volumes:
+        - name: config-map
+          configMap:
+            name: app-config
+        - name: dataset
+          hostPath:
+            path: /dataset
+            type: Directory
+status: {}
+
