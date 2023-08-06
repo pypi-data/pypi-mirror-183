@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: substring-match
+Version: 0.1.3
+Keywords: substring,string,match,search,suffixtree,suffixarray,suffix,array,tree
+Home-Page: https://github.com/Carbon225/substring-match-rs
+Author: Carbon225 <carbon225@proton.me>
+Author-email: Carbon225 <carbon225@proton.me>
+License: MIT
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Source Code, https://github.com/Carbon225/substring-match-rs.git
+
+# Substring Match
+
+A Python library written in Rust that can be used to search a collection of strings for strings containing a pattern.
+
+## Installation
+
+```
+pip install substring-match
+```
+
+## Usage
+
+```python
+from substring_match import SubstringMatcher
+m = SubstringMatcher(["banana", "apple tree", "pineapple tree"])
+m.find("apple")
+# ["apple tree", "pineapple tree"]
+```
+
