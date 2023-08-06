@@ -1,0 +1,18 @@
+[project]
+name = "fileio_upload"
+version = "1.2.0"
+authors = [
+  { name="Mji DarkPwn", email="mogtabaemile244566@gmail.com" },
+]
+description = "Upload Your Files to File.io"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/c4ssif3r/fileio_upload"
+"Bug Tracker" = "https://github.com/c4ssif3r/fileio_upload/issues"
