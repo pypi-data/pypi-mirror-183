@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+check_if_nan/LICENSE
+check_if_nan/README.MD
+check_if_nan/__init__.py
+check_if_nan/requirements.txt
+check_if_nan/thirdparty.json
+check_if_nan.egg-info/PKG-INFO
+check_if_nan.egg-info/SOURCES.txt
+check_if_nan.egg-info/dependency_links.txt
+check_if_nan.egg-info/requires.txt
+check_if_nan.egg-info/top_level.txt

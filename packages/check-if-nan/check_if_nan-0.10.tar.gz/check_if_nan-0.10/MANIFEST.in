@@ -1,0 +1,4 @@
+include check_if_nan/requirements.txt
+include check_if_nan/thirdparty.json
+include check_if_nan/README.MD
+include check_if_nan/LICENSE
