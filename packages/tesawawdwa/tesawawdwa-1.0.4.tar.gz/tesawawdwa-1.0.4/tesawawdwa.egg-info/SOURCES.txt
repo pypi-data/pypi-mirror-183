@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+tesawawdwa/__init__.py
+tesawawdwa.egg-info/PKG-INFO
+tesawawdwa.egg-info/SOURCES.txt
+tesawawdwa.egg-info/dependency_links.txt
+tesawawdwa.egg-info/top_level.txt
