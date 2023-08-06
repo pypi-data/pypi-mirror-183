@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0",
+    "wheel",
+    "boto3",
+    "pandas",
+    "DateTime",
+    "smart-open",
+    "pyarrow",
+    "openpyxl"
+]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/genricAlert/__init__.py
+src/genricAlert/emailUtil.py
+src/genricAlert/s3Util.py
+src/genricAlert.egg-info/PKG-INFO
+src/genricAlert.egg-info/SOURCES.txt
+src/genricAlert.egg-info/dependency_links.txt
+src/genricAlert.egg-info/top_level.txt
