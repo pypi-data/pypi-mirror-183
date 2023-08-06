@@ -1,0 +1,4 @@
+justacalculator.egg-info/PKG-INFO
+justacalculator.egg-info/SOURCES.txt
+justacalculator.egg-info/dependency_links.txt
+justacalculator.egg-info/top_level.txt
