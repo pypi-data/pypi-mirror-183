@@ -1,0 +1,11 @@
+Django>=3.0
+PyNaCl>=1.4.0
+
+[docs]
+sphinx
+
+[lint]
+flake8
+
+[test]
+psycopg2-binary
