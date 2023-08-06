@@ -1,0 +1,14 @@
+# Ignore everything...
+*
+
+# ...but those files...
+!/.gitignore
+!.gitkeep
+!/README.md
+
+!pyproject.toml
+!/src/**/*.py
+__pycache__/
+
+# ...even if they are in subdirectories
+!*/
