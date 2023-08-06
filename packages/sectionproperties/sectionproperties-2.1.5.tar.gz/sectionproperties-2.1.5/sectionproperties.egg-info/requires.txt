@@ -1,0 +1,16 @@
+numpy
+scipy
+more_itertools
+matplotlib>=3.4
+shapely>=2.0
+triangle
+cad_to_shapely>=0.3.1
+rich
+
+[rhino]
+rhino-shapley-interop>=0.0.4
+
+[test]
+rhino-shapley-interop>=0.0.4
+pytest
+pytest_check
