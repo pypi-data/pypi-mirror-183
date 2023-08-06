@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/patreklib/IG_info.py
+src/patreklib/__init__.py
+src/patrekmod.egg-info/PKG-INFO
+src/patrekmod.egg-info/SOURCES.txt
+src/patrekmod.egg-info/dependency_links.txt
+src/patrekmod.egg-info/top_level.txt
