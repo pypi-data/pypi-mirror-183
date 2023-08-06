@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "scramjet-middleware-client"
+version = "0.1.1a0"
+description = ""
+authors = ["Scramjet <open-source@scramjet.org>"]
+readme = "README.md"
+packages = [{include = "middleware_client"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+scramjet-manager-client = "^0.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+secondary = true
