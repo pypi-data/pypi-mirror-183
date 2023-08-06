@@ -1,0 +1,5 @@
+pyproject.toml
+hat_license_client.egg-info/PKG-INFO
+hat_license_client.egg-info/SOURCES.txt
+hat_license_client.egg-info/dependency_links.txt
+hat_license_client.egg-info/top_level.txt

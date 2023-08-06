@@ -1,0 +1,4 @@
+Metadata-Version: 2.1
+Name: hat_license_client
+Version: 0.0.1.dev0
+Summary: A fake package to warn the user they are not installing the correct package.

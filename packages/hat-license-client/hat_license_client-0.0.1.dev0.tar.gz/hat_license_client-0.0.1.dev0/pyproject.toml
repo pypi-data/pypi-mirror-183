@@ -1,0 +1,4 @@
+[project]
+name = "hat_license_client"
+version = "0.0.1.dev0"
+description = "A fake package to warn the user they are not installing the correct package."
