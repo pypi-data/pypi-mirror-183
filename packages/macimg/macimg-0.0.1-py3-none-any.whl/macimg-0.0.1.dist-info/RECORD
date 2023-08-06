@@ -1,0 +1,12 @@
+macimg/__init__.py,sha256=Kxvvb-DkFIX20wz87M0p6Y637j6HxZFPOpuRSgN0Gck,30
+macimg/compositions.py,sha256=ETFVeSoewvyqzN3Qe3tR2HJluEVsp6K4vZOmi2OQFYY,4111
+macimg/core.py,sha256=lWiDXWGztPSU7T1v7SFlAYbMLqwOOa8-fCnZcsxzoXU,34993
+macimg/distortions.py,sha256=C1mwfZDYSAvkGVBHup4h3wLPhFzB0w5jdEPVFs4Olw8,13111
+macimg/filters.py,sha256=NStc4Ts7-FQjiSUsyMSwuKdBYc791pbDZVVgV5_58pI,12204
+macimg/transforms.py,sha256=iVt-FKo-KmPteyXQBfSlcanl9h25ozngNeEWz0MWeIs,4943
+macimg/utilities.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+macimg-0.0.1.dist-info/LICENSE,sha256=qWeB_EAPWXujHqmlAK9ZxwQN10zabsaNw2y3A0fLvww,1071
+macimg-0.0.1.dist-info/METADATA,sha256=Y2CiUqV63ueTR63jDSyo66Hr7iYqOVhj5FcR_neEa4M,1380
+macimg-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+macimg-0.0.1.dist-info/top_level.txt,sha256=Hwx1v9ONyxIV7pv1WI7PWUOhzEN3zqHJeC0S8Wywri0,7
+macimg-0.0.1.dist-info/RECORD,,
