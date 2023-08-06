@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-iot-device"
+version = "1.0.1"
+description = "Simple IOT device simulator"
+readme = "README.md"
+authors = [{ name = "alv2017", email = "alv2017@protonmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = ["iot", "measurements", "simulator"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "flake8", "isort", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/alv2017/simple-iot-device/"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
