@@ -1,0 +1,5 @@
+setup.py
+pythonSftpServerManuel.egg-info/PKG-INFO
+pythonSftpServerManuel.egg-info/SOURCES.txt
+pythonSftpServerManuel.egg-info/dependency_links.txt
+pythonSftpServerManuel.egg-info/top_level.txt
