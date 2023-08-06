@@ -1,0 +1,92 @@
+modules:
+  - docassemble.blosign.blosign
+---
+objects:
+  recipients: DAList.using(object_type=Individual, there_are_any=True)
+---
+mandatory: true
+code: |
+  documentFile
+  doc_review
+  api = Blosign()
+  response, status_code = api.request_signatures(people, documentFile)
+---
+code: |
+  def getSignature(index):
+    return {
+      "page": 1,
+      "width": 150,
+      "height": 40,
+      "x": 0.1,
+      "y": 0.1 *(index +1)
+    }
+  people = []
+  for idx,r in enumerate(recipients):
+    person = {}
+    person['name'] = r.name.firstlast()
+    person['email'] = r.email
+    person['role'] = 'signer'
+    person['signature'] = getSignature(idx)
+    people.append(person)
+    
+---
+question: |
+  Please upload a pdf document.
+fields:
+  - Document: documentFile
+    datatype: file
+    accept: |
+      "application/pdf"
+mandatory: true
+---
+generic object: Individual
+question: |
+  Who should sign the document?
+fields:
+  - First Name: x.name.first
+  - Last Name: x.name.last
+  - Email: x.email
+    datatype: email
+---
+question: Signers
+subquestion: |  
+  % for r in recipients:
+  
+  * ${ r.name } at ${ r.email }  
+  
+  % endfor
+
+  Does anyone else need to sign this document?
+yesno: recipients.there_is_another
+---
+question: |
+  The document need to be sign in order?
+yesno: signInOrder
+mandatory: false
+---
+question: Your Document
+field: doc_review
+subquestion: |
+  Press continue to send it for signature.
+  
+  Signers:
+  % for r in recipients:
+  
+  * ${ r.name } at ${ r.email }  
+  
+  % endfor
+  
+  ${ documentFile }
+---
+question: Blosign API response
+mandatory: true
+subquestion: |
+  Response: ${ status_code } 
+
+  ${ json.dumps(response,indent=2) }
+  
+  End...
+  
+
+
+

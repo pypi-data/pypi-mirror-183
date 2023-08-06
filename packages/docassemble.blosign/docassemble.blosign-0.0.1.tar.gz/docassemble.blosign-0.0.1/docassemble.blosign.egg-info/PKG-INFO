@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: docassemble.blosign
+Version: 0.0.1
+Summary: A docassemble extension for integrating with Blosign.
+Home-page: https://blosign.com
+Author: Javier Goñi
+Author-email: jgoni@porthos.com.ar
+License: The MIT License (MIT)
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# docassemble.blosign
+
