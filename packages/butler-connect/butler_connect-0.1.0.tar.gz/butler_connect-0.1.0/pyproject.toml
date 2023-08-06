@@ -1,0 +1,31 @@
+# pyproject.toml
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "butler_connect"
+version = "0.1.0"
+description = "Access libraries (with pika) and data definitions for the Buttler project."
+readme = "README.md"
+authors = [{ name = "Oliver Birkholz", email = "info@aibutler.de" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["feed", "reader", "tutorial"]
+dependencies = [
+    "sseclient",
+    "requests",
+    "pika"
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+"Homepage" = "http://aibutler.de/"
