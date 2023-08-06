@@ -1,0 +1,17 @@
+[run]
+command_line = -m unittest -v
+source =
+    drb/xquery/
+omit =
+    drb/xquery/_version.py
+    drb/xquery/__init__.py
+    drb/xquery/XQuery*.py
+
+[report]
+precision = 0
+fail_under = 80.00
+omit =
+    drb/xquery/XQuery*.py
+exclude_lines =
+    @(abc\.)?abstractmethod
+    raise NotImplementedError

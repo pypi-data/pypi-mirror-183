@@ -1,0 +1,6 @@
+drb~=2.0.3
+drb-driver-file~=1.1.0
+drb-driver-xml~=1.1.0
+antlr4-python3-runtime==4.9.3
+python-dateutil~=2.8.2
+Click
