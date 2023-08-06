@@ -1,0 +1,4 @@
+robotframework>=3.2
+pyparsing==2.4.7
+argparse
+allpairspy
