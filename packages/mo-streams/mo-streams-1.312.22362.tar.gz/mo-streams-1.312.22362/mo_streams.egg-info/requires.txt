@@ -1,0 +1,12 @@
+mo-dots==9.300.22349
+mo-files==6.310.22362
+mo-future==7.298.22349
+mo-json==6.310.22362
+
+[tests]
+mo-files
+mo-logs
+zstandard
+boto3
+moto
+pandas
