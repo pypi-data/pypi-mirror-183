@@ -1,0 +1,3 @@
+[console_scripts]
+jobx = jobx.clitools.cli:main
+
