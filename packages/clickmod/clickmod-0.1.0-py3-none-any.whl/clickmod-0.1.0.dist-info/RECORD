@@ -1,0 +1,8 @@
+clickmod/__init__.py,sha256=pDq66a35IC33eCUkv_hrTy4QWBQOnPNvQ6lpvTPcVtI,58
+clickmod/app.py,sha256=UYoqKojkqOI0thuNJ1GLWD5XL0KkC4m200BUwWxXn30,2563
+clickmod/errors.py,sha256=e2BGn2oVJAjgDo4o9FI2JivnEq3zUNVGE0UbwhVZGoM,1233
+clickmod/middleware.py,sha256=wgbPu90QiDXvQw4u7wFkIpWseRy2Qh2uY1-2ugw6GU0,1271
+clickmod-0.1.0.dist-info/METADATA,sha256=Exe0Ownd_ijqnCNTOPvOtfD6YCx5WQkaXNz_Nxs9xNQ,661
+clickmod-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+clickmod-0.1.0.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+clickmod-0.1.0.dist-info/RECORD,,
