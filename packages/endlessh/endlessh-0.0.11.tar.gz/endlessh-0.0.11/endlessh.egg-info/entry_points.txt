@@ -1,0 +1,4 @@
+[console_scripts]
+endlessh = endlessh.ssh:tarpit
+httptarpit = endlessh.http:tarpit
+
