@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/ChatGPT_lite/ChatGPT.py
+src/ChatGPT_lite/__init__.py
+src/ChatGPT_lite/__main__.py
+src/ChatGPT_lite.egg-info/PKG-INFO
+src/ChatGPT_lite.egg-info/SOURCES.txt
+src/ChatGPT_lite.egg-info/dependency_links.txt
+src/ChatGPT_lite.egg-info/entry_points.txt
+src/ChatGPT_lite.egg-info/requires.txt
+src/ChatGPT_lite.egg-info/top_level.txt
