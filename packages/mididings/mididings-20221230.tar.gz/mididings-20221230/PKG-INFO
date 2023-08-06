@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mididings
+Version: 20221230
+Summary: A MIDI router/processor
+Home-page: https://github.com/mididings/mididings
+Author: Dominic Sacre
+Author-email: dominic.sacre@gmx.de
+Maintainer: George Rawlinson
+Maintainer-email: george@rawlinson.net.nz
+License: GPL
+License-File: COPYING
