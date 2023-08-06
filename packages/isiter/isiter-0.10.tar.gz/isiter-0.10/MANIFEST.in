@@ -1,0 +1,4 @@
+include isiter/requirements.txt
+include isiter/thirdparty.json
+include isiter/README.MD
+include isiter/LICENSE

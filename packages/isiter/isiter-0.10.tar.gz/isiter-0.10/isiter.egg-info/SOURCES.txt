@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+isiter/LICENSE
+isiter/README.MD
+isiter/__init__.py
+isiter/requirements.txt
+isiter/thirdparty.json
+isiter.egg-info/PKG-INFO
+isiter.egg-info/SOURCES.txt
+isiter.egg-info/dependency_links.txt
+isiter.egg-info/top_level.txt
