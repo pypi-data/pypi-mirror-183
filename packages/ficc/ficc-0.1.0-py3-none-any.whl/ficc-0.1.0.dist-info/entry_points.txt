@@ -1,0 +1,3 @@
+[console_scripts]
+ficc=ficc.__main__:main
+
