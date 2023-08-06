@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: fileconvtools
+Version: 0.0.3
+Summary: Test package for Convert tool
+Home-page: 
+Download-URL: 
+Author: Ddangkwon
+Author-email: semi109502@gmail.com
+Keywords: FILECONVTOOLS,fileconvtools
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+License-File: LICENSE
