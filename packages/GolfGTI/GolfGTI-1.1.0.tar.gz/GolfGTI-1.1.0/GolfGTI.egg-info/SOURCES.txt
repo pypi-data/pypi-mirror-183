@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+GolfGTI.egg-info/PKG-INFO
+GolfGTI.egg-info/SOURCES.txt
+GolfGTI.egg-info/dependency_links.txt
+GolfGTI.egg-info/entry_points.txt
+GolfGTI.egg-info/top_level.txt
+gti/app.py
+gti/gti.png
