@@ -1,0 +1,9 @@
+cdk_ec2_spot_simple/__init__.py,sha256=8dAVc5O4v0NWAXbn9NQlpUBbpbcLkJL7AO0GOrcgfgE,43060
+cdk_ec2_spot_simple/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+cdk_ec2_spot_simple/_jsii/__init__.py,sha256=NymRF4-eMhvXGPQiOFMyTYwSrN4aZdoZxhvEcsm_DWY,418
+cdk_ec2_spot_simple/_jsii/cdk-ec2-spot-simple@1.0.0.jsii.tgz,sha256=yxTpfkLACYAtN3Z9A4GiYYqGtmB3ZpLElX9tksTtINk,107244
+cdk_ec2_spot_simple-1.0.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+cdk_ec2_spot_simple-1.0.0.dist-info/METADATA,sha256=Amwx3nq9QeB21Pj3G5OwxNgAFHR3ft4dacqN2akaXOw,3119
+cdk_ec2_spot_simple-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+cdk_ec2_spot_simple-1.0.0.dist-info/top_level.txt,sha256=zU4Xvh4bTA-xB8dW6W_6d_02NmkrVBLxjDgbBZyXbDk,20
+cdk_ec2_spot_simple-1.0.0.dist-info/RECORD,,
