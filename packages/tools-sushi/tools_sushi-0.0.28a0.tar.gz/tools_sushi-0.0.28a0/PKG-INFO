@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: tools_sushi
+Version: 0.0.28a0
+Summary: create applications faster than ever
+Home-page: https://github.com/sushi-tools/sushi
+Author: ksawery29
+Author-email: sushicontact1@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<p align="center">
+    <img src="img/readme.png" alt="sushi">
+</p>
+
+---
+
+## sushi is a set of libraries to help develop applications faster
+
+Sushi aims to make the process of creating applications faster by providing collection of libraries in python. These libraries can be used by developers to make and grow applications faster than ever.
+
+With sushi, developers can focus on the core functionality of thier applications, rather than writing multiple functions to create a simple app.
+
+## examples
+
+<details>    
+    <summary> http server </summary>
+    <br/>
+
+```py
+from sushi.api.network.http_server import http_server
+http_server(handler, ip, port, ready) # create a simple get server
+```
+
+</details>
+
+<details>
+    <summary> terminal input </summary>
+    <br/>
+    
+    
+```py
+from sushi.api.terminal.input import list
+list(["data1", "data2"], True) # ask user to select item(s) from list
+```
+</details>
+
+<details>
+    <summary> color print </summary>
+    <br/>
+    
+    
+```py
+from sushi.api.terminal.colors import print_colors, colors
+print_colors("hello, world", colors.orange) # prints orange 'hello, world'
+```
+
+</details>
+
+## wiki
+
+sushi wiki is currently hosted on [github wiki](https://github.com/sushi-tools/sushi/wiki)

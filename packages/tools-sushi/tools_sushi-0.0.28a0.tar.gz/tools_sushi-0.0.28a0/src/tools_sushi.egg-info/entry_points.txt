@@ -1,0 +1,2 @@
+[console_scripts]
+sushi = src.main:cli
