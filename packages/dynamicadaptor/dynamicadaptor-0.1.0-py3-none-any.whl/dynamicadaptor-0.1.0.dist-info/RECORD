@@ -1,0 +1,11 @@
+dynamicadaptor/AddonCard.py,sha256=RtUTWpZVcCccPs6UUZWAptFv92eZ2jxWmhXRPgqLuFY,1600
+dynamicadaptor/Content.py,sha256=AtXqZ8J635j0CGvKoG7gDh2aDcYq5jfUktN8Bme7zuU,926
+dynamicadaptor/DynamicConversion.py,sha256=PjWmtwHRRV3vR5C9tZvo-mBucmZ08CkTb3M4YO0xHZ4,13822
+dynamicadaptor/Header.py,sha256=JYRK41kTLlrS2KsrlK_pc_3q-PWM3bWzkI1--5sWP6o,561
+dynamicadaptor/Majors.py,sha256=pGSdSZjl22FgIUO5Tj2H6MVJ2tL7J2TKl3Ur2pXI3WI,3094
+dynamicadaptor/Message.py,sha256=dVRz5HGapIW7dc6o_W7DT7sukpTnLz8rhiW_-yXJO8U,390
+dynamicadaptor/Repost.py,sha256=aeT4njS2aLXP6qisXYCaQZ9Kayxq0so9xwNVkbb0yIA,323
+dynamicadaptor/__init__.py,sha256=nCioNpC4_GAVuyG4IHNVB0AtiGmnuueMMTO8qthiJDM,10
+dynamicadaptor-0.1.0.dist-info/METADATA,sha256=Lr_vWzN-3QtGbMxN6S41zfoYCnT4y9jiuNsZSmdvLto,1735
+dynamicadaptor-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+dynamicadaptor-0.1.0.dist-info/RECORD,,
