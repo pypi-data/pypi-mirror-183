@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biorosetta"
+version = "0.0.2"
+authors = [
+  { name="Enrico Maiorino", email="enrico.maiorino@gmail.com" },
+]
+description = "A package to convert gene names between different naming conventions"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/reemagit/biorosetta"
+"Bug Tracker" = "https://github.com/reemagit/claude/issues"
