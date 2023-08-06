@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: QuantPanda
+Version: 0.0.23
+Summary: Backtesting Engine
+Home-page: UNKNOWN
+Author: Ashish Ongari
+Author-email: ashishongari@gmail.com
+License: MIT
+Keywords: backtesting,quant,algotrading,systematictrading,trading
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+Requires-Dist: pandas-ta
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: boto3
+
+Backtest trading Strategies using various technical indicators
+
+List of technical indicators:
+
+1. Simple Moving Crossover
+
+2. Exponential Moving Crossover
+
+3. Double Crossover Simple Moving Crossover
+
+4. Double Crossover Exponential Moving Crossover
+
+5. RSI
+
+6. Adx
+
+7. Supertrend
+
+8. William's R Indicator
+
+9. Parabolic SAR
+
+10. MACD
+
+11. Bollinger Bands
+
+12. Donchian Channels
+
+13. Heikin Ashi
+
+
+Change Log 
+==========
+
+0.0.21(10/12/2022)
+_ _ _ _ _ _ _ _ _ 
+
+- First Release
+
+0.0.23(29/12/2022)
+_ _ _ _ _ _ _ _ _ 
+
+- Second Release
+
+
