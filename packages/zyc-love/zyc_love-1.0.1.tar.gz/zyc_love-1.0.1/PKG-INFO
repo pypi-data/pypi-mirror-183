@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: zyc_love
+Version: 1.0.1
+Summary:  Code of Love 
+Home-page: https://github.com/renaissancezyc/zyc-love
+Author: renaissance
+Author-email: renaissance3310@163.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# 安装
+```python
+
+pip install zyc_love #直接最新版本即可
+
+```
+
+# 使用
+```python
+
+from love_code.love import run 
+
+if __name__=="__main__":
+    
+    run()
+
+```
