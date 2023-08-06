@@ -1,0 +1,7 @@
+[console_scripts]
+optzer = optzer.__init__:main
+optzer-db2csv = optzer.db2csv:main
+optzer-get-best = optzer.get_best:main
+optzer-to-md = optzer.opt2md:main
+optzer-to-prms = optzer.opt2prms:main
+
