@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: CircuitCalculator
+Version: 0.0.1
+Summary: blabla
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: schemdraw (>=0.15)
+Requires-Dist: matplotlib (>=3.6.0)
+
+# CircuitCalculator
