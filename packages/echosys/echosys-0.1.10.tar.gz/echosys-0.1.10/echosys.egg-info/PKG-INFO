@@ -1,0 +1,42 @@
+Metadata-Version: 1.0
+Name: echosys
+Version: 0.1.10
+Summary: A python library for modeling and solving epistemic multi agents planning problems
+Home-page: https://github.com/DavideSolda/echosys
+Author: Davide Solda'
+Author-email: davide.solda@tuwien.ac.at
+License: GNU General Public License v3.0
+Description: #+Title: Hierarchical Epistemic Multi-Agent Planner
+        
+        Python library to encode in a declarative way the epistemic multi-agent planning problem.
+        
+        * How to install:
+        
+        First, you need to clone the following github repository:
+        
+        #+BEGIN_SRC bash
+        git clone recurse-submodules https://github.com/DavideSolda/echosys.git
+        #+END_SRC
+        
+        Then, you need to install EFP, the multi-agent epistemic planner:
+        
+        #+BEGIN_SRC bash
+        cd echosys/ECHO/engines/mae_epddl_planning/sofai/Planners/EFP
+        make
+        cd -
+        #+END_SRC
+        
+        Install setuptools if not yet installed:
+        
+        #+BEGIN_SRC
+        pip install setuptools
+        #+END_SRC
+        
+        Install the library:
+        
+        #+BEGIN_SRC
+        cd echosys
+        pip install .
+        #+END_SRC
+        
+Platform: UNKNOWN
