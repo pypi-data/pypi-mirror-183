@@ -1,0 +1,6 @@
+[console_scripts]
+robodyno = robodyno:robodyno
+robodyno-motor = robodyno:robodyno_motor
+
+[robodyno.interfaces]
+CanBus = robodyno.interfaces.can_bus.can_bus_interface:CanBus
