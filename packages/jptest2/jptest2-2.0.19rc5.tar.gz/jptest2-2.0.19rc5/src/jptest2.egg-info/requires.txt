@@ -1,0 +1,4 @@
+jupyter
+aiofiles
+aiosqlite
+duckdb
