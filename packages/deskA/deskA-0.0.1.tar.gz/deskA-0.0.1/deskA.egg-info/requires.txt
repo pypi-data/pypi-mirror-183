@@ -1,0 +1,6 @@
+gtts
+speech_recognition
+subprocess
+pyaudio
+os
+datetime

@@ -1,0 +1,8 @@
+setup.py
+deskA/__init__.py
+deskA/main.py
+deskA.egg-info/PKG-INFO
+deskA.egg-info/SOURCES.txt
+deskA.egg-info/dependency_links.txt
+deskA.egg-info/requires.txt
+deskA.egg-info/top_level.txt
