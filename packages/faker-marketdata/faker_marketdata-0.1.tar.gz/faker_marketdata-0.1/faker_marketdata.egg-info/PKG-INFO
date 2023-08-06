@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: faker-marketdata
+Version: 0.1
+Summary: Sample market data for Faker
+Home-page: https://github.com/rubenafo/faker_marketdata
+Author: Ruben Afonso
+Author-email: rbfrancos@gmail.com
+Keywords: faker,testdata,financedata,python,marketdata,isin,sedol,cusip,ticker,figi
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.6
+License-File: LICENSE
