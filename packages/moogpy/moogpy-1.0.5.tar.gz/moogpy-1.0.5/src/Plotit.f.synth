@@ -1,0 +1,85 @@
+
+      subroutine plotit                   
+c******************************************************************************
+c     This routine plots a spectrum that already has been synthesized
+c******************************************************************************
+
+      implicit real*8 (a-h,o-z)
+      include 'Atmos.com'
+      include 'Pstuff.com'
+
+
+c*****examine the parameter file
+      call params
+
+
+c*****open the files for: raw spectrum depths (as input), smoothed
+c     spectra (output), and (if desired) IRAF-style smoothed spectra (output)
+      nf2out = 21
+      lscreen = 4
+      array = 'RAW SYNTHESES INPUT'
+      nchars = 19
+      call infile ('input  ',nf2out,'formatted  ',0,nchars,
+     .             f2out,lscreen)
+      if (plotopt .ne. 0) then
+         nf3out = 22
+         lscreen = lscreen + 2
+         array = 'SMOOTHED SYNTHESES OUTPUT'
+         nchars = 25
+         call infile ('output ',nf3out,'formatted  ',0,nchars,
+     .                f3out,lscreen)
+         nf5out = 26
+         lscreen = lscreen + 2
+         array = 'POSTSCRIPT PLOT OUTPUT'
+         nchars = 22
+         call infile ('output ',nf5out,'formatted  ',0,nchars,
+     .                f5out,lscreen)
+      endif
+      if (plotopt .gt. 1) then
+         nf6out = 27
+         lscreen = lscreen + 2
+         array = 'SPECTRUM COMPARISON OUTPUT'
+         nchars = 27
+         call infile ('output ',nf6out,'formatted  ',0,nchars,
+     .                f6out,lscreen)
+      endif
+c      if (iraf .ne. 0) then
+c         nf4out = 23
+c         lscreen = lscreen + 2
+c         array = 'IRAF ("rtext") OUTPUT'
+c         nchars = 24
+c         call infile ('output ',nf4out,'formatted  ',0,nchars,
+c     .                f4out,lscreen)
+c      endif
+
+
+c*****now plot the spectrum
+c      if (plotopt.eq.2 .and. specfileopt.gt.0) then
+c         nfobs = 33               
+c         lscreen = lscreen + 2
+c         array = 'THE OBSERVED SPECTRUM'
+c         nchars = 21
+c         if     (specfileopt.eq.1 .or. specfileopt.eq.3) then
+c            call infile ('input  ',nfobs,'unformatted',2880,nchars,
+c     .                   fobs,lscreen)
+c         else
+c            call infile ('input  ',nfobs,'formatted  ',0,nchars,
+c     .                   fobs,lscreen)
+c         endif
+c      endif
+c      if (plotopt .ne. 0) then
+c         line = 10
+c         ncall = 1
+c         call pltspec (line,ncall)
+c      endif
+
+
+c*****finish
+      call finish (0)
+      return
+
+
+      end   
+
+
+
