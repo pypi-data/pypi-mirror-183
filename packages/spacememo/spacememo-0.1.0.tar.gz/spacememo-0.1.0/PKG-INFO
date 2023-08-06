@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: spacememo
+Version: 0.1.0
+Summary: 📘 a python nanolibrary for apply the “space memo repetition” in learning purposes apps 📙
+Home-page: https://github.com/opensourceducation
+Author: opensourceducation
+Author-email: githubpersonalfor@gmail.com
+License: MIT license
+Keywords: srs,learning,microlearning,memorization,javascript,space-repetition,python
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+<h1 align=center> spacememo </h1>
+
+<p align=center>📘 A python/javascript nanolibrary for apply the “space memo repetition” in learning purposes apps 📙 </p>
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/opensourceducation/spacememo/actions/workflows/npm_deploy.yml/badge.svg">
+</p>
+
+<p align="center">
+  <img src="https://github.com/opensourceducation/spacememo/actions/workflows/pip_deploy.yml/badge.svg">
+</p>
+
+ </p>
+
+<br>
+<br>
+
+Forget to implement complex algorithms and bussiness logical process to know when to repeat the information for the optimal learning process of the user
+
+Ideal for quizzes, micro learning, and practical exercises what requires domain
+
+<h2 align="center">Usage</h2>
+
+<h4 align="center">Javascript</h4>
+```
+npm install spacememo
+```
+
+<br>
+<h4 align="center">Python</h4>
+```
+pip install spacememo
+```

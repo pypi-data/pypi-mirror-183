@@ -1,0 +1,8 @@
+setup.cfg
+setup.py
+spacememo/spacememo.py
+spacememo/test_spacememo.py
+spacememo.egg-info/PKG-INFO
+spacememo.egg-info/SOURCES.txt
+spacememo.egg-info/dependency_links.txt
+spacememo.egg-info/top_level.txt
