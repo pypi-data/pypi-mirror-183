@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: weather-collector
+Version: 0.1.0
+Summary: CLI for collecting weather data
+Home-page: https://codeberg.org/cap_jmk/weather-collector
+Author: Julian M. Kleber
+Author-email: julian.kleber@sail.black
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# prettify-py
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%20-blue) 
+![Style Black](https://warehouse-camo.ingress.cmh1.psfhosted.org/fbfdc7754183ecf079bc71ddeabaf88f6cbc5c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d626c61636b2d3030303030302e737667) 
+[![Documentation Status](https://readthedocs.org/projects/xml-formatter/badge/?version=latest)](https://prettify-py.readthedocs.io/en/latest/?badge=latest)
+
+
+# Why 
+
+Need to register a command to collect weather data
+
+# What 
+
+Build upon bulkhead
+# Usage 
+
+-i specifies the filename
+```bash
+weather-collector -o file_name -i 60
+
+```
+
+# Installation
+
+## Production Build 
+
+
+## Dev Build
+Clone the repository with
+
+
+### Linux 
+
+Run with one of the follwing: 
+```bash
+bash install.sh
+./install.sh
+sh install.sh
+```
+
+
+### Windows
+
+Double click on `install.bat` or run
+
+```bash
+install.bat
+```
+
+# Run sample 
+
+Place .env file with parameters in the directory 
+
+```bash 
+OpenWeatherMapKey=key
+OpenWeatherMapURL=api.openweathermap.org
+
+TomorrowIOKey=key
+TomorrowIOURL=api.tomorrow.io
+
+```
+
+```bash 
+weather-collector -o /home/dev/Documents/weather-collector/sample.csv -i 1 -l 53.551086 -t 9.993682 
+```
