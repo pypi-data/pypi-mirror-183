@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+django_multiauth.egg-info/PKG-INFO
+django_multiauth.egg-info/SOURCES.txt
+django_multiauth.egg-info/dependency_links.txt
+django_multiauth.egg-info/requires.txt
+django_multiauth.egg-info/top_level.txt
+multiauth/__init__.py
+multiauth/admin.py
+multiauth/apps.py
+multiauth/models.py
+multiauth/tests.py
+multiauth/views.py

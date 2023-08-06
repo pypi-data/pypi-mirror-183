@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: django-multiauth
+Version: 0.0.1rc0
+Summary: A django package for allowing your user to manage multiple sources of authentication
+Home-page: https://github.com/rileymathews/django-multiauth/
+Author: Riley Mathews
+Author-email: dev@rileymathews.com
+License: MIT
+
+# Django Multiauth
