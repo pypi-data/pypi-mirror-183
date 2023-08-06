@@ -1,0 +1,3 @@
+[console_scripts]
+installubuntu = ubuntu_termux.start:installNow
+
