@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: cli-changelog-md
+Version: 2.9.2
+Summary: A package for automatization work with changelog.md
+Author: Y. Chudakov
+Author-email: kappasama.ks@gmail.com
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
