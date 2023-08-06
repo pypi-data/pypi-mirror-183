@@ -1,0 +1,12 @@
+aioconnection/__init__.py,sha256=hF21IlXWuo1h8Qggoz5nGDgWpaT8Jtw3i50MUdVmEvk,280
+aioconnection/protocol.py,sha256=-eR-20FbCDFSkNkaPzssFCWPMj8p2q6o2SGiD235FQU,11035
+aioconnection/utils.py,sha256=QPZGQekg-Sox1qPrQHi62MFjE_3lqz2T-kjPSgrL-8w,415
+aioconnection/transport/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aioconnection/transport/serialport/__init__.py,sha256=hz7NU-oGKwPRxUg_secuhGHxmx1WT9Fn3rDOnFB-RHs,315
+aioconnection/transport/serialport/core.py,sha256=DtRPL9NUAdEBYIZP1CgNEIz-_o1oIEmTM44hfsYMaLo,10014
+aioconnection/transport/serialport/transport.py,sha256=8QWN_6cZjOuI1Dw5ZfRucZEYvkbZ802Xe40g7oyu9tg,5932
+aioconnection-0.1.1.dist-info/LICENSE,sha256=KOI2v5c_M5MQQkVqxM4BBqmkZnNAh6PYV-3Q9pTInWE,1096
+aioconnection-0.1.1.dist-info/METADATA,sha256=T7pacfgBpwJYSS-ecOW4JI5jgYQidxPehg2Yqzrjjkc,790
+aioconnection-0.1.1.dist-info/WHEEL,sha256=AiyVnrmrEuW_cPqhPlarzpb5qtD8ITcBeZKvhXXgyN4,98
+aioconnection-0.1.1.dist-info/top_level.txt,sha256=AvMLNfAMAdyTsRY--I6X5S70SLUcDAYMYbPmuFGHXSs,14
+aioconnection-0.1.1.dist-info/RECORD,,
