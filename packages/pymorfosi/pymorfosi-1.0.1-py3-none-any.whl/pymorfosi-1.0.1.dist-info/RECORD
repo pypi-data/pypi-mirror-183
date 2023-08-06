@@ -1,0 +1,17 @@
+morfosi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+morfosi/lib.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+morfosi/registry.py,sha256=iwz6b8CwG1bmfhXx7vwI69k7PQ9VMburAlda2H9lsBE,271
+morfosi/schema.py,sha256=lWNHck-JGbdXJwvBMOOtVwv07gCbewzz0GidO7VWM4M,804
+morfosi/tracing/__init__.py,sha256=baQfSm5p1auDSO-5toES3V5b0bYblc67kaqUNd6bdZQ,30
+morfosi/tracing/base.py,sha256=qKPp2_IPcA_sprqLjOHu_-mjUh8n_bANdj2Rn0MnlcI,893
+morfosi/tracing/class_tracer.py,sha256=6UjplpR1UWOrUeZ0Ix3TJ75IhEtss9uc5NjmwIJeuWo,2848
+morfosi/tracing/dict_tracer.py,sha256=YgF6ATtPqvk-MGiUtmwWkG1RIN22O974N3PNYVqi-XU,2684
+morfosi/tracing/list_tracer.py,sha256=mLUcLkZg2OCsAzTpZVzE9k8ZnOL_rm-tJbVbiRjeX9o,6074
+morfosi/tracing/snapshot.py,sha256=M6tKQ0emaHaMDtJ8JQqkQEQDL1xHg800adcQmM9gPZc,465
+morfosi/tracing/trace.py,sha256=0AOvju1kEa6N_X9CEz8al5Vwv6GYm4XnL0_ZBtFq838,854
+morfosi/tracing/utils.py,sha256=FElc_CU0M6GyESFfljvDaLPTfLE0JV4ci4MLJkbNVhE,256
+pymorfosi-1.0.1.dist-info/LICENSE,sha256=S226WvrMU6n6TP9efmwTNHqj_s6opUOLGs_BwDJBzYU,1092
+pymorfosi-1.0.1.dist-info/METADATA,sha256=1cEHMb5qk2-CWhxqGM_0D4RuzjU2x2yVqX5pM8Hzp64,2008
+pymorfosi-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pymorfosi-1.0.1.dist-info/top_level.txt,sha256=yevKeY_SKYIqdNg4fDKgIEIiO8wUEevuEAG9TSYOhh8,8
+pymorfosi-1.0.1.dist-info/RECORD,,
