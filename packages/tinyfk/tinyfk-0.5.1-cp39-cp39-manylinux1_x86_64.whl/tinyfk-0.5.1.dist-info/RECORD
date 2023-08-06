@@ -1,0 +1,8 @@
+tinyfk/__init__.py,sha256=XTfUJ8X-BGsmy3P3XrJPw348z8HBiXmSm4s41a_Yo-I,5050
+tinyfk/_inverse_kinematics.py,sha256=z1Wlav_Q5PiwA3tpslBMVkoVM8-ilzO4gMatUygHONo,2383
+tinyfk/_tinyfk.cpython-39-x86_64-linux-gnu.so,sha256=k9dxdLwdQBinEjqiw7g-Uyo0ICtmbN4gk-e8wcREpSM,431808
+tinyfk-0.5.1.dist-info/LICENSE,sha256=xEjS7TnCeCGorANy0kypweU1s8yq2fwAUImOMvjwK30,1072
+tinyfk-0.5.1.dist-info/METADATA,sha256=ueW2U7K7P40rFviwozUu-pjrsDbcHItJD3TMZSRg2HM,190
+tinyfk-0.5.1.dist-info/WHEEL,sha256=Z3zDXjV0EgRJzz-ldzatnXX2ChFerKrDzSkbaCcnK2Y,102
+tinyfk-0.5.1.dist-info/top_level.txt,sha256=oVkmyZ6fnMt5wnXVhCv7rXNhurxwwwDU9vCSV6m8JCs,7
+tinyfk-0.5.1.dist-info/RECORD,,
