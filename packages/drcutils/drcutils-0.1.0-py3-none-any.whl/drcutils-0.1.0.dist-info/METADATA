@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: drcutils
+Version: 0.1.0
+Summary: Utilities for research in the Design Research Collective
+Home-page: https://github.com/cmudrc/drcutils/
+Author: The Design Research Collective
+Author-email: ask-drc@andrew.cmu.edu
+License-File: LICENSE
+Requires-Dist: IPython
+Requires-Dist: matplotlib
+Requires-Dist: netron
+Requires-Dist: numpy
+Requires-Dist: numpy-stl
+Requires-Dist: Pillow
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: svgpathtools
+
