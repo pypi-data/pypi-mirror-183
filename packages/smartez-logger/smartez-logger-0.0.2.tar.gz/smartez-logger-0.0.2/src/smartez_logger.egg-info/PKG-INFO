@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: smartez-logger
+Version: 0.0.2
+Summary: Logger package used for smartez
+Author-email: Rune Lykke-Kjeldsen <rune@lykke-kjeldsen.dk>
+Project-URL: Homepage, https://github.com/BispensGipsGebis/smartez-logger
+Project-URL: Bug Tracker, https://github.com/BispensGipsGebis/smartez-logger/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# smartez-logger
+Simple console logger for smartez
