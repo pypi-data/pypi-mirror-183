@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: check-gh-actions
+Version: 0.1.2
+Summary: Example package description
+Author: Maxim V4S
+Author-email: maxim.d@v4scale.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# Check gh actions
+
+Project des
+
+* **Documentation**: should be docs link
+* **Source code**: https://github.com/maxim-v4s/check-gh-actions
+
