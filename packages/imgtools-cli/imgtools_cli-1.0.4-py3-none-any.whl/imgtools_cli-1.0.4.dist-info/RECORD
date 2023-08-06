@@ -1,0 +1,12 @@
+imgtools_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+imgtools_cli/__main__.py,sha256=dpERQm4UPRAx133KQjt_iUgQKwgsDfb3Nih0A3Py17k,1885
+imgtools_cli/download.py,sha256=RYMxQVhxnRVl2luf0wSbDya2A0kC83swc4kjDZ-vQx8,1642
+imgtools_cli/hassan_people_remover.py,sha256=84REKbbJ8SbT8FWrR16AP9Y1cu4ib-3Q684O_37LywY,2009
+imgtools_cli/heic2png.py,sha256=I-f3xi_GcLpkqXA5rZRuvDXS3_fyxYsH_-oIw-yp0Rk,1340
+imgtools_cli/image2chunks.py,sha256=v72RMYgrpgCYji2ADdBHxVCQ_Nk_fYx32qBLSFOINag,1962
+imgtools_cli-1.0.4.dist-info/LICENSE,sha256=Xtw_AL7Bdj946C_PYa7Y_dsAPVTBRZOSu79mj80zm1A,1066
+imgtools_cli-1.0.4.dist-info/METADATA,sha256=3r7HjDlkqzT34lo3kBFjIxvsRqdUh0YWi2D4SDHKt7g,4510
+imgtools_cli-1.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+imgtools_cli-1.0.4.dist-info/entry_points.txt,sha256=CMMmVhEsxFjg6oPfoFdynwD2cXb1VPqDIxe55yHn0Sk,56
+imgtools_cli-1.0.4.dist-info/top_level.txt,sha256=D1_UkW2Qd-Bx1-mB-JFA2_9_-rKdOor5jeJxDdgFvZ4,13
+imgtools_cli-1.0.4.dist-info/RECORD,,

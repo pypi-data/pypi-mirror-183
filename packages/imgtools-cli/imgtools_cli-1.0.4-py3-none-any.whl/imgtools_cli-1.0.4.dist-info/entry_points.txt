@@ -1,0 +1,2 @@
+[console_scripts]
+imgtools = imgtools_cli.__main__:main
