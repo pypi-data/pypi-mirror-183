@@ -1,0 +1,5 @@
+setup.py
+xbox_promo_checker_api.egg-info/PKG-INFO
+xbox_promo_checker_api.egg-info/SOURCES.txt
+xbox_promo_checker_api.egg-info/dependency_links.txt
+xbox_promo_checker_api.egg-info/top_level.txt
