@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=59.6.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doup"
+version = "0.0.1"
+authors = [
+    { name="Kay Gerlitzki", email="developed@kygr.org" },
+]
+description = "Manage version of dockerhub images"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/doup1/doup"
+"Bug Tracker" = "https://gitlab.com/doup1/doup/-/issues"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.scripts]
+doup = "doup.EntryPoint:main"

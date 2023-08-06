@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/doup/doup.py
+src/doup.egg-info/PKG-INFO
+src/doup.egg-info/SOURCES.txt
+src/doup.egg-info/dependency_links.txt
+src/doup.egg-info/entry_points.txt
+src/doup.egg-info/top_level.txt
+src/doup/doup/DockerImage.py
+src/doup/doup/DockerVersionGrepper.py
+src/doup/doup/DockerVersionUpdater.py
+src/doup/doup/EntryPoint.py
+src/doup/doup/Utility.py
+src/doup/doup/__init__.py
