@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+CodeExecutor/__init__.py
+CodeExecutor.egg-info/PKG-INFO
+CodeExecutor.egg-info/SOURCES.txt
+CodeExecutor.egg-info/dependency_links.txt
+CodeExecutor.egg-info/not-zip-safe
+CodeExecutor.egg-info/top_level.txt
