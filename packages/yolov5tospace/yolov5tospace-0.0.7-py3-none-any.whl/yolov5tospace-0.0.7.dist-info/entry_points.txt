@@ -1,0 +1,2 @@
+[console_scripts]
+yolov5tospace = yolov5tospace.cli:app
