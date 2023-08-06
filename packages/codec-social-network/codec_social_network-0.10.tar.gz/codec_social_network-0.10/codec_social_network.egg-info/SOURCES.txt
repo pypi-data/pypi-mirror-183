@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+codec_social_network/LICENSE
+codec_social_network/README.MD
+codec_social_network/__init__.py
+codec_social_network/requirements.txt
+codec_social_network/thirdparty.json
+codec_social_network.egg-info/PKG-INFO
+codec_social_network.egg-info/SOURCES.txt
+codec_social_network.egg-info/dependency_links.txt
+codec_social_network.egg-info/requires.txt
+codec_social_network.egg-info/top_level.txt

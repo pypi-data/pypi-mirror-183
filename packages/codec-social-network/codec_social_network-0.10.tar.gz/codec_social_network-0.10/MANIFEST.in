@@ -1,0 +1,4 @@
+include codec_social_network/requirements.txt
+include codec_social_network/thirdparty.json
+include codec_social_network/README.MD
+include codec_social_network/LICENSE
