@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+a8mailer/a8mailer.py
+a8mailer.egg-info/PKG-INFO
+a8mailer.egg-info/SOURCES.txt
+a8mailer.egg-info/dependency_links.txt
+a8mailer.egg-info/not-zip-safe
+a8mailer.egg-info/requires.txt
+a8mailer.egg-info/top_level.txt
