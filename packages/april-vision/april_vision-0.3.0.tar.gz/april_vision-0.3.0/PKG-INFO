@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: april_vision
+Version: 0.3.0
+Summary: An AprilTags wrapper with camera discovery and axis conversion.
+Home-page: https://github.com/WillB97/april_vision
+Author: "Will Barber, Joshua Perriman"
+License: MIT
+Requires-Python: >=3.8
+Provides-Extra: dev
+Provides-Extra: j5
+Provides-Extra: cli
+Provides-Extra: opencv
+License-File: LICENSE
