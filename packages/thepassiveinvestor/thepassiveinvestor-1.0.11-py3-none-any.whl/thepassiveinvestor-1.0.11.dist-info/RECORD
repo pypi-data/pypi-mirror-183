@@ -1,0 +1,10 @@
+thepassiveinvestor/__init__.py,sha256=tnulb_AVHnWW_n-ijiFA37rRCKWY7UpCGrNVJUE7HGk,276
+thepassiveinvestor/collect_data.py,sha256=d4F6iUAKyDejmqlwv3PiTQuCwvf3JwRfFL5_TdpPWOY,2865
+thepassiveinvestor/config.py,sha256=H3az6d6M0JqrSI4jN1g78xtOkU2MievW4WVfODefe5c,591
+thepassiveinvestor/create_report.py,sha256=ehNbXh5Fw7ggQpQnqGVgqE6oH76C3BNKnyQN2BjTSuk,6948
+thepassiveinvestor/utils.py,sha256=oJ9DpOaSz3MDYThvlfAAypVwh7uqTuLwEQnAjghEBHY,5643
+thepassiveinvestor-1.0.11.dist-info/LICENSE.txt,sha256=2UiH9BHepcGIYhVEnAGGxpnlPAeEQez9z0vWLpPB-vA,1068
+thepassiveinvestor-1.0.11.dist-info/METADATA,sha256=9-XgJHInQBdb3CPtifNzOZL9nkU-KMYY92M8m1qBtBs,6074
+thepassiveinvestor-1.0.11.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+thepassiveinvestor-1.0.11.dist-info/top_level.txt,sha256=-j5atOxvM9Pl9Gm2FDK_uDY9EvIdQIEi98VAssTFyvs,19
+thepassiveinvestor-1.0.11.dist-info/RECORD,,
