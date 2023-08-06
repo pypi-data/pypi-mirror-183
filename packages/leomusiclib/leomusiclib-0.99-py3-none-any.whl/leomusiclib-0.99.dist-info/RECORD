@@ -1,0 +1,9 @@
+leomusiclib/__init__.py,sha256=26UWatnbm6ZIwQMuu9NNzQ0IW1ACO4Oe9caModuTpWM,4
+leomusiclib/chords.py,sha256=dQzUgF5N40yrHnf5U7BYs1fnMpgBe4yZJOaEo8QikCw,6936
+leomusiclib/intervals.py,sha256=fMlI55scNJfp2gcqGqhnPIbCxk54M5PXCB7v8JAMnGQ,10452
+leomusiclib/notetocode.py,sha256=p2nZi1d2wN0XCo_VGjPFzgcfzSaeTFWcAqgf4HGepZM,93610
+leomusiclib-0.99.dist-info/LICENSE,sha256=Qv2ilebwoUtMJnRsZwRy729xS5JZQzLauJ0tQzkAkTA,1088
+leomusiclib-0.99.dist-info/METADATA,sha256=iUDxFVPqKh0BSxgpuBnsmnuOZ7vP5k_wHx0P5n1omVQ,532
+leomusiclib-0.99.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+leomusiclib-0.99.dist-info/top_level.txt,sha256=EzgBw-IIlMvbZch5o60p9t5YxOYEyYbSal8ddi-eNIs,12
+leomusiclib-0.99.dist-info/RECORD,,
