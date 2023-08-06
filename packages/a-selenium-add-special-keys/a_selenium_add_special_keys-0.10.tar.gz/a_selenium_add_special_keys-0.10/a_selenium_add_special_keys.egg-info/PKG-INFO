@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: a-selenium-add-special-keys
+Version: 0.10
+Summary: Adds some useful keys from the chrome.debugger library to Selenium
+Home-page: https://github.com/hansalemaos/a_selenium_add_special_keys
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: Selenium,automation,keys
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Adds some useful keys from the chrome.debugger library to Selenium
+
+
+```python
+# Tested with:
+# https://github.com/ultrafunkamsterdam/undetected-chromedriver
+# Python 3.9.13
+# Windows 10
+
+
+$pip install a-selenium-add-special-keys
+
+from auto_download_undetected_chromedriver import download_undetected_chromedriver
+import undetected_chromedriver as uc
+from a_selenium_add_special_keys import add_special_keys
+
+if __name__ == "__main__":
+    folderchromedriver = "f:\\seleniumdriver2"
+    path = download_undetected_chromedriver(folder_path_for_exe=folderchromedriver, undetected=True)
+    driver = uc.Chrome(driver_executable_path=path)
+    driver = add_special_keys(driver)
+```
+
+
+
+<img src="https://raw.githubusercontent.com/hansalemaos/screenshots/main/seleniumkeys.png"/>
