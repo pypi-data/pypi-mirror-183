@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: com2fun
+Version: 0.1.2
+Summary: 
+Author: xiaoniu
+Author-email: hzmxn@mail.ustc.edu.cn
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: openai (>=0.25.0,<0.26.0)
+Description-Content-Type: text/markdown
+
+# com2fun - Transform document into function.
+
+This liabrary leverages [OpenAI API](https://github.com/openai/openai-python) to predict the output of a function based on its documentation.
+
+## Install
+
+```
+pip install --upgrade com2fun
+```
+
+## Usage
+
+```
+@com2fun.com2fun
+def top(category: str, n) -> [str]:
+    """Return a list of top-n items in a category."""
+
+In [1]: top("fish", 5)
+Out[1]: ['salmon', 'tuna', 'cod', 'halibut', 'mackerel']
+In [2]: top("Pen Brand", 3)
+Out[2]: ['Pilot', 'Uni-ball', 'Zebra']
+```
+
+## Add Example
+
+```
+@com2fun.com2fun
+def bill2beancount(bill):
+    """Transform a bill for a transaction in credit card website into a transaction in beancoun."""
+
+In [3]: bill2beancount.add_example(r"""
+BACKBLAZE 8778877815 CA
+Dec 21, 2022$0.96
+Merchant Contact Information
+500 BEN FRANKLIN CT, CA 94401
+Call us at(877) 887 - 7815
+Additional Information
+Transaction Details
+Merchant Category	COMPUTER PROGRAMMING, DATA PROCESSING
+Transaction Date	WED, 12/21/2022
+Purchase Method	CARD INFORMATION STORED ON FILE
+Post Date	WED, 12/21/2022
+Recurring Billing Indicator	Y
+Cash Back Earned	$ 0.01
+""")(r"""2022-11-21 * "backblaze"
+  Expenses:Backup:Backblaze                                        0.96-0.01 USD
+  Income:CreditCard:Discover:Cashback                              0.01 USD
+  Liabilities:CreditCard:Discover                                  -0.96 USD
+""")
+
+In [4]: bill2beancount( r"""
+PP*APPLE.COM/BILL 402-935-7733 CA
+Dec 10, 2022$2.99
+Merchant Contact Information
+2211 NORTH FIRST STREE, CA 95131
+Call us at402-935-7733
+Additional Information
+Transaction Details
+Merchant Category       RECORD STORES
+Transaction Date        SAT, 12/10/2022
+Purchase Method MANUALLY KEYED
+Post Date       SAT, 12/10/2022
+Phone Number    4029357733
+Point Of Sale Zip Code  95131
+Cash Back Earned        $ 0.03
+"""
+    )
+)
+
+2022-11-10 * "pp*apple.com/bill"
+  Expenses:Shopping:Apple                                         2.99-0.03 USD
+  Income:CreditCard:Discover:Cashback                              0.03 USD
+  Liabilities:CreditCard:Discover                                  -2.99 USD
+```
+
