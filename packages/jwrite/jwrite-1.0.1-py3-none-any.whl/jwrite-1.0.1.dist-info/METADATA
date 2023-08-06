@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: jwrite
+Version: 1.0.1
+Summary: Notepad clone made with PySide6
+Home-page: https://github.com/jrrom/jwrite
+License: GPL-3.0-only
+Keywords: PySide6,GUI,text,editor
+Author: jrrom
+Requires-Python: >=3.7,<3.12
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyside6 (>=6.4.1,<7.0.0)
+Project-URL: Repository, https://github.com/jrrom/jwrite
+Description-Content-Type: text/markdown
+
+# jwrite
+
+## About -
+
+This is a minimal notepad clone made to learn [PySide6](https://doc.qt.io/qtforpython/index.html) for a school project. It uses QUI files for structuring its main components.
