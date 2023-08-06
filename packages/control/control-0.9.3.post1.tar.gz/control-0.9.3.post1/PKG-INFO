@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: control
+Version: 0.9.3.post1
+Summary: Python Control Systems Library
+Author-email: Python Control Developers <python-control-developers@lists.sourceforge.net>
+License: BSD-3-Clause
+Project-URL: homepage, https://python-control.org
+Project-URL: source, https://github.com/python-control/python-control
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.8
+Provides-Extra: test
+Provides-Extra: slycot
+Provides-Extra: cvxopt
+License-File: LICENSE
