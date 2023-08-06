@@ -1,0 +1,8 @@
+crypto_otrs/__init__.py,sha256=OPdb69G-zBtVfFOrm8ylerqIbLt6W-OKLJ9eFaNfYN8,377
+crypto_otrs/__main__.py,sha256=0KUJj_2GSliWhc2eHNds1yIMgvhALrtJiKnYYnGN1Nk,115
+crypto_otrs/ring.py,sha256=xI20Y-ZWM77xWt6rzYvYOb3mqDDhtFYgtEAfFeWmR5Y,4109
+crypto_otrs-1.0.4.dist-info/METADATA,sha256=Bz50bkRzct0pyAe75r97odIkCEUoX-mltDIhtgRxeyg,4903
+crypto_otrs-1.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+crypto_otrs-1.0.4.dist-info/entry_points.txt,sha256=kVI81_UnOuq7--iegd-WBgS5KOlS4bUE6OG_L980CM4,57
+crypto_otrs-1.0.4.dist-info/top_level.txt,sha256=4O4Fwtj_JPpOSfWF5gtJyJZmGKKkrTaB0qR0_4Qprko,12
+crypto_otrs-1.0.4.dist-info/RECORD,,
