@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/edb_obs_ws/__init__.py
+src/edb_obs_ws/endpoints.py
+src/el_decko_backend_obs_ws.egg-info/PKG-INFO
+src/el_decko_backend_obs_ws.egg-info/SOURCES.txt
+src/el_decko_backend_obs_ws.egg-info/dependency_links.txt
+src/el_decko_backend_obs_ws.egg-info/entry_points.txt
+src/el_decko_backend_obs_ws.egg-info/requires.txt
+src/el_decko_backend_obs_ws.egg-info/top_level.txt
