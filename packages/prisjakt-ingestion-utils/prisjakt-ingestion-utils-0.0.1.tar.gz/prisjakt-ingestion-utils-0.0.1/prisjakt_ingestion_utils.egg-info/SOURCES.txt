@@ -1,0 +1,5 @@
+setup.py
+prisjakt_ingestion_utils.egg-info/PKG-INFO
+prisjakt_ingestion_utils.egg-info/SOURCES.txt
+prisjakt_ingestion_utils.egg-info/dependency_links.txt
+prisjakt_ingestion_utils.egg-info/top_level.txt
