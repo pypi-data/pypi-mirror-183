@@ -1,0 +1,5 @@
+[console_scripts]
+rhttps=eudata_server.tools.https:cli
+server=eudata_server.server:cli
+srv=eudata_server.server:cli
+
