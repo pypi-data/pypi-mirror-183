@@ -1,0 +1,9 @@
+fastcore
+pandas
+numpy
+rdkit
+matplotlib
+scipy
+sympy
+
+[dev]
