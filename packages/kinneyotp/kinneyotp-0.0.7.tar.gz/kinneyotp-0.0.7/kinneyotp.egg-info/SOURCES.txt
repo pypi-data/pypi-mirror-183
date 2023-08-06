@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+kinneyotp/__init__.py
+kinneyotp/key.py
+kinneyotp/otp.py
+kinneyotp.egg-info/PKG-INFO
+kinneyotp.egg-info/SOURCES.txt
+kinneyotp.egg-info/dependency_links.txt
+kinneyotp.egg-info/top_level.txt
+test/test_key.py
+test/test_otp.py
