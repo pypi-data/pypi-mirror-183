@@ -1,0 +1,11 @@
+postal_codes_tools/__init__.py,sha256=uD1gJXLOrwuWlTp2V892cxbFB01tI2JDDbZmN5EvmZc,81
+postal_codes_tools/formats_constants.py,sha256=hdR54b7iSsGfmWwPOCuvvN9vR0TZ1_S7KEQinhVwLGQ,7256
+postal_codes_tools/mappers.py,sha256=IkzlykP8GhfhmeiayJfsfHmaPFbEx-0YRp4Hmu7WgVM,767
+postal_codes_tools/postal_codes.py,sha256=DwdcA5ngv6WNPzKaREUEDenP4AuTCWhka8bIIaSILys,3435
+postal_codes_tools/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+postal_codes_tools/tests/test_formats.py,sha256=HHeYHHTwSQ2L_P83ZaNpIPzAxtR8ReoY83P-optK4zY,29772
+postal_codes_tools/tests/test_mappers.py,sha256=nsFc59KvLflBzpNDd1jetYyY746AmwDGU-d3TKVqVc0,879
+postal_codes_tools-1.1.1.dist-info/METADATA,sha256=H-8DBgXEALpfApZ98ribMs8Safqa-WOuJB584xFJSS4,4762
+postal_codes_tools-1.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+postal_codes_tools-1.1.1.dist-info/top_level.txt,sha256=WZoKEUxia6hAe63Z9tS-qtc30o9iBi72SqmI0pRP1gk,19
+postal_codes_tools-1.1.1.dist-info/RECORD,,
