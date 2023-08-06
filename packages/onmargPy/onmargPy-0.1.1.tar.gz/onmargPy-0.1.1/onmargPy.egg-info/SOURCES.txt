@@ -1,0 +1,9 @@
+README.md
+setup.py
+onmargPy/__init__.py
+onmargPy/dataDownload.py
+onmargPy.egg-info/PKG-INFO
+onmargPy.egg-info/SOURCES.txt
+onmargPy.egg-info/dependency_links.txt
+onmargPy.egg-info/requires.txt
+onmargPy.egg-info/top_level.txt

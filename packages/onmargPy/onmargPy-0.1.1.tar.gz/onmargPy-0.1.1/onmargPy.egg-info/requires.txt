@@ -1,0 +1,8 @@
+geopandas
+io
+os
+pandas
+re
+tempfile
+urllib
+zipfile
