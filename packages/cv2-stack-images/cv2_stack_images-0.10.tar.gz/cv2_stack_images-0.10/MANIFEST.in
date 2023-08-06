@@ -1,0 +1,4 @@
+include cv2_stack_images/requirements.txt
+include cv2_stack_images/thirdparty.json
+include cv2_stack_images/README.MD
+include cv2_stack_images/LICENSE

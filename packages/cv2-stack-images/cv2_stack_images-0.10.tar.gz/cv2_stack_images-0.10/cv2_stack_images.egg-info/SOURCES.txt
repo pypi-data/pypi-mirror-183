@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cv2_stack_images/LICENSE
+cv2_stack_images/README.MD
+cv2_stack_images/__init__.py
+cv2_stack_images/requirements.txt
+cv2_stack_images/thirdparty.json
+cv2_stack_images.egg-info/PKG-INFO
+cv2_stack_images.egg-info/SOURCES.txt
+cv2_stack_images.egg-info/dependency_links.txt
+cv2_stack_images.egg-info/requires.txt
+cv2_stack_images.egg-info/top_level.txt
