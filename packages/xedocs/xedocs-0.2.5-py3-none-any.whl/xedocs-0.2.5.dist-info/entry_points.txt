@@ -1,0 +1,6 @@
+[console_scripts]
+xedocs=xedocs.cli:main
+
+[straxen]
+_=xedocs._straxen_plugin
+
