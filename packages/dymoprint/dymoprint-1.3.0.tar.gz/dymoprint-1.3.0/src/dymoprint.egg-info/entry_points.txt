@@ -1,0 +1,2 @@
+[console_scripts]
+dymoprint = dymoprint.command_line:main
