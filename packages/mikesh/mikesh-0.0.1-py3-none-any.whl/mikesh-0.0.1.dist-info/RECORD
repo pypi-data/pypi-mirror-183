@@ -1,0 +1,14 @@
+mikesh/__init__.py,sha256=l2uELVBfxSfJElZsrX95OLpXO026aOhWq3ygEvihnOs,31
+mikesh/spectrum.py,sha256=Ro_VZS-cqO1odgm8t1Zd_XxSUeibagObPrPeNembsBs,1009
+mikesh/spectrum_methods/_constructor.py,sha256=H_SHR5PAyKjEqj92cOXd8BgwPaZZ97PoWrdte32EZoU,1274
+mikesh/spectrum_methods/_equal.py,sha256=EgCzpohwVzb8tpNHbhy2TBJKqXBu1Q3GIRXDkyNDNIo,938
+mikesh/spectrum_methods/_export.py,sha256=_1EKyfLQLIeSw6gUUgZfqpS6ClGsbwllQsbDMDGNzyg,781
+mikesh/spectrum_methods/_groups.py,sha256=_iklM28x75ibwQ73S_n2Z_nBG5IzN4FRQCBeN6QXXBM,645
+mikesh/spectrum_methods/_integral.py,sha256=QDauXnc6LrKqwcPQ3Q8pUMI_KpHvEP_BjGcWcSps5cI,2221
+mikesh/spectrum_methods/_integrity.py,sha256=VvZD4i3R8BiSuKYXttC0Zp7G4J_f4OYhqtsuMD0eGXk,711
+mikesh/spectrum_methods/_regroup.py,sha256=-KOSKQJXNPUh_9zFGdEN7gx5N6xe45aIyhKCxCmYRfY,2640
+mikesh-0.0.1.dist-info/LICENSE,sha256=gtZhl4AH1tMoh1l4dx_HaUYA3OE1Q_ZZfDUQ38nw6D8,1095
+mikesh-0.0.1.dist-info/METADATA,sha256=zpp-qCuKm2pN_el_bbY9WSbIUCO_rPKs5NVoIG70Uzk,1026
+mikesh-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+mikesh-0.0.1.dist-info/top_level.txt,sha256=TJBMbGqNRRwzlI5eCrl0v8wBrqwnLgLpBpJIsbl6VFs,7
+mikesh-0.0.1.dist-info/RECORD,,
