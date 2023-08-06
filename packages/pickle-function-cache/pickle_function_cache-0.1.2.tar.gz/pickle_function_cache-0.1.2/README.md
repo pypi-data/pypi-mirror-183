@@ -1,0 +1,47 @@
+# Pickle function cache
+
+Allows for caching of the results of function calls in a
+file using `pickle` (builtin `shelve` did not
+work for some reason and `marshal` was not considered;
+`json` was not able to serialize all the things I needed).
+
+- the file read happens only once per process per filename
+(all the function caches in the same cache file are loaded once)
+- if the result is not found in the cache, the result is
+computed using the original function and is written into
+the cache file and to the runtime cache.
+- if the result for the same set of arguments is requested
+and found the original function is not called but the cached
+result is returned.
+
+## Usage
+
+```python
+from pickle_function_cache import cache_responses
+
+
+@cache_responses("cache.dat")
+def f1(param1, param2):
+    ...  # take a lot of time
+
+
+@cache_responses("cache.dat")
+def f2(param1, param2, param3):
+    ...  # take a lot of time
+
+# use function normally ...
+```
+
+- when first called, `f1(1,2)` computes the result using the original, f1
+- afterwards `f1(1,2)` returns the cached result, omitting the function call
+- if you call `f2(1,2,3)`, it will be no trouble because function caches are
+stored separately per function name in the same file (**note: cached function names should be unique**)
+
+## Configuration
+You can set the env var `OMIT_PICKLE_FUNCTION_CACHE` to either `1` or `true`
+to disable the cache at compile time without changing the code.
+
+## Performance
+The cache was tested on a small set of quick functions and a small test list of examples
+and did not introduce a significant overhead. Probably, if the chosen functions for cache
+were more computationally intensive, we would see a speed-up because of the cache.
