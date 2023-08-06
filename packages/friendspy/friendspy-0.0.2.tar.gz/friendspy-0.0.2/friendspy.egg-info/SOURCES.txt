@@ -1,0 +1,7 @@
+README.md
+setup.py
+friendspy.egg-info/PKG-INFO
+friendspy.egg-info/SOURCES.txt
+friendspy.egg-info/dependency_links.txt
+friendspy.egg-info/top_level.txt
+friendspy/qoutes/__init__.py
