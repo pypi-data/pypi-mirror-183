@@ -1,0 +1,8 @@
+osgeo/NCSEcw.dll,sha256=lbyOf_HwCc9MWW1A3tHUxRr7JcKdO-yi88e73RPu6So,5501464
+osgeo/data/gdal/ecw_cs.wkt,sha256=DBWKjipCPebo5pNo2lfSlit9xPLwlsuNgHCAsg0Hzcs,365169
+osgeo/gdalplugins/gdal_ECW_JP2ECW.dll,sha256=WpZU83rPO6LiKcuNc8u2rluP-3oRzE6VkYznHDmKuOg,193024
+gdal_ecw-3.4.3.dist-info/LICENSE.txt,sha256=44Z-Kkc8brXPO-1Z-zobyUfqNIkqoUJzLc22In3vrys,30799
+gdal_ecw-3.4.3.dist-info/METADATA,sha256=IvBa8GrnMrtk5mZdZ-FcuAZnuXjPFvKt6kL5p9FHciU,736
+gdal_ecw-3.4.3.dist-info/WHEEL,sha256=XkKTIsY1-B9-7z76XuXSVzgTWEqnq1PPv8NqRrCgEDE,94
+gdal_ecw-3.4.3.dist-info/top_level.txt,sha256=wkS7qrBR9rnAmD9QHo0kGNgmf-uqradlXd2K8OnGfoY,6
+gdal_ecw-3.4.3.dist-info/RECORD,,
