@@ -1,0 +1,17 @@
+tjpcov/__init__.py,sha256=h95FYrxB-rqgrp0C9pGoRU_81cbgrOnLPMlQLyttAek,919
+tjpcov/clusters_helpers.py,sha256=R3WyVo-pW--tMNXPffwkQAtI22oX1dDiTkaXJwymTyQ,5886
+tjpcov/covariance_builder.py,sha256=llCe8VVN5VCSxApbV14JQrIagThvHuh9VhEUKzZYUs4,40100
+tjpcov/covariance_calculator.py,sha256=cLvOefwJKSUqQcoOQmDtquDRXZfAJ4G7bOW9MbmJ8wA,6475
+tjpcov/covariance_cluster_counts.py,sha256=sXodwA8czow4gzYX0MZ9vYtY_9diRSvABQXHbmxgfkU,4215
+tjpcov/covariance_clusters.py,sha256=7RN-sXQ9P3v2kyREzweGhM6XHYQSSJqZzjI8IbxUPKw,13787
+tjpcov/covariance_fourier_gaussian_nmt.py,sha256=Z8quQaOpA5eItHkTwBwQETYN13SkW_DSZrj-zQZbaKM,32058
+tjpcov/covariance_fourier_ssc.py,sha256=gR8bpzjjsMPiixeyV_FRNT6-VARCLyEOBVzWGVeRX2s,6515
+tjpcov/covariance_gaussian_fsky.py,sha256=7Ce2JRUJx_oSmT2y6gt24WqbmvvTfcN9aZqxzwvBW4o,7647
+tjpcov/covariance_io.py,sha256=M13SWYlVSOhZ3NIevCRClICCE8Oagsvtga_FzBm6ZZU,4006
+tjpcov/tools.py,sha256=oUXm6Px2hkxeHyauJAp1ogsEYINbr8ttd7yNJ6-rW5o,1368
+tjpcov/wigner_transform.py,sha256=tjvA1uvHVlkaA2CQt4fJj7ELAIXFnSbat8Di1G8Ic9Q,16532
+tjpcov-0.2.0.dist-info/LICENSE,sha256=okUKXHgv4-qFaiBN5BdtSjuiRtbJbJMUHLTJ2_EkWmY,1102
+tjpcov-0.2.0.dist-info/METADATA,sha256=G7z8Ea8sgjFpcHPS9jlzuffFhAPP_DcTqiNTxOD7BlQ,4268
+tjpcov-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tjpcov-0.2.0.dist-info/top_level.txt,sha256=fyZdo5dLksg6XPgxR5FfFQK9Yj4qFjSEzX1QSVRfZyI,7
+tjpcov-0.2.0.dist-info/RECORD,,
