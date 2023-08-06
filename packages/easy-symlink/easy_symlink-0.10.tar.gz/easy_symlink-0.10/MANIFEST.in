@@ -1,0 +1,4 @@
+include easy_symlink/requirements.txt
+include easy_symlink/thirdparty.json
+include easy_symlink/README.MD
+include easy_symlink/LICENSE

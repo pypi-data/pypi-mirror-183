@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+easy_symlink/LICENSE
+easy_symlink/README.MD
+easy_symlink/__init__.py
+easy_symlink/requirements.txt
+easy_symlink/thirdparty.json
+easy_symlink.egg-info/PKG-INFO
+easy_symlink.egg-info/SOURCES.txt
+easy_symlink.egg-info/dependency_links.txt
+easy_symlink.egg-info/requires.txt
+easy_symlink.egg-info/top_level.txt

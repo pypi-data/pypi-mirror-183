@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: easy-symlink
+Version: 0.10
+Summary: Creates symlinks and all folders in the symlink path if they don't exist
+Home-page: https://github.com/hansalemaos/easy_symlink
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: symlinks,touch,symbolic links
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Creates symlinks and all folders in the symlink path if they don't exist
+
+```python
+
+# You don't have to worry about creating the folder(s).
+# If the folder and subfolders don't exist, they will be created.
+# If a symlink already exists at the given path, it will be overwritten.
+# If something goes wrong, the function returns False
+# If everything is fine, it returns True
+
+from easy_symlink import create_symlink
+
+pp = create_symlink(
+    r"C:\pictest4\1671814710.650013.png",
+    "f:\\aaaaaaaafolder1\\folder2\\folder3\\folder4\\img.png",
+)
+print(pp)
+True
+
+
+
+```
+
+
