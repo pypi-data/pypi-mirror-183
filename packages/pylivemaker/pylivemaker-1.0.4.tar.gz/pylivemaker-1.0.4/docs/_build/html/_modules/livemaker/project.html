@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker.project &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for livemaker.project</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2020 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="c1"># Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is a part of pylivemaker.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the GNU General Public License as published by the Free Software</span>
+<span class="c1"># Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="c1"># version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="c1"># ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along with</span>
+<span class="c1"># this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;pylivemaker project management module.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">PureWindowsPath</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">LiveMakerException</span>
+<span class="kn">from</span> <span class="nn">.lsb.command</span> <span class="kn">import</span> <span class="n">CommandType</span>
+<span class="kn">from</span> <span class="nn">.lsb.lmscript</span> <span class="kn">import</span> <span class="n">LMScript</span>
+
+
+<div class="viewcode-block" id="PylmProject"><a class="viewcode-back" href="../../livemaker.html#livemaker.project.PylmProject">[docs]</a><span class="k">class</span> <span class="nc">PylmProject</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_root</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2"> is not inside a LM project&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label_cache</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PylmProject.find_root"><a class="viewcode-back" href="../../livemaker.html#livemaker.project.PylmProject.find_root">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">find_root</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return root LM project dir for the specified path.&quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span>
+        <span class="n">search_names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;live.lpb&quot;</span><span class="p">,</span> <span class="s2">&quot;ゲームメイン.lsb&quot;</span><span class="p">,</span> <span class="s2">&quot;ノベルシステム&quot;</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">search_dir</span> <span class="ow">in</span> <span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parents</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">search_dir</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">search_names</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">search_dir</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="PylmProject.call_name"><a class="viewcode-back" href="../../livemaker.html#livemaker.project.PylmProject.call_name">[docs]</a>    <span class="k">def</span> <span class="nf">call_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;.lsb&quot;</span><span class="p">,</span> <span class="s2">&quot;.lsc&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2"> is not an LSB&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">relpath</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">))</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{relpath.stem}</span><span class="s2">.lsb&quot;</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">relpath</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2"> is outside this project&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PylmProject.update_labels"><a class="viewcode-back" href="../../livemaker.html#livemaker.project.PylmProject.update_labels">[docs]</a>    <span class="k">def</span> <span class="nf">update_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsb</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update labels from the specified lsb.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">lsb</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="s2">&quot;Cannot update labels for lsb without call_name&quot;</span><span class="p">)</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span>
+                <span class="n">names</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">LineNo</span>
+                <span class="n">lines</span><span class="p">[</span><span class="n">cmd</span><span class="o">.</span><span class="n">LineNo</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_cache</span><span class="p">[</span><span class="n">lsb</span><span class="o">.</span><span class="n">call_name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;names&quot;</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;names&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span>
+        <span class="k">if</span> <span class="s2">&quot;lines&quot;</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lines</span></div>
+
+<div class="viewcode-block" id="PylmProject.resolve_label"><a class="viewcode-back" href="../../livemaker.html#livemaker.project.PylmProject.resolve_label">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return tuple(line_no, name) for the specified label reference.&quot;&quot;&quot;</span>
+        <span class="c1"># Page is a rel path with windows slash, we need to convert it to</span>
+        <span class="c1"># system path on posix</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ref</span><span class="o">.</span><span class="n">Label</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># start of script is not labeled</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Page</span><span class="p">))</span>
+        <span class="n">call_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">call_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_cache</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">call_name</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">lsb</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">call_name</span><span class="o">=</span><span class="n">call_name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_labels</span><span class="p">(</span><span class="n">lsb</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">LiveMakerException</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not update labels from </span><span class="si">{call_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_cache</span><span class="p">[</span><span class="n">call_name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line_no</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="s2">&quot;names&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">line_no</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">line_no</span><span class="p">,</span> <span class="n">ref</span><span class="o">.</span><span class="n">Label</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

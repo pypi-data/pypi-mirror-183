@@ -1,0 +1,572 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker.lsb.menu &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for livemaker.lsb.menu</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2020 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="c1"># Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is a part of pylivemaker.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the GNU General Public License as published by the Free Software</span>
+<span class="c1"># Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="c1"># version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="c1"># ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along with</span>
+<span class="c1"># this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;LiveMaker LiveNovel selection menu classes.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">PureWindowsPath</span>
+
+<span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="kn">from</span> <span class="nn">.command</span> <span class="kn">import</span> <span class="n">CommandType</span>
+<span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">OpeDataType</span><span class="p">,</span> <span class="n">ParamType</span>
+<span class="kn">from</span> <span class="nn">.translate</span> <span class="kn">import</span> <span class="n">BaseTranslatable</span><span class="p">,</span> <span class="n">LPMMenuIdentifier</span><span class="p">,</span> <span class="n">TextMenuIdentifier</span>
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">LiveMakerException</span>
+<span class="kn">from</span> <span class="nn">..lpm</span> <span class="kn">import</span> <span class="n">LMLivePrevMenu</span>
+
+
+<div class="viewcode-block" id="NotSelectionMenuError"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.NotSelectionMenuError">[docs]</a><span class="k">class</span> <span class="nc">NotSelectionMenuError</span><span class="p">(</span><span class="n">LiveMakerException</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="BaseSelectionMenu"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.BaseSelectionMenu">[docs]</a><span class="k">class</span> <span class="nc">BaseSelectionMenu</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Base selection menu class.&quot;&quot;&quot;</span>
+
+    <span class="n">CHOICE_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^AddArray\(_tmp, </span><span class="se">\&quot;</span><span class="s2">(?P&lt;text&gt;.*)</span><span class="se">\&quot;</span><span class="s2">\)$&quot;</span><span class="p">)</span>
+    <span class="n">INT_JUMP_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;選択値 == </span><span class="se">\&quot;</span><span class="s2">(?P&lt;text&gt;.*)</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">END_SELECTION_CALCS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;選択実行中 = 0&quot;</span><span class="p">]</span>
+    <span class="n">END_CHOICE_CALCS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;Trim(ArrayToString(_tmp))&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TrimArray(_tmp)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">EXECUTE_LSB</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[],</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lsb</span> <span class="o">=</span> <span class="n">lsb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_choices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_choice</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">choices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_choices</span><span class="p">[:]</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseSelectionMenu.add_choice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.BaseSelectionMenu.add_choice">[docs]</a>    <span class="k">def</span> <span class="nf">add_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseSelectionMenu.is_menu_start"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.BaseSelectionMenu.is_menu_start">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_menu_start</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="c1"># Selection process starts with</span>
+        <span class="c1">#   Calc 選択実行中 = 1</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Calc</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;選択実行中 = 1&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="BaseSelectionMenu.is_menu_end"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.BaseSelectionMenu.is_menu_end">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_menu_end</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="c1"># Selection process ends with</span>
+        <span class="c1">#   Calc 選択実行中 = 0</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Calc</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;選択実行中 = 0&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="BaseSelectionMenu.from_lsb_command"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.BaseSelectionMenu.from_lsb_command">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_lsb_command</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a selection menu constructed from the LSB commands</span>
+<span class="sd">        starting at index.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            lsb (:class:`LMScript`): LSB script instance</span>
+<span class="sd">            start (int): Command index for the start of the menu</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_find_execute_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXECUTE_LSB</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lsb</span><span class="p">)):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_menu_end</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Call</span> <span class="ow">and</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Page&quot;</span><span class="p">][</span><span class="s2">&quot;Page&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXECUTE_LSB</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Params&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_patch_cmd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span>
+        <span class="n">text_entry</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">text_entry</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">OpeDataType</span><span class="o">.</span><span class="n">To</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">text_entry</span><span class="o">.</span><span class="n">operands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">ParamType</span><span class="o">.</span><span class="n">Str</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span>
+        <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">op</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">text</span>
+        <span class="k">return</span> <span class="n">text</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_patch_choice_cmd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Calc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_patch_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">CHOICE_RE</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_patch_int_jump_cmd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Jump</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="c1"># nothing to do for default case</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_patch_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">INT_JUMP_RE</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_choice_from_cmd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="c1"># menu array populated with</span>
+        <span class="c1">#   Calc AddArray(_tmp, &quot;foo&quot;)</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Calc</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">]</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">CHOICE_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_end_choices</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="c1"># menu array population finishes with</span>
+        <span class="c1">#   Calc StringToArray(_tmp, _tmp)</span>
+
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Calc</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">END_SELECTION_CALCS</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">END_CHOICE_CALCS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_find_choices</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lsb</span><span class="p">)):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_end_choices</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_choice_from_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">choice</span><span class="p">:</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">choice</span><span class="p">,</span> <span class="n">index</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">choices</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_end_int_jumps</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Wait</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_int_jump_from_cmd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="c1"># intermediate jump after selection</span>
+        <span class="c1">#   Jump 00000000.lsb:123 選択値 == &quot;foo&quot;</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Jump</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Page&quot;</span><span class="p">]</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Calc&quot;</span><span class="p">]</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">INT_JUMP_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">),</span> <span class="n">page</span>
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="c1"># unconditional jump (default selection case)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">page</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_find_int_jumps</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">jumps</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">indent</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">&quot;Indent&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lsb</span><span class="p">)):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Indent&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">indent</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_end_int_jumps</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="n">text</span><span class="p">,</span> <span class="n">jump</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_int_jump_from_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">jump</span><span class="p">:</span>
+                <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">jump</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jumps</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_resolve_int_jump</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">int_target</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">lsb</span><span class="p">):</span>
+        <span class="c1"># if intermediate jump is followed by a branch (jump or call)</span>
+        <span class="c1"># to an external LSB script, use external target</span>
+        <span class="n">resolved</span> <span class="o">=</span> <span class="n">int_target</span>
+        <span class="k">if</span> <span class="n">int_target</span><span class="p">[</span><span class="s2">&quot;Page&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lsb</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+            <span class="c1"># skip intermediate target label</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">int_target</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lsb</span><span class="p">)):</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CommandType</span><span class="o">.</span><span class="n">Call</span><span class="p">,</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Jump</span><span class="p">):</span>
+                    <span class="n">target</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="s2">&quot;Page&quot;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">target</span><span class="p">[</span><span class="s2">&quot;Page&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+                        <span class="c1"># branch to external LSB script</span>
+                        <span class="n">resolved</span> <span class="o">=</span> <span class="n">target</span>
+                        <span class="k">break</span>
+                    <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Jump</span><span class="p">:</span>
+                        <span class="c1"># internal branch, use intermediate target</span>
+                        <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">break</span>
+        <span class="k">return</span> <span class="n">resolved</span></div>
+
+
+<div class="viewcode-block" id="TextSelectionChoice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionChoice">[docs]</a><span class="k">class</span> <span class="nc">TextSelectionChoice</span><span class="p">(</span><span class="n">BaseTranslatable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">text_index</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_index</span> <span class="o">=</span> <span class="n">text_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_index</span> <span class="o">=</span> <span class="n">target_index</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{self.text}</span><span class="s1">&quot; -&gt; </span><span class="si">{self.target}</span><span class="s1">&#39;</span></div>
+
+
+<div class="viewcode-block" id="TextSelectionMenu"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionMenu">[docs]</a><span class="k">class</span> <span class="nc">TextSelectionMenu</span><span class="p">(</span><span class="n">BaseSelectionMenu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Text selection menu.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_texts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;TextSelectionMenu at </span><span class="si">{self.label}</span><span class="s2">&gt;&quot;</span>
+
+<div class="viewcode-block" id="TextSelectionMenu.add_choice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionMenu.add_choice">[docs]</a>    <span class="k">def</span> <span class="nf">add_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">text</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_texts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot add duplicate choices&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_texts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">choice</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextSelectionMenu.replace_choice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionMenu.replace_choice">[docs]</a>    <span class="k">def</span> <span class="nf">replace_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace the specified choice in menu.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            choice (:class:`TextSelectionChoice`): Replacement choice.</span>
+<span class="sd">            strict (bool): If True, `LiveMakerException` will be raised if ``choice`` has</span>
+<span class="sd">                Blake2 digest which does not match the current menu choice.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">orig_choice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">strict</span> <span class="ow">and</span> <span class="n">choice</span> <span class="o">!=</span> <span class="n">orig_choice</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LiveMakerException</span><span class="p">(</span><span class="s2">&quot;Replacement choice does not match existing menu choice&quot;</span><span class="p">)</span>
+        <span class="n">orig_choice</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="o">.</span><span class="n">text</span></div>
+
+<div class="viewcode-block" id="TextSelectionMenu.save_choices"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionMenu.save_choices">[docs]</a>    <span class="k">def</span> <span class="nf">save_choices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">choice</span><span class="o">.</span><span class="n">text_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_patch_choice_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">choice</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">choice</span><span class="o">.</span><span class="n">target_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_patch_int_jump_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">choice</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextSelectionMenu.from_lsb_command"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.TextSelectionMenu.from_lsb_command">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_lsb_command</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_menu_start</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="n">cmd</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">choices</span><span class="p">,</span> <span class="n">next_cmd</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_find_choices</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="n">jumps</span><span class="p">,</span> <span class="n">next_cmd</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_find_int_jumps</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">next_cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">jumps</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">jumps</span><span class="p">:</span>
+            <span class="n">target</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span>
+            <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_resolve_int_jump</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">lsb</span><span class="p">),</span> <span class="n">index</span>
+
+        <span class="n">menu</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">text_index</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span> <span class="o">=</span> <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">jumps</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using default jump for choice &#39;</span><span class="si">{text}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                    <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span> <span class="o">=</span> <span class="n">jumps</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No matching jump for menu choice </span><span class="si">{text}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="n">TextSelectionChoice</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">text_index</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span><span class="p">)</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">add_choice</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">menu</span></div></div>
+
+
+<div class="viewcode-block" id="LPMSelectionChoice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.LPMSelectionChoice">[docs]</a><span class="k">class</span> <span class="nc">LPMSelectionChoice</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_file</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">src_file</span> <span class="o">=</span> <span class="n">src_file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_file</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">orig_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_file</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{self.src_file}</span><span class="s1">&quot; -&gt; </span><span class="si">{self.target}</span><span class="s1">&#39;</span></div>
+
+
+<div class="viewcode-block" id="LPMSelectionMenu"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.LPMSelectionMenu">[docs]</a><span class="k">class</span> <span class="nc">LPMSelectionMenu</span><span class="p">(</span><span class="n">BaseSelectionMenu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Live Preview (image) selection menu.&quot;&quot;&quot;</span>
+
+    <span class="c1"># NovelSystem/PreviewMenu/*SelectExecute.lsb</span>
+    <span class="n">EXECUTE_LSB</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ノベルシステム\プレビューメニュー\■選択実行.lsb&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">lpm_file</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lpm_file</span> <span class="o">=</span> <span class="n">lpm_file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;LPMSelectionMenu(</span><span class="si">{self.lpm_file}</span><span class="s2">) at </span><span class="si">{self.label}</span><span class="s2">&gt;&quot;</span>
+
+<div class="viewcode-block" id="LPMSelectionMenu.add_choice"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.LPMSelectionMenu.add_choice">[docs]</a>    <span class="k">def</span> <span class="nf">add_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot add duplicate choices&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">choice</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_parse_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">parsers</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;parent&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># parent menu</span>
+            <span class="s2">&quot;menu_file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>  <span class="c1"># source LPM file</span>
+            <span class="s2">&quot;in_time&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>  <span class="c1"># fade-in time</span>
+            <span class="s2">&quot;out_time&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">3</span><span class="p">])),</span>  <span class="c1"># fade-out duration</span>
+            <span class="s2">&quot;hover_sound&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>  <span class="c1"># hover sound effect</span>
+            <span class="s2">&quot;select_sound&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span>  <span class="c1"># select sound effect</span>
+            <span class="s2">&quot;disable_rclick&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">6</span><span class="p">])),</span>  <span class="c1"># disable right click</span>
+            <span class="s2">&quot;enabled_var&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">7</span><span class="p">]),</span>  <span class="c1"># choice enabled array var</span>
+            <span class="s2">&quot;visible_var&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span>  <span class="c1"># choice visible array var</span>
+            <span class="s2">&quot;selection_time&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">9</span><span class="p">])),</span>  <span class="c1"># time before selection expires (countdown timer)</span>
+            <span class="s2">&quot;selected_var&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">10</span><span class="p">]),</span>  <span class="c1"># choice (pre-)selected var</span>
+        <span class="p">}</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_choices_from_lpm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">pylm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">pylm</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">pylm</span><span class="o">.</span><span class="n">root</span> <span class="o">/</span> <span class="n">path</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># convert windows purepath to system path</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">lpm</span> <span class="o">=</span> <span class="n">LMLivePrevMenu</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">choices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">button</span> <span class="ow">in</span> <span class="n">lpm</span><span class="p">[</span><span class="s2">&quot;buttons&quot;</span><span class="p">]:</span>
+                <span class="n">src_file</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">src_file</span> <span class="ow">and</span> <span class="n">pylm</span><span class="p">:</span>
+                    <span class="n">src_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">src_file</span><span class="p">)</span>
+                    <span class="n">src_file</span> <span class="o">=</span> <span class="n">src_file</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">pylm</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">src_file</span><span class="p">,</span> <span class="n">button</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="n">choices</span>
+        <span class="k">except</span> <span class="n">LiveMakerException</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="LPMSelectionMenu.from_lsb_command"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.LPMSelectionMenu.from_lsb_command">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_lsb_command</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lsb</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">pylm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_menu_start</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">params</span><span class="p">,</span> <span class="n">next_cmd</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_find_execute_params</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">lpm_file</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;menu_file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_choices_from_lpm</span><span class="p">(</span><span class="n">lpm_file</span><span class="p">,</span> <span class="n">pylm</span><span class="o">=</span><span class="n">pylm</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+
+        <span class="n">jumps</span><span class="p">,</span> <span class="n">next_cmd</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_find_int_jumps</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">next_cmd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">jumps</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotSelectionMenuError</span>
+        <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">jumps</span><span class="p">:</span>
+            <span class="n">target</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span>
+            <span class="n">jumps</span><span class="p">[</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_resolve_int_jump</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">lsb</span><span class="p">),</span> <span class="n">index</span>
+
+        <span class="n">menu</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">lpm_file</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">src_file</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span> <span class="o">=</span> <span class="n">jumps</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No matching jump for menu choice </span><span class="si">{text}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="n">LPMSelectionChoice</span><span class="p">(</span><span class="n">src_file</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">target_index</span><span class="p">)</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">add_choice</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">menu</span></div></div>
+
+
+<span class="n">MENU_IDENTIFIERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">TextSelectionMenu</span><span class="p">:</span> <span class="n">TextMenuIdentifier</span><span class="p">,</span>
+    <span class="n">LPMSelectionMenu</span><span class="p">:</span> <span class="n">LPMMenuIdentifier</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="make_menu"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb.menu.make_menu">[docs]</a><span class="k">def</span> <span class="nf">make_menu</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a selection menu instance for menu starting at the specified command index.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        index: command index</span>
+
+<span class="sd">    Any provided ``kwargs`` will be passed into the menu constructor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">MENU_IDENTIFIERS</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_lsb_command</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">NotSelectionMenuError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">raise</span> <span class="n">NotSelectionMenuError</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,1698 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker package &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="livemaker.lsb package" href="livemaker.lsb.html" />
+    <link rel="prev" title="API Reference" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="livemaker-package">
+<h1>livemaker package<a class="headerlink" href="#livemaker-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="livemaker.lsb.html">livemaker.lsb package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.command">livemaker.lsb.command module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.core">livemaker.lsb.core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.graph">livemaker.lsb.graph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.lmscript">livemaker.lsb.lmscript module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.menu">livemaker.lsb.menu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.novel">livemaker.lsb.novel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb.translate">livemaker.lsb.translate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.lsb.html#module-livemaker.lsb">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="livemaker.cli.html">livemaker.cli package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.cli">livemaker.cli.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.lmar">livemaker.cli.lmar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.lmgraph">livemaker.cli.lmgraph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.lmlpb">livemaker.cli.lmlpb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.lmlsb">livemaker.cli.lmlsb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.cli.lmpatch">livemaker.cli.lmpatch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livemaker.cli.html#module-livemaker.lsb">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-livemaker.archive">
+<span id="livemaker-archive-module"></span><h2>livemaker.archive module<a class="headerlink" href="#module-livemaker.archive" title="Permalink to this headline">¶</a></h2>
+<p>LiveMaker archive/exe file module.</p>
+<p>The <cite>archive</cite> module makes it possible to read and write LiveMaker archives (and
+executables).</p>
+<p>The API for <cite>archive</cite> behaves similary to Python’s <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> module,
+with the exception that archives cannot be modified in-place (i.e. mode <code class="docutils literal notranslate"><span class="pre">'a'</span></code>
+is unavailable).</p>
+<dl class="class">
+<dt id="livemaker.archive.LMCompressType">
+<em class="property">class </em><code class="descclassname">livemaker.archive.</code><code class="descname">LMCompressType</code><a class="reference internal" href="_modules/livemaker/archive.html#LMCompressType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMCompressType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="livemaker.archive.LMCompressType.ZLIB">
+<code class="descname">ZLIB</code><em class="property"> = 0</em><a class="headerlink" href="#livemaker.archive.LMCompressType.ZLIB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMCompressType.NONE">
+<code class="descname">NONE</code><em class="property"> = 1</em><a class="headerlink" href="#livemaker.archive.LMCompressType.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMCompressType.ENCRYPTED">
+<code class="descname">ENCRYPTED</code><em class="property"> = 2</em><a class="headerlink" href="#livemaker.archive.LMCompressType.ENCRYPTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMCompressType.ENCRYPTED_ZLIB">
+<code class="descname">ENCRYPTED_ZLIB</code><em class="property"> = 3</em><a class="headerlink" href="#livemaker.archive.LMCompressType.ENCRYPTED_ZLIB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.archive.LMObfuscator">
+<em class="property">class </em><code class="descclassname">livemaker.archive.</code><code class="descname">LMObfuscator</code><span class="sig-paren">(</span><em>seed=1977019961</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMObfuscator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMObfuscator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for (de)obfuscating LiveMaker directory fields.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">RE’d from TTpRandom class in LiveMaker code.</p>
+</div>
+<dl class="method">
+<dt id="livemaker.archive.LMObfuscator.transform_bytes">
+<code class="descname">transform_bytes</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMObfuscator.transform_bytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMObfuscator.transform_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMObfuscator.transform_int">
+<code class="descname">transform_int</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMObfuscator.transform_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMObfuscator.transform_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMObfuscator.transform_int_high">
+<code class="descname">transform_int_high</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMObfuscator.transform_int_high"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMObfuscator.transform_int_high" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.archive.LMArchiveDirectory">
+<em class="property">class </em><code class="descclassname">livemaker.archive.</code><code class="descname">LMArchiveDirectory</code><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for handling parsing and writing archive directories.</p>
+<p>LiveMaker archive format is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Directory</span> <span class="n">Header</span><span class="p">:</span>
+    <span class="mi">16</span><span class="o">-</span><span class="n">bit</span> <span class="s2">&quot;vf&quot;</span> <span class="n">signature</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">version</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">count</span>
+
+<span class="n">Filenames</span> <span class="p">(</span><span class="nb">list</span> <span class="k">with</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">count</span><span class="o">&gt;</span> <span class="n">entries</span><span class="p">):</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">prefixed</span> <span class="n">pascal</span> <span class="n">strings</span> <span class="p">(</span><span class="n">CP932</span> <span class="p">(</span><span class="n">MS</span> <span class="n">Shift</span><span class="o">-</span><span class="n">JIS</span><span class="p">)</span> <span class="n">encoded</span><span class="p">)</span>
+
+<span class="n">Offsets</span> <span class="p">(</span><span class="nb">list</span> <span class="k">with</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">file_count</span><span class="o">&gt;</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">offset_low</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">offset_high</span>
+
+<span class="n">Compression</span> <span class="n">flags</span> <span class="p">(</span><span class="nb">list</span> <span class="k">with</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">file_count</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="mi">8</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">compression</span> <span class="n">method</span>
+
+<span class="n">Unknown</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">list</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">file_count</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">unk1</span>
+
+<span class="n">Checksums</span> <span class="o">-</span> <span class="p">(</span><span class="nb">list</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">file_count</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">checksum</span>
+
+<span class="n">Encryption</span> <span class="n">flags</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">encrypted</span> <span class="p">(</span><span class="nb">list</span> <span class="n">length</span> <span class="o">&lt;</span><span class="n">file_count</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="mi">8</span><span class="o">-</span><span class="n">bit</span> <span class="n">uint</span> <span class="n">encrypt_flag</span>
+
+<span class="n">File</span> <span class="n">data</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>LiveMaker3 mangles filenames and offsets by XOR’ing them with a fixed keystream.
+Individual files may also be encrypted/obfuscated, this is specified by the compression flags.</p>
+<p>Offsets are actually 64-bit long long, but they are stored as two separate 32-bit integers.</p>
+<p>The extra offset entry is used to calculate the (compressed) size of the final file.</p>
+<dl class="docutils">
+<dt>If <code class="docutils literal notranslate"><span class="pre">encrypt_flag</span></code> is zero, <code class="docutils literal notranslate"><span class="pre">checksum</span></code> is the checksum of the compressed file data.</dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">encrypt_flag</span></code> is nonzero <code class="docutils literal notranslate"><span class="pre">checksum</span></code> is the checksum of the uncompressed and
+decrypted file data.</dd>
+</dl>
+<p class="last">RE’d from TVrFileCollection classes in LiveMaker code.</p>
+</div>
+<dl class="classmethod">
+<dt id="livemaker.archive.LMArchiveDirectory.struct">
+<em class="property">classmethod </em><code class="descname">struct</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory.struct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory.struct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.archive.LMArchiveDirectory.make_offset">
+<em class="property">classmethod </em><code class="descname">make_offset</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory.make_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory.make_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join split offset into one 64-bit unsigned offset.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.archive.LMArchiveDirectory.split_offset">
+<em class="property">classmethod </em><code class="descname">split_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory.split_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory.split_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split an offset into the expected components for writing to an archive.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.archive.LMArchiveDirectory.directory_size">
+<em class="property">classmethod </em><code class="descname">directory_size</code><span class="sig-paren">(</span><em>version</em>, <em>filenames=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory.directory_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory.directory_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the size of a directory containing <cite>filenames</cite>.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.archive.LMArchiveDirectory.checksum">
+<em class="property">classmethod </em><code class="descname">checksum</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveDirectory.checksum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveDirectory.checksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a VF archive checksum for the specified data.</p>
+<p>RE’d from TVrFile.ChecksumStream().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – The data to checksum</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.archive.LMArchive">
+<em class="property">class </em><code class="descclassname">livemaker.archive.</code><code class="descname">LMArchive</code><span class="sig-paren">(</span><em>name=None</em>, <em>mode='r'</em>, <em>fp=None</em>, <em>exe=None</em>, <em>split=False</em>, <em>version=102</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provide interface to a LiveMaker archive (or exe).</p>
+<p>Behaves in the same manner as Python <code class="docutils literal notranslate"><span class="pre">tarfile.TarFile</span></code> or <code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>.
+Can be used inside a Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (in the same way as zip/tar files).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – Pathname for the archive. <cite>name</cite> can be a string or path-like object.
+If omitted, <cite>fp</cite> must be specified.</li>
+<li><strong>mode</strong> – Either <code class="docutils literal notranslate"><span class="pre">'r'</span></code> to read from an existing archive or <code class="docutils literal notranslate"><span class="pre">'w'</span></code> to create a new file
+(overwriting an existing one). Defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code>.</li>
+<li><strong>fp</strong> – If <cite>fileobj</cite> is given, it will be used for reading and writing data.
+If it can be determined, <cite>mode</cite> will be overridden by <cite>fp</cite>’s mode. <cite>fileobj</cite>
+will be used from position 0.</li>
+<li><strong>exe</strong> – Pathname for LiveMaker executable (<code class="docutils literal notranslate"><span class="pre">.exe</span></code>) file. If <cite>exe</cite> is given and
+<cite>mode</cite> is <code class="docutils literal notranslate"><span class="pre">w</span></code>, the output file will be an executable with the archive
+appended to the end (i.e. a LiveMaker <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file). If <cite>exe</cite> is not given,
+the output file will be a standalone archive (i.e. a LiveMaker <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file).
+<cite>exe</cite> does nothing when opening a file for reading.</li>
+<li><strong>split</strong> – If opening in write mode and <cite>split</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the archive data will be split
+into smaller files across 1GB boundaries. <cite>split</cite> has no effect in read mode or when
+writing an executable archive.</li>
+<li><strong>version</strong> – Archive version, only applies to write mode.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><cite>fp</cite> is not closed when <cite>LiveMakerArchive</cite> is closed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> is an invalid <cite>mode</cite> for <cite>LiveMakerArchive</cite>. Archives cannot be modified
+in place, to patch an existing archive, you must write to a new file.</p>
+<p class="last">When opened in write mode, the output archive file will not be written until
+<cite>LMArchive.close()</cite> is called. As entries are added to the archive, they will
+be written to a temporary file. Upon calling <cite>close()</cite>, the exe (if it exists)
+and archive header will be written to the output file, then the temporary file
+will be copied to the end of the output file.</p>
+</div>
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the archive file.</p>
+<p>When an archive is opened in write mode, <cite>close()</cite> must be called before exiting your program
+or else the archive will not actually be written.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.namelist">
+<code class="descname">namelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.namelist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.namelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of archive entries by name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.infolist">
+<code class="descname">infolist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.infolist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.infolist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a containing a <cite>LMArchiveInfo</cite> object for each entry in the archive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.getinfo">
+<code class="descname">getinfo</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.getinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.getinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <cite>LMArchiveInfo</cite> object for the entry with the specified name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> – If <cite>name</cite> is not an entry in the archive.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.list">
+<code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a list of archive entries to stdout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.extract">
+<code class="descname">extract</code><span class="sig-paren">(</span><em>name</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the specified entry from the archive to the current working directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (str, <a class="reference internal" href="#livemaker.archive.LMArchiveInfo" title="livemaker.archive.LMArchiveInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">LMArchiveInfo</span></code></a>) – The entry to extract, can be either it’s full name or
+a <cite>LMArchiveInfo</cite> object.</li>
+<li><strong>path</strong> – If given, the <cite>path</cite> will be used instead of the current working directory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If the specified entry uses an unsupported
+compression method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.extractall">
+<code class="descname">extractall</code><span class="sig-paren">(</span><em>path=None</em>, <em>entries=None</em>, <em>allow_unsupported=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.extractall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.extractall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract all entries in this archive to the current working directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – If <cite>path</cite> is given, it will be used instead of the current working directory.</li>
+<li><strong>entries</strong> – Optional value that must be a subset of the list returned by <cite>namelist()</cite>
+or <cite>infolist()</cite>.</li>
+<li><strong>allow_unsupported</strong> – If <cite>True</cite>, any files which are compressed with an unsupported
+method will be silently ignored. If <cite>False</cite>, an exception will be raised when
+trying to extract any files which use unsupported compression methods.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>name</em>, <em>decompress=True</em>, <em>skip_checksum=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bytes of the specified file in the archive.</p>
+<p>The archive must be open for reading.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – Either the name of a file in the archive or a <cite>LMArchiveInfo</cite> object.</li>
+<li><strong>decompress</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the returned bytes will be decompressed. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+the original compressed entry data will be returned.</li>
+<li><strong>skip_checksum</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the file checksum will not be verified. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+the checksum will be verified. If the checksum does not match, the file will
+still be extracted, but a warning will be logged.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If <cite>decompress</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code> and the
+specified entry uses an unsupported compression method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.read_exe">
+<code class="descname">read_exe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.read_exe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.read_exe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the exe bytes for this archive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If this archive is not part of a LiveMaker executable
+(i.e. it is a <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>filename</em>, <em>arcname=None</em>, <em>compress_type=None</em>, <em>unk1=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the file named <cite>filename</cite> into the archive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> – File to write into archive.</li>
+<li><strong>arcname</strong> – If given, the archive file entry will be named <cite>arcname</cite>.
+By default, <cite>arcname</cite> will be the same as <cite>filename</cite>,
+but with any drive letter and leading path separators removed.
+Posix paths will be replaced with equivalent Windows paths.</li>
+<li><strong>compress_type</strong> (<cite>LMCompressType</cite>) – If given, the file will be compressed
+with the specified method (defaults to uncompressed for files &lt; 5MB
+in size, and zlib compressed for files &gt;= 5MB).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The number of (compressed) bytes written.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code> – If an entry matching <cite>arcname</cite> already exists in this archive.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If the <cite>compress_type</cite> is unsupported.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.archive.LMArchive.writebytes">
+<code class="descname">writebytes</code><span class="sig-paren">(</span><em>arcname</em>, <em>data</em>, <em>compress_type=None</em>, <em>skip_checksum=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.writebytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchive.writebytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a raw (already compressed) file into the archive.</p>
+<p>This method can be used to copy compressed data from an
+old archive into a new one without needing to do any
+intermediate extraction. This may be useful for copying
+encrypted files from one archive into another.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arcname</strong> – The archive entry name (or <cite>LMArchiveInfo</cite> object).</li>
+<li><strong>data</strong> (<em>bytes</em>) – The contents of <cite>arcname</cite>. <cite>data</cite> must be a bytes
+instance, not a str instance. <cite>data</cite> must be compressed using
+the compression type specified in <cite>compress_type</cite> or the <cite>arcname</cite>
+<cite>LMArchiveInfo</cite> object.</li>
+<li><strong>compress_type</strong> – The compression type for the newly created archive
+entry will be set to this value. If <cite>arcname</cite> is a string, <cite>compress_type</cite>
+must be explicitly set. <cite>compress_type</cite> can be omitted if <cite>arcname</cite> is an
+<cite>LMArchiveInfo</cite> object, in which case compression type will be read from
+the info object.</li>
+<li><strong>skip_checksum</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> and <cite>arcname</cite> is a <cite>LMArchiveInfo</cite> object, checksum
+for <cite>data</cite> will not be calculated, and will be copied from <cite>arcname</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The number of bytes written.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code> – If an entry matching <cite>arcname</cite> already exists in this archive.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.archive.LMArchiveInfo">
+<em class="property">class </em><code class="descclassname">livemaker.archive.</code><code class="descname">LMArchiveInfo</code><span class="sig-paren">(</span><em>name=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.archive.LMArchiveInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An entry (file) contained in a LiveMaker archive.</p>
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.name">
+<code class="descname">name</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.compress_type">
+<code class="descname">compress_type</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.compress_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compression type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><cite>LMCompressType</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.compressed_size">
+<code class="descname">compressed_size</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.compressed_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compressed file size in bytes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.checksum">
+<code class="descname">checksum</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.checksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>VF checksum for the compressed data.
+See <cite>LMArchiveDirectory.checksum()</cite> for how checksum is calculated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.encrypt_flag">
+<code class="descname">encrypt_flag</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.encrypt_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only used for LiveMaker Pro encrypted files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.archive.LMArchiveInfo.path">
+<code class="descname">path</code><a class="headerlink" href="#livemaker.archive.LMArchiveInfo.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker.exceptions">
+<span id="livemaker-exceptions-module"></span><h2>livemaker.exceptions module<a class="headerlink" href="#module-livemaker.exceptions" title="Permalink to this headline">¶</a></h2>
+<p>pylivemaker exceptions.</p>
+<dl class="exception">
+<dt id="livemaker.exceptions.LiveMakerException">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">LiveMakerException</code><a class="reference internal" href="_modules/livemaker/exceptions.html#LiveMakerException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.LiveMakerException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base pylivemaker exception.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.BadLiveMakerArchive">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">BadLiveMakerArchive</code><a class="reference internal" href="_modules/livemaker/exceptions.html#BadLiveMakerArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.BadLiveMakerArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+<p>Error raised for bad/invalid archive files.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.UnsupportedLiveMakerVersion">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">UnsupportedLiveMakerVersion</code><a class="reference internal" href="_modules/livemaker/exceptions.html#UnsupportedLiveMakerVersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.UnsupportedLiveMakerVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.UnsupportedLiveMakerCompression">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">UnsupportedLiveMakerCompression</code><a class="reference internal" href="_modules/livemaker/exceptions.html#UnsupportedLiveMakerCompression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.UnsupportedLiveMakerCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.BadLsbError">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">BadLsbError</code><a class="reference internal" href="_modules/livemaker/exceptions.html#BadLsbError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.BadLsbError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+<p>Error raised for bad/invalid LSB script files.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.BadLpbError">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">BadLpbError</code><a class="reference internal" href="_modules/livemaker/exceptions.html#BadLpbError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.BadLpbError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+<p>Error raised for bad/invalid LPB project settings files.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.BadLnsError">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">BadLnsError</code><a class="reference internal" href="_modules/livemaker/exceptions.html#BadLnsError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.BadLnsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+<p>Error raised for bad/invalid LNS novel scripts.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.InvalidCharError">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">InvalidCharError</code><span class="sig-paren">(</span><em>ch</em>, <em>encoding='cp932'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/exceptions.html#InvalidCharError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.InvalidCharError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.BadLnsError" title="livemaker.exceptions.BadLnsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.BadLnsError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="livemaker.exceptions.BadTextIdentifierError">
+<em class="property">exception </em><code class="descclassname">livemaker.exceptions.</code><code class="descname">BadTextIdentifierError</code><a class="reference internal" href="_modules/livemaker/exceptions.html#BadTextIdentifierError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.exceptions.BadTextIdentifierError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+<p>Error raised for bad/invalid translatable text IDs.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker.lpb">
+<span id="livemaker-lpb-module"></span><h2>livemaker.lpb module<a class="headerlink" href="#module-livemaker.lpb" title="Permalink to this headline">¶</a></h2>
+<p>LiveMaker project settings file (LPB) module.</p>
+<dl class="class">
+<dt id="livemaker.lpb.LMProject">
+<em class="property">class </em><code class="descclassname">livemaker.lpb.</code><code class="descname">LMProject</code><span class="sig-paren">(</span><em>version=117</em>, <em>project_name=''</em>, <em>unk1=0</em>, <em>unk2=0</em>, <em>init_lsb=''</em>, <em>exit_lsb=''</em>, <em>project_dir=''</em>, <em>unk3=0</em>, <em>bool1=0</em>, <em>bool2=0</em>, <em>audio_formats='.wav.wma.ogg.mid.mp3'</em>, <em>bool3=0</em>, <em>bool4=0</em>, <em>bool5=1</em>, <em>insert_disk_prompt=''</em>, <em>exit_prompt=''</em>, <em>system_settings=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for handling project settings files.</p>
+<p>RE’d from TProject, TProjectSettings classes in LiveMaker code.</p>
+<dl class="method">
+<dt id="livemaker.lpb.LMProject.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.lpb.LMProject.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.lpb.LMProject.lm_version">
+<code class="descname">lm_version</code><a class="headerlink" href="#livemaker.lpb.LMProject.lm_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.lpb.LMProject.from_struct">
+<em class="property">classmethod </em><code class="descname">from_struct</code><span class="sig-paren">(</span><em>struct</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject.from_struct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject.from_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an LMProject from the specified struct.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.lpb.LMProject.from_file">
+<em class="property">classmethod </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>infile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the specified file into an LMProject.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infile</strong> – Input .lpb file. Can be string, path-like or file-like object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.lpb.LMProject.to_lpb">
+<code class="descname">to_lpb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpb.html#LMProject.to_lpb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpb.LMProject.to_lpb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile settings into binary .lpb format.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker.lpm">
+<span id="livemaker-lpm-module"></span><h2>livemaker.lpm module<a class="headerlink" href="#module-livemaker.lpm" title="Permalink to this headline">¶</a></h2>
+<p>LiveMaker preview menu file (LPM) module.</p>
+<dl class="exception">
+<dt id="livemaker.lpm.BadLPMError">
+<em class="property">exception </em><code class="descclassname">livemaker.lpm.</code><code class="descname">BadLPMError</code><a class="reference internal" href="_modules/livemaker/lpm.html#BadLPMError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.BadLPMError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#livemaker.exceptions.LiveMakerException" title="livemaker.exceptions.LiveMakerException"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.exceptions.LiveMakerException</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.lpm.LPMVersionValidator">
+<em class="property">class </em><code class="descclassname">livemaker.lpm.</code><code class="descname">LPMVersionValidator</code><span class="sig-paren">(</span><em>subcon</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LPMVersionValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LPMVersionValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">construct.core.Validator</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.lpm.LMLivePrevMenu">
+<em class="property">class </em><code class="descclassname">livemaker.lpm.</code><code class="descname">LMLivePrevMenu</code><span class="sig-paren">(</span><em>version=106</em>, <em>unk1=0</em>, <em>buttons=[]</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for handling preview menu files.</p>
+<p>RE’d from TLivePrevMenu, TLivePrevImages classes in LiveMaker code.</p>
+<dl class="method">
+<dt id="livemaker.lpm.LMLivePrevMenu.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.lpm.LMLivePrevMenu.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.lpm.LMLivePrevMenu.from_struct">
+<em class="property">classmethod </em><code class="descname">from_struct</code><span class="sig-paren">(</span><em>struct</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu.from_struct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu.from_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an LMProject from the specified struct.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.lpm.LMLivePrevMenu.from_file">
+<em class="property">classmethod </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>infile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the specified file into an LMLivePrevMenu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infile</strong> – Input .lpm file. Can be string, path-like or file-like object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.lpm.LMLivePrevMenu.to_lpm">
+<code class="descname">to_lpm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lpm.html#LMLivePrevMenu.to_lpm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.lpm.LMLivePrevMenu.to_lpm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile settings into binary .lpm format.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker.project">
+<span id="livemaker-project-module"></span><h2>livemaker.project module<a class="headerlink" href="#module-livemaker.project" title="Permalink to this headline">¶</a></h2>
+<p>pylivemaker project management module.</p>
+<dl class="class">
+<dt id="livemaker.project.PylmProject">
+<em class="property">class </em><code class="descclassname">livemaker.project.</code><code class="descname">PylmProject</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/project.html#PylmProject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.project.PylmProject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="livemaker.project.PylmProject.find_root">
+<em class="property">static </em><code class="descname">find_root</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/project.html#PylmProject.find_root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.project.PylmProject.find_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return root LM project dir for the specified path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.project.PylmProject.call_name">
+<code class="descname">call_name</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/project.html#PylmProject.call_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.project.PylmProject.call_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.project.PylmProject.update_labels">
+<code class="descname">update_labels</code><span class="sig-paren">(</span><em>lsb</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/project.html#PylmProject.update_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.project.PylmProject.update_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update labels from the specified lsb.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.project.PylmProject.resolve_label">
+<code class="descname">resolve_label</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/project.html#PylmProject.resolve_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.project.PylmProject.resolve_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tuple(line_no, name) for the specified label reference.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker.scramble">
+<span id="livemaker-scramble-module"></span><h2>livemaker.scramble module<a class="headerlink" href="#module-livemaker.scramble" title="Permalink to this headline">¶</a></h2>
+<p>LiveMaker scramble (encryption) module.</p>
+<dl class="class">
+<dt id="livemaker.scramble.LMScramble">
+<em class="property">class </em><code class="descclassname">livemaker.scramble.</code><code class="descname">LMScramble</code><span class="sig-paren">(</span><em>seed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#LMScramble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.LMScramble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PRNG used for LM TScramble encryption.</p>
+<p>RE’d from TScrambleInts, TGetRandom classes in LM3 code.</p>
+<dl class="attribute">
+<dt id="livemaker.scramble.LMScramble.FACTORS">
+<code class="descname">FACTORS</code><em class="property"> = (2111111111, 1492, 1776, 5115)</em><a class="headerlink" href="#livemaker.scramble.LMScramble.FACTORS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.scramble.LMScramble.rand">
+<code class="descname">rand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#LMScramble.rand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.LMScramble.rand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random integer in the range [0, uint32_max).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.scramble.LMScramble.random">
+<code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#LMScramble.random"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.LMScramble.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random float in the range [0.0, 1.0).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.scramble.LMScramble.randint">
+<code class="descname">randint</code><span class="sig-paren">(</span><em>low</em>, <em>high</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#LMScramble.randint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.LMScramble.randint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random integer in the range [low, high].</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.scramble.LMScramble.randseq">
+<em class="property">classmethod </em><code class="descname">randseq</code><span class="sig-paren">(</span><em>count</em>, <em>seed</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#LMScramble.randseq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.LMScramble.randseq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random sequence of the specified length.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="livemaker.scramble.decrypt">
+<code class="descclassname">livemaker.scramble.</code><code class="descname">decrypt</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/scramble.html#decrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.scramble.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unscramble the specified data stream and return the result.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-livemaker">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-livemaker" title="Permalink to this headline">¶</a></h2>
+<p>Top-level package for pylivemaker.</p>
+<dl class="class">
+<dt id="livemaker.LMArchive">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LMArchive</code><span class="sig-paren">(</span><em>name=None</em>, <em>mode='r'</em>, <em>fp=None</em>, <em>exe=None</em>, <em>split=False</em>, <em>version=102</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provide interface to a LiveMaker archive (or exe).</p>
+<p>Behaves in the same manner as Python <code class="docutils literal notranslate"><span class="pre">tarfile.TarFile</span></code> or <code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>.
+Can be used inside a Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (in the same way as zip/tar files).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – Pathname for the archive. <cite>name</cite> can be a string or path-like object.
+If omitted, <cite>fp</cite> must be specified.</li>
+<li><strong>mode</strong> – Either <code class="docutils literal notranslate"><span class="pre">'r'</span></code> to read from an existing archive or <code class="docutils literal notranslate"><span class="pre">'w'</span></code> to create a new file
+(overwriting an existing one). Defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code>.</li>
+<li><strong>fp</strong> – If <cite>fileobj</cite> is given, it will be used for reading and writing data.
+If it can be determined, <cite>mode</cite> will be overridden by <cite>fp</cite>’s mode. <cite>fileobj</cite>
+will be used from position 0.</li>
+<li><strong>exe</strong> – Pathname for LiveMaker executable (<code class="docutils literal notranslate"><span class="pre">.exe</span></code>) file. If <cite>exe</cite> is given and
+<cite>mode</cite> is <code class="docutils literal notranslate"><span class="pre">w</span></code>, the output file will be an executable with the archive
+appended to the end (i.e. a LiveMaker <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file). If <cite>exe</cite> is not given,
+the output file will be a standalone archive (i.e. a LiveMaker <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file).
+<cite>exe</cite> does nothing when opening a file for reading.</li>
+<li><strong>split</strong> – If opening in write mode and <cite>split</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the archive data will be split
+into smaller files across 1GB boundaries. <cite>split</cite> has no effect in read mode or when
+writing an executable archive.</li>
+<li><strong>version</strong> – Archive version, only applies to write mode.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><cite>fp</cite> is not closed when <cite>LiveMakerArchive</cite> is closed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> is an invalid <cite>mode</cite> for <cite>LiveMakerArchive</cite>. Archives cannot be modified
+in place, to patch an existing archive, you must write to a new file.</p>
+<p class="last">When opened in write mode, the output archive file will not be written until
+<cite>LMArchive.close()</cite> is called. As entries are added to the archive, they will
+be written to a temporary file. Upon calling <cite>close()</cite>, the exe (if it exists)
+and archive header will be written to the output file, then the temporary file
+will be copied to the end of the output file.</p>
+</div>
+<dl class="method">
+<dt id="livemaker.LMArchive.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the archive file.</p>
+<p>When an archive is opened in write mode, <cite>close()</cite> must be called before exiting your program
+or else the archive will not actually be written.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.namelist">
+<code class="descname">namelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.namelist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.namelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of archive entries by name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.infolist">
+<code class="descname">infolist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.infolist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.infolist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a containing a <cite>LMArchiveInfo</cite> object for each entry in the archive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.getinfo">
+<code class="descname">getinfo</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.getinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.getinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <cite>LMArchiveInfo</cite> object for the entry with the specified name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> – If <cite>name</cite> is not an entry in the archive.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.list">
+<code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a list of archive entries to stdout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.extract">
+<code class="descname">extract</code><span class="sig-paren">(</span><em>name</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the specified entry from the archive to the current working directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (str, <a class="reference internal" href="#livemaker.LMArchiveInfo" title="livemaker.LMArchiveInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">LMArchiveInfo</span></code></a>) – The entry to extract, can be either it’s full name or
+a <cite>LMArchiveInfo</cite> object.</li>
+<li><strong>path</strong> – If given, the <cite>path</cite> will be used instead of the current working directory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If the specified entry uses an unsupported
+compression method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.extractall">
+<code class="descname">extractall</code><span class="sig-paren">(</span><em>path=None</em>, <em>entries=None</em>, <em>allow_unsupported=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.extractall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.extractall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract all entries in this archive to the current working directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – If <cite>path</cite> is given, it will be used instead of the current working directory.</li>
+<li><strong>entries</strong> – Optional value that must be a subset of the list returned by <cite>namelist()</cite>
+or <cite>infolist()</cite>.</li>
+<li><strong>allow_unsupported</strong> – If <cite>True</cite>, any files which are compressed with an unsupported
+method will be silently ignored. If <cite>False</cite>, an exception will be raised when
+trying to extract any files which use unsupported compression methods.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>name</em>, <em>decompress=True</em>, <em>skip_checksum=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bytes of the specified file in the archive.</p>
+<p>The archive must be open for reading.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – Either the name of a file in the archive or a <cite>LMArchiveInfo</cite> object.</li>
+<li><strong>decompress</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the returned bytes will be decompressed. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+the original compressed entry data will be returned.</li>
+<li><strong>skip_checksum</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the file checksum will not be verified. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+the checksum will be verified. If the checksum does not match, the file will
+still be extracted, but a warning will be logged.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If <cite>decompress</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code> and the
+specified entry uses an unsupported compression method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.read_exe">
+<code class="descname">read_exe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.read_exe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.read_exe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the exe bytes for this archive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If this archive is not part of a LiveMaker executable
+(i.e. it is a <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>filename</em>, <em>arcname=None</em>, <em>compress_type=None</em>, <em>unk1=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the file named <cite>filename</cite> into the archive.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> – File to write into archive.</li>
+<li><strong>arcname</strong> – If given, the archive file entry will be named <cite>arcname</cite>.
+By default, <cite>arcname</cite> will be the same as <cite>filename</cite>,
+but with any drive letter and leading path separators removed.
+Posix paths will be replaced with equivalent Windows paths.</li>
+<li><strong>compress_type</strong> (<cite>LMCompressType</cite>) – If given, the file will be compressed
+with the specified method (defaults to uncompressed for files &lt; 5MB
+in size, and zlib compressed for files &gt;= 5MB).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The number of (compressed) bytes written.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code> – If an entry matching <cite>arcname</cite> already exists in this archive.</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnsupportedLiveMakerCompression</span></code> – If the <cite>compress_type</cite> is unsupported.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMArchive.writebytes">
+<code class="descname">writebytes</code><span class="sig-paren">(</span><em>arcname</em>, <em>data</em>, <em>compress_type=None</em>, <em>skip_checksum=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchive.writebytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchive.writebytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a raw (already compressed) file into the archive.</p>
+<p>This method can be used to copy compressed data from an
+old archive into a new one without needing to do any
+intermediate extraction. This may be useful for copying
+encrypted files from one archive into another.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arcname</strong> – The archive entry name (or <cite>LMArchiveInfo</cite> object).</li>
+<li><strong>data</strong> (<em>bytes</em>) – The contents of <cite>arcname</cite>. <cite>data</cite> must be a bytes
+instance, not a str instance. <cite>data</cite> must be compressed using
+the compression type specified in <cite>compress_type</cite> or the <cite>arcname</cite>
+<cite>LMArchiveInfo</cite> object.</li>
+<li><strong>compress_type</strong> – The compression type for the newly created archive
+entry will be set to this value. If <cite>arcname</cite> is a string, <cite>compress_type</cite>
+must be explicitly set. <cite>compress_type</cite> can be omitted if <cite>arcname</cite> is an
+<cite>LMArchiveInfo</cite> object, in which case compression type will be read from
+the info object.</li>
+<li><strong>skip_checksum</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> and <cite>arcname</cite> is a <cite>LMArchiveInfo</cite> object, checksum
+for <cite>data</cite> will not be calculated, and will be copied from <cite>arcname</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The number of bytes written.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code> – If an entry matching <cite>arcname</cite> already exists in this archive.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.LMArchiveInfo">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LMArchiveInfo</code><span class="sig-paren">(</span><em>name=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/archive.html#LMArchiveInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMArchiveInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An entry (file) contained in a LiveMaker archive.</p>
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.name">
+<code class="descname">name</code><a class="headerlink" href="#livemaker.LMArchiveInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.compress_type">
+<code class="descname">compress_type</code><a class="headerlink" href="#livemaker.LMArchiveInfo.compress_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compression type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><cite>LMCompressType</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.compressed_size">
+<code class="descname">compressed_size</code><a class="headerlink" href="#livemaker.LMArchiveInfo.compressed_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compressed file size in bytes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.checksum">
+<code class="descname">checksum</code><a class="headerlink" href="#livemaker.LMArchiveInfo.checksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>VF checksum for the compressed data.
+See <cite>LMArchiveDirectory.checksum()</cite> for how checksum is calculated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.encrypt_flag">
+<code class="descname">encrypt_flag</code><a class="headerlink" href="#livemaker.LMArchiveInfo.encrypt_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only used for LiveMaker Pro encrypted files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMArchiveInfo.path">
+<code class="descname">path</code><a class="headerlink" href="#livemaker.LMArchiveInfo.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.LMCompressType">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LMCompressType</code><a class="reference internal" href="_modules/livemaker/archive.html#LMCompressType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMCompressType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="livemaker.LMCompressType.ZLIB">
+<code class="descname">ZLIB</code><em class="property"> = 0</em><a class="headerlink" href="#livemaker.LMCompressType.ZLIB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMCompressType.NONE">
+<code class="descname">NONE</code><em class="property"> = 1</em><a class="headerlink" href="#livemaker.LMCompressType.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMCompressType.ENCRYPTED">
+<code class="descname">ENCRYPTED</code><em class="property"> = 2</em><a class="headerlink" href="#livemaker.LMCompressType.ENCRYPTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMCompressType.ENCRYPTED_ZLIB">
+<code class="descname">ENCRYPTED_ZLIB</code><em class="property"> = 3</em><a class="headerlink" href="#livemaker.LMCompressType.ENCRYPTED_ZLIB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.LMScript">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LMScript</code><span class="sig-paren">(</span><em>version=117, param_type=1, flags=0, call_name='', novel_params=[], command_params=[[]], commands=[], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="livemaker.lsb.html#livemaker.lsb.core.BaseSerializable" title="livemaker.lsb.core.BaseSerializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">livemaker.lsb.core.BaseSerializable</span></code></a></p>
+<p>LiveMaker script class.</p>
+<p>A LiveMaker script is a collection of LiveMaker novel commands.
+One LiveMaker/LiveNovel “Chart” will be serialized as one script
+file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>version</strong> (<em>int</em>) – Version number. If <cite>version</cite> is not in the range [<cite>MIN_LSB_VERSION</cite>, <cite>MAX_LSB_VERSION</cite>],
+this LMScript cannot be compiled into a binary LSB.</li>
+<li><strong>param_type</strong> – Unknown type flag (always 1?).</li>
+<li><strong>flags</strong> (<em>int</em>) – Unknown (always 0?).</li>
+<li><strong>call_name</strong> (<em>str</em>) – String name for calling this script (only used for documentation).</li>
+<li><strong>novel_params</strong> (<em>iterable</em>) – Iterable containing string descriptions for parameters that
+this script accepts (only used for documentation).</li>
+<li><strong>command_params</strong> (<em>iterable</em><em>(</em><em>iterable</em><em>(</em><em>bool</em><em>)</em><em>)</em>) – Two dimensional array of booleans specifying the command
+parameters are for Component type commands.
+(i.e. <cite>command_params[CommandType.BoxNew][PropertyType.PR_NAME] == True</cite>
+means that <cite>BoxNew</cite> takes a <cite>PR_NAME</cite> parameter.)</li>
+<li><strong>commands</strong> (<em>iterable</em>) – Iterable containing this script’s <cite>Command</cite> objects.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadLsbError</span></code> – If the specified LMScript would be invalid or unsupported.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="livemaker.LMScript.commands">
+<code class="descname">commands</code><a class="headerlink" href="#livemaker.LMScript.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMScript.command_count">
+<code class="descname">command_count</code><a class="headerlink" href="#livemaker.LMScript.command_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of command types supported by this script.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMScript.param_stream_size">
+<code class="descname">param_stream_size</code><a class="headerlink" href="#livemaker.LMScript.param_stream_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the length of this script’s param flag bytestream.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="livemaker.LMScript.lm_version">
+<code class="descname">lm_version</code><a class="headerlink" href="#livemaker.LMScript.lm_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return LiveMaker app version based on an LSB version.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.to_lsc">
+<code class="descname">to_lsc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.to_lsc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.to_lsc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return this script in the tex .lsc format.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.LMScript.from_lsc">
+<em class="property">classmethod </em><code class="descname">from_lsc</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.from_lsc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.from_lsc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an LMScript from the specified string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> – String containing text .lsc format data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">BadLsbError if the string could not be parsed.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently only supports reading version information.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.LMScript.from_struct">
+<em class="property">classmethod </em><code class="descname">from_struct</code><span class="sig-paren">(</span><em>struct</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.from_struct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.from_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an LMScript from the specified struct.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.to_lsb">
+<code class="descname">to_lsb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.to_lsb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.to_lsb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile this script into binary .lsb format.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.to_xml">
+<code class="descname">to_xml</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.to_xml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.to_xml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return this script as an .lsc format XML etree.Element.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.LMScript.from_xml">
+<em class="property">classmethod </em><code class="descname">from_xml</code><span class="sig-paren">(</span><em>root</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.from_xml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.from_xml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an LMScript from the specified XML element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> – The root tree element.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadLsbError</span></code> – If the XML tree could not be parsed.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently only supports reading header information.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.LMScript.from_file">
+<em class="property">classmethod </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>infile</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the specified file into an LMScript.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infile</strong> – Input .lsc or .lsb file. Can be a string, path-like, or file-like object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadLsbError</span></code> – If the input file could not be parsed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="livemaker.LMScript.from_lsb">
+<em class="property">classmethod </em><code class="descname">from_lsb</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.from_lsb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.from_lsb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the specified compiled .lsb data into an LMScript.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> – Input .lsb data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadLsbError</span></code> – If the input data could not be parsed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.get_command">
+<code class="descname">get_command</code><span class="sig-paren">(</span><em>line_no</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.get_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.get_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get specified command by line number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple(cmd_index, cmd)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> – the specified line_no does not exist in this LSB.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.walk">
+<code class="descname">walk</code><span class="sig-paren">(</span><em>start=0</em>, <em>unreachable=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.walk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over LSB commands in approximate execution order.</p>
+<p>All conditional branches will be followed (positive condition
+will be evaluated first), but external jumps and calls will not be
+followed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> (<em>int</em>) – Command index to start from.</li>
+<li><strong>unreachable</strong> (<em>bool</em>) – If True, unreachable commands will be included.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><p class="first last">3-tuple in the form <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">command,</span> <span class="pre">last_calc)</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.text_scenarios">
+<code class="descname">text_scenarios</code><span class="sig-paren">(</span><em>run_order=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.text_scenarios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.text_scenarios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of LiveNovel text scenarios contained in this script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>run_order</strong> (<em>bool</em>) – If True, scenarios will be returned in
+approximately the order they would be run in-game (via
+<cite>walk()</cite>. If False, text blocks will be returned in the
+order they occur in the LSB file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(line_num, name, scenario)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple(int, str, <code class="xref py py-class docutils literal notranslate"><span class="pre">TpWord</span></code>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.get_text_blocks">
+<code class="descname">get_text_blocks</code><span class="sig-paren">(</span><em>run_order=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.get_text_blocks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.get_text_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return LiveNovel scenario text blocks contained in this script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>run_order</strong> (<em>bool</em>) – If True, text blocks will be returned in
+approximately the order they would be run in-game (via
+<cite>walk()</cite>. If False, text blocks will be returned in the
+order they occur in the LSB file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of (identifier, block) tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.replace_text">
+<code class="descname">replace_text</code><span class="sig-paren">(</span><em>text_objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.replace_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.replace_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the specified translatable text objects in this LSB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text_objects</strong> – Iterable containing (identifier, text) tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.replace_text_blocks">
+<code class="descname">replace_text_blocks</code><span class="sig-paren">(</span><em>text_objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.replace_text_blocks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.replace_text_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the specified LiveNovel scenario text blocks in this LSB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text_objects</strong> – Iterable containing (identifier, text) tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.get_menus">
+<code class="descname">get_menus</code><span class="sig-paren">(</span><em>run_order=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.get_menus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.get_menus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of LiveNovel text selection menus contained in this script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>run_order</strong> (<em>bool</em>) – If True, menus will be returned in
+approximately the order they would be run in-game (via
+<cite>walk()</cite>. If False, text blocks will be returned in the
+order they occur in the LSB file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(line_num, menu)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple(int, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSelectionMenu</span></code>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.get_menu_choices">
+<code class="descname">get_menu_choices</code><span class="sig-paren">(</span><em>run_order=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.get_menu_choices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.get_menu_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return selection menu choices contained in this script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>run_order</strong> (<em>bool</em>) – If True, menus will be returned in
+approximately the order they would be run in-game (via
+<cite>walk()</cite>. If False, menus will be returned in the
+order they occur in the LSB file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of (identifier, choice) tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LMScript.replace_menu_choices">
+<code class="descname">replace_menu_choices</code><span class="sig-paren">(</span><em>text_objects</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/lmscript.html#LMScript.replace_menu_choices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LMScript.replace_menu_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the specified text selection menu choices in this LSB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text_objects</strong> – Iterable containing (identifier, text) tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.LNSCompiler">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LNSCompiler</code><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_markupbase.ParserBase</span></code></p>
+<p>Attempt to compile a LiveNovel LNS script into a TpWord block.</p>
+<p>Based on Python3 html.parser.HTMLParser.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is only intended to be used to compile scripts which have been
+decompiled by pylivemaker and then translated/edited for patching.
+Attempting to compile a script which was not initially generated by
+pylivemaker may not work as intended.</p>
+</div>
+<dl class="attribute">
+<dt id="livemaker.LNSCompiler.END_TAGS">
+<code class="descname">END_TAGS</code><em class="property"> = ('a', 'style', 'div')</em><a class="headerlink" href="#livemaker.LNSCompiler.END_TAGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset this instance.  Loses all unprocessed data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.compile">
+<code class="descname">compile</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.compile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile a [decompiled] script into a TpWord block.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<em>str</em>) – Script data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.feed">
+<code class="descname">feed</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.feed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.feed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feed data to the parser.
+Call this as often as you want, with as little or as much text
+as you want (may include ‘n’).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle any buffered data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.get_starttag_text">
+<code class="descname">get_starttag_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.get_starttag_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.get_starttag_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return full source of start tag: ‘&lt;…&gt;’.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.goahead">
+<code class="descname">goahead</code><span class="sig-paren">(</span><em>end</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.goahead"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.goahead" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.parse_starttag">
+<code class="descname">parse_starttag</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.parse_starttag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.parse_starttag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.check_for_whole_start_tag">
+<code class="descname">check_for_whole_start_tag</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.check_for_whole_start_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.check_for_whole_start_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.parse_endtag">
+<code class="descname">parse_endtag</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.parse_endtag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.parse_endtag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.handle_eventtag">
+<code class="descname">handle_eventtag</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.handle_eventtag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.handle_eventtag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.handle_startendtag">
+<code class="descname">handle_startendtag</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.handle_startendtag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.handle_startendtag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.handle_starttag">
+<code class="descname">handle_starttag</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.handle_starttag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.handle_starttag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.handle_endtag">
+<code class="descname">handle_endtag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.handle_endtag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.handle_endtag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.handle_data">
+<code class="descname">handle_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.handle_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.handle_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="livemaker.LNSCompiler.unescape">
+<code class="descname">unescape</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSCompiler.unescape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSCompiler.unescape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="livemaker.LNSDecompiler">
+<em class="property">class </em><code class="descclassname">livemaker.</code><code class="descname">LNSDecompiler</code><span class="sig-paren">(</span><em>sep='n'</em>, <em>include_comments=True</em>, <em>text_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSDecompiler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSDecompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Attempt to decompile a TpWord text block into something that resembles
+LiveMaker’s LiveNovel scenario script format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sep</strong> (<em>str</em>) – Output line separator (defaults to <code class="docutils literal notranslate"><span class="pre">os.linesep</span></code>).</li>
+<li><strong>include_comments</strong> (<em>bool</em>) – Include comment lines in output.</li>
+<li><strong>text_only</strong> (<em>bool</em>) – Output text only (all tags will be removed except for variable names).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If <cite>tpword</cite> is not a <code class="xref py py-class docutils literal notranslate"><span class="pre">TpWord</span></code> instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="livemaker.LNSDecompiler.decompile">
+<code class="descname">decompile</code><span class="sig-paren">(</span><em>tpword</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/livemaker/lsb/novel.html#LNSDecompiler.decompile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#livemaker.LNSDecompiler.decompile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decompile the specified TpWord scenario script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tpword</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TpWord</span></code>) – TpWord object to decompile.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">livemaker package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">API Reference</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">API Reference</a></li>
+      <li>Next: <a href="livemaker.lsb.html" title="next chapter">livemaker.lsb package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/livemaker.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

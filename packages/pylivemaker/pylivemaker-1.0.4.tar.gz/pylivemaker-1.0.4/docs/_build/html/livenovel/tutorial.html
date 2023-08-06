@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LiveNovel Tutorial &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LiveNovel Basic Information" href="basic.html" />
+    <link rel="prev" title="LiveNovel Docs (en)" href="../livenovel.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="livenovel-tutorial">
+<h1>LiveNovel Tutorial<a class="headerlink" href="#livenovel-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="source-file-preparation">
+<h2>Source file preparation<a class="headerlink" href="#source-file-preparation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="project-preparation">
+<h2>Project preparation<a class="headerlink" href="#project-preparation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="scenario-creation-preparation">
+<h2>Scenario creation preparation<a class="headerlink" href="#scenario-creation-preparation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-background">
+<h2>Display background<a class="headerlink" href="#display-background" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-text">
+<h2>Display text<a class="headerlink" href="#display-text" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-character">
+<h2>Display character<a class="headerlink" href="#display-character" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="change-character">
+<h2>Change character<a class="headerlink" href="#change-character" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="remove-characters">
+<h2>Remove characters<a class="headerlink" href="#remove-characters" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-name">
+<h2>Display name<a class="headerlink" href="#display-name" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-face">
+<h2>Display face<a class="headerlink" href="#display-face" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="branch-by-choice">
+<h2>Branch by choice<a class="headerlink" href="#branch-by-choice" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="branch-by-image-selection">
+<h2>Branch by image selection<a class="headerlink" href="#branch-by-image-selection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="branch-by-flag">
+<h2>Branch by flag<a class="headerlink" href="#branch-by-flag" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="play-sound">
+<h2>Play sound<a class="headerlink" href="#play-sound" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="use-multiple-charts">
+<h2>Use multiple charts<a class="headerlink" href="#use-multiple-charts" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="add-cg-mode">
+<h2>Add CG mode<a class="headerlink" href="#add-cg-mode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="add-scenario-recollection-mode">
+<h2>Add Scenario Recollection mode<a class="headerlink" href="#add-scenario-recollection-mode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="branch-in-second-playthrough">
+<h2>Branch in second playthrough<a class="headerlink" href="#branch-in-second-playthrough" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="master-creation">
+<h2>Master creation<a class="headerlink" href="#master-creation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../livenovel.html">LiveNovel Docs (en)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LiveNovel Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html">LiveNovel Basic Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">LiveNovel FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../livenovel.html">LiveNovel Docs (en)</a><ul>
+      <li>Previous: <a href="../livenovel.html" title="previous chapter">LiveNovel Docs (en)</a></li>
+      <li>Next: <a href="basic.html" title="next chapter">LiveNovel Basic Information</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/livenovel/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

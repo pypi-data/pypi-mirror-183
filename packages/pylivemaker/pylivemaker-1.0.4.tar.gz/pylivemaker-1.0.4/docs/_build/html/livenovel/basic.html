@@ -1,0 +1,747 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LiveNovel Basic Information &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LiveNovel FAQ" href="faq.html" />
+    <link rel="prev" title="LiveNovel Tutorial" href="tutorial.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="livenovel-basic-information">
+<h1>LiveNovel Basic Information<a class="headerlink" href="#livenovel-basic-information" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="screen-layout">
+<h2>Screen layout<a class="headerlink" href="#screen-layout" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="how-to-use-the-chart-window">
+<h2>How to use the chart window<a class="headerlink" href="#how-to-use-the-chart-window" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="how-to-use-the-scenario-window">
+<h2>How to use the scenario window<a class="headerlink" href="#how-to-use-the-scenario-window" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chart-list">
+<h2>Chart list<a class="headerlink" href="#chart-list" title="Permalink to this headline">¶</a></h2>
+<p>Charts can be organized into folders.
+You can change folder order and chart order with the up and down arrow buttons on the left.
+Right-click to bring up a pop-up menu.</p>
+<img alt="Chart list window" src="../_images/ln_turorial64.png" />
+<dl class="docutils">
+<dt>フォルダ作成 (Create folder)</dt>
+<dd>Create a new subfolder inside the selected folder.</dd>
+<dt>追加 (Add)</dt>
+<dd>Create a new chart.</dd>
+<dt>複製 (Duplicate)</dt>
+<dd>Duplicate the selected chart.</dd>
+<dt>開く (Open)</dt>
+<dd>Open the selected chart.</dd>
+<dt>新規ウィンドウで開く (Open in new window)</dt>
+<dd>Open the selected chart selected in a new window.</dd>
+<dt>削除 (Delete)</dt>
+<dd>Delete the selected chart.</dd>
+<dt>プロパティ (Properties)</dt>
+<dd>Display the properties for the selected chart.</dd>
+</dl>
+</div>
+<div class="section" id="variable-list">
+<h2>Variable list<a class="headerlink" href="#variable-list" title="Permalink to this headline">¶</a></h2>
+<img alt="Variable list window" src="../_images/ln_var02.gif" />
+<p>Variables set in <code class="docutils literal notranslate"><span class="pre">変数リスト</span></code> (Variable list) are global.
+They can be accessed (both read/write) from all charts and nodes (as opposed to chart and compute node variables, which have limited scope).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Item</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>名前 (Name)</td>
+<td>Must be unique (cannot overlap with a chart or calculation variable).</td>
+</tr>
+<tr class="row-odd"><td>タイプ (Type)</td>
+<td><dl class="first last docutils">
+<dt>整数 (Integer)</dt>
+<dd>Signed integer number.</dd>
+<dt>実数 (Real)</dt>
+<dd>Signed decimal number.</dd>
+<dt>フラグ (Flag)</dt>
+<dd>Boolean flag, either <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</dd>
+<dt>文字列 (String)</dt>
+<dd>Variable length (CP932 encoded) string.</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>初期値 (Default value)</td>
+<td>Initial value stored in the variable.</td>
+</tr>
+<tr class="row-odd"><td>動作タイプ (Operation type)</td>
+<td><dl class="first last docutils">
+<dt>通常 (Normal)</dt>
+<dd><p class="first">Initialized at game start-up and reset at the following:</p>
+<ul class="last simple">
+<li>Player returns to title screen via system menu.</li>
+<li>Game enters Scene Recollection mode</li>
+<li>Title screen is displayed after a game over</li>
+</ul>
+</dd>
+<dt>起動時のみ初期化 (Start-up only initialization)</dt>
+<dd>Only initialized at game start-up.</dd>
+<dt>ステータス (Status)</dt>
+<dd>Only initialized when game is started for the very first time after installation.
+Value is saved when the game is exited, and restored when the game is relaunched.</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="node-type">
+<h2>Node type<a class="headerlink" href="#node-type" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="scenario-script">
+<h2>Scenario script<a class="headerlink" href="#scenario-script" title="Permalink to this headline">¶</a></h2>
+<p>HTML-like scenario script file syntax.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Attributes with a default value are optional.</dt>
+<dd>All other attributes are required.</dd>
+</dl>
+</li>
+<li>Tags are not case-sensitive.</li>
+<li><dl class="first docutils">
+<dt>Lines starting with a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>) are treated as comments.</dt>
+<dd>If you need to begin an actual line with a semicolon, escape it with <code class="docutils literal notranslate"><span class="pre">\;</span></code>.</dd>
+</dl>
+</li>
+<li>When using special characters (<code class="docutils literal notranslate"><span class="pre">{</span></code>, <code class="docutils literal notranslate"><span class="pre">}</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">\</span></code>) escape them with a preceding backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>).</li>
+</ul>
+<p>Sample script: <span class="xref std std-ref">First scenario from “GTE·SP”</span></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>pylivemaker attempts to approximate this script syntax when extracting scenario scripts, but the syntax used by pylivemaker is not a one-to-one match with LiveMaker’s syntax.</p>
+<p class="last">A majority of these tags are compiled into one or more LM system events when generating a binary LSB, and as a result, the original tags cannot be recovered/decompiled by pylivemaker.</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tag</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&lt;BR&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;PG&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;CLR&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;WAIT TIME=n CLICKABORT=[ON/OFF] SKIPENABLED=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;WAITFOR NAME=s CLICKABORT=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;FLIP NAME=s EFFECT=s TIME=n REVERSE=[ON/OFF] PARAM1=n PARAM2=n SOURCE=s DEFAULT=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;IMAGE NAME=s SOURCE=s X=[L/C/R/n] Y=[T/C/B/n] FLIPH=[ON/OFF] FLIPV=[ON/OFF] ALPHA=n PRIORITY=s FLIP=s MODE=[N/R/W/F] CLIPFILE=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;CHGIMG NAME=s SOURCE=s FLIPH=[ON/OFF] FLIPV=[ON/OFF] FLIP=s MODE=[N/R/W/F]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;DELIMG NAME=s,s… FLIP=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;CGCHAR SET=s NAME=s PARENT=s X=[L/C/R/n] Y=[T/C/B/n] ALIGN=[L/C/R] LINESPACE=n PRIORITY=s TEXT=s CALC=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;CHGCGCHAR NAME=s TEXT=s CALC=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;LOCKIMG SOURCE=s,s…&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;UNLOCKIMG&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;WALLPAPER SOURCE=s POSITION=[C/T/S]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;VAR NAME=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;MESBOX TIME=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;DELMESBOX TIME=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;CHGMESBOX NAME=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;SOUND SOURCE=s TRACK=[B/V/S/B2/V2/S2] MODE=[N/R/W] VOLUME=n REPEATPOS=n CANREPLAY=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;BGM SOURCE=s CANREPLAY=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;VOICE SOURCE=s CANREPLAY=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;SE SOURCE=s CANREPLAY=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;STOPSND TRACK=[B/V/S/B2/V2/S2] TIME=n WAIT=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;CHGVOL TRACK=[B/V/S/B2/V2/S2] VOLUME=n TIME=n WAIT=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;MOVIE SOURCE=s ZOOM=n X=[L/C/R/n] Y=[T/C/B/n] MODE=[N/R/W/F]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;STOPMOV&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;TEXTSPD TIME=n ABSOLUTE=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;TXSPN&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;TXSPN&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;TXSPS&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;SYSMENUON&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;SYSMENUOFF&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;SAVELOADON&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;SAVELOADOFF&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;INCLUDE SOURCE=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;B&gt;～&lt;/B&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;B&gt;～&lt;/B&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;U&gt;～&lt;/U&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;S&gt;～&lt;/S&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;NOBR&gt;～&lt;/NOBR&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;FONT SIZE=n COLOR=#RRGGBB BCOLOR=#RRGGBB SCOLOR=#RRGGBB BORDER=n SHADOW=n&gt;～&lt;/FONT&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;RUBY VALUE=s&gt;～&lt;/RUBY&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;A HREF=s&gt;～&lt;/A&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;SETSTYLE NAME=s SIZE=n COLOR=#RRGGBB BCOLOR=#RRGGBB SCOLOR=#RRGGBB BORDER=n SHADOW=n B=[ON/OFF] I=[ON/OFF] U=[ON/OFF] S=[ON/OFF] NOBR=[ON/OFF] RUBY=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;STYLE NAME=s&gt;～&lt;/STYLE&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;MACRO NAME=s&gt;～&lt;/MACRO&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;IMGCHAR SOURCE=s ALIGN=[T/C/B]&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;OPENURL URL=s&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;QUAKE NAME=s TYPE=[Q/W/B] RANDOM=[ON/OFF] X=n Y=n TIME=n CYCLE=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&lt;QUAKE NAME=s TYPE=[Q/W/B] RANDOM=[ON/OFF] X=n Y=n TIME=n CYCLE=n&gt;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&lt;MOTION NAME=s TARGET=s PROP=s VALUE=n TIME=n TYPE=[N/I/D] WAIT=[ON/OFF]&gt;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="chart-and-calculation-variables">
+<h2>Chart and calculation variables<a class="headerlink" href="#chart-and-calculation-variables" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="jump">
+<h2>Jump<a class="headerlink" href="#jump" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="conditionals">
+<h2>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="text-string-choice-selection">
+<h2>Text string choice selection<a class="headerlink" href="#text-string-choice-selection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="image-choice-selection">
+<h2>Image choice selection<a class="headerlink" href="#image-choice-selection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="character-string-input">
+<h2>Character string input<a class="headerlink" href="#character-string-input" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="project-options">
+<h2>Project options<a class="headerlink" href="#project-options" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="variable-value">
+<h2>Variable / value<a class="headerlink" href="#variable-value" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="system-variables">
+<h2>System variables<a class="headerlink" href="#system-variables" title="Permalink to this headline">¶</a></h2>
+<p>Several special system variables exist.
+System variables begin with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> and can be used to get or set system status.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Standard system variables</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variable name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+<th class="head">Read/Write</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Year</span></code></td>
+<td>Integer</td>
+<td>Year for current date.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Month</span></code></td>
+<td>Integer</td>
+<td>Month for current date.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Day</span></code></td>
+<td>Integer</td>
+<td>Day for current date.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Week</span></code></td>
+<td>Integer</td>
+<td>Weekday from <code class="docutils literal notranslate"><span class="pre">1</span></code> (Sun) to <code class="docutils literal notranslate"><span class="pre">7</span></code> (Sat) for current date.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Hour</span></code></td>
+<td>Integer</td>
+<td>Hour for current time.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Min</span></code></td>
+<td>Integer</td>
+<td>Minute for current time.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Sec</span></code></td>
+<td>Integer</td>
+<td>Second for current time.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;1Hour</span></code></td>
+<td>Real</td>
+<td>&#160;</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;1Min</span></code></td>
+<td>Real</td>
+<td>&#160;</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;1Sec</span></code></td>
+<td>Real</td>
+<td>&#160;</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;MouseX</span></code></td>
+<td>Integer</td>
+<td>Current mouse cursor X-coordinate.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;MouseY</span></code></td>
+<td>Integer</td>
+<td>Current mouse cursor Y-coordinate.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;LClick</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> when left mouse button is clicked.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;RClick</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> when right mouse button is clicked.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;LPush</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if left mouse button is pressed.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;RPush</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if right mouse button is pressed.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;KeyClick[KEY_CONST]</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> when the specified key is clicked.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;KeyPush[KEY_CONST]</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if the specified key is pressed.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;KeyRepeat[KEY_CONST]</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if the specified key is being pressed at regular intervals.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Pi</span></code></td>
+<td>Real</td>
+<td>Value of Pi.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;TickCount</span></code></td>
+<td>Integer</td>
+<td>Time since the program was started in milliseconds.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;PCTickCount</span></code></td>
+<td>Integer</td>
+<td>Time since Windows was started in milliseconds.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Title</span></code></td>
+<td>String</td>
+<td>Software title.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;FullScr</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if program is in full-screen mode.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;ScrHeight</span></code></td>
+<td>Integer</td>
+<td>Screen height in pixels</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;ScrWidth</span></code></td>
+<td>Integer</td>
+<td>Screen width in pixels</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;SelIndex</span></code></td>
+<td>Integer</td>
+<td><p class="first">0-indexed value of the player’s last text or image selection choice.
+For image selection, it will contain the same value displayed in <code class="docutils literal notranslate"><span class="pre">LivePreviewMenu</span></code>.</p>
+<ul class="last simple">
+<li>Value will be set to <code class="docutils literal notranslate"><span class="pre">-1</span></code> if selection prompt was closed by right-clicking.</li>
+</ul>
+</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;SelStr</span></code></td>
+<td>Integer</td>
+<td>Text string value of the player’s last text or image selection choice.
+For image selection, it will contain the name given in <code class="docutils literal notranslate"><span class="pre">LivePreviewMenu</span></code>.</td>
+<td>Read/Write</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">LiveMaker Pro system variables</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variable name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+<th class="head">Read/Write</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;ActiveCompo</span></code></td>
+<td>String</td>
+<td>Name of the active component for receiving keyboard input.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;CGDither</span></code></td>
+<td>Flag</td>
+<td>If TRUE, perform full color image dithering.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Cursor</span></code></td>
+<td>String</td>
+<td>Default mouse cursor filename.
+If a component cursor is set, it takes precedence over this one.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;DisplayModeCount</span></code></td>
+<td>Integer</td>
+<td>Number of available full-screen display modes.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;DisplayModeIndex</span></code></td>
+<td>Integer</td>
+<td>Index of the current full-screen display mode.
+Setting this value will immediately enable full-screen mode.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;FixedFonts</span></code></td>
+<td>String</td>
+<td>List of fixed-width TrueType fonts available on this system, separated by newlines.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Fonts</span></code></td>
+<td>String</td>
+<td>List of TrueType fonts available on this system, separated by newlines.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;HistoryCount</span></code></td>
+<td>Integer</td>
+<td><dl class="first last docutils">
+<dt>When history format is registered</dt>
+<dd>Text history height (in pixels)</dd>
+<dt>When history format is not registered</dt>
+<dd>Number of available text histories</dd>
+</dl>
+</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;HistoryMaxCount</span></code></td>
+<td>Integer</td>
+<td><p class="first">Maximum number of text history pages that can be stored.</p>
+<dl class="last docutils">
+<dt>When history format is registered</dt>
+<dd>Maximum number of history message box pages</dd>
+<dt>When history format is not registered</dt>
+<dd>Number of pages for text insertion</dd>
+</dl>
+</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;IsDebug</span></code></td>
+<td>Flag</td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> when running in debug mode.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;ParamStr</span></code></td>
+<td>String</td>
+<td>Parameter argument array.
+Available range is <code class="docutils literal notranslate"><span class="pre">&#64;ParamStr[0]</span> <span class="pre">~</span> <span class="pre">&#64;ParamStr[&#64;ParamCount</span> <span class="pre">-</span> <span class="pre">1]</span></code>.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Result</span></code></td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Value to be returned to the caller.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Sender</span></code></td>
+<td>String</td>
+<td>Name of the invoked component.</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;SoundON</span></code></td>
+<td>Flag</td>
+<td>Setting to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> will disable audio playback.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;StackCount</span></code></td>
+<td>Integer</td>
+<td>Number of call stacks</td>
+<td>Read-only</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Temp</span></code></td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Can be used as a substitute when assigning variables with <code class="docutils literal notranslate"><span class="pre">AssignTemp</span></code>.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;TextDelay</span></code></td>
+<td>Integer</td>
+<td>Default weight for inserted text.</td>
+<td><code class="docutils literal notranslate"><span class="pre">Read/Write</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;MidiPort</span></code></td>
+<td>String</td>
+<td>Current MIDI port.</td>
+<td>Read/Write</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;MidiPorts[Index]</span></code></td>
+<td>String</td>
+<td>Available MIDI ports.
+Index can be <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">~</span> <span class="pre">(GetArraySize(&#64;MidiPorts)</span> <span class="pre">-</span> <span class="pre">1)</span></code></td>
+<td>Read-only</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="operator">
+<h2>Operator<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="function">
+<h2>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../livenovel.html">LiveNovel Docs (en)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">LiveNovel Tutorial</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LiveNovel Basic Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">LiveNovel FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../livenovel.html">LiveNovel Docs (en)</a><ul>
+      <li>Previous: <a href="tutorial.html" title="previous chapter">LiveNovel Tutorial</a></li>
+      <li>Next: <a href="faq.html" title="next chapter">LiveNovel FAQ</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/livenovel/basic.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

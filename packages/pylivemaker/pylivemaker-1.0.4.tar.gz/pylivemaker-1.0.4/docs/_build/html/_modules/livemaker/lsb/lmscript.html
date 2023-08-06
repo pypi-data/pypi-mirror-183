@@ -1,0 +1,804 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker.lsb.lmscript &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for livemaker.lsb.lmscript</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2019 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="c1"># Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is a part of pylivemaker.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the GNU General Public License as published by the Free Software</span>
+<span class="c1"># Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="c1"># version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="c1"># ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along with</span>
+<span class="c1"># this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;LiveMaker LSB/LSC script classes.</span>
+
+<span class="sd">Attributes:</span>
+<span class="sd">    MIN_LSB_VERSION (int): Minimum supported compiled LSB version.</span>
+<span class="sd">    DEFAULT_LSB_VERSION (int): Default compiled LSB version.</span>
+<span class="sd">    MAX_LSB_VERSION (int): Maximum supported compiled LSB version.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">deque</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">IOBase</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">construct</span>
+
+<span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+
+<span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">BaseSerializable</span>
+<span class="kn">from</span> <span class="nn">.command</span> <span class="kn">import</span> <span class="n">CommandType</span><span class="p">,</span> <span class="n">PropertyType</span><span class="p">,</span> <span class="n">_command_classes</span><span class="p">,</span> <span class="n">_command_structs</span>
+<span class="kn">from</span> <span class="nn">.menu</span> <span class="kn">import</span> <span class="n">BaseSelectionMenu</span><span class="p">,</span> <span class="n">make_menu</span><span class="p">,</span> <span class="n">MENU_IDENTIFIERS</span>
+<span class="kn">from</span> <span class="nn">.translate</span> <span class="kn">import</span> <span class="n">TextBlockIdentifier</span>
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">BadLsbError</span><span class="p">,</span> <span class="n">BadTextIdentifierError</span><span class="p">,</span> <span class="n">LiveMakerException</span>
+
+
+<span class="c1"># Known LSB format versions</span>
+<span class="n">MIN_LSB_VERSION</span> <span class="o">=</span> <span class="mi">103</span>
+<span class="n">DEFAULT_LSB_VERSION</span> <span class="o">=</span> <span class="mi">117</span>
+<span class="n">MAX_LSB_VERSION</span> <span class="o">=</span> <span class="mi">117</span>
+
+
+<div class="viewcode-block" id="LsbVersionValidator"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LsbVersionValidator">[docs]</a><span class="k">class</span> <span class="nc">LsbVersionValidator</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Validator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct validator for supported compiled LSB versions.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span> <span class="o">&gt;=</span> <span class="n">MIN_LSB_VERSION</span> <span class="ow">and</span> <span class="n">obj</span> <span class="o">&lt;=</span> <span class="n">MAX_LSB_VERSION</span>
+
+    <span class="k">def</span> <span class="nf">_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">construct</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Unsupported LSB version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="lsb_to_lm_ver"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.lsb_to_lm_ver">[docs]</a><span class="k">def</span> <span class="nf">lsb_to_lm_ver</span><span class="p">(</span><span class="n">version</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="n">MIN_LSB_VERSION</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="s2">&quot;Unknown LSB version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="mi">117</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="mi">3</span></div>
+
+
+<span class="k">class</span> <span class="nc">_ParamStreamAdapter</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Adapter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct adapter for converting command parameter bitstream into a list of bools.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">bools</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+                <span class="n">bools</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">shift</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bools</span>
+
+    <span class="k">def</span> <span class="nf">_encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">8</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+                <span class="n">flags</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">flags</span><span class="p">)))</span>
+            <span class="n">byte</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">flags</span><span class="p">):</span>
+                <span class="n">byte</span> <span class="o">|=</span> <span class="n">flag</span> <span class="o">&lt;&lt;</span> <span class="n">j</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">byte</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;little&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="LMScript"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript">[docs]</a><span class="k">class</span> <span class="nc">LMScript</span><span class="p">(</span><span class="n">BaseSerializable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;LiveMaker script class.</span>
+
+<span class="sd">    A LiveMaker script is a collection of LiveMaker novel commands.</span>
+<span class="sd">    One LiveMaker/LiveNovel &quot;Chart&quot; will be serialized as one script</span>
+<span class="sd">    file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        version (int): Version number. If `version` is not in the range [`MIN_LSB_VERSION`, `MAX_LSB_VERSION`],</span>
+<span class="sd">            this LMScript cannot be compiled into a binary LSB.</span>
+<span class="sd">        param_type: Unknown type flag (always 1?).</span>
+<span class="sd">        flags (int): Unknown (always 0?).</span>
+<span class="sd">        call_name (str): String name for calling this script (only used for documentation).</span>
+<span class="sd">        novel_params (iterable): Iterable containing string descriptions for parameters that</span>
+<span class="sd">            this script accepts (only used for documentation).</span>
+<span class="sd">        command_params (iterable(iterable(bool))): Two dimensional array of booleans specifying the command</span>
+<span class="sd">            parameters are for Component type commands.</span>
+<span class="sd">            (i.e. `command_params[CommandType.BoxNew][PropertyType.PR_NAME] == True`</span>
+<span class="sd">            means that `BoxNew` takes a `PR_NAME` parameter.)</span>
+<span class="sd">        commands (iterable): Iterable containing this script&#39;s `Command` objects.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        BadLsbError: If the specified LMScript would be invalid or unsupported.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># internal use field to specify where this LMScript came from</span>
+    <span class="n">_parsed_from</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">version</span><span class="o">=</span><span class="n">DEFAULT_LSB_VERSION</span><span class="p">,</span>
+        <span class="n">param_type</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">call_name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">novel_params</span><span class="o">=</span><span class="p">[],</span>
+        <span class="n">command_params</span><span class="o">=</span><span class="p">[[]],</span>
+        <span class="n">commands</span><span class="o">=</span><span class="p">[],</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="n">MIN_LSB_VERSION</span> <span class="ow">or</span> <span class="n">version</span> <span class="o">&gt;</span> <span class="n">MAX_LSB_VERSION</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;LSB compilation unsupported for LMScript version </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_type</span> <span class="o">=</span> <span class="n">param_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">flags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">call_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novel_params</span> <span class="o">=</span> <span class="n">novel_params</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">command_params</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">CommandType</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;len(command_params) exceeds max command type value&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_params</span> <span class="o">=</span> <span class="n">command_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commands</span> <span class="o">=</span> <span class="n">commands</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pylm</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pylm&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;LMScript version=</span><span class="si">{}</span><span class="s2"> commands=</span><span class="si">{}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">commands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span>
+
+    <span class="nd">@commands</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">commands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commands</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">commands</span><span class="p">,</span> <span class="n">construct</span><span class="o">.</span><span class="n">ListContainer</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="n">_command_classes</span><span class="p">[</span><span class="n">CommandType</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">type</span><span class="p">))]</span><span class="o">.</span><span class="n">from_struct</span><span class="p">(</span>
+                    <span class="n">c</span><span class="p">,</span> <span class="n">command_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">type</span><span class="p">)]</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span> <span class="o">=</span> <span class="n">commands</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cmd_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">cmd</span><span class="o">.</span><span class="n">LineNo</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="p">)}</span>
+
+<div class="viewcode-block" id="LMScript.keys"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">,</span> <span class="s2">&quot;flags&quot;</span><span class="p">,</span> <span class="s2">&quot;command_count&quot;</span><span class="p">,</span> <span class="s2">&quot;param_stream_size&quot;</span><span class="p">,</span> <span class="s2">&quot;command_params&quot;</span><span class="p">,</span> <span class="s2">&quot;commands&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="LMScript.items"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">command_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of command types supported by this script.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">param_stream_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the length of this script&#39;s param flag bytestream.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lm_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return LiveMaker app version based on an LSB version.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">lsb_to_lm_ver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LMScript.to_lsc"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.to_lsc">[docs]</a>    <span class="k">def</span> <span class="nf">to_lsc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return this script in the tex .lsc format.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;LiveMaker</span><span class="si">{:03}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_type</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;=</span> <span class="mi">104</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># unk, call name?</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">params</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="k">if</span> <span class="n">flag</span><span class="p">]))</span>
+
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMScript.from_lsc"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.from_lsc">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_lsc</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an LMScript from the specified string.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            s: String containing text .lsc format data.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadLsbError if the string could not be parsed.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Currently only supports reading version information.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;LiveMaker&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="s2">&quot;String does not contain LiveMaker script data.&quot;</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;LiveMakerB&quot;</span><span class="p">):</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">10</span><span class="p">:])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">9</span><span class="p">:])</span>
+            <span class="c1"># param_type = int(lines[1])</span>
+            <span class="c1"># if version &gt;= 104:</span>
+            <span class="c1">#     flags = int(lines[3])</span>
+            <span class="c1">#     command_params_count = int(lines[4])</span>
+            <span class="c1">#     command_params_start = 5</span>
+            <span class="c1"># else:</span>
+            <span class="c1">#     flags = int(lines[2])</span>
+            <span class="c1">#     command_params_count = int(lines[3])</span>
+            <span class="c1">#     command_params_start = 4</span>
+            <span class="c1"># command_params = []</span>
+            <span class="c1"># for line in lines[command_params_start:command_params_start + command_params_count]:</span>
+            <span class="c1">#     params = [False] * (max(PropertyType) + 1)</span>
+            <span class="c1">#     for index in line.split():</span>
+            <span class="c1">#         params[int(index)] = True</span>
+            <span class="c1">#     command_params.append(params)</span>
+            <span class="c1"># commands = []</span>
+            <span class="c1"># for command in lines[command_params_start + command_params_count:]:</span>
+            <span class="c1">#     pass</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="s2">&quot;String does not contain LiveMaker script data.&quot;</span><span class="p">)</span>
+        <span class="c1"># lm = cls(version=version, param_type=param_type, flags=flags,</span>
+        <span class="c1">#          command_params=command_params, commands=commands)</span>
+        <span class="n">lm</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+        <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">=</span> <span class="s2">&quot;lsc&quot;</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_struct</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span>
+            <span class="s2">&quot;version&quot;</span> <span class="o">/</span> <span class="n">LsbVersionValidator</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">),</span>
+            <span class="s2">&quot;flags&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Byte</span><span class="p">,</span>
+            <span class="s2">&quot;command_count&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+            <span class="s2">&quot;param_stream_size&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+            <span class="s2">&quot;command_params&quot;</span>
+            <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">command_count</span><span class="p">,</span> <span class="n">_ParamStreamAdapter</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Bytes</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">param_stream_size</span><span class="p">)),</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;commands&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">PrefixedArray</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span> <span class="n">construct</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="o">*</span><span class="n">_command_structs</span><span class="p">)),</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="LMScript.from_struct"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.from_struct">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_struct</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">struct</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an LMScript from the specified struct.&quot;&quot;&quot;</span>
+        <span class="n">lm</span> <span class="o">=</span> <span class="n">LMScript</span><span class="p">(</span>
+            <span class="n">version</span><span class="o">=</span><span class="n">struct</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+            <span class="n">flags</span><span class="o">=</span><span class="n">struct</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span>
+            <span class="n">command_params</span><span class="o">=</span><span class="n">struct</span><span class="o">.</span><span class="n">command_params</span><span class="p">,</span>
+            <span class="n">commands</span><span class="o">=</span><span class="n">struct</span><span class="o">.</span><span class="n">commands</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">=</span> <span class="s2">&quot;lsb&quot;</span>
+        <span class="k">return</span> <span class="n">lm</span></div>
+
+<div class="viewcode-block" id="LMScript.to_lsb"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.to_lsb">[docs]</a>    <span class="k">def</span> <span class="nf">to_lsb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compile this script into binary .lsb format.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_struct</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="c1"># return construct.Debugger(self._struct()).build(self)</span>
+        <span class="k">except</span> <span class="n">construct</span><span class="o">.</span><span class="n">ConstructError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMScript.to_xml"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.to_xml">[docs]</a>    <span class="k">def</span> <span class="nf">to_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return this script as an .lsc format XML etree.Element.&quot;&quot;&quot;</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;Page&quot;</span><span class="p">)</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Version&quot;</span><span class="p">)</span>
+        <span class="n">version</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+        <span class="n">call_name</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;CallName&quot;</span><span class="p">)</span>
+        <span class="n">call_name</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span>
+        <span class="n">novel_param</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;NovelParam&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">novel_params</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">novel_param</span><span class="p">,</span> <span class="s2">&quot;Item&quot;</span><span class="p">)</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">param</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Param&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command_params</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">CommandType</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">PropertyType</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Command&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
+            <span class="n">command</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">to_xml</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">root</span></div>
+
+<div class="viewcode-block" id="LMScript.from_xml"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an LMScript from the specified XML element.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            root: The root tree element.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadLsbError: If the XML tree could not be parsed.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Currently only supports reading header information.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># param_type = 0</span>
+        <span class="c1"># flags = 0</span>
+        <span class="c1"># call_name = &#39;&#39;</span>
+        <span class="c1"># novel_params = []</span>
+        <span class="c1"># command_params = []</span>
+        <span class="c1"># for i in range(max(CommandType) + 1):</span>
+        <span class="c1">#     command_params.append([False] * (max(PropertyType) + 1))</span>
+        <span class="c1"># commands = []</span>
+        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="s2">&quot;Page&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="s2">&quot;Expected an LMScript XML tree&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;Version&quot;</span><span class="p">:</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="c1"># elif child.tag == &#39;PropertyType&#39;:</span>
+            <span class="c1">#     param_type = int(child.text)</span>
+            <span class="c1"># elif child.tag == &#39;CallName&#39;:</span>
+            <span class="c1">#     call_name = child.text</span>
+            <span class="c1"># elif child.tag == &#39;NovelParam&#39;:</span>
+            <span class="c1">#     for item in child:</span>
+            <span class="c1">#         novel_params.append(item.text())</span>
+            <span class="c1"># elif child.tag == &#39;Param&#39;:</span>
+            <span class="c1">#     for cmd in child:</span>
+            <span class="c1">#         cmd_type = CommandType[cmd.tag]</span>
+            <span class="c1">#         for param in cmd:</span>
+            <span class="c1">#             param_type = PropertyType[param.tag]</span>
+            <span class="c1">#             if int(param.text):</span>
+            <span class="c1">#                 command_params[cmd_type][param_type] = True</span>
+            <span class="c1"># if child.tag == &#39;Command&#39;:</span>
+            <span class="c1">#     pass</span>
+        <span class="c1"># lm = cls(version=version, param_type=param_type, flags=flags, call_name=call_name,</span>
+        <span class="c1">#          novel_params=novel_params, command_params=command_params, commands=commands)</span>
+        <span class="n">lm</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">=</span> <span class="s2">&quot;lsc-xml&quot;</span>
+        <span class="k">return</span> <span class="n">lm</span></div>
+
+<div class="viewcode-block" id="LMScript.from_file"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.from_file">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">infile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse the specified file into an LMScript.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            infile: Input .lsc or .lsb file. Can be a string, path-like, or file-like object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadLsbError: If the input file could not be parsed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">IOBase</span><span class="p">):</span>
+            <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+        <span class="n">infile</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;call_name&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;call_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;LiveMaker&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_lsc</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;cp932&quot;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&lt;?xml&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">infile</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_struct</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_struct</span><span class="p">()</span><span class="o">.</span><span class="n">parse_stream</span><span class="p">(</span><span class="n">infile</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">construct</span><span class="o">.</span><span class="n">ConstructError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMScript.from_lsb"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.from_lsb">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_lsb</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse the specified compiled .lsb data into an LMScript.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: Input .lsb data.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadLsbError: If the input data could not be parsed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_struct</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_struct</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">construct</span><span class="o">.</span><span class="n">ConstructError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BadLsbError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMScript.get_command"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.get_command">[docs]</a>    <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_no</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get specified command by line number.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple(cmd_index, cmd)</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: the specified line_no does not exist in this LSB.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmd_index</span><span class="p">[</span><span class="n">line_no</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="LMScript.walk"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.walk">[docs]</a>    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">unreachable</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Iterate over LSB commands in approximate execution order.</span>
+
+<span class="sd">        All conditional branches will be followed (positive condition</span>
+<span class="sd">        will be evaluated first), but external jumps and calls will not be</span>
+<span class="sd">        followed.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start (int): Command index to start from.</span>
+<span class="sd">            unreachable (bool): If True, unreachable commands will be included.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            3-tuple in the form ``(index, command, last_calc)``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;lsb walk requires call_name be set&quot;</span><span class="p">)</span>
+
+        <span class="n">cmds_to_visit</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([(</span><span class="n">start</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span>
+        <span class="n">remaining_cmds</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">)))</span>
+        <span class="n">remaining_cmds</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">cmds_to_visit</span><span class="p">:</span>
+            <span class="n">pc</span><span class="p">,</span> <span class="n">last_calc</span> <span class="o">=</span> <span class="n">cmds_to_visit</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+
+            <span class="k">yield</span> <span class="n">pc</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">last_calc</span>
+
+            <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Jump</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Page&quot;</span><span class="p">)</span>
+                <span class="n">calc</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Calc&quot;</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="n">ref</span><span class="o">.</span><span class="n">Page</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">calc</span> <span class="o">!=</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+                        <span class="c1"># branch taken</span>
+                        <span class="k">if</span> <span class="n">calc</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+                            <span class="n">calc</span> <span class="o">=</span> <span class="n">last_calc</span>
+                        <span class="n">next_pc</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">Label</span>
+                        <span class="k">if</span> <span class="n">next_pc</span> <span class="ow">in</span> <span class="n">remaining_cmds</span><span class="p">:</span>
+                            <span class="n">remaining_cmds</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_pc</span><span class="p">)</span>
+                            <span class="n">cmds_to_visit</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pc</span><span class="p">,</span> <span class="n">calc</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># branch not taken</span>
+                        <span class="n">next_pc</span> <span class="o">=</span> <span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">next_pc</span> <span class="ow">in</span> <span class="n">remaining_cmds</span><span class="p">:</span>
+                            <span class="n">remaining_cmds</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_pc</span><span class="p">)</span>
+                            <span class="n">cmds_to_visit</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pc</span><span class="p">,</span> <span class="n">last_calc</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CommandType</span><span class="o">.</span><span class="n">Exit</span><span class="p">,</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">Terminate</span><span class="p">,</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">PCReset</span><span class="p">):</span>
+                <span class="n">next_pc</span> <span class="o">=</span> <span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">next_pc</span> <span class="ow">in</span> <span class="n">remaining_cmds</span><span class="p">:</span>
+                    <span class="n">remaining_cmds</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_pc</span><span class="p">)</span>
+                    <span class="n">cmds_to_visit</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pc</span><span class="p">,</span> <span class="n">last_calc</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">unreachable</span> <span class="ow">and</span> <span class="n">remaining_cmds</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file contains {len(remaining_cmds)} unreachable commands&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">pc</span> <span class="ow">in</span> <span class="n">remaining_cmds</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">pc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">pc</span><span class="p">],</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="LMScript.text_scenarios"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.text_scenarios">[docs]</a>    <span class="k">def</span> <span class="nf">text_scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_order</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of LiveNovel text scenarios contained in this script.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_order (bool): If True, scenarios will be returned in</span>
+<span class="sd">                approximately the order they would be run in-game (via</span>
+<span class="sd">                `walk()`. If False, text blocks will be returned in the</span>
+<span class="sd">                order they occur in the LSB file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple(int, str, :class:`TpWord`): (line_num, name, scenario)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">run_order</span><span class="p">:</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">)</span>
+
+        <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">run_order</span><span class="p">:</span>
+                    <span class="n">i</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">i</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">scenarios</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">TextIns</span><span class="p">:</span>
+                <span class="c1"># TextIns command should always occur in sequence:</span>
+                <span class="c1">#   Label &lt;scenario_name&gt;</span>
+                <span class="c1">#   Calc &lt;set system message flag to non-empty&gt;</span>
+                <span class="c1">#   TextIns &lt;scenario&gt;</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">scenario</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">)</span>
+                <span class="n">scenarios</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cmd</span><span class="o">.</span><span class="n">LineNo</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">scenarios</span></div>
+
+<div class="viewcode-block" id="LMScript.get_text_blocks"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.get_text_blocks">[docs]</a>    <span class="k">def</span> <span class="nf">get_text_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_order</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return LiveNovel scenario text blocks contained in this script.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_order (bool): If True, text blocks will be returned in</span>
+<span class="sd">                approximately the order they would be run in-game (via</span>
+<span class="sd">                `walk()`. If False, text blocks will be returned in the</span>
+<span class="sd">                order they occur in the LSB file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of (identifier, block) tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">blocks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">(</span><span class="n">run_order</span><span class="o">=</span><span class="n">run_order</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">get_text_blocks</span><span class="p">()):</span>
+                <span class="n">id_</span> <span class="o">=</span> <span class="n">TextBlockIdentifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">,</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">block_index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">id_</span><span class="p">,</span> <span class="n">block</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">blocks</span></div>
+
+<div class="viewcode-block" id="LMScript.replace_text"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.replace_text">[docs]</a>    <span class="k">def</span> <span class="nf">replace_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_objects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace the specified translatable text objects in this LSB.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text_objects: Iterable containing (identifier, text) tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_objs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;menu-text&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+        <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">id_</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_objects</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">id_</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">new_objs</span><span class="p">:</span>
+                <span class="n">new_objs</span><span class="p">[</span><span class="n">id_</span><span class="o">.</span><span class="n">type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">id_</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BadTextIdentifierError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported text type &#39;</span><span class="si">{id_}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">new_objs</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
+            <span class="n">t</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replace_text_blocks</span><span class="p">(</span><span class="n">new_objs</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+            <span class="n">translated</span> <span class="o">+=</span> <span class="n">t</span>
+            <span class="n">failed</span> <span class="o">+=</span> <span class="n">f</span>
+        <span class="k">elif</span> <span class="n">new_objs</span><span class="p">[</span><span class="s2">&quot;menu-text&quot;</span><span class="p">]:</span>
+            <span class="n">t</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replace_menu_choices</span><span class="p">(</span><span class="n">new_objs</span><span class="p">[</span><span class="s2">&quot;menu-text&quot;</span><span class="p">])</span>
+            <span class="n">translated</span> <span class="o">+=</span> <span class="n">t</span>
+            <span class="n">failed</span> <span class="o">+=</span> <span class="n">f</span>
+
+        <span class="k">return</span> <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span></div>
+
+<div class="viewcode-block" id="LMScript.replace_text_blocks"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.replace_text_blocks">[docs]</a>    <span class="k">def</span> <span class="nf">replace_text_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_objects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace the specified LiveNovel scenario text blocks in this LSB.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text_objects: Iterable containing (identifier, text) tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="n">replacement_blocks</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">id_</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_objects</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">id_</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;text&quot;</span> <span class="ow">and</span> <span class="n">id_</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+                <span class="n">replacement_blocks</span><span class="p">[</span><span class="n">id_</span><span class="o">.</span><span class="n">line_no</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">id_</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">line_no</span> <span class="ow">in</span> <span class="n">replacement_blocks</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_command</span><span class="p">(</span><span class="n">line_no</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">TextIns</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">BadTextIdentifierError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid text block: LSB command &#39;</span><span class="si">{line_no}</span><span class="s2">&#39; is not TextIns&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BadTextIdentifierError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid text block: LSB command &#39;</span><span class="si">{line_no}</span><span class="s2">&#39; does not exist&quot;</span><span class="p">)</span>
+            <span class="n">scenario</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">)</span>
+            <span class="n">tmp_blocks</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">get_text_blocks</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">id_</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">replacement_blocks</span><span class="p">[</span><span class="n">line_no</span><span class="p">]:</span>
+                <span class="n">block</span> <span class="o">=</span> <span class="n">tmp_blocks</span><span class="p">[</span><span class="n">id_</span><span class="o">.</span><span class="n">block_index</span><span class="p">]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">block</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Translated block </span><span class="si">{id_}</span><span class="s2">: &#39;</span><span class="si">{block.orig_text}</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">{block.text}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                    <span class="n">translated</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="n">LiveMakerException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to translate text block &lt;</span><span class="si">{id_}</span><span class="s2">&gt; </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">failed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">scenario</span><span class="o">.</span><span class="n">replace_text_blocks</span><span class="p">(</span><span class="n">tmp_blocks</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span></div>
+
+<div class="viewcode-block" id="LMScript.get_menus"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.get_menus">[docs]</a>    <span class="k">def</span> <span class="nf">get_menus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_order</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of LiveNovel text selection menus contained in this script.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_order (bool): If True, menus will be returned in</span>
+<span class="sd">                approximately the order they would be run in-game (via</span>
+<span class="sd">                `walk()`. If False, text blocks will be returned in the</span>
+<span class="sd">                order they occur in the LSB file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple(int, :class:`BaseSelectionMenu`): (line_num, menu)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">run_order</span><span class="p">:</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">)</span>
+
+        <span class="n">menus</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">run_order</span><span class="p">:</span>
+                    <span class="n">i</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">i</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">menus</span>
+            <span class="k">if</span> <span class="n">BaseSelectionMenu</span><span class="o">.</span><span class="n">is_menu_start</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">menu</span> <span class="o">=</span> <span class="n">make_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">pylm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pylm</span><span class="p">)</span>
+                    <span class="n">menus</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cmd</span><span class="o">.</span><span class="n">LineNo</span><span class="p">,</span> <span class="n">menu</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">LiveMakerException</span><span class="p">:</span>
+                    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="LMScript.get_menu_choices"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.get_menu_choices">[docs]</a>    <span class="k">def</span> <span class="nf">get_menu_choices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_order</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return selection menu choices contained in this script.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_order (bool): If True, menus will be returned in</span>
+<span class="sd">                approximately the order they would be run in-game (via</span>
+<span class="sd">                `walk()`. If False, menus will be returned in the</span>
+<span class="sd">                order they occur in the LSB file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of (identifier, choice) tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">menu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_menus</span><span class="p">(</span><span class="n">run_order</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">choice</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">menu</span><span class="o">.</span><span class="n">choices</span><span class="p">):</span>
+                <span class="n">id_cls</span> <span class="o">=</span> <span class="n">MENU_IDENTIFIERS</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">menu</span><span class="p">)]</span>
+                <span class="n">id_</span> <span class="o">=</span> <span class="n">id_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">,</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">choice_index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">id_</span><span class="p">,</span> <span class="n">choice</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">choices</span></div>
+
+<div class="viewcode-block" id="LMScript.replace_menu_choices"><a class="viewcode-back" href="../../../livemaker.lsb.html#livemaker.LMScript.replace_menu_choices">[docs]</a>    <span class="k">def</span> <span class="nf">replace_menu_choices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_objects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace the specified text selection menu choices in this LSB.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text_objects: Iterable containing (identifier, text) tuples</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="n">replacement_choices</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">id_</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">text_objects</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">id_</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;menu-text&quot;</span> <span class="ow">and</span> <span class="n">id_</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_name</span><span class="p">:</span>
+                <span class="n">replacement_choices</span><span class="p">[</span><span class="n">id_</span><span class="o">.</span><span class="n">line_no</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">id_</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">line_no</span> <span class="ow">in</span> <span class="n">replacement_choices</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_command</span><span class="p">(</span><span class="n">line_no</span><span class="p">)</span>
+                <span class="n">menu</span> <span class="o">=</span> <span class="n">make_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">LiveMakerException</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BadTextIdentifierError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid text block: LSB command &#39;</span><span class="si">{line_no}</span><span class="s2">&#39; is not start of a menu&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">id_</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">replacement_choices</span><span class="p">[</span><span class="n">line_no</span><span class="p">]:</span>
+                <span class="n">orig_choice</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="n">id_</span><span class="o">.</span><span class="n">choice_index</span><span class="p">]</span>
+                <span class="n">choice</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">orig_choice</span><span class="p">)</span>
+                <span class="n">choice</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">menu</span><span class="o">.</span><span class="n">replace_choice</span><span class="p">(</span><span class="n">choice</span><span class="p">,</span> <span class="n">id_</span><span class="o">.</span><span class="n">choice_index</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Translated &#39;</span><span class="si">{choice.orig_text}</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">{choice.text}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                    <span class="n">translated</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="n">LiveMakerException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to translate menu choice &lt;</span><span class="si">{id_}</span><span class="s2">&gt; </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">failed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">save_choices</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">translated</span><span class="p">,</span> <span class="n">failed</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

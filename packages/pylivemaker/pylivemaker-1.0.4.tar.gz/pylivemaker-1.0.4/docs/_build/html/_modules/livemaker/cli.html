@@ -1,0 +1,481 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker.cli &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for livemaker.cli</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2019 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="c1"># Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is a part of pylivemaker.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the GNU General Public License as published by the Free Software</span>
+<span class="c1"># Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="c1"># version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="c1"># ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along with</span>
+<span class="c1"># this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;pylivemaker cli.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">click</span>
+
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+
+<span class="kn">from</span> <span class="nn">.archive</span> <span class="kn">import</span> <span class="n">LMArchive</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">LiveMakerException</span><span class="p">,</span> <span class="n">BadLsbError</span>
+<span class="kn">from</span> <span class="nn">.lsb</span> <span class="kn">import</span> <span class="n">LMScript</span>
+<span class="kn">from</span> <span class="nn">.lsb.command</span> <span class="kn">import</span> <span class="n">CommandType</span>
+<span class="kn">from</span> <span class="nn">.lsb.novel</span> <span class="kn">import</span> <span class="n">LNSDecompiler</span><span class="p">,</span> <span class="n">LNSCompiler</span><span class="p">,</span> <span class="n">TWdChar</span><span class="p">,</span> <span class="n">TWdOpeReturn</span>
+
+<span class="n">_version</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">%(prog)s</span><span class="s2">, version </span><span class="si">%(version)s</span><span class="s2"></span>
+
+<span class="s2">Copyright (C) 2019 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="s2">Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+
+<span class="s2">This program is free software: you can redistribute it and/or modify it under</span>
+<span class="s2">the terms of the GNU General Public License as published by the Free Software</span>
+<span class="s2">Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="s2">version.</span>
+
+<span class="s2">This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="s2">ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="s2">FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+
+<span class="s2">You should have received a copy of the GNU General Public License along with</span>
+<span class="s2">this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">_version</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">lmar</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Command-line tool for manipulating LiveMaker archives and EXEs.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@lmar</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--dry-run&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Show what would be done without extracting any files.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-dir&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output directory, defaults to current working directory.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="n">dry_run</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Extract the specified archive.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
+        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">LMArchive</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">lm</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">lm</span><span class="o">.</span><span class="n">infolist</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">dry_run</span><span class="p">:</span>
+                <span class="n">lm</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span> <span class="ow">or</span> <span class="n">dry_run</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="nd">@lmar</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">l</span><span class="p">(</span><span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;List the contents of the specified archive.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">LMArchive</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">lm</span><span class="p">:</span>
+        <span class="n">lm</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+
+
+<span class="nd">@lmar</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;output_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">writable</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">strip</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Copy the specified LiveMaker EXE but remove the LiveMaker archive.</span>
+
+<span class="sd">    The resulting program cannot be run, but may be useful for reverse engineering or patching reasons.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">LMArchive</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">lm</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lm</span><span class="o">.</span><span class="n">is_exe</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> already exists and will be overwritten.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output_file&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lm</span><span class="o">.</span><span class="n">read_exe</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The specified file is not a LiveMaker executable.&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">_version</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">lmlsb</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Command-line tool for manipulating LSB scripts.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@lmlsb</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">probe</span><span class="p">(</span><span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Output information about the specified LSB file in human-readable form.</span>
+
+<span class="sd">    Novel script scenario character and line count are estimates. Depending</span>
+<span class="sd">    on how a script was originally created, actual char/line counts may vary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lm</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">BadLsbError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Could not read file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">==</span> <span class="s1">&#39;lsc&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LiveMaker LSC script file:&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">==</span> <span class="s1">&#39;lsc-xml&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LiveMaker XML LSC script file:&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">lm</span><span class="o">.</span><span class="n">_parsed_from</span> <span class="o">==</span> <span class="s1">&#39;lsb&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LiveMaker compiled LSB script file:&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LiveMaker script file:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Version: </span><span class="si">{}</span><span class="s1"> (LiveMaker</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lm</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span class="n">lm</span><span class="o">.</span><span class="n">lm_version</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Total commands: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lm</span><span class="p">)))</span>
+    <span class="n">cmd_types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">lm</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
+        <span class="n">cmd_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    Command types: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cmd_types</span><span class="p">)])))</span>
+    <span class="n">scenarios</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Total text scenarios: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scenarios</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Unlabeled scenario&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">tpwd_types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">char_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">line_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">scenario</span><span class="o">.</span><span class="n">body</span><span class="p">:</span>
+            <span class="n">tpwd_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">wd</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">TWdChar</span><span class="p">):</span>
+                <span class="n">char_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">TWdOpeReturn</span><span class="p">):</span>
+                <span class="n">line_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      LiveNovel scenario version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">version</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      TpWd types: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tpwd_types</span><span class="p">)])))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      Approx. character count: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">char_count</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">char_count</span><span class="p">:</span>
+            <span class="c1"># don&#39;t count line breaks in event-only scenarios</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      Approx. line count: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_count</span><span class="p">))</span>
+
+
+<span class="nd">@lmlsb</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Verify that the specified LSB file(s) can be processed.</span>
+
+<span class="sd">    Validation is done by disassembling an input file, reassembling it,</span>
+<span class="sd">    and then comparing the SHA256 digests of the original and reassembled</span>
+<span class="sd">    versions of the file.</span>
+
+<span class="sd">    If a file contains text scenarios, a test will also be done to verify that</span>
+<span class="sd">    the scenarios can be decompiled, recompiled, and then reinserted into the</span>
+<span class="sd">    lsb file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lsb</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_lsb</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">orig</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">BadLsbError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Failed to parse file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">built_data</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">to_lsb</span><span class="p">()</span>
+            <span class="n">reassembled</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">built_data</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">BadLsbError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Failed to reassemble file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Orig: </span><span class="si">{}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1"> bytes)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   New: </span><span class="si">{}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1"> bytes)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reassembled</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">built_data</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">orig</span> <span class="o">==</span> <span class="n">reassembled</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SHA256 digest validation passed&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">orig</span> <span class="o">!=</span> <span class="n">reassembled</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SHA256 digest validation failed&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="n">orig_bytes</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">_struct</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+            <span class="n">dec</span> <span class="o">=</span> <span class="n">LNSDecompiler</span><span class="p">()</span>
+            <span class="n">script</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">decompile</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+            <span class="n">cc</span> <span class="o">=</span> <span class="n">LNSCompiler</span><span class="p">()</span>
+            <span class="n">new_body</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+            <span class="n">scenario</span><span class="o">.</span><span class="n">replace_body</span><span class="p">(</span><span class="n">new_body</span><span class="p">)</span>
+            <span class="n">new_bytes</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">_struct</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_bytes</span> <span class="o">==</span> <span class="n">orig_bytes</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  script passed&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  script mismatch, </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orig_bytes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_bytes</span><span class="p">)))</span>
+
+
+<span class="nd">@lmlsb</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;--mode&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;xml&#39;</span><span class="p">,</span> <span class="s1">&#39;lines&#39;</span><span class="p">]),</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output mode (defaults to text)&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--encoding&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s1">&#39;cp932&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">]),</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output text encoding (defaults to utf-8).&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="s1">&#39;False&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Dump the contents of the specified LSB file(s) to stdout in a human-readable format.</span>
+
+<span class="sd">    For text mode, the full LSB will be output as human-readable text.</span>
+
+<span class="sd">    For xml mode, the full LSB file will be output as an XML document.</span>
+
+<span class="sd">    For lines mode, only text lines will be output.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lsb</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_lsb</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">BadLsbError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  Failed to parse file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;xml&#39;</span><span class="p">:</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">to_xml</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;lines&#39;</span><span class="p">:</span>
+            <span class="n">lsb_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-</span><span class="si">{}</span><span class="s1">.lns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lsb_path</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-line</span><span class="si">{}</span><span class="s1">.lns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lsb_path</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------&#39;</span><span class="p">)</span>
+                <span class="n">dec</span> <span class="o">=</span> <span class="n">LNSDecompiler</span><span class="p">(</span><span class="n">text_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">dec</span><span class="o">.</span><span class="n">decompile</span><span class="p">(</span><span class="n">scenario</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">Mute</span><span class="p">:</span>
+                    <span class="n">mute</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">mute</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{}{:4}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mute</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">LineNo</span><span class="p">,</span> <span class="s1">&#39;    &#39;</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">Indent</span><span class="p">)]</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CommandType</span><span class="o">.</span><span class="n">TextIns</span><span class="p">:</span>
+                    <span class="n">dec</span> <span class="o">=</span> <span class="n">LNSDecompiler</span><span class="p">()</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">dec</span><span class="o">.</span><span class="n">decompile</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Text&#39;</span><span class="p">)))</span>
+
+
+<span class="nd">@lmlsb</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--encoding&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s1">&#39;cp932&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">]),</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output text encoding (defaults to utf-8).&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-dir&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">file_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output directory. Defaults to the current working directory if not specified.&#39;</span>
+                   <span class="s1">&#39; If directory does not exist it will be created.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">encoding</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">input_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Extract decompiled LiveNovel scripts from the specified input file(s).</span>
+
+<span class="sd">    By default, extracted scripts will be encoded as utf-8, but if you intend</span>
+<span class="sd">    to patch a script back into an LSB, you will still be limited to cp932</span>
+<span class="sd">    characters only.</span>
+
+<span class="sd">    Output files will be named &lt;LSB name&gt;-&lt;scenario name&gt;.lns</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">output_dir</span><span class="p">:</span>
+        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">:</span>
+            <span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting scripts from </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+        <span class="n">lsb_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">lsb</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-</span><span class="si">{}</span><span class="s1">.lns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lsb_path</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-line</span><span class="si">{}</span><span class="s1">.lns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lsb_path</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">dec</span> <span class="o">=</span> <span class="n">LNSDecompiler</span><span class="p">()</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dec</span><span class="o">.</span><span class="n">decompile</span><span class="p">(</span><span class="n">scenario</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  wrote </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">output_path</span><span class="p">))</span>
+
+
+<span class="nd">@lmlsb</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--encoding&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s1">&#39;cp932&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">]),</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The text encoding of script_file (defaults to utf-8).&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;lsb_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;script_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="c1"># TODO: make this optional and parse label/line number from script filename</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s1">&#39;line_number&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">encoding</span><span class="p">,</span> <span class="n">lsb_file</span><span class="p">,</span> <span class="n">script_file</span><span class="p">,</span> <span class="n">line_number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compile specified LNS script and insert it into the specified LSB file.</span>
+
+<span class="sd">    The LSB command at line_number must be a TextIns command. The existing text</span>
+<span class="sd">    block of the specified TextIns command will be replaced with the new one from</span>
+<span class="sd">    script_file.</span>
+
+<span class="sd">    script_file should be an LNS script which was initially generated by lmlsb extract.</span>
+
+<span class="sd">    The original LSB file will be backed up to &lt;lsb_file&gt;.bak</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">script_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">script</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">LNSCompiler</span><span class="p">()</span>
+        <span class="n">new_body</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">LiveMakerException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Could not compile script file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">lsb_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lsb</span> <span class="o">=</span> <span class="n">LMScript</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">LiveMakerException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Could not open LSB file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">lsb</span><span class="o">.</span><span class="n">text_scenarios</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">line_number</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Scenario </span><span class="si">{}</span><span class="s1"> at line </span><span class="si">{}</span><span class="s1"> will be replaced.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="p">))</span>
+            <span class="n">scenario</span><span class="o">.</span><span class="n">replace_body</span><span class="p">(</span><span class="n">new_body</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;No matching TextIns command in the specified LSB.&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Backing up original LSB.&#39;</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lsb_file</span><span class="p">),</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bak&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lsb_file</span><span class="p">)))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">new_lsb_data</span> <span class="o">=</span> <span class="n">lsb</span><span class="o">.</span><span class="n">to_lsb</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">lsb_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_lsb_data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wrote new LSB.&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">LiveMakerException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Could not generate new LSB file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../livemaker.html#livemaker.cli.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">pass</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>  <span class="c1"># pragma: no cover</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

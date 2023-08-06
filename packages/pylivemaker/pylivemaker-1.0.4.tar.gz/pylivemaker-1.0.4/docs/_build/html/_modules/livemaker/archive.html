@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>livemaker.archive &#8212; pylivemaker 1.0.0-dev documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for livemaker.archive</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2019 Peter Rowlands &lt;peter@pmrowla.com&gt;</span>
+<span class="c1"># Copyright (C) 2014 tinfoil &lt;https://bitbucket.org/tinfoil/&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is a part of pylivemaker.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the GNU General Public License as published by the Free Software</span>
+<span class="c1"># Foundation, either version 3 of the License, or (at your option) any later</span>
+<span class="c1"># version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful, but WITHOUT</span>
+<span class="c1"># ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</span>
+<span class="c1"># FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along with</span>
+<span class="c1"># this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;LiveMaker archive/exe file module.</span>
+
+<span class="sd">The `archive` module makes it possible to read and write LiveMaker archives (and</span>
+<span class="sd">executables).</span>
+
+<span class="sd">The API for `archive` behaves similary to Python&#39;s ``zipfile`` module,</span>
+<span class="sd">with the exception that archives cannot be modified in-place (i.e. mode ``&#39;a&#39;``</span>
+<span class="sd">is unavailable).</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">enum</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">zlib</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="nb">open</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">PureWindowsPath</span>
+
+<span class="kn">import</span> <span class="nn">construct</span>
+
+<span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">BadLiveMakerArchive</span><span class="p">,</span> <span class="n">UnsupportedLiveMakerCompression</span>
+<span class="kn">from</span> <span class="nn">.scramble</span> <span class="kn">import</span> <span class="n">decrypt</span>
+
+
+<div class="viewcode-block" id="LMCompressType"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMCompressType">[docs]</a><span class="k">class</span> <span class="nc">LMCompressType</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
+
+    <span class="n">ZLIB</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,)</span>  <span class="c1"># zlib compressed</span>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>  <span class="c1"># uncompressed (used for already compressed media types)</span>
+    <span class="n">ENCRYPTED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,)</span>  <span class="c1"># LiveMaker Pro encrypted + uncompressed</span>
+    <span class="n">ENCRYPTED_ZLIB</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># LiveMaker Pro encrypted + zlib compressed</span></div>
+
+
+<span class="n">SUPPORTED_COMPRESSIONS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">LMCompressType</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span>
+    <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ZLIB</span><span class="p">,</span>
+    <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ENCRYPTED</span><span class="p">,</span>
+    <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ENCRYPTED_ZLIB</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># LM3 seed for TpRandom</span>
+<span class="n">LIVEMAKER3_XOR_SEED</span> <span class="o">=</span> <span class="mh">0x75D6EE39</span>
+
+<span class="c1"># VF archive key array for TVrFile.ChecksumStream</span>
+<span class="n">VF_CHECKSUM_KEYS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mh">0x00000000</span><span class="p">,</span>
+    <span class="mh">0x77073096</span><span class="p">,</span>
+    <span class="mh">0xEE0E612C</span><span class="p">,</span>
+    <span class="mh">0x990951BA</span><span class="p">,</span>
+    <span class="mh">0x076DC419</span><span class="p">,</span>
+    <span class="mh">0x706AF48F</span><span class="p">,</span>
+    <span class="mh">0xE963A535</span><span class="p">,</span>
+    <span class="mh">0x9E6495A3</span><span class="p">,</span>
+    <span class="mh">0x0EDB8832</span><span class="p">,</span>
+    <span class="mh">0x79DCB8A4</span><span class="p">,</span>
+    <span class="mh">0xE0D5E91E</span><span class="p">,</span>
+    <span class="mh">0x97D2D988</span><span class="p">,</span>
+    <span class="mh">0x09B64C2B</span><span class="p">,</span>
+    <span class="mh">0x7EB17CBD</span><span class="p">,</span>
+    <span class="mh">0xE7B82D07</span><span class="p">,</span>
+    <span class="mh">0x90BF1D91</span><span class="p">,</span>
+    <span class="mh">0x1DB71064</span><span class="p">,</span>
+    <span class="mh">0x6AB020F2</span><span class="p">,</span>
+    <span class="mh">0xF3B97148</span><span class="p">,</span>
+    <span class="mh">0x84BE41DE</span><span class="p">,</span>
+    <span class="mh">0x1ADAD47D</span><span class="p">,</span>
+    <span class="mh">0x6DDDE4EB</span><span class="p">,</span>
+    <span class="mh">0xF4D4B551</span><span class="p">,</span>
+    <span class="mh">0x83D385C7</span><span class="p">,</span>
+    <span class="mh">0x136C9856</span><span class="p">,</span>
+    <span class="mh">0x646BA8C0</span><span class="p">,</span>
+    <span class="mh">0xFD62F97A</span><span class="p">,</span>
+    <span class="mh">0x8A65C9EC</span><span class="p">,</span>
+    <span class="mh">0x14015C4F</span><span class="p">,</span>
+    <span class="mh">0x63066CD9</span><span class="p">,</span>
+    <span class="mh">0xFA0F3D63</span><span class="p">,</span>
+    <span class="mh">0x8D080DF5</span><span class="p">,</span>
+    <span class="mh">0x3B6E20C8</span><span class="p">,</span>
+    <span class="mh">0x4C69105E</span><span class="p">,</span>
+    <span class="mh">0xD56041E4</span><span class="p">,</span>
+    <span class="mh">0xA2677172</span><span class="p">,</span>
+    <span class="mh">0x3C03E4D1</span><span class="p">,</span>
+    <span class="mh">0x4B04D447</span><span class="p">,</span>
+    <span class="mh">0xD20D85FD</span><span class="p">,</span>
+    <span class="mh">0xA50AB56B</span><span class="p">,</span>
+    <span class="mh">0x35B5A8FA</span><span class="p">,</span>
+    <span class="mh">0x42B2986C</span><span class="p">,</span>
+    <span class="mh">0xDBBBC9D6</span><span class="p">,</span>
+    <span class="mh">0xACBCF940</span><span class="p">,</span>
+    <span class="mh">0x32D86CE3</span><span class="p">,</span>
+    <span class="mh">0x45DF5C75</span><span class="p">,</span>
+    <span class="mh">0xDCD60DCF</span><span class="p">,</span>
+    <span class="mh">0xABD13D59</span><span class="p">,</span>
+    <span class="mh">0x26D930AC</span><span class="p">,</span>
+    <span class="mh">0x51DE003A</span><span class="p">,</span>
+    <span class="mh">0xC8D75180</span><span class="p">,</span>
+    <span class="mh">0xBFD06116</span><span class="p">,</span>
+    <span class="mh">0x21B4F4B5</span><span class="p">,</span>
+    <span class="mh">0x56B3C423</span><span class="p">,</span>
+    <span class="mh">0xCFBA9599</span><span class="p">,</span>
+    <span class="mh">0xB8BDA50F</span><span class="p">,</span>
+    <span class="mh">0x2802B89E</span><span class="p">,</span>
+    <span class="mh">0x5F058808</span><span class="p">,</span>
+    <span class="mh">0xC60CD9B2</span><span class="p">,</span>
+    <span class="mh">0xB10BE924</span><span class="p">,</span>
+    <span class="mh">0x2F6F7C87</span><span class="p">,</span>
+    <span class="mh">0x58684C11</span><span class="p">,</span>
+    <span class="mh">0xC1611DAB</span><span class="p">,</span>
+    <span class="mh">0xB6662D3D</span><span class="p">,</span>
+    <span class="mh">0x76DC4190</span><span class="p">,</span>
+    <span class="mh">0x01DB7106</span><span class="p">,</span>
+    <span class="mh">0x98D220BC</span><span class="p">,</span>
+    <span class="mh">0xEFD5102A</span><span class="p">,</span>
+    <span class="mh">0x71B18589</span><span class="p">,</span>
+    <span class="mh">0x06B6B51F</span><span class="p">,</span>
+    <span class="mh">0x9FBFE4A5</span><span class="p">,</span>
+    <span class="mh">0xE8B8D433</span><span class="p">,</span>
+    <span class="mh">0x7807C9A2</span><span class="p">,</span>
+    <span class="mh">0x0F00F934</span><span class="p">,</span>
+    <span class="mh">0x9609A88E</span><span class="p">,</span>
+    <span class="mh">0xE10E9818</span><span class="p">,</span>
+    <span class="mh">0x7F6A0DBB</span><span class="p">,</span>
+    <span class="mh">0x086D3D2D</span><span class="p">,</span>
+    <span class="mh">0x91646C97</span><span class="p">,</span>
+    <span class="mh">0xE6635C01</span><span class="p">,</span>
+    <span class="mh">0x6B6B51F4</span><span class="p">,</span>
+    <span class="mh">0x1C6C6162</span><span class="p">,</span>
+    <span class="mh">0x856530D8</span><span class="p">,</span>
+    <span class="mh">0xF262004E</span><span class="p">,</span>
+    <span class="mh">0x6C0695ED</span><span class="p">,</span>
+    <span class="mh">0x1B01A57B</span><span class="p">,</span>
+    <span class="mh">0x8208F4C1</span><span class="p">,</span>
+    <span class="mh">0xF50FC457</span><span class="p">,</span>
+    <span class="mh">0x65B0D9C6</span><span class="p">,</span>
+    <span class="mh">0x12B7E950</span><span class="p">,</span>
+    <span class="mh">0x8BBEB8EA</span><span class="p">,</span>
+    <span class="mh">0xFCB9887C</span><span class="p">,</span>
+    <span class="mh">0x62DD1DDF</span><span class="p">,</span>
+    <span class="mh">0x15DA2D49</span><span class="p">,</span>
+    <span class="mh">0x8CD37CF3</span><span class="p">,</span>
+    <span class="mh">0xFBD44C65</span><span class="p">,</span>
+    <span class="mh">0x4DB26158</span><span class="p">,</span>
+    <span class="mh">0x3AB551CE</span><span class="p">,</span>
+    <span class="mh">0xA3BC0074</span><span class="p">,</span>
+    <span class="mh">0xD4BB30E2</span><span class="p">,</span>
+    <span class="mh">0x4ADFA541</span><span class="p">,</span>
+    <span class="mh">0x3DD895D7</span><span class="p">,</span>
+    <span class="mh">0xA4D1C46D</span><span class="p">,</span>
+    <span class="mh">0xD3D6F4FB</span><span class="p">,</span>
+    <span class="mh">0x4369E96A</span><span class="p">,</span>
+    <span class="mh">0x346ED9FC</span><span class="p">,</span>
+    <span class="mh">0xAD678846</span><span class="p">,</span>
+    <span class="mh">0xDA60B8D0</span><span class="p">,</span>
+    <span class="mh">0x44042D73</span><span class="p">,</span>
+    <span class="mh">0x33031DE5</span><span class="p">,</span>
+    <span class="mh">0xAA0A4C5F</span><span class="p">,</span>
+    <span class="mh">0xDD0D7CC9</span><span class="p">,</span>
+    <span class="mh">0x5005713C</span><span class="p">,</span>
+    <span class="mh">0x270241AA</span><span class="p">,</span>
+    <span class="mh">0xBE0B1010</span><span class="p">,</span>
+    <span class="mh">0xC90C2086</span><span class="p">,</span>
+    <span class="mh">0x5768B525</span><span class="p">,</span>
+    <span class="mh">0x206F85B3</span><span class="p">,</span>
+    <span class="mh">0xB966D409</span><span class="p">,</span>
+    <span class="mh">0xCE61E49F</span><span class="p">,</span>
+    <span class="mh">0x5EDEF90E</span><span class="p">,</span>
+    <span class="mh">0x29D9C998</span><span class="p">,</span>
+    <span class="mh">0xB0D09822</span><span class="p">,</span>
+    <span class="mh">0xC7D7A8B4</span><span class="p">,</span>
+    <span class="mh">0x59B33D17</span><span class="p">,</span>
+    <span class="mh">0x2EB40D81</span><span class="p">,</span>
+    <span class="mh">0xB7BD5C3B</span><span class="p">,</span>
+    <span class="mh">0xC0BA6CAD</span><span class="p">,</span>
+    <span class="mh">0xEDB88320</span><span class="p">,</span>
+    <span class="mh">0x9ABFB3B6</span><span class="p">,</span>
+    <span class="mh">0x03B6E20C</span><span class="p">,</span>
+    <span class="mh">0x74B1D29A</span><span class="p">,</span>
+    <span class="mh">0xEAD54739</span><span class="p">,</span>
+    <span class="mh">0x9DD277AF</span><span class="p">,</span>
+    <span class="mh">0x04DB2615</span><span class="p">,</span>
+    <span class="mh">0x73DC1683</span><span class="p">,</span>
+    <span class="mh">0xE3630B12</span><span class="p">,</span>
+    <span class="mh">0x94643B84</span><span class="p">,</span>
+    <span class="mh">0x0D6D6A3E</span><span class="p">,</span>
+    <span class="mh">0x7A6A5AA8</span><span class="p">,</span>
+    <span class="mh">0xE40ECF0B</span><span class="p">,</span>
+    <span class="mh">0x9309FF9D</span><span class="p">,</span>
+    <span class="mh">0x0A00AE27</span><span class="p">,</span>
+    <span class="mh">0x7D079EB1</span><span class="p">,</span>
+    <span class="mh">0xF00F9344</span><span class="p">,</span>
+    <span class="mh">0x8708A3D2</span><span class="p">,</span>
+    <span class="mh">0x1E01F268</span><span class="p">,</span>
+    <span class="mh">0x6906C2FE</span><span class="p">,</span>
+    <span class="mh">0xF762575D</span><span class="p">,</span>
+    <span class="mh">0x806567CB</span><span class="p">,</span>
+    <span class="mh">0x196C3671</span><span class="p">,</span>
+    <span class="mh">0x6E6B06E7</span><span class="p">,</span>
+    <span class="mh">0xFED41B76</span><span class="p">,</span>
+    <span class="mh">0x89D32BE0</span><span class="p">,</span>
+    <span class="mh">0x10DA7A5A</span><span class="p">,</span>
+    <span class="mh">0x67DD4ACC</span><span class="p">,</span>
+    <span class="mh">0xF9B9DF6F</span><span class="p">,</span>
+    <span class="mh">0x8EBEEFF9</span><span class="p">,</span>
+    <span class="mh">0x17B7BE43</span><span class="p">,</span>
+    <span class="mh">0x60B08ED5</span><span class="p">,</span>
+    <span class="mh">0xD6D6A3E8</span><span class="p">,</span>
+    <span class="mh">0xA1D1937E</span><span class="p">,</span>
+    <span class="mh">0x38D8C2C4</span><span class="p">,</span>
+    <span class="mh">0x4FDFF252</span><span class="p">,</span>
+    <span class="mh">0xD1BB67F1</span><span class="p">,</span>
+    <span class="mh">0xA6BC5767</span><span class="p">,</span>
+    <span class="mh">0x3FB506DD</span><span class="p">,</span>
+    <span class="mh">0x48B2364B</span><span class="p">,</span>
+    <span class="mh">0xD80D2BDA</span><span class="p">,</span>
+    <span class="mh">0xAF0A1B4C</span><span class="p">,</span>
+    <span class="mh">0x36034AF6</span><span class="p">,</span>
+    <span class="mh">0x41047A60</span><span class="p">,</span>
+    <span class="mh">0xDF60EFC3</span><span class="p">,</span>
+    <span class="mh">0xA867DF55</span><span class="p">,</span>
+    <span class="mh">0x316E8EEF</span><span class="p">,</span>
+    <span class="mh">0x4669BE79</span><span class="p">,</span>
+    <span class="mh">0xCB61B38C</span><span class="p">,</span>
+    <span class="mh">0xBC66831A</span><span class="p">,</span>
+    <span class="mh">0x256FD2A0</span><span class="p">,</span>
+    <span class="mh">0x5268E236</span><span class="p">,</span>
+    <span class="mh">0xCC0C7795</span><span class="p">,</span>
+    <span class="mh">0xBB0B4703</span><span class="p">,</span>
+    <span class="mh">0x220216B9</span><span class="p">,</span>
+    <span class="mh">0x5505262F</span><span class="p">,</span>
+    <span class="mh">0xC5BA3BBE</span><span class="p">,</span>
+    <span class="mh">0xB2BD0B28</span><span class="p">,</span>
+    <span class="mh">0x2BB45A92</span><span class="p">,</span>
+    <span class="mh">0x5CB36A04</span><span class="p">,</span>
+    <span class="mh">0xC2D7FFA7</span><span class="p">,</span>
+    <span class="mh">0xB5D0CF31</span><span class="p">,</span>
+    <span class="mh">0x2CD99E8B</span><span class="p">,</span>
+    <span class="mh">0x5BDEAE1D</span><span class="p">,</span>
+    <span class="mh">0x9B64C2B0</span><span class="p">,</span>
+    <span class="mh">0xEC63F226</span><span class="p">,</span>
+    <span class="mh">0x756AA39C</span><span class="p">,</span>
+    <span class="mh">0x026D930A</span><span class="p">,</span>
+    <span class="mh">0x9C0906A9</span><span class="p">,</span>
+    <span class="mh">0xEB0E363F</span><span class="p">,</span>
+    <span class="mh">0x72076785</span><span class="p">,</span>
+    <span class="mh">0x05005713</span><span class="p">,</span>
+    <span class="mh">0x95BF4A82</span><span class="p">,</span>
+    <span class="mh">0xE2B87A14</span><span class="p">,</span>
+    <span class="mh">0x7BB12BAE</span><span class="p">,</span>
+    <span class="mh">0x0CB61B38</span><span class="p">,</span>
+    <span class="mh">0x92D28E9B</span><span class="p">,</span>
+    <span class="mh">0xE5D5BE0D</span><span class="p">,</span>
+    <span class="mh">0x7CDCEFB7</span><span class="p">,</span>
+    <span class="mh">0x0BDBDF21</span><span class="p">,</span>
+    <span class="mh">0x86D3D2D4</span><span class="p">,</span>
+    <span class="mh">0xF1D4E242</span><span class="p">,</span>
+    <span class="mh">0x68DDB3F8</span><span class="p">,</span>
+    <span class="mh">0x1FDA836E</span><span class="p">,</span>
+    <span class="mh">0x81BE16CD</span><span class="p">,</span>
+    <span class="mh">0xF6B9265B</span><span class="p">,</span>
+    <span class="mh">0x6FB077E1</span><span class="p">,</span>
+    <span class="mh">0x18B74777</span><span class="p">,</span>
+    <span class="mh">0x88085AE6</span><span class="p">,</span>
+    <span class="mh">0xFF0F6A70</span><span class="p">,</span>
+    <span class="mh">0x66063BCA</span><span class="p">,</span>
+    <span class="mh">0x11010B5C</span><span class="p">,</span>
+    <span class="mh">0x8F659EFF</span><span class="p">,</span>
+    <span class="mh">0xF862AE69</span><span class="p">,</span>
+    <span class="mh">0x616BFFD3</span><span class="p">,</span>
+    <span class="mh">0x166CCF45</span><span class="p">,</span>
+    <span class="mh">0xA00AE278</span><span class="p">,</span>
+    <span class="mh">0xD70DD2EE</span><span class="p">,</span>
+    <span class="mh">0x4E048354</span><span class="p">,</span>
+    <span class="mh">0x3903B3C2</span><span class="p">,</span>
+    <span class="mh">0xA7672661</span><span class="p">,</span>
+    <span class="mh">0xD06016F7</span><span class="p">,</span>
+    <span class="mh">0x4969474D</span><span class="p">,</span>
+    <span class="mh">0x3E6E77DB</span><span class="p">,</span>
+    <span class="mh">0xAED16A4A</span><span class="p">,</span>
+    <span class="mh">0xD9D65ADC</span><span class="p">,</span>
+    <span class="mh">0x40DF0B66</span><span class="p">,</span>
+    <span class="mh">0x37D83BF0</span><span class="p">,</span>
+    <span class="mh">0xA9BCAE53</span><span class="p">,</span>
+    <span class="mh">0xDEBB9EC5</span><span class="p">,</span>
+    <span class="mh">0x47B2CF7F</span><span class="p">,</span>
+    <span class="mh">0x30B5FFE9</span><span class="p">,</span>
+    <span class="mh">0xBDBDF21C</span><span class="p">,</span>
+    <span class="mh">0xCABAC28A</span><span class="p">,</span>
+    <span class="mh">0x53B39330</span><span class="p">,</span>
+    <span class="mh">0x24B4A3A6</span><span class="p">,</span>
+    <span class="mh">0xBAD03605</span><span class="p">,</span>
+    <span class="mh">0xCDD70693</span><span class="p">,</span>
+    <span class="mh">0x54DE5729</span><span class="p">,</span>
+    <span class="mh">0x23D967BF</span><span class="p">,</span>
+    <span class="mh">0xB3667A2E</span><span class="p">,</span>
+    <span class="mh">0xC4614AB8</span><span class="p">,</span>
+    <span class="mh">0x5D681B02</span><span class="p">,</span>
+    <span class="mh">0x2A6F2B94</span><span class="p">,</span>
+    <span class="mh">0xB40BBE37</span><span class="p">,</span>
+    <span class="mh">0xC30C8EA1</span><span class="p">,</span>
+    <span class="mh">0x5A05DF1B</span><span class="p">,</span>
+    <span class="mh">0x2D02EF8D</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">MIN_ARCHIVE_VERSION</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">DEFAULT_VERSION</span> <span class="o">=</span> <span class="mi">102</span>
+
+<span class="c1"># Max size of one split archive part (1GB)</span>
+<span class="n">SPLIT_ARCHIVE_PART_SIZE</span> <span class="o">=</span> <span class="mi">1073741824</span>
+
+
+<div class="viewcode-block" id="LMObfuscator"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMObfuscator">[docs]</a><span class="k">class</span> <span class="nc">LMObfuscator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class for (de)obfuscating LiveMaker directory fields.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        RE&#39;d from TTpRandom class in LiveMaker code.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">LIVEMAKER3_XOR_SEED</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keystream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keystream</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_keystream</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">LIVEMAKER3_XOR_SEED</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;xor keystream generator used for obfuscating archive filenames and offets.</span>
+
+<span class="sd">        Yields (int): The next XOR value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="p">((</span><span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">seed</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span>
+            <span class="k">yield</span> <span class="n">key</span>
+
+<div class="viewcode-block" id="LMObfuscator.transform_bytes"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMObfuscator.transform_bytes">[docs]</a>    <span class="k">def</span> <span class="nf">transform_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="o">.</span><span class="n">integers2bytes</span><span class="p">((</span><span class="n">b</span> <span class="o">^</span> <span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keystream</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">))</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">construct</span><span class="o">.</span><span class="n">iterateints</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LMObfuscator.transform_int"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMObfuscator.transform_int">[docs]</a>    <span class="k">def</span> <span class="nf">transform_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keystream</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="n">b</span> <span class="o">^</span> <span class="p">((</span><span class="n">key</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">iterateints</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="o">.</span><span class="n">integers2bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMObfuscator.transform_int_high"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMObfuscator.transform_int_high">[docs]</a>    <span class="k">def</span> <span class="nf">transform_int_high</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># special case for re-encoding high part of offsets</span>
+        <span class="c1"># LiveMaker always only outputs 0 or 0xffffffff depending on if high</span>
+        <span class="c1"># bit ends up set</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keystream</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="n">b</span> <span class="o">^</span> <span class="p">((</span><span class="n">key</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">iterateints</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x80</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="o">.</span><span class="n">integers2bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">_LMArchiveVersionValidator</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Validator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct validator for supported LiveMaker archive versions.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span> <span class="o">&gt;=</span> <span class="n">MIN_ARCHIVE_VERSION</span>
+
+    <span class="k">def</span> <span class="nf">_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">construct</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Unsupported LiveMaker archive version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+
+<div class="viewcode-block" id="LMArchiveDirectory"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory">[docs]</a><span class="k">class</span> <span class="nc">LMArchiveDirectory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class for handling parsing and writing archive directories.</span>
+
+<span class="sd">    LiveMaker archive format is::</span>
+
+<span class="sd">        Directory Header:</span>
+<span class="sd">            16-bit &quot;vf&quot; signature</span>
+<span class="sd">            32-bit uint version</span>
+<span class="sd">            32-bit uint count</span>
+
+<span class="sd">        Filenames (list with length &lt;count&gt; entries):</span>
+<span class="sd">            32-bit uint prefixed pascal strings (CP932 (MS Shift-JIS) encoded)</span>
+
+<span class="sd">        Offsets (list with length &lt;file_count&gt; + 1):</span>
+<span class="sd">            32-bit uint offset_low</span>
+<span class="sd">            32-bit uint offset_high</span>
+
+<span class="sd">        Compression flags (list with length &lt;file_count&gt;)</span>
+<span class="sd">            8-bit uint compression method</span>
+
+<span class="sd">        Unknown list (list length &lt;file_count&gt;)</span>
+<span class="sd">            32-bit uint unk1</span>
+
+<span class="sd">        Checksums - (list length &lt;file_count&gt;)</span>
+<span class="sd">            32-bit uint checksum</span>
+
+<span class="sd">        Encryption flags 0 if not encrypted (list length &lt;file_count&gt;)</span>
+<span class="sd">            8-bit uint encrypt_flag</span>
+
+<span class="sd">        File data</span>
+<span class="sd">            ...</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        LiveMaker3 mangles filenames and offsets by XOR&#39;ing them with a fixed keystream.</span>
+<span class="sd">        Individual files may also be encrypted/obfuscated, this is specified by the compression flags.</span>
+
+<span class="sd">        Offsets are actually 64-bit long long, but they are stored as two separate 32-bit integers.</span>
+
+<span class="sd">        The extra offset entry is used to calculate the (compressed) size of the final file.</span>
+
+<span class="sd">        If ``encrypt_flag`` is zero, ``checksum`` is the checksum of the compressed file data.</span>
+<span class="sd">            If ``encrypt_flag`` is nonzero ``checksum`` is the checksum of the uncompressed and</span>
+<span class="sd">            decrypted file data.</span>
+
+<span class="sd">        RE&#39;d from TVrFileCollection classes in LiveMaker code.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LMArchiveDirectory.struct"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory.struct">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">struct</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span>
+            <span class="s2">&quot;signature&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Const</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;vf&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;version&quot;</span> <span class="o">/</span> <span class="n">_LMArchiveVersionValidator</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">),</span>
+            <span class="s2">&quot;count&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+            <span class="s2">&quot;filenames&quot;</span>
+            <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">IfThenElse</span><span class="p">(</span>
+                    <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">,</span>
+                    <span class="n">construct</span><span class="o">.</span><span class="n">Prefixed</span><span class="p">(</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Transformed</span><span class="p">(</span>
+                            <span class="n">construct</span><span class="o">.</span><span class="n">GreedyString</span><span class="p">(</span><span class="s2">&quot;cp932&quot;</span><span class="p">),</span>
+                            <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_bytes</span><span class="p">,</span>
+                            <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_bytes</span><span class="p">,</span>
+                            <span class="kc">None</span><span class="p">,</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">construct</span><span class="o">.</span><span class="n">PascalString</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span> <span class="s2">&quot;cp932&quot;</span><span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;offsets&quot;</span>
+            <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span>
+                    <span class="s2">&quot;offset_low&quot;</span>
+                    <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">IfThenElse</span><span class="p">(</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">,</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Transformed</span><span class="p">(</span>
+                            <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span> <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_int</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_int</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="p">),</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="c1"># offset_high always 0 if ver &lt; 101</span>
+                    <span class="s2">&quot;offset_high&quot;</span>
+                    <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">IfThenElse</span><span class="p">(</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;=</span> <span class="mi">101</span><span class="p">,</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Transformed</span><span class="p">(</span>
+                            <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span> <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_int</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">LMObfuscator</span><span class="p">()</span><span class="o">.</span><span class="n">transform_int_high</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="p">),</span>
+                        <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;compress_types&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">construct</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">Byte</span><span class="p">,</span> <span class="n">LMCompressType</span><span class="p">)),</span>
+            <span class="s2">&quot;unk1s&quot;</span>
+            <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+                <span class="c1"># construct.Transformed(</span>
+                <span class="c1">#     construct.Int32ul,</span>
+                <span class="c1">#     LMObfuscator().transform_int,</span>
+                <span class="c1">#     4,</span>
+                <span class="c1">#     LMObfuscator().transform_int,</span>
+                <span class="c1">#     4,</span>
+                <span class="c1"># ),</span>
+                <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;checksums&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">construct</span><span class="o">.</span><span class="n">Int32ul</span><span class="p">,),</span>
+            <span class="s2">&quot;encrypt_flags&quot;</span> <span class="o">/</span> <span class="n">construct</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">construct</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">construct</span><span class="o">.</span><span class="n">Byte</span><span class="p">,),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMArchiveDirectory.make_offset"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory.make_offset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_offset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Join split offset into one 64-bit unsigned offset.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">obj</span><span class="o">.</span><span class="n">offset_high</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span><span class="p">)</span> <span class="o">|</span> <span class="n">obj</span><span class="o">.</span><span class="n">offset_low</span></div>
+
+<div class="viewcode-block" id="LMArchiveDirectory.split_offset"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory.split_offset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">split_offset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Split an offset into the expected components for writing to an archive.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;offset_low&quot;</span><span class="p">:</span> <span class="n">offset</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">,</span> <span class="s2">&quot;offset_high&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">offset</span> <span class="o">&gt;&gt;</span> <span class="mi">32</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="LMArchiveDirectory.directory_size"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory.directory_size">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">directory_size</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">filenames</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;Return the size of a directory containing `filenames`.&quot;&quot;&quot;</span>
+        <span class="c1"># we have to build an empty dir since construct sizeof() only works if</span>
+        <span class="c1"># a struct has a fixed size</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="n">count</span><span class="p">,</span>
+            <span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="n">filenames</span><span class="p">,</span>
+            <span class="s2">&quot;offsets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">split_offset</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;compress_types&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NONE&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+            <span class="s2">&quot;unk1s&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+            <span class="s2">&quot;checksums&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+            <span class="s2">&quot;encrypt_flags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">struct</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LMArchiveDirectory.checksum"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveDirectory.checksum">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">checksum</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute a VF archive checksum for the specified data.</span>
+
+<span class="sd">        RE&#39;d from TVrFile.ChecksumStream().</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (bytes): The data to checksum</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">csum</span> <span class="o">=</span> <span class="mh">0xFFFFFFFF</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">csum</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">)</span> <span class="o">^</span> <span class="n">c</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">VF_CHECKSUM_KEYS</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+            <span class="n">csum</span> <span class="o">=</span> <span class="p">(</span><span class="n">csum</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="n">csum</span> <span class="o">^</span> <span class="mh">0xFFFFFFFF</span></div></div>
+
+
+<div class="viewcode-block" id="LMArchive"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive">[docs]</a><span class="k">class</span> <span class="nc">LMArchive</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Provide interface to a LiveMaker archive (or exe).</span>
+
+<span class="sd">    Behaves in the same manner as Python ``tarfile.TarFile`` or ``zipfile.ZipFile``.</span>
+<span class="sd">    Can be used inside a Python ``with`` statement (in the same way as zip/tar files).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: Pathname for the archive. `name` can be a string or path-like object.</span>
+<span class="sd">            If omitted, `fp` must be specified.</span>
+<span class="sd">        mode: Either ``&#39;r&#39;`` to read from an existing archive or ``&#39;w&#39;`` to create a new file</span>
+<span class="sd">            (overwriting an existing one). Defaults to ``&#39;r&#39;``.</span>
+<span class="sd">        fp: If `fileobj` is given, it will be used for reading and writing data.</span>
+<span class="sd">            If it can be determined, `mode` will be overridden by `fp`&#39;s mode. `fileobj`</span>
+<span class="sd">            will be used from position 0.</span>
+<span class="sd">        exe: Pathname for LiveMaker executable (``.exe``) file. If `exe` is given and</span>
+<span class="sd">            `mode` is ``w``, the output file will be an executable with the archive</span>
+<span class="sd">            appended to the end (i.e. a LiveMaker ``.exe`` file). If `exe` is not given,</span>
+<span class="sd">            the output file will be a standalone archive (i.e. a LiveMaker ``.dat`` file).</span>
+<span class="sd">            `exe` does nothing when opening a file for reading.</span>
+<span class="sd">        split: If opening in write mode and `split` is ``True``, the archive data will be split</span>
+<span class="sd">            into smaller files across 1GB boundaries. `split` has no effect in read mode or when</span>
+<span class="sd">            writing an executable archive.</span>
+<span class="sd">        version: Archive version, only applies to write mode.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        `fp` is not closed when `LiveMakerArchive` is closed.</span>
+
+<span class="sd">        ``&#39;a&#39;`` is an invalid `mode` for `LiveMakerArchive`. Archives cannot be modified</span>
+<span class="sd">        in place, to patch an existing archive, you must write to a new file.</span>
+
+<span class="sd">        When opened in write mode, the output archive file will not be written until</span>
+<span class="sd">        `LMArchive.close()` is called. As entries are added to the archive, they will</span>
+<span class="sd">        be written to a temporary file. Upon calling `close()`, the exe (if it exists)</span>
+<span class="sd">        and archive header will be written to the output file, then the temporary file</span>
+<span class="sd">        will be copied to the end of the output file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">DEFAULT_VERSION</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Nothing to open&quot;</span><span class="p">)</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;rb&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="s2">&quot;wb&quot;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">modes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mode must be &#39;r&#39; or &#39;w&#39;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">modes</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_extfp</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">mode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_extfp</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+        <span class="n">root</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="n">exe</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">exe</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span> <span class="o">=</span> <span class="n">root</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="n">ext</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;.ext&quot;</span><span class="p">]:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Writing split archive index without .dat or .ext file extension.&quot;</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="n">ext</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;.ext&quot;</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryFile</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">savepos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_archive_offset</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parse_directory</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">ext</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;.ext&quot;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span> <span class="o">=</span> <span class="n">root</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="n">ext</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;.ext&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="n">dat_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.dat&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dat_file</span><span class="p">):</span>
+                            <span class="k">raise</span> <span class="n">BadLiveMakerArchive</span><span class="p">(</span>
+                                <span class="s2">&quot;Could not find (.dat) data file for split archive index </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                            <span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">dat_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+                        <span class="n">dat_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{:03}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dat_file</span><span class="p">):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">dat_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">))</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extfp</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">savepos</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">fp</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">:</span>
+                            <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="LMArchive.close"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close the archive file.</span>
+
+<span class="sd">        When an archive is opened in write mode, `close()` must be called before exiting your program</span>
+<span class="sd">        or else the archive will not actually be written.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_exe</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_directory</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_archive</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_trailer</span><span class="p">()</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">fp</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">:</span>
+                        <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extfp</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="LMArchive.namelist"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.namelist">[docs]</a>    <span class="k">def</span> <span class="nf">namelist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of archive entries by name.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="LMArchive.infolist"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.infolist">[docs]</a>    <span class="k">def</span> <span class="nf">infolist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a containing a `LMArchiveInfo` object for each entry in the archive.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span></div>
+
+<div class="viewcode-block" id="LMArchive.getinfo"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.getinfo">[docs]</a>    <span class="k">def</span> <span class="nf">getinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a `LMArchiveInfo` object for the entry with the specified name.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: If `name` is not an entry in the archive.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> does not exist in archive.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">info</span></div>
+
+<div class="viewcode-block" id="LMArchive.list"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Print a list of archive entries to stdout.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------- ------ -------- -------- ------- ------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Length   Mode    unk1    Chksum   Flags   Name&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------- ------ -------- -------- ------- ------&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">infolist</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{:8}</span><span class="s2"> </span><span class="si">{:6}</span><span class="s2"> </span><span class="si">{:08x}</span><span class="s2"> </span><span class="si">{:08x}</span><span class="s2"> </span><span class="si">{:02x}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">unk1</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">checksum</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">encrypt_flag</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_find_archive_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find offset for the start of the archive.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;MZ&quot;</span><span class="p">:</span>
+            <span class="c1"># File is an MS executable</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># Check for &#39;lv&#39; trailer</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;lv&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BadLiveMakerArchive</span><span class="p">(</span><span class="s2">&quot;EXE does not contain a LiveMaker archive.&quot;</span><span class="p">)</span>
+            <span class="c1"># Read offset for start of archive</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">offset</span><span class="p">,)</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&lt;I&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">offset</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_parse_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse the file index for this archive.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">directory</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">struct</span><span class="p">()</span><span class="o">.</span><span class="n">parse_stream</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">construct</span><span class="o">.</span><span class="n">ConstructError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">BadLiveMakerArchive</span><span class="p">(</span><span class="s2">&quot;Failed to parse VF directory: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">version</span>
+        <span class="n">filenames</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">filenames</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">offsets</span>
+        <span class="n">unk1s</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">unk1s</span>
+        <span class="n">checksums</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">checksums</span>
+        <span class="n">encrypt_flags</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">encrypt_flags</span>
+        <span class="n">compress_types</span> <span class="o">=</span> <span class="n">directory</span><span class="o">.</span><span class="n">compress_types</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">LMArchiveInfo</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">make_offset</span><span class="p">(</span><span class="n">offsets</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">next_offset</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">make_offset</span><span class="p">(</span><span class="n">offsets</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span> <span class="o">=</span> <span class="n">next_offset</span> <span class="o">-</span> <span class="n">info</span><span class="o">.</span><span class="n">_offset</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">LMCompressType</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">compress_types</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">unk1</span> <span class="o">=</span> <span class="n">unk1s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="n">checksums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">encrypt_flag</span> <span class="o">=</span> <span class="n">encrypt_flags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+
+    <span class="k">def</span> <span class="nf">_extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">output_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract the specified entry.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is already closed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot extract entry from archive which is open for writing.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">LMArchiveInfo</span><span class="p">):</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getinfo</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LMArchive.extract"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.extract">[docs]</a>    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract the specified entry from the archive to the current working directory.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str, :class:`LMArchiveInfo`): The entry to extract, can be either it&#39;s full name or</span>
+<span class="sd">                a `LMArchiveInfo` object.</span>
+<span class="sd">            path: If given, the `path` will be used instead of the current working directory.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            UnsupportedLiveMakerCompression: If the specified entry uses an unsupported</span>
+<span class="sd">                compression method.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extract</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMArchive.extractall"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.extractall">[docs]</a>    <span class="k">def</span> <span class="nf">extractall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">entries</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_unsupported</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extract all entries in this archive to the current working directory.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path: If `path` is given, it will be used instead of the current working directory.</span>
+<span class="sd">            entries: Optional value that must be a subset of the list returned by `namelist()`</span>
+<span class="sd">                or `infolist()`.</span>
+<span class="sd">            allow_unsupported: If `True`, any files which are compressed with an unsupported</span>
+<span class="sd">                method will be silently ignored. If `False`, an exception will be raised when</span>
+<span class="sd">                trying to extract any files which use unsupported compression methods.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            UnsupportedLiveMakerCompression</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">entries</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infolist</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_extract</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">UnsupportedLiveMakerCompression</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_unsupported</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">e</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Skipping encrypted file </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LMArchive.read"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">decompress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">skip_checksum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the bytes of the specified file in the archive.</span>
+
+<span class="sd">        The archive must be open for reading.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Either the name of a file in the archive or a `LMArchiveInfo` object.</span>
+<span class="sd">            decompress: If ``True`` the returned bytes will be decompressed. If ``False``</span>
+<span class="sd">                the original compressed entry data will be returned.</span>
+<span class="sd">            skip_checksum: If ``True`` the file checksum will not be verified. If ``False``</span>
+<span class="sd">                the checksum will be verified. If the checksum does not match, the file will</span>
+<span class="sd">                still be extracted, but a warning will be logged.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            UnsupportedLiveMakerCompression: If `decompress` is ``True`` and the</span>
+<span class="sd">                specified entry uses an unsupported compression method.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is already closed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot read entry in archive which is open for writing.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">LMArchiveInfo</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getinfo</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">decompress</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SUPPORTED_COMPRESSIONS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnsupportedLiveMakerCompression</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is unsupported&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">compress_type</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">:</span>
+            <span class="c1"># archive data is split on 1GB (1024 * 1024 * 1024 bytes) boundaries</span>
+            <span class="c1"># start reading from whichever data file contains the start of</span>
+            <span class="c1"># this node, and then continue reading across boundary as needed</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span> <span class="o">+</span> <span class="n">info</span><span class="o">.</span><span class="n">_offset</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span><span class="p">:</span>
+                <span class="n">bytes_needed</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_fps</span><span class="p">[</span><span class="n">offset</span> <span class="o">//</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">]</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span> <span class="o">%</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">)</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">bytes_needed</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">+=</span> <span class="n">tmp</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span> <span class="o">+</span> <span class="n">info</span><span class="o">.</span><span class="n">_offset</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_checksum</span> <span class="ow">and</span> <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="o">!=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">checksum</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Bad checksum for file </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">decompress</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="ow">in</span> <span class="p">(</span><span class="n">LMCompressType</span><span class="o">.</span><span class="n">ENCRYPTED</span><span class="p">,</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ENCRYPTED_ZLIB</span><span class="p">):</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="ow">in</span> <span class="p">(</span><span class="n">LMCompressType</span><span class="o">.</span><span class="n">ZLIB</span><span class="p">,</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ENCRYPTED_ZLIB</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">zlib</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">UnsupportedLiveMakerCompression</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="LMArchive.read_exe"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.read_exe">[docs]</a>    <span class="k">def</span> <span class="nf">read_exe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the exe bytes for this archive.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If this archive is not part of a LiveMaker executable</span>
+<span class="sd">                (i.e. it is a ``.dat`` file).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is already closed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot read exe from archive which is open for writing.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is not part of a LiveMaker excecutable.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LMArchive.write"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">arcname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compress_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unk1</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Write the file named `filename` into the archive.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filename: File to write into archive.</span>
+<span class="sd">            arcname: If given, the archive file entry will be named `arcname`.</span>
+<span class="sd">                By default, `arcname` will be the same as `filename`,</span>
+<span class="sd">                but with any drive letter and leading path separators removed.</span>
+<span class="sd">                Posix paths will be replaced with equivalent Windows paths.</span>
+<span class="sd">            compress_type (`LMCompressType`): If given, the file will be compressed</span>
+<span class="sd">                with the specified method (defaults to uncompressed for files &lt; 5MB</span>
+<span class="sd">                in size, and zlib compressed for files &gt;= 5MB).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The number of (compressed) bytes written.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            FileExistsError: If an entry matching `arcname` already exists in this archive.</span>
+<span class="sd">            UnsupportedLiveMakerCompression: If the `compress_type` is unsupported.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is already closed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot write to archive opened for reading.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arcname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arcpath</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arcpath</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="n">arcname</span><span class="p">)</span>
+        <span class="c1"># strip drive and leading pathsep</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">arcpath</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">arcpath</span><span class="o">.</span><span class="n">anchor</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> already exists in this archive.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">compress_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">compress_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SUPPORTED_COMPRESSIONS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">UnsupportedLiveMakerCompression</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is not supported.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">compress_type</span><span class="p">))</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">LMArchiveInfo</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">compress_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mh">0x500000</span><span class="p">:</span>
+                <span class="n">compress_type</span> <span class="o">=</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ZLIB</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">compress_type</span> <span class="o">=</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">NONE</span>
+        <span class="k">if</span> <span class="n">compress_type</span> <span class="o">==</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">ZLIB</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">unk1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">unk1</span> <span class="o">=</span> <span class="n">unk1</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">compress_type</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">checksum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+        <span class="k">return</span> <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span></div>
+
+<div class="viewcode-block" id="LMArchive.writebytes"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchive.writebytes">[docs]</a>    <span class="k">def</span> <span class="nf">writebytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arcname</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">compress_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skip_checksum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Write a raw (already compressed) file into the archive.</span>
+
+<span class="sd">        This method can be used to copy compressed data from an</span>
+<span class="sd">        old archive into a new one without needing to do any</span>
+<span class="sd">        intermediate extraction. This may be useful for copying</span>
+<span class="sd">        encrypted files from one archive into another.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            arcname: The archive entry name (or `LMArchiveInfo` object).</span>
+<span class="sd">            data (bytes): The contents of `arcname`. `data` must be a bytes</span>
+<span class="sd">                instance, not a str instance. `data` must be compressed using</span>
+<span class="sd">                the compression type specified in `compress_type` or the `arcname`</span>
+<span class="sd">                `LMArchiveInfo` object.</span>
+<span class="sd">            compress_type: The compression type for the newly created archive</span>
+<span class="sd">                entry will be set to this value. If `arcname` is a string, `compress_type`</span>
+<span class="sd">                must be explicitly set. `compress_type` can be omitted if `arcname` is an</span>
+<span class="sd">                `LMArchiveInfo` object, in which case compression type will be read from</span>
+<span class="sd">                the info object.</span>
+<span class="sd">            skip_checksum: If ``True`` and `arcname` is a `LMArchiveInfo` object, checksum</span>
+<span class="sd">                for `data` will not be calculated, and will be copied from `arcname`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The number of bytes written.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            FileExistsError: If an entry matching `arcname` already exists in this archive.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Archive is already closed.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot write to archive opened for reading.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arcname</span><span class="p">,</span> <span class="n">LMArchiveInfo</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">LMArchiveInfo</span><span class="p">(</span><span class="n">arcname</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">arcname</span><span class="o">.</span><span class="n">compress_type</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">unk1</span> <span class="o">=</span> <span class="n">arcname</span><span class="o">.</span><span class="n">unk1</span>
+            <span class="k">if</span> <span class="n">skip_checksum</span><span class="p">:</span>
+                <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="n">arcname</span><span class="o">.</span><span class="n">checksum</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">encrypt_flag</span> <span class="o">=</span> <span class="n">arcname</span><span class="o">.</span><span class="n">encrypt_flag</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">compress_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Compression type must be specified&quot;</span><span class="p">)</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">LMArchiveInfo</span><span class="p">(</span><span class="n">arcname</span><span class="p">)</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">compress_type</span>
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> already exists in this archive.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arcname</span><span class="p">))</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">checksum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="p">[</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+        <span class="k">return</span> <span class="n">info</span><span class="o">.</span><span class="n">compressed_size</span></div>
+
+    <span class="k">def</span> <span class="nf">_write_exe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_exe</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">exefp</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exefp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">_write_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="p">),</span>
+            <span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;offsets&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;compress_types&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;unk1s&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;checksums&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;encrypt_flags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span> <span class="o">=</span> <span class="n">archive_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+        <span class="n">directory_size</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">directory_size</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">filenames</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;filenames&quot;</span><span class="p">]</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;offsets&quot;</span><span class="p">]</span>
+        <span class="n">compress_types</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;compress_types&quot;</span><span class="p">]</span>
+        <span class="n">unk1s</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;unk1s&quot;</span><span class="p">]</span>
+        <span class="n">checksums</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;checksums&quot;</span><span class="p">]</span>
+        <span class="n">encrypt_flags</span> <span class="o">=</span> <span class="n">directory</span><span class="p">[</span><span class="s2">&quot;encrypt_flags&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="p">:</span>
+            <span class="n">filenames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="c1"># info offset will be the offset of this entry in the temporary</span>
+            <span class="c1"># file (i.e. starting at 0). archive offsets need to start from the</span>
+            <span class="c1"># end of the directory.</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">_offset</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">directory_size</span>
+            <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">split_offset</span><span class="p">(</span><span class="n">offset</span><span class="p">))</span>
+            <span class="n">compress_types</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">compress_type</span><span class="p">)</span>
+            <span class="n">unk1s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">unk1</span><span class="p">)</span>
+            <span class="n">checksums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">checksum</span><span class="p">)</span>
+            <span class="n">encrypt_flags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">encrypt_flag</span><span class="p">)</span>
+        <span class="n">last_entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filelist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">last_entry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">last_entry</span><span class="o">.</span><span class="n">_offset</span> <span class="o">+</span> <span class="n">last_entry</span><span class="o">.</span><span class="n">compressed_size</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="n">directory_size</span>
+            <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">split_offset</span><span class="p">(</span><span class="n">offset</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># handle empty archive</span>
+            <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">split_offset</span><span class="p">(</span><span class="n">archive_offset</span><span class="p">))</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">LMArchiveDirectory</span><span class="o">.</span><span class="n">struct</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_archive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># copy data from temp file into final archive</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">data_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">data_offset</span> <span class="o">&gt;</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BadLiveMakerArchive</span><span class="p">(</span><span class="s2">&quot;Cannot generate split archive with exe+directory size &gt; 1GB&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span><span class="p">:</span>
+                <span class="n">total_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+                <span class="n">extra_files</span> <span class="o">=</span> <span class="n">total_size</span> <span class="o">//</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">total_size</span> <span class="o">=</span> <span class="n">data_offset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+                <span class="n">extra_files</span> <span class="o">=</span> <span class="n">total_size</span> <span class="o">//</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span>
+            <span class="k">if</span> <span class="n">total_size</span> <span class="ow">and</span> <span class="p">(</span><span class="n">total_size</span> <span class="o">%</span> <span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">extra_files</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_ext</span><span class="p">:</span>
+                <span class="n">dat_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.dat&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dat_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">SPLIT_ARCHIVE_PART_SIZE</span> <span class="o">-</span> <span class="n">data_offset</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">extra_files</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">dat_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{:03}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_base</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dat_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">SPLIT_ARCHIVE_PART_SIZE</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_split_files</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmpfp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_trailer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_split</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;I&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">archive_offset</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;lv&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LMArchiveInfo"><a class="viewcode-back" href="../../livemaker.html#livemaker.archive.LMArchiveInfo">[docs]</a><span class="k">class</span> <span class="nc">LMArchiveInfo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An entry (file) contained in a LiveMaker archive.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): Filename.</span>
+<span class="sd">        compress_type (`LMCompressType`): Compression type.</span>
+<span class="sd">        compressed_size (int): Compressed file size in bytes.</span>
+<span class="sd">        checksum: VF checksum for the compressed data.</span>
+<span class="sd">            See `LMArchiveDirectory.checksum()` for how checksum is calculated.</span>
+<span class="sd">        encrypt_flag: Only used for LiveMaker Pro encrypted files.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="n">LMCompressType</span><span class="o">.</span><span class="n">NONE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compressed_size</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># fairly sure these are supposed to be some sort of checksum but as</span>
+        <span class="c1"># far as I can tell a LiveNovel game exe never actually verifies them??</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unk1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checksum</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encrypt_flag</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">pylivemaker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">pylivemaker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../livenovel.html">LiveNovel Docs (en)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pylivemaker.readthedocs.io/en/latest/_static/LiveNovel/index.html">Original LM3 LiveNovel Docs (jp)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Peter Rowlands.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
