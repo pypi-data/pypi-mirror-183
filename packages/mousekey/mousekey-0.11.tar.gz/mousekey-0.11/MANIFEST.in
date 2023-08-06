@@ -1,0 +1,4 @@
+include mousekey/requirements.txt
+include mousekey/thirdparty.json
+include mousekey/README.MD
+include mousekey/LICENSE
