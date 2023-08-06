@@ -1,0 +1,2 @@
+[console_scripts]
+realpython = kegland_rapt_api_client.__main__:main
