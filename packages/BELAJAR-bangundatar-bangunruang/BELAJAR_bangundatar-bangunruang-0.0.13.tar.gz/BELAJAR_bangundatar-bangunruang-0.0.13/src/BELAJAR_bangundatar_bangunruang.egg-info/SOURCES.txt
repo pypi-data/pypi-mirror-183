@@ -1,0 +1,18 @@
+LICENSE.txt
+README.md
+setup.py
+src/BELAJAR_bangundatar_bangunruang.egg-info/PKG-INFO
+src/BELAJAR_bangundatar_bangunruang.egg-info/SOURCES.txt
+src/BELAJAR_bangundatar_bangunruang.egg-info/dependency_links.txt
+src/BELAJAR_bangundatar_bangunruang.egg-info/top_level.txt
+src/bangun_ruang/luas_limas.py
+src/bangun_ruang/luas_prisma.py
+src/bangun_ruang/luas_tabung.py
+src/bangun_ruang/luaskerucut.py
+src/bangun_ruang/rumus_kubus.py
+src/bangun_ruang/rumusbalok.py
+src/bangundatar/jajargenjang.py
+src/bangundatar/persegi.py
+src/bangundatar/persegi_panjang.py
+src/bangundatar/trapesium copy.py
+src/bangundatar/trapesium.py

@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: BELAJAR-bangundatar-bangunruang
+Version: 0.0.13
+Summary:  ini adalah rumus bangun ruang dan bangun datar
+Author: Abu Sobri Al Jamali
+Author-email: <abusobri007@gmaiil.com>
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE.txt
+
+
+#TEST
