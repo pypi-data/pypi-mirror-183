@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+cleansetext/__init__.py
+cleansetext/pipeline.py
+cleansetext/pipeline_test.py
+cleansetext/steps.py
+cleansetext/steps_test.py
+cleansetext.egg-info/PKG-INFO
+cleansetext.egg-info/SOURCES.txt
+cleansetext.egg-info/dependency_links.txt
+cleansetext.egg-info/requires.txt
+cleansetext.egg-info/top_level.txt
