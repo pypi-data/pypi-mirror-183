@@ -1,0 +1,12 @@
+
+[:python_version < "3.7"]
+dataclasses>=0.8
+
+[build]
+tox==3.24.3
+build
+twine
+pylint
+
+[test]
+matplotlib>=3.3.4
