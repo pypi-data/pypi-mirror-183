@@ -1,0 +1,7 @@
+urwid
+
+[docs]
+sphinx
+sphinx_rtd_theme
+myst-parser
+sphinxcontrib.apidoc

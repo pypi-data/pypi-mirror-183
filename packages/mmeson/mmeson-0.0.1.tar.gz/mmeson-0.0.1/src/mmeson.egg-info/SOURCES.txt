@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+src/mmeson/__init__.py
+src/mmeson/__main__.py
+src/mmeson/cli.py
+src/mmeson/meson_interface.py
+src/mmeson/options.py
+src/mmeson/singleton.py
+src/mmeson/tui.py
+src/mmeson.egg-info/PKG-INFO
+src/mmeson.egg-info/SOURCES.txt
+src/mmeson.egg-info/dependency_links.txt
+src/mmeson.egg-info/entry_points.txt
+src/mmeson.egg-info/requires.txt
+src/mmeson.egg-info/top_level.txt
