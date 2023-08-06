@@ -1,0 +1,8 @@
+pkgver/__init__.py,sha256=r778E30FGHTKICCP7h7hiSwUi0zAwWqb7fW3giVuY6w,24
+scora_notify/__init__.py,sha256=xCh95K0GHMaX7drYpXRaNeT9WZyl_H3dumuDpI5t8kw,22
+scora_notify/notify.py,sha256=J9KMeI5oy0f_Sa46IDvZtjuIl9vfSaL1-02GO90HMfU,3509
+scora_notify-0.4.0.dist-info/METADATA,sha256=nkw0WLN7aloDB-loWjLMr_Nae2SzKFMrxXaG7nJL0zU,1392
+scora_notify-0.4.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+scora_notify-0.4.0.dist-info/top_level.txt,sha256=iPNTbyjglo2swsLsWbSmZFfTpuQV7lQKMuGQumyvuZ8,20
+scora_notify-0.4.0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+scora_notify-0.4.0.dist-info/RECORD,,
