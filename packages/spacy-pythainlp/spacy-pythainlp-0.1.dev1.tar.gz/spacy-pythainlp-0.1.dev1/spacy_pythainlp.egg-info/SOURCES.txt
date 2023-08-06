@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+spacy_pythainlp.egg-info/PKG-INFO
+spacy_pythainlp.egg-info/SOURCES.txt
+spacy_pythainlp.egg-info/dependency_links.txt
+spacy_pythainlp.egg-info/not-zip-safe
+spacy_pythainlp.egg-info/requires.txt
+spacy_pythainlp.egg-info/top_level.txt
