@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-nhi"
+version = "1.0.0"
+description = '''A function to check strings against the New Zealand Ministry of Health NHI Validation Routine'''
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["NHI"]
+license = { file = "LICENSE" }
+classifiers = [
+    "Topic :: Utilities",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
