@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+get_random_samples_of_picture/LICENSE
+get_random_samples_of_picture/README.MD
+get_random_samples_of_picture/__init__.py
+get_random_samples_of_picture/requirements.txt
+get_random_samples_of_picture/thirdparty.json
+get_random_samples_of_picture.egg-info/PKG-INFO
+get_random_samples_of_picture.egg-info/SOURCES.txt
+get_random_samples_of_picture.egg-info/dependency_links.txt
+get_random_samples_of_picture.egg-info/requires.txt
+get_random_samples_of_picture.egg-info/top_level.txt

@@ -1,0 +1,4 @@
+include get_random_samples_of_picture/requirements.txt
+include get_random_samples_of_picture/thirdparty.json
+include get_random_samples_of_picture/README.MD
+include get_random_samples_of_picture/LICENSE
