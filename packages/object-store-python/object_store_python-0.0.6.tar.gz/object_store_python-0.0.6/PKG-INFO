@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: object-store-python
+Version: 0.0.6
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Environment :: MacOS X
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pyarrow>=7.0; extra == 'pyarrow'
+Provides-Extra: pyarrow
+Keywords: object-store,azure,aws,gcp
+Author: Robert Pack <robstar.pack@gmail.com>
+Author-email: Robert Pack <robstar.pack@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: issues, https://github.com/roeap/object-store-python/issues
+Project-URL: repository, https://github.com/roeap/object-store-python
+
+# object-store
+
+A common abstraction for high performance access to various storage backends.
+
