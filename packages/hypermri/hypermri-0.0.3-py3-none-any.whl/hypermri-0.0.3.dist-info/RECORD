@@ -1,0 +1,11 @@
+src/hypermri/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/hypermri/anatomical.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/hypermri/brukerexp.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/hypermri/spectroscopy.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/hypermri/utils.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hypermri-0.0.3.dist-info/LICENSE.txt,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+hypermri-0.0.3.dist-info/METADATA,sha256=dbYoQ0uy5KwDpACPKV6CLLYIK7lK8S9FD_0k1XWAnTM,41455
+hypermri-0.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+hypermri-0.0.3.dist-info/top_level.txt,sha256=KW3xgkz9NLMTcmmzgKvW8RFpCFkRIQ085qzq2diFf68,10
+hypermri-0.0.3.dist-info/RECORD,,
