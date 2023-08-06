@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: mjcgraph
+Version: 0.0.2
+Summary: Some graph algorithms and visualisations
+Author-email: Morten Jagd Christensen <mortenjc@jcaps.com>
+Project-URL: Homepage, https://github.com/mortenjc/pygraph
+Project-URL: Bug Tracker, https://github.com/mortenjc/pygraph/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: graphviz
+
+# pygraph
+Learning graph algorithms. Inspired by the numerous
+breadth first search problems in advent of code reminding
+me of the Algorithms course I took way back then.
+
+## Graph
+The basic Graph object. Contains a list of nodes and edges.
+
+## BFSearch
+Breadth first search
+
+## DFSearch
+Depth first search
+
+## Draw
+Draws the graph and a given path on it using graphviz with neato layout
