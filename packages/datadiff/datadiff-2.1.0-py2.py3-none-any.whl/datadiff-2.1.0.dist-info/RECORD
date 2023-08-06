@@ -1,0 +1,11 @@
+datadiff/__init__.py,sha256=hmrxZqFMfVT9lzJ_lHnClcRPMcgrAY84aiek1EN7GJA,12274
+datadiff/tools.py,sha256=mj76BIs6HmvjIlAhkj8NCpA7L9mfoFS-CovJqD7bMok,1294
+datadiff/version.py,sha256=wDY9Y0mIqQSrggt5_QIFVYBeD9pj8-Fk6jmnNn8ldgo,78
+datadiff/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datadiff/tests/test_datadiff.py,sha256=ev9kmUy3uqNdjWn0dZdfaimLEZSTcX2NI2-TNsG5v3Q,11373
+datadiff/tests/test_datadiff_tools.py,sha256=M-AWF-k7_nsouuICW_umNCZp8QBAu8VvXv5qt2cUUHg,1885
+datadiff-2.1.0.dist-info/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+datadiff-2.1.0.dist-info/METADATA,sha256=Cos434MNowwE5rXp6E6io4AXfpbbs0tMuv2IXtgshy8,2663
+datadiff-2.1.0.dist-info/WHEEL,sha256=bb2Ot9scclHKMOLDEHY6B2sicWOgugjFKaJsT7vwMQo,110
+datadiff-2.1.0.dist-info/top_level.txt,sha256=hopIG3F_zonCtSCR_QQfmz3hnZDdIf0vGO-6UvtZ7fg,9
+datadiff-2.1.0.dist-info/RECORD,,
