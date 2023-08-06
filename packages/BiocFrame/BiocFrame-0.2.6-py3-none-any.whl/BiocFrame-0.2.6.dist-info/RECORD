@@ -1,0 +1,10 @@
+biocframe/BiocFrame.py,sha256=VbsYGPet0SBEIPWoxlTuTRmBuFN_2M_23_eAjRucryI,17981
+biocframe/__init__.py,sha256=BV5aT3hvN9b1wrWxQ_dTRBT8tSLJQu_K6kgH5izuma0,694
+biocframe/utils.py,sha256=9uH9yaWQW80Ocna6lYY5mP_ik90p4KpIuc4-mpmCrzk,1134
+biocframe/io/__init__.py,sha256=SKfJNF23XCNVrlMTMwKMYbzEY-cleLRiCskJ9hp0iRc,27
+biocframe/io/pdf.py,sha256=rNaGKdT_Iw_bY1lhyCca-FjFmGK_Z_Jz58LVxuh2yrc,770
+BiocFrame-0.2.6.dist-info/LICENSE.txt,sha256=pkwgQ8WMTR1-Qa0qwIaBf5I1-8OGN1B20E_eeDg-bqc,1082
+BiocFrame-0.2.6.dist-info/METADATA,sha256=2HAScAzpXN1eEjW9cQ7Bx6rrrhadG9lfZqvJNM6bAu4,3843
+BiocFrame-0.2.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+BiocFrame-0.2.6.dist-info/top_level.txt,sha256=-tY4-An3N4tZG8jUBhaDQwhrieiOSkohhacXY_ngrt4,10
+BiocFrame-0.2.6.dist-info/RECORD,,
