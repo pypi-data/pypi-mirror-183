@@ -1,0 +1,12 @@
+django_db_cascade/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_db_cascade/deletions.py,sha256=cpMUCrm37ghoKk8x9UQUcr75KUhbetzgk7sINOL1kg4,87
+django_db_cascade/fields.py,sha256=wmBEePZhfRVCSf3_sMS9EQTSL675IL8ySbDukKxuTAI,1766
+django_db_cascade/backends/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_db_cascade/backends/postgresql_psycopg2/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_db_cascade/backends/postgresql_psycopg2/base.py,sha256=zcw3Gttj8Z1YeN_yPmdWbspkc34bTGCoVHAuowT8Qgk,194
+django_db_cascade/backends/postgresql_psycopg2/schema.py,sha256=NMc2435_49rSgEqDLdYYZ1cbF7_XFxsVXdScDJ5-7yI,1666
+django_db_cascade_2-0.3.2.dist-info/LICENSE,sha256=vet0udeiPuRU5QSYbhBeiB96G_nzb54dOQlpXzx-KtI,1068
+django_db_cascade_2-0.3.2.dist-info/METADATA,sha256=_wKV1mNeg4-V1GmzzqPUB54uxpFzLqBGToKr7nCNRio,2869
+django_db_cascade_2-0.3.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+django_db_cascade_2-0.3.2.dist-info/top_level.txt,sha256=-k1KyJH3Ut-FxjS81OMlvcMI7zWDAVu-No7oHhRDZRE,18
+django_db_cascade_2-0.3.2.dist-info/RECORD,,
