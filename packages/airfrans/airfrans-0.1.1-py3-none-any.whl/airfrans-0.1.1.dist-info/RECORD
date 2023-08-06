@@ -1,0 +1,10 @@
+airfrans/__init__.py,sha256=p5cMCX7uSgtW4mhtC07f84tfDWs0yfiWZ0mDC-Jw2Ko,229
+airfrans/dataset.py,sha256=n_pczi36eCR2jc7Of_QP4SnawXkwhSSzw5aNiT6hkgk,5294
+airfrans/naca_generator.py,sha256=wMbVwOUhkba5kfi0fGR2_4bG1bHV8OJ0XDa3nfZEmCA,5242
+airfrans/reorganize.py,sha256=pnf-UpKW_UXws3JMJEnKAxeFzN7xUay5ok3ObjvMC2s,843
+airfrans/sampling.py,sha256=OU_4HghDoNWIbnJoTQnV61QRge3divtpanSROIJjfsU,3844
+airfrans/simulation.py,sha256=hkQHiFvivG3ydoOdAZjHSoj13nXcDmuxcrxm46oQmM8,22520
+airfrans-0.1.1.dist-info/METADATA,sha256=CuF_c3Q-fdi8c_MZlduoEi_azbpM513jE9oQapTD2gI,4385
+airfrans-0.1.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+airfrans-0.1.1.dist-info/licenses/LICENSE,sha256=wdm1TgAR1HevBAaQ-zH6KMS9rFXMZ3oP0-V_h5V2dYQ,1066
+airfrans-0.1.1.dist-info/RECORD,,
