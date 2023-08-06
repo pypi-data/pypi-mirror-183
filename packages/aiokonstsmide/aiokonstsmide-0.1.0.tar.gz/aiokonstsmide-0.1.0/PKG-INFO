@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: aiokonstsmide
+Version: 0.1.0
+Summary: Library to communicate with Konstsmide Bluetooth powered string lights
+Author-email: philw07 <phil.w07@gmail.com>
+License-File: LICENSE
+Keywords: ble,bluetooth,konstsmide,light,string light
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Hardware
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# aiokonstsmide
+
+An asynchronous library to communicate with Konstsmide Bluetooth string lights.
+
+## Supported features
+
+- Connect with a device and send the password as pairing mechanism
+- Turn the device on/off
+- Control the devices function, brightness and flash speed
