@@ -1,0 +1,13 @@
+# -*- coding: utf-8; mode: conf-unix -*-
+# :Project:   NDN -- Semtext requirements
+# :Created:   gio 22 mar 2018 11:28:39 CET
+# :Author:    Lele Gaifax <lele@metapensiero.it>
+# :License:   GNU General Public License version 3 or later
+# :Copyright: © 2018 eTour s.r.l.
+# :Copyright: © 2020, 2021, 2022 Lele Gaifax
+#
+
+lxml==4.9.2
+pytest==7.2.0
+sly==0.5
+twine==4.0.2
