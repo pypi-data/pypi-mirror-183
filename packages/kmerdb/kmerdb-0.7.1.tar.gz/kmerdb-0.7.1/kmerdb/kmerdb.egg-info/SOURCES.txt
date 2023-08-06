@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+kmerdb/distance.c
+kmerdb/kmerdb.egg-info/PKG-INFO
+kmerdb/kmerdb.egg-info/SOURCES.txt
+kmerdb/kmerdb.egg-info/dependency_links.txt
+kmerdb/kmerdb.egg-info/entry_points.txt
+kmerdb/kmerdb.egg-info/not-zip-safe
+kmerdb/kmerdb.egg-info/requires.txt
+kmerdb/kmerdb.egg-info/top_level.txt
+test/test_kmer.py
