@@ -1,0 +1,28 @@
+BEGIN SETUP
+ror_rels:
+ror_id	parent_id
+1	2
+2	3
+3 	null
+END
+
+BEGIN SELECT
+WITH RECURSIVE cte AS (
+  SELECT ror_id, parent_id
+  FROM ror_rels
+  WHERE parent_id IS NULL
+  UNION ALL
+  SELECT ror_rels.ror_id, ror_rels.parent_id
+  FROM ror_rels
+  INNER JOIN cte ON ror_rels.parent_id = cte.ror_id
+)
+SELECT ror_id, parent_id
+FROM cte;
+END
+
+BEGIN RESULT
+ror_id	parent_id
+1	3
+2	3
+3	null
+END
