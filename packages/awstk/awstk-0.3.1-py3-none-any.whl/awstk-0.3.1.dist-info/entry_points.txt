@@ -1,0 +1,3 @@
+[console_scripts]
+awstk=awstk.__main__:app
+
