@@ -1,0 +1,13 @@
+flask_bigapp/__init__.py,sha256=IRaF2wfLo4oOIzz6yngTLS2MMgx2cb4pyeSB3U2eQO8,305
+flask_bigapp/__main__.py,sha256=b7QZ4UCQrQv37t4YzAWehlVwfe_YJPXFCDmGN9EsNDs,2202
+flask_bigapp/auth.py,sha256=iBormoUR6iceKOhkzUcNPh4M9RbnMWH_TS2j5jd37Ho,10000
+flask_bigapp/bigapp.py,sha256=NAUPsjDjjgx9ofidIkCAAsofrvw-e6cdGvbammTNSVM,16475
+flask_bigapp/blueprint.py,sha256=Gs94Umn1XwtZ2icgIqVs1TpmP4hM_YxtB6iDl7JMQ8c,9638
+flask_bigapp/resources.py,sha256=XjKM3rqwrlFZOoXicXh31JxEBXOaA2cDQ3xd-jhwRDA,918
+flask_bigapp/security.py,sha256=luAdFuDQ_xfb7sO3L8T4-j6y7qEiia0wfh65bgELT14,2778
+flask_bigapp/utilities.py,sha256=y1eknsUPR92e89acQRRTavDDGwvYLApJOVDgAtLAg6E,1539
+flask_bigapp-1.5.1.dist-info/LICENSE,sha256=ouKz4_mAx8vCaJcn1RbbAf8qAbZTmIDQSoC7xFYCQ4A,25342
+flask_bigapp-1.5.1.dist-info/METADATA,sha256=CfmzXEh6q5S5uu9jr6Z_UIuXB0dBQgr8aA1tWEKA3lk,1885
+flask_bigapp-1.5.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+flask_bigapp-1.5.1.dist-info/top_level.txt,sha256=AyVBFpsyfkCDFC0iddGpWv__LWnHLf5IYdMpoBGJqKk,13
+flask_bigapp-1.5.1.dist-info/RECORD,,
