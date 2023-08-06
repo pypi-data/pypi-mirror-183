@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: huskytools
+Version: 0.1.0
+Summary: Tools for interacting with the HuskyLens AI camera
+Home-page: https://github.com/Andreasdahlberg/husky-tools
+Author: Andreas Dahlberg
+Author-email: andreas.dahlberg90@gmail.com
+License: MIT
+Project-URL: Bug Reports, https://github.com/Andreasdahlberg/husky-tools/issues
+Project-URL: Source, https://github.com/Andreasdahlberg/husky-tools/
+Description: UNKNOWN
+Keywords: huskylens face-recognition camera
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
