@@ -1,0 +1,11 @@
+drb/drivers/aws3/__init__.py,sha256=fiRplVOALvuOzkhGj8Z0yrPuwYdL_t2muaXjMYuqcRI,290
+drb/drivers/aws3/_version.py,sha256=8C7L3JzuUcTMJwzbVYpLDCOpIW75hPT-fIxAGBV0kMk,497
+drb/drivers/aws3/aws3.py,sha256=tDu4jvNqkcCgahlAmAiSkD3jZ6Mh_pVB_ZD7kJ-prZM,17386
+drb/topics/aws3/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+drb/topics/aws3/cortex.yml,sha256=Gk9snT9w9MITHJZ9_aSoP9M04yyJC3fIZTCF9mYQnJk,184
+drb_driver_s3-1.1.0.data/data/requirements.txt,sha256=PgkBwUzpj9oQ27Aes1M_2OFjGvr6p5ytFld34osaFhM,79
+drb_driver_s3-1.1.0.dist-info/METADATA,sha256=AZBkQaPaccpcFMxGm5TASRfE5RuY4dsc_mZ8VumVY1k,2515
+drb_driver_s3-1.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+drb_driver_s3-1.1.0.dist-info/entry_points.txt,sha256=3qkHpT-wystQVKupusa7WXHQ8X1Fmg7FOxzZuOF7syU,88
+drb_driver_s3-1.1.0.dist-info/top_level.txt,sha256=tp7x0jo6KHy7P4LzX36tRyB2qZR7OiCZCAQGzrq25E0,4
+drb_driver_s3-1.1.0.dist-info/RECORD,,

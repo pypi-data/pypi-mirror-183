@@ -1,0 +1,5 @@
+drb~=2.0.3
+drb-driver-http~=1.1.1
+boto3==1.21.40
+botocore==1.24.41
+moto==3.1.4
