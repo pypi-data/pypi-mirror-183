@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ezpk_ezez
+Version: 0.0.1
+Summary: Er Ze's small package
+Author-email: Er Ze <qwertasdfgzxcvbplm2022@outlook.com>
+Project-URL: Homepage, https://github.com/ezezwsez/ez
+Project-URL: Bug Tracker, https://github.com/ezezwsez/ez/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+This is a library of Er Ze.
+It can:Generate password dictionary (1-9 digits).
+A password dictionary can be generated using the dic () function.
