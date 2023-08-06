@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:base="annize:base" xmlns:version="annize:version">
+    <base:Data project_name="ginggar" pretty_project_name="Ginggar"
+               homepage_url="https://pseudopolis.eu/pino/ginggar"/>
+    <base:Keywords from_string="python django rss web feed news reader scripting"/>
+    <Author xmlns="annize:authors" fullname="Josef Hahn" email="ginggar@pseudopolis.eu"/>
+    <BuildVersion a:name="version" xmlns="annize:versioncontrol" vcs="~reference vcs~">
+        <version:Version text="3.0" a:name="lineversion"/>
+    </BuildVersion>
+    <Data.summary xmlns="annize:base">
+        web feed reader
+    </Data.summary>
+<!-- TODO i18n -->
+    <Data.long_description xmlns="annize:base">
+        web feed reader
+    </Data.long_description>
+<!-- TODO i18n -->
+    <base:BrandColor red="0.5" green="0.4" blue="0.1"/>
+    <AGPLv3 xmlns="annize:licensing"/>
+    <VersionControlSystem xmlns="annize:versioncontrol.git" a:name="vcs"/>
+    <base:Basket a:name="packagestore">
+        <PackageStore xmlns="annize:pinoprivate"/>
+    </base:Basket>
+    <a:if_unavailable feature="pinoprivate" do="skip_node" scope="project"/>
+    <Auxiliary xmlns="annize:pinoprivate"/>
+    <!-- TODO
+    <val k="base.longdescription">
+Ginggar is a news reader for web feeds. Once it is hosted in
+a web server, a user can login and read her news in the web browser.
+
+Features:
+
+- multi-user web application
+- multiple news feeds per user
+- message tagging
+- powerful message filtering
+- very customizable
+- scripting interface
+
+It is based on Django and Python and is real-world tested to run in Apache with the wsgi module on Debian Linux.
+    </val>
+     -->
+</a:project>

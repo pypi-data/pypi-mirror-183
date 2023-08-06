@@ -1,0 +1,47 @@
+/*
+* SPDX-FileCopyrightText: © 2021 Josef Hahn
+* SPDX-License-Identifier: AGPL-3.0-only
+*/
+
+#btnmainmenu {
+    display: none;
+}
+
+sl-dialog form {
+    margin-top: var(--sl-spacing-x-large);
+}
+
+sl-dialog form label {
+    display: block;
+}
+
+sl-dialog form input {
+    margin-bottom: var(--sl-spacing-medium);
+}
+
+sl-dialog form input[type=submit] {
+    background-color: var(--sl-color-primary-500);
+    border-color: var(--sl-color-primary-500);
+    color: var(--sl-color-primary-text);
+    border-radius: var(--sl-spacing-medium);
+    padding: var(--sl-spacing-medium);
+    border: 0;
+}
+
+#pnlinvalidcredentials,
+#pnlfreshadminuser {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.invalidcredentials #pnlinvalidcredentials {
+    animation-name: ginggar-nodeexpand;
+    animation-duration: var(--sl-transition-x-slow);
+    animation-fill-mode: forwards;
+}
+
+.freshadminuser #pnlfreshadminuser {
+    animation-name: ginggar-nodeexpand;
+    animation-duration: var(--sl-transition-x-slow);
+    animation-fill-mode: forwards;
+}

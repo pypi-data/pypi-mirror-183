@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<!--
+SPDX-FileCopyrightText: © 2021 Josef Hahn
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'pageresources/index.css' %}" type="text/css"/>
+    <script type="module" src="{% static 'components/feedsdialog.js' %}"></script>
+    <script type="module" src="{% static 'components/firstloginpanel.js' %}"></script>
+    <script type="module" src="{% static 'components/messagelist.js' %}"></script>
+    <script type="module" src="{% static 'components/settingsdialog.js' %}"></script>
+    <script type="module" src="{% static 'components/tagpropagationdialog.js' %}"></script>
+    <script type="module" src="{% static 'pageresources/index.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="panes">
+        <div id="panemessagelist">
+            <ginggar-messagelist id="panemessagelist-messagelist"></ginggar-messagelist>
+            <div id="panemessagelist-bottompadding"></div>
+        </div>
+        <div id="panefiltering">
+            <div id="panefiltering-headerpanel">
+                <h2>Filtering</h2>
+                <sl-dropdown hoist="hoist" id="panefiltering-menudropdown">
+                    <sl-button slot="trigger" circle><sl-icon name="three-dots-vertical"></sl-icon></sl-button>
+                    <sl-menu id="panefiltering-menu">
+                        <sl-menu-item value="clearfilter">Clear filter</sl-menu-item>
+                        <sl-menu-divider></sl-menu-divider>
+                        <sl-menu-item value="savefilter">Save filter</sl-menu-item>
+                        <sl-menu-item value="loadfilter">Load filter</sl-menu-item>
+                        <sl-menu-item value="removefilter">Remove filter</sl-menu-item>
+                        <sl-menu-divider></sl-menu-divider>
+                        <sl-menu-item value="switchsortorder">Switch sort order</sl-menu-item>
+                        <sl-menu-divider></sl-menu-divider>
+                        <sl-menu-item value="removetag">Remove tag</sl-menu-item>
+                        <sl-menu-item value="tagpropagations">Tag propagation rules</sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
+            <div id="panefiltering-smallpanel">
+                <sl-button id="panefiltering-btnback" type="primary">
+                    <sl-icon name="arrow-left-short"></sl-icon>
+                    Back to messages
+                </sl-button>
+            </div>
+            <ginggar-tagcloud id="panefiltering-tagcloud" auto-refresh></ginggar-tagcloud>
+        </div>
+    </div>
+
+    <sl-drawer id="mainmenu" placement="top">
+        <sl-button id="mainmenu-btnfiltering">
+            <sl-icon name="funnel"></sl-icon><br/>Filtering
+        </sl-button>
+        <sl-button id="mainmenu-btnfeeds">
+            <sl-icon name="globe"></sl-icon><br/>Feeds
+        </sl-button>
+        <sl-button id="mainmenu-btnsettings">
+            <sl-icon name="sliders"></sl-icon><br/>Settings
+        </sl-button>
+        <sl-button id="mainmenu-btnadminpanel">
+            <sl-icon name="wrench"></sl-icon><br/>Admin panel
+        </sl-button>
+        <sl-button id="mainmenu-btnhelp">
+            <sl-icon name="question-circle-fill"></sl-icon><br/>Help
+        </sl-button>
+        <sl-button id="mainmenu-btnlogout">
+            <sl-icon name="door-closed"></sl-icon><br/>Logout
+        </sl-button>
+    </sl-drawer>
+
+{% endblock %}

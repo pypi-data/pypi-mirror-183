@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize">
+    <ReadmeDocument a:name="readme" a:append_to="homepage" xmlns="annize:documentation.sphinx">
+        <a:reference name="dependencies"/><!-- TODO inline Reference -->
+        <!-- TODO -->
+    </ReadmeDocument>
+    <GeneratedDocument xmlns="annize:documentation" a:name="readmepdfs" filename="README">
+        <a:reference name="readme"/>
+        <PdfOutputSpec/>
+    </GeneratedDocument>
+    <!-- TODO
+   <let k="documentation.pieces.add_api_reference" name="APIREF_PY" heading="Backend API reference">
+        <val k="language" t="documentation.Python3ApiReferenceLanguage">
+            <val k="exclude">
+                <val v="/ginger/main/migrations"/>
+            </val>
+            <val k="preparecode">
+import os
+import sys
+import django
+os.environ["DJANGO_SETTINGS_MODULE"] = "ginger.settings"
+django.setup()
+            </val>
+        </val>
+    </let>
+    <val k="documentation.readme_params">
+        <val k="include_in_toc">
+            <val v="FULLREADME"/>
+            <val v="APIREF_PY"/>
+        </val>
+    </val>
+    <val k="mydefaults.makehomepage" t="bool" v="1"/>
+    <let k="python.is_django_project"/>
+    <let k="documentation.pool.add" key="UIREADME">
+        <val k="src" oref="utils.basic.readfromfile(f'{specialpaths.projectdir}/_meta/readme.ui.rst', onestring=True)"/>
+    </let>
+    <val k="UIREADMEPOST">
+More
+====
+
+If you are interested in more, visit the `Ginger homepage &lt;{homepage}&gt;`_.
+    </val>
+    <let k="documentation.pool.add" key="UIREADMEPOST">
+        <val k="src" oref="lambda: universe.UIREADMEPOST.format(homepage=universe.base.websiteurl)"/>
+    </let>
+    <let k="documentation.exports.add">
+        <val k="export" key="APIREF_PY" heading="Developer Documentation" t="documentation.HomepageExport"/>
+    </let>
+    <let k="documentation.exports.add">
+        <val format="PDF" heading="End-User Manual" k="export" outputfile="/ginger/main/static/readme.pdf" t="documentation.SourceExport">
+            <val k="include_in_toc">
+                <val v="UIREADME"/>
+                <val v="UIREADMEPOST"/>
+            </val>
+        </val>
+    </let>
+     -->
+</a:project>

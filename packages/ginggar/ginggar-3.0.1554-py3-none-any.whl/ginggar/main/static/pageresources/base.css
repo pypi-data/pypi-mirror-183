@@ -1,0 +1,140 @@
+/*
+* SPDX-FileCopyrightText: © 2021 Josef Hahn
+* SPDX-License-Identifier: AGPL-3.0-only
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #352921;
+    --mainheader-height: 2.5rem;
+    --mainheader-background: #7d4421;
+    --mainheader-head1-color: #ffb86c;
+    --mainheader-head1-shadow-color: #ff8d3a;
+    --mainheader-boxshadow-color: #532a12;
+}
+
+::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--mainheader-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #eacb97;
+    transition: background var(--sl-transition-slow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f58301;
+}
+
+#headerbar {
+    height: var(--mainheader-height);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: var(--mainheader-background);
+    box-shadow: 0 0.25rem 0.25rem var(--mainheader-boxshadow-color);
+}
+
+#headertitle {
+    position: fixed;
+    display: grid;
+    top: 0;
+    left: 1.25rem;
+    color: var(--mainheader-head1-color);
+    font-size: 1.7rem;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    z-index: 9999;
+    text-shadow: 0 0 0.5rem var(--mainheader-head1-shadow-color);
+}
+
+#headertitle-logo {
+    grid-row: 1 / 3;
+    grid-column: 1;
+    height: 3rem;
+}
+
+#headertitle-head1 {
+    grid-row: 1;
+    grid-column: 2;
+    margin-top: -0.25rem;
+}
+
+#headertitle-head2 {
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 0.6em;
+    font-weight: lighter;
+    margin-top: -1.2em;
+    margin-left: 0.3em;
+}
+
+@keyframes ginggar-fadeout {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes ginggar-fadein {
+    100% {
+        opacity: 1;
+    }
+}
+
+sl-dialog::part(close-button) {
+    visibility: hidden;
+}
+
+.dialoghead {
+    margin-bottom: var(--sl-spacing-medium);
+    color: #000000aa;
+    font-size: 1.1rem;
+}
+
+#ginggar-dialog-modalwaiting {
+    font-size: 2rem;
+    --width: 20rem;
+}
+
+@keyframes ginggar-nodecollapse {
+    100% {
+        opacity: 0;
+        max-height: 0;
+        margin: 0;
+    }
+}
+
+@keyframes ginggar-nodeexpand {
+    50% {
+        max-height: 10rem;
+    }
+    100% {
+        opacity: 1;
+        max-height: 100vh;
+    }
+}
+
+.ginggar-vertical-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: var(--sl-spacing-x-small);
+}
+
+.ginggar-noanimations {
+    --sl-transition-x-slow: 0.0001s;
+    --sl-transition-slow: 0.0001s;
+    --sl-transition-medium: 0.0001s;
+    --sl-transition-fast: 0.0001s;
+    --sl-transition-x-fast: 0.0001s;
+}
+
+sl-spinner {
+    --indicator-color: #f4d69c;
+}

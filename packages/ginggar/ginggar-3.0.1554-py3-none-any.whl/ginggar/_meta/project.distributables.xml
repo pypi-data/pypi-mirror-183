@@ -1,0 +1,169 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns="annize:distributables" xmlns:base="annize:base" xmlns:i18n="annize:i18n">
+    <base:Basket a:append_to="homepage">
+        <Group a:name="packagegroup_pythonwheel">
+            <!--
+            <val k="requirements">
+                <val v="django==3.1.4"/>
+                <val v="feedparser"/>
+            </val>
+            -->
+<!--TODO                        <val k="task" oref="lambda: universe().gingersources._ginger_with_initpy_s()"/>-->
+<!--TODO                        <val k="task" oref="lambda: universe().gingersources._meta_with_initpy_s()"/>-->
+
+            <Group.title>
+                <i18n:String.stringtr>tr("an_int_PythonWheelPackage")</i18n:String.stringtr>
+            </Group.title>
+            <Package xmlns="annize:distributables.pythonwheel" version="~reference version~" a:name="package_pythonwheel">
+                <ExecutableLink linkname="ginggar_admin" methodname="main" modulename="ginggar._meta.misc.ginggar_admin" is_gui="~False~"/>
+                <Dir xmlns="annize:files">
+                    <DirPart source_path="ginggar" destination_path="ginggar"/>
+                    <DirPart source_path="_meta" destination_path="ginggar/_meta"/>
+                    <DirPart source_path="manage.py" destination_path="ginggar/_meta/manage.py"/>
+                </Dir>
+            </Package>
+        </Group>
+    </base:Basket>
+    <Dir xmlns="annize:files" a:name="cleaned_project_dir" path="">
+        <ExcludeByGitIgnores xmlns="annize:versioncontrol.git"/>
+    </Dir>
+    <Dir xmlns="annize:files" a:name="enriched_project_dir">
+        <DirPart root="~reference cleaned_project_dir~"/>
+        <DirPart root="~reference readmepdfs~" destination_path="src/annize/_static" destination_is_parent="~True~"/>
+    </Dir>
+    <!-- TODO
+    <let k="distributables.pool.addgroup" linkto="../ginger.deb" name="Debian package">
+        <val k="sources" t="files.TaskExecution">
+            <val k="dependencies">
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="apache2"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="libapache2-mod-wsgi-py3"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="python3-feedparser"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+                <val t="dependencies.Dependency">
+                    <val k="debian">
+                        <val v="curl"/>
+                    </val>
+                    <val k="type" oref="dependencies.Type.Required"/>
+                </val>
+            </val>
+            <val k="menuentries">
+                <val command="xdg-open http://localhost:8013" icon="_meta/ginger.64.png" name="ginger" t="packages.debian.MenuEntry" title="Ginger RSS Reader">
+                    <val k="category" oref="packages.debian.Category.ApplicationsNetworkWebnews"/>
+                    <val k="gui" t="bool" v="True"/>
+                </val>
+            </val>
+            <val k="postinst" oref="utils.basic.readfromfile(specialpaths.projectdir+'/_meta/misc/debian/postinst')"/>
+            <val k="prerm" oref="utils.basic.readfromfile(specialpaths.projectdir+'/_meta/misc/debian/prerm')"/>
+            <val k="source" t="files.MergedFilestructure">
+                <val k="frommap">
+                    <val k="/etc/cron.d/ginger" path="_meta/misc/crontab" t="files.Filestructure" relative="1"/>
+                    <val k="/etc/apache2/sites-available/ginger.conf" path="_meta/misc/apache2.conf" t="files.Filestructure" relative="1"/>
+                    <val k="/usr/lib/ginger" t="files.TaskExecution">
+                        <val k="task" oref="packages.debian.only_programfiles"/>
+                        <val k="source" t="packages.RawPackage"/>
+                    </val>
+                    <val k="/usr/lib/ginger/ginger.wsgi" path="_meta/misc/ginger.wsgi" t="files.Filestructure" relative="1"/>
+                    <val k="/usr/lib/ginger/ginger_admin.py" path="_meta/misc/ginger_admin.py" t="files.Filestructure" relative="1"/>
+                </val>
+            </val>
+            <val k="task" oref="packages.debian.debpackage"/>
+        </val>
+    </let>
+
+    <let k="distributables.pool.addgroup" name="Python wheel package">
+        <val k="sources" t="files.TaskExecution">
+            <val k="applicationlinks">
+                <val linkname="ginger_admin" method="main" module="ginger._meta.misc.ginger_admin" t="packages.python.WheelApplicationLink">
+                    <val k="gui" t="bool" v="False"/>
+                </val>
+            </val>
+            <val k="requirements">
+                <val v="django==3.1.4"/>
+                <val v="feedparser"/>
+            </val>
+            <val k="source" t="files.MergedFilestructure">
+                <val k="frommap">
+                    <val k="/ginger" t="files.TaskExecution">
+                        <val k="task" oref="lambda: universe().gingersources._ginger_with_initpy_s()"/>
+                    </val>
+                    <val k="/ginger/_meta" t="files.TaskExecution">
+                        <val k="task" oref="lambda: universe().gingersources._meta_with_initpy_s()"/>
+                    </val>
+                    <val k="/ginger/_meta/manage.py" path="/manage.py" t="files.Filestructure" relative="1"/>
+                </val>
+            </val>
+            <val k="task" oref="packages.python.wheelpackage"/>
+        </val>
+    </let>
+    < !- - TODO#
+    <let k="distributables.pool.addgroup" linkto="../ginger.oci" name="oci container image">
+        <val k="sources" t="files.TaskExecution">
+            <val k="debianpackage" oref="distributables.pool.find_by_name('Debian package').sources[0]"/>
+            <val k="execcommand" oref="['/usr/sbin/apachectl', '-D', 'FOREGROUND']"/>
+            <val k="ports">
+                <val oref="packages.oci.PortDescription(8013)"/>
+            </val>
+            <val k="environment_variables">
+                <val oref="packages.oci.EnvironmentVariableDescription('GINGER_DB_ENGINE', 'django.db.backends.sqlite3')"/>
+                <val oref="packages.oci.EnvironmentVariableDescription('GINGER_DB_NAME', '/var/lib/ginger/ginggar-db-v1')"/>
+            </val>
+            <val k="task" oref="packages.oci.ocidebianpackage"/>
+        </val>
+    </let>
+    - ->
+    <let k="distributables.pool.addgroup" linkto="../ginger.tgz" name="source tarball">
+        <val k="sources" t="files.TaskExecution">
+            <val k="task" oref="packages.tarpackage"/>
+            <val k="source" t="packages.RawPackage"/>
+        </val>
+    </let>
+
+
+
+    <let k="base.pyscript">
+        <val k="hook" oref="engine.HOOK_AFTER_PREPARATION"/>
+        <val k="code">
+def handler():
+    def _with_initpy_s_(src):
+        meta = files.TempDir()
+        src.dl(to=meta.path)
+        dirs = [meta.path,]
+        while dirs != []:
+            d = dirs.pop(0)
+            for x in os.listdir(d):
+                fx = d + &quot;/&quot; + x
+                if os.path.isdir(fx):
+                    dirs.append(fx)
+            if os.path.isdir(d):
+                ix = d + &quot;/__init__.py&quot;
+                if not os.path.exists(ix):
+                    with open(ix, &quot;w&quot;):
+                        pass
+        return meta
+    def _meta_with_initpy_s():
+        return universe().gingersources._with_initpy_s_(files.Filestructure(&quot;/_meta&quot;, relative=True))
+    def _ginger_with_initpy_s():
+        return universe().gingersources._with_initpy_s_(files.Filestructure(&quot;/ginger&quot;, relative=True))
+    class GingerSources: pass
+    universe().gingersources = GingerSources()
+    universe().gingersources._with_initpy_s_ = _with_initpy_s_
+    universe().gingersources._meta_with_initpy_s = _meta_with_initpy_s
+    universe().gingersources._ginger_with_initpy_s = _ginger_with_initpy_s
+        </val>
+    </let>
+     -->
+</a:project>

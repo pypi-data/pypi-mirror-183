@@ -1,0 +1,6 @@
+[console_scripts]
+ginggar_admin = ginggar._meta.misc.ginggar_admin:main
+
+[gui_scripts]
+
+

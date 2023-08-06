@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: © 2010 Josef Hahn
+# SPDX-License-Identifier: AGPL-3.0-only
+
+/usr/lib/ginggar/ginggar_admin.py setup /var/lib/ginggar
+
+chown -R www-data:www-data /var/lib/ginggar
+
+a2enmod wsgi
+a2ensite ginggar
+
+service apache2 reload || true

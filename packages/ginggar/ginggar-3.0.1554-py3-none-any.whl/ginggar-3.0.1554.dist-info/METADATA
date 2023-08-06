@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: ginggar
+Version: 3.0.1554
+Summary: web feed reader     
+Home-page: https://pseudopolis.eu/pino/ginggar
+Author: Josef Hahn
+Author-email: ginggar@pseudopolis.eu
+License: AGPL 3
+Keywords: python django rss web feed news reader scripting
+Platform: UNKNOWN
+Description-Content-Type: text/plain
+
+
+web feed reader
+
+

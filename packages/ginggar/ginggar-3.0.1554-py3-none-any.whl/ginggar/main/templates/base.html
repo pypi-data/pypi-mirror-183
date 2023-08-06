@@ -1,0 +1,35 @@
+<!doctype html>
+<!--
+SPDX-FileCopyrightText: © 2021 Josef Hahn
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="{% static 'pageresources/base.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static 'piweb/3rdparty/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.css' %}" type="text/css"/>
+        <script type="text/javascript">
+            piwebBaseStylesRef = `<link rel="stylesheet" href="{% static 'pageresources/base.css' %}" type="text/css"/>`;
+        </script>
+        <script type="module" src="{% static 'piweb/3rdparty/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js' %}"></script>
+        <script type="module" src="{% static 'components/tagcloud.js' %}"></script>
+        {% block head %}
+        {% endblock %}
+        <title>Ginggar Web Feed Reader</title>
+    </head>
+    <body data-ginggarcontext="{{ ginggarcontext }}">
+        <div id="headerbar">
+            <sl-button id="btnmainmenu" pill="pill"><sl-icon name="list"></sl-icon> Menu</sl-button>
+        </div>
+        <div id="headertitle">
+            <img id="headertitle-logo" src="{% static 'ginggar.png' %}"/>
+            <div id="headertitle-head1">ginggar</div>
+            <div id="headertitle-head2">web feed reader</div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

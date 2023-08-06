@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!--
+SPDX-FileCopyrightText: © 2021 Josef Hahn
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'pageresources/login.css' %}" type="text/css" />
+    <script type="module" src="{% static 'pageresources/login.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <sl-dialog
+        class="{% if was_invalid %}invalidcredentials {% endif %}{% if freshly_initialized %}freshadminuser {% endif %}"
+        label="Welcome to Ginggar!" open>
+        <div class="dialoghead">
+            Please enter your login credentials.
+        </div>
+        <form action="{{ subsite }}api/accounts/actions/login/" method="post">
+            <div id="pnlfreshadminuser">
+                <sl-alert type="warning" open>
+                    <sl-icon slot="icon" name="info-circle"></sl-icon>
+                    <strong>Default user created</strong><br>
+                    This is a fresh Ginggar installation. You can log in now with user 'admin' (password: 'admin').
+                    It might be a good idea to change that password later using the admin panel.
+                </sl-alert>
+            </div>
+            <div id="pnlinvalidcredentials">
+                <sl-alert type="warning" open>
+                    <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+                    <strong>Invalid login credentials</strong><br>
+                    Please try again.
+                </sl-alert>
+            </div>
+            <label>User name</label>
+            <input name="username"/><br/>
+            <label>Password</label>
+            <input name="password" type="password"/><br/>
+            <input name="nexturl" style="display:none" type="hidden" value="{{ nexturl }}"/><br/>
+            {% csrf_token %}
+            <input type="submit" value="Login"/>
+        </form>
+    </sl-dialog>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+*/5 * * * *  root  /usr/bin/curl --insecure https://localhost/ginggar/api/feeds/actions/crawl/ &> /dev/null

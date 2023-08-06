@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:chlog="annize:changelog" xmlns:base="annize:base" xmlns:version="annize:version">
+    <chlog:Changelog xmlns="annize:i18n">
+        <chlog:Entry>
+            <version:Version text="3.0.1538"/>
+            <base:DateTime iso="2021-06-03"/>
+            <String>
+                <String.en>Renamed project from 'Ginger' to 'Ginggar'.</String.en>
+                <String.de>Projekt umbenannt von 'Ginger' in 'Ginggar'.</String.de>
+            </String>
+        </chlog:Entry>
+    </chlog:Changelog>
+</a:project>

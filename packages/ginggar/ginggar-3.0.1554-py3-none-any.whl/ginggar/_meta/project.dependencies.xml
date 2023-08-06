@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:base="annize:base" xmlns="annize:dependencies" xmlns:pino="annize:pinoprivate"
+           xmlns:pydeps="annize:dependencies.python">
+    <base:Basket a:name="dependencies">
+        <pydeps:Python version="3.7"/>
+        <GnuLinux>
+            <Recommended/>
+        </GnuLinux>
+        <Artwork label="banner image" origin="http://en.wikipedia.org/wiki/File:Aniseed_p1160018.jpg"
+                 license="http://creativecommons.org/licenses/by-sa/3.0">
+            <Included/>
+        </Artwork>
+        <Artwork label="third-party project logos" origin="project websites (see there for details)">
+            <Included/>
+        </Artwork>
+        <Artwork label="icon set 'Oxygen'" comment="some icons" origin="https://techbase.kde.org/Projects/Oxygen">
+            <Included/>
+        </Artwork>
+        <pino:DependenciesCommon/>
+    </base:Basket>
+    <!-- TODO
+
+    <let k="dependencies.pool.add">
+        <val k="dependency" t="dependencies.python.PythonDependency" version="3.7">
+            <val k="type" oref="dependencies.Type.Required"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val k="dependency" t="dependencies.python.DjangoDependency" version="2.2.17">
+            <val k="type" oref="dependencies.Type.Required"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="linux" k="dependency" objectname="Typical GNU/Linux Desktop" t="dependencies.Dependency">
+            <val k="type" oref="dependencies.Type.Recommended_HasAlternatives"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="package" k="dependency" objectname="python-feedparser" t="dependencies.Dependency">
+            <val k="type" oref="dependencies.Type.Required"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val comment="as web server" icon="apache" k="dependency" objectname="apache 2.4" t="dependencies.Dependency">
+            <val k="type" oref="dependencies.Type.Recommended_HasAlternatives"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val comment="apache module" icon="package" k="dependency" objectname="mod_wsgi" t="dependencies.Dependency">
+            <val k="type" oref="dependencies.Type.Recommended_HasAlternatives"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="jquery" k="dependency" objectname="jquery" t="dependencies.Dependency">
+            <val k="comment" v="licensed under terms of `GPLv2 &lt;http://www.gnu.org/licenses/gpl-2.0.txt&gt;`__."/>
+            <val k="type" oref="dependencies.Type.Included"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="artwork" k="dependency" objectname="font 'Symbola'" t="dependencies.Dependency">
+            <val k="comment">for logo symbol; free for use; copied from `here &lt;http://users.teilar.gr/~g1951d/&gt;`__.</val>
+            <val k="type" oref="dependencies.Type.Included"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="artwork" k="dependency" objectname="banner image" t="dependencies.Dependency">
+            <val k="comment">_meta/background.png; license `public domain &lt;http://creativecommons.org/publicdomain/zero/1.0&gt;`_; copied from `here &lt;http://en.wikipedia.org/wiki/File:Ginger_in_China_01.jpg&gt;`__.</val>
+            <val k="type" oref="dependencies.Type.Included"/>
+        </val>
+    </let>
+    <let k="dependencies.pool.add">
+        <val icon="artwork" k="dependency" objectname="all files in /_meta" t="dependencies.Dependency">
+            <val k="comment">if not mentioned otherwise, Copyright 2015 Josef Hahn under license `CC BY-SA 3.0 &lt;http://creativecommons.org/licenses/by-sa/3.0&gt;`__ license.</val>
+            <val k="type" oref="dependencies.Type.Included"/>
+        </val>
+    </let>
+     -->
+</a:project>

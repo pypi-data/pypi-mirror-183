@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<a:project xmlns:a="annize" xmlns:mediagal="annize:mediagalleries">
+    <!--TODO
+    <mediagal:Gallery a:append_to="homepage" a:name="gallery">
+        <Dir path="_meta/screenshots" xmlns="annize:files"/>
+    </mediagal:Gallery>
+    -->
+    <ProjectIcon charcode="128240" xmlns="annize:pinoprivate"/>
+</a:project>

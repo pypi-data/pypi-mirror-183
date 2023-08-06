@@ -1,0 +1,157 @@
+/*
+* SPDX-FileCopyrightText: © 2021 Josef Hahn
+* SPDX-License-Identifier: AGPL-3.0-only
+*/
+
+#panefiltering-tagcloud {
+    margin-bottom: var(--sl-spacing-medium);
+}
+
+#panefiltering-menu {
+    color: #000000;
+}
+
+#panemessagelist-bottompadding {
+    height: 90vh;
+}
+
+#panemessagelist {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: none;
+    --topstickypart-distance: var(--mainheader-height);
+}
+
+#panes {
+    display: grid;
+    grid-template-columns: 2fr minmax(0, 50rem) 1fr auto 1fr;
+    grid-template-rows: auto auto;
+}
+
+#panefiltering {
+    position: sticky;
+    top: 10vh;
+    grid-column: 2;
+    grid-row: 1;
+    width: 25rem;
+    max-height: 80vh;
+    overflow: auto;
+    display: none;
+    color: #f4d69c;
+}
+
+#btnmainmenu {
+    position: absolute;
+    top: 0.4rem;
+    right: 1rem;
+}
+
+#btnmainmenu sl-icon {
+    font-size: 2.2rem;
+    vertical-align: middle;
+}
+
+#btnmainmenu::part(base) {
+    box-shadow: 0 0.25rem 0.25rem var(--mainheader-background);
+}
+
+#mainmenu {
+    --size: 12rem;
+}
+
+#mainmenu sl-button {
+    width: 15%;
+}
+
+#mainmenu sl-button::part(base) {
+    height: 100%;
+}
+
+#mainmenu sl-button sl-icon {
+    font-size: 1.6em;
+    margin: 0.7em 0 -0.7em 0;
+}
+
+#mainmenu::part(panel) {
+    background: var(--mainheader-background);
+}
+
+#mainmenu::part(close-button) {
+    background: #ffffff;
+    border-radius: 1.3rem;
+    border: 0.7rem solid var(--mainheader-background);
+}
+
+@media screen and (min-width: 750pt) {
+
+    #btnmainmenu {
+        top: 1.25rem;
+    }
+
+}
+
+#panefiltering-smallpanel {
+    margin: var(--sl-spacing-medium) 0 var(--sl-spacing-x-large) var(--sl-spacing-medium);
+}
+
+@media screen and (min-width: 950pt) {
+
+    #panefiltering {
+        grid-column: 4;
+    }
+
+    #panemessagelist {
+        display: initial;
+        opacity: 1 !important;
+    }
+
+    #panefiltering {
+        display: initial;
+        opacity: 1 !important;
+    }
+
+    #panefiltering-smallpanel {
+        display: none;
+    }
+
+    #mainmenu-btnfiltering {
+        display: none;
+    }
+
+}
+
+#panes.showfiltering #panefiltering {
+    display: initial;
+}
+
+#panes.showmessagelist #panemessagelist {
+    display: initial;
+}
+
+#panefiltering-headerpanel {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#panefiltering-menudropdown {
+    margin-left: var(--sl-spacing-medium);
+    align-self: center;
+}
+
+#panefiltering-menudropdown sl-button::part(base) {
+    background: none;
+    color: #ffffffcc;
+}
+
+body, body.sl-scroll-lock {
+    /* otherwise dialogs hide the main scrollbar and the complete page layout moves by some pixel */
+    overflow-y: scroll !important
+}
+
+body.ginggar-noadminpanel #mainmenu-btnadminpanel {
+    display: none;
+}
+
+body.ginggar-singleusermode #mainmenu-btnlogout {
+    display: none;
+}
