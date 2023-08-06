@@ -1,0 +1,9 @@
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - env
+  only:
+    - merge_requests
