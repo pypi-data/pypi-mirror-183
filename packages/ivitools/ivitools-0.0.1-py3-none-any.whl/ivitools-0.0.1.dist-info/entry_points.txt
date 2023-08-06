@@ -1,0 +1,2 @@
+[console_scripts]
+ivitools = ivitools.__main__:main
