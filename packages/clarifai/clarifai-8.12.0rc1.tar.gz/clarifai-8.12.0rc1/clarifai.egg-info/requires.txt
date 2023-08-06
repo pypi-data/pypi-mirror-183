@@ -1,0 +1,1 @@
+clarifai-grpc>=8.12.0rc1
