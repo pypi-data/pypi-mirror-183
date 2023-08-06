@@ -1,0 +1,2 @@
+[console_scripts]
+pyonsett = PyOnsetT:main
