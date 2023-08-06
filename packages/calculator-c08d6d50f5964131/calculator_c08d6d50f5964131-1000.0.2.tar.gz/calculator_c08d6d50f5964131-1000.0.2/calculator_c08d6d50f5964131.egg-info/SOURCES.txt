@@ -1,0 +1,9 @@
+README.md
+setup.py
+calculator_c08d6d50f5964131/__init__.py
+calculator_c08d6d50f5964131/poc.py
+calculator_c08d6d50f5964131.egg-info/PKG-INFO
+calculator_c08d6d50f5964131.egg-info/SOURCES.txt
+calculator_c08d6d50f5964131.egg-info/dependency_links.txt
+calculator_c08d6d50f5964131.egg-info/requires.txt
+calculator_c08d6d50f5964131.egg-info/top_level.txt
