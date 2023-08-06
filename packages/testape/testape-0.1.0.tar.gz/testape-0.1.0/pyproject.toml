@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "testape"
+version = "0.1.0"
+description = "SDK to create extsions for the Testape platform"
+authors = ["Lior Pollak <4294489+liorp@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{ include = "testape" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
