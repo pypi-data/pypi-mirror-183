@@ -1,0 +1,113 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pygopher-interfaces"
+dynamic = ["version"]
+description = "Go-style interfaces for Python"
+authors = [
+    { name = "Mark Rogaski", email = "mrogaski@pobox.com" },
+]
+maintainers = [
+    { name = "Mark Rogaski", email = "mrogaski@pobox.com" },
+]
+requires-python = ">=3.7"
+license-files = { paths = ["LICENSE"] }
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Typing :: Typed"
+]
+dependencies = [
+    "importlib_metadata; python_version<'3.8'",
+]
+
+[project.urls]
+Changelog = "https://github.com/mrogaski/pygopher-interfaces/blob/main/CHANGELOG.rst"
+"Bug Tracker" = "https://github.com/mrogaski/pygopher-interfaces/issues"
+"Source Code" = "https://github.com/mrogaski/pygopher-interfaces"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pygopher"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[project.optional-dependencies]
+tests = [
+    "coverage[toml]",
+    "pytest>=7.0",
+    "pytest-cov",
+]
+linters = [
+    "pylint",
+]
+typing = [
+    "mypy",
+]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+dev = ["pygopher-interfaces[tests,linters,typing,docs]"]
+
+[tool.coverage.run]
+parallel = true
+branch = true
+source = ["pygopher"]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+ignore_errors = true
+exclude_lines = [
+    # a more strict default pragma
+    "\\# pragma: no cover\\b",
+
+    # allow defensive code
+    "^\\s*raise AssertionError\\b",
+    "^\\s*raise NotImplementedError\\b",
+    "^\\s*return NotImplemented\\b",
+    "^\\s*raise$",
+
+    # typing-related code
+    "^if (False|TYPE_CHECKING):",
+    ": \\.\\.\\.(\\s*#.*)?$",
+    "^ +\\.\\.\\.$",
+    "-> ['\"]?NoReturn['\"]?:",
+]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+known_first_party = "pygopher"
+line_length = 120
+profile = "attrs"
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+ignore_missing_imports = true
+warn_return_any = false
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+pythonpath = "src"
+testpaths = "tests"
+python_files = "test_*.py"
+log_cli = false
+log_level = "DEBUG"
