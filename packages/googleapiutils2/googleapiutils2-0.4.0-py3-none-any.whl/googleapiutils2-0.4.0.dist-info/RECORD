@@ -1,0 +1,11 @@
+googleapiutils2/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+googleapiutils2/_types/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+googleapiutils2/_types/geocode.py,sha256=bpoNXMfOqa_wr5fLPjmQ-GDkPhAaHgmfIXW1NscA2MM,915
+googleapiutils2/drive.py,sha256=Kud6vHMLUdbZKmxF0yc1sZ3ggsirTD6EwL53b42Hb8M,14286
+googleapiutils2/geocode.py,sha256=_uW9pszOW5idnCH3YVAy4C6yOhcJpIBumWXzDrRZnRs,1056
+googleapiutils2/sheets.py,sha256=0mshagdDey_hBw9ILrbwsoo53WIHy-dl1b4PevJ_G1Q,8184
+googleapiutils2/utils.py,sha256=AIitn2DNapyZzcna-DI-s2QOapm4GU9FYFIwouF2ZMg,6059
+googleapiutils2-0.4.0.dist-info/LICENSE,sha256=IA5LhSd_rWyLNzhcF_s44hrjRdPV7orm71HbCxIrsHk,1071
+googleapiutils2-0.4.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+googleapiutils2-0.4.0.dist-info/METADATA,sha256=cicQdRN4C6_z2hJT-eukSCSwo08UhEOHn_j1Zw9Nxig,705
+googleapiutils2-0.4.0.dist-info/RECORD,,
