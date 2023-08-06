@@ -1,0 +1,6 @@
+LICENSE
+setup.py
+pysspider.egg-info/PKG-INFO
+pysspider.egg-info/SOURCES.txt
+pysspider.egg-info/dependency_links.txt
+pysspider.egg-info/top_level.txt
