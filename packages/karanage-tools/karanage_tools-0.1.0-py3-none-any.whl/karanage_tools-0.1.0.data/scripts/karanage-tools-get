@@ -1,0 +1,51 @@
+#!python
+# Importing the library
+import psutil
+import argparse
+import time
+import subprocess
+import json
+from pathlib import Path
+from typing import Dict, List
+import karanage
+
+if __name__ == '__main__':
+    # Load arguments:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-C", "--connection", type=str, default="/etc/karanage/connection.json", help="json configuration file")
+    parser.add_argument("-t", "--topic", type=str, default="", help="Topic of the message")
+
+    # This element are read from the connection file:
+    parser.add_argument("-u", "--url", type=str, default="http://localhost:20080/karanage/api/state", help="Base URL of the web service")
+    parser.add_argument("-g", "--group", type=str, default="home", help="Group the the message")
+    parser.add_argument("-T", "--token", type=str, default="", help="Token to access to the server")
+    
+    args = parser.parse_args()
+
+    
+    if Path(args.connection).exists():
+        f = open(args.connection, "r")
+        connection = json.loads(f.read())
+        f.close()
+    else:
+        connection = {}
+    # manage the connection model
+    if "url" not in connection:
+        connection["url"] = args.url
+    if "group" not in connection:
+        connection["group"] = args.group
+    if "token" not in connection:
+        connection["token"] = args.token
+    
+    # create the rest interface of karanage
+    restInterface = karanage.KaranageREST(
+        connection["url"], 
+        connection["group"],
+        connection["token"])
+    
+    if args.topic == "":
+        data = restInterface.get_all()
+        print(f"Ret = {json.dumps(data, indent=4)}")
+    else:
+        data = restInterface.get_topic(args.topic)
+        print(f"Ret = {json.dumps(data, indent=4)}")
