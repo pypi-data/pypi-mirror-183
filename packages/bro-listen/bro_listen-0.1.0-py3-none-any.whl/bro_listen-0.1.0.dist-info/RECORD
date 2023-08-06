@@ -1,0 +1,11 @@
+bro_listen/__init__.py,sha256=FUYgRW__sOgPd1GbheBvRhaFlwOl0MvKqF9Ri6Khsik,40
+bro_listen/bro_listen.py,sha256=ZhzG7z7g3B_rERSj_ZYws1qIK5ylHTObXjLZpHaUKDY,2337
+bro_listen/chat.py,sha256=out67ZuICatpgn3hOLP3wsOWdZ10nGhdDWH5Gm-XDQk,1484
+bro_listen/config.toml,sha256=8ErjsVTWNavSWeD4pljr_zwDuRMlWcXkQgbtGS13Fbs,139
+bro_listen/utils.py,sha256=nwnGOBctpbZphNYHTreFX5t8_fI-Cyd0o0RaxeI7N4I,1795
+bro_listen/voice.py,sha256=61umj3Xrv5yzHyD9MEsjWjCVoG1enfUVzELg67v6HIQ,2207
+bro_listen-0.1.0.dist-info/entry_points.txt,sha256=uXoMreSwUUyHaNUpw6bFdwaU7so-Q9ddMVxsadf1sh0,56
+bro_listen-0.1.0.dist-info/LICENSE.md,sha256=q4RH0mB-o4mBWwCaI1k17CXtWwQEy4Ty1uy7vdN-Xc0,1074
+bro_listen-0.1.0.dist-info/WHEEL,sha256=DA86_h4QwwzGeRoz62o1svYt5kGEXpoUTuTtwzoTb30,83
+bro_listen-0.1.0.dist-info/METADATA,sha256=3H1vTYr6WSg4cPLKQas0FWUbe3hsB8_F0w901ilxKoc,3569
+bro_listen-0.1.0.dist-info/RECORD,,
