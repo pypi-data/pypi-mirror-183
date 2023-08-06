@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: cfnv1a
+Version: 0.1.3
+Summary: fnv1a c implementation for python
+Home-page: https://github.com/mosquito/cfnv1a/
+Author: Dmitry Orlov
+Author-email: me@mosquito.su
+License: MIT
+Keywords: fnv1a,c
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Requires-Python: >=3.7.*, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+cfnv1a
+======
+
+fnv1a non-cryptographic hash function for python written in c.
+
+Examples:
+
+```python
+from cfnv1a import fnv1a
+
+print(fnv1a("Hello"))
+# 7201466553693376363
+
+print(fnv1a("Hello", prime=7, offset=1))
+# 9972599733547454827
+```
+
+
