@@ -1,0 +1,16 @@
+devjournal/__about__.py,sha256=WgxK6TvpU3_SLi2wB0UaUxgEQ-Kkrb83Rp5blLfG_eQ,135
+devjournal/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devjournal/__main__.py,sha256=ynp9syolDbWUbGtPyBCiiVunf_Gg1LVQcoyeM9hbVPY,870
+devjournal/config.py,sha256=zNC7u0TO7PzBZyshwPqed4ioAXtOiWgtZcINx-733wU,684
+devjournal/constants.py,sha256=P6cdnEOi-Ly9Y24VnP_6lTtL06Cd16wOWkocL4cZPaE,633
+devjournal/entry.py,sha256=QOxDTciX5yntP8wZYY8w7s1R07MthWPim8CqarLrvrs,822
+devjournal/git.py,sha256=wRjE3Fs0R_8BsQ9wDkrQzi-ZTvMB3L-eTec1FMw1LDU,979
+devjournal/commands/add.py,sha256=gR7al08Zc87a-fpZsM6z5Frd5rUE5qwoagtzlpyee0w,904
+devjournal/commands/find.py,sha256=1fitLYYO6O3ry-rWGUMWOP0OmG1dPrECc4aXW0PezPI,256
+devjournal/commands/log.py,sha256=umPjJdqofYirK8hq_N9Rl2cKCQERIZoI4hIc2aRb7xU,134
+devjournal/commands/setup.py,sha256=VXKNep8_VYcddkPiHRKhm_Hlc9tYq-h5ADhhbHb7FDI,621
+devjournal-0.2.dist-info/METADATA,sha256=tSK_IT7tUCsXWEm-LdfiGYfSSCxd8caOtZ0PuTHh4Os,2931
+devjournal-0.2.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+devjournal-0.2.dist-info/entry_points.txt,sha256=gfA99V1bhZQmoIPazduCp40Qe6okekCm9ZjTHnLvpdQ,47
+devjournal-0.2.dist-info/licenses/LICENSE.md,sha256=bQCSkYAMf6cC8dePZIf56EZSNkBorzCVf_EJVzIAxQw,1068
+devjournal-0.2.dist-info/RECORD,,

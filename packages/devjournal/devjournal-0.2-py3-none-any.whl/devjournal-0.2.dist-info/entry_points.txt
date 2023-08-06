@@ -1,0 +1,2 @@
+[console_scripts]
+dj = devjournal.__main__:app
