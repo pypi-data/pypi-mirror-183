@@ -1,0 +1,11 @@
+README.md
+setup.py
+PFRWebScraper/ScrapePlayerData.py
+PFRWebScraper/ScrapeTeamData.py
+PFRWebScraper/ScrapeURLs.py
+PFRWebScraper/__init__.py
+PFRWebScraper.egg-info/PKG-INFO
+PFRWebScraper.egg-info/SOURCES.txt
+PFRWebScraper.egg-info/dependency_links.txt
+PFRWebScraper.egg-info/requires.txt
+PFRWebScraper.egg-info/top_level.txt
