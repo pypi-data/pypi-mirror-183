@@ -1,0 +1,9 @@
+README.md
+setup.py
+./sclite/__init__.py
+./sclite/__main__.py
+sclite.egg-info/PKG-INFO
+sclite.egg-info/SOURCES.txt
+sclite.egg-info/dependency_links.txt
+sclite.egg-info/requires.txt
+sclite.egg-info/top_level.txt
