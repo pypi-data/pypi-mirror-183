@@ -1,0 +1,12 @@
+koopmanlab/__init__.py,sha256=RyOwiJGd2156TxbNwBrlnjN1TfDOeF4SKoCf2ElUqqE,135
+koopmanlab/data.py,sha256=da_-UQxCYSES6nKUTtHyUtc2MggifdStaWE1hZ1rREk,7625
+koopmanlab/func.py,sha256=Xi6K7SPnrU8eDB3NzPR7oxoIDRGC5dRfYJZaLz2sli0,426
+koopmanlab/kno.py,sha256=tpJm0SiZyl72iqzmDxFIbiMyea5iLNPfx13w1V-sk_w,6178
+koopmanlab/koopmanViT.py,sha256=MnbZwoUeiJnOE94oNFj41K5sows3AwODyfgIJF4W6w8,10808
+koopmanlab/model.py,sha256=LpOL-81OhbmU9WzpkEg5cMAZZ-KQtb9QVKObcdUFrcw,24848
+koopmanlab/utils.py,sha256=AK4SOfJ-Nix0Y_78eXAWJZ0m6QqIafqyVF2xGhoVGpo,6815
+koopmanlab-1.0.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+koopmanlab-1.0.0.dist-info/METADATA,sha256=LG8iSPXc4KHN4HjldbHRbTeazcqSE090ItRvmYYyCtk,6648
+koopmanlab-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+koopmanlab-1.0.0.dist-info/top_level.txt,sha256=T2so6FQ6TBlrU0A-uT3MMZCWTMiR-qhBu1WhCF--8VM,11
+koopmanlab-1.0.0.dist-info/RECORD,,
