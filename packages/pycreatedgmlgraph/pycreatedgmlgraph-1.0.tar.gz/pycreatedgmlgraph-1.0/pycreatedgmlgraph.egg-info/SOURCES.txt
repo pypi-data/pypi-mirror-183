@@ -1,0 +1,7 @@
+setup.py
+pycreatedgmlgraph/__init__.py
+pycreatedgmlgraph.egg-info/PKG-INFO
+pycreatedgmlgraph.egg-info/SOURCES.txt
+pycreatedgmlgraph.egg-info/dependency_links.txt
+pycreatedgmlgraph.egg-info/requires.txt
+pycreatedgmlgraph.egg-info/top_level.txt
