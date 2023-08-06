@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+spritegen/__init__.py
+spritegen/main.py
+spritegen.egg-info/PKG-INFO
+spritegen.egg-info/SOURCES.txt
+spritegen.egg-info/dependency_links.txt
+spritegen.egg-info/entry_points.txt
+spritegen.egg-info/requires.txt
+spritegen.egg-info/top_level.txt
