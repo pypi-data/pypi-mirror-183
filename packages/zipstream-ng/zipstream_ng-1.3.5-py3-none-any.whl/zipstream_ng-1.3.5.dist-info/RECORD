@@ -1,0 +1,9 @@
+zipstream/__init__.py,sha256=QDHU8iAyxEoC9SltNzWNg7w51fL0NSdFLX4ZwPBl5EE,161
+zipstream/ng.py,sha256=ioz1OGr2TQr3fV7OqJPVQoAcXqF-4EzrfL8oJZERAA0,39111
+zipstream/server.py,sha256=JT8XkPDsboIX_n98Z4v8EI64WnKwCWwCuGqTfMMrPxo,6886
+zipstream_ng-1.3.5.dist-info/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+zipstream_ng-1.3.5.dist-info/METADATA,sha256=Uczi4GCIMS3ajNgV3w48FVxWchrjuUU9ae1jg3qjD7I,9277
+zipstream_ng-1.3.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+zipstream_ng-1.3.5.dist-info/entry_points.txt,sha256=3D55_XOC_krgwLb1FsTupinkxObBolKbuMqN16Tuktw,52
+zipstream_ng-1.3.5.dist-info/top_level.txt,sha256=s0WV3X6R8MzOwkW7hGhdOThHiqw20INl8g6W1Ofya0c,10
+zipstream_ng-1.3.5.dist-info/RECORD,,
