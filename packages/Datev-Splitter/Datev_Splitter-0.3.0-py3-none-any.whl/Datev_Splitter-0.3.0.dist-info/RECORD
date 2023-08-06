@@ -1,0 +1,13 @@
+CHANGELOG.md,sha256=aSyC56mnexldkLiUlQSK9KKkma2SJH0tBUAZ2I2_3VQ,1883
+datev_splitter/.pytest_cache/.gitignore,sha256=Ptcxtl0GFQwTji2tsL4Gl1UIiKa0frjEXsya26i46b0,37
+datev_splitter/.pytest_cache/CACHEDIR.TAG,sha256=N9yI75oKvt2-gQU6bdj9-xOvthMEXqHrSlyBWnSjveQ,191
+datev_splitter/.pytest_cache/README.md,sha256=c_1vzN2ALEGaay2YPWwxc7fal1WKxLWJ7ewt_kQ9ua0,302
+datev_splitter/.pytest_cache/v/cache/nodeids,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+datev_splitter/.pytest_cache/v/cache/stepwise,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+datev_splitter/__init__.py,sha256=3MD1kCW7VhkQcqejRQXgQDnw2U3-kjiD13yP4Rmk94M,1614
+datev_splitter/__version__.py,sha256=3wVEs2QD_7OcTlD97cZdCeizd2hUbJJ0GeIO8wQIjrk,22
+datev_splitter/pdf_extract.py,sha256=jVMavVcQ0NkHrgqG9aFSJiC3fyKnzIcd21EUoVrKC5M,3492
+Datev_Splitter-0.3.0.dist-info/entry_points.txt,sha256=9JC1qQoHWb1KjKSXZ7Hmdt7TrdFVQQIOLzaJ8NrtQGE,59
+Datev_Splitter-0.3.0.dist-info/WHEEL,sha256=_LDBqpgIVFNHZvvFOGbg2pvJOENq6RHAyT5px-HeX0U,87
+Datev_Splitter-0.3.0.dist-info/METADATA,sha256=YjQlCsxB-NafMUHItM1KpjvxuqKwLpyYNGUjEbDYUfE,369
+Datev_Splitter-0.3.0.dist-info/RECORD,,
