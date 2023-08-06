@@ -1,0 +1,40 @@
+[tool.poetry]
+
+name = "coloredmatrix"
+version = "0.0.2"
+description = "ANSI color formatting for output in terminal"
+
+packages = [{ include = "coloredmatrix" }]
+
+license = "MIT"
+authors = ["Jewin Varghese <jewinvarghese@protonmail.com>"]
+
+readme = "README.md"
+homepage = "https://github.com/JewinV/coloredmatrix"
+repository = "https://github.com/JewinV/coloredmatrix"
+
+keywords = [
+  "ANSI",
+  "ANSI color",
+  "ANSI colour",
+  "color",
+  "colour",
+  "formatting",
+  "termcolor",
+  "terminal",
+  "console",
+  "coloredmatrix"
+]
+classifiers = [
+    # TODO: update this list to match your application: https://pypi.org/pypi?%3Aaction=list_classifiers
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
