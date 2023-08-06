@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyparagraph"
+version = "0.0.7"
+authors = [
+  { name="Sumner Hayes" },
+]
+description = "A library to do Knuth-Plass (aka TeX/LaTeX) text-wrapping, rendering the result as lines of text or in a specified font/size on a PIL image. PIL rendering optionally supports limited rich text (bold and/or italic) via <b> and <i> tags."
+readme = "PYPI.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "setuptools>=50",
+    "pillow",
+    "matplotlib",
+    "langcodes",
+    "pyhyphen"
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/sumnerh1/pyparagraph"
+"Repository" = "https://gitlab.com/sumnerh1/pyparagraph"
+"Bug Tracker" = "https://gitlab.com/sumnerh1/pyparagraph/-/issues"
+
+[project.scripts]
+pyparagraph = "pyparagraph.__main__:main"
