@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: TSUtilities
+Version: 0.0.1
+Summary: Various utilities for time series forecasting.
+Home-page: https://github.com/tblume1992/TSUtilities
+Author: Tyler Blume
+Author-email: tblume@mail.USF.edu
+Keywords: forecasting,time series,seasonality,trend
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: statsmodels
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: more-itertools
+Requires-Dist: matplotlib
+Requires-Dist: tqdm
+
+# TSUtilities
+ Various utilities for time series forecasting
