@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: leomusiclib
+Version: 0.98
+Summary: A package for working with music, intervals, chords
+Author-email: Lev Savosh <lev.savosh11@mail.ru>
+Project-URL: Homepage, https://github.com/pypa/musiclib
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Musiclib
+
+A package for working with music, intervals, chords
