@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+swagginfh.egg-info/PKG-INFO
+swagginfh.egg-info/SOURCES.txt
+swagginfh.egg-info/dependency_links.txt
+swagginfh.egg-info/requires.txt
+swagginfh.egg-info/top_level.txt
