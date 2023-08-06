@@ -1,0 +1,10 @@
+LICENSE.md
+README.md
+setup.py
+src/formatSlackMessage.egg-info/PKG-INFO
+src/formatSlackMessage.egg-info/SOURCES.txt
+src/formatSlackMessage.egg-info/dependency_links.txt
+src/formatSlackMessage.egg-info/requires.txt
+src/formatSlackMessage.egg-info/top_level.txt
+src/formatslackmessage/__init__.py
+src/formatslackmessage/formatslackoutput.py
