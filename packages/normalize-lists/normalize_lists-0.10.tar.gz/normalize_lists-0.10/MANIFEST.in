@@ -1,0 +1,4 @@
+include normalize_lists/requirements.txt
+include normalize_lists/thirdparty.json
+include normalize_lists/README.MD
+include normalize_lists/LICENSE

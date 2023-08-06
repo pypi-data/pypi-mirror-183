@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+normalize_lists/LICENSE
+normalize_lists/README.MD
+normalize_lists/__init__.py
+normalize_lists/requirements.txt
+normalize_lists/thirdparty.json
+normalize_lists.egg-info/PKG-INFO
+normalize_lists.egg-info/SOURCES.txt
+normalize_lists.egg-info/dependency_links.txt
+normalize_lists.egg-info/top_level.txt
