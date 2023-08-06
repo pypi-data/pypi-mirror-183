@@ -1,0 +1,8 @@
+README.md
+setup.py
+ctfhub/__init__.py
+ctfhub/main.py
+ctfhub.egg-info/PKG-INFO
+ctfhub.egg-info/SOURCES.txt
+ctfhub.egg-info/dependency_links.txt
+ctfhub.egg-info/top_level.txt
