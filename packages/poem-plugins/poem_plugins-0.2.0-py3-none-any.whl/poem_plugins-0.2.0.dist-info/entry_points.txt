@@ -1,0 +1,3 @@
+[poetry.plugin]
+poem-git-long-version-plugin=poem_plugins.versions.git:GitLongVersionPlugin
+
