@@ -1,0 +1,2 @@
+[console_scripts]
+sous = sous.cli:main
