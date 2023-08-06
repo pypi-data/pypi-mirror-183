@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: pybotter
+Version: 0.1.1
+Summary: This module is for doing automation tasks on Windows 10 or above
+Home-page: https://github.com/s3794510/pybotter
+Author: Cedrus Z Maize
+Author-email: servant@theecee.dev
+Keywords: python,opencv,mouse,keyboard,automation
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Requires-Python: <3.12,>=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Pybotter: Program Automation Python Library
+Using Python
+Currently under development
+
+## Installation
+Run the following command to install:
+
+```python
+pip install pybotter
+```
+
+## Usage
+
+A template provided in the package for simplification.
+
+```python
+from pybotter import PyBot
+
+# Change path of the system
+#os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+# (**) Type the exact name of the window
+window_name = "Title of the target window"
+
+# Show list of windows
+#PyBot.list_windows()
+
+# Debug mode: show screen shot of the target window
+debug = None
+#debug = 'debug' 
+
+# (**) Initialise the bot
+bot = PyBot(window_name, debug)
+
+# (**) Add needle images first
+@bot.variables
+def add_variables():
+    #bot.add_image("IMAGE_NAME", "IMAGE_PATH")
+    pass
+
+
+# (**) Add bot actions that run during the main loop
+@bot.mainloop
+def bot_run():
+    pass
+
+
+# Resize the target window
+#bot.resize(640,380)
+
+# (**) Initiate adding variables, MUST RUN THIS BEFORE THE MAIN LOOP
+add_variables()
+
+# (**) Run the bot
+bot_run()
+```
+
+Sound effects obtained from https://www.zapsplat.com
