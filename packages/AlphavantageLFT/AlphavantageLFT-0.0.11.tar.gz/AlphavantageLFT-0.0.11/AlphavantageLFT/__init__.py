@@ -1,0 +1,1 @@
+from AlphavantageLFT.AlphavantageLFT import Alphavantage
