@@ -1,0 +1,8 @@
+setup.py
+manu_package_13891/__init__.py
+manu_package_13891/multiplication_class.py
+manu_package_13891.egg-info/PKG-INFO
+manu_package_13891.egg-info/SOURCES.txt
+manu_package_13891.egg-info/dependency_links.txt
+manu_package_13891.egg-info/requires.txt
+manu_package_13891.egg-info/top_level.txt

@@ -1,0 +1,1 @@
+from manu13891_package.multiplication_class import Multiplication
