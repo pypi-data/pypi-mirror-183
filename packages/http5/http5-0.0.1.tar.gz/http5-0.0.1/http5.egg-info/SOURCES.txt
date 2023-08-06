@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+http5/__init__.py
+http5/http.py
+http5.egg-info/PKG-INFO
+http5.egg-info/SOURCES.txt
+http5.egg-info/dependency_links.txt
+http5.egg-info/top_level.txt
