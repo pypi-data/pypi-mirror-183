@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+speechgpt/__init__.py
+speechgpt/askgpt.py
+speechgpt/text_to_speech.py
+speechgpt/voiceinterface.py
+speechgpt.egg-info/PKG-INFO
+speechgpt.egg-info/SOURCES.txt
+speechgpt.egg-info/dependency_links.txt
+speechgpt.egg-info/requires.txt
+speechgpt.egg-info/top_level.txt
