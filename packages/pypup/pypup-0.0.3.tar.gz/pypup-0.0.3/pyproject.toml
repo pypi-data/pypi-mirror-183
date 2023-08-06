@@ -1,0 +1,29 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypup"
+version = "0.0.3"
+description = "Build web apps using just Python"
+readme = "README.md"
+authors = [{ name = "Ashish Singal", email = "ashish.singal1@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["pypup"]
+dependencies = [
+    "flask", "sqlalchemy"
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = []
+
+[project.urls]
+"Homepage" = "https://github.com/pypup/pypup"
