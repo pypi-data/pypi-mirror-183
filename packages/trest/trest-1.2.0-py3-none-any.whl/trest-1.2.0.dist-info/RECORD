@@ -1,0 +1,11 @@
+trest/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trest/rest_request.py,sha256=uYe6I_SzmFUo2rineDLAYzTlLCImDF6e7o1MUfKY3X4,5814
+trest/rest_response.py,sha256=oFLR0eH8lfdzVcRT4j4xa1U_ZEg_zjNdFpgPliI4NOU,3607
+trest/utils.py,sha256=rdDYrZFwL0Eyr8KUDTQRxGeyP4FFRPBp4ZdCztUudv8,158
+trest/configuration/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trest/configuration/config.py,sha256=ZGcs1Qg6Q8gkRabOoh5xctvyiJ9NZDjt9bIzh0dwPro,153
+trest-1.2.0.dist-info/LICENSE.md,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+trest-1.2.0.dist-info/METADATA,sha256=0ci-0MDHCFNedrA6BDhP9scEzvG7gTIDkFo-gtdP-H0,14765
+trest-1.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+trest-1.2.0.dist-info/top_level.txt,sha256=RkjeP6XHxuYJgRlOm4l6KF4ZWc8_jGvAATB3F8wymsQ,6
+trest-1.2.0.dist-info/RECORD,,
