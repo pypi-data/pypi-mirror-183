@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['offline_results',
+ 'offline_results.api',
+ 'offline_results.clustering',
+ 'offline_results.common',
+ 'offline_results.controller',
+ 'offline_results.interface',
+ 'offline_results.preferences',
+ 'offline_results.recommendation',
+ 'offline_results.recommendation.homepage_cluster_category',
+ 'offline_results.recommendation.homepage_cluster_category.homepage_ids_contents_recommendation',
+ 'offline_results.recommendation.homepage_cluster_category.hompage_id_recommendation',
+ 'offline_results.recommendation.homepage_cluster_category.prepare_data',
+ 'offline_results.recommendation.homepage_cluster_category.rc_bottom_viewed',
+ 'offline_results.recommendation.homepage_cluster_category.rc_recency',
+ 'offline_results.recommendation.homepage_cluster_category.rc_top_viewed',
+ 'offline_results.recommendation.homepage_recommendation',
+ 'offline_results.recommendation.homepage_recommendation.because_you_watched',
+ 'offline_results.recommendation.homepage_recommendation.core',
+ 'offline_results.recommendation.homepage_recommendation.core.with_cf_item_to_item',
+ 'offline_results.recommendation.homepage_recommendation.core.with_cf_user_to_user',
+ 'offline_results.recommendation.homepage_recommendation.core.with_content_based_filtering',
+ 'offline_results.recommendation.homepage_recommendation.core.with_least_viewed',
+ 'offline_results.recommendation.homepage_recommendation.core.with_most_viewed',
+ 'offline_results.recommendation.homepage_recommendation.core.with_preference_and_recency',
+ 'offline_results.recommendation.homepage_recommendation.general',
+ 'offline_results.recommendation.homepage_recommendation.general.prepare_data',
+ 'offline_results.recommendation.homepage_recommendation.popular',
+ 'offline_results.recommendation.homepage_recommendation.seasonal',
+ 'offline_results.recommendation.homepage_recommendation.special_model_utils_function',
+ 'offline_results.recommendation.homepage_recommendation.trending',
+ 'offline_results.recommendation.ranking',
+ 'offline_results.recommendation.ranking.horizontal',
+ 'offline_results.recommendation.ranking.vertical',
+ 'offline_results.recommendation.ranking.vertical.with_model',
+ 'offline_results.recommendation.ranking.vertical.with_recency',
+ 'offline_results.recommendation.ranking.vertical.with_top_viewed',
+ 'offline_results.repository',
+ 'offline_results.similarity',
+ 'offline_results.similarity.content_profile',
+ 'offline_results.similarity.user_profile',
+ 'offline_results.similarity.user_profile.utils',
+ 'offline_results.updater',
+ 'offline_results.utils']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['Flask>=2.2.0,<3.0.0',
+ 'Sastrawi>=1.0.1,<2.0.0',
+ 'boto3>=1.20.50,<2.0.0',
+ 'cachetools>=5.2.0,<6.0.0',
+ 'cython>=0.29.32,<0.30.0',
+ 'dask[distributed]>=2022.12.0,<2023.0.0',
+ 'graphdb-module>=0.12.16',
+ 'hijri-converter>=2.2.4,<3.0.0',
+ 'joblib>=1.2.0,<2.0.0',
+ 'networkx>=2.8.5,<3.0.0',
+ 'nltk>=3.7,<4.0',
+ 'numpy>=1.23.5,<2.0.0',
+ 'pandas>=1.4.0,<2.0.0',
+ 'pathlib>=1.0.1,<2.0.0',
+ 'redis>=4.1.2,<5.0.0',
+ 'scikit-learn>=1.0.2,<2.0.0',
+ 'scikit-surprise==1.1.3',
+ 'tensorflow>=2.10.0,<3.0.0',
+ 'tqdm>=4.63.0,<5.0.0',
+ 'yellowbrick==1.5']
+
+setup_kwargs = {
+    'name': 'offline-rce-results-module',
+    'version': '0.9.22',
+    'description': '',
+    'long_description': '# rce_offline_results_module\n\nrce_offline_results_module\n\n\n\n## Register private url MNC\n```shell\n  poetry config repositories.mnc ${privateUrl}\n```\n\n## setting username and password for publishing\n```shell\n    poetry config http-basic.mnc ${username} ${password}\n```',
+    'author': 'AIML Team',
+    'author_email': 'None',
+    'maintainer': 'None',
+    'maintainer_email': 'None',
+    'url': 'None',
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.8,<3.11',
+}
+
+
+setup(**setup_kwargs)
