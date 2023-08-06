@@ -1,0 +1,3 @@
+[console_scripts]
+mon = mon:run
+monsh = mon:run
