@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gitaudit
+Version: 0.5.1
+Summary: Analyse git repositories
+Home-page: https://github.com/MatthiasRieck/gitaudit
+Author: Matthias Rieck
+Author-email: Matthias.Rieck@tum.de
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: pytz
+Requires-Dist: humps
+Requires-Dist: requests
+Requires-Dist: svgdiagram (==1.3.1)
+
+Analyse git repositories
