@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/s_interpreter/__init__.py
+src/s_interpreter/compiler.py
+src/s_interpreter/interpreter.py
+src/s_interpreter.egg-info/PKG-INFO
+src/s_interpreter.egg-info/SOURCES.txt
+src/s_interpreter.egg-info/dependency_links.txt
+src/s_interpreter.egg-info/entry_points.txt
+src/s_interpreter.egg-info/requires.txt
+src/s_interpreter.egg-info/top_level.txt
