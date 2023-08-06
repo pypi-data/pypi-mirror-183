@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+videostream_test.egg-info/PKG-INFO
+videostream_test.egg-info/SOURCES.txt
+videostream_test.egg-info/dependency_links.txt
+videostream_test.egg-info/requires.txt
+videostream_test.egg-info/top_level.txt
+vidstream/__init__.py
+vidstream/audio.py
+vidstream/streaming.py
