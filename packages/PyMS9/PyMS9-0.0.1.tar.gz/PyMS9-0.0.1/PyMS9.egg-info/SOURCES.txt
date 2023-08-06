@@ -1,0 +1,4 @@
+PyMS9.egg-info/PKG-INFO
+PyMS9.egg-info/SOURCES.txt
+PyMS9.egg-info/dependency_links.txt
+PyMS9.egg-info/top_level.txt
