@@ -1,0 +1,23 @@
+[project]
+name = "razer_chroma_keyboard"
+version = "0.0.1.post2"
+authors = [
+  { name="Jean Oustry", email="" },
+]
+description = "Razer chroma compatible keyboard backlight driving library."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft",
+]
+dependencies=["requests"]
+
+[project.urls]
+"Homepage" = "https://github.com/TheVroum/keyboard_light_razer_chroma_easy_manipulation_library"
+"Bug Tracker" = "https://github.com/TheVroum/keyboard_light_razer_chroma_easy_manipulation_library/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
