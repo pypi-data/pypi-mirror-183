@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: jeff_api
+Version: 0.0.1
+Summary: Библиотека Python для взаимодействия с Джеффом.
+Author-email: Mark CDA <aclo.create@gmail.com>
+Project-URL: Homepage, https://github.com/markcda/jeff
+Project-URL: Bug Tracker, https://github.com/markcda/jeff/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jeff-api
+
+Библиотека Python для взаимодействия с Джеффом. Поддерживает как `jeff-qt`, так и `jeff-core`.
