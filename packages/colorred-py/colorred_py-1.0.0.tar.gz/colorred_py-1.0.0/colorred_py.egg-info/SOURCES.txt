@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+colorred_py/__init__.py
+colorred_py/colorize.py
+colorred_py.egg-info/PKG-INFO
+colorred_py.egg-info/SOURCES.txt
+colorred_py.egg-info/dependency_links.txt
+colorred_py.egg-info/requires.txt
+colorred_py.egg-info/top_level.txt

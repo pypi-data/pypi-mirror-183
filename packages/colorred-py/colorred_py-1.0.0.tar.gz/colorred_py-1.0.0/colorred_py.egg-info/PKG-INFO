@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: colorred-py
+Version: 1.0.0
+Summary: Python package
+Home-page: 
+Author: Saba Orkoshneli
+Author-email: Saba Orkoshneli <orkoshnelisaba@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/SabaOrk/colorred
+Keywords: colorred_py
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# colorred
+colorred is a python package that can name any HEX or RGB color as accurately as possible.
