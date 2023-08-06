@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "crypto-backtest"
+version = "0.1.0"
+description = ""
+authors = ["Meng Xiangzhuo <aumo@foxmail.com>"]
+readme = "README.rst"
+packages = [{include = "crypto_backtest"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+binance-history = "^0.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
