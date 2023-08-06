@@ -1,0 +1,10 @@
+setup.py
+mathlogic/__init__.py
+mathlogic/credentials.py
+mathlogic/leaderboardutils.py
+mathlogic_s3_test.egg-info/PKG-INFO
+mathlogic_s3_test.egg-info/SOURCES.txt
+mathlogic_s3_test.egg-info/dependency_links.txt
+mathlogic_s3_test.egg-info/not-zip-safe
+mathlogic_s3_test.egg-info/requires.txt
+mathlogic_s3_test.egg-info/top_level.txt
