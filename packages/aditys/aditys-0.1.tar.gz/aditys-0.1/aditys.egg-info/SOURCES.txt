@@ -1,0 +1,10 @@
+LICENSE
+setup.py
+aditya/__init__.py
+aditya/matadd.py
+aditya/matmul.py
+aditya/matsub.py
+aditys.egg-info/PKG-INFO
+aditys.egg-info/SOURCES.txt
+aditys.egg-info/dependency_links.txt
+aditys.egg-info/top_level.txt
