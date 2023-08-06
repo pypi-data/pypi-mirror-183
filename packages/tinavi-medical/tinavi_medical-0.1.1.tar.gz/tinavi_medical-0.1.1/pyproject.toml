@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "tinavi-medical"
+version = "0.1.1"
+description = "tinavi utilities for medical image processing"
+authors = ["安兴乐 <anxingle@163.com>"]
+readme = "README.md"
+packages = [{include = "region_growth"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.20.0"
+importlib-metadata = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.10b0"
+pre-commit = "^2.2.0"
+flake8 = "^3.7.9"
+mypy = "^0.790"
+isort = "^5.9.0"
+click = "8.0.2"
+
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+secondary = false
+
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = false
+secondary = false
+
+
+[[tool.poetry.source]]
+name = "foo"
+url = "https://upload.pypi.org/legacy/"
+default = false
+secondary = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
