@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: diffuzers
+Version: 0.1.3
+Summary: diffuzers
+Home-page: https://github.com/abhishekkrthakur/diffuzers
+Author: Abhishek Thakur
+License: UNKNOWN
+Keywords: diffuzers diffusers
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: quality
+Provides-Extra: test
+Provides-Extra: docs
+License-File: LICENSE
+
+# diffuzers
+
+A web ui for [🤗 diffusers](https://github.com/huggingface/diffusers).
+
+< under development, request features using issues, prs not accepted atm >
+
+![image](https://github.com/abhishekkrthakur/diffuzers/raw/main/static/screenshot.png)
+
+## Features:
+
+- text to image
+- image to image
+- textual inversion
+- inpainting
+- outpainting (coming soon)
+- image info
+- stable diffusion upscaler
+- gfpgan
+- need more? create an [issue](https://github.com/abhishekkrthakur/diffuzers/issues)
+
+
+## Installation
+
+To install bleeding edge version of diffuzers, clone the repo and install it using pip.
+
+```bash
+git clone https://github.com/abhishekkrthakur/diffuzers
+cd diffuzers
+pip install -e .
+```
+
+Installation using pip:
+    
+```bash 
+pip install diffuzers
+```
+
+## Usage
+
+To run the web app, run the following command:
+
+```bash
+diffuzers run
+```
+
+## All CLI Options:
+
+```bash
+❯ diffuzers run --help
+
+usage: diffuzers <command> [<args>] run [-h] [--output OUTPUT] [--share] [--port PORT] [--host HOST]
+                                        [--device DEVICE]
+
+✨ Run diffuzers app
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --output OUTPUT  Output path is optional, but if provided, all generations will automatically be saved to this
+                   path.
+  --share          Share the app
+  --port PORT      Port to run the app on
+  --host HOST      Host to run the app on
+  --device DEVICE  Device to use, e.g. cpu, cuda, cuda:0, mps (for m1 mac) etc.
+```
+
+
