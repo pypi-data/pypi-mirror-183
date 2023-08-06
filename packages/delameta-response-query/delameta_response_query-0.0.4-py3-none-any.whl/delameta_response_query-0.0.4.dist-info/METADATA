@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: delameta_response_query
+Version: 0.0.4
+Summary: Testting For Response
+Author-email: Arief Prabowo <ariefprabowosheldom@gmail.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Delameta Response Query
+## Introduction
+Package khusus query postgresql namun belum bisa secustom mungkin
+
+## 0.0.4
+Perbaikan bug untuk query select
