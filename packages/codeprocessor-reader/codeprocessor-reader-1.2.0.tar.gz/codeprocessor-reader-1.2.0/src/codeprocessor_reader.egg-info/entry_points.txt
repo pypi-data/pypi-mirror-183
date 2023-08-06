@@ -1,0 +1,2 @@
+[console_scripts]
+cppython = reader.__main__:main
