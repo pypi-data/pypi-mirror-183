@@ -1,0 +1,13 @@
+README.md
+setup.py
+valueflow/Valueflow.py
+valueflow/__init__.py
+valueflow/accountManager.py
+valueflow/sendToken.py
+valueflow/swapToken.py
+valueflow/tokenManager.py
+valueflow/tools.py
+valueflow.egg-info/PKG-INFO
+valueflow.egg-info/SOURCES.txt
+valueflow.egg-info/dependency_links.txt
+valueflow.egg-info/top_level.txt

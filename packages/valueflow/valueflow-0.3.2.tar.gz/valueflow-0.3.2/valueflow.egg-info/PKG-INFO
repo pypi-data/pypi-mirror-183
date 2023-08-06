@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: valueflow
+Version: 0.3.2
+Summary: evm tools basis on web3.py
+Home-page: https://github.com/valueflowever/valueflow
+Author: y
+License: MIT Licence
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
