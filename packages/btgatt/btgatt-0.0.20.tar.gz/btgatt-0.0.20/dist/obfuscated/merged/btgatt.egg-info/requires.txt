@@ -1,0 +1,2 @@
+btatt>=0.0.17
+xpycommon>=0.0.18
