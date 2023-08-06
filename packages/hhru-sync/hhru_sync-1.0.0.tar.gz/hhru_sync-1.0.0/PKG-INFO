@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: hhru_sync
+Version: 1.0.0
+Summary: Элегантная библиотека для взаимодействия с сайтом hh.ru
+Home-page: https://github.com/Dangeres/hhru_sync
+Author: Dmitriy Yablokov
+Author-email: dimon4ik_228@bk.ru
+License: MIT
+Download-URL: https://github.com/Dangeres/hhru_sync/releases/latest
+Description: Первый инит ридми, далее будет переделываться.
+Keywords: hhru hh.ru headhunter.ru api library python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
