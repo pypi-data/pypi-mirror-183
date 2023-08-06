@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+setup.py
+pyhtmltext/__init__.py
+pyhtmltext/const.py
+pyhtmltext/extractor.py
+pyhtmltext/html_parser.py
+pyhtmltext.egg-info/PKG-INFO
+pyhtmltext.egg-info/SOURCES.txt
+pyhtmltext.egg-info/dependency_links.txt
+pyhtmltext.egg-info/requires.txt
+pyhtmltext.egg-info/top_level.txt
