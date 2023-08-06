@@ -1,0 +1,40 @@
+# Python package CI test
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python310:
+      python.version: '3.10'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y wkhtmltopdf
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+    pip install pytest pytest-azurepipelines
+    pip install pytest-cov
+    pip install mypy
+  displayName: 'env'
+
+- script: |
+    pylint $(find . -name "*.py" | xargs)
+  displayName: 'pylint'
+
+- script: |
+    pytest --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html 
+  displayName: 'pytest'
+
+- script: |
+    mypy src/
+  displayName: 'mypy'

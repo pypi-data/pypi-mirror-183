@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "virtoloader"
+version = "1.0.1"
+authors = [
+  { name="André Mourato", email="mourato@virtonomy.io" },
+]
+description = "A library with a variety of tools to work with medical imaging data.."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache License 2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+  ]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
