@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: ioe-email-stuff
+Version: 0.0.5
+Summary: Email sending functionality package
+Home-page: https://github.com/george-oconnor/ioe-email-stuff
+Author: george-oconnor (George O' Connor)
+Author-email: <george@georgestools.com>
+Keywords: python,email,outlook,send email,email attachments,mail
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pypiwin32 (>=305)
+
+# ioe-email-stuff
+
+A package that allows to send emails via a number of different methods from within a python application.
+
+## Installation
+
+Run the following to install:
+
+```python
+pip install ioe-email-stuff
+```
+
+## Usage
+
+```python
+from ioe_email_stuff import unattended_send_email as send_email
+
+# Send an email
+#Mail Types: "success", "warning", "error", "none"
+#CC, BCC and attachment args not required
+send_email("SUBJECT", "BODY", "MAIL_TYPE", "USERNAME", "PASSWORD", "RECIPIENTS", "CCs", "BCCs", ["./ATTACHMENT1.png", "./ATTACHMENT2.png"])
+```
