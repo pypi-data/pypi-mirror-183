@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+BeyondHD_Parser.egg-info/PKG-INFO
+BeyondHD_Parser.egg-info/SOURCES.txt
+BeyondHD_Parser.egg-info/dependency_links.txt
+BeyondHD_Parser.egg-info/requires.txt
+BeyondHD_Parser.egg-info/top_level.txt
