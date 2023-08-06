@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+klodlibrary/__init__.py
+klodlibrary.egg-info/PKG-INFO
+klodlibrary.egg-info/SOURCES.txt
+klodlibrary.egg-info/dependency_links.txt
+klodlibrary.egg-info/top_level.txt
