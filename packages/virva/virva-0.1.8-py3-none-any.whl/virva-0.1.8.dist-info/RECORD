@@ -1,0 +1,15 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+virva/__init__.py,sha256=j4wP5eAV0LCFIK_ot1ZifANi-oubzYID41EMCal9yu4,26
+virva/cities.py,sha256=AublCeSLb1FYwb68gNPNwy9JAy3vz5bO2JkFDzIn5NU,134865
+virva/core.py,sha256=HBxeJfGHN0jiWKc9wOOmxEz1jFeJarJFJpIaZbDupSM,10211
+virva/countries.py,sha256=PevfVjbXRM2-QZuyJfLjgxLCMvePIoNR_32rxXZSpY8,2630
+virva/diseases.py,sha256=yRUC8_mDipG20fWchE9smg5GvhY-5B3LfrDOhgz-03A,3309
+virva/foods.py,sha256=K0usKqSjr1ib-cMHCQS3eyOYnKBjASljwPJMCHjLfek,1082
+virva/jobs.py,sha256=QPwwGoHKjTdbw5aG3cxIg3_KwzOzc3X8mJLYFegtjng,25590
+virva/names.py,sha256=I_BI2jKBFxbfxuFEsG7d_tVcLGUHQyGuZVxezOV76R4,50044
+virva/us_state.py,sha256=T_wGs6P3GJhIOdxHmKvN2b9Ta0t7xN3QlRVDyw8uBog,807
+virva-0.1.8.dist-info/LICENSE.txt,sha256=VNlVPxSChKP2a701JvkHcUa7Y3mRmL9dI4x2v-E71Ek,1067
+virva-0.1.8.dist-info/METADATA,sha256=yRPDCcHHN2jTnkwKzxxyvnJDuF-OSmV053vHqbNSnGw,2899
+virva-0.1.8.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+virva-0.1.8.dist-info/top_level.txt,sha256=posFxNafI9OcAhlLZQbyKyVy5B1uhIadOIZFSDwk45Y,12
+virva-0.1.8.dist-info/RECORD,,
