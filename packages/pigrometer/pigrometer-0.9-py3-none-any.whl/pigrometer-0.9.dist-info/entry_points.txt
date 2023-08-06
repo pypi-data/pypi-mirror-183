@@ -1,0 +1,3 @@
+[console_scripts]
+pigrometer=pigrometer.__main__:main
+
