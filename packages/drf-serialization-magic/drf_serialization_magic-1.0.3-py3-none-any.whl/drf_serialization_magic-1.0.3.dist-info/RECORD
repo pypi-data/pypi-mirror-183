@@ -1,0 +1,9 @@
+drf_serialization_magic/__init__.py,sha256=pBTxrIBamLX6yfJ6JMjkZAh4lb6Ix3PQ7UjJmF_CZrI,84
+drf_serialization_magic/core.py,sha256=a0ViDK7AJkP7xEkPQWUyFUdBHCY6gsOTs8Qc5wrVpkU,9788
+drf_serialization_magic/models.py,sha256=chXvHSi-sAjeiqqh8O4bzR0NGaF5NZuw2nod_h1NWSg,342
+drf_serialization_magic/serializers.py,sha256=zpyu-FaP2Z7uZkwV19rzo76soDMxOF1DJ_RCbsDXzMk,522
+drf_serialization_magic-1.0.3.dist-info/LICENSE,sha256=9nnkJGdi_i7AYseHENTewUNMDUNi75xpZpt4FgV7HRU,1325
+drf_serialization_magic-1.0.3.dist-info/METADATA,sha256=wagFdJqN8xe7tQkCU38Sa89q7fB6uMiSwXPdwt_fKy0,7797
+drf_serialization_magic-1.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+drf_serialization_magic-1.0.3.dist-info/top_level.txt,sha256=Uo7E-_wZM8GzEjp4QjUJntNrf1rt3QN5-OsiljEZEGE,24
+drf_serialization_magic-1.0.3.dist-info/RECORD,,
