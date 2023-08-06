@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/pybeyeonics/__init__.py
+src/pybeyeonics.egg-info/PKG-INFO
+src/pybeyeonics.egg-info/SOURCES.txt
+src/pybeyeonics.egg-info/dependency_links.txt
+src/pybeyeonics.egg-info/top_level.txt
