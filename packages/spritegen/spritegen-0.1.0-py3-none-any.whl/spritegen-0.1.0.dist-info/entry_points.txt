@@ -1,0 +1,2 @@
+[console_scripts]
+spritegen = spritegen.main:cli
