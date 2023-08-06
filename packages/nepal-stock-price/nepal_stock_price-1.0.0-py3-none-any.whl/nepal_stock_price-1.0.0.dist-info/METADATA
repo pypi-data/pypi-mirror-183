@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: nepal-stock-price
+Version: 1.0.0
+Summary: a python package for getting price history of companies listed in nepse
+Home-page: https://github.com/keskhanal/nepse-data
+Author: Keshav Khanal
+Author-email: me.keskhanal@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beautifulsoup4 (==4.11.1)
+Requires-Dist: bs4 (==0.0.1)
+Requires-Dist: Jinja2 (==3.1.2)
+Requires-Dist: numpy (==1.23.1)
+Requires-Dist: pandas (==1.4.3)
+Requires-Dist: pycparser (==2.21)
+Requires-Dist: pywin32 (==304)
+Requires-Dist: requests (==2.28.1)
+Requires-Dist: selenium (==4.3.0)
+Requires-Dist: urllib3 (==1.26.11)
+Requires-Dist: webdriver-manager (==3.8.3)
+Requires-Dist: Werkzeug (==2.2.1)
+Requires-Dist: zipp (==3.8.1)
+
+# nepal-stock-price
+This is a python package to download the stock price data of the companies listed in Nepal Stock Exchage(NEPSE).
+
+## Installation
+
+```bash
+pip install nepal-stock-price
+```
+
+##  Usage
+```python
+from nepse_data import NepseData
+
+#scripts name
+price_history = NepseData("nica")
+
+data_df = price_history.price_history()
+
+#filepath to save price history in csv format
+file_name = "nica.csv"
+data_df.to_csv("data/" + file_name, encoding='utf-8', index=False)
+```
+
+Hurray!!! Now you will be able to get the stock price data of any companies which are listed on NEPSE...
+
+## TODO
+* add visualization
+* add features like to get todays_price, broker_list, news, dividend_history etc. 
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Contact
+If you have any queries then drop a [message here](https://www.linkedin.com/in/keskhanal/) or [visit here](https://www.khanalkeshav.com.np/).
