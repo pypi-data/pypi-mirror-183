@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: jiav-backend-command
+Version: 0.1.0
+Summary: Command backend for jiav
+License: BSD-3-Clause
+Author: Vadim Khitrin
+Author-email: me@vkhitrin.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+
+# jiav-backend-command
+
+## General
+
+A command backend for [jiav](https://github.com/vkhitrin/jiav).  
+
+**This backend is risky since it allows users to execute arbitrary commands, and use it at your own risk**.
+
+## Documentation
+
+Visit <https://jiav.readthedocs.io/en/latest/ansible_backend.html>.
+
+## Requirements
+
+Install [jiav]([jiav](https://github.com/vkhitrin/jiav)).  
+`jiav` requires Python `>= 3.8`.
+
+## Installation
+
+Install from remote:
+
+```bash
+pip3 install jiav-backend-command
+```
+
+Install from the local repository:
+
+```bash
+pip3 install .
+```
+
+## Contributing
+
+**All contributions are welcome!**
+
