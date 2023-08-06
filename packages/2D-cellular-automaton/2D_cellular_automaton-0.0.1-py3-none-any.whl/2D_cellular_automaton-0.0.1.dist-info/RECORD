@@ -1,0 +1,9 @@
+CellularAutomaton/__init__.py,sha256=ltyehVZEWwgdcx1WcXrHSqZ6NpVC5stg1YxNdpN7zs4,33
+CellularAutomaton/automaton.py,sha256=ll77STKHg_sR19MntCZiaIHnuMCgc21uWy8BuCuSDKk,9109
+CellularAutomaton/main.py,sha256=4hb9SuvvKkwj6w9HW5ksRIgbKsTrAAzi4WPqMrjELu0,416
+CellularAutomaton/visualize.py,sha256=rUrMmIUlyATcUn7U3c6gkNCuqXnYy-OpvAxmr4UfFis,1205
+2D_cellular_automaton-0.0.1.dist-info/LICENSE.txt,sha256=IOENrkNX5NzhJ0aoHipSeA8LZAJFMD7LxKUAhuWpZcY,1068
+2D_cellular_automaton-0.0.1.dist-info/METADATA,sha256=8SW4p0NsvQM5YTXuo0w6KjNabm7FZO2Oi2Ew0QaWWuA,3297
+2D_cellular_automaton-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+2D_cellular_automaton-0.0.1.dist-info/top_level.txt,sha256=O1jCu9r-_O-MJIyheKlqiKJYdUyE8Pg0emufWIP6VBQ,18
+2D_cellular_automaton-0.0.1.dist-info/RECORD,,
