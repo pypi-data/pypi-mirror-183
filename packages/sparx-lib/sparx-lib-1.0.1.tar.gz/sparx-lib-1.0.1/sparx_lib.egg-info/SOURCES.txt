@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+sparx/__init__.py
+sparx/clustering.py
+sparx/ffnn.py
+sparx/main.py
+sparx/merging.py
+sparx/model_encoder.py
+sparx/user_input.py
+sparx/visualisation_graph.py
+sparx/visualiser.py
+sparx_lib.egg-info/PKG-INFO
+sparx_lib.egg-info/SOURCES.txt
+sparx_lib.egg-info/dependency_links.txt
+sparx_lib.egg-info/requires.txt
+sparx_lib.egg-info/top_level.txt
