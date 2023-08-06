@@ -1,0 +1,10 @@
+putki/__init__.py,sha256=JOPb6VRNlEFCCGnyATjIgSNnz5RMuuH-lDBazoVVXRo,2294
+putki/__main__.py,sha256=RGNIDmG4ylNHZ_6OuoG-zq7esxQ9J4n0K4Qubyn8tJM,123
+putki/api.py,sha256=9VddegIQN4akRC9BZmEwtd9UT_UuZSjDzAnCpH0IxO4,148
+putki/cli.py,sha256=wBJX01xaw1m3XqupLsEo98iaeizKWTyBOyCNeMzuam0,3658
+putki-2022.12.30.dist-info/LICENSE,sha256=7xgn1qW4kKTaB163LiE9nqy5u7ddEv-GDesuxK-SW58,1069
+putki-2022.12.30.dist-info/METADATA,sha256=SCqh8hgnrf3svac2HBEygRWgTTXDwB1cLYKN_btf1CE,3011
+putki-2022.12.30.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+putki-2022.12.30.dist-info/entry_points.txt,sha256=_P46jQJEeIZqcdXlCLkLNWoeqfwZ4JrWhwpFyGPr3MQ,40
+putki-2022.12.30.dist-info/top_level.txt,sha256=cEEImT5_hkZnV0I9dhpHkr9KTjiprxaxZd6hspgcVAE,6
+putki-2022.12.30.dist-info/RECORD,,
