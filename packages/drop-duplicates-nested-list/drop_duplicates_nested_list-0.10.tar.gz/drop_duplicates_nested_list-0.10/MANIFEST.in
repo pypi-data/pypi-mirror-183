@@ -1,0 +1,4 @@
+include drop_duplicates_nested_list/requirements.txt
+include drop_duplicates_nested_list/thirdparty.json
+include drop_duplicates_nested_list/README.MD
+include drop_duplicates_nested_list/LICENSE

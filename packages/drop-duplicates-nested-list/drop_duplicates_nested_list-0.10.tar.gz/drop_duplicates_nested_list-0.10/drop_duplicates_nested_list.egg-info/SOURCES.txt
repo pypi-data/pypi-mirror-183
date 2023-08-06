@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+drop_duplicates_nested_list/LICENSE
+drop_duplicates_nested_list/README.MD
+drop_duplicates_nested_list/__init__.py
+drop_duplicates_nested_list/requirements.txt
+drop_duplicates_nested_list/thirdparty.json
+drop_duplicates_nested_list.egg-info/PKG-INFO
+drop_duplicates_nested_list.egg-info/SOURCES.txt
+drop_duplicates_nested_list.egg-info/dependency_links.txt
+drop_duplicates_nested_list.egg-info/top_level.txt
