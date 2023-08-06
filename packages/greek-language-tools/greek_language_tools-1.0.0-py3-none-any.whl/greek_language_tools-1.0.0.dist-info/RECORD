@@ -1,0 +1,10 @@
+greeklt/__init__.py,sha256=UheMfdTfryJhBv2FNC1GZWRvB3LABE5XYlGZUzk0Mg8,190
+greeklt/capitalize.py,sha256=vfrkbWCj5jBmef_pjZoY9liIMfyQ6N2aWRLZ13f6Jv0,126
+greeklt/convert_final_s.py,sha256=_EKjZYcTSP6X9uAhLiv0GIa7vsZWePgmtOf9-Y4KCTU,313
+greeklt/greek_transliteration.py,sha256=UC4r6BQ7QE2q8KJnrL_TQl608iWS_68uoMSgVDvTitw,379
+greeklt/remove_accentuation.py,sha256=3SDBQyQZ0gVfhCSzjqbOFcod3HINVFfwT6lp3m2voRs,704
+greek_language_tools-1.0.0.dist-info/LICENSE,sha256=NC-lzlvyYPm2oA4GxSv6QK7YHhtbpv_DIWJ0NUxMytg,1053
+greek_language_tools-1.0.0.dist-info/METADATA,sha256=Z6aBCfXgGyQW4N5bkEMDF1jgN3hDp5D8RmeQKt5ug3Q,2398
+greek_language_tools-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+greek_language_tools-1.0.0.dist-info/top_level.txt,sha256=VWFEYrkadZhq_Hr4rhDUFfhAqGWiZPux5jqPN43pUL0,8
+greek_language_tools-1.0.0.dist-info/RECORD,,
