@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pylitejet
+Version: 0.4.5
+Summary: A library for controlling a LiteJet lighting system.
+Home-page: https://github.com/joncar/pylitejet
+Download-URL: https://github.com/joncar/pylitejet/tarball/0.4.5
+Author: Jon Caruana
+Author-email: jon@joncaruana.com
+License: MIT
+Keywords: litejet
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: pyserial
+Requires-Dist: pyserial-asyncio
+
+A library for controlling a LiteJet lighting system.
