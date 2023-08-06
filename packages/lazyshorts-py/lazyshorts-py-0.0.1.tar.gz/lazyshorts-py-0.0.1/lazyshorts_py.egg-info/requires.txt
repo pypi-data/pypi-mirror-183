@@ -1,0 +1,8 @@
+argparse
+auto-editor
+editor
+moviepy==2.0.0.dev2
+srt
+torch==1.13.1+cpu
+uuid
+whisper-openai

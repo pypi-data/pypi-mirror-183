@@ -1,0 +1,10 @@
+LICENSE.md
+MANIFEST.in
+README.md
+setup.py
+lazyshorts_py.egg-info/PKG-INFO
+lazyshorts_py.egg-info/SOURCES.txt
+lazyshorts_py.egg-info/dependency_links.txt
+lazyshorts_py.egg-info/entry_points.txt
+lazyshorts_py.egg-info/requires.txt
+lazyshorts_py.egg-info/top_level.txt
