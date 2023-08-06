@@ -1,0 +1,4 @@
+include a_pandas_ex_css_selector_from_html/requirements.txt
+include a_pandas_ex_css_selector_from_html/thirdparty.json
+include a_pandas_ex_css_selector_from_html/README.MD
+include a_pandas_ex_css_selector_from_html/LICENSE
