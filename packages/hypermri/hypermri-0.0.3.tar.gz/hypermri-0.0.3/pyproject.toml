@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hypermri"
+version = "0.0.3"
+authors = [
+  { name="Andre Wendlinger", email="andre.wendlinger@tum.de"},
+  { name="Wolfgang Gottwald", email="wolfgang.gottwald@tum.de"},
+]
+license = {file = "LICENSE.txt"}
+description = "Schilling-AG python module to work with Bruker MRI data"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "numpy >= 1.19.5",
+    "matplotlib >= 3.2.1",
+    "brukerapi >= 0.1.6"
+]
+
+[tool.setuptools.packages]
+find = {}
+
+[project.optional-dependencies]
+dev = [
+  "black >= 22.12.0",
+  "pytest >= 3.7"
+]

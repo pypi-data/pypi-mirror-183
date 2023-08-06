@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+hypermri.egg-info/PKG-INFO
+hypermri.egg-info/SOURCES.txt
+hypermri.egg-info/dependency_links.txt
+hypermri.egg-info/requires.txt
+hypermri.egg-info/top_level.txt
+src/hypermri/__init__.py
+src/hypermri/anatomical.py
+src/hypermri/brukerexp.py
+src/hypermri/spectroscopy.py
+src/hypermri/utils.py
+tests/__init__.py
