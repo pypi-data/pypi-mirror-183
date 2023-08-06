@@ -1,0 +1,13 @@
+dtwalign/__init__.py,sha256=PcnzTXVtQCCJSwqje24bjbqNqBKZ6_jzbUFb9VrGY64,78
+dtwalign/backtrack.py,sha256=qqZgpJbFoeZKv4dlCHMDoiADytfRez7k0zuIjkfHC_8,2288
+dtwalign/cost.py,sha256=LorIyr23Ur67is1YdDyI33pBbX1Jo9F46AYdFzPJ6H0,2001
+dtwalign/distance.py,sha256=1GOkkRisU54z5QNrqudKNE3xEuGRsCSkwGwaklwot1Q,1026
+dtwalign/dtw.py,sha256=oZyDCeOBYCkIhhvVhE_WjCBYl35jd2wjlAUdTsna5II,8408
+dtwalign/result.py,sha256=DbHn2kjW2Z9-hDjUdmBOGrkbJCghC4vn_4L5kDrA86w,4277
+dtwalign/step_pattern.py,sha256=96gkz8xHW9JX_xVqMB0wj3RT2MKjIlUd8et3HM1VNO8,19539
+dtwalign/window.py,sha256=K9ufwdk3FpoYxrnE3Jb1xoYn1jdZU0muNtuoVZFdXx4,3601
+dtwalign-0.1.1.dist-info/LICENSE.txt,sha256=ImvqZrPHddutXxnu0qzo0z24FdYfImrH3Esi5BrG0oE,1051
+dtwalign-0.1.1.dist-info/METADATA,sha256=UZbYqVzUWa6fLGq1MRDuydiW480YmgTlflXsNN1wtW0,1451
+dtwalign-0.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+dtwalign-0.1.1.dist-info/top_level.txt,sha256=RVMk70ufeCHg9NlR9DDtHPO4ZXZN7tsbF7qzgzdLwiA,9
+dtwalign-0.1.1.dist-info/RECORD,,
