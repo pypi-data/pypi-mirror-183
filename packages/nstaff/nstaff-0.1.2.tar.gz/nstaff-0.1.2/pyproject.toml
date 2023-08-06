@@ -1,0 +1,65 @@
+# This is a TOML document.
+
+
+title = "SpeedBoat Automated Testing Framework"
+
+[owner]
+name = "Panchdev Singh Chauhan"
+
+authors = [
+    { name = "Panchdev Chauhan", email = "erpanchdev@gmail.com" }
+]
+
+[project]
+name = "nstaff"
+description = "SpeedBoat Automated Testing Framework"
+readme = "nstaff/README.md"
+version = "0.1.2"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "pytest"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pancht/speedboat.git"
+"Bug Tracker" = "https://github.com/pancht/speedboat.git/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+#[database]
+#server = "192.168.1.1"
+#ports = [ 8000, 8001, 8002 ]
+#connection_max = 5000
+#enabled = true
+#
+#[servers]
+#
+#  # Indentation (tabs and/or spaces) is allowed but not required
+#  [servers.alpha]
+#  ip = "10.0.0.1"
+#  dc = "eqdc10"
+#
+#  [servers.beta]
+#  ip = "10.0.0.2"
+#  dc = "eqdc10"
+#
+#[clients]
+#data = [ ["gamma", "delta"], [1, 2] ]
+#
+## Line breaks are OK when inside arrays
+#hosts = [
+#  "alpha",
+#  "omega"
+#]

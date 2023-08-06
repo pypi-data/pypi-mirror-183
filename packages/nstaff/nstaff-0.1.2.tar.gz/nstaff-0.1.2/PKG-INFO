@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: nstaff
+Version: 0.1.2
+Summary: SpeedBoat Automated Testing Framework
+Project-URL: Homepage, https://github.com/pancht/speedboat.git
+Project-URL: Bug Tracker, https://github.com/pancht/speedboat.git/issues
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pytest
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
