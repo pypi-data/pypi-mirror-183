@@ -1,0 +1,5 @@
+jiav/api/backends/command.py,sha256=GKrGWKTNjdDQnBnOct3axcushRnJRtlRHSeRf-ELvr4,2903
+jiav/api/schemas/command.py,sha256=Yv0KF5HP-BPgu8JcPobHd6uSx5HP65c4m1YZb_bhOJw,777
+jiav_backend_command-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+jiav_backend_command-0.1.0.dist-info/METADATA,sha256=Ul6ETUkv3xPPpuuKqB-rkRfskB-CoGwP5wgv-lqI100,1456
+jiav_backend_command-0.1.0.dist-info/RECORD,,
