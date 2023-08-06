@@ -1,0 +1,7 @@
+LICENSE
+README.md
+pyproject.toml
+mstr_robotics/MSTR_Robotics_magerdaniel.egg-info/PKG-INFO
+mstr_robotics/MSTR_Robotics_magerdaniel.egg-info/SOURCES.txt
+mstr_robotics/MSTR_Robotics_magerdaniel.egg-info/dependency_links.txt
+mstr_robotics/MSTR_Robotics_magerdaniel.egg-info/top_level.txt
