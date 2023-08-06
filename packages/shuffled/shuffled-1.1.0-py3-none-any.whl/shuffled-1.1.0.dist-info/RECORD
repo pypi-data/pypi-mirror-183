@@ -1,0 +1,9 @@
+shuffled/__init__.py,sha256=oWszVR5_5MCV2ljUnUtaQyR6fY8rvCTZo76kgfEvnOI,51
+shuffled/core.py,sha256=lrBIAsUxXGTvzKDYag9QAqFqxgYM5vGXd6SOHihQYTM,1750
+shuffled/crypto.py,sha256=A7BkdcjjGPkSKSTn24lAk8VoL8VLN0au_2or1twKPpA,1997
+shuffled/feistel.py,sha256=Yy4lkIulGi1oSsNWEXgw4u5SWriT6ZG3NS4r_uYgnyY,1424
+shuffled/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shuffled-1.1.0.dist-info/METADATA,sha256=3V1jdORwm0GT_0KtuN8rfZ8JP8LXjVg5zVlulZucdGk,1718
+shuffled-1.1.0.dist-info/LICENSE,sha256=ec54RMqbsgAfgr65MDYHheWh7ngO985cUob0qJjDmWg,1069
+shuffled-1.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+shuffled-1.1.0.dist-info/RECORD,,
