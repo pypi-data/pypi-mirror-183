@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+minimal_code/__init__.py
+minimal_code/converter.py
+minimal_code/copy.py
+minimal_code/create.py
+minimal_code/rename.py
+minimal_code/tts.py
+minimal_code.egg-info/PKG-INFO
+minimal_code.egg-info/SOURCES.txt
+minimal_code.egg-info/dependency_links.txt
+minimal_code.egg-info/top_level.txt
