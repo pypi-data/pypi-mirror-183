@@ -1,0 +1,2 @@
+[console_scripts]
+doonfraction = doonfraction.__main__:main
