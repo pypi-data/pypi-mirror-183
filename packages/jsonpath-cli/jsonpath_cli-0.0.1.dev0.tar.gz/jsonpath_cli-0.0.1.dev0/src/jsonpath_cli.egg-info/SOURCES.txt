@@ -1,0 +1,16 @@
+LICENSE.md
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/jsonpath_cli/__init__.py
+src/jsonpath_cli/_my_argument_parser.py
+src/jsonpath_cli/main.py
+src/jsonpath_cli.egg-info/PKG-INFO
+src/jsonpath_cli.egg-info/SOURCES.txt
+src/jsonpath_cli.egg-info/dependency_links.txt
+src/jsonpath_cli.egg-info/entry_points.txt
+src/jsonpath_cli.egg-info/requires.txt
+src/jsonpath_cli.egg-info/top_level.txt
+src/jsonpath_cli.egg-info/zip-safe
