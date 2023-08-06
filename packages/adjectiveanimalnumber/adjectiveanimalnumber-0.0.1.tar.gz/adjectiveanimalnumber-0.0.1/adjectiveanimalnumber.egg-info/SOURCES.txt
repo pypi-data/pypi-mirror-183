@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+adjectiveanimalnumber/__init__.py
+adjectiveanimalnumber/__main__.py
+adjectiveanimalnumber/adjectives.py
+adjectiveanimalnumber/animals.py
+adjectiveanimalnumber.egg-info/PKG-INFO
+adjectiveanimalnumber.egg-info/SOURCES.txt
+adjectiveanimalnumber.egg-info/dependency_links.txt
+adjectiveanimalnumber.egg-info/entry_points.txt
+adjectiveanimalnumber.egg-info/top_level.txt

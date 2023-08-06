@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: adjectiveanimalnumber
+Version: 0.0.1
+Summary: A simple package to generate random adjectives with an animal name and a random integer.
+Home-page: https://github.com/pasqualedem/adjectiveanimalnumber
+Author: Pasquale De Marinis
+Author-email: pas.demarinis@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AdjectiveAnimalNumber
+
+This is a port in Python of the [adjectiveadjectiveanimal](https://github.com/nii236/adjectiveadjectiveanimal)
+
+## Installation
+
+```bash 
+pip install adjectiveanimalnumber
+```
+
+## Usage
+
+### CLI
+    usage: adjectiveanimalnumber [-h] [-a ADJS] [-s SEP] [-n NUM] [-i INF] [-u SUP]                                                                                                                                                                                     
+    
+    Generate a random adjective with an animal name and a random integer.
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -a ADJS, --adjs ADJS  Number of adjectives to generate
+      -s SEP, --sep SEP     Separator between adjectives and animal name
+      -n NUM, --num NUM     Add a random integer to the end of the string
+      -i INF, --inf INF     Inferior limit for random integer
+      -u SUP, --sup SUP     Superior limit for random integer
+
+Examples:
+    
+```bash
+adjectiveanimalnumber -a 2 -n 1 -i 0 -u 100
+```
+
+```bash
+adjectiveanimalnumber -a 3 -s "_" -i 0 -u 1024
+```
+
+### Python
+
+```python
+from adjectiveanimalnumber import generate
+generate()
+```
+
+

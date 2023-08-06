@@ -1,0 +1,3 @@
+[console_scripts]
+adjectiveanimalnumber = adjectiveanimalnumber.__main__:main
+
