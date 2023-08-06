@@ -1,0 +1,16 @@
+ucr_datasets/__init__.py,sha256=e8-Lzs8KYk_Vjx5MqS72rDGtgIIBE5HKbaOnaQ5qvRU,37
+ucr_datasets/dataloaders.py,sha256=aRIOAVFGyPWwldfS0WLQBIQZr1WyVyCWokBtY6Fnqt0,179
+ucr_datasets/utils.py,sha256=8RqiBxbYcHxW22WhR4XeCAWdF486XMF1u_ye_FCh5Zc,1306
+ucr_datasets/data/ArrowHead_TEST.tsv,sha256=a8eoP2bAZR2V_v77JWABHWqHe2ykwRPdocB66u1HN-I,484229
+ucr_datasets/data/ArrowHead_TRAIN.tsv,sha256=BLuf0oJ2UNPsLzhFB_CD-9TDdI-RnLrOODH4fgr_Bqc,99664
+ucr_datasets/data/Beef_TEST.tsv,sha256=F81NfAbXHVpmhZI-gsIi5Bh0ZpOgK4PjDRGpeaIJRh8,158655
+ucr_datasets/data/Beef_TRAIN.tsv,sha256=piGXN56lgjboud6nOaghswmrZ4LRUh1eV1jK3v6Qs_4,158643
+ucr_datasets/data/BeetleFly_TEST.tsv,sha256=2tHMkwWVxXCr6PBHyKKXWO8ZL4tzBpc_h25tthq888A,113860
+ucr_datasets/data/BeetleFly_TRAIN.tsv,sha256=Y22BnGFTaJO8B542Vq31lZO-EDsXkDNYtoITHyIw4i4,114131
+ucr_datasets/data/BirdChicken_TEST.tsv,sha256=BW59ETRyQdrcpdP91hA2AmnZn5EmVpGCScmpoRabkbs,114168
+ucr_datasets/data/BirdChicken_TRAIN.tsv,sha256=CF-scrR1s_kIxZAA-SylyD0jz2W6LgEL7WFKXGR96VY,113869
+ucr_datasets/data/__init__.py,sha256=tfg-2guWAyVuO5awheYPY29MxsOR2aG9X3OLScP7AmE,257
+ucr_datasets-0.0.3.dist-info/METADATA,sha256=Gk01auAbuopYykfYvts7tIgN737IHiMd2mISzpDk4yc,596
+ucr_datasets-0.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+ucr_datasets-0.0.3.dist-info/top_level.txt,sha256=TgrUnH2_ZV4TVMms-dBt0jtTTEocPVRzijmpAkc7c1I,13
+ucr_datasets-0.0.3.dist-info/RECORD,,
