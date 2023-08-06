@@ -1,0 +1,17 @@
+pyctdev/__init__.py,sha256=6woHlX3t8yBPmdxCaqAxvh3vHjqZ4luT6lAK-y0hjiM,3729
+pyctdev/_conda.py,sha256=ZSbm3thEKjQA97Jvq7wNmHE_mQ8L3JAj1Iv7zs4W-h4,37882
+pyctdev/_pip.py,sha256=Cc-xHrcMGqGE0yeDN3I0iXtunct10Q4VXyA4RtXEPxY,9088
+pyctdev/_version.py,sha256=t_FxJ0NRYU47jsF-Ew0erQAunh23cczem7yXTbbRtB0,500
+pyctdev/condatemplate.yaml,sha256=ExsxDSGpmSXOXWX2O2p6OvFk16cdlbhJyXsJ__eLNVU,1167
+pyctdev/util.py,sha256=ubszOFGBS4BBH-zdHiuraZhzGjtn0tsLm0PSPLXwnww,12089
+pyctdev/_vendor/README.txt,sha256=itH5Ov6EQEVYb1WyTDYBo8BKnCtkLUwMy9qB2yRXPfY,134
+pyctdev/_vendor/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyctdev/_vendor/tox-3.0.0.zip,sha256=nuhIhjxt_D01M6SYQQIqun1_hb0023FelG1-dijlXds,41711
+pyctdev/_vendor/tox-pep-518.zip,sha256=RK-dY-BWu-5uFGMmWM9vFf9_VtkCg6ivhqmwpO7xnIg,44540
+pyctdev/_vendor/tox_wrapper.py,sha256=obvPEQcR2Zyn51zvBAQpd8_jPkbe3RshyeBBH_IVOiI,218
+pyctdev/_vendor/virtualenv-15.2.0.zip,sha256=nO93SZyNSzBv0Xpgg_PRtM1tuCsBdCMk8ywOjM1qBDA,40599
+pyctdev-0.7.1a1.dist-info/LICENSE,sha256=k7hNQW7sBbg1x1_CmkjYQHrs31WmfUUvoPZq-ltU0fU,1505
+pyctdev-0.7.1a1.dist-info/METADATA,sha256=AXhzBbC94ESeO5GTQbetwn6aREuzF5uZPafEeByD2ik,18366
+pyctdev-0.7.1a1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pyctdev-0.7.1a1.dist-info/top_level.txt,sha256=-OtL83is818A2zSlTK8ZSj5FWSrR2VMV6ikLun3QG4A,8
+pyctdev-0.7.1a1.dist-info/RECORD,,
