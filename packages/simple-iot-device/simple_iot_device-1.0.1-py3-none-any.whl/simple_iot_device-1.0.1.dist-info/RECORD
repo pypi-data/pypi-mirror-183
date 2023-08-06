@@ -1,0 +1,12 @@
+simple_iot_device/__init__.py,sha256=Mmy1Ysbyvrwwzxtw7XhWkfibeorwsgjPdGfbKa4jbHA,35
+simple_iot_device/device/__init__.py,sha256=NcqI5l0mUHCYFVosu4fRGKo-LgXBDWKi3wrfs5AQ6yg,46
+simple_iot_device/device/simple_iot_device.py,sha256=lV3xHCT6FALDqp0yDAG35p7meamAMg7zqks0fWrUIAo,1037
+simple_iot_device/device/utils/__init__.py,sha256=j6QgQEr0pEC7uzuVRkUWR40c-gCZGZyRan0Ro-FtcKc,75
+simple_iot_device/device/utils/utils.py,sha256=o6IcV6958Lg42QfZKW8kJ4W31xcAatY4G0oA8vfm9WQ,361
+simple_iot_device/prototype/__init__.py,sha256=YQrwIZlVVZsCsfgpkE2-2Mo3DxgdFS9safehTzcM1G4,34
+simple_iot_device/prototype/iot.py,sha256=bssFeKccEg-Bqa6gh9JI18c22-SqCjwRi-firgdAQ_M,348
+simple_iot_device-1.0.1.dist-info/LICENSE,sha256=pOPyYHl9brJiwLaE70AxdD1mlOLPKDNkbKFqOQaS0dI,1073
+simple_iot_device-1.0.1.dist-info/METADATA,sha256=In4J0P4QkT2xo6J72mF-4coW6_S7CRN74GLKIrTh2Cc,2548
+simple_iot_device-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+simple_iot_device-1.0.1.dist-info/top_level.txt,sha256=dDFNPNSXhwi6s6474r1amhgrxzy9qMxEGCBCFnsTLcs,18
+simple_iot_device-1.0.1.dist-info/RECORD,,
