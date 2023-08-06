@@ -1,0 +1,4 @@
+inflect==6.0.0
+numpy==1.23.2
+pandas==1.5.0
+tokenizers==0.13.2.dev0
