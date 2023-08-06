@@ -1,0 +1,16 @@
+.gitignore
+.gitmodules
+LICENSE
+README.md
+build.py
+defs.c
+setup.py
+test_secp256k1_zkp_mw.py
+/Users/marek/Development/open-source/grinventions/tmp3/secp256k1-zkp-mw/secp256k1-zkp/contrib/lax_der_parsing.c
+/Users/marek/Development/open-source/grinventions/tmp3/secp256k1-zkp-mw/secp256k1-zkp/src/secp256k1.c
+secp256k1_zkp_mw/__init__.py
+secp256k1_zkp_mw.egg-info/PKG-INFO
+secp256k1_zkp_mw.egg-info/SOURCES.txt
+secp256k1_zkp_mw.egg-info/dependency_links.txt
+secp256k1_zkp_mw.egg-info/requires.txt
+secp256k1_zkp_mw.egg-info/top_level.txt
