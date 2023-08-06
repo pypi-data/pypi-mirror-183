@@ -1,0 +1,12 @@
+textarium/.DS_Store,sha256=HNzN0n-SjK2i97uOp99orSAOWjFpHmdippGSM_U1Upc,6148
+textarium/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textarium/collections/en_stopwords.txt,sha256=4xeUuhKdzjY3QtxBwxwJ-CPmR94B2RUDNb2g45Cg30Y,18
+textarium/extraction.py,sha256=-Po1zu7oaRQ2RZpn00L2SIyB0-bKFeIPwBHAMgf-LE8,446
+textarium/models.py,sha256=Dq44KKnk5kLdENRuAYGf2LMLxkcSI1OymEgaYmF74CU,125
+textarium/preprocessing.py,sha256=-x0eVezJd8XK1F3vS8tpeRMTR0n7kvE0XH1cvh-jCW8,2442
+textarium/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textarium/tests/test_preprocessing.py,sha256=MBudwOA7ax62cL_Y9O8eq7rSUaBrkKR8TGr5IiaR8AM,1698
+textarium-0.1.0.dist-info/LICENSE,sha256=MWd9ViMIfKGovhGtZxMVbevVRGxlNRi2wDXIRZaha-g,1063
+textarium-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+textarium-0.1.0.dist-info/METADATA,sha256=UxIWLb5K_zVhEf7ghfcWG-NNlCMZOaNOLzoOiL_cAbo,636
+textarium-0.1.0.dist-info/RECORD,,
