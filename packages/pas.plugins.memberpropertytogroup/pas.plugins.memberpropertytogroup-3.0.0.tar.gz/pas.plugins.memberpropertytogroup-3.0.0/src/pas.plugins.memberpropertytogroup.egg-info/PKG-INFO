@@ -1,0 +1,261 @@
+Metadata-Version: 2.1
+Name: pas.plugins.memberpropertytogroup
+Version: 3.0.0
+Summary: Plone PAS plugin to create virtual groups based on member properties
+Home-page: http://pypi.python.org/pypi/pas.plugins.memberpropertytogroup
+Author: kitconcept GmbH
+Author-email: info@kitconcept.com
+License: GPL
+Keywords: Python Plone PAS LDAP
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: Addon
+Classifier: Framework :: Plone :: 6.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: test
+
+
+<div align="center"><img alt="logo" src="https://raw.githubusercontent.com/kitconcept/pas.plugins.memberpropertytogroup/main/kitconcept.png" width="150" /></div>
+
+<h1 align="center">pas.plugins.memberpropertytogroup</h1>
+
+<div align="center">
+
+[![PyPI](https://img.shields.io/pypi/v/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+[![PyPI - License](https://img.shields.io/pypi/l/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+[![PyPI - Status](https://img.shields.io/pypi/status/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+
+
+[![PyPI - Plone Versions](https://img.shields.io/pypi/frameworkversions/plone/pas.plugins.memberpropertytogroup)](https://pypi.org/project/pas.plugins.memberpropertytogroup/)
+
+[![Code analysis checks](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/actions/workflows/code-analysis.yml/badge.svg)](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/actions/workflows/code-analysis.yml)
+[![Tests](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/actions/workflows/tests.yml/badge.svg)](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/actions/workflows/tests.yml)
+![Code Style](https://img.shields.io/badge/Code%20Style-Black-000000)
+
+[![GitHub contributors](https://img.shields.io/github/contributors/kitconcept/pas.plugins.memberpropertytogroup)](https://github.com/kitconcept/pas.plugins.memberpropertytogroup)
+[![GitHub Repo stars](https://img.shields.io/github/stars/kitconcept/pas.plugins.memberpropertytogroup?style=social)](https://github.com/kitconcept/pas.plugins.memberpropertytogroup)
+
+</div>
+
+
+Plone PAS plugin to create virtual groups based on member properties.
+
+The main use case are organisations that have an existing LDAP infrastructure that organises groups through member properties instead of LDAP groups.
+
+If you have a vanilla Plone site without LDAP, you most likely do not need this plugin.
+
+## Features
+
+- [Create virtual groups based on member properties](https://paspluginsmemberpropertytogroup.readthedocs.org/en/latest/features/create_virtual_groups.html#create-virtual-groups-based-on-member-properties)
+- [Create multiple virtual groups based member properties](https://paspluginsmemberpropertytogroup.readthedocs.org/en/latest/features/create_virtual_groups.html#create-multiple-virtual-groups-based-on-member-properties)
+- [Create virtual group based on a member properties prefix](https://paspluginsmemberpropertytogroup.readthedocs.org/en/latest/features/create_virtual_groups.html#create-virtual-group-based-on-a-member-properties-prefix)
+- [Grant local permissions based on virtual member properties groups]( https://paspluginsmemberpropertytogroup.readthedocs.org/en/latest/features/grant_permissions.html#grant-local-permissions-based-on-virtual-member-properties-groups)
+
+## Installation
+
+Add **pas.plugins.memberpropertytogroup** to the Plone installation using `pip`:
+
+```bash
+pip install pas.plugins.memberpropertytogroup
+```
+
+or add it as a dependency on your package's `setup.py`
+
+```python
+    install_requires = [
+        "pas.plugins.memberpropertytogroup",
+        "Plone",
+        "plone.restapi",
+        "setuptools",
+    ],
+```
+
+Start Plone and activate the plugin in the addons control-panel.
+
+
+## Source Code and Contributions
+
+If you want to help with the development (improvement, update, bug-fixing, ...) of `pas.plugins.memberpropertytogroup` this is a great idea!
+
+- [Issue Tracker](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/issues)
+- [Source Code](https://github.com/kitconcept/pas.plugins.memberpropertytogroup/)
+- [Documentation](https://paspluginsmemberpropertytogroup.readthedocs.org)
+
+We appreciate any contribution and if a release is needed to be done on PyPI, please just contact one of us.
+
+Development
+-----------
+
+You need a working `python` environment (system, virtualenv, pyenv, etc) version 3.7 or superior.
+
+Then install the dependencies and a development instance using:
+
+```bash
+make build
+```
+
+To run tests for this package:
+
+```bash
+make test
+```
+
+By default we use the latest Plone version in the 6.x series.
+
+## Credits
+
+The development of this plugin has been kindly sponsored by [Bonn University](http://www3.uni-bonn.de/) and [Helmholtz Zentrum Berlin](https://www.helmholtz-berlin.de/).
+
+
+<img alt="Bonn University" src="http://www3.uni-bonn.de/logo.png" width="200px" />
+
+<img alt="Helmholtz Zentrum Berlin" src="https://raw.githubusercontent.com/kitconcept/pas.plugins.memberpropertytogroup/main/hzb-logo.svg" width="200px" />
+
+
+Developed by [kitconcept](https://www.kitconcept.com/)
+
+<img alt="kitconcept GmbH" src="https://raw.githubusercontent.com/kitconcept/pas.plugins.memberpropertytogroup/main/kitconcept.png" width="200px" />
+
+Icon by [FamFamFam](https://famfamfam.com/)
+
+## License
+
+The project is licensed under the GPLv2.
+
+
+# Contributors
+
+- Timo Stollenwerk
+- Jens Klein
+- Víctor Fernández de Alba
+- Carsten Senger
+- Érico Andrei
+
+
+# Changelog
+
+## 3.0.0 (2023-01-02)
+
+- Initial i18n support
+  [ericof]
+
+- Implement control panel via plone.restapi
+  [ericof]
+
+- Adapt control panel to Bootstrap 5
+  [ericof]
+
+- Use plone/code-analysis-action@v2 as basis for code-analysis in GitHub Actions
+  [ericof]
+
+- Tests now use pytest instead of unittest
+  [ericof]
+
+- Drop support to Plone 5.2
+  [ericof]
+
+- Drop support to Python 3.7
+  [ericof]
+
+
+## 2.1.1 (2021-08-31)
+
+- Fix property matching.
+  [ericof]
+
+
+## 2.1.0 (2021-08-31)
+
+- Property matching now supports '*' both in the start and in the end of the value.
+  [ericof]
+
+
+## 2.0.0 (2021-07-21)
+
+- Plone 5.2 compatibility.
+  [timo]
+
+- Drop Python 2, Plone < 5.2 compatibility.
+  [ericof]
+
+- Implement package uninstall (#12).
+  [ericof]
+
+
+## 1.1 (2018-03-05)
+
+- Plone 5.1 compatibility.
+  [timo]
+
+- Make plugins (by default inactive) ``getGroupMembers`` pluggable, so that
+  integrators may provide its own utility providing new ``IGetGroupMembers``
+  interface promising to return the actual group members.
+  [jensens]
+
+
+## 1.0 (2016-04-04)
+
+- Identical to 1.0a7.
+  [timo]
+
+
+## 1.0a7 (2015-10-25)
+
+- Control panel markup and JS refactoring.
+  [sneridagh]
+
+
+## 1.0a6 (2015-10-21)
+
+- Plone 3 compatibility fixes.
+  [csenger]
+
+
+## 1.0a5 (2015-10-21)
+
+- Fix js to work with Plone 3.
+  [csenger]
+
+- Move add/remove buttons in controlpanel above the save/cancel buttons.
+  [csenger]
+
+
+## 1.0a4 (2015-10-19)
+
+- Add upgrade step for registry entries that have been added in 1.0a3.
+  [timo]
+
+
+## 1.0a3 (2015-10-12)
+
+- New feature: As administrator I can create a group based on multiple member properties.
+  [sneridagh]
+
+
+## 1.0a2 (2015-09-09)
+
+- Fix Scenario: As administrator I can create a group based on member
+  properties prefixes
+  [jensens]
+
+- Ignore empty lines in controlpanel input.
+  [jensens]
+
+
+## 1.0a1 (2015-08-06)
+
+- Initial release.
+  [timo, jensens]
+
+

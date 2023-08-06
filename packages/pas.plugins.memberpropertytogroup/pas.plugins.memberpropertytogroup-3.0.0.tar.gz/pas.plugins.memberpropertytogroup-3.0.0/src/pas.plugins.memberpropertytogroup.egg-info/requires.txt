@@ -1,0 +1,12 @@
+Plone
+setuptools
+
+[test]
+gocept.pytestlayer
+mock
+plone.app.testing
+plone.app.robotframework[debug]
+plone.restapi[test]
+pytest
+pytest-mock
+pytest-cov
