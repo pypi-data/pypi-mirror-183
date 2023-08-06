@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: financial-pie
+Version: 0.1.0
+Summary: Python library for obtaining and analyzing stock market data.
+Author: Justin Vannelli
+Author-email: jaymvannelli@gmail.com
+License: MIT
+License-File: LICENSE
+Requires-Dist: requests (>=2)
+
