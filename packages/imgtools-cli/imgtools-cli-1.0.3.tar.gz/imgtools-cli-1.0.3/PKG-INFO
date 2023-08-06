@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: imgtools-cli
+Version: 1.0.3
+Summary: a command line interface for preparing image models
+Home-page: https://github.com/3ee-Games/image-tools
+Author: 3ee Games
+Author-email: ryguy@3ee.com
+Project-URL: Homepage, https://3ee.com
+Project-URL: Suppport, https://ko-fi.com/3eegames
+Project-URL: Source, https://github.com/3ee-Games/image-tools
+Project-URL: Tracker, https://github.com/3ee-Games/image-tools/issues
+Keywords: image-downloader,image-scraper,heic,hypernetwork,heic-to-png,stable-diffusion,textual-inversion,dreambooth,image-chunks,image-chunker
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Image Tools CLI
+
+Command line interface for working processing images for model training.
+
+
+## Installation
+
+create a virtual environment and imgtools-cli through pip:
+
+```bash
+
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install imgtools-cli
+```
+
+## Usage
+
+**Download all images from a website**
+
+```bash
+python -m imgtools_cli -D https://www.gutenberg.org/cache/epub/67098/pg67098-images.html
+```
+
+**Convert HEIC to PNG**
+
+```bash
+python -m imgtools_cli -P /Users/ootie/heic_files
+```
+
+**Chunk large images into squares**
+
+Easily take large images and split them into smaller squares for training.
+
+```bash
+python -m imgtools_cli -C 512 /Users/ootie/input /Users/ootie/output
+```
