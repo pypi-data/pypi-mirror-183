@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+mtast.egg-info/PKG-INFO
+mtast.egg-info/SOURCES.txt
+mtast.egg-info/dependency_links.txt
+mtast.egg-info/top_level.txt
+testpakage/__init__.py
