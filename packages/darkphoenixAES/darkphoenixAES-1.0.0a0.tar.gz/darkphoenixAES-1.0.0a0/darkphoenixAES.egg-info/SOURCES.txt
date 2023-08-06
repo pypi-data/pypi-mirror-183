@@ -1,0 +1,9 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+setup.py
+darkphoenixAES.egg-info/PKG-INFO
+darkphoenixAES.egg-info/SOURCES.txt
+darkphoenixAES.egg-info/dependency_links.txt
+darkphoenixAES.egg-info/top_level.txt
