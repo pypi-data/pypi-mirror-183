@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: tf-training-notifier
+Version: 1.0.0
+Summary: Sends telegram messages informing user about ML training job progress.
+Author-email: Bart Gebka <bartg1259@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 Bart Gebka
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/bart1259/tf-training-notifier
+Keywords: tensorflow,machine learning,notifier,monitor,callback
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytimeparse
+Requires-Dist: tensorflow ; python_version >= "2.9"
+Provides-Extra: dev
+
+# Tensorflow Training Notifier
+
+A python package which periodically notifies you of your Tensorflow job's progress. 
+
+## Installation
+
+The python package can be installed via pip.
+
+```bash
+pip install FIXME
+```
+
+## Setup
+
+The package relies on two envionrmnet variables ("TRAINING_NOTIFIER_TOKEN" and "TRAINING_NOTIFIER_CHAT_ID") being set. These variables point towards the Telegram bot token and the Telegram chat ID. Instructions on how to get and set those up can be found [here](https://bart1259.github.io/tf-training-notifier/).
+
+## Usage
+
+### Setting up the notifier
+
+```python
+import trainingnotifier
+EPOCHS = 15
+# The default notifier which only notifies the user when the job is completed.
+notifier = trainingnotifier.NotifierCallback(EPOCHS)
+model.fit(x_train, y_train, epochs=EPOCHS, callbacks=[notifier])
+```
+
+```python
+# Creates a notifier that will update the user ONCE (if the job takes more than 2 minutes) 
+#  when the job is done. It will also report the loss in this message.
+notifier = trainingnotifier.NotifierCallback(EPOCHS, min_time="2m", metrics=["loss"])
+```
+
+```python
+# Creates a new notifier that will notify the user, at soonest, every 10 minutes with 
+#  the jobs ETA and loss values. If the job takes longer than 10 minutes than it will send 
+#  a notification that the job is done
+notifier = trainingnotifier.NotifierCallback(EPOCHS, epoch_updates=True, min_time="10m", metrics=["loss"])
+```
+
+### To test if the system was setup properly.
+
+```python
+# This function tests the notification system. If the target user recieves a Telegram test 
+#  message, then the enviornment variables have been set correctly.
+trainingnotifier.test_notifier()
+```
