@@ -1,0 +1,34 @@
+# lifescale_utils
+Data analysis tools for lifescale with GUI.
+
+# Command line programms:
+
+## ls2csv
+The program *ls2csv* reads the content of the xlsm files written by lifescale units, parses the data and writes thems to three csv 
+fieles:
+  * Masses_Vibrio_[run-name].csv: Contains the data series from the sheet AcquisitionIntervals.
+  * SampleMetadata_[run-name].csv: Data from the sheet PanelData.
+  * Summary_[run-name].csv: Contains the data from the sheet IntervalAnalysis.
+
+### Usage:
+  * Conversion: `ls2csv -i [path and nale of xlsm file] -o [outpur directory]`
+  * Help: `ls2csv -h`
+
+
+# License and copyright
+
+Copyright (C) 2022  Andreas Hellerschmied (<heller182@gmx.at>)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
