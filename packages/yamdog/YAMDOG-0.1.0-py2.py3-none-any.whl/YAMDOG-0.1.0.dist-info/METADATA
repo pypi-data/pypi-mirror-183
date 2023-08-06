@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: YAMDOG
+Version: 0.1.0
+Summary: Yet Another Markdown Only Generator
+Home-page: https://github.com/Limespy/YAMDOG
+Author: Limespy
+Author-email: 
+License: MIT
+Project-URL: Changelog, https://github.com/Limespy/YAMDOG/blob/main/README.md#Changelog
+Project-URL: Issue Tracker, https://github.com/Limespy/YAMDOG/issues
+Keywords: markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: dev
+Requires-Dist: mypy (==0.991) ; extra == 'dev'
+Requires-Dist: twine (<4.1,>=4.0) ; extra == 'dev'
+Requires-Dist: colorama (<0.5,>=0.4) ; extra == 'dev'
+
+# YAMDOG <!-- omit in toc -->
+
+Yet Another Markdown Only Generator
+
+Stop
+
+## More
