@@ -1,0 +1,32 @@
+[project]
+name = "gdbplugins"
+dynamic = ["version"]
+
+[build-system]
+requires = ["poetry-core==1.4.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry]
+name = "gdbplugins"
+description = "Python plugins for gdb making debugging various languages with gdb easy."
+authors = ["Jaroslav Henner"]
+license = "GNU General Public License v3 (GPLv3) (GNU GPL3)"
+readme = "README.md"
+version = "0.2" # a standard placeholder for poetry dynamic versioning
+
+[tool.poetry-dynamic-versioning]
+enable = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+pre-commit = "^2.21.0"
+
+[tool.poetry.scripts]
+deploy_gdbplugins_loader = 'gdbplugins.deploy:main'
+
+[tool.poetry.plugins."gdbplugins.plugins"]
+python-plugin = 'gdbplugins.python:main'
+ruby-plugin = 'gdbplugins.ruby:main'
