@@ -1,0 +1,3 @@
+[console_scripts]
+serve=eudata_server.server:serve
+
