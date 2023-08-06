@@ -1,0 +1,3 @@
+[console_scripts]
+my-demo-script=fortune_cookie.app:open_cookie
+
