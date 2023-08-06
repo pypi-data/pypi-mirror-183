@@ -1,0 +1,7 @@
+setup.py
+elasticsearch-connectors/__init__.py
+elasticsearch_connectors.egg-info/PKG-INFO
+elasticsearch_connectors.egg-info/SOURCES.txt
+elasticsearch_connectors.egg-info/dependency_links.txt
+elasticsearch_connectors.egg-info/requires.txt
+elasticsearch_connectors.egg-info/top_level.txt
