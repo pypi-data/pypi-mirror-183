@@ -1,0 +1,6 @@
+testpackageJdka/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+testpackageJdka/hello.py,sha256=t2dlid36NVw0WS39woNXPMklsbG2NSAk5anH2OIjty4,41
+testpackageJdka-0.0.5.dist-info/METADATA,sha256=RzER3Hx1d84ssM68VlS9p_0KYpZ-QVoDMc9nCdzLcSE,315
+testpackageJdka-0.0.5.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+testpackageJdka-0.0.5.dist-info/top_level.txt,sha256=6oQ3Ox8g-OyJzn0P5v92fFrDlXzjfyvsofNF2nZAsDI,16
+testpackageJdka-0.0.5.dist-info/RECORD,,
