@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dir2path"
+version = "0.1.0"
+description = "Add current directory to your PATH"
+authors = ["Josh Burns <joshyburnss@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.scripts]
+dir2path = { callable = "dir2path.console:run" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
