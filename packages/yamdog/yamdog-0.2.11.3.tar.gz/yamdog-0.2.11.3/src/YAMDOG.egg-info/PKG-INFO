@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: yamdog
+Version: 0.2.11.3
+Summary: Yet Another Markdown Only Generator
+Author: Limespy
+License: MIT License
+Project-URL: Changelog, https://github.com/Limespy/yamdog/blob/main/README.md#Changelog
+Project-URL: Issue Tracker, https://github.com/Limespy/yamdog/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.txt
+
+# YAMDOG <!-- omit in toc -->
+
+Yet Another Markdown Only Generator
+
+## Examples
+
+> |  a  |          b          |                       $\leq$                      |
+> |  :-- |  :-----------------: | ------------------------------------------------: |
+> |  1  |          2          | [$\leq$](https://www.snakemd.io/en/latest/usage/) |
+> |  3  | [Markdown Guide][1] |                         5                         |
+> |  7  |   [hobbit-hole][2]  |                         9                         |
+
+- Just text
+- Sublist
+    - a
+    - b
+- > |  a  |          b          |                       $\leq$                      |
+  > |  :-- |  :-----------------: | ------------------------------------------------: |
+  > |  1  |          2          | [$\leq$](https://www.snakemd.io/en/latest/usage/) |
+  > |  3  | [Markdown Guide][1] |                         5                         |
+  > |  7  |   [hobbit-hole][2]  |                         9                         |
+- second sublisting, definition
+    : First definition
+    : Second definition
+- [hobbit-hole][2]
+
+[1]: <https://www.markdownguide.org> "Guide for Markdown"
+[2]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> "Hobbit lifestyles"
