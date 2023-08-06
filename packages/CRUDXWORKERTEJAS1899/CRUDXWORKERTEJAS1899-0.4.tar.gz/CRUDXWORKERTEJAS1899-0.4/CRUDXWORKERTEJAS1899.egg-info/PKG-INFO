@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: CRUDXWORKERTEJAS1899
+Version: 0.4
+Summary: This is django CRUD web application 2
+Home-page: UNKNOWN
+Author: wati
+Author-email: wati@wati.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+This is django CRUD web application 2 contain Create Read,Update,Delete operations
+
