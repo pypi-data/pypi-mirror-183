@@ -1,0 +1,8 @@
+torch
+pytorch-lightning
+wandb
+transformers
+datasets
+tokenizers
+sacrebleu
+sacremoses
