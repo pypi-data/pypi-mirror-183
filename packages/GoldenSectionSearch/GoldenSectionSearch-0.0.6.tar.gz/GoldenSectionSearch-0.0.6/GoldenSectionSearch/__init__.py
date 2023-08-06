@@ -1,0 +1,1 @@
+from GoldenSectionSearch import GoldenSectionAlg

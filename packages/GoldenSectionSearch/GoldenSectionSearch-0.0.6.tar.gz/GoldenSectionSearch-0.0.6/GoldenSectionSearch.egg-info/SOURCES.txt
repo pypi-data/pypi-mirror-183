@@ -1,0 +1,9 @@
+README.md
+setup.py
+GoldenSectionSearch/GoldenSectionSearch.py
+GoldenSectionSearch/__init__.py
+GoldenSectionSearch.egg-info/PKG-INFO
+GoldenSectionSearch.egg-info/SOURCES.txt
+GoldenSectionSearch.egg-info/dependency_links.txt
+GoldenSectionSearch.egg-info/requires.txt
+GoldenSectionSearch.egg-info/top_level.txt
