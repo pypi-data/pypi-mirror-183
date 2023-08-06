@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: assess-pps
+Version: 0.1.1
+Summary: Library for calculating time-depending metrics for pps
+Home-page: UNKNOWN
+Author: Olha Alieinik
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Time-Dependent Metrics to Assess Performance Prediction Systems
+
+### Installation
+````
+pip install assess_pps
+````
+
+### Get started
+```Python
+# Importing our library
+from assess_pps import metrics as m
+
+# for working with data we need pandas
+import pandas as pd
+
+# implementing csv files
+ectel = pd.read_csv("D:/path")  # put your link here
+ectelsys2 = pd.read_csv("D:/path")
+
+# We use the file ectel.csv for testing.
+prediction_time = 35  # till which week we should search the overall stability value
+ectel_temp = ectel.loc[ectel.weeknumber <= prediction_time]  # dataframe with all data till predicted time
+S = ectel_temp['idUser'].unique()  # list with student indexes
+Y = [0, 1, 2]  # list of classes
+x = 10  # x  earliest times of correct predictions
+
+# Stability 
+stability = m.Stability(ectel_temp, S)
+print("Stability: ", stability)
+
+# Accuracy
+accuracy = m.Accuracy(ectel_temp, S)
+print("Accuracy: ", accuracy)
+
+# Earliness 
+earliness = m.Earliness_Total(S, Y, x, ectel_temp)
+print("Earliness: ", earliness)
+
+# ESS 
+# for ESS we need to know stability and earliness
+ESS = m.ESS(stability, earliness)
+print("ESS of average earliness: ", ESS)
+
+# EAS 
+# for EAS we need to know accuracy and earliness
+EAS = m.EAS(accuracy, earliness)
+print("EAS of average earliness: ", EAS)
+```
+
