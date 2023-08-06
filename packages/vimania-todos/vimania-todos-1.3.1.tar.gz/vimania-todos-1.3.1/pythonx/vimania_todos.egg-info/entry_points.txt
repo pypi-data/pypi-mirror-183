@@ -1,0 +1,2 @@
+[console_scripts]
+vimania-todos = vimania_todos.todos.cli:app
