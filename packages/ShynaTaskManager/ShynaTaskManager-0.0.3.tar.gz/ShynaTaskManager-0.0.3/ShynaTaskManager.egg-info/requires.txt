@@ -1,0 +1,5 @@
+ShynaTelegramBotNotification
+setuptools
+wheel
+ShynaDatabase
+ShynaTime
