@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+changelog/__init__.py
+changelog/src.py
+changelogs_cli.egg-info/PKG-INFO
+changelogs_cli.egg-info/SOURCES.txt
+changelogs_cli.egg-info/dependency_links.txt
+changelogs_cli.egg-info/entry_points.txt
+changelogs_cli.egg-info/not-zip-safe
+changelogs_cli.egg-info/top_level.txt
