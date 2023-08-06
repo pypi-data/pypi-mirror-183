@@ -1,0 +1,8 @@
+setup.py
+admcheck2/__init__.py
+admcheck2/main.py
+admcheck2.egg-info/PKG-INFO
+admcheck2.egg-info/SOURCES.txt
+admcheck2.egg-info/dependency_links.txt
+admcheck2.egg-info/requires.txt
+admcheck2.egg-info/top_level.txt
