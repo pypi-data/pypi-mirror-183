@@ -1,0 +1,40 @@
+name: Test Demo
+
+on:
+  push:
+
+  pull_request:
+    branches: ['main']
+
+jobs:
+  tests:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: demo
+
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+        framework: ['fastapi', 'starlette']
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ matrix.framework }}-${{ hashFiles('poetry.lock') }}
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install --with ${{ matrix.framework }}
+
+      - name: Tests
+        run: poetry run scripts/test -f ${{ matrix.framework }}
