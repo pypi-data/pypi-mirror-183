@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ros-d2
+Version: 1.0.0
+Summary: A CLI for common scripts shared between Greenroom platform modules and platform CI
+Home-page: https://github.com/Greenroom-Robotics/ros-d2
+Author: Greenroom Robotics
+Author-email: team@greenroomrobotics.com
+Maintainer: David Revay
+Maintainer-email: david.revay@greenroomrobotics.com
+License: Copyright (C) 2022, Greenroom Robotics
+Keywords: colcon
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Build Tools
+Description-Content-Type: text/markdown
+License-File: LICENSE
