@@ -1,0 +1,4 @@
+pytimeparse
+tensorflow>=2.9
+
+[dev]
