@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: poetry-test-pda-fga
+Version: 0.1.3
+Summary: 
+Author: Bruno-Felix
+Author-email: balvesfelix@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: pytest (>=7.2.0,<8.0.0)
+Requires-Dist: pytest-cov (>=4.0.0,<5.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Description-Content-Type: text/markdown
+
+
