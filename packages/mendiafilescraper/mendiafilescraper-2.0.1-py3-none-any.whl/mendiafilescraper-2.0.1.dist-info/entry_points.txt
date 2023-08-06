@@ -1,0 +1,3 @@
+[console_scripts]
+mendia-scraper=MendiaFileScraper:__main__.main
+
