@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: fint_core
+Version: 0.0.1
+Summary: fint core module
+Project-URL: Source, https://github.com/actfint/fint-core
+Author-email: Wh1isper <9573586@qq.com>
+License: BSD 3-Clause License
+Keywords: fint
+Requires-Python: >=3.7
+Requires-Dist: pydantic
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
