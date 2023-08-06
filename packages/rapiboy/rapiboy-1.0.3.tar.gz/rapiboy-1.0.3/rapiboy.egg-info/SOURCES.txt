@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+pmrules/__init__.py
+pmrules/main.py
+rapiboy.egg-info/PKG-INFO
+rapiboy.egg-info/SOURCES.txt
+rapiboy.egg-info/dependency_links.txt
+rapiboy.egg-info/requires.txt
+rapiboy.egg-info/top_level.txt
