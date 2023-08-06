@@ -1,0 +1,13 @@
+pyagadir/__init__.py,sha256=J1tvkquQxa33gHgfiKYaLhZoC66ONKx13TFIFSP7qZw,418
+pyagadir/models.py,sha256=3aR5DttZZ8NW9qkCjl2AwKNQGppciglmy4gBJ-cLT_k,7485
+pyagadir/data/table2.csv,sha256=B5kQCTUzBt6tv2xnCFnU2E_7GAAWoRgG5wdYXdEgddo,1184
+pyagadir/data/table3a.csv,sha256=vkYm8KqsLwHSk_rqROVZhmf6pVNzaVye5-CL3MUos6Y,651
+pyagadir/data/table3b.csv,sha256=6vbJAwsIG713b6ZbgEsrFwAcQnQRrQU6OazEQkY8828,670
+pyagadir/data/table4a.csv,sha256=7yCMXeX6PDM-n7ZLH34tMl3gUkj5FLOOjbjIzrP6e3M,2209
+pyagadir/data/table4b.csv,sha256=akPzebUCCZiDNkyJrr2jlr4YYCRmkVLVW12nxsevi9A,1524
+pyagadir-0.1.0.dist-info/LICENSE,sha256=eyly3Nz3OEk82MMN83IBuxSTXqY2-RA3BlEfAtnrzkk,1066
+pyagadir-0.1.0.dist-info/METADATA,sha256=nWyNr0Gf7ZvtFndQFZD8hDrzNL30Xf3Etdlt5SzCDpE,5308
+pyagadir-0.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pyagadir-0.1.0.dist-info/top_level.txt,sha256=X0iRwmCX49NCxlwdJVgdOxApDTBXeKyX3h_SEtwUcC4,9
+pyagadir-0.1.0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+pyagadir-0.1.0.dist-info/RECORD,,
