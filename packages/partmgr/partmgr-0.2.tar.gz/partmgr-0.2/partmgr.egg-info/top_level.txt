@@ -1,0 +1,4 @@
+partmgr
+partmgr/core
+partmgr/gui
+partmgr/pricefetch
