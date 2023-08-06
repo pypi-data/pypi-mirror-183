@@ -1,0 +1,36 @@
+[
+    {
+        "fullname": "Riza Root",
+        "email": "hanirizo+root@gmail.com",
+        "password": "admin1234$",
+        "whatsapp": "+628562181211",
+        "role": "root",
+        "status": "active",
+        "is_verified": true
+    },
+    {
+        "fullname": "Riza Admin",
+        "email": "hanirizo@gmail.com",
+        "password": "admin1234$",
+        "whatsapp": "+628562181212",
+        "role": "admin",
+        "status": "active",
+        "is_verified": true
+    },
+    {
+        "fullname": "Agung Hari Prabowo",
+        "email": "stomper.bdg@gmail.com",
+        "password": "admin12345",
+        "whatsapp": "+6281350000898",
+        "role": "admin",
+        "status": "active",
+        "is_verified": true
+    },
+    {
+        "fullname": "Riza Customer",
+        "email": "hanirizo+customer@gmail.com",
+        "password": "admin12345",
+        "whatsapp": "+628562181213",
+        "role": "customer"
+    }
+]
