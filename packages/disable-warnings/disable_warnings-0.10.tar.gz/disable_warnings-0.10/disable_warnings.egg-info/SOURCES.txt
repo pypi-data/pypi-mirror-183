@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+disable_warnings/LICENSE
+disable_warnings/README.MD
+disable_warnings/__init__.py
+disable_warnings/requirements.txt
+disable_warnings/thirdparty.json
+disable_warnings.egg-info/PKG-INFO
+disable_warnings.egg-info/SOURCES.txt
+disable_warnings.egg-info/dependency_links.txt
+disable_warnings.egg-info/top_level.txt
