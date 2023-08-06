@@ -1,0 +1,1 @@
+from GRLMerger.py import startGRLMerger
