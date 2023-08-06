@@ -1,0 +1,10 @@
+scrippy_mail/__init__.py,sha256=mCpueGYxhc8Z7EkIqUcQJ57uJm3nc1M3KxJv8fWZ4SY,199
+scrippy_mail/mail/__init__.py,sha256=g6W9mWOb70Q3UwRglqIlrXtMiJYLbyb3VdJ3i96t_sg,188
+scrippy_mail/mail/mailer.py,sha256=qyl4H53thmvIABpUdXeBo_rm2wyG5Tjx16nM4vqK9Y0,4293
+scrippy_mail/mail/popclient.py,sha256=3QaxDTxx9OcXxZEyepk7K8-qToh9fUXZ8DzxLZiRVzg,5397
+scrippy_mail/mail/spamassassin.py,sha256=wCHh6hOxd3c0v1__aw4FwCvWQy6aYQgFTL70mY2eoYY,4699
+scrippy_mail-1.1.70.dist-info/LICENSE,sha256=8VtvWS3tR1fGM1MvYLH3LAZN3TUyEz6wu3m24gU3J48,1146
+scrippy_mail-1.1.70.dist-info/METADATA,sha256=ZAI7Qzt70IpI58wP1xakJJ_0rW-wUV-5RvpiEZNCS-I,6479
+scrippy_mail-1.1.70.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+scrippy_mail-1.1.70.dist-info/top_level.txt,sha256=pgh4aikqJopaLLEIAI6-TH1ovCfCvD7gwIBoKMpV-po,13
+scrippy_mail-1.1.70.dist-info/RECORD,,
