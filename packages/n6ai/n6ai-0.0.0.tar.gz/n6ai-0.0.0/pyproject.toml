@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "n6ai"
+version = "0.0.0"
+description = "Placeholder for PyPi package."
+authors = ["Sergej Samsonenko <contact@sergej.codes>"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
