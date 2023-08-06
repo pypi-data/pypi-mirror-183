@@ -1,0 +1,8 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+backbox/backbox.egg-info/PKG-INFO
+backbox/backbox.egg-info/SOURCES.txt
+backbox/backbox.egg-info/dependency_links.txt
+backbox/backbox.egg-info/top_level.txt
