@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+kilosort4.egg-info/PKG-INFO
+kilosort4.egg-info/SOURCES.txt
+kilosort4.egg-info/dependency_links.txt
+kilosort4.egg-info/entry_points.txt
+kilosort4.egg-info/requires.txt
+kilosort4.egg-info/top_level.txt

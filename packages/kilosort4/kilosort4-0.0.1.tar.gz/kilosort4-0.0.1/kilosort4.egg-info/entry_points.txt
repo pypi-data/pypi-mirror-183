@@ -1,0 +1,2 @@
+[console_scripts]
+kilosort = kilosort.gui.launch:launcher
