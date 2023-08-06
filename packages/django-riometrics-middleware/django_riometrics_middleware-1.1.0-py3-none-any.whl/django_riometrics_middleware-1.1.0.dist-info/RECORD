@@ -1,0 +1,7 @@
+rio_metrics/collector.py,sha256=RQCUsVaKqlUsw7CktYOW2FzQ2gqTK4dVYKuozaFoyUs,3047
+rio_metrics/middleware.py,sha256=7rTOvgl5aL0OQ5xXr06XDPSm5KhTBy9mC4yroyCWczw,1660
+django_riometrics_middleware-1.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+django_riometrics_middleware-1.1.0.dist-info/METADATA,sha256=QhRe5PmNuEA7rtETj6akUQ1XdLOJxTyHBxDCxfilNeE,658
+django_riometrics_middleware-1.1.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+django_riometrics_middleware-1.1.0.dist-info/top_level.txt,sha256=Ubt4iVeY00LEI2QtR-4i9vngV_gDK0UV9Z7Suy6IOqY,12
+django_riometrics_middleware-1.1.0.dist-info/RECORD,,
