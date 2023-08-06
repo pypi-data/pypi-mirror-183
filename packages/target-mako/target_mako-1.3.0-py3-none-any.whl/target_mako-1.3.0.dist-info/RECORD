@@ -1,0 +1,12 @@
+target_mako/__init__.py,sha256=fithL7u5QPLDFAM1Me2ZEBpaWNkAiDCXsMA4SE8EwfI,14752
+target_mako/dict_proxy.py,sha256=-Cz3nQLHuMe95By7rRTCk21M1uxeyKWKgngEa-PbmNI,1666
+target_mako/formatting_functions.py,sha256=XjcXRDGqZMAxqNMyMesAMQOU6m4NZaBU-DRAm4kzaM0,1600
+tests/__init__.py,sha256=eA7w4_M3mQ33GyNwNzS2Ox0Q9b3dAxneI01lLPsxj3c,21695
+tests/formatting_functions.py,sha256=OMU5DE0RH2Iy9UD28qOYf5Iesti0O-59OCBNVkvHdmQ,7469
+tests/test_dict_proxy.py,sha256=oyEyFj7Gf_0Vz-x2wuBG29G6gwbFqYm8B4hmiMWFOMU,3738
+target_mako-1.3.0.dist-info/LICENSE,sha256=6WQzcut4WJpD9BFStKmUFLG2wzyZeoNPWWz_cI-6XCg,33003
+target_mako-1.3.0.dist-info/METADATA,sha256=xgOPbF8nq8iBMvwkW_1KUfFhIRA_Q9c_d8GBfg1VVAk,8611
+target_mako-1.3.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+target_mako-1.3.0.dist-info/entry_points.txt,sha256=Eovg73L3PzipBd7dOksIbc-2Tqn9JRdziOijtg64bRo,49
+target_mako-1.3.0.dist-info/top_level.txt,sha256=DMwvWOJfz6mxeGE00Lyhu2E7ZGk0Wi7YKXEbpz8Dye8,18
+target_mako-1.3.0.dist-info/RECORD,,
