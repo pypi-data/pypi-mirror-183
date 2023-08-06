@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: wrapper-redis-client
+Version: 0.0.2
+Summary: Wrapper for Redis Client
+Home-page: UNKNOWN
+Author: Tatianno Alves
+Author-email: tferreiraalves@gmail.com
+License: MIT License
+Keywords: wrapper redis client
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: redis
+Requires-Dist: wheel
+
+# DESCRIÇÃO
+
+
