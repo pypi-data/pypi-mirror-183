@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_click_on_coords/LICENSE
+a_selenium_click_on_coords/README.MD
+a_selenium_click_on_coords/__init__.py
+a_selenium_click_on_coords/requirements.txt
+a_selenium_click_on_coords/thirdparty.json
+a_selenium_click_on_coords.egg-info/PKG-INFO
+a_selenium_click_on_coords.egg-info/SOURCES.txt
+a_selenium_click_on_coords.egg-info/dependency_links.txt
+a_selenium_click_on_coords.egg-info/top_level.txt
