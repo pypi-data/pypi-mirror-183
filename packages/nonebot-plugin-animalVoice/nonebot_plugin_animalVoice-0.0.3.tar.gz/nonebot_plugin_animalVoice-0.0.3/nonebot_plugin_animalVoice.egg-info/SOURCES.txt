@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+nonebot_plugin_animalVoice/__init__.py
+nonebot_plugin_animalVoice/animalvoice_main.py
+nonebot_plugin_animalVoice/cheru_main.py
+nonebot_plugin_animalVoice.egg-info/PKG-INFO
+nonebot_plugin_animalVoice.egg-info/SOURCES.txt
+nonebot_plugin_animalVoice.egg-info/dependency_links.txt
+nonebot_plugin_animalVoice.egg-info/requires.txt
+nonebot_plugin_animalVoice.egg-info/top_level.txt
+nonebot_plugin_animalVoice/AnimalVoice/__init__.py
+nonebot_plugin_animalVoice/AnimalVoice/converter.py
+nonebot_plugin_animalVoice/Cheru/__init__.py
