@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: Akshay-grpi
+Version: 1.0
+Summary: validating password
+Home-page: UNKNOWN
+Author: Akshay
+Author-email: akshaysavanoor@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: blessings (~=1.7)
+Requires-Dist: turtle
+Requires-Dist: time
+
+#Happy new year
+* ##usage 
+```python
+pip3 install -r requirements.txt
+```
+```python
+* importing script
+  from Akshay_grpi import new_grp
+* running sript
+  new_grp()
+```
+#Developing AbsGarden
+* To install new-year script, along with the tools you need to develop
+   and run tests, run the following
+  in your virtualenv.
+```bash
+$ pip install -e .[dev]
+```
+
+
