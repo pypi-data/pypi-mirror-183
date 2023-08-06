@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "poetry-release-test"
+version = "0.0.0"
+description = "test release through poetry"
+authors = ["songhaoyanga <1627635056@qq.com>"]
+readme = "readme.md"
+packages = [{include = "poetry_release_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

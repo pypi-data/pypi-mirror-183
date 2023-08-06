@@ -1,0 +1,70 @@
+
+# poetry应用
+[github](https://github.com/python-poetry/poetry)
+
+[官方文档](https://link.zhihu.com/?target=https%3A//python-poetry.org/docs/)
+## 安装
+`pip install poetry`
+
+## tips
+`poetry new`创建一个项目脚手架，包括基本结构、pyproject.toml文件，基于每个人的项目目录不同，推荐在已有项目添加poetry管理,详见./test
+
+`poetry init`在现有项目里创建**pyproject.toml**文件
+
+`poetry config --list`查看config列表
+
+`poetry config virtualenvs.in-project true`配置在项目内创建.venv
+
+`poetry config <key> <value>`
+
+`poetry env use python3`指定创建虚拟环境时使用的python解释器版本
+
+### 运行环境指定
+- 执行poetry的命令并不需要激活虚拟环境，因为poetry会自动检测当前虚拟环境
+- 在当前目录对应虚拟环境中执行命令`poetry run python test.py`
+- 显示激活的虚拟环境`poetry shell`
+
+### 依赖
+> 安装某个包时，会在pyproject.toml文件中默认使用版本限定，比如colorama = "^0.4.1" ，当我执行 poetry update 时，colorama也许会更新到0.4.9，但绝不会更新到0.5.0，意思是在更新依赖时不会修改最左边非零的数字号版本，这样的默认设定可以确保不会更新到不兼容变动的版本。
+
+`poetry add flask`安装最新稳定版本的flask
+
+`poetry add pytest --dev`指定为开发依赖，会写到pyproject.toml中的[[tool.poetry.dev-dependencies]]区域
+
+`poetry add flask=2.22.0`指定具体的版本
+
+`poetry install`安装pyproject.toml文件中的全部依赖
+
+`poetry install --no-dev`只安装非development环境的依赖，一般部署时使用
+
+`poetry show`查看项目安装的依赖
+
+`poetry show -t`树形结构查看项目安装的依赖
+
+`poetry update`更新所有锁定版本的依赖
+
+`poetry update httprunner`更新指定的依赖
+
+`poetry remove packages`卸载依赖, **会将依赖包一起卸载**
+
+`poetry env list --full-path`查找当前项目的虚拟环境
+
+
+### 发布流程
+
+1. 原项目中同级目录
+
+
+## 配置镜像源
+- 豆瓣 http://pypi.doubanio.com/simple/
+- 网易 http://mirrors.163.com/pypi/simple/
+- 阿里云 http://mirrors.aliyun.com/pypi/simple/
+- 清华大学 http://pypi.tuna.tsinghua.edu.cn/simple/
+
+在`pyproject.toml`文件末尾追加以下内容
+```
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple"
+default = true
+```
