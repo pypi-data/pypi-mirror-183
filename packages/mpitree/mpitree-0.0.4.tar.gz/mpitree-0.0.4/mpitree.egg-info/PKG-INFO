@@ -1,0 +1,133 @@
+Metadata-Version: 2.1
+Name: mpitree
+Version: 0.0.4
+Summary: A Parallel Decision Tree Implementation using MPI
+Home-page: https://github.com/duong-jason/mpitree
+Author: Jason Duong
+Author-email: my.toe.ben@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+License-File: LICENSE
+
+![Build Status](https://github.com/duong-jason/mpitree/workflows/Unit%20Tests/badge.svg)
+![Build Status](https://github.com/duong-jason/mpitree/workflows/Lint/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+
+
+# mpitree
+
+A Parallel Decision Tree Implementation using MPI *(Message Passing Interface)*.
+
+## How it Works
+
+<p align="center">
+  <img src="https://github.com/duong-jason/mpitree/blob/main/images/psplit.png" alt="Example of process splits"/>
+</p>
+
+For every *interior* decision tree node created, a variable number of processes collectively participate in calculating the best feature to split in addition to the *divide and conquer* strategy. During the *divide* phase, processes in a *communicator* are split approximately evenly across all levels of the split feature. Let $n$ be the number of processes and $p$ be the number of levels, then each distribution, $m$, contains at least $\lfloor n/p \rfloor$ processes and at most one distribution contains $\lceil n/p \rceil$ processes where $n\nmid p$. During the *conquer* phrase, processes in a distribution independently participate among themselves at their respective levels. In detail, each process is assigned in the cyclic distribution or round-robin fashion such that their $comm = (\lfloor ranks/m\rfloor)\mod p$ and $rank = comm_{size}/rank$.
+
+In the above diagram, the root node consists of eight total processes, $p_0, p_1, ..., p_7$, with three distinct feature levels, $l_0, l_1, l_2$. Group $1$ consists of processes and ranks, $\{(0,0), (1,1), (6,2), (7,3)\}$ respectively, Group $2$ consists of processes and ranks, $\{(2,0), (3,1)\}$ respectively and Group $3$ consists of processes and ranks, $\{(4,0), (5,1)\}$ respectively.
+
+Each routine waits for their respective processes from their original *communicator* to finish executing. The completion of a routine results in a sub-tree on a particular path from the root, and the local communicator is de-allocated. The algorithm terminates when all sub-trees are recursively gathered to the root process.
+
+Please note all processes only perform a split during the *divide* phase in a given communicator at an *interior node*. Therefore, a leaf node may consist of more than one process, as the purity measurement at a node is independent of the number of processes.
+
+## Installation
+
+Using [Github](https://github.com/duong-jason/mpitree)
+```bash
+git clone https://github.com/duong-jason/mpitree.git
+cd mpitree
+```
+
+Using [pip](https://pypi.org/project/mpitree/)
+```bash
+pip install mpitree
+```
+
+## Example
+
+```python
+from mpi4py import MPI
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+from mpitree.parallel_decision_tree import (
+    ParallelDecisionTreeClassifier,
+    world_comm,
+    world_rank,
+)
+
+if __name__ == "__main__":
+    iris = load_iris(as_frame=True)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data, iris.target, test_size=0.20, random_state=42
+    )
+
+    world_comm.Barrier()
+    start_time = MPI.Wtime()
+
+    pdt = ParallelDecisionTreeClassifier(criterion={'max_depth': 3})
+    pdt.fit(X_train, y_train)
+
+    score = pdt.score(X_test, y_test)
+
+    end_time = MPI.Wtime()
+    if not world_rank:
+        print(pdt)
+        print(f"Accuracy: {score:.2%}")
+        print(f"Parallel Execution Time: {end_time - start_time:.3f}s")
+```
+
+### Executing `main.py` with 5 processes
+
+```
+$ mpiexec -n 5 python3 main.py
+
+petal length (cm) (< 2.45)
+        0
+        petal length (cm) (< 4.75)
+                petal width (cm) (< 1.65)
+                        1
+                        2
+                petal width (cm) (< 1.75)
+                        2
+                        2
+Accuracy: 96.67%
+Parallel Execution Time: 1.895s
+```
+
+### Decision Boundaries varying values for the `max_depth` hyperparameter
+
+Overfitting becomes apparent as the tree gets deeper because predictions are based on smaller and smaller partitions of the feature space. In a sense, the model is biasing towards *singleton* nodes; and therefore, may cause mispredictions in the precense of noisy data.
+
+Pre-post pruning techniques mitigates the likelihood of a decision tree overfitting. The figures shown below various decision boundaries for different values of the `max_depth` hyperparameter. In addition, we show how *outliers* and *noise* may constitute mispredictions.
+
+The iris dataset provided by *scikit-learn* provides a base analysis for our decision tree implementation. The former figure demonstrates how noisy instances may negatively impact the performance of the decision tree model while for the latter figure, the decision boundary does not shift with the outlier for the *iris setosa* class.
+
+![depth_all_1](https://github.com/duong-jason/mpitree/blob/main/images/dt_all_1.png)
+
+![depth_all_2](https://github.com/duong-jason/mpitree/blob/main/images/dt_all_2.png)
+
+## Unit Tests
+
+```
+python3 -m pytest
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Licence
+
+[MIT](https://github.com/duong-jason/mpitree/blob/main/LICENSE)
