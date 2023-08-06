@@ -1,0 +1,12 @@
+lgb_params = {'feature_fraction': 0.7319044104939286,
+           'max_depth': 65,
+           'min_child_weight': 1e-05,
+           'min_data_in_leaf': 47,
+           'n_estimators': 497,
+           'num_leaves': 45,
+           'reg_alpha': 0,
+           'reg_lambda': 50,
+           'metric': 'auc',
+           'eval_metric': 'auc',
+           'is_unbalance': True,
+           'subsample': 0.5380272330885912}
