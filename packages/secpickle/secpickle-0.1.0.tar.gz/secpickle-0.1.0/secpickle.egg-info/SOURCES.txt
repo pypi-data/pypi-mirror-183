@@ -1,0 +1,9 @@
+README.md
+setup.py
+secpickle/__init__.py
+secpickle/exceptions.py
+secpickle/secpickle.py
+secpickle.egg-info/PKG-INFO
+secpickle.egg-info/SOURCES.txt
+secpickle.egg-info/dependency_links.txt
+secpickle.egg-info/top_level.txt
