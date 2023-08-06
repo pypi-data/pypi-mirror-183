@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/httpserver4u/__init__.py
+src/httpserver4u/__main__.py
+src/httpserver4u/server.py
+src/httpserver4u.egg-info/PKG-INFO
+src/httpserver4u.egg-info/SOURCES.txt
+src/httpserver4u.egg-info/dependency_links.txt
+src/httpserver4u.egg-info/top_level.txt

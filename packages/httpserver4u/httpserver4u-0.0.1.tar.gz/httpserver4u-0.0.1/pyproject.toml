@@ -1,0 +1,21 @@
+[project]
+name = "httpserver4u"
+version = "0.0.1"
+authors = [
+  { name="Neko Null", email="jerrylu.ms@outlook.com" },
+]
+description = "A simple HTTP server with file upload/download and quick text save function."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jerrylususu/simple_http_server_py/"
+
+[build-system]
+requires = ["setuptools>=32.2.0"]
+build-backend = "setuptools.build_meta"
