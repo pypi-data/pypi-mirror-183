@@ -1,0 +1,6 @@
+importlib_metadata<5
+pytest
+pytest-asyncio
+tox
+flake8
+wheel
