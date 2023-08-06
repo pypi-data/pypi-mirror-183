@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+cbv_inspect/__init__.py
+cbv_inspect/apps.py
+cbv_inspect/decorators.py
+cbv_inspect/middleware.py
+cbv_inspect/mixins.py
+cbv_inspect/utils.py
+cbv_inspect/views.py
+cbv_inspect/templates/cbv_inspect/toolbar.html
+django_cbv_inspect.egg-info/PKG-INFO
+django_cbv_inspect.egg-info/SOURCES.txt
+django_cbv_inspect.egg-info/dependency_links.txt
+django_cbv_inspect.egg-info/requires.txt
+django_cbv_inspect.egg-info/top_level.txt
