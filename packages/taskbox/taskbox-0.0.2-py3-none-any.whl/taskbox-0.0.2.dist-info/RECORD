@@ -1,0 +1,14 @@
+taskbox/__init__.py,sha256=O_C-wv-4ycf03Wc6EWDH2OuJVGd6BN0Ieck3eiTH4Ks,644
+taskbox/api.py,sha256=W76tNstjhsqEOZoQi5qOb6nI7HuRotxbpenMhq3X8l0,3276
+taskbox/db.py,sha256=9Lo-X0jmP4n-2XMi3cpfBsXpys_MB0-SgYxSI8YyuVM,1562
+taskbox/ux.py,sha256=NHwFlt-9x0XrHkQRieVJN5LZUAe15hcaHMjrCiq5NzQ,424
+taskbox/static/favicon.ico,sha256=0XqakXHoRaRPt5SgGOHB8zi8jynkEZ9OX8U5mQe2TY0,1150
+taskbox/static/requests.js,sha256=xxz6G4PTA6QC9UYZXr1ojPzgkpMYrMdaWSFeD5skJTE,168
+taskbox/static/site.css,sha256=QnN6hMitRbfLgODaoIN5HHVWAWZDFlzSJ-zY8y3nvRM,1369
+taskbox/static/taskbox.png,sha256=NfyvHKqrDAjuFNzCZvI3ooCWopHiKBXbTqLRBr1WvVo,21565
+taskbox/templates/index.html,sha256=1bXOt9s79GeeofHjPqRpoYWZTJeNM2PoNd60S3E0qk0,1775
+taskbox-0.0.2.dist-info/LICENSE,sha256=_Qa7hEAnVZ-nmmdTt_7-aThcbCzVljcAc3Ae95HQqb0,1502
+taskbox-0.0.2.dist-info/METADATA,sha256=euA0o0CjnhIfurLuXvrxVicXHYq0_yrOt9eC1Fwn9lk,1750
+taskbox-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+taskbox-0.0.2.dist-info/top_level.txt,sha256=MrlD6T91vKS2J56hE99BF2vjxqGrs1d84S-9RVOPJlI,8
+taskbox-0.0.2.dist-info/RECORD,,
