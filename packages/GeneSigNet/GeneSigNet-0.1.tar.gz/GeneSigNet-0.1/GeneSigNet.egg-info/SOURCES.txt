@@ -1,0 +1,8 @@
+setup.py
+GeneSigNet/GeneSigNet.py
+GeneSigNet/__init__.py
+GeneSigNet.egg-info/PKG-INFO
+GeneSigNet.egg-info/SOURCES.txt
+GeneSigNet.egg-info/dependency_links.txt
+GeneSigNet.egg-info/not-zip-safe
+GeneSigNet.egg-info/top_level.txt
