@@ -1,0 +1,5 @@
+hdbscan
+numpy
+matplotlib
+scikit-learn
+nglview
