@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+bountyful/__init__.py
+bountyful/crowd.py
+bountyful/optim.py
+bountyful.egg-info/PKG-INFO
+bountyful.egg-info/SOURCES.txt
+bountyful.egg-info/dependency_links.txt
+bountyful.egg-info/top_level.txt

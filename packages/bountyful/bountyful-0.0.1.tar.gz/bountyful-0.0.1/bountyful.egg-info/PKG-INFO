@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: bountyful
+Version: 0.0.1
+Summary: Bountyful API
+Home-page: https://bountyful.ai
+Author: Gianluca Truda
+Author-email: gianluca@bountyful.ai
+License: UNKNOWN
+Description: # Bountyful AI
+        
+        This package is still under development.
+        
+        Please contact the [Bountyful](https://bountyful.ai) team to get set up with beta access to the API.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
