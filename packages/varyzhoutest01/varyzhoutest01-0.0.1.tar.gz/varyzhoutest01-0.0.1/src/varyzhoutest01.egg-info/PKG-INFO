@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: varyzhoutest01
+Version: 0.0.1
+Summary: test package01
+Author: varyzhou
+Author-email: zhouxiaolie@163.com
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# study Package
+This is a simple study package.

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/varyzhoutest01/__init__.py
+src/varyzhoutest01/test01.py
+src/varyzhoutest01.egg-info/PKG-INFO
+src/varyzhoutest01.egg-info/SOURCES.txt
+src/varyzhoutest01.egg-info/dependency_links.txt
+src/varyzhoutest01.egg-info/top_level.txt
