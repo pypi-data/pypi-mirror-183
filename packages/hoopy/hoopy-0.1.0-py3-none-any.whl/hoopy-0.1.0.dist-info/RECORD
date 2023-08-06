@@ -1,0 +1,12 @@
+hoopy/__init__.py,sha256=km8L8vqJhT-dPv2qy3dG7FTPH7oLqh2XV7fC5IqIJjE,3692
+hoopy/__main__.py,sha256=CobtptRYdXFmva6urwctO9--seedxDk1kMvxX29LUgY,231
+hoopy/codec.py,sha256=RttC1Zo1nk21H7wFRuGYoqwtWoTOHmF234R4DFUaX-0,1033
+hoopy/infix.py,sha256=juIArkxgRX15ebNklykxZMnxrecP5bhGAJwDbP9krOE,3721
+hoopy/magic.py,sha256=VWZLsEvQiWyD6pCRRUVEUTSNNT54zbrqy5eUb19TDY4,1883
+hoopy/runtime.py,sha256=i8Ch25lAeocjcqzD-FraEWyR4TD0DAcYykn0Wk3U5gI,9625
+hoopy/tokens.py,sha256=FSmDr30XxdPA-vY36lMqixPz0g6bemUsY-Cyu4-XQHs,7155
+hoopy/transform.py,sha256=HvZLJ9gpRt6uU1_vApwrHe8rwwNTZTWajl273acC_hY,21349
+hoopy/utils.py,sha256=rgygYAO0O8gJOMUvq5UKgFOBICG4oMg8bJ70sAmqGng,3294
+hoopy-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+hoopy-0.1.0.dist-info/METADATA,sha256=AQjfruiOLdX2GndNRETS7iBKNIuIfEvgEdSI27DtkFo,1673
+hoopy-0.1.0.dist-info/RECORD,,
