@@ -1,0 +1,15 @@
+strapi_api_client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+strapi_api_client/api_client.py,sha256=cBJMhq5hgpS7jZPlWv1v2TO-GxMBx_ynsYTNe1rlRDo,1203
+strapi_api_client/errors.py,sha256=DA9I4Cchw0A659ey9FqinHKtEQIKrbHNfwjbk2A4kBI,1335
+strapi_api_client/requestor.py,sha256=S1vk8yny9pKTUGxgT9s8aSBgjC9_4sAOaDbfNtGUyzM,1849
+strapi_api_client/utils.py,sha256=ngKmqa_QRg6JdtA_SQeOe4FwqJvR5tJBcFvexAG54IA,514
+strapi_api_client/version.py,sha256=FVHPBGkfhbQDi_z3v0PiKJrXXqXOx0vGW_1VaqNJi7U,22
+strapi_api_client/resources/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+strapi_api_client/resources/base.py,sha256=i_f_X4yHsOtUa1OW85pAMbiYZVrubOlw5XIHuyoeIBQ,310
+strapi_api_client/resources/community.py,sha256=V-gyWzod5yvpxVVQdFDUTJx99y6-osF2gNqLBLwVmXo,847
+strapi_api_client/resources/subgroup.py,sha256=Q_RmVifj67syvFpioBbthQ1khQZBT1zVeHCHuB3ZezE,835
+strapi_api_client-0.2.0.dist-info/LICENSE,sha256=LKGP0NGQEpmLqoemFnxWp8XtWlBBDJWK7bvYr8a2y98,1075
+strapi_api_client-0.2.0.dist-info/METADATA,sha256=xW3TFj5jqCyAonApQy4Z1in1_u7lu9yHODBUFdPEn0k,2466
+strapi_api_client-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+strapi_api_client-0.2.0.dist-info/top_level.txt,sha256=JEeJ1KaLItweuYIq89F9iVSiXrL6zIEtbDcmuAaz8sE,18
+strapi_api_client-0.2.0.dist-info/RECORD,,
