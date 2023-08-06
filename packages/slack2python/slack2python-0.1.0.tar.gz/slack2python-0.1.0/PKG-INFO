@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: slack2python
+Version: 0.1.0
+Summary: a python wrapper of slack bolt
+Author: 2lu3
+Author-email: hi2lu3@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: slack-bolt (>=1.16.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+# slack2python
+a python wrapper of slack bolt
+
