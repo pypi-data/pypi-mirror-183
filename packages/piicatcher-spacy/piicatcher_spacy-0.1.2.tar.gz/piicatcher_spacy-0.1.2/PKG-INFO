@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: piicatcher-spacy
+Version: 0.1.2
+Summary: PIICatcher plugin that uses spacy to detect PII
+Home-page: https://tokern.io/
+License: MIT
+Keywords: pii,postgres,snowflake,redshift,athena
+Author: Tokern
+Author-email: piicatcher@tokern.io
+Requires-Python: >=3.8,<=3.10.8
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: piicatcher (>=0.20.2,<0.21.0)
+Requires-Dist: spacy (>=3.4.4,<4.0.0)
+Project-URL: Repository, https://github.com/tokern/piicatcher_spacy/
+Description-Content-Type: text/markdown
+
+# piicatcher_spacy
+PIICatcher plugin that uses spacy to detect PII
+
