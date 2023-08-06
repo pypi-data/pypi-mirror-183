@@ -1,0 +1,13 @@
+[build-system]
+requires = [
+    "setuptools>=30.3.0",
+    "wheel",
+]
+
+[project]
+name = "stainedglass"
+version = "0.0.2"
+description = "Protopia AI Stained Glass"
+authors = [
+    {name="Protopia AI", email="support@protopia.ai"}
+]

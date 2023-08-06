@@ -1,0 +1,6 @@
+pyproject.toml
+setup.cfg
+stainedglass.egg-info/PKG-INFO
+stainedglass.egg-info/SOURCES.txt
+stainedglass.egg-info/dependency_links.txt
+stainedglass.egg-info/top_level.txt
