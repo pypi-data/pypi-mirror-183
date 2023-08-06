@@ -1,0 +1,5 @@
+json-rpc
+werkzeug
+cryptography==38.0.4
+pyopenssl==22.1.0
+openssl-ocsp-responder
