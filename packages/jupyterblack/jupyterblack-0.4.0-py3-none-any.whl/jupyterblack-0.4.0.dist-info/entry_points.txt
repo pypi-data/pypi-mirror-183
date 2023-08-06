@@ -1,0 +1,2 @@
+[console_scripts]
+jblack = jupyterblack.__main__:main
