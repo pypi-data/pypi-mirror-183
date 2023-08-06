@@ -1,0 +1,1 @@
+from PFRWebScraper.URL.StatTypeURLs.StatTypeURLs import StatTypeURLData

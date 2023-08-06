@@ -1,0 +1,2 @@
+from PFRWebScraper.URL.Scrapers.ScrapeTeamURLs import ScrapeTeamURLs
+from PFRWebScraper.URL.Scrapers.ScrapeStatTypeURLs import ScrapeStatTypeURLs

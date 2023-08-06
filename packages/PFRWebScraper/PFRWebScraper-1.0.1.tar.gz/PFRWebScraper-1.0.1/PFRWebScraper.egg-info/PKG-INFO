@@ -1,0 +1,629 @@
+Metadata-Version: 2.1
+Name: PFRWebScraper
+Version: 1.0.1
+Summary: Scrapes statistics from https://www.pro-football-reference.com/
+Home-page: UNKNOWN
+Author: Devon Connors
+Author-email: <dconns1@outlook.com>
+License: MIT
+Description: # Pro-Football-Talk Web Scraper
+        
+        Developed by Devon Connors (c) 2022
+        
+        ## Before Continuing:
+        <strong><u>Out of respect for Pro Football Reference</u></strong> each instance of scraping will have a 5-10 second delay as to not spam their server.  So in the instances where you obtain a list of URLs of players to scrape you will need to understand it could take some time to process that list.
+        
+        ##### Example: 400 players could take up to 1 hour to scrape.
+        
+        I am working through updating this tool to use asyncronous request while also being respectful so for the time being please be patient.
+        
+        ## Examples of How To Use (Alpha Version)
+        
+        ### Scraping Team Data
+        #### Creating Team Data Scraper and Method Usage
+        ```python
+        from PFRWebScraper import ScrapeTeamData
+        
+        # Creates an instance of Team Data Scraper
+        team_data_scraper = ScrapeTeamData()
+        
+        # Obtains the abbreviation for the team you wish to scrape
+        team_abbreviation = team_data_scraper.get_team_abbreviation("Las Vegas Raiders")
+        
+        # Scrapes defensive data for the team for a number of years back.  
+        #   Uses 4 years by default.
+        default_defensive_data = team_data_scraper.scrape_defense(team_abbreviation)
+        
+        # Scrapes defensive data for the team's last 2 years
+        last_two_years_defense_data = team_data_scraper.scrape_defense(team_abbreviation, 2)
+        
+        # # Scrapes offensive data for the team for a number of years back.  
+        #   Uses 4 years by default.
+        default_offensive_data = team_data_scraper.scrape_offense(team_abbreviation)
+        
+        # Scrapes offensive data for the team's last 2 years
+        last_two_years_offensive_data = team_data_scraper.scrape_offense(team_abbreviation, 2)
+        ```
+        
+        #### Obtaining Specific Data From The Team Data Object
+        ```python
+        from PFRWebScraper import ScrapeTeamData
+        
+        # Creates an instance of Team Data Scraper
+        team_data_scraper = ScrapeTeamData()
+        
+        # Obtains the abbreviation for the team you wish to scrape
+        team_abbreviation = team_data_scraper.get_team_abbreviation("Las Vegas Raiders")
+        
+        # Scrapes offensive data for the team's last 2 years
+        offensive_data = team_data_scraper.scrape_offense(team_abbreviation, 2)
+        
+        # Obtains the years that returned data if you are unsure
+        # In this instance you will receive a list: 
+        #   [2021, 2022]
+        valid_years_with_data = offensive_data.get_list_of_years()
+        
+        # You will then need to set the year from which you will like data
+        offensive_data.set_reference_year(2022)
+        
+        # After you have set the reference year you can begin pulling stats
+        team_points = offensive_data.get_points()
+        team_total_yards = offensive_data.get_total_yards()
+        ```
+        
+        #### Obtaining Whole Data Sets
+        ```python
+        from PFRWebScraper import ScrapeTeamData
+        
+        # Creates an instance of Team Data Scraper
+        team_data_scraper = ScrapeTeamData()
+        
+        # Obtains the abbreviation for the team you wish to scrape
+        team_abbreviation = team_data_scraper.get_team_abbreviation("Las Vegas Raiders")
+        
+        # Scrapes offensive data for the team's last 2 years
+        offensive_data = team_data_scraper.scrape_offense(team_abbreviation, 2)
+        
+        # Obtains the raw data as a Pandas Dataframe
+        offensive_dataframe = team_data_scraper.get_dataframe_of_stats()
+        
+        # Obtains the raw data as a dictionary
+        offensive_dictionary = team_data_scraper.get_dictionary_of_stats()
+        ```
+        
+        ### Scraping Player Data
+        #### Create Player Scraper and Method Usage
+        ##### Scraping Passing Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all passing data on a player's page
+        passing_data = player_scraper.scrape_passing("https://www.pro-football-reference.com/players/C/CarrDe02.htm")
+        
+        # You can also specify the sections of data you would like. You pass them in as a list.
+        # This is set to all data by default. 
+        # Different Input: 
+        #   1. 'passing' - Scrapes Regular Season and Playoff data on a passer.
+        #   2. 'advanced' - Scrapes Air Yards, Accuracy, Pressure, and Play Type data on a passer.
+        #   3. 'adjusted' - Scrapes Adjusted data on a passer.
+        
+        # Example of only passsing and advanced data
+        passing_advanced_data = player_scraper.scrape_passing("https://www.pro-football-reference.com/players/C/CarrDe02.htm", ['passing', 'advanced'])
+        
+        # Example of only adjusted data
+        adjusted_data = player_scraper.scrape_passing("https://www.pro-football-reference.com/players/C/CarrDe02.htm", ['adjusted'])
+        ```
+        
+        ##### Scrape Rushing and Receiving Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all rushing and receiving data on a player's page
+        rushing_receiving_data = player_scraper.scrape_rushing_receiving("https://www.pro-football-reference.com/players/J/JacoJo01.htm")
+        ```
+        
+        ##### Scrape Scoring Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all scoring data on a player's page
+        scoring_data = player_scraper.scrape_scoring("https://www.pro-football-reference.com/players/R/RenfHu00.htm")
+        ```
+        
+        ##### Scrape Snap Counts Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all snap counts data on a player's page
+        snap_counts_data = player_scraper.scrape_snap_counts("https://www.pro-football-reference.com/players/W/WallDa01.htm")
+        ```
+        
+        ##### Scrape Defense and Fumbles Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all defense and fumbles data on a player's page
+        defense_and_fumbles_data = player_scraper.scrape_defense_and_fumbles("https://www.pro-football-reference.com/players/A/AdamDa01.htm")
+        ```
+        
+        ##### Scrape Kick and Punt Returns Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all kick and punt returns data on a player's page
+        returns_data = player_scraper.scrape_kick_and_punt_returns("https://www.pro-football-reference.com/players/A/AbduAm00.htm")
+        ```
+        
+        ##### Scrape Kicking Data
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all kicking data on a player's page
+        kicking_data = player_scraper.scrape_kicking("https://www.pro-football-reference.com/players/C/CarlDa00.htm")
+        ```
+        
+        #### Utilizing Player Data Objects
+        ##### Passing Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all passing data on a player's page
+        passing_data = player_scraper.scrape_passing("https://www.pro-football-reference.com/players/C/CarrDe02.htm")
+        
+        # passing_data is now a passing object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Passing Data Regular Season
+        regular_season_passing_data = passing_data.get_passing_data_regular_season()
+        
+        # Passing Data Playoffs
+        playoffs_passing_data = passing_data.get_passing_data_playoffs()
+        
+        # Passing Data Advanced (Air Yards)
+        air_yards_passing_data = passing_data.get_passing_data_advanced_air_yards()
+        
+        # Passing Data Advanced (Accuracy)
+        accuracy_passing_data = passing_data.get_passing_data_advanced_accuracy()
+        
+        # Passing Data Advanced (Pressure)
+        pressure_passing_data = passing_data.get_passing_data_advanced_pressure()
+        
+        # Passing Data Advanced (Play Type)
+        play_type_passing_data = passing_data.get_passing_data_advanced_play_type()
+        
+        # Passing Data Adjusted
+        adjusted_passing_data = passing_data.get_passing_data_adjusted()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Passing Data
+        
+        # Obtain the whole data set
+        regular_season_passing_dataframe = regular_season_passing_data.get_dataframe_of_stats()
+        regular_season_passing_dictionary = regular_season_passing_data.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_passing_data.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_passing_data.get_age()
+        games_played = regular_season_passing_data.get_games_played()
+        games_started = regular_season_passing_data.get_games_started()
+        ```
+        
+        ##### Rushing and Receiving Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all rushing and receiving data on a player's page
+        rushing_receiving_data = player_scraper.scrape_rushing_receiving("https://www.pro-football-reference.com/players/J/JacoJo01.htm")
+        
+        # rushing_receiving_data is now a rushing and receiving object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Rushing and Receiving Data Regular Season
+        regular_season_rushing_receiving = rushing_receiving_data.get_rushing_receiving_data_regular_season()
+        
+        # Rushing and Receiving Data Playoffs
+        playoffs_rushing_receiving = rushing_receiving_data.get_rushing_receiving_data_playoffs()
+        
+        # Rushing and Receiving Data Advanced
+        advanced_rushing_receiving = rushing_receiving_data.get_rushing_receiving_data_advanced()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Rushing and Receiving Data
+        
+        # Obtain the whole data set
+        regular_season_rushing_receiving_dataframe = regular_season_rushing_receiving.get_dataframe_of_stats()
+        regular_season_rushing_receiving_dictionary = regular_season_rushing_receiving.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_rushing_receiving.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_rushing_receiving.get_age()
+        games_played = regular_season_rushing_receiving.get_games_played()
+        games_started = regular_season_rushing_receiving.get_games_started()
+        ```
+        
+        ##### Scoring Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all scoring data on a player's page
+        scoring_data = player_scraper.scrape_scoring("https://www.pro-football-reference.com/players/R/RenfHu00.htm")
+        
+        # scoring_data is now a scoring object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Scoring Data Regular Season
+        regular_season_scoring = scoring_data.get_scoring_data_regular_season()
+        
+        # Scoring Data Playoffs
+        playoffs_scoring = scoring_data.get_scoring_data_playoffs()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Scoring Data
+        
+        # Obtain the whole data set
+        regular_season_scoring_dataframe = regular_season_scoring.get_dataframe_of_stats()
+        regular_season_scoring_dictionary = regular_season_scoring.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_scoring.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_scoring.get_age()
+        games_played = regular_season_scoring.get_games_played()
+        games_started = regular_season_scoring.get_games_started()
+        ```
+        
+        ##### Snap Counts Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all snap counts data on a player's page
+        snap_counts_data = player_scraper.scrape_snap_counts("https://www.pro-football-reference.com/players/W/WallDa01.htm")
+        
+        # snap_counts_data is now a snap counts object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Snap Counts Data Regular Season
+        regular_season_snap_counts = snap_counts_data.get_snap_counts_data_regular_season()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Snap Counts Data
+        
+        # Obtain the whole data set
+        regular_season_snap_counts_dataframe = regular_season_snap_counts.get_dataframe_of_stats()
+        regular_season_snap_counts_dictionary = regular_season_snap_counts.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_snap_counts.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_snap_counts.get_age()
+        games_played = regular_season_snap_counts.get_games_played()
+        games_started = regular_season_snap_counts.get_games_started()
+        ```
+        
+        ##### Defense and Fumbles Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all defense and fumbles data on a player's page
+        defense_and_fumbles_data = player_scraper.scrape_defense_and_fumbles("https://www.pro-football-reference.com/players/A/AdamDa01.htm")
+        
+        # defense_and_fumbles_data is now a defense and fumbles object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Defense and Fumbles Data Regular Season
+        regular_season_defense_and_fumbles = defense_and_fumbles_data.get_defense_and_fumbles_data_regular_season()
+        
+        # Defense and Fumbles Data Playoffs
+        playoffs_defense_and_fumbles = defense_and_fumbles_data.get_defense_and_fumbles_data_playoffs()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Defense and Fumbles Data
+        
+        # Obtain the whole data set
+        regular_season_defense_and_fumbles_dataframe = regular_season_defense_and_fumbles.get_dataframe_of_stats()
+        regular_season_defense_and_fumbles_dictionary = regular_season_defense_and_fumbles.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_defense_and_fumbles.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_defense_and_fumbles.get_age()
+        games_played = regular_season_defense_and_fumbles.get_games_played()
+        games_started = regular_season_defense_and_fumbles.get_games_started()
+        ```
+        
+        ##### Kick and Punt Returns Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all kick and punt returns data on a player's page
+        returns_data = player_scraper.scrape_kick_and_punt_returns("https://www.pro-football-reference.com/players/A/AbduAm00.htm")
+        
+        # returns_data is now a kick and punt returns object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Kick and Punt Returns Data Regular Season
+        regular_season_returns = returns_data.get_returns_data_regular_season()
+        
+        # Kick and Punt Returns Data Playoffs
+        playoffs_returns = returns_data.get_returns_data_playoffs()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Kick and Punt Returns Data
+        
+        # Obtain the whole data set
+        regular_season_returns_dataframe = regular_season_returns.get_dataframe_of_stats()
+        regular_season_returns_dictionary = regular_season_returns.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_returns.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_returns.get_age()
+        games_played = regular_season_returns.get_games_played()
+        games_started = regular_season_returns.get_games_started()
+        ```
+        
+        ##### Kicking Data Object Usage
+        ```python
+        from PFRWebScraper import ScrapePlayerData
+        
+        # Creates an instance of the Player Scraper Object
+        player_scraper = ScrapePlayerData()
+        
+        # Scrapes for all kicking data on a player's page
+        kicking_data = player_scraper.scrape_kicking("https://www.pro-football-reference.com/players/C/CarlDa00.htm")
+        
+        # kicking_data is now a kicking object that has all the information stored within sub-objects
+        # Methods will need to be called to obtain the relevant data to work with it
+        
+        # Kicking Data Regular Season
+        regular_season_kicking = kicking_data.get_kicking_data_regular_season()
+        
+        # Kicking Data Playoffs
+        playoffs_kicking = kicking_data.get_kicking_data_playoffs()
+        
+        # Once you have decided which data object you would like you can then utilize them the same way as Team Data.
+        
+        # Example: Regular Season Kicking Data
+        
+        # Obtain the whole data set
+        regular_season_returns_dataframe = regular_season_kicking.get_dataframe_of_stats()
+        regular_season_returns_dictionary = regular_season_kicking.get_dictionary_of_stats()
+        
+        # Obtain specific data points
+        # Set the reference year
+        regular_season_kicking.set_reference_year(2022)
+        
+        # Call the methods for specific data points
+        players_age = regular_season_kicking.get_age()
+        games_played = regular_season_kicking.get_games_played()
+        games_started = regular_season_kicking.get_games_started()
+        ```
+        
+        ### Scraping URL Data
+        #### Create URL Scraper and Method Usage
+        ##### Scraping Team for Player URLs
+        ```python
+        from PFRWebScraper import ScrapeURLs
+        
+        # Creates an instance of the URL Scraper Object
+        url_scraper = ScrapeURLs()
+        
+        # Scrapes for Player's URLs that are on the specified team
+        # You can set the specific year BUT if you dont want to it is always set 
+        #   to the current year
+        player_url_data = url_scraper.scrape_team_for_player_urls("Las Vegas Raiders")
+        
+        # Example on how to scrape for specific year
+        player_url_data = url_scraper.scrape_team_for_player_urls("Las Vegas Raiders", 2021)
+        
+        # player_url_data will now be an object containing the player's URLs
+        # Methods can be called on that object to access the information
+        
+        # Examples:
+        
+        # Obtain a dictionary of all the players with the position as the KEY 
+        #   and the VALUE will be a list of dictionaries containing the player's 
+        #   name and URL
+        team_players_urls_dict = player_url_data.get_dictionaries_of_urls()
+        
+        # Example Data from get_dictionaries_of_urls(): 
+        #   {
+        #     "QB": 
+        #          [
+        #            {
+        #              "name": "Derek Carr", 
+        #              "url": "https://www.pro-football-reference.com/players/C/CarrDe02.htm"
+        #            }, 
+        #            { 
+        #              "name": "Jarrett Stidham", 
+        #              "url": "https://www.pro-football-reference.com/players/S/StidJa00.htm"
+        #            }
+        #          ], 
+        #     "RB": 
+        #          [
+        #            { 
+        #              "name": "Josh Jacobs", 
+        #              "url": "https://www.pro-football-reference.com/players/J/JacoJo01.htm"
+        #            }
+        #          ]
+        #   }
+        
+        # Obtaining the URLs of players listed as a Quarterback in the form of a list of dictionaries
+        quarterback_urls = player_url_data.get_quarterbacks()
+        
+        # Obtaining the URLs of players listed as a Running Back in the form of a list of dictionaries
+        running_back_urls = player_url_data.get_running_backs()
+        
+        # Obtaining the URLs of players listed as a Fullback in the form of a list of dictionaries
+        fullback_urls = player_url_data.get_fullbacks()
+        
+        # Obtaining the URLs of players listed as a Wide Receiver in the form of a list of dictionaries
+        wide_receiver_urls = player_url_data.get_wide_receivers()
+        
+        # Obtaining the URLs of players listed as a Tight End in the form of a list of dictionaries
+        tight_end_urls = player_url_data.get_tight_ends()
+        
+        # Obtaining the URLs of players listed as a Kicker in the form of a list of dictionaries
+        kicker_urls = player_url_data.get_kickers()
+        
+        # Example Data from get_quarterbacks():
+        # [
+        #   {
+        #     "name": "Derek Carr", 
+        #     "url": "https://www.pro-football-reference.com/players/C/CarrDe02.htm"
+        #   }, 
+        #   { 
+        #     "name": "Jarrett Stidham", 
+        #     "url": "https://www.pro-football-reference.com/players/S/StidJa00.htm"
+        #   }
+        # ]
+        ```
+        
+        ##### Scraping Stat Type for Player URLs
+        ```python
+        from PFRWebScraper import ScrapeURLs
+        
+        # Creates an instance of the URL Scraper Object
+        url_scraper = ScrapeURLs()
+        
+        # Scrapes for Player's URLs that are listed within that specific stat type list
+        # You can set the specific year BUT if you dont want to it is always set 
+        #   to the current year
+        
+        # Example on how to scrape for current year and passing list
+        passing_player_url_data = url_scraper.scrape_stat_type_for_player_urls("passing")
+        
+        # Example on how to scrape for 2021 and rushing list
+        rushing_player_url_data = url_scraper.scrape_stat_type_for_player_urls("rushing", 2021)
+        
+        # Example on how to scrape for 2020 and receiving list
+        receiving_player_url_data = url_scraper.scrape_stat_type_for_player_urls("receiving", 2020)
+        
+        # Example on how to scrape for current year and kicking list
+        kicking_player_url_data = url_scraper.scrape_stat_type_for_player_urls("kicking")
+        
+        # Example on how to scrape for current year and returns list
+        returns_player_url_data = url_scraper.scrape_stat_type_for_player_urls("returns")
+        
+        # Example on how to scrape for current year and scoring list
+        scoring_player_url_data = url_scraper.scrape_stat_type_for_player_urls("scoring")
+        
+        # Obtain a list of dictionaries containing the player's name and url
+        passing_players_urls_list = passing_player_url_data.get_list_of_urls()
+        
+        # Example Data from get_list_of_urls():
+        # [
+        #   {
+        #     "name": "Derek Carr", 
+        #     "url": "https://www.pro-football-reference.com/players/C/CarrDe02.htm"
+        #   }, 
+        #   { 
+        #     "name": "Patrick Mahomes", 
+        #     "url": "https://www.pro-football-reference.com/players/M/MahoPa00.htm"
+        #   }, 
+        #   { 
+        #     "name": "Joe Burrow", 
+        #     "url": "https://www.pro-football-reference.com/players/B/BurrJo01.htm"
+        #   }, 
+        #   { 
+        #     "name": "Justin Herbert", 
+        #     "url": "https://www.pro-football-reference.com/players/H/HerbJu00.htm"
+        #   }, 
+        #   { 
+        #     "name": "Tom Brady", 
+        #     "url": "https://www.pro-football-reference.com/players/B/BradTo00.htm"
+        #   }
+        # ]
+        
+        # Obtain the number of dictionaries within the list
+        count_of_passing_players_urls_list = passing_player_url_data.get_count_of_urls()
+        
+        # Using the sample data the method get_count_of_urls() would return 5
+        
+        # Obtain a list of dictionaries, to the specified range, containing the player's name and url
+        range_of_passing_players_urls_list = passing_player_url_data.get_range_of_urls(1, 3)
+        
+        # Example Data from get_range_of_urls(1, 3):
+        # [
+        #   {
+        #     "name": "Derek Carr", 
+        #     "url": "https://www.pro-football-reference.com/players/C/CarrDe02.htm"
+        #   }, 
+        #   { 
+        #     "name": "Patrick Mahomes", 
+        #     "url": "https://www.pro-football-reference.com/players/M/MahoPa00.htm"
+        #   }, 
+        #   { 
+        #     "name": "Joe Burrow", 
+        #     "url": "https://www.pro-football-reference.com/players/B/BurrJo01.htm"
+        #   }
+        # ]
+        ```
+Keywords: python,pro-football-reference,football,fantasy football,american football,pro football reference,web scraper,scraper
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
