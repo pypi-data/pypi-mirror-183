@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: acfile
+Version: 0.2
+Summary: File format allowing math operations, variables, and sections.
+Home-page: https://github.com/ArztKlein/acf
+Author: ArztKlein
+Author-email: 
+Keywords: file,format,configuration,filetype
+Requires-Python: >3.6.1
+License-File: LICENSE
+Requires-Dist: sly
+
