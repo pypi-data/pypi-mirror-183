@@ -1,0 +1,6 @@
+numpy
+pandas
+pingouin
+graphviz
+numba
+scipy
