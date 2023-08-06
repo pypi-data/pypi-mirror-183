@@ -1,0 +1,2 @@
+from add_disclaimers.api import Api as AddDisclaimersIntroApi
+from add_disclaimers.application import Application as AddDisclaimersApp
