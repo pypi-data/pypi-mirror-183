@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: ShortLanguageDetection
+Version: 0.0.4
+Summary: A language detector for short string or chat.
+Home-page: https://github.com/Interaction-Bot/LanguageDetection/
+Author: Jourdelune
+License: MIT
+Keywords: language,detection,nlp,identification
+License-File: LICENSE
+
+See the github for more information.
