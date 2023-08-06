@@ -1,0 +1,7 @@
+README.md
+setup.py
+coretex.egg-info/PKG-INFO
+coretex.egg-info/SOURCES.txt
+coretex.egg-info/dependency_links.txt
+coretex.egg-info/requires.txt
+coretex.egg-info/top_level.txt

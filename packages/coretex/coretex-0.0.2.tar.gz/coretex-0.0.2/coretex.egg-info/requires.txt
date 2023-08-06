@@ -1,0 +1,13 @@
+inflection
+numpy
+opencv-python
+pillow
+protobuf~=3.19.0
+requests
+scikit-image
+shapely
+tensorflow==2.8
+tensorflowjs
+termcolor
+torch
+typed-argument-parser
