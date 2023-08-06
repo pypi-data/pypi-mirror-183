@@ -1,0 +1,3 @@
+[console_scripts]
+poetry_test_pda_fga-cli=poetry_test_pda_fga.cli:funcao_teste
+
