@@ -1,0 +1,8 @@
+python-dotenv
+Flask
+Flask-RESTful
+Flask-SocketIO
+websocket-client
+python-engineio
+python-socketio
+dotmap
