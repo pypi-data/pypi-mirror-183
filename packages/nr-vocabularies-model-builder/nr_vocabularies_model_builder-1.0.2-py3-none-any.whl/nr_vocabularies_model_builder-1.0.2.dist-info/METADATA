@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: nr-vocabularies-model-builder
+Version: 1.0.2
+Summary: Model builder plugin containing model definition of nr-vocabularies
+Requires-Dist: oarepo-model-builder
+
+Model builder plugin containing model definition of nr-vocabularies
