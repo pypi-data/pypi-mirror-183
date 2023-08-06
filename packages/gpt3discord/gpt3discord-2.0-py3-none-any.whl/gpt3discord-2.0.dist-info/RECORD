@@ -1,0 +1,17 @@
+gpt3discord.py,sha256=-yDshMrpb0IGRi8act-4F2Q2ktpJo_QurPFy-2apMxw,3374
+cogs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cogs/draw_image_generation.py,sha256=-iXL-RGJCDNZKHmd92yhJW1IsG2EAKX2zsXAAGtMr0U,14150
+cogs/gpt_3_commands_and_converser.py,sha256=A7GjFKa0Qe9CBCnD5-gc8_anUJE9Hih2c11ZxxuW178,34191
+cogs/image_prompt_optimizer.py,sha256=7vVkVyJOgUSUcm_aLeQu5e-Cj8TojfqixmPK5jnjfmo,8660
+models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+models/deletion_service_model.py,sha256=q_czfg_ND4iGKSSbx9TgowSBaa0e16t1lfbUTBM1u38,1713
+models/env_service_model.py,sha256=q1k0LzZlc_x6DhH7xdR14f6P8TYxrMwLVPAAb9Y5EUI,1948
+models/message_model.py,sha256=GGDCA_KjiuYYGI9GOwd180wXU0d2Es9f_dt8jCaLtv0,1000
+models/openai_model.py,sha256=wLUjpcxkOLYIep2h5SE3-1ds3-Em3WMPl0w2sECcxYc,18708
+models/usage_service_model.py,sha256=Ywp5HaQycidPAOWEUYg6W9Ab9tT4qk6wYoD81KFN_BM,1970
+models/user_model.py,sha256=Aleb8yEgOBHV8d3GfkENJEUtImu7pW1E7oOgpo-4KJI,1520
+gpt3discord-2.0.dist-info/METADATA,sha256=1s9gKw3QORmPyuyazqm9WUxIw39uVj346cyTtwpQ1z0,10264
+gpt3discord-2.0.dist-info/WHEEL,sha256=jW8OslrbeW-NzVHQoZnLM0bsk-oq3LqjMu_o7TAga7I,87
+gpt3discord-2.0.dist-info/entry_points.txt,sha256=-O8oZcZRQ3QOB9lOQ94L4kNjgjvKpZ_XnpSyau4Lau8,49
+gpt3discord-2.0.dist-info/licenses/LICENSE,sha256=pa0K7nfko0rsOtadCHbTxuOmt-RGXCwuGXDdUcgEwAs,1076
+gpt3discord-2.0.dist-info/RECORD,,
