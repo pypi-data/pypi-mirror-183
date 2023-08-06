@@ -1,0 +1,10 @@
+ipywidgets~=7.7
+jupyterlab<3.6
+traitlets~=5.8
+pyparsing
+numpy
+
+[dev]
+twine
+bumpversion
+pydoc3
