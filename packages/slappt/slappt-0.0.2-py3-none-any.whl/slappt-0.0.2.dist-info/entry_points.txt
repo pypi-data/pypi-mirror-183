@@ -1,0 +1,3 @@
+[console_scripts]
+slappt = slappt.slappt:cli
+sshlurm = slappt.sshlurm:cli

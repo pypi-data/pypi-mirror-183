@@ -1,0 +1,185 @@
+Metadata-Version: 2.1
+Name: slappt
+Version: 0.0.2
+Summary: generate slurm scripts for apptainer jobs
+Home-page: https://github.com/Computational-Plant-Science/slappt
+Download-URL: https://pypi.org/project/slappt
+Author: Computational Plant Science Lab
+Author-email: wbonelli@uga.edu
+Maintainer: Wes Bonelli
+Maintainer-email: wbonelli@uga.edu
+License: BSD-3-Clause
+Project-URL: Documentation, https://slappt.readthedocs.io
+Project-URL: Bug Tracker, https://github.com/Computational-Plant-Science/slappt/issues
+Project-URL: Source Code, https://github.com/Computational-Plant-Science/slappt
+Keywords: hpc,containers,slurm,apptainer
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: httpx
+Requires-Dist: filelock
+Requires-Dist: paramiko
+Requires-Dist: pyaml
+Requires-Dist: requests
+Requires-Dist: tenacity
+Requires-Dist: tqdm
+Provides-Extra: azure
+Requires-Dist: azure-identity ; extra == 'azure'
+Requires-Dist: azure-storage-blob ; extra == 'azure'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: furo ; extra == 'docs'
+Requires-Dist: myst-parser ; extra == 'docs'
+Provides-Extra: gcs
+Requires-Dist: google-cloud-storage ; extra == 'gcs'
+Provides-Extra: irods
+Requires-Dist: python-irodsclient ; extra == 'irods'
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: isort ; extra == 'lint'
+Requires-Dist: pylint ; extra == 'lint'
+Provides-Extra: s3
+Requires-Dist: boto3 ; extra == 's3'
+Requires-Dist: s3fs ; extra == 's3'
+Provides-Extra: test
+Requires-Dist: black ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: isort ; extra == 'test'
+Requires-Dist: pylint ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: coveralls ; extra == 'test'
+Requires-Dist: jupyter ; extra == 'test'
+Requires-Dist: jupytext ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-asyncio ; extra == 'test'
+Requires-Dist: pytest-dotenv ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+
+<div align="center">
+<br/>
+<img src="slappt.png" style="position:relative;width:250px;" />
+
+[Slurm](https://slurm.schedmd.com/overview.html) scripts for [Apptainer](http://apptainer.org) jobs
+
+[![PyPI Version](https://img.shields.io/pypi/v/slappt.png)](https://pypi.python.org/pypi/slappt)
+[![PyPI Versions](https://img.shields.io/pypi/pyversions/slappt.png)](https://pypi.python.org/pypi/slappt)
+[![PyPI Status](https://img.shields.io/pypi/status/slappt.png)](https://pypi.python.org/pypi/slappt)
+
+[![CI](https://github.com/Computational-Plant-Science/slappt/actions/workflows/ci.yml/badge.svg)](https://github.com/Computational-Plant-Science/slappt/actions/workflows/ci.yml)
+[![Documentation Status](https://readthedocs.org/projects/slappt/badge/?version=latest)](https://slappt.readthedocs.io/en/latest/?badge=latest)
+
+</div>
+
+## Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Quickstart](#quickstart)
+- [Documentation](#documentation)
+- [Disclaimer](#disclaimer)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Overview
+
+`slappt` composes Slurm job scripts for [Apptainer](https://apptainer.org/docs/user/main/) workflows from config files or CLI args. 
+
+## Requirements
+
+`slappt` requires only Python3.8+.
+
+`slappt` can also submit scripts to remote clusters. To submit a job script, the host machine must be able to connect via key- or password-authenticated SSH to the target cluster.
+
+## Installation
+
+`slappt` is [available on the Python Package Index](https://pypi.org/project/slappt/) and can be installed with `pip`:
+
+```shell
+pip install slappt
+```
+
+## Quickstart
+
+Say you have a Slurm cluster with `apptainer` installed, and you have permission to submit to the `batch` partition.
+
+Copy the `hello.yaml` file from the `examples` directory to your current working directory, then run:
+
+```shell
+slappt hello.yaml > job.sh
+```
+
+Alternatively, without the configuration file:
+
+```shell
+slappt --image docker://alpine \
+       --shell sh \
+       --partition batch \
+       --entrypoint "echo 'hello world'" > hello.sh
+```
+
+**Note:** for most image definitions, specifying the `shell` is likely not necessary, as the default is `bash`. However, for images that don't have `bash` installed (e.g., `alphine` only has `sh`) a different shell must be selected.
+
+Your `hello.sh` script should now contain:
+
+```shell
+#!/bin/bash
+#SBATCH --job-name=0477f4b9-e119-4354-8384-f50d7a96adad
+#SBATCH --output=slappt.0477f4b9-e119-4354-8384-f50d7a96adad.%j.out
+#SBATCH --error=slappt.0477f4b9-e119-4354-8384-f50d7a96adad.%j.err
+#SBATCH --partition=batch
+#SBATCH -c 1
+#SBATCH -N 1
+#SBATCH --ntasks=1
+#SBATCH --time=01:00:00
+#SBATCH --mem=1GB
+apptainer exec docker://alpine sh -c "echo 'hello world'"
+```
+
+If already on the cluster, just submit it as usual:
+
+```shell
+sbatch hello.sh
+```
+
+If you're on a different machine, you can use the extra `sshlurm` command to submit the script over SSH. For instance, assuming you have key authentication set up for the cluster, and your key is `~/.ssh/id_rsa`:
+
+```shell
+sshlurm hello.sh --host <cluster IP or FQDN> --username <username>
+```
+
+## Documentation
+
+Documentation is available at [slappt.readthedocs.io](https://slappt.readthedocs.io/en/latest/).
+
+<!--
+
+## Related
+
+There is a companion repository [`slappt-action`](https://github.com/Computational-Plant-Science/slappt-action) for easy integration with GitHub Actions.
+
+-->
+
+## Disclaimer
+
+This project is not affiliated with Slurm, Apptainer or Singularity and cannot guarantee compatibility with all cluster configurations.
