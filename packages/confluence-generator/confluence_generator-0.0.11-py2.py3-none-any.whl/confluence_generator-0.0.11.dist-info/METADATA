@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: confluence-generator
+Version: 0.0.11
+Summary: Confluence Generator
+Home-page: https://github.com/felixzhu17/ConfluenceGenerator
+Author: Felix Zhu
+Author-email: zhu.felix@outlook.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: atlassian-python-api
+Requires-Dist: requests
+Requires-Dist: jinja2
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: kaleido
+
+# ConfluenceHelper
+
