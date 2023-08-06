@@ -1,0 +1,11 @@
+pandarize/__init__.py,sha256=eLSXLBbnwMWzCe5HY-SQLBLMqSnKMfj4QnLpnxXhrzk,23
+pandarize/_util.py,sha256=10JBTPhMmhqKEFV1wqE11EInDHPJBRWx-6q6mwAf4-g,3878
+pandarize/frame.py,sha256=wJwnI3UaQ6iHyZ8XE6t1oe15EoN1FyQwGe3EXa6l4FM,1661
+pandarize/loader.py,sha256=TbBk9MQZHzlEcJCzo4Refzva8DB5Zur6amd1oUgdfmc,1995
+pandarize/parser.py,sha256=v-aF-Kzw7uiMjXNEVlDFzn9ho9xVL9E9wnWQAIWEq-Q,5122
+pandarize/config/config.yaml,sha256=qLrsrg18de4Cp5v-p7NMo0j4GXH7b_7o50NGg4Vby10,384
+Pandarize-0.0.8.6.dist-info/LICENSE,sha256=Lo2RYrht5rAiCMEUzFR-fixNSZnS7YVIXfmeh2y6MzY,1066
+Pandarize-0.0.8.6.dist-info/METADATA,sha256=K1kkUQl48GFvx1Va6kn81SW6OvMnhhppEkk57CfeMM8,1095
+Pandarize-0.0.8.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+Pandarize-0.0.8.6.dist-info/top_level.txt,sha256=0D6fjKSjfLkKRBkHdvuuiEOmAhXmbGZRYoJbEiqhUug,10
+Pandarize-0.0.8.6.dist-info/RECORD,,
