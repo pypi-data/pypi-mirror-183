@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/polarpandas/__init__.py
+src/polarpandas/frame.py
+src/polarpandas.egg-info/PKG-INFO
+src/polarpandas.egg-info/SOURCES.txt
+src/polarpandas.egg-info/dependency_links.txt
+src/polarpandas.egg-info/not-zip-safe
+src/polarpandas.egg-info/requires.txt
+src/polarpandas.egg-info/top_level.txt
