@@ -1,0 +1,21 @@
+[project]
+name = "QRNG_QL_OT"
+version = "0.0.1"
+authors = [
+  { name="Hammad", email="hammadzahid2254@gmail.com" },
+]
+description = "Quantam QRNG for OTP"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"url" = "https://github.com/zuburz/quantlase_OTP"
+"Bug Tracker" = "https://github.com/zuburz/quantlase_OTP/issues"
+
+
+

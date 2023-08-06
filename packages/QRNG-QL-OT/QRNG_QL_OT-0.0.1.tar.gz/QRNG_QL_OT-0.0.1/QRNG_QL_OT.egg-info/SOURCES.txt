@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+QRNG_QL_OT.egg-info/PKG-INFO
+QRNG_QL_OT.egg-info/SOURCES.txt
+QRNG_QL_OT.egg-info/dependency_links.txt
+QRNG_QL_OT.egg-info/not-zip-safe
+QRNG_QL_OT.egg-info/top_level.txt
+qrngotp/__init__.py
+qrngotp/functions.py
+qrngotp/greet.py
