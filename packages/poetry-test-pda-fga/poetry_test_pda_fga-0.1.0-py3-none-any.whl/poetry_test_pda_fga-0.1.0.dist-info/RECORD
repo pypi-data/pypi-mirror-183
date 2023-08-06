@@ -1,0 +1,6 @@
+poetry_test_pda_fga/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poetry_test_pda_fga/cli.py,sha256=-ZWEriXmjHxRpdINaJpvcT5rV5rIdEQY5yhV6VmG514,35
+poetry_test_pda_fga-0.1.0.dist-info/entry_points.txt,sha256=pP0tqT9v2a7pACPqeUdmYIZvdHxJtXIjlPpb4IPLyr4,71
+poetry_test_pda_fga-0.1.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+poetry_test_pda_fga-0.1.0.dist-info/METADATA,sha256=X9slh6TykP_r9ML8l9irRubsmzhBLwhBaMrMs6xyTEk,449
+poetry_test_pda_fga-0.1.0.dist-info/RECORD,,
