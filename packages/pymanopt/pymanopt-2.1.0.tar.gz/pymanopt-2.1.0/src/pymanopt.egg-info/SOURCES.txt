@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+versioneer.py
+src/pymanopt/_version.py
+src/pymanopt.egg-info/PKG-INFO
+src/pymanopt.egg-info/SOURCES.txt
+src/pymanopt.egg-info/dependency_links.txt
+src/pymanopt.egg-info/requires.txt
+src/pymanopt.egg-info/top_level.txt
