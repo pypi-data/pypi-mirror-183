@@ -1,0 +1,8 @@
+orangecontrib/__init__.py,sha256=-IX89IkoxIj5Ulk-hg2A1lcCogirHllJt0Ubgh2Lce0,164
+orangecontrib/flowgl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+orangecontrib/flowgl/widgets/__init__.py,sha256=0YvbVTsw0MIInMpEMSZzQ85522YD2MclCh0pu-Rq5AM,1065
+orangecontrib/flowgl/widgets/flow_push.py,sha256=9q_jk9rqMjjw3zT4xBBWAfZK6ojvr_TRaOVcjF6GhrQ,3273
+orangecontrib/flowgl/widgets/icons/flow_icon.svg,sha256=Rb9ARLAWj2Zg2MO70z34nBWHj01gGjnV0W_6LVKd7T8,2611
+orange3_flowgl-0.1.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+orange3_flowgl-0.1.0.dist-info/METADATA,sha256=gbSrRaN53CETGOm38jcbGGlsTfba7MeNLM2LH0Uwt-w,843
+orange3_flowgl-0.1.0.dist-info/RECORD,,

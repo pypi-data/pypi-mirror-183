@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: orange3-flowgl
+Version: 0.1.0
+Summary: 
+Author: Flow Immersive
+Author-email: info@flow.gl
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: AnyQt (>=0.2.0,<0.3.0)
+Requires-Dist: flowgl (>=0.1.2,<0.2.0)
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Orange3 Flow Immersive
+
+This is the Orange3 add-on for pushing data to Flow.
+
+## Installation
+
+### Production
+
+Open Orange3, navigate to `Options -> Add-ons...`, select `Add more...`, type in `orange3-flowgl`, and press `Add`. 
+
+### Development
+
+In the same python environment as Orange3 is installed, run:
+
+```bash
+pip install -e .
+```
+
