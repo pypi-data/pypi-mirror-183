@@ -1,0 +1,17 @@
+xpypact/Fluxes.py,sha256=g3TBIyEsQTc7HtdS12Bvi2RAWgnU4voDtkOeIjhkLRY,12095
+xpypact/Inventory.py,sha256=iwAYmBE7UzUxd0gg07itx4WpFHL7VBLx9bUPhgRAo4g,5602
+xpypact/Nuclide.py,sha256=qM1qmIiAY9eoFxYhzFjDp8E7ec74VphsWcIwrxIJIrY,1860
+xpypact/RunData.py,sha256=0kY7gHYducHww1BWi_e98lzVFpoSk7r0hv4RPwrO_ak,507
+xpypact/TimeStep.py,sha256=d6QWlMAKTMUw0qG47O77xQADkDgkAICe4vqhs-139Qs,4660
+xpypact/__init__.py,sha256=6rHsZ8oEePf31rr2GEu1jAQ5PlLPGQmffCNbMnnj3xo,623
+xpypact/data_arrays.py,sha256=fTfEAwl5gDlwP7N6YsX_ANZsC94KnxYvNiMATu468dM,14256
+xpypact/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xpypact/utils/__init__.py,sha256=_g0_fBKbrRD0MVVzAx9t2urfQw6HhL_Q-nnN1o_bPOk,29
+xpypact/utils/io.py,sha256=kRRBq4wKeGqQ4XDuSLSxjeYQUG1GKNQFdnAvDQ6JgOQ,682
+xpypact/utils/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xpypact/utils/resource.py,sha256=8ZHRYNFE-I5qmLswE6GrbbtKGg5PkuXA3SjUnXj7_2g,1315
+xpypact/utils/types.py,sha256=_5-NQsOL4RukQFd3Ij2BkcpcCOtZ1-X6VySuOoiDN6w,116
+xpypact-0.1.10.dist-info/METADATA,sha256=zk8m5n21HFJk8AXIhw6jgFcdVKnSgU6slUyiZIR8URw,4661
+xpypact-0.1.10.dist-info/LICENSE,sha256=dMnM2HZfE8WtvnesW2SVGjP-mjk_yk-QaLbweBaMMFY,1063
+xpypact-0.1.10.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+xpypact-0.1.10.dist-info/RECORD,,
