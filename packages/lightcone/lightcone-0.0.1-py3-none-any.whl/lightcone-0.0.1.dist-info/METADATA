@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: lightcone
+Version: 0.0.1
+Summary: A framework to explore the latent space of autoencoders implemented in torch
+Home-page: https://github.com/windisch/lightcone
+Author: Tobias Windisch
+Author-email: tobias.windisch@posteo.de
+License: Apache-2.0
+Keywords: graphical models
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.23.0)
+Requires-Dist: pandas (>=1.5.0)
+Requires-Dist: torch
+Requires-Dist: plotly
+Requires-Dist: dash
+
+# lightcone
+
+
+[![Test Package](https://github.com/windisch/lightcone/actions/workflows/test_package.yml/badge.svg)](https://github.com/windisch/lightcone/actions/workflows/test_package.yml)
+[![Documentation Status](https://readthedocs.org/projects/lightcone/badge/?version=latest)](https://lightcone.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/lightcone)](https://pypi.org/project/lightcone/)
+
+A framework to explore the latent space of convolutional autoencoders
+implemented in `pytorch`.
