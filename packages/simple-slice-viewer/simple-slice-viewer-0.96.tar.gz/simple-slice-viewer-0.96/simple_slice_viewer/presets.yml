@@ -1,0 +1,133 @@
+colormaps:
+    - colormap:
+      name: hot
+      colormap: hot
+    - colormap:
+      name: hot_r
+      colormap: hot_r
+    - colormap:
+      name: gray
+      colormap: gray
+    - colormap:
+      name: gray_r
+      colormap: gray_r
+    - colormap:
+      name: jet
+      colormap: jet
+    - colormap:
+      name: greens
+      colormap: greens
+    - colormap: 
+      colormap: magentas
+      name: magentas
+      
+colorscales:
+- colorscale:
+  colorscale:
+    - 0%
+    - 100%
+  scale_type: relative_max
+  name: Min-Max
+  
+- colorscale:
+  colorscale:
+    - 0%
+    - 1%
+  scale_type: relative_max
+  name: 0% - 1%
+- colorscale:
+  colorscale:
+    - 0%
+    - 5%
+  scale_type: relative_max
+  name: 0% - 5%
+
+- colorscale:
+  colorscale:
+    - 0%
+    - 10%
+  scale_type: relative_max
+  name: 0% - 10%    
+  
+- colorscale:
+  colorscale:
+    - 0
+    - 10
+  scale_type: fixed
+  name: PET SUV 0-10
+- colorscale:
+  colorscale:
+    - 0
+    - 1
+  scale_type: fixed
+  name: Binary
+- colorscale:
+  colorscale:
+    - -10
+    - 10
+  scale_type: fixed
+  name: PET Delta SUV [-10, 10]
+  
+- colorscale:
+  colorscale:
+    - 400
+    - 50
+  scale_type: window_level
+  name: CT Soft Tissues
+- colorscale:
+  colorscale:
+    - 400
+    - 50
+  scale_type: window_level
+  name: CT Bones
+  colorscale:
+    - 1800
+    - 400
+- colorscale:
+  colorscale:
+    - 400
+    - 50
+  scale_type: window_level
+  name: CT Lungs
+  colorscale:
+    - 1500
+    - -600
+    
+image_fusion_presets:
+- fusion_colorscale: Min-Max
+  image_colorscale: Min-Max
+  alpha: 50
+  fusion_colormap: hot
+  image_colormap: gray  
+  name: Min-Max
+- fusion_colorscale: Min-Max
+  image_colorscale: CT Soft Tissues
+  alpha: 50
+  fusion_colormap: hot
+  image_colormap: gray  
+  name: PET/CT Soft Tissue
+- fusion_colorscale: PET SUV 0-10
+  image_colorscale: CT Soft Tissues
+  name: PET/CT Soft Tissues - SUV [0-10]
+  alpha: 50
+  fusion_colormap: hot
+  image_colormap: gray  
+- fusion_colorscale: PET SUV 0-10
+  image_colorscale: CT Bones
+  name: PET/CT Bones - SUV [0-10]
+  alpha: 50
+  fusion_colormap: hot
+  image_colormap: gray    
+- alpha: 50
+  fusion_colormap: copper
+  image_colormap: gray  
+  fusion_colorscale: Binary
+  image_colorscale: CT Soft Tissue
+  name: CT Soft Tissue - Mask Overlay
+- alpha: 50
+  fusion_colormap: greens
+  image_colormap: magentas
+  fusion_colorscale: CT Bones
+  image_colorscale: CT Bones
+  name: Overlap CT Bones
+  
