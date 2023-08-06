@@ -1,0 +1,15 @@
+pysurrealdb/__init__.py,sha256=eq90czi0haUyWZ76pJqsmdyDBxR5nvJaUT4b3BeCwWY,2519
+pysurrealdb/clients/http_client.py,sha256=MwFB8mAZcLO6BPj8khTEb25qFmdrmQ0CpeRTpEra_qc,6110
+pysurrealdb/clients/ws_client.py,sha256=HktH5jPBtq6sQOnaIL91w2X6LTeipA8EaT3WLbNb9cc,1971
+pysurrealdb/connections.py,sha256=uMIQeDmYfFEwr1_DSv1-EbxrmpQhhMYJj5xFhRlg_HU,3370
+pysurrealdb/cursor.py,sha256=FtJaP1X6-usIqK-DXbQEx8xTTm6vN5snV8OiN2ZP6XE,771
+pysurrealdb/model.py,sha256=gGLnqOlqmsZIgUTZwnoPQ8oFiVn9HQS66OJGvO4GiZI,1971
+pysurrealdb/query_builder.py,sha256=TOoXGzkWomdonRoDaDWuTgoil0gwJJ8aqChJTr0u__Q,6691
+pysurrealdb/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pysurrealdb/tests/mytests.py,sha256=7RR210ebYb-W1QLtgPFP-gljNzJrTg7qXyEASxR2vuM,1087
+pysurrealdb/tests/python.log,sha256=YpmX1Jk9PUURaSN9mqbqRu0cdXZITjH7pPFZ0yoaJfk,1752
+pysurrealdb/tests/test_connection.py,sha256=tePCFQVwOuMCMqNKlVXTHPsI1w80INwcsgl9hoQXfp0,990
+pysurrealdb-0.2.0.dist-info/LICENSE,sha256=AZ42PtMQHQFsHeAjhENVXB0YFQIBSLHnEBp1FELEjpY,1082
+pysurrealdb-0.2.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+pysurrealdb-0.2.0.dist-info/METADATA,sha256=KvoYDh1s0U3FHlmG0lyrRmSwTPnssUw4dzJzFUs7IC4,2745
+pysurrealdb-0.2.0.dist-info/RECORD,,
