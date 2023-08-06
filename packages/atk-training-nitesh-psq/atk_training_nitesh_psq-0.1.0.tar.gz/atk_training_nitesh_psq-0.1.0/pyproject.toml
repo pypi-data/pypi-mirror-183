@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "atk-training-nitesh-psq"
+version = "0.1.0"
+description = ""
+authors = ["Nitesh <nitesh@aganitha.ai>"]
+readme = "README.md"
+packages = [{include = "atk_training_nitesh_psq"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = "^0.7.0"
+db-sqlite3 = "^0.0.1"
+schedule = "^1.1.0"
+
+[tool.poetry.scripts]
+atk-nitesh-queue = "atk_training_nitesh_psq.sqlite_:init_"
+atk-nitesh-producer = "atk_training_nitesh_psq.producer:main"
+atk-nitesh-consumer = "atk_training_nitesh_psq.consumer:main"
+atk-nitesh-manager = "atk_training_nitesh_psq.manager:main"
+
+
+[[tool.poetry.source]]
+name = "prod"
+url = "https://pypi.aganitha.ai/"
+default = false
+secondary = true
+
+
+[[tool.poetry.source]]
+name = "dev"
+url = "https://dev-pypi.aganitha.ai/"
+default = false
+secondary = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
