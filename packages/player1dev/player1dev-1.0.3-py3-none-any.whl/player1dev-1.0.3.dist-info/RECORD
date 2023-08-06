@@ -1,0 +1,9 @@
+player1dev/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+player1dev/client.py,sha256=7WcmqfgM_RlyXvrm1pV02qUpHwaxO1q1vatUEj7x6x4,1717
+player1dev/server.py,sha256=ZKiyAGS4wqvNINeF9ZBCwoz4aN7oeje5-XNqxk0foTM,9553
+player1dev/views/error404.py,sha256=m68S3WONlW6b3oDhuQ5TONjiNlumR0EoY3kCJvc1xPc,468
+player1dev-1.0.3.dist-info/LICENSE,sha256=gbjgf-am6zdl7TcKK-ToCt0JDw3j2N1Ulw28S79rBsI,1276
+player1dev-1.0.3.dist-info/METADATA,sha256=wBmdWZd287QJLdPO0qp7HoVAGcTUIVovUDnJTIPutzY,4518
+player1dev-1.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+player1dev-1.0.3.dist-info/top_level.txt,sha256=2KMJVmlcGnBh_YO2KpjxcKkr5QR7P6KVzEswDH2MqaI,11
+player1dev-1.0.3.dist-info/RECORD,,
