@@ -1,0 +1,12 @@
+AUTHORS.rst
+README.md
+setup.cfg
+setup.py
+src/example.py
+src/sanic_simple_restful/__init__.py
+src/sanic_simple_restful.egg-info/PKG-INFO
+src/sanic_simple_restful.egg-info/SOURCES.txt
+src/sanic_simple_restful.egg-info/dependency_links.txt
+src/sanic_simple_restful.egg-info/not-zip-safe
+src/sanic_simple_restful.egg-info/requires.txt
+src/sanic_simple_restful.egg-info/top_level.txt
