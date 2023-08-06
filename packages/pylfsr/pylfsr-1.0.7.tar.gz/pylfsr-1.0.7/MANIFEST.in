@@ -1,0 +1,16 @@
+
+include *.md
+include LICENSE
+include Version
+include requirements.txt
+include pylfsr/__init__.py
+include pylfsr/primitive_polynomials_GF2_dict.txt
+
+recursive-include pylfsr *.py
+recursive-include pylfsr *.txt
+recursive-include examples *.py
+
+### Exclude
+
+recursive-exclude * __pycache__
+recursive-exclude *.yml
