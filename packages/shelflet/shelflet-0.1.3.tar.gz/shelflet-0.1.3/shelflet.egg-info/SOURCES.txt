@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+shelflet/__init__.py
+shelflet/main.py
+shelflet.egg-info/PKG-INFO
+shelflet.egg-info/SOURCES.txt
+shelflet.egg-info/dependency_links.txt
+shelflet.egg-info/top_level.txt
+shelflet/tests/__init__.py
