@@ -1,0 +1,12 @@
+alchemy_sdk_py/__init__.py,sha256=YQoWmVkESJ0ARXQkXB36nK4WzxdiK8dJvX0GiBSwfWw,44
+alchemy_sdk_py/__version__.py,sha256=09OSZ4gP497h5epeaOeyDq2GxwIRyvvgtWjDfiezygM,208
+alchemy_sdk_py/alchemy.py,sha256=wVhC-MJTrMoZFuHQWVlhFF9e3rniLzWka9c1i8mXaOY,41311
+alchemy_sdk_py/errors.py,sha256=FWe1xoWdID2G8W5AEh9DfrUSsg0i3Vw9b05RVpwvL50,569
+alchemy_sdk_py/evm_node.py,sha256=6sLYbKIfu6Bc_ZRna5EECW25R4f6vui-ixdhpekvfOk,29776
+alchemy_sdk_py/networks.py,sha256=ICWpx-QZ9iecrj1vbCAfEZSbXuIs987GCRneHXGZ2EQ,2106
+alchemy_sdk_py/utils.py,sha256=pKGe2xzWELlGfkIyP0zc9DCnTAcFmNti77rg7IgRsv0,2170
+alchemy_sdk_py-0.2.0.dist-info/LICENSE,sha256=TPeW4bSgnrM7VAZ0JRYit1ODvA5tkjOu_LZq-kr-gQI,1068
+alchemy_sdk_py-0.2.0.dist-info/METADATA,sha256=pcpcR1CKZuK3ICf3YSliHXLJjTEQDMJkz9GqOv2Z3r8,4340
+alchemy_sdk_py-0.2.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+alchemy_sdk_py-0.2.0.dist-info/top_level.txt,sha256=-xLP3avSH1RLztTE2OaK3fYC0ZJ079Lx5wcREaCak1k,15
+alchemy_sdk_py-0.2.0.dist-info/RECORD,,
