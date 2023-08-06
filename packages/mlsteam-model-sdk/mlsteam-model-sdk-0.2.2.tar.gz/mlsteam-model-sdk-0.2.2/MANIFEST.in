@@ -1,0 +1,2 @@
+include mlsteam_model_sdk/commands/utils/*.sh
+include requirements.txt
