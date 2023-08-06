@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pyalohabotanyframework
+Version: 0.0.1
+Summary: Pyalohabotanyframework is a Python Web Framework for testing purposes
+Author: Walrus Autotune
+Author-email: walrusautotune@protonmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+Pyalohabotanyframework is a Python Web Framework for testing purposes
