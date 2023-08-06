@@ -1,0 +1,10 @@
+cv2watermark/LICENSE,sha256=q5AZUyTwx8nlW-2D2bxuQd36rLJ9EDulKh76xA09pj8,1069
+cv2watermark/README.MD,sha256=LWu-ZKbOry8aMEaoWSQ7gAd6YtQclu1iPjfGGoVLHZc,2388
+cv2watermark/__init__.py,sha256=39iDrV8F_rWVAR0rl5NiaXTKUyREVodmAn9Tj7N-09o,3642
+cv2watermark/requirements.txt,sha256=AWNhl6OVtpknUyCSzqNqhW-OZVV47Wzfs369E3pcV_Q,58
+cv2watermark/thirdparty.json,sha256=T1PNoYwrqgwDVLtfmj7L5e0Sq02OEbqHPC8RFhICuUU,2
+cv2watermark-0.10.dist-info/LICENSE.rst,sha256=mUm-wCZOuzvKLxt9Gac_Zo5cah8QOM0gqn2Z-AluELM,1148
+cv2watermark-0.10.dist-info/METADATA,sha256=9lIYhK36K952Q28Vjh8tgnCgV5RYon37DPSrEv1Y-Wc,3371
+cv2watermark-0.10.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+cv2watermark-0.10.dist-info/top_level.txt,sha256=prWzsV78OHVzVjT-6ias2UNVELBu5AJcl94aQ9s6j0c,13
+cv2watermark-0.10.dist-info/RECORD,,
