@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "signal_cli"
+version = "0.1.0"
+author = [
+	{ name="DouglasAdams_42", email="felix.hune@gmx.de" },
+]
+description = "A python wrapper for the signal-cli-rest-api created by bbernhard on github"
+readme = "README.md"
+license-files = { paths = ["LICENSE"] }
+requires-python = ">=3.9"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+	"Operating System :: OS Independent",
+]
+dependencies = [
+	"typing==3.7.4.3",
+	"pathlib==1.0.1",
+	"requests==2.22.0",
+	"filetype==1.2.0"
+]
+	
+[project.urls]
+"signal-cli-rest-api" = "https://github.com/bbernhard/signal-cli-rest-api"
+"signal-cli-rest-api swagger" =  "https://bbernhard.github.io/signal-cli-rest-api/"
+"documentation" = "https://fhune.de/signal_cli_documentation/"
