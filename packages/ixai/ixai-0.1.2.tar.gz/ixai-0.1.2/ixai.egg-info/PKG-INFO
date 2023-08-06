@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: ixai
+Version: 0.1.2
+Summary: Explainable Artificial Intelligence for dynamic and Incremental models.
+Home-page: https://github.com/mmschlk/iXAI
+Author: Maximilian Muschalik
+Author-email: maximilian.muschalik@ifi.lmu.de
+License: MIT
+Project-URL: Tracker, https://github.com/mmschlk/iXAI/issues?q=is%3Aissue+label%3Abug
+Project-URL: Source, https://github.com/mmschlk/iXAI
+Keywords: python,machine learning,online learning,xai
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
+License-File: LICENSE
+
+
+<p align="center">
+  <!-- PyPI Version -->
+  <a href="https://pypi.org/project/ixai">
+    <img src="https://img.shields.io/pypi/v/ixai.svg?color=blue" alt="PyPi">
+  </a>
+  <!-- PyPI status -->
+  <a href="https://pypi.org/project/ixai">
+    <img src="https://img.shields.io/pypi/status/ixai.svg?color=blue" alt="PyPi_status
+  </a>
+  <!-- License -->
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="mit_license">
+  </a>
+</p>
+
+# ixai: Incremental Explainable Artificial Intelligence
+
+This is the first iteration of our incremental explanation package.
+
+Currently, it includes two explanation methods: PFI and SAGE.
+
+Please look at the examples in the `examples` directory.
+
+Please help us in improving our work by contributing or pointing to issues. We will update this iteration soon with further information.
+
+## 🛠 Installation
+**ixai** is intended to work with **Python 3.8 and above**. Installation can be done via `pip`:
+
+```sh
+pip install ixai
+```
