@@ -1,0 +1,10 @@
+crcset/__init__.py,sha256=4hO46s2Crs3fZBrp8vyzs1kbFMDRRslHLSUYfWso1Ss,94
+crcset/crcset.py,sha256=nV5CXu0t3ROLzsfEAQbC8liUEH5OkGOoh2PxHb2PeEE,966
+crcset/wasi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+crcset/wasi/_crcset_wasi.wasm,sha256=szgh2cb9Pn04pHT52q-SKmxjCno__0hMhEWSMAq_8qs,75988
+crcset/wasi/wasi.py,sha256=9YxOcMUA-wJGGt81CdU59xVDcnW_cM_YYD9_tepqLvs,821
+crcset-0.0.3.dist-info/LICENSE,sha256=GrfX8eKTqGzrsgb4kGB-DLU1mhPDn3zB1MFeFaogCOE,1068
+crcset-0.0.3.dist-info/METADATA,sha256=Za0ROBgMq8bONMzuyhSRFWZeAgwVpvbNm3AT9lMuoUk,282
+crcset-0.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+crcset-0.0.3.dist-info/top_level.txt,sha256=VLcRWDfjtq8fBKnpfl3qETHx9-kbqEIGsbi_-sWbYCc,7
+crcset-0.0.3.dist-info/RECORD,,
