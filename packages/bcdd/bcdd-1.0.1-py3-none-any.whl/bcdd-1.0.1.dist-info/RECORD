@@ -1,0 +1,14 @@
+bcdd/__init__.py,sha256=hHXLK0HcCy3bRdrGtzrRCaLVrL03npmel1-RS3YeJBc,129
+bcdd/__main__.py,sha256=ZyoJbdvbFWALbEUIZZBGz0bGfKViR2EegfeSAAxV6q0,5136
+bcdd/color.py,sha256=MjmDg3JxG0prkarUMZlNRAeyg7XSXNAShm-dIMPbd48,4196
+bcdd/crypto.py,sha256=ZUKqWNr_YrIagIji9XGsj3uwjywpdPXx84_FyP-1iZs,2355
+bcdd/data.py,sha256=D3GwSAc7V97OWYy5TlcKSTxtrAhmvHhfNEObnegnngE,11891
+bcdd/option.py,sha256=Hx3EtM1YY5znmWWcrXZ5EJ-nnPejfc3FAuhOktkQLyc,6009
+bcdd/path.py,sha256=D80ZCf1Mm_e7nn1OJIi9DEN6czaQaPrxIfdugeCGEC4,5523
+bcdd/updater.py,sha256=XS5mfG2ds8ylCY2VBS_4-fvAPxSF263n-fawPhvQ8ew,3767
+bcdd/files/version.txt,sha256=1R5uyUBYVUqEVYpbQC7m71_fVFXjXJAv7aYc2odSlDo,5
+bcdd-1.0.1.dist-info/LICENSE,sha256=iq8OgwBC8ucFLszM757b_cWoK1TV25pNiwJk0E3kN9k,1092
+bcdd-1.0.1.dist-info/METADATA,sha256=lbcuAWUf8Vlx9tbvOR1OgciOWgp8KxUbLH76HXB2Alg,4565
+bcdd-1.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+bcdd-1.0.1.dist-info/top_level.txt,sha256=zonbeXGcLnU7h7iZYi0uAjT7vCzqRVUcrJr2oLub6vM,5
+bcdd-1.0.1.dist-info/RECORD,,
