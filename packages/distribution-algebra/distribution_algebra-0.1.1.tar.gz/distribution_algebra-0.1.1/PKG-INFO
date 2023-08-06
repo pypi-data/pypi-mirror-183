@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: distribution-algebra
+Version: 0.1.1
+Summary:  A python package that implements an easy-to-use interface to random variables, statistical distributions, and their algebra.
+Author: Vaibhav Karve
+Author-email: vkarve@protonmail.com
+Requires-Python: >=3.10,<3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: matplotlib (>=3.6.2,<4.0.0)
+Requires-Dist: numpy (>=1.24.0,<2.0.0)
+Requires-Dist: pydantic (>=1.10.4,<2.0.0)
+Requires-Dist: scipy (>=1.9.3,<2.0.0)
+Requires-Dist: wheel (>=0.38.1)
