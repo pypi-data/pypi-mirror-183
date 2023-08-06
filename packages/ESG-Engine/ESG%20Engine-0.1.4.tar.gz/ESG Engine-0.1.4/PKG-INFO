@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ESG Engine
+Version: 0.1.4
+Summary: A little online game engine.
+Home-page: https://github.com/yannis300307/ES_Engine
+Download-URL: 
+Author: Yannis300307
+License: MIT
+Keywords: python,Game Engine,Pygame
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# ESG Engine
+ESG Engine (Extremely Simple Game Engine) is a little Pygame based game engine which allow you to create online (or not) games really quikly and easily.
+You can create a server with very few lines.
