@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+select = ["F", "E", "W", "I", "YTT", "B", "C4", "T10", "SIM", "ERA", "RUF", "UP"]
+ignore = ["RUF001"]
+line-length = 120
+target-version = "py36"
+
+[tool.ruff.isort]
+known-first-party = ["static_precompiler"]
+
+[tool.mypy]
+python_version = "3.6"
+plugins = ["mypy_django_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = "pretend"
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "static_precompiler.mypy_django_settings"
