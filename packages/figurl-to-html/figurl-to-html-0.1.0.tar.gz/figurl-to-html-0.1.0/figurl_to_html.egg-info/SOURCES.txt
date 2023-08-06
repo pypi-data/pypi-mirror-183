@@ -1,0 +1,14 @@
+setup.cfg
+setup.py
+figurl_to_html/__init__.py
+figurl_to_html/cli.py
+figurl_to_html/figurl_doc_to_html.py
+figurl_to_html/figurl_to_html.py
+figurl_to_html/upload_to_zenodo.py
+figurl_to_html.egg-info/PKG-INFO
+figurl_to_html.egg-info/SOURCES.txt
+figurl_to_html.egg-info/dependency_links.txt
+figurl_to_html.egg-info/entry_points.txt
+figurl_to_html.egg-info/requires.txt
+figurl_to_html.egg-info/top_level.txt
+figurl_to_html/templates/figurl_to_html_index.html
