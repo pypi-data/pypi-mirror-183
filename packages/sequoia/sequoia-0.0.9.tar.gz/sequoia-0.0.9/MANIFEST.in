@@ -1,0 +1,6 @@
+include *.py
+include core
+include sequoia/**/*
+include sequoia/**/**/*
+include sequoia/**/**/**/*
+include sequoia/**/**/**/**/*
