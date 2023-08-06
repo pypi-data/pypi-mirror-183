@@ -1,0 +1,11 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+htamd/__init__.py
+htamd.egg-info/PKG-INFO
+htamd.egg-info/SOURCES.txt
+htamd.egg-info/dependency_links.txt
+htamd.egg-info/requires.txt
+htamd.egg-info/top_level.txt
