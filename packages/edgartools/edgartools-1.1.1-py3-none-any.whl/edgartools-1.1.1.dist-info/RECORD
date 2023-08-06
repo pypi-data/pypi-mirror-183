@@ -1,0 +1,11 @@
+edgar/__about__.py,sha256=gj6aBg79Ra_58RT3fO1eQKdpDEjGIt2ZzOwaCJ7Dh1g,134
+edgar/__init__.py,sha256=ycDZQMGgMeFRsL61ANeEp_5jrOwvClOT9OoSp7pkAfw,710
+edgar/company.py,sha256=NZV0Wnes-rE-EOWhIHB-N3unw3c2EeXAEn59W6MtOqs,14625
+edgar/core.py,sha256=VfQ5DIlOfTToiAlBPaqtkqgcgSskK1mY1ZlkAShX79M,7225
+edgar/filing.py,sha256=KYxqVcQQE6S53jfoxMmw3swbwWf0_Hd477de8uL7f3o,16619
+edgar/xbrl.py,sha256=IE8imIZzqbSRPeANFpUboivgBarn3iKlqJ6cXeaI3j8,5399
+edgar/xml.py,sha256=Nvhp9-zEHTXGzt2LMXew95YlNec0iQ6ldtPmwgF1Rqc,654
+edgartools-1.1.1.dist-info/METADATA,sha256=PRunV2u9ctG44SmayqK3EpRrXCsKsb7bVpVR7jJgnEY,15193
+edgartools-1.1.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+edgartools-1.1.1.dist-info/licenses/LICENSE.txt,sha256=3JK5gy0HugTKZ1lhd-QvDaaUvXCWgHqyEAor2UuECiE,1109
+edgartools-1.1.1.dist-info/RECORD,,
