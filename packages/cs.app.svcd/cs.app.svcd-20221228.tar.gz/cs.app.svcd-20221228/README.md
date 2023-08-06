@@ -1,0 +1,283 @@
+SvcD class and "svcd" command to run persistent service programmes.
+
+*Latest release 20221228*:
+* BREAKING: require "run" subcommand to run a service daemon.
+* New "ls" subcommand to report services based on flags.
+
+This provides the features one wants from a daemon
+for arbitrary commands providing a service:
+
+* process id (pid) files for both svcd and the service command
+* filesystem visible status (command running, service enabled)
+  via `cs.app.flag`
+* command restart if the command exits
+* command control (stop, restart, disable) via `cs.app.flag`
+* test function to monitor for service viability;
+  if the test function fails, do not run the service.
+  This typically monitors something like
+  network routing (suspend service while laptop offline)
+  or a ping (suspend ssh tunnel while target does not answer pings).
+* signature function to monitor for service restart;
+  if the signature changes, restart the service.
+  This typically monitors something like
+  file contents (restart service on configuration change)
+  or network routing (restart ssh tunnel on network change)
+* callbacks for service command start and end,
+  for example to display desktop notifications
+
+I use this to run persistent ssh port forwards
+and a small collection of other personal services.
+I have convenient shell commands to look up service status
+and to start/stop/restart services.
+
+See `cs.app.portfwd` which I use to manage my `ssh` tunnels;
+it is a single Python programme
+running multiple `ssh` commands, each via its own `SvcD` instance.
+
+## Function `callproc(*a, **kw)`
+
+Workalike for subprocess.call, using LockedPopen.
+
+## Function `LockedPopen(*a, **kw)`
+
+Serialise the `Popen` calls.
+
+My long term multithreaded `SvcD` programmes sometimes coredumps.
+My working theory is that `Popen`, maybe only on MacOS, is
+slightly not multithead safe. This function exists to test
+that theory.
+
+## Function `main(argv=None)`
+
+svcd command line.
+
+## Class `SvcD(cs.app.flag.FlaggedMixin)`
+
+A process based service.
+
+*Method `SvcD.__init__(self, *argv, name=None, environ=None, flags=None, group_name=None, pidfile=None, sig_func=None, test_flags=None, test_func=None, test_rate=None, restart_delay=None, once=False, quiet=False, trace=False, on_spawn=None, on_reap=None)`*:
+Initialise the SvcD.
+
+Parameters:
+* `argv`: command to run as a subprocess.
+* `flags`: a cs.app.flag.Flags -like object, default None;
+  if None the default flags will be used.
+* `group_name`: alert group name, default "SVCD " + `name`.
+* `pidfile`: path to pid file, default $VARRUN/{name}.pid.
+* `sig_func`: signature function to compute a string which
+  causes a restart if it changes
+* `test_flags`: map of {flagname: truthiness} which should
+  be monitored at test time; truthy flags must be true and
+  untruthy flags must be false
+* `test_func`: test function with must return true if the comannd can run
+* `test_rate`: frequency of tests, default SvcD.TEST_RATE
+* `restart_delay`: delay before start of an exiting command,
+  default SvcD.RESTART_DELAY
+* `once`: if true, run the command only once
+* `quiet`: if true, do not issue alerts
+* `trace`: trace actions, default False
+* `on_spawn`: to be called after a new subprocess is spawned
+* `on_reap`: to be called after a subprocess is reaped
+
+*Method `SvcD.alert(self, msg, *a)`*:
+Issue an alert message via the "alert" command.
+
+*Method `SvcD.dbg(self, msg, *a)`*:
+Log a debug message if tracing.
+
+*Method `SvcD.disable(self)`*:
+Turn on the disable flag.
+
+*Method `SvcD.enable(self)`*:
+Turn of the disable flag.
+
+*Method `SvcD.probe(self)`*:
+Probe the subprocess: true if running.
+
+*Method `SvcD.reap(self)`*:
+Collect the subprocess status after termination.
+
+Calls the `on_reap` function if any.
+
+*Method `SvcD.restart(self)`*:
+Set the restart flag, will be cleared by the restart.
+
+*Method `SvcD.spawn(self)`*:
+Spawn the subprocess.
+
+Calls the `on_spwan` function if any.
+
+*Method `SvcD.start(self)`*:
+Start the subprocess and its monitor.
+
+*Method `SvcD.stop(self)`*:
+Set the stop flag.
+
+*Method `SvcD.test(self)`*:
+Test whether the service should run.
+
+In order:
+* `True` if the override flag is true.
+* `False` if the disable flag is true.
+* `False` if any of the specified test flags are false.
+* `False` if the test function fails.
+* Otherwise `True`.
+
+*Method `SvcD.wait(self)`*:
+Wait for the subprocess by waiting for the monitor.
+
+## Class `SvcDCommand(cs.cmdutils.BaseCommand)`
+
+Implementation of `SvcD` command line mode.
+
+Command line usage:
+
+    Usage: svcd subcommand [...]
+      Subcommands:
+        enable ...
+            {cmd} enable names
+            For each name clear the flag {{NAME}}_DISABLE, allowing the matching
+            svcd to start up its daemon process.
+        help [-l] [subcommand-names...]
+          Print the full help for the named subcommands,
+          or for all subcommands if no names are specified.
+          -l  Long help even if no subcommand-names provided.
+        ls
+          List known services.
+        restart ...
+            {cmd} restart names...
+            For each name set the flag {{NAME}}_RESTART, causing the matching
+            svcd to shut down and then restart its daemon process.
+        run [-1] [-l] [-L lockname] [-n name] [-t testcmd] [-x] command [args...]
+          Run a daemon command.
+          -1    Run command only once.
+          -l    Use lock "svcd-<name>" to prevent multiple instances of this svcd.
+          -F [!]flag,...
+                Flags to include in the run test. Flags with a leading
+                exclaimation point (!) must test false, others true.
+          -L lockname
+                Use lock "lockname" to prevent multiple instances of this svcd.
+          -n name
+                Specify a name for this svcd.
+                Also create a subprocess pid file at <function <lambda> at 0x1107773a0>/name.pid for the command.
+                This also causes svcd to consult the flags {NAME}_OVERRIDE
+                and {NAME}_DISABLE and {NAME}_RESTART.
+          -p svcd-pidfile
+                Specify run pid file instead of default.
+          -P subp-pidfile
+                Specify run subprocess pid file instead of default.
+          -q    Quiet. Do not issue alerts.
+          -s sigcmd
+                Run the signature shell command "sigcmd" whose output is
+                used to check for changed circumstances requiring the service
+                to restart.
+          -t testcmd
+                Run the test shell command "testcmd" periodically to
+                govern whether the command should be active.
+          -T testrate
+                Interval between test polls in seconds. Default from SvcD.TEST_RATE
+          -u username
+                Run command as the specified username.
+          -U username
+                Run test and related commands as the specified username.
+          -x    Trace execution.
+        stop ...
+            {cmd} stop names...
+            For each name set the flag {{NAME}}_STOP, causing the the
+            montior thread to kill the daemon process and exit.
+
+*Method `SvcDCommand.cmd_enable(self, argv)`*:
+{cmd} enable names
+For each name clear the flag {{NAME}}_DISABLE, allowing the matching
+svcd to start up its daemon process.
+
+*Method `SvcDCommand.cmd_ls(self, argv)`*:
+Usage: {cmd}
+List known services.
+
+*Method `SvcDCommand.cmd_restart(self, argv)`*:
+{cmd} restart names...
+For each name set the flag {{NAME}}_RESTART, causing the matching
+svcd to shut down and then restart its daemon process.
+
+*Method `SvcDCommand.cmd_run(self, argv)`*:
+Usage: {cmd} [-1] [-l] [-L lockname] [-n name] [-t testcmd] [-x] command [args...]
+Run a daemon command.
+-1    Run command only once.
+-l    Use lock "svcd-<name>" to prevent multiple instances of this svcd.
+-F [!]flag,...
+      Flags to include in the run test. Flags with a leading
+      exclaimation point (!) must test false, others true.
+-L lockname
+      Use lock "lockname" to prevent multiple instances of this svcd.
+-n name
+      Specify a name for this svcd.
+      Also create a subprocess pid file at {VARRUN}/name.pid for the command.
+      This also causes svcd to consult the flags {{NAME}}_OVERRIDE
+      and {{NAME}}_DISABLE and {{NAME}}_RESTART.
+-p svcd-pidfile
+      Specify {cmd} pid file instead of default.
+-P subp-pidfile
+      Specify {cmd} subprocess pid file instead of default.
+-q    Quiet. Do not issue alerts.
+-s sigcmd
+      Run the signature shell command "sigcmd" whose output is
+      used to check for changed circumstances requiring the service
+      to restart.
+-t testcmd
+      Run the test shell command "testcmd" periodically to
+      govern whether the command should be active.
+-T testrate
+      Interval between test polls in seconds. Default from SvcD.TEST_RATE
+-u username
+      Run command as the specified username.
+-U username
+      Run test and related commands as the specified username.
+-x    Trace execution.
+
+*Method `SvcDCommand.cmd_stop(self, argv)`*:
+{cmd} stop names...
+For each name set the flag {{NAME}}_STOP, causing the the
+montior thread to kill the daemon process and exit.
+
+*Method `SvcDCommand.disable(self, argv)`*:
+{cmd} disable names...
+For each name set the flag {{NAME}}_DISABLE, causing the matching
+svcd to shut down its daemon process.
+
+# Release Log
+
+
+
+*Release 20221228*:
+* BREAKING: require "run" subcommand to run a service daemon.
+* New "ls" subcommand to report services based on flags.
+
+*Release 20210316*:
+Serialise the Popen calls to avoid entirely hypothetical subprocess.Popen MT bug that may be making portfwd coredump.
+
+*Release 20190729*:
+Get DEVNULL via cs.py3 instead of directly from subprocess.
+
+*Release 20190602.2*:
+Another doc tweak.
+
+*Release 20190602.1*:
+Improve module documentation formatting.
+
+*Release 20190602*:
+* Support alert groups.
+* Catch and report exceptions from the monitor signature function.
+* Python 2 port fix for DEVNULL.
+
+*Release 20171118*:
+Bugfix for su invocation in setuid mode. Improved signature command tracing with -x option.
+
+*Release 20171026*:
+Improved logic around signature changes.
+
+*Release 20171025*:
+New "-F flag,..." option for svcd. Improve stop logic. Other small fixes.
+
+*Release 20170906*:
+Initial PyPI release.
