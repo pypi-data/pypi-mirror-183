@@ -1,0 +1,15 @@
+Django
+django-libs
+six
+
+[dev]
+django-libs>=1.67.2
+flake8
+django-nose
+coverage
+django-coverage
+ipdb
+fabric3
+mixer
+mock
+tox
