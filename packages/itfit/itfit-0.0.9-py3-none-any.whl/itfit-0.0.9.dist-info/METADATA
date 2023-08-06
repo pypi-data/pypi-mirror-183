@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: itfit
+Version: 0.0.9
+Summary: Simple, intuitive and interactive application to help fitting common functions to your data
+Author-email: Unai Lería Fortea <unaileria@gmail.com>, Pablo Vizcaíno García <pablovizcainogarcia@gmail.com>
+Maintainer-email: Unai Lería Fortea <unaileria@gmail.com>, Pablo Vizcaíno García <pablovizcainogarcia@gmail.com>
+License: Apache License 2.0
+Project-URL: GitHub, https://github.com/QuanticPony/itfit
+Project-URL: Documentation, https://quanticpony.github.io/itfit/
+Keywords: fit,data,visual,analysis
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: mkdocstrings[python] (>=0.18)
+Requires-Dist: mkdocs-material
+Requires-Dist: bumpver
+Requires-Dist: mkdocs
+Requires-Dist: mkdocs-gen-files
+Requires-Dist: mkdocs-literate-nav
+Requires-Dist: Pygments (>=2.12)
+
+<!-- <h1 align="center"> -->
+<!-- <img src="/images/logo/fitter.svg" width="300"> -->
+<!-- </h1><br> -->
+
+<h1 align="center">
+Itfit
+</h1>
+<h2 align="center">
+Interactive Fitter
+</h2><br>
+
+[![PyPI Downloads](https://img.shields.io/pypi/dm/itfit.svg?label=PyPI%20downloads)](
+https://pypi.org/project/itfit/)
+
+Simple, intuitive and interactive application to help fitting common functions to your data.
+
+<h1 align="center">
+<img src="docs/images/sample.gif" width="400" height="320" />
+</h1>
+
+<h1 align="center">
+<img src="docs/images/example.png" width="400" height="320" />
+</h1>
+
+# Instalation
+
+# Documentation
+
+# Contribute
