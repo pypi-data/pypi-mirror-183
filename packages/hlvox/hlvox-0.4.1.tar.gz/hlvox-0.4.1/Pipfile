@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pydub = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
+
+[dev-packages]
+mypy = "*"
+autopep8 = "*"
+pylint = "*"
+pytest = "*"
+pytest-cov = "*"
+sphinx = "*"
+twine = "*"
+pre-commit = "*"
+isort = "*"
+
+[requires]
+python_version = "3.9"
