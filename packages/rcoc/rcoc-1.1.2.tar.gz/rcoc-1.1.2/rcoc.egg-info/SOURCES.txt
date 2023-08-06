@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+rcoc.egg-info/PKG-INFO
+rcoc.egg-info/SOURCES.txt
+rcoc.egg-info/dependency_links.txt
+rcoc.egg-info/top_level.txt
+src/rcoc/rcoc.py
+src/rcoc/test.py
+src/rcoc/data/cities.csv
