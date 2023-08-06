@@ -1,0 +1,12 @@
+gensim==3.8.3
+take-text-preprocess==0.0.4
+TakeBlipPosTagger==1.0.6b0
+TakeBlipNer==0.0.7b2
+TakeBlipMessageStructurer==0.0.2b1
+azureml-contrib-services==1.46.0
+requests_toolbelt==0.10.0
+azure-storage-blob==12.13.1
+azure-eventhub==5.10.0
+wordcloud==1.8.2.2
+plotly==5.10.0
+kaleido==0.2.1
