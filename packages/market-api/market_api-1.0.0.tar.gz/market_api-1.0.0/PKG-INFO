@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: market-api
+Version: 1.0.0
+Summary: market.csgo.com api v2 wrapper
+Home-page: https://github.com/lordralinc/market_api
+License: MIT
+Keywords: csgo_market,market,api
+Author: lordralinc
+Author-email: lordralinc@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aenum (>=3.1.11,<4.0.0)
+Requires-Dist: aiohttp (>=3.8.3,<4.0.0)
+Requires-Dist: orjson (>=3.8.3,<4.0.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Project-URL: Repository, https://github.com/lordralinc/market_api
+Description-Content-Type: text/markdown
+
+# market-api
+
+![PyPI](https://img.shields.io/pypi/v/market-api)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/market-api)
+![GitHub](https://img.shields.io/github/license/lordralinc/market_api)
+[![Downloads](https://pepy.tech/badge/market-api)](https://pepy.tech/project/market-api)
+
+
+## Получение токена
+[market.csgo.com](https://market.csgo.com/docs-v2)
+
+
+## Использование
+
+```python
+import datetime
+import pprint
+from market_api import MarketConfig, MarketClient, MarketException, models
+
+config = MarketConfig(api_key="...")
+client = MarketClient(config)
+
+pprint.pprint(await client.account.get_my_steam_id())
+pprint.pprint(await client.account.change_currency(models.Currency.EUR))
+pprint.pprint(
+    await client.trades.history(
+        datetime.datetime.now() - datetime.timedelta(days=1),
+        datetime.datetime.now()
+    )
+)
+async for message in client.wss.listen_raw(
+    [models.WSSChannel.HISTORY_GO],
+    need_auth=True
+):
+    pprint.pprint(message)
+```
+

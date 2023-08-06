@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "market-api"
+version = "1.0.0"
+license="MIT"
+keywords = ["csgo_market", "market", "api"]
+repository = "https://github.com/lordralinc/market_api"
+homepage = "https://github.com/lordralinc/market_api"
+description = "market.csgo.com api v2 wrapper"
+authors = ["lordralinc <lordralinc@gmail.com>"]
+readme = "README.md"
+packages = [{include = "market_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.10.2"
+aiohttp = "^3.8.3"
+toml = "^0.10.2"
+orjson = "^3.8.3"
+aenum = "^3.1.11"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
