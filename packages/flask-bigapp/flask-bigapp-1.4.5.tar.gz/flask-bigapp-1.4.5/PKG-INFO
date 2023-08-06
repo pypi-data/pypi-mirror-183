@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: flask-bigapp
+Version: 1.4.5
+Summary: A Flask auto importer that allows your Flask apps to grow big.
+Home-page: https://github.com/CheeseCake87/Flask-BigApp
+Author: David Carmichael
+License: GNU General Public License v2 or later (GPLv2+)
+Keywords: bigapp flask auto importer
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8
+Provides-Extra: testing
+License-File: LICENSE
+
+![](https://github.com/CheeseCake87/Flask-BigApp/blob/master/app/structures/default_theme/static/img/Flask-BigApp-Logo-white-bg.png)
+
+# Flask-BigApp
+
+`pip install flask-bigapp`
+
+![Tests](https://github.com/CheeseCake87/Flask-BigApp/actions/workflows/tests.yml/badge.svg)
+
+`NOTE:` This version; Being 1.4.* and above includes some breaking changes from anything on version 1.3.* and below.
+
+**What is Flask-BigApp?**
+
+Flask-BigApp's main purpose is to help simplify the importing of blueprints, routes and models.
+It has a few extra features built in to help with theming, securing pages and password authentication.
+
+## Wiki
+
+[Go to Wiki](https://github.com/CheeseCake87/Flask-BigApp/wiki)
