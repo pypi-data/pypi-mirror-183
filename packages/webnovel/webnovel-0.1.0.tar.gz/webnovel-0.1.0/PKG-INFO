@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: webnovel
+Version: 0.1.0
+Summary: 
+Author: Meng Xiangzhuo
+Author-email: aumo@foxmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+
+-  react + ant-design 构建原型
+- 抓取管理原型
+- 阅读原型
+- 抓取api
+- 阅读api
+
+
