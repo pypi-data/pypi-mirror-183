@@ -1,0 +1,3 @@
+[console_scripts]
+obserware=earsegmentationai.main:main
+
