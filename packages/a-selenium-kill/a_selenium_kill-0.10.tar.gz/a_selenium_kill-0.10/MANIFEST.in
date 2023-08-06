@@ -1,0 +1,4 @@
+include a_selenium_kill/requirements.txt
+include a_selenium_kill/thirdparty.json
+include a_selenium_kill/README.MD
+include a_selenium_kill/LICENSE

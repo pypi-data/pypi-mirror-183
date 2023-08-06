@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_kill/LICENSE
+a_selenium_kill/README.MD
+a_selenium_kill/__init__.py
+a_selenium_kill/requirements.txt
+a_selenium_kill/thirdparty.json
+a_selenium_kill.egg-info/PKG-INFO
+a_selenium_kill.egg-info/SOURCES.txt
+a_selenium_kill.egg-info/dependency_links.txt
+a_selenium_kill.egg-info/requires.txt
+a_selenium_kill.egg-info/top_level.txt
