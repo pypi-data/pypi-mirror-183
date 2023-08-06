@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+Pandarize.egg-info/PKG-INFO
+Pandarize.egg-info/SOURCES.txt
+Pandarize.egg-info/dependency_links.txt
+Pandarize.egg-info/requires.txt
+Pandarize.egg-info/top_level.txt
+pandarize/__init__.py
+pandarize/_util.py
+pandarize/frame.py
+pandarize/loader.py
+pandarize/parser.py
+pandarize/config/config.yaml
