@@ -1,0 +1,7 @@
+[project]
+name = "hello"
+lang = "rect"
+
+[config.rect-lang]
+type = "lib"
+sources = ["./src/**/*.rct"]
