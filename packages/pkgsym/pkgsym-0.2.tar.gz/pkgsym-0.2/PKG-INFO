@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: pkgsym
+Version: 0.2
+Summary: Poor man's package manager (like brew link without the brew)
+Home-page: https://github.com/Qyriad/pkgsym
+Author: Mikaela Szekely
+Author-email: mikaela.szekely@qyriad.me
+License: MIT
+Platform: any
+License-File: LICENSE.txt
