@@ -1,0 +1,116 @@
+Metadata-Version: 2.1
+Name: qc-quad
+Version: 0.1.0
+Summary: Quantum-chemistry quadrature package
+License: MIT
+Author: Peter Koval
+Author-email: koval.peter@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy (>=1.24.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# qc-quad
+
+Quantum-chemistry quadrature package.
+
+This package makes easy to set up so-called Lebedev-Laikov and Gaussian-Legendre grids.
+These grids are suitable for numerical integration in quantum chemistry applications.
+
+Lebedev-Laikov grids provide coordinates and weights for an optimal integration over a surface
+of unit sphere. These grids are Golden standard in quantum chemistry because of the accuracy
+they provide at the minimal number of the integrand-function evaluations.
+The implementation of the grids is derived from a Matlab implementation by John Burkardt
+https://people.sc.fsu.edu/~jburkardt/m_src/sphere_lebedev_rule/sphere_lebedev_rule.html
+
+Gauss-Legendre grids provide coordinates and weights for an optimal integration in one dimension,
+over a finite segment. The Gauss-Legendre grids are suitable for generic functions. This is in
+contrast to the behavior of wave-functions along radial distance. However, I provide these
+grids here in order to organize an integration of generic functions over spherical volumes. 
+
+Note, that to become truly quantum-chemical quadrature this software needs a smooth separation
+of space which depends on the geometry of the molecule and, perhaps, a one-dimensional grid
+suitable for integrating radial functions together with a pruning scheme for Lebedev-Laikov
+grids. This should be easy to bolt in later for somebody who needs it.
+
+A motivation for composing this package instead of using several packages out there in the
+open-source community would be "doing things" right, in a testable, malleable and parsimonious way.
+
+The major difficulty in setting up of the Lebedev-Laikov grids is the absence of their
+definition for a given number of points. The grids are provided for minimum of 6 and maximum 
+of 5810 points: 6, 14, 26, 38, 50, 74, 86, 110, 146, 170, 194, 230, 266, 302, 350, 434, 590,
+770, 974, 1202, 1454, 1730, 2030, 2354, 2702, 3074, 3470, 3890, 4334, 4802, 5294 and 5810,
+32 grids in total. Each of the 32 grids, is composed of a set of 6 kinds of grids composed 
+of 6, 12, 8, 24, 24 and 48 points. To the best of my knowledge, no implementation out in
+the open-source offers any generalizations. For example, a construction of grids with more 
+points by attaching the 48-point grids together or construction of a 36-point grid by using 
+three of the 12-point grids is not implemented although this should be feasible.
+
+There are several open-source implementations of Lebedev-Laikov grids.
+The quantum-chemistry package Horton is using a Python binding to a C++
+module implementing the grids https://github.com/theochem/horton.
+A sub-repository `grid` of `theochem` repositories offers the Lebedev-Laikov grids stored
+in `.npy` files. There is an exhaustive set of quadratures in repository
+https://github.com/sigma-py/quadpy . However, the code of `quadpy` is obfuscated.
+The repository https://github.com/Rufflewind/lebedev_laikov provides the grids via a Python
+binding to a source code in C language. Similarly, https://github.com/dftlibs/numgrid
+provides the grids through a binding to a Fortran source.
+There is a pure Python implementation of Lebedev-Laikov grids
+https://github.com/gabrielelanaro/pyquante/ . However, it provides the grids for the first 
+11 (6, 14, 26, 38, 50, 74, 86, 110, 146, 170, 194) out of 32 grids implemented by Dmitri Laikov.
+Finally, there is an issue in SciPy with a feature request of Lebedev grids
+https://github.com/scipy/scipy/issues/11929
+
+Current package `qc-quad` is open source. It provides Lebedev-Laikov grids for 32 grids published by
+Dmitri Laikov. It is a pure Python package. This makes this implementation easily testable (pytest), 
+extendable and usable. 
+
+
+## References:
+    Axel Becke, "A multicenter numerical integration scheme for polyatomic molecules",
+    Journal of Chemical Physics,
+    Volume 88, Number 4, 15 February 1988, pages 2547-2553. 
+
+    Vyacheslav Lebedev, Dmitri Laikov, "A quadrature formula for the sphere of the 131st
+    algebraic order of accuracy", Russian Academy of Sciences Doklady Mathematics,
+    Volume 59, Number 3, 1999, pages 477-481.
+
+## Installation
+
+    pip install qc-quad
+
+## Developer installation
+
+Installation could be done with poetry = "^1.3.1"
+
+    poetry install
+
+## Usage
+
+This is a part of some quantum-chemistry software. Some use cases can be seen in the tests.
+
+## Roadmap
+
+Let's see what does the community thinks.
+
+## Contributing
+
+  - PEP8 code formatting is mandatory.
+  - The bug fixes are welcome.
+  - Small improvements are welcome.
+  - Definition of the hard-coded coefficients is especially welcome.
+
+## Authors and acknowledgment
+James Talman drew my attention to Lebedev-Laikov grids.
+
+## License
+
+MIT license: no guarantee, free to use anywhere.
+
+## Project status
+
+Initial release is done.
