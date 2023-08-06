@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: waf-build
+Version: 2.0.22
+Summary: Waf build system
+
+Waf is a tool designed to help in the automatic compilation and installation of applications. It is a replacement for the classic Make utility with autoconf/automake/libtool. It is written in Python and is released under the terms of the GNU GPL version 2.
