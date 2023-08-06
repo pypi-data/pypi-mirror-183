@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+pyvalueobjects/__init__.py
+pyvalueobjects/value_object.py
+pyvalueobjects.egg-info/PKG-INFO
+pyvalueobjects.egg-info/SOURCES.txt
+pyvalueobjects.egg-info/dependency_links.txt
+pyvalueobjects.egg-info/top_level.txt
