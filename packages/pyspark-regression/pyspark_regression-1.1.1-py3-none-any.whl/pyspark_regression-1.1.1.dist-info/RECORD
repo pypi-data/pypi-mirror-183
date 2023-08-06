@@ -1,0 +1,8 @@
+pyspark_regression/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyspark_regression/example.py,sha256=scTqNMVjxFeyR8lP0vEqAjoesVwp_Pbl13RDcPmcrfU,932
+pyspark_regression/regression.py,sha256=8EpsaC6S0xiJcVjfnSCxWD0L7L_fHBEfeXDQ24h6LmY,29136
+pyspark_regression-1.1.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pyspark_regression-1.1.1.dist-info/METADATA,sha256=DO08vM1wILVfvB9tBmfKl25fgchAW8JvzIojO3cQ3GM,6720
+pyspark_regression-1.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pyspark_regression-1.1.1.dist-info/top_level.txt,sha256=n-0EUGmV4RXBriR5wE5DRmUM5G-VNwg_TevyBIiQa5I,19
+pyspark_regression-1.1.1.dist-info/RECORD,,
