@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: azure-devops-repository-archiver
+Version: 0.0.4
+Summary: azure-devops-repository-archiver
+Home-page: https://github.com/stefanfreitag/azure_s3_repository_archiver.git
+Author: Stefan Freitag<stefan.freitag@udo.edu>
+License: Apache-2.0
+Project-URL: Source, https://github.com/stefanfreitag/azure_s3_repository_archiver.git
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Typing :: Typed
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Azure DevOps Git Repository Archiver
+
+[![npm version](https://badge.fury.io/js/azure-devops-repository-archiver.svg)](https://badge.fury.io/js/azure-devops-repository-archiver)
+[![PyPI version](https://badge.fury.io/py/azure-devops-repository-archiver.svg)](https://badge.fury.io/py/azure-devops-repository-archiver)
+![Release](https://github.com/stefanfreitag/azure_s3_repository_archiver/workflows/release/badge.svg)
+
+Allows to backup regularly git repositories hosted in Azure DevOps to an S3 Bucket.
+
+## Features
+
+The S3 bucket is configured as below
+
+* enabled versioning of objects
+* enabled encryption using an S3 managed Key
+* disallowing publich access
+* A lifecycle configuration for the archived repositories. They transistion
+  through different storage classes
+
+  * Infrequent Access after 30 days
+  * Glacier after 90 days
+  * Deep Archive 180 days
+  * Expiry after 365 days
+
+## Planned Features
+
+* Logging to CloudWatch
+
+  * Encryption using customer-managed KMS key
+* Notifications to SNS about uploaded objects
+* Tagging of created AWS resources
+
+## Prerequisites
+
+The connection to the Azure DevOps organization requires a [personal access
+token](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+The PAT needs to have "Code read" permission and stored in a SecretsManager secret
+
+```shell
+aws secretsmanager create-secret --name rwest_archiver_rwest_platform --description "RWEST Archiver for RWEST-Platform organization" --secret-string "{\"pat\":\"<your_pat>\"}"
+```
+
+## Links
+
+* [projen](https://github.com/projen/projen)
+* [cdk](https://github.com/aws/aws-cdk)
+
+
