@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "yamlbundler"
+version = "0.0.1"
+description = ""
+authors = ["dr666m1 <skndr666m1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+yamlbundler = "yamlbundler.command:run"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyyaml = "^6.0"
+jsonpath-ng = "^1.5.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+mypy = "^0.991"
+black = "^22.12.0"
+flake8 = "^6.0.0"
+types-pyyaml = "^6.0.12.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
