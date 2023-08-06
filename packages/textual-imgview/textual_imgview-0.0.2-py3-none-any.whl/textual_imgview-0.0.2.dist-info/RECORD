@@ -1,0 +1,10 @@
+textual_imgview/__about__.py,sha256=QvlVh4JTl3JL7jQAja76yKtT-IvF4631ASjWY1wS6AQ,22
+textual_imgview/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textual_imgview/app.py,sha256=n9WrAqb717WO3fZ7cAehW4c2PAdEcLnBgjpU2ldTh1Y,2776
+textual_imgview/img.py,sha256=PVIo1n13HSKdumwPGeOc8L5GNyA6xG3pUw-7k1KHU8Q,11398
+textual_imgview/viewer.py,sha256=IiX7417yqSkThp76feRAa36MCBW2WmgTzSjds4P-XKw,2523
+textual_imgview-0.0.2.dist-info/METADATA,sha256=3htJCmTs8Fz8Z3skvN6O8Dyqxqj7S7uKQKefB94O82A,1568
+textual_imgview-0.0.2.dist-info/WHEEL,sha256=uowK1IU2Mr84Y-Zer0AkNPWpF6NqJUMrUTigrBnI0N8,87
+textual_imgview-0.0.2.dist-info/entry_points.txt,sha256=nvNXyJViYZRJbVojhHL9qlAQz6MdZz303a32k85emO4,50
+textual_imgview-0.0.2.dist-info/licenses/LICENSE.txt,sha256=u016usb7fRnABQqEWVWOMoyGbloVFTg6kfmNC-8dHD4,1092
+textual_imgview-0.0.2.dist-info/RECORD,,
