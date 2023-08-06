@@ -1,0 +1,4 @@
+pyChatGPT
+pyttsx3
+speech_recognition
+pyaudio
