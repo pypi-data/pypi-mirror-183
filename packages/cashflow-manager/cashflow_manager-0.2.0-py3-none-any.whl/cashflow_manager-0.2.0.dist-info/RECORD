@@ -1,0 +1,10 @@
+cashflow/VERSION,sha256=H5MN0fEzwfl6lP46y42zQ3LPTAH_2ys_9Mpy-UlBIek,6
+cashflow/budget.py,sha256=LpCSoWUFiDruj4fty54KaoCtAHLLbEuFscFIYIsPR90,912
+cashflow/category.py,sha256=v-RhkqJ-zojsRaU1kHXtJhhOn8RuhM60Sf3DOzW1BGg,847
+cashflow/cli.py,sha256=V_euMB5rFIK1yDasucvDvdFvIsbTCIfFfwY0J56MYyc,1544
+cashflow/processor.py,sha256=XQCQRWSJSFA9bAxTeD3NVxvRxQdlW77BbfV3xIkFC_g,6550
+cashflow/vocab.py,sha256=HrN60XGj_KaWx1ZbOF6nLzhqMoO3IqKlcsnu3ksOP_Y,377
+cashflow_manager-0.2.0.dist-info/entry_points.txt,sha256=0Wrh81RVaygntD2Gp9nOvK-ZQc8GfNJW6gaK8APH8Ss,89
+cashflow_manager-0.2.0.dist-info/METADATA,sha256=A2DXdeoGkHciRlDhAQJ495C0iE6i9TH2esipKA3yNhE,565
+cashflow_manager-0.2.0.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+cashflow_manager-0.2.0.dist-info/RECORD,,

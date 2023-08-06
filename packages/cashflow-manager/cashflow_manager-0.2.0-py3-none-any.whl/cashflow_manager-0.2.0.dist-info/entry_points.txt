@@ -1,0 +1,4 @@
+[console_scripts]
+budget_processor=budget.cli:main
+cashflow_processor=cashflow.cli:main
+
