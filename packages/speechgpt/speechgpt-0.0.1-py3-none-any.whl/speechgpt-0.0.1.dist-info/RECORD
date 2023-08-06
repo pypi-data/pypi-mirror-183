@@ -1,0 +1,9 @@
+speechgpt/__init__.py,sha256=R9Ho8j66VAMcGa-e7X1AEpFwTHM2B-VJef1_kE7uKEg,37
+speechgpt/askgpt.py,sha256=t05TE62VFvrQbxuwOwuZKOuGkG_nmTzHxgrc4Purbbc,189
+speechgpt/text_to_speech.py,sha256=s0OzQnGR7gjImSPHpvNn0GYRcLas7MjGg6nBNwvBCAo,183
+speechgpt/voiceinterface.py,sha256=3HmHD2wMQm1BH3nEGjRohklXV_x3rRbrTefj808o7-0,1657
+speechgpt-0.0.1.dist-info/LICENSE,sha256=cwDJ8vU7X8hjgOYOFO8zUl-V7gJKnCx6wI_4cQ_h8nw,1068
+speechgpt-0.0.1.dist-info/METADATA,sha256=T-__3qzftIGY2b-3icUUKdxPJXAqM9uhTTDvrKk7Chk,407
+speechgpt-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+speechgpt-0.0.1.dist-info/top_level.txt,sha256=YAV916nDYSmCmv4DzYmxZZ7FJv0WppD_gtjL63qMXlY,10
+speechgpt-0.0.1.dist-info/RECORD,,
