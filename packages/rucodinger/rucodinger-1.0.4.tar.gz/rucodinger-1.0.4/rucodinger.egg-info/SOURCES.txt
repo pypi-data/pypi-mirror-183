@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+rucodinger/__init__.py
+rucodinger/about.py
+rucodinger/vk_group.py
+rucodinger/website.py
+rucodinger.egg-info/PKG-INFO
+rucodinger.egg-info/SOURCES.txt
+rucodinger.egg-info/dependency_links.txt
+rucodinger.egg-info/not-zip-safe
+rucodinger.egg-info/requires.txt
+rucodinger.egg-info/top_level.txt
