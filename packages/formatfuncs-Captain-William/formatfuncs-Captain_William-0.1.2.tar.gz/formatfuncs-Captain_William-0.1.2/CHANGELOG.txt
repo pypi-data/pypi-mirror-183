@@ -1,0 +1,29 @@
+Change Log 
+==========
+0.1.2
+- minor improvements
+- minor bugfixes where information used for debugging would print to console 
+
+0.1.1
+- fixed out of range error for string_format (except for when strings are very small)
+- fixed string_format text formatting algorithm to make the resultant string more aesthetic
+- changed paragraph_maker to copy_write_maker
+- added push function for small strings 
+
+0.1.0
+- Fixed string error with string_format
+cutting off the first character when paragraph is 
+set to zero. 
+
+0.0.9
+- Fixed init error
+
+0.0.8 
+- First public release 12/22/2022
+
+0.0.2
+- Fixed dependancy issue 12/21/2022
+
+0.0.1
+- First test release 12/21/2022
+

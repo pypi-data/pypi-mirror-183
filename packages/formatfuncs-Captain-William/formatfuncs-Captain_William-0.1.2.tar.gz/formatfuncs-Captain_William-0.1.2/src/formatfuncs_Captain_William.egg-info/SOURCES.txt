@@ -1,0 +1,14 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+ignore/filter_funcs.py
+ignore/test 0.0.8/test 0.0.8.py
+src/FormatFuncs/__init__.py
+src/FormatFuncs/formatfuncs.py
+src/formatfuncs_Captain_William.egg-info/PKG-INFO
+src/formatfuncs_Captain_William.egg-info/SOURCES.txt
+src/formatfuncs_Captain_William.egg-info/dependency_links.txt
+src/formatfuncs_Captain_William.egg-info/top_level.txt
