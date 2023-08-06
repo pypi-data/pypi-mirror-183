@@ -1,0 +1,9 @@
+data_snack_dynamic_entity/__init__.py,sha256=VKCPzu6AX5iLNWOFlWcJpfWq5OkXZjyPj84E-sD15tM,35
+data_snack_dynamic_entity/entityTemplates.schema.json,sha256=Yn47eb9HkRGeITGXxVrgFkiMwyiy_kS_oIGUtO03CJ8,890
+data_snack_dynamic_entity/factory.py,sha256=lOC-UiF5IPFTJZKJL564NAGpx1lYfEJcINGXuDdzBu0,1405
+data_snack_dynamic_entity/validate.py,sha256=3NAJDB84irWf03JwgHlfffpvUHK_5FnGBm7VQCnFrJw,674
+data_snack_dynamic_entity-0.0.4.dist-info/LICENSE,sha256=iG3Bx1qbSwghY69nfFGil2rMWq-3cRh-zZX_otAyhGo,1072
+data_snack_dynamic_entity-0.0.4.dist-info/METADATA,sha256=lP6WmDg8RVmIwBoYBcBO7oVmEN0-pwScfVDrYY552io,2341
+data_snack_dynamic_entity-0.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+data_snack_dynamic_entity-0.0.4.dist-info/top_level.txt,sha256=egnanOwsMvdkCoHdifHQlQ5QAjiM48EZOf8tRUImM0w,26
+data_snack_dynamic_entity-0.0.4.dist-info/RECORD,,
