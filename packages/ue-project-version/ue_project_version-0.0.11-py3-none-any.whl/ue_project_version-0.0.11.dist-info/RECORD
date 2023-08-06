@@ -1,0 +1,14 @@
+CHANGELOG.md,sha256=Xz3LZEw0Ce8bAhL9OB1Mms49K6exQorisxstzU5rSXc,615
+bootloader/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/cli/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/cli/ueprjver.py,sha256=0Gvz4OkcJ489_eKDh9azizcfAQBKM-5DCgCz6O6gQG4,5986
+bootloader/unreal_engine/model/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/model/apple_version.py,sha256=wiFL_-GPRGZb7t5ojnxgD3Or0fiWknvaxvJoVS7ViiA,6537
+bootloader/unreal_engine/utils/__init__.py,sha256=jT5LZVL2mTU1k-WoNu4XLm9OWu0UYPI1Hq_fumgHM6g,859
+bootloader/unreal_engine/utils/project_version.py,sha256=MZwY4pjdgXVlFKw0OSWgbnAFwCFpjb7v5HdXifR0DlQ,8073
+ue_project_version-0.0.11.dist-info/entry_points.txt,sha256=Zv7kMj71R48ATaA0JkakaMdhrLZ9lbPdeAJbn9W-glI,70
+ue_project_version-0.0.11.dist-info/LICENSE,sha256=uekfoVOv1SqqJAeHJXWX8mdu6rH3Y1q6ACxhSLXT2Q4,1067
+ue_project_version-0.0.11.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+ue_project_version-0.0.11.dist-info/METADATA,sha256=yKLI13KSHxE8sHSrXoYeb47CTSmxmIs3jFZwyG_W6N0,1189
+ue_project_version-0.0.11.dist-info/RECORD,,
