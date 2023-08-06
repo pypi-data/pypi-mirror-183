@@ -1,0 +1,4 @@
+project: miniofs
+host: 10.1.0.7:9000
+username: minio
+password: miniostorage
