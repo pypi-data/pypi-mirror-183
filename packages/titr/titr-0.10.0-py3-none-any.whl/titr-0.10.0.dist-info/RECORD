@@ -1,0 +1,13 @@
+titr/__init__.py,sha256=RM5CIKJonXyssnSftbJJed6_PH0Hq3-t-BLJbS5kVWM,254
+titr/config.py,sha256=dLOk8qVm_RCrYGYKDVNpPmC8jCGDfd4P-Q2meZWap9U,5027
+titr/database.py,sha256=O2ChdbzukfdNdOlWlI_1T2aVslkdFJI0uL7y90XPoZg,10188
+titr/datum_console.py,sha256=-f_U79Z3bNwl0j1EW9tKAB6hjHQeL7W1d5FT_KnGn4M,7771
+titr/helper.py,sha256=M2-1q6Oc1NQXhozqsKtwAIHeKt-rJ0NEGkSZ20nEx8A,544
+titr/outlook.py,sha256=kTiSugi7Kszmrc2WOQf5CCFTOexYm9GtZEbN1H7XKG0,1493
+titr/titr_main.py,sha256=e2rzNPRmh3lQcg0gk9wZzN7g09R6UfCpPy0EXJggVyQ,36729
+titr-0.10.0.dist-info/LICENSE,sha256=3JmPcs-xxivQmA47YBozEWot2Pj1FOqr4DnsQXKFP28,1071
+titr-0.10.0.dist-info/METADATA,sha256=FcJsePbXrF2h1sXH8rLEZANkuDbLx0z2qq2yZcHMacM,4658
+titr-0.10.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+titr-0.10.0.dist-info/entry_points.txt,sha256=XV4a2krkdRThM4jLyq9V_DSTAWBij2DcnX28HTmX9kI,45
+titr-0.10.0.dist-info/top_level.txt,sha256=_sGtpXiLNWaSi75a5qjKAp_GPl7yTZrfwA5v-t52t0M,5
+titr-0.10.0.dist-info/RECORD,,
