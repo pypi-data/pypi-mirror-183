@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: synspec
+Version: 1.0.3
+Summary: Synspec spectral synthesis code and python wrapper
+Home-page: https://github.com/dnidever/synspec
+Author: David Nidever
+Author-email: dnidever@montana.edu
+License: MIT
+Requires: numpy
+Requires: astropy(>=4.0)
+Requires: scipy
+Requires: matplotlib
+Requires: dlnpyutils
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: docs
+License-File: LICENSE
+
+Check the README file
