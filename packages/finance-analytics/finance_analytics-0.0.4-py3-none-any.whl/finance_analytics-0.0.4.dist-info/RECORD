@@ -1,0 +1,11 @@
+financeanalytics/dataloader.py,sha256=GK9KQ3ZX8tt7th24yIWSndtTmmpufsUKz1VtK0_WcsM,5237
+financeanalytics/dataquality.py,sha256=rT9GTTWrsWVIVBaow04dku5txZvOIYvq3LJmsvZV-Ws,5462
+financeanalytics/financeanalytics.py,sha256=3ystvNErPZd9rlATqI3BReHuRuVtZHQhaz-gtyR_IF4,4207
+financeanalytics/main.py,sha256=iuvXQd5lOklqGknC1G73J-OzBdzMjsnSf8KmRin13Bc,1201
+financeanalytics/main_gui.py,sha256=t-bkotTtE2WyPNeCIdht-6QDgIIbW5h0zLNwu95Asgk,6863
+financeanalytics/statementprocessor.py,sha256=qXy7ozAkVBXCG9gBrOpiXObO2eQI7FlB1erTvf-ToV4,16903
+finance_analytics-0.0.4.dist-info/LICENSE,sha256=alIez0oDCW2nUeTWIZX3qNPqo9naplkYvcViGkOfjoo,11359
+finance_analytics-0.0.4.dist-info/METADATA,sha256=6y90SUzIEkvPI14BrXm0sTPuV3yvc4uY7HMbvCguTkQ,197
+finance_analytics-0.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+finance_analytics-0.0.4.dist-info/top_level.txt,sha256=TVhTPqupQfpCUY4ezu2wyOyel-L5XlcLaTeO6M7h00I,17
+finance_analytics-0.0.4.dist-info/RECORD,,

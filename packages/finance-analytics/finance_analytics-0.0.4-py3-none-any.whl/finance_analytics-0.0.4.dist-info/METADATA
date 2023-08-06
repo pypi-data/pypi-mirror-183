@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: finance-analytics
+Version: 0.0.4
+Summary: extract and analyze Bank statements
+License-File: LICENSE
+Requires-Dist: pandas (==1.5.1)
+Requires-Dist: pdfplumber (==0.7.5)
+
