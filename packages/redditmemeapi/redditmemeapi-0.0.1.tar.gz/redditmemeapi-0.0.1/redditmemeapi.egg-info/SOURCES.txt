@@ -1,0 +1,10 @@
+LICENSE.md
+README.md
+setup.cfg
+setup.py
+redditmemeapi/__init__.py
+redditmemeapi/main.py
+redditmemeapi.egg-info/PKG-INFO
+redditmemeapi.egg-info/SOURCES.txt
+redditmemeapi.egg-info/dependency_links.txt
+redditmemeapi.egg-info/top_level.txt
