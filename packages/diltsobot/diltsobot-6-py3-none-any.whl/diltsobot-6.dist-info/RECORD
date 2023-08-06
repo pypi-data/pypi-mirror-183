@@ -1,0 +1,11 @@
+diltsobot/__init__.py,sha256=ruHGmgmudFc1HS5gQpNwMA7ez4pX04ZB_zKHt2B2BDk,62
+diltsobot/main.py,sha256=9dfWmEEfjQkbGoM438ZT3TjJcOYtxDlaDXj44-UoKg8,2318
+diltsobot/cogs/core.py,sha256=wncl5gGjEt-1Ac9B_SqE4BVF61MHRXphoh38531leP0,6633
+diltsobot/cogs/defs.py,sha256=jQvE506BwIpaRfkhNDjCb2dY9H9EWDCenZ2pNDyvKUA,3703
+diltsobot/cogs/lockdown.py,sha256=lo7eTqwR99KEu9MvFpf1BTn5DDdK2f-CVCSivf8be6Q,3645
+diltsobot/cogs/mass.py,sha256=bZmREfuvE_Tbo4qGJm3nACzN8FF8AMByweN_TYlSsBk,4081
+diltsobot-6.dist-info/LICENCE,sha256=jwrOLP7FRmmRIXKmBPvl454vKlAMFn8VMj10I83iK6A,1085
+diltsobot-6.dist-info/METADATA,sha256=UGOOK62MdwBHxEFGgFvKtjKpKPF6pCwX7UtjS12hWDQ,449
+diltsobot-6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+diltsobot-6.dist-info/top_level.txt,sha256=XNfthZZAVZzzsFahXoiy2Uvm3y2XnkE1WKuQjIZjGao,10
+diltsobot-6.dist-info/RECORD,,
