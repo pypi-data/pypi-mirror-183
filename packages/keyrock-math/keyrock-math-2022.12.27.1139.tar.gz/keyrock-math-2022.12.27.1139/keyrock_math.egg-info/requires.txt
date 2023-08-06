@@ -1,0 +1,4 @@
+keyrock_core
+keyrock_hcs
+numpy
+scipy
