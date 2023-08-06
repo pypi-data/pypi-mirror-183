@@ -1,0 +1,2 @@
+[inventree_plugins]
+inventree-shopify = inventree_apprise:ApprisePlugin.ApprisePlugin
