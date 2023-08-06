@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+py3stun/__init__.py
+py3stun/cli.py
+py3stun/pystun.py
+py3stun.egg-info/PKG-INFO
+py3stun.egg-info/SOURCES.txt
+py3stun.egg-info/dependency_links.txt
+py3stun.egg-info/entry_points.txt
+py3stun.egg-info/top_level.txt
