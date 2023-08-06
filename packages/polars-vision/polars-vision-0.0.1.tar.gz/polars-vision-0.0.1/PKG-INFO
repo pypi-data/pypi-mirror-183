@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: polars-vision
+Version: 0.0.1
+Summary: Vision extension for polars
+Home-page: https://www.xdss.io
+Author: Yonatan Alexander
+Author-email: jonathan@xdss.io
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+
+UNKNOWN
+

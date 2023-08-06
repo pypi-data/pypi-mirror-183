@@ -1,0 +1,9 @@
+setup.py
+polars_vision/__init__.py
+polars_vision/filesystem.py
+polars_vision/vision.py
+polars_vision.egg-info/PKG-INFO
+polars_vision.egg-info/SOURCES.txt
+polars_vision.egg-info/dependency_links.txt
+polars_vision.egg-info/requires.txt
+polars_vision.egg-info/top_level.txt
