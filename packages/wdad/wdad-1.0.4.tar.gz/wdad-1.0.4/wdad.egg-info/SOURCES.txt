@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+wdad/__init__.py
+wdad.egg-info/PKG-INFO
+wdad.egg-info/SOURCES.txt
+wdad.egg-info/dependency_links.txt
+wdad.egg-info/top_level.txt
