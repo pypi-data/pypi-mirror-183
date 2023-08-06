@@ -1,0 +1,12 @@
+ocrscreen-0.0.3.dist-info/entry_points.txt,sha256=kmQdj-llzs8P58FugKHna5MOfwdbU4mdek2JpsEmcXk,104
+ocrscreen-0.0.3.dist-info/RECORD,,
+ocrscreen-0.0.3.dist-info/METADATA,sha256=M5ItsV8Wc5WR5ZRzrVy2icP6bocwIFq9foAOAAuVcO8,2076
+ocrscreen-0.0.3.dist-info/top_level.txt,sha256=MfRDxhsAfPyqGAWJkv2J03zBAntFod3gsBlzQm8ygmE,10
+ocrscreen-0.0.3.dist-info/LICENSE,sha256=QrNi96C96s38XhZgXFhalL2Sn4Do7bXYATW_qCVvxxU,1070
+ocrscreen-0.0.3.dist-info/WHEEL,sha256=peiObUNI82OvJf-YUXX7DYSUxv0HAgzg2kMnnyVLUDE,191
+ocrscreen/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ocrscreen/common.py,sha256=A6iO81LzHj9jKN1_7mdzvGIu08RqwzNaakukuBBKYBk,5896
+ocrscreen/core.cpython-310-x86_64-linux-gnu.so,sha256=SNVEImGSc3_OLLwsS-5eutrXwhizHLgCJuFXOWpuaQQ,1750256
+ocrscreen/learn.py,sha256=4VeE1_HnkMbx8XJEIgDyVuN6H7hYSymdzEjmFIUqnUs,10272
+ocrscreen/test.py,sha256=VodcLiGIK1tTTyDgnFEfjlsk-kqLmS8YXJB7CYv29N8,3096
+ocrscreen/recognize.py,sha256=PBK5B-hfXWHgaZiu5H1QBDq5aGPlLoVBLUYy4cQw-pU,5813
