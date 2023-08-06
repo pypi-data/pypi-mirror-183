@@ -1,0 +1,13 @@
+example/BasicTest.py,sha256=OxrLkQzZPQFvdEy-fWc_mUj60NRezeNXYt2aV16esqU,13491
+example/BatchConsumer.py,sha256=VSMm7A8cLCyUzApO4O-KqBvYnmAbIqhor0k7Ue_Z1WI,578
+example/DebugConsumer.py,sha256=18CjCkx0syMoSrwVZV5lBR-t37_2WXydWvx3YjBEFO0,623
+example/LoggingConsumer.py,sha256=lBrG4zGlsDqaNpw5Jff7w7jq1GT62DXxTkY5d3rK8uI,549
+example/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+example/example.py,sha256=VGfSiJT5F_Z_0l7p7sumcIDyg_IcxvCSOoyurumExWU,4668
+tgasdk/__init__.py,sha256=ja4zveJKF_s1mzmW_ZsNu-ZohKHm9PQOPbgQpLiTJVo,247
+tgasdk/sdk.py,sha256=WWW6PJkhbNRHpGTlhbF3Ykimi_ooCqS6vmsUCYZ69gc,29903
+ThinkingDataSdk-2.1.0.dist-info/LICENSE.txt,sha256=gtiD6ymOCLVqOAHLIE5C1wXRXe1Wi6aIS10f7lJOXac,558
+ThinkingDataSdk-2.1.0.dist-info/METADATA,sha256=xAgmSmS_mCDYDy2JGVg1LVqFC1YcC_24X2oJap0J_nA,1279
+ThinkingDataSdk-2.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+ThinkingDataSdk-2.1.0.dist-info/top_level.txt,sha256=lTGriqZCQG3RPqo2g9ZmoeuubPRlS5uhaOUTGb_04LA,15
+ThinkingDataSdk-2.1.0.dist-info/RECORD,,
