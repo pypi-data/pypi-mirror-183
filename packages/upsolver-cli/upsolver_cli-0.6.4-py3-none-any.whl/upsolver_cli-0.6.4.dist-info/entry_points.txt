@@ -1,0 +1,3 @@
+[console_scripts]
+upsolver=cli.main:main
+
