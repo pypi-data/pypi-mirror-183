@@ -1,0 +1,14 @@
+accessOutlookEmail/__init__.py,sha256=hSsVtp1BPTgJ_M4t9AY9Xw6FYZUTw5InVEhdQUDejdI,118
+accessOutlookEmail/config.py,sha256=RqGGBZYlAcbl2_MFENedJ32LcaFwIs7tfRTpQJfeFJU,494
+accessOutlookEmail/save.py,sha256=Maj3GtFxcI-7P5vC3eK54vwhrNsRxgxWO6HmAcwfRio,1155
+accessOutlookEmail/send.py,sha256=9rN4H7HmrYf6Q1uFEVgSIB6ex1POtGz0Ofc1rxfzMdE,757
+accessOutlookEmail/use_cases/__init__.py,sha256=7zrhL0Zk58ZDqjXRjTr-f1T5IixL2UbiHRZmWCXReUE,117
+accessOutlookEmail/use_cases/editMorrison.py,sha256=QxL72nWkxc4NCDn9Cw516YW7dd8h3-qmVrAohXeNM3c,1211
+accessOutlookEmail/use_cases/editReportJP.py,sha256=T0DQ_a3b3OO7TFPcXB1D791LyrIChiW0ZLSyhKSlChM,1745
+accessOutlookEmail/use_cases/saveReportsCaceis.py,sha256=CrO2rJPNmBqNyHxuM-Vs8SCc6u-bYqarYYm6rewW_7A,4248
+accessOutlookEmail/use_cases/saveSteubing.py,sha256=xJ3b8HFFe5KGMUrBD4Vr-SOXgyBgA4-eqbEjhI0tyHY,394
+access_outlook_email-0.1.6.dist-info/LICENSE.txt,sha256=HRLnhrXNQ57cPAW1oCa3HG4REldbI7RQj4N9QXuFLlY,1062
+access_outlook_email-0.1.6.dist-info/METADATA,sha256=565e1TQ9kIpjz92TV2VmwvGTdnM7MyP8T-k0wqDkIH8,2270
+access_outlook_email-0.1.6.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+access_outlook_email-0.1.6.dist-info/top_level.txt,sha256=crxC-kfAPsb4OsNkQRZOAzjHNFZxRpdNDpvaymBTS-8,19
+access_outlook_email-0.1.6.dist-info/RECORD,,
