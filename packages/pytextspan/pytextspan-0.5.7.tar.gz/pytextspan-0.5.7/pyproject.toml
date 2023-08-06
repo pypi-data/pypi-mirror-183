@@ -1,0 +1,29 @@
+[build-system]
+requires = [ "maturin",]
+build-backend = "maturin"
+
+[tool.poetry]
+name = "pytextspan"
+version = "0.5.7"
+description = ""
+authors = [ "Yohei Tamura <tamuhey@gmail.com>",]
+license = "MIT"
+[[tool.poetry.packages]]
+include = "textspan"
+
+[tool.versionup]
+tag = true
+commit = true
+files = [ "src/lib.rs", "Cargo.toml",]
+tag_prefix = "python/"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2"
+hypothesis = "^6.61.0"
+pydoc-md = "^0.1.0"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-glob='*pyi'"
