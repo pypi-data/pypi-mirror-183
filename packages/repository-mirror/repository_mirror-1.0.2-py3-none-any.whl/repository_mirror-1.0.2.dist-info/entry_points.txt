@@ -1,0 +1,2 @@
+[console_scripts]
+repository-mirror = repository_mirror.main:main
