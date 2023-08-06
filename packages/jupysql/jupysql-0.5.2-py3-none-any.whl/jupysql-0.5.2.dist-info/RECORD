@@ -1,0 +1,15 @@
+sql/__init__.py,sha256=k49n_0WsGXAUD6Kqk315YIVzAdSVBWj1-Zb4JA0YPtg,169
+sql/column_guesser.py,sha256=9L176wo5oFuByyEjD4NPR4TjkDPrccSl91jwGTEztKc,2853
+sql/command.py,sha256=YGqMs6ze24fYJ5SdkDig02PJ0cloBIm0ecs9SPon-u4,2619
+sql/connection.py,sha256=pS5xYbbINrRbaGgeDd9fou6gmbXuAbHIKFPf40xW5SU,5790
+sql/magic.py,sha256=9-46SxHWg_y9i0ivG6_FBdn6AugNRWcrx14GZp7CbFw,12045
+sql/magic_plot.py,sha256=bLrQHHQWvQ6Zx6Fr3ORjR-1Q5XXpRH_ASBZUoqM6PtM,2274
+sql/parse.py,sha256=koRjlckhZzVVyWveFpb-34k7YuSpL2i0sUDtlwDXPCA,2872
+sql/plot.py,sha256=woDwvZCvULdn1Ur_Nj2HfV5VfwqsugfYi4-Hv122oMQ,9634
+sql/run.py,sha256=aAQG2BnOe-NLHqYgr7poBdo9rULh_QP82HcMAP4eqh4,12897
+sql/store.py,sha256=ns91jlsdlRt1z0YBVGMh0BKyz2IWFplvHbtwhWs1azY,3140
+jupysql-0.5.2.dist-info/LICENSE,sha256=KQyHYjQnG_7bt_7C8liIGidAA3G3KaO5fiTfVVUrK9o,1102
+jupysql-0.5.2.dist-info/METADATA,sha256=kRNOpsxWeaKHvpYujsjx64FAJRzbEXTtvEw0YWQopoc,2280
+jupysql-0.5.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+jupysql-0.5.2.dist-info/top_level.txt,sha256=hwJHmWfbRP5a_XNfqgHwi2zrjAAzAJk24QZoTocslow,4
+jupysql-0.5.2.dist-info/RECORD,,
