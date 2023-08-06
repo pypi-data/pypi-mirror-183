@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: parametrization-cookbook
+Version: 0.15
+Summary: Implementation and helpers of the Parametrization Cookbook
+Home-page: UNKNOWN
+Author: Jean-Benoist Leger
+Author-email: jbleger@hds.utc.fr
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
+License-File: LICENSE.md
+
+
+Parametrization Cookbook
+========================
+
+WIP
+
+
