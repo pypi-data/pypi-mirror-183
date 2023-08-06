@@ -1,0 +1,28 @@
+[project]
+name = "thunderstruck_bms"
+version = "1.0.2"
+description = "Thunderstruck BMS Controller"
+readme = "README.md"
+authors = [{ name = "Ruslan Babych", email = "ruslan.babych@digitwolf.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["thunderstruck", "bms"]
+dependencies = [
+    "python-can",
+    "asyncio"
+]
+requires-python = ">=3.6"
+
+[project.urls]
+Homepage = "https://github.com/aranji/thunderstruck_bms"
+
+# [project.scripts]
+# realpython = "reader.__main__:main"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "wheel", "python-can", "asyncio"]
