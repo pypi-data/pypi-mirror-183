@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: picture-comparator-muri
+Version: 0.1.9
+Summary: Finds similar images in chosen directory.
+Project-URL: Homepage, https://gitlab.com/muria/picture-comparator
+Project-URL: Bug Tracker, https://gitlab.com/muria/picture-comparator/-/issues
+Author-email: Muri <gurtos29A@gmail.com>
+License-Expression: GPL-3.0-or-later
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: imagehash~=4.2.1
+Requires-Dist: pyside6==6.2.2.1
+Requires-Dist: python-magic~=0.4.24
+Requires-Dist: scikit-learn~=1.0.2
+Requires-Dist: wand~=0.6.7
+Description-Content-Type: text/markdown
+
+# picture-comparator
+
+## Overview
+
+Application looks for similar images in given directories. It allows to view results, make them easy to compare, move marked images to trash or rename them.
+
+## Features
+
+- Working with multiple results.
+- Displaying selected images next to each other or one on the time.
+- Scaling and moving images in sync when comparing them.
+- Displaying information such as name, path, resolution, quality.
+- Marking identical images.
+- Marking symbolic links.
+- Moving selected images to trash.
+- Renaming and moving files between directories.
+
+## Known problems
+
+The application is still in early development. Some known problems include.
+
+- Very slow page change.
+- Comparison algorithm showing many false positives.
+- Very limited configuration. 
+- No option to start new search (need to restart application).
+- Zoom being shown regardless if zoom button is pressed.
