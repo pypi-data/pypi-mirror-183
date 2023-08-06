@@ -1,0 +1,9 @@
+typing
+xlwings
+tqdm
+datetime
+interval
+pandas
+pyyaml
+bztt_checkSoftware
+Pillow
