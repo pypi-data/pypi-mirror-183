@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: chain-app-client-sdk
+Version: 0.0.2
+Summary: BIND Public API
+Home-page: UNKNOWN
+Author: BIND Contact
+Author-email: support@bind.com
+License: MIT
+Description:     Description for BIND.   # noqa: E501
+            
+Keywords: OpenAPI,OpenAPI-Generator,BIND Public API
+Platform: UNKNOWN
+Requires-Python: >=3.7
