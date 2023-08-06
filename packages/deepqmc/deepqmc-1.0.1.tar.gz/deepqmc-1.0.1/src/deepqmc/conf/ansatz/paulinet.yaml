@@ -1,0 +1,4 @@
+defaults:
+  - omni_factory: omni_net
+_target_: deepqmc.wf.PauliNet
+_partial_: true

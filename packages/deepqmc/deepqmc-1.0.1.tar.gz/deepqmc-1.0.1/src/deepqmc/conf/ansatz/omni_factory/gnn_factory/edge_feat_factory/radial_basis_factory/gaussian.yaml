@@ -1,0 +1,3 @@
+_target_: deepqmc.gnn.edge_features.GaussianBasis
+_partial_: true
+offset: true
