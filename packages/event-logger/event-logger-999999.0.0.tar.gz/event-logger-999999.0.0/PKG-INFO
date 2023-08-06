@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: event-logger
+Version: 999999.0.0
+Summary: Event Logger
+Author: Mercari
+Requires-Python: >=3.7,<3.12
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+
+Event Logger
+==============================
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/event-logger?style=plastic)
+![PyPI](https://img.shields.io/pypi/v/event-logger?color=informational&style=plastic)
+
+Upload dummy package to PyPI in order to demonstrate dependency confusion attack.
+
+
