@@ -1,0 +1,4 @@
+pre-commit
+pytest
+pytest-doctestplus
+pytest-cov
