@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: python-pod
+Version: 0.1.1
+Summary: Python terminal music player
+License: MIT
+Author: Misha Behersky
+Author-email: bmwant@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: pyaudio (>=0.2.12,<0.3.0)
+Requires-Dist: rich (>=13.0.0,<14.0.0)
+Requires-Dist: textual (>=0.9.1,<0.10.0)
+Description-Content-Type: text/markdown
+
+## PyPod
+
+Python console music player
+
+### Installation
+
+```bash
+$ pip install python-pod
+```
+
+
+### Usage
+```bash
+$ pypod <path-to-directory>
+$ pypod filename.wav
+```
+
+### Development
+
+```bash
+$ brew install portaudio
+$ poetry install --with dev
+```
+
