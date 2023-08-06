@@ -1,0 +1,7 @@
+click
+crcmod
+pyserial
+
+[develop]
+pytest
+pytest-cov
