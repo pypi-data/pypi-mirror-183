@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+test.py
+HttpSocket/HttpSocket.py
+HttpSocket/__init__.py
+HttpSocket.egg-info/PKG-INFO
+HttpSocket.egg-info/SOURCES.txt
+HttpSocket.egg-info/dependency_links.txt
+HttpSocket.egg-info/top_level.txt
