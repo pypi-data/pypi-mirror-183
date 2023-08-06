@@ -1,0 +1,8 @@
+py_cylinder_fitting/__init__.py,sha256=7v47hExBXjvgYafKwI8p9L_bGsvRbCev8mrBznYVwAo,169
+py_cylinder_fitting/_coordinate_transformations.py,sha256=wWHMdBNVHya4mcHcXx_-G0F4ZH6RPeWSuIE9jgp76gg,1390
+py_cylinder_fitting/best_fit_cylinder.py,sha256=MwT1qTGYEvFKSrVuSFRZpj75jXS7Vndoy0WGVKmzIxQ,10402
+py_cylinder_fitting-1.0.0.dist-info/LICENSE,sha256=-ZXhxMSJagRVIA-5kenIB0iQNc9YujmnDKENS_xLsOE,1336
+py_cylinder_fitting-1.0.0.dist-info/METADATA,sha256=wl1yfKZACuS4u3xEbipanbk5NjITHP-sX0o0hA6zAuc,3554
+py_cylinder_fitting-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+py_cylinder_fitting-1.0.0.dist-info/top_level.txt,sha256=0dDDmnGi_HbGmF6RfpSiyVxn09Gh969e-edasQEGLoA,20
+py_cylinder_fitting-1.0.0.dist-info/RECORD,,
