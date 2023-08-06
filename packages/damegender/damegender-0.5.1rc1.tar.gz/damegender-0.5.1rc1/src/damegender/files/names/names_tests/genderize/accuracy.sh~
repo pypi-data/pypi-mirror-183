@@ -1,0 +1,1 @@
+python3 csv2gender.py files/names/names_tests/genderize/givenNamesDB_titles.csv --first_name_position=1 --dataset=inter --outcsv=files/names/names_tests/genderize/givenNamesDB_titles.inter.csv 
