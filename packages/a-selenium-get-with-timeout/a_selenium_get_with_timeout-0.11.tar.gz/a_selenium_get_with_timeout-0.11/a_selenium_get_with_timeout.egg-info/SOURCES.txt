@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+a_selenium_get_with_timeout/LICENSE
+a_selenium_get_with_timeout/README.MD
+a_selenium_get_with_timeout/__init__.py
+a_selenium_get_with_timeout/requirements.txt
+a_selenium_get_with_timeout/thirdparty.json
+a_selenium_get_with_timeout.egg-info/PKG-INFO
+a_selenium_get_with_timeout.egg-info/SOURCES.txt
+a_selenium_get_with_timeout.egg-info/dependency_links.txt
+a_selenium_get_with_timeout.egg-info/top_level.txt
