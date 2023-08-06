@@ -1,0 +1,10 @@
+README.md
+setup.py
+boxmake/__init__.py
+boxmake/command_line.py
+boxmake.egg-info/PKG-INFO
+boxmake.egg-info/SOURCES.txt
+boxmake.egg-info/dependency_links.txt
+boxmake.egg-info/entry_points.txt
+boxmake.egg-info/requires.txt
+boxmake.egg-info/top_level.txt
