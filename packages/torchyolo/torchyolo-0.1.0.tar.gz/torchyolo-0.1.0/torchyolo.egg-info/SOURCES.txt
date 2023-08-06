@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+torchyolo/__init__.py
+torchyolo.egg-info/PKG-INFO
+torchyolo.egg-info/SOURCES.txt
+torchyolo.egg-info/dependency_links.txt
+torchyolo.egg-info/top_level.txt
