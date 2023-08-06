@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: heart-heart
+Version: 0.0.1
+Summary: This is a Python algorithm for generating text summaries.
+Author: LiuZhenming
+Author-email: 2124619132@qq.com
+License: gun general public 3.0
+Requires: nltk
+Requires: jieba
+License-File: LICENSE
+
