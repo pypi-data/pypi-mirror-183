@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: videoconcat
+Version: 0.10
+Summary: Concatenates videos
+Home-page: https://github.com/hansalemaos/videoconcat
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: videos,concatenate
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+Requires-Dist: moviepy
+Requires-Dist: touchtouch
+
+
+<h2>Concatenates videos</h2>
+
+
+
+
+
+```python
+
+
+
+# needs ffmpeg 
+
+
+
+vi = [
+
+    r"C:\Users\Gamer\Videos\tesseract.mp4",
+
+    r"C:\Users\Gamer\Videos\dfbs4.mp4",
+
+    r"C:\Users\Gamer\Videos\yolov5.mp4",
+
+]
+
+
+
+concatenate_video(
+
+    video_clip_paths=vi,
+
+    output_path=r"f:\newvi\newvidxx1.mp4",  # if folder doesn't exist, it will be created
+
+    newsize_w=720,
+
+    newsize_h=1080,
+
+    method="reduce",  # resizes all videos
+
+)
+
+
+
+concatenate_video(
+
+    video_clip_paths=vi,
+
+    output_path=r"f:\newvi\newvidxx2.mp4",  # if folder doesn't exist, it will be created
+
+    newsize_w=720,
+
+    newsize_h=1080,
+
+    method="compose",  # does not resize videos (black background)
+
+)
+
+
+
+
+
+```
+
+
+
+
+
+
+
