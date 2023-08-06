@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/osmrdf2023/__init__.py
+src/osmrdf2023/osmrdf2023.py
+src/osmrdf2023.egg-info/PKG-INFO
+src/osmrdf2023.egg-info/SOURCES.txt
+src/osmrdf2023.egg-info/dependency_links.txt
+src/osmrdf2023.egg-info/top_level.txt
