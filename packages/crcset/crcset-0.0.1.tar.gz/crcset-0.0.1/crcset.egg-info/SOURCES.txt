@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+crcset/__init__.py
+crcset/crcset.py
+crcset.egg-info/PKG-INFO
+crcset.egg-info/SOURCES.txt
+crcset.egg-info/dependency_links.txt
+crcset.egg-info/not-zip-safe
+crcset.egg-info/top_level.txt
+crcset/wasi/__init__.py
+crcset/wasi/wasi.py
+test/test_crcset.py
