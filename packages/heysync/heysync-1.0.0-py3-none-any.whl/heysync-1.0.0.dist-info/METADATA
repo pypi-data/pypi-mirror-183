@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: heysync
+Version: 1.0.0
+Summary: Hey, make async functions and classes sync
+Author: oren0e
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+
+# Hey, Sync!
+
+This package will allow you to convert an async function or a class (that has async methods) to a sync version.  
+The new class name will be set as `<OLD CLASS NAME>Sync`
+
