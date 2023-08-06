@@ -1,0 +1,1 @@
+a_selenium_click_on_coords
