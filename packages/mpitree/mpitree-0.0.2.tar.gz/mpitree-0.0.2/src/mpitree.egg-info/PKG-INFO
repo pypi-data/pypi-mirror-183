@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: mpitree
+Version: 0.0.2
+Summary: A Parallel Decision Tree implementation using MPI
+Home-page: https://github.com/duong-jason/mpitree
+Author: Jason Duong
+Author-email: my.toe.ben@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+![Build Status](https://github.com/duong-jason/mpilearn/workflows/Unit%20Tests/badge.svg)
+![Build Status](https://github.com/duong-jason/mpilearn/workflows/Lint/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+
+
+# mpitree
+
+A Parallel Decision Tree implementation using MPI *(Message Passing Interface)*
+
+## How it Works
+
+![psplit](images/psplit.png)
+
+For every *interior* decision tree node, a variable number of processes calculate the best feature to split. Let $n$ be the number of processes and $p$ be the number of levels. Processes in a *group* independently participate among themselves at their respective levels. Each process is assigned in the cyclic distribution or round-robin fashion such that their $group = \lparen\lfloor ranks/n/p\rfloor\rparen\mod p$ and $rank = |group|\ /\ rank$.
+
+In the above diagram, the root node consists of eight total processes, $p_0, p_1, ..., p_7$, with three distinct feature levels, $l_0, l_1, l_2$. Group $1$ consists of processes and ranks, $\{(0,0), (1,1), (6,2), (7,3)\}$ respectively. Group $2$ consists of processes and ranks, $\{(2,0), (3,1)\}$ respectively. Group $3$ consists of processes and ranks, $\{(4,0), (5,1)\}$ respectively.
+
+Please note a split is only performed by all processes at an *interior node*. Therefore, this implies a leaf node may consist of more than one process, as the purity measurement at a node is independent of the number of processes.
+
+After the splitting of processes at an interior node, each routine waits for their respective processes from their original group to finish executing. The completion of a routine constitutes the creation of a sub-tree on a particular path from the root and the local group is de-allocated. All sub-trees are recursively gathered to the root process.
+
+## Installation
+
+```bash
+git clone https://github.com/duong-jason/mpitree.git
+cd mpitree
+```
+
+## Example
+
+```python
+from mpi4py import MPI
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+from mpitree.parallel_decision_tree import (
+    ParallelDecisionTreeClassifier,
+    world_comm,
+    world_rank,
+)
+
+if __name__ == "__main__":
+    iris = load_iris(as_frame=True)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data, iris.target, test_size=0.20, random_state=42
+    )
+
+    world_comm.Barrier()
+    start_time = MPI.Wtime()
+
+    pdt = ParallelDecisionTreeClassifier(criterion={'max_depth': 3})
+    pdt.fit(X_train, y_train)
+
+    score = pdt.score(X_test, y_test)
+
+    end_time = MPI.Wtime()
+    if not world_rank:
+        print(pdt)
+        print(f"Accuracy: {score:.2%}")
+        print(f"Parallel Execution Time: {end_time - start_time:.3f}s")
+```
+
+```bash
+>>> mpiexec -n 5 python3 main.py
+
+petal length (cm) (< 2.45)
+        0
+        petal length (cm) (< 4.75)
+                petal width (cm) (< 1.65)
+                        1
+                        2
+                petal width (cm) (< 1.75)
+                        2
+                        2
+Accuracy: 96.67%
+Parallel Execution Time: 1.895s
+```
+
+## Unit Tests
+```
+python3 -m pytest
+```
