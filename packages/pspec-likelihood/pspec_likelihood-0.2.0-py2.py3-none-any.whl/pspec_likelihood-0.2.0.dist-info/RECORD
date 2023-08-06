@@ -1,0 +1,11 @@
+pspec_likelihood/__init__.py,sha256=oMgAxmbWnPtw7O1Fgg4WvM1Oh9dstijIvn4MclViBxc,354
+pspec_likelihood/arbitrary_linear_systematics.py,sha256=yzrGCOVUgtj-RnkRfMjughQJmLysVPhCmxcLLfOhFbU,6981
+pspec_likelihood/likelihood.py,sha256=VRXFCgyaUKPnFkCBfJEM3_iVtXVkeOc8RfqcdwIsQ3c,31221
+pspec_likelihood/types.py,sha256=0XYLpFcxYDxzHTQO5O1JoV72S6r2lYqqPmsT_XcRE78,1572
+pspec_likelihood/utils.py,sha256=6Tnl34YSE6Sgk_dDmPuBoJu4-glnQg0KCFumrAU4YDo,485
+pspec_likelihood/data/pspec_sim.h5,sha256=WtiQ1vB1Egx32BHjdCfD77K6_m8-IB-85CGagfulc5I,2064522
+pspec_likelihood-0.2.0.dist-info/LICENSE,sha256=k2FD0qj_mbjAUKzcUjSIGVvTGPga6LSIZFXTlGqJlZo,1070
+pspec_likelihood-0.2.0.dist-info/METADATA,sha256=taSouhIn4_LndiiSWhlpGo9s7T0euf6mouNdkG1yRhI,4705
+pspec_likelihood-0.2.0.dist-info/WHEEL,sha256=bb2Ot9scclHKMOLDEHY6B2sicWOgugjFKaJsT7vwMQo,110
+pspec_likelihood-0.2.0.dist-info/top_level.txt,sha256=VO054LHqDmqZVRtFnxUENEJU24UTYeEH8rOy1ie3Xss,17
+pspec_likelihood-0.2.0.dist-info/RECORD,,
