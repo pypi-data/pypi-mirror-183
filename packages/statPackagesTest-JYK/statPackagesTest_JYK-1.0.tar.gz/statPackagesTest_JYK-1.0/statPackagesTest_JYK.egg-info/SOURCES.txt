@@ -1,0 +1,10 @@
+setup.py
+distributions/Binomialdistribution.py
+distributions/Gaussiandistribution.py
+distributions/Generaldistribution.py
+distributions/__init__.py
+statPackagesTest_JYK.egg-info/PKG-INFO
+statPackagesTest_JYK.egg-info/SOURCES.txt
+statPackagesTest_JYK.egg-info/dependency_links.txt
+statPackagesTest_JYK.egg-info/not-zip-safe
+statPackagesTest_JYK.egg-info/top_level.txt
