@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: printwatch
+Version: 0.0.5a0
+Summary: Tired of running long tasks, but want to monitor from your phone? Try PIPwatch!
+Project-URL: Homepage, https://github.com/ashwin2k/printwatch
+Project-URL: Bug Tracker, https://github.com/ashwin2k/printwatch/issues
+Author-email: Ashwin Kumar Udayakumar <ashwin102000@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+Tired of running long tasks, but want to monitor from your phone? Try ***PRINTwatch***!
