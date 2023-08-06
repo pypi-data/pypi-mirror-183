@@ -1,0 +1,10 @@
+devopsarr/__init__.py,sha256=ED6jHcYiuYpr_0vjGz0zx2lrrmJT9sDJCzIljoDfmlM,65
+devopsarr/sonarr.py,sha256=C6fJmP_HFOZeYzMbpXppSCquEwuQ4ya3oBucxORUbus,744
+devopsarr/sonarr_services/__init__.py,sha256=ED6jHcYiuYpr_0vjGz0zx2lrrmJT9sDJCzIljoDfmlM,65
+devopsarr/sonarr_services/indexer_config.py,sha256=P-IZpkTXa8rD5A0jgGb_8uXlvNJ38Rem8h-TfFdUjyQ,2850
+devopsarr/sonarr_services/system_status.py,sha256=gMbMCoAJ69XffCNdFF9wE6H3ji2H8J-ayFTDg6Oacug,1029
+sonarr_py-0.0.1.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+sonarr_py-0.0.1.dist-info/METADATA,sha256=yp5Z1ZnuFWTCLEPPrTGtvs2cU3NISr8vfPBRF-XKflY,530
+sonarr_py-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sonarr_py-0.0.1.dist-info/top_level.txt,sha256=ja3rC2R49BXJFrc__gfjN7f-iyKva_jXBWiqywyZxHo,10
+sonarr_py-0.0.1.dist-info/RECORD,,
