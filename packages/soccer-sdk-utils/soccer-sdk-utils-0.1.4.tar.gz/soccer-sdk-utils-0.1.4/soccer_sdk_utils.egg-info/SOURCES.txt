@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+soccer_sdk_utils/__init__.py
+soccer_sdk_utils/anchor.py
+soccer_sdk_utils/gender.py
+soccer_sdk_utils/page.py
+soccer_sdk_utils/tools.py
+soccer_sdk_utils.egg-info/PKG-INFO
+soccer_sdk_utils.egg-info/SOURCES.txt
+soccer_sdk_utils.egg-info/dependency_links.txt
+soccer_sdk_utils.egg-info/top_level.txt
