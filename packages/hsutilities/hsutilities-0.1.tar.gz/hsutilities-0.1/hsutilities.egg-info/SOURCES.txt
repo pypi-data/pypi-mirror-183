@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+hsutilities.egg-info/PKG-INFO
+hsutilities.egg-info/SOURCES.txt
+hsutilities.egg-info/dependency_links.txt
+hsutilities.egg-info/not-zip-safe
+hsutilities.egg-info/top_level.txt
