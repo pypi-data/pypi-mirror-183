@@ -1,0 +1,8 @@
+setup.py
+SacLogConverter/SacLogConverter.py
+SacLogConverter/__init__.py
+SacLogConverter.egg-info/PKG-INFO
+SacLogConverter.egg-info/SOURCES.txt
+SacLogConverter.egg-info/dependency_links.txt
+SacLogConverter.egg-info/not-zip-safe
+SacLogConverter.egg-info/top_level.txt
