@@ -1,0 +1,11 @@
+LICENCE
+README.md
+setup.cfg
+setup.py
+FinRatioAnalysis/FinRatioAnalysis.py
+FinRatioAnalysis/__init__.py
+FinRatioAnalysis.egg-info/PKG-INFO
+FinRatioAnalysis.egg-info/SOURCES.txt
+FinRatioAnalysis.egg-info/dependency_links.txt
+FinRatioAnalysis.egg-info/requires.txt
+FinRatioAnalysis.egg-info/top_level.txt
