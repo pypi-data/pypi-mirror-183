@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/PyCrosstalk/__init__.py
+src/PyCrosstalk/mom_2d_capacitance.py
+src/PyCrosstalk/process_blockpad.py
+src/PyCrosstalk.egg-info/PKG-INFO
+src/PyCrosstalk.egg-info/SOURCES.txt
+src/PyCrosstalk.egg-info/dependency_links.txt
+src/PyCrosstalk.egg-info/top_level.txt
