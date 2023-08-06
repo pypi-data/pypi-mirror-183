@@ -1,0 +1,6 @@
+add.py
+pyproject.toml
+package_rw.egg-info/PKG-INFO
+package_rw.egg-info/SOURCES.txt
+package_rw.egg-info/dependency_links.txt
+package_rw.egg-info/top_level.txt
