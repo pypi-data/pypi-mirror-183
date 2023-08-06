@@ -1,0 +1,9 @@
+scan_repo.py,sha256=T5qUEnHXdeVpakDf2HoJU3ijnm7k5D-GwkKWbHEw0Uo,1882
+autocommit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autocommit/commit.py,sha256=Z4-DM9imooiNozHE2fXxHBu2XcZx21IJstS9FC8OuMI,5389
+autocommit/llm.py,sha256=87-ud-VlvV5eKBOWqwtdOud_WPFLjeipNqofy3LnRI0,1518
+aicommit-0.0.1.dist-info/METADATA,sha256=Iqhb3fakI76DO59XN8yQrCo_7VH5RjVZkynsZFMeVY4,2970
+aicommit-0.0.1.dist-info/WHEEL,sha256=NaLmgHHW_f9jTvv_wRh9vcK7c7EK9o5fwsIXMOzoGgM,87
+aicommit-0.0.1.dist-info/entry_points.txt,sha256=UC8t1nplyFA5lC7Ur6iDHH-SdcprVQC2EqCKRHnjsYE,54
+aicommit-0.0.1.dist-info/licenses/LICENSE,sha256=P6KaCDdhctgV43ZMtdgqQJKgC4-lOHqQTwK_wa18xbA,1065
+aicommit-0.0.1.dist-info/RECORD,,
