@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: banditsdk
+Version: 0.0.3
+Summary: Common usage tools
+Home-page: https://github.com/4ngry-GitHub/banditsdk
+Author: 4ngry
+Author-email: 4ngry24@gmail.com
+Project-URL: Bug Tracker, https://github.com/4ngry-GitHub/banditsdk/issues
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: sqlalchemy
+Requires-Dist: importlib-metadata ; python_version >= "3.8"
+
+# 4Code Software Developement Kit
+#### Common functions in one place.
+
+
+This library is written for economy time of developement.
+Common usage tools in one touch. Free license.
+
+
+### Authors nicnames:
+<ul>
+<li> <a href=https://github.com/4ngry-GitHub>AngryDanny+</a> </li>
+<li> <a href=https://github.com/NazikXY>N_XY</a> </li>
+</ul>
