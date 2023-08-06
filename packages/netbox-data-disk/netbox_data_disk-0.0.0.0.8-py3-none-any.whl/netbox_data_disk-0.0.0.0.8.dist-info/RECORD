@@ -1,0 +1,10 @@
+netbox_data_disk/__init__.py,sha256=2vI3mch1DsX-TBCBEC_IxiVoNAOTK7tLOvVBEvxhNG0,302
+netbox_data_disk/forms.py,sha256=2L84fVdt1e3MUm4X-ymCLTW-YwV8zHw5KcB4LmmYkVI,1256
+netbox_data_disk/migrations/0001_initial.py,sha256=NDCLHulsZte_j4GuBZeqAAT1GasfSDuDkQwesCVmVLs,907
+netbox_data_disk/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+netbox_data_disk/models/disk.py,sha256=ijQ1mU7bbAq29GFHiS2ljkp_hsb1_prTRy3qFbHx9LM,2211
+netbox_data_disk/tables.py,sha256=yxW3xymUZTyG3hCpAf0XEJvdNt_lHLyHVPHeMPE3LDM,686
+netbox_data_disk/views.py,sha256=_4rGcbspEUfF7zwKv8FVX2LZoUKYTVEisPvPvQ2hPj4,947
+netbox_data_disk-0.0.0.0.8.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+netbox_data_disk-0.0.0.0.8.dist-info/METADATA,sha256=KRJpy4FzvEEo_SxliDi-Dnv6iXaqp3O72d3XbgdJxYM,1037
+netbox_data_disk-0.0.0.0.8.dist-info/RECORD,,
