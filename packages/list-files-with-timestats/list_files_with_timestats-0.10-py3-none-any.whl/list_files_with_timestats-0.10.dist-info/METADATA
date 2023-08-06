@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: list-files-with-timestats
+Version: 0.10
+Summary: List files recursively, limit the depth of the subdirs, and get the creation and modification times
+Home-page: https://github.com/hansalemaos/list_files_with_timestats
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: list,files,date,subdirs
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+Requires-Dist: flatten-everything
+Requires-Dist: list-all-files-recursively
+
+
+# Check on what operating system the script is running 
+
+```python
+# Tested on windows 
+$pip install list-files-with-timestats
+from list_files_with_timestats import get_folder_file_complete_path,get_folder_file_complete_path_limit_subdirs
+folders = [r"C:\Program Files\NVIDIA Corporation"]
+allfi = get_folder_file_complete_path_limit_subdirs(
+    folders, maxsubdirs=1, withdate=True
+) # calling this function, you can limit the depth of the subdirs, and get the creation and modification times
+for a in allfi:
+    print(a)
+
+
+# Listing the files with all subdirs 
+fi = get_folder_file_complete_path(folders=[r'C:\Users\Gamer\anaconda3\bin',r"C:\yolovtest"])
+for file in fi[:10]:
+    print(file.folder, file.file, file.path, file.ext)
+    
+```
+
+
+
+
