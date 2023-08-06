@@ -1,0 +1,11 @@
+cgol/__init__.py,sha256=cUUwx0AUUlzC3KlU-vncpjaMVAZbRcKO6UsgiEjmj0A,199
+cgol/__main__.py,sha256=whOw1liKZxyVD6LYJeryt_nE6zdxSCmTzIw5-D2XEm0,81
+cgol/game.py,sha256=oEqKt6aot041i9Yxy7kx1HnnOgPs9X11ryCSB0z9UPE,15560
+cgol/utils.py,sha256=CMYCLM5982fGyJP77Wo7buxgoHCXsXxcZFLxI-GFFcU,5483
+cgol/world.py,sha256=OXIxew_A4uJNLyvgulm18CfBt_1PVPC6N0VAJO25z-A,8526
+CGOL-0.9.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+CGOL-0.9.1.dist-info/METADATA,sha256=8YyTHVoIHTlEXajzCRKyVAEcd1wOuYi-N0ClknuG-FE,5608
+CGOL-0.9.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+CGOL-0.9.1.dist-info/entry_points.txt,sha256=Di0AF9oFDbs0kCrKHCGHEhglfkhPYXSw9oN3PHl-tW4,44
+CGOL-0.9.1.dist-info/top_level.txt,sha256=heRCuHR1KSjZSg_1xSTsTS17YWzb9QstvYNj0OJI8xM,5
+CGOL-0.9.1.dist-info/RECORD,,
