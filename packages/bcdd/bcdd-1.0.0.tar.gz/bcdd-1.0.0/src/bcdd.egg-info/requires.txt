@@ -1,0 +1,7 @@
+colored
+pycryptodomex
+requests
+
+[testing]
+pytest
+pytest-cov
