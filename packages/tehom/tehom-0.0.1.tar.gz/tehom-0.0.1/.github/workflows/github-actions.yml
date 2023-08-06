@@ -1,0 +1,43 @@
+name: Pytest
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+    
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[dev]
+          pre-commit install
+          echo ${{ secrets.ONC_TOKEN }} > tehom/storage/token
+          cat tehom/storage/token
+      - name: precommit
+        run: |
+          pre-commit run
+      - name: Test with pytest
+        run: |
+          python -m coverage run -m pytest
+      - name: Coverage report
+        run: |
+          python -m coverage report
