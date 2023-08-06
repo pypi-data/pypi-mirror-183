@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[project]
+name = "mx-sdk-erdpy-wallet"
+version = "0.2.2"
+authors = [
+  { name="Elrond Network" },
+]
+license = "MIT"
+description = "MultiversX: wallet components of erdpy."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pynacl==1.5.0",
+  "cryptography==36.0.2",
+  "mnemonic==0.20",
+  "mx-sdk-erdpy-core==0.3.0"
+]
+
+[tool.hatch.build]
+exclude = [
+  "testdata/**"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ElrondNetwork/mx-sdk-erdpy-wallet"
