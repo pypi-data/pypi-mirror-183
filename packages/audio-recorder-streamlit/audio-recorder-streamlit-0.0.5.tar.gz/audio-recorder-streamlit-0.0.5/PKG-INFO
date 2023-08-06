@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: audio-recorder-streamlit
+Version: 0.0.5
+Home-page: https://github.com/Joooohan/audio-recorder-streamlit
+Author: Johan Leduc
+Author-email: johan.leduc90@gmail.com
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Audio record streamlit
+
+This streamlit component allows to register an audio utterence from a user.
+
+## Installation
+
+`pip install audio-recorder-streamlit`
+
+## Usage
+
+```python
+import streamlit as st
+from audio_recorder_streamlit import audio_recorder
+
+audio_bytes = audio_recorder()
+if audio_bytes:
+    st.audio(audio_bytes, format="audio/wav")
+```
+
+## Advanced parameters
+
+You can adjust the recording parameters `energy_threshold` and
+`pause_threshold`:
+- `energy_threshold`: The energy recording sensibility above which we consider
+    that the user is speaking.
+- `pause_threshold`: The number of seconds to spend below `energy_level` to
+    automatically stop the recording.
+
+
+```python
+# The recording will stop automatically
+# 2 sec after the utterance end
+audio_bytes = audio_recorder(pause_threshold=2.0)
+```
