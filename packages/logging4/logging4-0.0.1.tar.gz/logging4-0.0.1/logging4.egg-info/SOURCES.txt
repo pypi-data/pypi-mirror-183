@@ -1,0 +1,9 @@
+README.md
+setup.py
+logging4/__init__.py
+logging4/logging4.py
+logging4.egg-info/PKG-INFO
+logging4.egg-info/SOURCES.txt
+logging4.egg-info/dependency_links.txt
+logging4.egg-info/not-zip-safe
+logging4.egg-info/top_level.txt
