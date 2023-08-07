@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: excel-write
+Version: 1.0.8
+Summary: Optimised way to write in Excel files.
+Author: Dipan Nanda
+Author-email: d19cyber@gmail.com
+License: MIT
+Project-URL: Source code, https://github.com/themagicalmammal/excel-write
+Project-URL: Documentation, https://github.com/themagicalmammal/excel-write/blob/main/README.md
+Project-URL: Bug tracker, https://github.com/themagicalmammal/excel-write/issues
+Keywords: python,excel,pandas,excel-write,write,openpyxl,xlsxwriter
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openpyxl (~=3.0.10)
+Requires-Dist: pandas (~=1.5.2)
+
+
+# Excel Write
+[![DeepSource](https://deepsource.io/gh/themagicalmammal/excel-write.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/themagicalmammal/excel-write/?ref=repository-badge)
+[![DeepSource](https://deepsource.io/gh/themagicalmammal/excel-write.svg/?label=resolved+issues&show_trend=true)](https://deepsource.io/gh/themagicalmammal/excel-write/?ref=repository-badge)
+
+
+Optimised way to write in excel files.
+
+Developed by [Dipan Nanda](https://github.com/themagicalmammal) (c) 2023
+
+## Example of Usage
+
+### write_in_excel
+
+```python
+from excel_write import write_in_excel
+
+write_in_excel(df, location, sheet)
+"""
+:param DataFrame df: The DataFrame used to export to Excel
+:param str sheet: The name that is to be assigned to the file
+:param str location: Location where the file is to be created
+:param bool index: including index or not
+"""
+```
+
+### auto_adjust_excel_width
+
+```python
+from excel_write import auto_adjust_excel_width
+
+auto_adjust_column_width_index(df, writer, sheet_name="MySheet", margin=3)
+
+"""
+:param DataFrame df: The DataFrame used to export the Excel
+:param pd.ExcelWriter writer: The pandas exporter with engine="xlsxwriter"
+:param str sheet_name: The name of the sheet
+:param int margin: How many extra space (beyond the maximum size of the string)
+:param int length_factor: The factor to apply to the character length to obtain the 
+column width
+:param int decimals: The number of decimal places to assume for floats: Should be the
+same as the number of decimals displayed in the Excel
+:param bool index: Whether the DataFrame's index is inserted as a separate column (if
+index=False in df.to_xlsx() set index=False here!)
+"""
+```
+
+
+## Changelog
+Go [here](CHANGELOG.md) to checkout the complete changelog.
+
+## License
+#### This is under MIT License
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
