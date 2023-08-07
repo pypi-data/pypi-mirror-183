@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.cfg
+src/spinbar/__init__.py
+src/spinbar.egg-info/PKG-INFO
+src/spinbar.egg-info/SOURCES.txt
+src/spinbar.egg-info/dependency_links.txt
+src/spinbar.egg-info/top_level.txt

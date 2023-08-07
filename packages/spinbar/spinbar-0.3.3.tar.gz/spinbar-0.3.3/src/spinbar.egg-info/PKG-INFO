@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: spinbar
+Version: 0.3.3
+Summary: A progress bar with a spinning end
+Home-page: https://github.com/StarLitDragon404/spinbar.git
+Author: Maxim
+Author-email: maximko.ca@gmail.com
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+<h1>its Literally just a progress bar with a spinning end</h1>
+<h1>Example:</h1>
+
+```
+import time
+import spinbar
+sbar = spinbar.SpinBar()
+for _ in range(100):
+    sbar.next()
+    time.sleep(0.2)
+```
