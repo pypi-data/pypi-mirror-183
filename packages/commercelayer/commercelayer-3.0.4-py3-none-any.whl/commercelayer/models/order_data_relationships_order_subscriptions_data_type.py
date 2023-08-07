@@ -1,0 +1,8 @@
+from enum import Enum
+
+
+class OrderDataRelationshipsOrderSubscriptionsDataType(str, Enum):
+    ORDER_SUBSCRIPTIONS = "order_subscriptions"
+
+    def __str__(self) -> str:
+        return str(self.value)

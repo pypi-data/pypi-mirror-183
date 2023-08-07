@@ -1,0 +1,145 @@
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+
+import attr
+
+from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.pos_tavalara_accounts_response_201_data_attributes_metadata import (
+        POSTavalaraAccountsResponse201DataAttributesMetadata,
+    )
+
+
+T = TypeVar("T", bound="POSTavalaraAccountsResponse201DataAttributes")
+
+
+@attr.s(auto_attribs=True)
+class POSTavalaraAccountsResponse201DataAttributes:
+    """
+    Attributes:
+        name (str): The tax calculator's internal name. Example: Personal tax calculator.
+        username (str): The Avalara account username. Example: user@mydomain.com.
+        password (str): The Avalara account password. Example: secret.
+        company_code (str): The Avalara company code. Example: MYCOMPANY.
+        reference (Union[Unset, str]): A string that you can use to add any external identifier to the resource. This
+            can be useful for integrating the resource to an external system, like an ERP, a marketing tool, a CRM, or
+            whatever. Example: ANY-EXTERNAL-REFEFERNCE.
+        reference_origin (Union[Unset, str]): Any identifier of the third party system that defines the reference code
+            Example: ANY-EXTERNAL-REFEFERNCE-ORIGIN.
+        metadata (Union[Unset, POSTavalaraAccountsResponse201DataAttributesMetadata]): Set of key-value pairs that you
+            can attach to the resource. This can be useful for storing additional information about the resource in a
+            structured format. Example: {'foo': 'bar'}.
+        commit_invoice (Union[Unset, str]): Indicates if the transaction will be recorded and visible on the Avalara
+            website. Example: true.
+        ddp (Union[Unset, str]): Indicates if the seller is responsible for paying/remitting the customs duty & import
+            tax to the customs authorities. Example: true.
+    """
+
+    name: str
+    username: str
+    password: str
+    company_code: str
+    reference: Union[Unset, str] = UNSET
+    reference_origin: Union[Unset, str] = UNSET
+    metadata: Union[Unset, "POSTavalaraAccountsResponse201DataAttributesMetadata"] = UNSET
+    commit_invoice: Union[Unset, str] = UNSET
+    ddp: Union[Unset, str] = UNSET
+    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        name = self.name
+        username = self.username
+        password = self.password
+        company_code = self.company_code
+        reference = self.reference
+        reference_origin = self.reference_origin
+        metadata: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.metadata, Unset):
+            metadata = self.metadata.to_dict()
+
+        commit_invoice = self.commit_invoice
+        ddp = self.ddp
+
+        field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "name": name,
+                "username": username,
+                "password": password,
+                "company_code": company_code,
+            }
+        )
+        if reference is not UNSET:
+            field_dict["reference"] = reference
+        if reference_origin is not UNSET:
+            field_dict["reference_origin"] = reference_origin
+        if metadata is not UNSET:
+            field_dict["metadata"] = metadata
+        if commit_invoice is not UNSET:
+            field_dict["commit_invoice"] = commit_invoice
+        if ddp is not UNSET:
+            field_dict["ddp"] = ddp
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.pos_tavalara_accounts_response_201_data_attributes_metadata import (
+            POSTavalaraAccountsResponse201DataAttributesMetadata,
+        )
+
+        d = src_dict.copy()
+        name = d.pop("name")
+
+        username = d.pop("username")
+
+        password = d.pop("password")
+
+        company_code = d.pop("company_code")
+
+        reference = d.pop("reference", UNSET)
+
+        reference_origin = d.pop("reference_origin", UNSET)
+
+        _metadata = d.pop("metadata", UNSET)
+        metadata: Union[Unset, POSTavalaraAccountsResponse201DataAttributesMetadata]
+        if isinstance(_metadata, Unset):
+            metadata = UNSET
+        else:
+            metadata = POSTavalaraAccountsResponse201DataAttributesMetadata.from_dict(_metadata)
+
+        commit_invoice = d.pop("commit_invoice", UNSET)
+
+        ddp = d.pop("ddp", UNSET)
+
+        pos_tavalara_accounts_response_201_data_attributes = cls(
+            name=name,
+            username=username,
+            password=password,
+            company_code=company_code,
+            reference=reference,
+            reference_origin=reference_origin,
+            metadata=metadata,
+            commit_invoice=commit_invoice,
+            ddp=ddp,
+        )
+
+        pos_tavalara_accounts_response_201_data_attributes.additional_properties = d
+        return pos_tavalara_accounts_response_201_data_attributes
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
