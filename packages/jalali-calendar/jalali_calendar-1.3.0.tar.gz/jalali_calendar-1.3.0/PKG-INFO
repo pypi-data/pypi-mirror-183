@@ -1,0 +1,316 @@
+Metadata-Version: 2.1
+Name: jalali_calendar
+Version: 1.3.0
+Summary: jalali_calendar allows you to have a calendar with Jalali dates under the terminal.
+Home-page: https://github.com/mimseyedi/jalali_calendar
+Author: mimseyedi
+Author-email: mim.seyedi@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jalali_calendar
+
+![img1](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/Jalali_calendar_poster.png)
+
+jalali_calendar allows you to have a calendar with Jalali dates under the terminal.
+
+Dedicated to all Persian speakers and those who use the Jalali calendar. Especially developers :)
+
+jalali_calendar is open source under the MIT license and you can easily use it
+and make any changes you like and share it with others. enjoy!
+
+## Table of Contents: <a class="anchor" id="contents"></a>
+* [How to install](#install)
+* [Work with Jalali Calendar](#work)
+
+    * [Initializing](#init)
+    * [Calendar colors](#colors)
+    * [Styles to specify the current day](#styles)
+    * [Specify the month](#month)
+    * [Specify the calendar language](#lang)
+  
+* [Exceptions](#exc)
+    * [Colors Exception](#color_ex)
+    * [Today Style Exception](#style_ex)
+    * [Month Exception](#month_ex)
+    * [Language Exception](#lang_ex)
+* [Resources](#res)
+
+
+## How to install<a class="anchor" id="install"></a>
+To install jalali_calendar:
+```
+python -m pip install jalali_calendar
+```
+
+## Work with Jalali Calendar<a class="anchor" id="work"></a>
+Jalali calendar is very easy to work with. Just import the **JalaliCalendar** class from the downloaded file **(jalali_calendar.py)** then create an instance of it and call the **print_calendar()** function:
+
+## Initializing<a class="anchor" id="init"></a>
+The **JalaliCalendar** class and **print_calendar()** function have default values that you can use without touching the parameters:
+
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar()
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img2](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/init_calendar.png)
+
+## Calendar colors:<a class="anchor" id="colors"></a>
+The **JalaliCalendar** class has a parameter called *color*, by which you can specify the color of Jalali calendar.
+
+List of supported colors:
+
+![img3](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/colors.png)
+
+
+**Example 1:**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color="yellow")
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img4](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/yellow_cal.png)
+
+
+**Example 2:**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color="green")
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img5](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/green_cal.png)
+
+## Styles to specify the current day:<a class="anchor" id="styles"></a>
+The **JalaliCalendar** class has a parameter called *today_style*, which can be used to specify the current day's display style.
+
+List of supported styles: `'highlight' as default, '_line', 'blink'`
+
+
+**Example 1: underline style**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(today_style="_line")
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img6](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/underline_today.png)
+
+
+**Example 2: blink style**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(today_style="blink")
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img7](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/blink_cal.gif)
+
+
+**Example 3: using today_style with color**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='red', 
+                                    today_style="_line")
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+
+![img8](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/color_with_style.png)
+
+## Specify the month:<a class="anchor" id="month"></a>
+The function **print_calendar()** has a parameter called *month*, by setting it you can print the calendar of any month you choose.
+
+**Tip: default value is: 'now' to print current month's calendar.**
+
+You must use the Jalali months:
+```python
+jalali_months = ['farvardin', 'ordibehesht', 'khordad',
+                 'tir', 'mordad', 'shahrivar',
+                 'mehr', 'aban', 'azar',
+                 'dey', 'bahman', 'esfand']
+```
+
+**Example 1: Print the 'shahrivar' calendar**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='pink')
+my_jalali_calendar.print_calendar(month='shahrivar')
+```
+
+**output:**
+
+![img9](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/shahrivar_cal.png)
+
+
+**Example 2: Print the 'esfand' calendar**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='blue')
+my_jalali_calendar.print_calendar(month='esfand')
+```
+
+**output:**
+
+![img10](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/esfand_cal.png)
+
+
+**Example 3: Print the autumn months calendar**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='yellow')
+
+autumn_months = ['mehr', 'aban', 'azar']
+
+for month in autumn_months:
+    my_jalali_calendar.print_calendar(month=month)
+```
+
+**output:**
+
+![img11](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/autumn_cal.png)
+
+## Specify the calendar language:<a class="anchor" id="lang"></a>
+The function **print_calendar()** has a parameter called *lang*, by setting it you can choose the language of the calendar from two modes 'farsi' and 'fingilish'.
+
+**Tip: default value is: 'farsi'.**
+
+
+**Example 1: set lang to 'fingilish'**
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='red')
+my_jalali_calendar.print_calendar(month='now', lang='fingilish')
+```
+
+**output:**
+
+![img12](https://raw.githubusercontent.com/mimseyedi/jalali_calendar/master/img/fingilish_cal.png)
+
+## Exceptions:<a class="anchor" id="exc"></a>
+In the **JalaliCalendar** class, there are four **exception** types, all of which belong to the *ValueError* category:
+
+#### 1- When you set the color value to something other than the supported colors:<a class="anchor" id="color_ex"></a>
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(color='gold')
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+```
+Traceback (most recent call last):
+  File "jalali_calendar.py", line 314, in <module>
+    my_jalali_calendar = JalaliCalendar(color='gold')
+  File "jalali_calendar.py", line 39, in __init__
+    raise ValueError("This color is not defined for Jalali calendar. Please use the colors listed.")
+ValueError: This color is not defined for Jalali calendar. Please use the colors listed.
+```
+
+#### 2- When you set the today_style value to something other than the supported styles:<a class="anchor" id="style_ex"></a>
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar(today_style='bold')
+my_jalali_calendar.print_calendar()
+```
+
+**output:**
+```
+Traceback (most recent call last):
+  File "jalali_calendar.py", line 314, in <module>
+    my_jalali_calendar = JalaliCalendar(today_style='bold')
+  File "jalali_calendar.py", line 44, in __init__
+    raise ValueError("This style is not defined for Jalali calendar. Please use the styles mentioned.")
+ValueError: This style is not defined for Jalali calendar. Please use the styles mentioned.
+```
+
+#### 3- When you set the month value to something other than the Jalali months:<a class="anchor" id="month_ex"></a>
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar()
+my_jalali_calendar.print_calendar(month='December')
+```
+
+**output:**
+```
+Traceback (most recent call last):
+  File "jalali_calendar.py", line 315, in <module>
+    my_jalali_calendar.print_calendar(month="December")
+  File "jalali_calendar.py", line 311, in print_calendar
+    raise ValueError("The entered Jalali month is not correct. Your choice should be from the Jalali months!")
+ValueError: The entered Jalali month is not correct. Your choice should be from the Jalali months!
+```
+
+
+#### 4- When you set the lang value to something other than 'farsi' or 'fingilish':<a class="anchor" id="lang_ex"></a>
+```python
+from jalali_calendar import JalaliCalendar
+
+my_jalali_calendar = JalaliCalendar()
+my_jalali_calendar.print_calendar(lang='english')
+```
+
+**output:**
+```
+Traceback (most recent call last):
+  File "jalali_calendar.py", line 315, in <module>
+    my_jalali_calendar.print_calendar(lang="english")
+  File "jalali_calendar.py", line 192, in print_calendar
+    raise ValueError(f"The '{lang.lower()}' language is not defined for Jalali calendar.\n" +
+ValueError: The 'english' language is not defined for Jalali calendar.
+Please choose between 'farsi' and 'fingilish'.
+```
+## Resources:<a class="anchor" id="res"></a>
+**1- In this project, the standard Python library called **datetime** is used, which will be installed along with Python.**
+
+*If you don't have it unexpectedly, you can install it like this:*
+
+```
+python -m pip install DateTime
+```
+
+**2- To convert Gregorian dates to Jalali, two external functions are used, which you can find in the following link according to the programming language you are using:**
+
+https://jdf.scr.ir/jdf/python
+
+
+*It is an open source and you can easily use it.*
+
+
+Jcal repo: https://github.com/mimseyedi/jalali_calendar
+
+
+**Thankful**

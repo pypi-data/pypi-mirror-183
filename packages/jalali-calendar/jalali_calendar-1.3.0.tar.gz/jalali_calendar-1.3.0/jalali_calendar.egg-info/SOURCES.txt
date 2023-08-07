@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+jalali_calendar/__init__.py
+jalali_calendar/jalali_calendar.py
+jalali_calendar.egg-info/PKG-INFO
+jalali_calendar.egg-info/SOURCES.txt
+jalali_calendar.egg-info/dependency_links.txt
+jalali_calendar.egg-info/top_level.txt
