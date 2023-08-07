@@ -1,0 +1,17 @@
+sqlalchemize/__init__.py,sha256=ZG64ns2E8I83q-gUFLqrmjYlxxfK1LiNiHAoaYeE6B8,330
+sqlalchemize/create.py,sha256=910Z9QdCKG6LK1r1tKd1tVR76eQhmoNieEJ8_J3pAM0,1314
+sqlalchemize/delete.py,sha256=tX5S4-XSgoowxzXzQQWCGPb5IC1QF4n9fwPxkoXTElE,5543
+sqlalchemize/drop.py,sha256=BXmqcuD8UqlGq1jb5Iin3UsxmdbKzT2d-T8s_VzW3H8,814
+sqlalchemize/exceptions.py,sha256=V6OxLKjJqnDgdA6qAJJzPyKsHAERJM2TG9Or2qysqjM,588
+sqlalchemize/features.py,sha256=ffGhJ3wrZ2uxLd5BOSEtZwJLvQeL66aNV66kM9DaH1E,3337
+sqlalchemize/insert.py,sha256=ju-dbKaRXRyFsH7KrWR6DmLc2LHwHN9LO6BiUyeGM1o,3283
+sqlalchemize/select.py,sha256=KfdvPWscCraoCyZAysAiPdbnCQ4T3RxOWgnlXK_IepY,9633
+sqlalchemize/test_setup.py,sha256=dk9rUOGXMkvdWdYvd8qYN2lz-i-VqF9i5S7ec4fkdxs,508
+sqlalchemize/type_convert.py,sha256=MgyBWjULuPjowp2JsG3-x0rZnV_iPsXz6rOIfzwaUY4,941
+sqlalchemize/types.py,sha256=W6eLaXlXXQLXnGQC8sAzvf9MBdbUzDnPmJlE9t6RD8Q,435
+sqlalchemize/update.py,sha256=lJgh5ewlGesRjUOx9yyX_KICZ0yAbV4f9EH0EziKF_w,2586
+sqlalchemize-0.0.4.dist-info/LICENSE,sha256=oFq9FEIyAGvzUW2asR4JnQiFiH0X7cNCLO4N_bhiZUk,1068
+sqlalchemize-0.0.4.dist-info/METADATA,sha256=FxyZDBDGKEfIipsf4W1tLQK3x4Oru-FBHu4g4hQSmjc,674
+sqlalchemize-0.0.4.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+sqlalchemize-0.0.4.dist-info/top_level.txt,sha256=vP0crikmcOeWsz7dYer70iHa4o1uJ_18XoCrTGUbzzY,13
+sqlalchemize-0.0.4.dist-info/RECORD,,
