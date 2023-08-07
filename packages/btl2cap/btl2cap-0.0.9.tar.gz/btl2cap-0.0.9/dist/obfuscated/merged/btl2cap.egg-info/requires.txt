@@ -1,0 +1,2 @@
+bthci>=0.0.39
+xpycommon>=0.0.19
