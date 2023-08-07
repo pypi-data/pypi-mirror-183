@@ -1,0 +1,14 @@
+btrfcomm/__init__.py,sha256=uOrjKkTB2LDAz8ewn2W2OD1K_0hwOaXrqSZRVHjmGI0,2468
+btrfcomm/__main__.py,sha256=3HH02dY_psHa-ij4TsrJFpK8PYdKISLRjDTqO7u-iFc,1083
+btrfcomm/client.py,sha256=TqNKrEwawJTSoUVpLEGtgwcfzNwEdsiHwNIqqELEPWI,15871
+btrfcomm/helper.py,sha256=Q9WHO16GaPHk5a-Gy6OJqYerNgMP-SbXTEFxu4mGNjw,4247
+btrfcomm/rfcomm.py,sha256=dF4E0zkl8pigtkjRh2emCssybTKj66DOSLFzg3JTyXI,2199
+btrfcomm/server.py,sha256=hn--ODm_iGKmsTosyqETPif3iWUV60YmxfbEQPaggDQ,11823
+btrfcomm/pytransform/__init__.py,sha256=OAwIt1kGBC0Y5zsNJlTrAwQwmJhMqierRUVI_ZOjqgg,13587
+btrfcomm/pytransform/platforms/linux/aarch64/_pytransform.so,sha256=XrbsgljroGpfqKobawXudexNCTrLHAyEuLttvMl4gAs,1087608
+btrfcomm/pytransform/platforms/linux/x86_64/_pytransform.so,sha256=QTGwl1_DiHlfGiVDm-pVvw0nzDlwOb1OimF8fK0VO0Q,1198080
+btrfcomm-0.0.2.dist-info/LICENSE.txt,sha256=p8YheTGMebcRZNmCU9zaado5N3ViGRv2rXMyTsYCaM0,89
+btrfcomm-0.0.2.dist-info/METADATA,sha256=Y4m6dt68IuXN0uIb08VfoaKEZ1ySziPpRN6o5Q_RRSI,1172
+btrfcomm-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+btrfcomm-0.0.2.dist-info/top_level.txt,sha256=RMMY21ec7vYi85We_7fyqrUFNAXZyiiBgkHxgG9rQCU,9
+btrfcomm-0.0.2.dist-info/RECORD,,
