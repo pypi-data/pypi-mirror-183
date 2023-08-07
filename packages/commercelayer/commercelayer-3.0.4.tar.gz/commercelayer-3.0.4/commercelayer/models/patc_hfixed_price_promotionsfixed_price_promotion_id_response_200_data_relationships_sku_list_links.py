@@ -1,0 +1,67 @@
+from typing import Any, Dict, List, Type, TypeVar, Union
+
+import attr
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="PATCHfixedPricePromotionsfixedPricePromotionIdResponse200DataRelationshipsSkuListLinks")
+
+
+@attr.s(auto_attribs=True)
+class PATCHfixedPricePromotionsfixedPricePromotionIdResponse200DataRelationshipsSkuListLinks:
+    """
+    Attributes:
+        self_ (Union[Unset, str]): URL
+        related (Union[Unset, str]): URL
+    """
+
+    self_: Union[Unset, str] = UNSET
+    related: Union[Unset, str] = UNSET
+    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        self_ = self.self_
+        related = self.related
+
+        field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if self_ is not UNSET:
+            field_dict["self"] = self_
+        if related is not UNSET:
+            field_dict["related"] = related
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        d = src_dict.copy()
+        self_ = d.pop("self", UNSET)
+
+        related = d.pop("related", UNSET)
+
+        patc_hfixed_price_promotionsfixed_price_promotion_id_response_200_data_relationships_sku_list_links = cls(
+            self_=self_,
+            related=related,
+        )
+
+        patc_hfixed_price_promotionsfixed_price_promotion_id_response_200_data_relationships_sku_list_links.additional_properties = (
+            d
+        )
+        return patc_hfixed_price_promotionsfixed_price_promotion_id_response_200_data_relationships_sku_list_links
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

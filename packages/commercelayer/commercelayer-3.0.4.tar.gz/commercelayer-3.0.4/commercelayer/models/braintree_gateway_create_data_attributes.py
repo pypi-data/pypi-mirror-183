@@ -1,0 +1,159 @@
+from typing import TYPE_CHECKING, Any, Dict, List, Type, TypeVar, Union
+
+import attr
+
+from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.braintree_gateway_create_data_attributes_metadata import BraintreeGatewayCreateDataAttributesMetadata
+
+
+T = TypeVar("T", bound="BraintreeGatewayCreateDataAttributes")
+
+
+@attr.s(auto_attribs=True)
+class BraintreeGatewayCreateDataAttributes:
+    """
+    Attributes:
+        name (str): The payment gateway's internal name. Example: US payment gateway.
+        merchant_account_id (str): The gateway merchant account ID. Example: xxxx-yyyy-zzzz.
+        merchant_id (str): The gateway merchant ID. Example: xxxx-yyyy-zzzz.
+        public_key (str): The gateway API public key. Example: xxxx-yyyy-zzzz.
+        private_key (str): The gateway API private key. Example: xxxx-yyyy-zzzz.
+        reference (Union[Unset, str]): A string that you can use to add any external identifier to the resource. This
+            can be useful for integrating the resource to an external system, like an ERP, a marketing tool, a CRM, or
+            whatever. Example: ANY-EXTERNAL-REFEFERNCE.
+        reference_origin (Union[Unset, str]): Any identifier of the third party system that defines the reference code
+            Example: ANY-EXTERNAL-REFEFERNCE-ORIGIN.
+        metadata (Union[Unset, BraintreeGatewayCreateDataAttributesMetadata]): Set of key-value pairs that you can
+            attach to the resource. This can be useful for storing additional information about the resource in a structured
+            format. Example: {'foo': 'bar'}.
+        descriptor_name (Union[Unset, str]): The dynamic descriptor name. Must be composed by business name (3, 7 or 12
+            chars), an asterisk (*) and the product name (18, 14 or 9 chars), for a total length of 22 chars. Example:
+            company*productabc1234.
+        descriptor_phone (Union[Unset, str]): The dynamic descriptor phone number. Must be 10-14 characters and can only
+            contain numbers, dashes, parentheses and periods. Example: 3125551212.
+        descriptor_url (Union[Unset, str]): The dynamic descriptor URL. Example: company.com.
+    """
+
+    name: str
+    merchant_account_id: str
+    merchant_id: str
+    public_key: str
+    private_key: str
+    reference: Union[Unset, str] = UNSET
+    reference_origin: Union[Unset, str] = UNSET
+    metadata: Union[Unset, "BraintreeGatewayCreateDataAttributesMetadata"] = UNSET
+    descriptor_name: Union[Unset, str] = UNSET
+    descriptor_phone: Union[Unset, str] = UNSET
+    descriptor_url: Union[Unset, str] = UNSET
+    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        name = self.name
+        merchant_account_id = self.merchant_account_id
+        merchant_id = self.merchant_id
+        public_key = self.public_key
+        private_key = self.private_key
+        reference = self.reference
+        reference_origin = self.reference_origin
+        metadata: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.metadata, Unset):
+            metadata = self.metadata.to_dict()
+
+        descriptor_name = self.descriptor_name
+        descriptor_phone = self.descriptor_phone
+        descriptor_url = self.descriptor_url
+
+        field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "name": name,
+                "merchant_account_id": merchant_account_id,
+                "merchant_id": merchant_id,
+                "public_key": public_key,
+                "private_key": private_key,
+            }
+        )
+        if reference is not UNSET:
+            field_dict["reference"] = reference
+        if reference_origin is not UNSET:
+            field_dict["reference_origin"] = reference_origin
+        if metadata is not UNSET:
+            field_dict["metadata"] = metadata
+        if descriptor_name is not UNSET:
+            field_dict["descriptor_name"] = descriptor_name
+        if descriptor_phone is not UNSET:
+            field_dict["descriptor_phone"] = descriptor_phone
+        if descriptor_url is not UNSET:
+            field_dict["descriptor_url"] = descriptor_url
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        from ..models.braintree_gateway_create_data_attributes_metadata import (
+            BraintreeGatewayCreateDataAttributesMetadata,
+        )
+
+        d = src_dict.copy()
+        name = d.pop("name")
+
+        merchant_account_id = d.pop("merchant_account_id")
+
+        merchant_id = d.pop("merchant_id")
+
+        public_key = d.pop("public_key")
+
+        private_key = d.pop("private_key")
+
+        reference = d.pop("reference", UNSET)
+
+        reference_origin = d.pop("reference_origin", UNSET)
+
+        _metadata = d.pop("metadata", UNSET)
+        metadata: Union[Unset, BraintreeGatewayCreateDataAttributesMetadata]
+        if isinstance(_metadata, Unset):
+            metadata = UNSET
+        else:
+            metadata = BraintreeGatewayCreateDataAttributesMetadata.from_dict(_metadata)
+
+        descriptor_name = d.pop("descriptor_name", UNSET)
+
+        descriptor_phone = d.pop("descriptor_phone", UNSET)
+
+        descriptor_url = d.pop("descriptor_url", UNSET)
+
+        braintree_gateway_create_data_attributes = cls(
+            name=name,
+            merchant_account_id=merchant_account_id,
+            merchant_id=merchant_id,
+            public_key=public_key,
+            private_key=private_key,
+            reference=reference,
+            reference_origin=reference_origin,
+            metadata=metadata,
+            descriptor_name=descriptor_name,
+            descriptor_phone=descriptor_phone,
+            descriptor_url=descriptor_url,
+        )
+
+        braintree_gateway_create_data_attributes.additional_properties = d
+        return braintree_gateway_create_data_attributes
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
