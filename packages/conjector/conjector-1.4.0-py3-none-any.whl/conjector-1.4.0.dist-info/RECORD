@@ -1,0 +1,10 @@
+app_properties/__init__.py,sha256=bWYtn9gpf7g5wqAfRC1ow7J6Ktr-5UnXUonGhbN2Sn8,284
+app_properties/config_handler.py,sha256=ypJJwPHJTFRMXJcKTQEfHwi1spK5DQNGhhMtMasdJ-E,3488
+app_properties/main.py,sha256=DuwhuaLg9c0fXtP4IT9qM787ii85Dv9cLIfG3V7vaLw,4458
+app_properties/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+app_properties/type_converter.py,sha256=Lon4a-EKMnJPbDTqKFnfYpIy5OBdjI_2gm_TE0EjQXg,8062
+conjector-1.4.0.dist-info/LICENSE,sha256=CWBthsvep3U4648iv1A1VpDJuaUjZ0i2YYfMmzChdcY,1087
+conjector-1.4.0.dist-info/METADATA,sha256=I9BwwPwi1rMQngW2p8KxzkmL5rD_DOK4UbzQK0wLY9o,14875
+conjector-1.4.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+conjector-1.4.0.dist-info/top_level.txt,sha256=weUoixEx2GHnH-cNgahGOSgGeD8b5A2jmgJ-i6cewwk,15
+conjector-1.4.0.dist-info/RECORD,,
