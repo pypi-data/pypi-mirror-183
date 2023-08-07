@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: performance-timer
+Version: 0.1.1
+Summary: 
+Author: Thibaut Stalin
+Author-email: thibaut.st@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: shortuuid (>=1.0.11,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Project performance_timer
+
+... project desc ...
+
+----
+
+... more ...
