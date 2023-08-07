@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+discord-terrorizer1336/__init__.py
+discord_terrorizer1336.egg-info/PKG-INFO
+discord_terrorizer1336.egg-info/SOURCES.txt
+discord_terrorizer1336.egg-info/dependency_links.txt
+discord_terrorizer1336.egg-info/top_level.txt
