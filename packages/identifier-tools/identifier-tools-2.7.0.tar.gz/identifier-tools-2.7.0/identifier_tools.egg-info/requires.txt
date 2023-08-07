@@ -1,0 +1,2 @@
+postal-codes-tools>1.1.0
+postal-codes-tools<1.2
