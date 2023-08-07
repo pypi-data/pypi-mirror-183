@@ -1,0 +1,16 @@
+README.md
+setup.py
+gdrive_watcher/__init__.py
+gdrive_watcher/__main__.py
+gdrive_watcher/gdrive_authenticator.py
+gdrive_watcher/gdrive_event.py
+gdrive_watcher/gdrive_poll_watcher.py
+gdrive_watcher/gdrive_reader.py
+gdrive_watcher/gdrive_writer.py
+gdrive_watcher/poll.py
+gdrive_watcher.egg-info/PKG-INFO
+gdrive_watcher.egg-info/SOURCES.txt
+gdrive_watcher.egg-info/dependency_links.txt
+gdrive_watcher.egg-info/not-zip-safe
+gdrive_watcher.egg-info/requires.txt
+gdrive_watcher.egg-info/top_level.txt
